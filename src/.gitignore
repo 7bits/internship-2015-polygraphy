@@ -1,0 +1,12 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+## Directory-based project format:
+.idea/
+
+## JetBrains template
+## Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion
+*.iml
+
+## Maven
+/log/**
+/target/**

@@ -1,7 +1,42 @@
-doctype html
-html
-  head
-    meta(charset='UTF-8')
-    title SpringBootTutorial
-  body
-    h1 Hello our users
+extends ../layout
+
+block append content
+
+    div.logo
+    div.search
+        div
+            form#search-field(method='get', action='#')
+                input.search_line(name='search', form='search-field', type='text', placeholder='Поиск по сайту')
+        .radiobuttons
+            form#btn(method='get', action='#')
+                label#btn1.btn
+                    input#btn1(name='btn', value='in_color', form='btn', type='radio', checked='')
+                    | печать в цвете
+                label#btn2.btn
+                    input#btn2(name='btn', value='on_cups', form='btn', type='radio')
+                    | печать на кружках
+                label#btn3.btn
+                    input#btn3(name='btn', value='wide_format', form='btn', type='radio')
+                    | широкоформатная печать
+                label#btn4.btn
+                    input#btn4(name='btn', value='serigraphy', form='btn', type='radio')
+                    | шелкография
+        .selects
+            form(method='get', action='#')
+                select.payment_method(name='payment_method')
+                    option(selected='') Способ оплаты
+                    option Наличный расчет
+                    option Безаличный расчет
+                    option Оплата по счету
+                select.delivery_method(name='delivery_method')
+                    option(selected='') Способ доставки
+                    option Доставка курьерской службой
+                    option Срочная доставка
+                    option Самовывоз
+        .checkboxes
+            label#check.check
+                input#check(type='checkbox')
+                | нужна копия чека
+            label#check.check
+                input#check(type='checkbox')
+                | отправить заказ по e-mail

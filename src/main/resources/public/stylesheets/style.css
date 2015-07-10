@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+}
+
+h1{
+    color: red;
+}
+
+.logo{
+    height: 300px;
+    margin: 0;
+    text-align: center;
+    background-image: url(/images/Logo.png);
+    background-size: cover;
+    background-position: center center;
+}
+
+.search{
+    height: 500px;
+    /*border: 1px dashed black;*/
+    margin: 0;
+    background-color: #e9e9e9;
+}
+
+.search_line{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 80%;
+    border: 1px solid #696969;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.radiobuttons{
+
+    display: block;
+}
+
+div .radiobuttons{
+    margin: 0 10% 3% 10%;
+}
+
+.btn{
+    width: 24%;
+    display: inline-block;
+    text-align: center;
+}
+
+.selects{
+    margin: 4% 10% 2% 10%;
+    display: block;
+    text-align: center;
+}
+
+.payment_method{
+    width: 20%;
+    margin: 0 5px;
+}
+
+.delivery_method{
+    width: 20%;
+    margin: 0 5px;
+}
+
+.checkboxes{
+    margin: 0 10% 0 10%;
+    display: block;
+    text-align: center;
+}
+
+.check{
+    display: inline-block;
+    text-align: left;
+    width: 20%;
+    margin: 0 5px;
+}

@@ -25,17 +25,18 @@ block append content
             form(method='get', action='#')
                 select.payment_method(name='payment_method')
                     option(selected='') Способ оплаты
-                    option Наличными
-                    option Безаличный расчет по карте
+                    option Наличный расчет
+                    option Расчет по карте
                     option Оплата по счету
                 select.delivery_method(name='delivery_method')
                     option(selected='') Доставка
-                    option Есть
-                    option Нет
+                    option самовывоз
+                    option почта России
+                    option с курьером
         .checkboxes
             label#check.check
                 input#check(type='checkbox')
-                | выдает копию чека
+                | выдает чек
             label#check.check
                 input#check(type='checkbox')
                 | принимает заказ по e-mail

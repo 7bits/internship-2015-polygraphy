@@ -6,7 +6,7 @@ block append content
     div.search
         div
             form#search-field(method='get', action='#')
-                input.search_line(name='search', form='search-field', type='text', placeholder='Поиск по сайту')
+                input.search_line(name='search', form='search-field', type='text', placeholder='Поиск')
         .radiobuttons
             form#btn(method='get', action='#')
                 label#btn1.btn
@@ -25,18 +25,17 @@ block append content
             form(method='get', action='#')
                 select.payment_method(name='payment_method')
                     option(selected='') Способ оплаты
-                    option Наличный расчет
-                    option Безаличный расчет
+                    option Наличными
+                    option Безаличный расчет по карте
                     option Оплата по счету
                 select.delivery_method(name='delivery_method')
-                    option(selected='') Способ доставки
-                    option Доставка курьерской службой
-                    option Срочная доставка
-                    option Самовывоз
+                    option(selected='') Доставка
+                    option Есть
+                    option Нет
         .checkboxes
             label#check.check
                 input#check(type='checkbox')
-                | нужна копия чека
+                | выдает копию чека
             label#check.check
                 input#check(type='checkbox')
-                | отправить заказ по e-mail
+                | принимает заказ по e-mail

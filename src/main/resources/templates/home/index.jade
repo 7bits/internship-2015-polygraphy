@@ -6,9 +6,9 @@ block append content
     div.search
         div
             form#search-field(method='get', action='#')
-                input.search_line(name='search', form='search-field', type='text', placeholder='Поиск')
-        .radiobuttons
-            form#btn(method='get', action='#')
+                input.search-line(name='search', form='search-field', type='text', placeholder='Поиск')
+        form#btn(method='get', action='#')
+            div.radiobuttons
                 label#btn1.btn
                     input#btn1(name='btn', value='in_color', form='btn', type='radio', checked='')
                     | печать в цвете
@@ -21,22 +21,21 @@ block append content
                 label#btn4.btn
                     input#btn4(name='btn', value='serigraphy', form='btn', type='radio')
                     | шелкография
-        .selects
-            form(method='get', action='#')
-                select.payment_method(name='payment_method')
+            div.selects
+                select.payment-method(name='payment_method')
                     option(selected='') Способ оплаты
                     option Наличный расчет
                     option Расчет по карте
                     option Оплата по счету
-                select.delivery_method(name='delivery_method')
+                select.delivery-method(name='delivery_method')
                     option(selected='') Доставка
                     option самовывоз
                     option почта России
                     option с курьером
-        .checkboxes
-            label#check.check
-                input#check(type='checkbox')
-                | выдает чек
-            label#check.check
-                input#check(type='checkbox')
-                | принимает заказ по e-mail
+            .checkboxes
+                label#check.check
+                    input#check(type='checkbox')
+                    | выдает чек
+                label#check.check
+                    input#check(type='checkbox')
+                    | принимает заказ по e-mail

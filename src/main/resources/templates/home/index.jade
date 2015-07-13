@@ -2,14 +2,14 @@ extends ../layout
 
 block append content
 
-    div.logo
-    div.search
-        form(method='get', action='#')
-            div.search-line
-                input.search-field(name='search', type='text', placeholder='Поиск')
-            div.radiobuttons
+    .logo
+    .search
+        form(method='post', action='/')
+            .search-line
+                input.search-field(name='polygraphy', type='text', placeholder='Поиск')
+            .radiobuttons
                 label#btn1.btn
-                    input#btn1(name='btn', value='in_color', form='btn', type='radio', checked='')
+                    input#btn1(name='btn', value='in_color', form='btn', type='radio')
                     | печать в цвете
                 label#btn2.btn
                     input#btn2(name='btn', value='on_cups', form='btn', type='radio')
@@ -20,7 +20,7 @@ block append content
                 label#btn4.btn
                     input#btn4(name='btn', value='serigraphy', form='btn', type='radio')
                     | шелкография
-            div.selects
+            .selects
                 select.payment-method(name='payment_method')
                     option(selected='') Способ оплаты
                     option Наличный расчет
@@ -38,3 +38,4 @@ block append content
                 label#check.check
                     input#check(type='checkbox')
                     | принимает заказ по e-mail
+            button(type='submit') Submit

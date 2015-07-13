@@ -4,10 +4,9 @@ block append content
 
     div.logo
     div.search
-        div
-            form#search-field(method='get', action='#')
-                input.search-line(name='search', form='search-field', type='text', placeholder='Поиск')
-        form#btn(method='get', action='#')
+        form(method='get', action='#')
+            div.search-line
+                input.search-field(name='search', type='text', placeholder='Поиск')
             div.radiobuttons
                 label#btn1.btn
                     input#btn1(name='btn', value='in_color', form='btn', type='radio', checked='')

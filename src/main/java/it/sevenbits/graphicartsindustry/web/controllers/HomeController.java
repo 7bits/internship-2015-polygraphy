@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
+
 @Controller
 public class HomeController {
     private String listPolygraphy[] = {"Оригинал", "Марка", "Селбс"};
@@ -20,7 +22,7 @@ public class HomeController {
         return "home/index";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = POST)
     public String getPolygraphy(@ModelAttribute String polygraphy, final Model model) {
         // В запросе пришло название полиграфии. Проверим, существует ли такая полиграфия
         // Если существует, то отправим в модель этот объект.
@@ -28,7 +30,7 @@ public class HomeController {
             if (polygraphy == listPolygraphy[index]) {
                 model.addAttribute("detected", listPolygraphy[index]);
             }
-        model.addAttribute("undetected", "Полиграфия не найдена");
+        model.addAttribute("detected", "");
         return "home/index";
     }
 }

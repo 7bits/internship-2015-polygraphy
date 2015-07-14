@@ -2,7 +2,8 @@ extends ../layout
 
 block append content
 
-    .logo
+    a(href='/')
+        .logo
     .search
         form(method='post', action='/')
             .search-line
@@ -38,4 +39,38 @@ block append content
                 label#check.check
                     input#check(type='checkbox')
                     | принимает заказ по e-mail
-            button(type='submit') Submit
+            button(type='submit') Найти
+    ul.results
+        li
+            .icon
+            .info
+                h3 Оригинал
+                p
+                    |Учебная, 83 - 311 офис; 3 этаж
+                    br
+                    |тел. (3812) 51-09-80
+            .detail(id='polygraphy-page')
+                a(href='#polygraphy-page')
+                    |Подробнее..
+        li
+            .icon
+            .info
+                h3 Марка
+                p
+                    |пр. Комарова, 2/2 - 521 бутик; 5 этаж; ТК МАЯК
+                    br
+                    |тел. (3812) 907-531; 7-913-149-75-31; (3812) 637-400
+            .detail(id='polygraphy-page')
+                a(href='#polygraphy-page')
+                    |Подробнее..
+        li
+            .icon
+            .info
+                h3 Селбс
+                p
+                    |22 Партсъезда, 98 - 2 этаж
+                    br
+                    |тел. (3812) 66-12-34
+            .detail(id='polygraphy-page')
+                a(href='#polygraphy-page')
+                    |Подробнее..

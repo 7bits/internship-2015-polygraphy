@@ -7,7 +7,7 @@ body{
     height: 300px;
     margin: 0;
     text-align: center;
-    background-image: url(/images/logo.png);
+    background-image: url(../images/logo.png);
     background-size: auto 250px;
     background-position: center center;
     background-repeat: no-repeat;
@@ -90,7 +90,7 @@ body{
 }
 
 .icon{
-    background-image: url(/images/icon.png);
+    background-image: url(../images/icon.png);
     background-repeat: no-repeat;
     float: left;
     background-size: auto;

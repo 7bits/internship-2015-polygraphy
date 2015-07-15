@@ -9,10 +9,17 @@ import java.util.List;
 
 public interface SearchMapper {
 
-    @Select("SELECT id, name FROM polygraphy limit #{limit}")
+    @Select("SELECT id, name FROM polygraphy LIMIT #{limit}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")
     })
     List<Polygraphy> findAll(int limit);
+
+    @Select("SELECT id, name FROM polygraphy WHERE name=#{query}")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name")
+    })
+    List<Polygraphy> findPolygraphies(String query);
 }

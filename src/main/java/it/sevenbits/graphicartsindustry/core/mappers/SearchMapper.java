@@ -20,7 +20,7 @@ public interface SearchMapper {
     })
     List<Polygraphy> findAll(int limit);
 
-    @Select("SELECT id, name, addres, phone FROM polygraphy AS p LEFT JOIN contacts AS c" +
+    @Select("SELECT id, name, addres, phone FROM polygraphy AS p LEFT JOIN contacts AS c " +
             "ON p.id=c.polygraphy_id WHERE name=#{query}")
     @Results({
             @Result(column = "id", property = "id"),
@@ -30,7 +30,7 @@ public interface SearchMapper {
     })
     List<Polygraphy> findPolygraphies(String query);
 
-    @Select("SELECT id, name, rating FROM service ORDER BY rating DESC LIMIT #{limit}")
+    @Select("SELECT * FROM service ORDER BY rating DESC LIMIT #{limit}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")

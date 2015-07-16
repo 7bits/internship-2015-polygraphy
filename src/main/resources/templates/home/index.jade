@@ -14,10 +14,8 @@ block append content
                 .radiobuttons
                     for service in services
                         .btn
-                            input(id='btn'+service.id, name='serviceId', value=service.id, form='btn', type='radio')
+                            input(name='serviceId', value=service.id, form='btn', type='radio')
                             label(for='btn'+service.id)=service.name
-
-
                 .selects
                     select.payment-method(name='paymentMethod')
                         option(selected='') Способ оплаты

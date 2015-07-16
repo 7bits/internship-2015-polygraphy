@@ -38,5 +38,4 @@ public class SearchController {
         model.addAttribute("polygraphies", service.findPolygraphies(form));
         return "home/index";
     }
-
 }

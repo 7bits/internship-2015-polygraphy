@@ -23,7 +23,6 @@ public class SearchService {
             for (Polygraphy p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddres(), p.getPhone()));
             }
-
             return models;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
@@ -37,7 +36,6 @@ public class SearchService {
             for (Polygraphy p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddres(), p.getPhone()));
             }
-
             return models;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
@@ -51,7 +49,6 @@ public class SearchService {
             for (it.sevenbits.graphicartsindustry.core.domain.Service s: services) {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
-
             return models;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);

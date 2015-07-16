@@ -14,7 +14,7 @@ public class PageController {
     @Autowired
     private PageService service;
 
-    @RequestMapping(value = "/page/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/polygraphy/{id}", method = RequestMethod.GET)
     public String index(@PathVariable(value = "id") String idStr, final Model model) throws ServiceException {
         // В модель добавим объект - полиграфию с полной информацией
         //int id=1;

@@ -102,6 +102,7 @@
         <version>2.2</version>
         <configuration>
           <server>tomcat7_manager</server>
+          <path>/</path>
         </configuration>
       </plugin>
     </plugins>

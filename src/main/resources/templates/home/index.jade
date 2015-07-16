@@ -2,7 +2,7 @@ extends ../layout
 
 block append content
 
-    a(href='/graphic-arts-industry')
+    a(href='/')
         .logo
     .search
         form(method='post', action='/')
@@ -51,5 +51,5 @@ block append content
                         br
                         |тел. (3812) 51-09-80
                 .detail(id='polygraphy-page')
-                    a(href='/page/#{polygraphy.id}')
+                    a(href='/polygraphy/#{polygraphy.id}')
                         |Подробнее..

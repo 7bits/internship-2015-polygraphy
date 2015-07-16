@@ -56,5 +56,5 @@ VALUES
 
 INSERT INTO contacts(polygraphy_id, addres, email, website, phone)
 VALUES
-	(1, 'ул. Масленникова, 28, офис 409', 'mail@901201.ru', 'http://www.dbiq.ru/', 3812901201);
+	(1, 'ул. Масленникова, 28, офис 409', 'mail@901201.ru', 'http://www.dbiq.ru/', 3812901201)
 

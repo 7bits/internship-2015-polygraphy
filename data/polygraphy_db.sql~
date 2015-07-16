@@ -38,7 +38,7 @@ CREATE TABLE contacts(
 	addres varchar(256),
 	email varchar(256),
 	website varchar(256),
-	phone varchar(12)
+	phone int
 );
 
 ALTER TABLE public.contacts OWNER TO polygraphy;

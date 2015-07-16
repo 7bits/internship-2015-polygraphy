@@ -14,28 +14,22 @@ block append content
                 .radiobuttons
                     .btn
                         input#btn1(name='serviceId', value='stencil_print', form='btn', type='radio')
-                        | Трафаретная печать
-                        label#btn1
+                        label(for='btn1') Трафаретная печать
                     .btn
                         input#btn2(name='serviceId', value='in_color_print', form='btn', type='radio')
-                        | Печать в цвете
-                        label#btn2
+                        label(for='btn2') Печать в цвете
                     .btn
                         input#btn3(name='serviceId', value='wide_format_print', form='btn', type='radio')
-                        | Широкоформатная печать
-                        label#btn3
+                        label(for='btn3') Широкоформатная печать
                     .btn
                         input#btn4(name='serviceId', value='on_cups_print', form='btn', type='radio')
-                        | Печать на кружках
-                        label#btn4
+                        label(for='btn4') Печать на кружках
                     .btn
                         input#btn5(name='serviceId', value='digital_print', form='btn', type='radio')
-                        | Цифровая печать
-                        label#btn5
+                        label(for='btn5') Цифровая печать
                     .btn
                         input#btn6(name='serviceId', value='serigraphy_print', form='btn', type='radio')
-                        | Шелкография
-                        label#btn6
+                        label(for='btn6') Шелкография
                 .selects
                     select.payment-method(name='paymentMethod')
                         option(selected='') Способ оплаты

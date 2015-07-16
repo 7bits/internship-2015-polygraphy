@@ -22,4 +22,11 @@ public interface SearchMapper {
             @Result(column = "name", property = "name")
     })
     List<Polygraphy> findPolygraphies(String query);
+
+    @Select("SELECT id, name FROM polygraphy WHERE id=#{id}")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name")
+    })
+    Polygraphy findPolygraphy(int id);
 }

@@ -21,7 +21,7 @@ public class SearchService {
             List<Polygraphy> polygraphies = repository.findAll(limit);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (Polygraphy p: polygraphies) {
-                models.add(new PolygraphyMinModel(p.getId(), p.getName()));
+                models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddres(), p.getPhone()));
             }
 
             return models;
@@ -35,7 +35,7 @@ public class SearchService {
             List<Polygraphy> polygraphies = repository.findPolygraphies(query.getQuery());
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (Polygraphy p: polygraphies) {
-                models.add(new PolygraphyMinModel(p.getId(), p.getName()));
+                models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddres(), p.getPhone()));
             }
 
             return models;

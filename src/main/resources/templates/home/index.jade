@@ -45,10 +45,8 @@ block append content
                 .icon
                 .info
                     h3= polygraphy.name
-                    p
-                        |Учебная, 83 - 311 офис; 3 этаж
-                        br
-                        |тел. (3812) 51-09-80
+                    h5= polygraphy.addres
+                    h5= polygraphy.phone
                 .detail(id='polygraphy-page')
                     a(href='/polygraphy/#{polygraphy.id}')
                         |Подробнее..

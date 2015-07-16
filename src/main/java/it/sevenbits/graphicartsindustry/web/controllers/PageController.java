@@ -20,7 +20,7 @@ public class PageController {
         //int id=1;
         int id = Integer.parseInt(idStr);
 //Добавить обработчик try на 404
-        model.addAttribute("page", service.showPolygraphy(id));
+        model.addAttribute("polygraphy", service.showPolygraphy(id));
 
         // Так как нет аннотации @ResponseBody, то spring будет искать шаблон по адресу home/index
         // Если шаблона не будет найдено, то вернется 404 ошибка

@@ -2,6 +2,7 @@ extends ../layout
 
 block append content
 
+
     .header
         a(href='/')
             .logo
@@ -67,5 +68,5 @@ block append content
                         br
                         |тел. (3812) 51-09-80
                 .detail(id='polygraphy-page')
-                    a(href='#polygraphy-page')
+                    a(href='/polygraphy/#{polygraphy.id}')
                         |Подробнее..

@@ -33,4 +33,12 @@ public class PolygraphyRepository implements SearchRepository{
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
         }
     }
+
+    public Polygraphy findPolygraphy(int id) throws RepositoryException {
+        try {
+            return mapper.findPolygraphy(id);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+        }
+    }
 }

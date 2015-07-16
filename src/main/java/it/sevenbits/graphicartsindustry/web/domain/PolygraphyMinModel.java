@@ -1,10 +1,10 @@
 package it.sevenbits.graphicartsindustry.web.domain;
 
-public class PolygraphyModel {
+public class PolygraphyMinModel {
     private int id;
     private String name;
 
-    public PolygraphyModel (int id, String name) {
+    public PolygraphyMinModel(int id, String name) {
         this.id = id;
         this.name = name;
     }

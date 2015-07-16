@@ -2,44 +2,61 @@ extends ../layout
 
 block append content
 
-    a(href='/')
-        .logo
+
+    .header
+        a(href='/')
+            .logo
     .search
         form(method='post', action='/')
             .search-line
                 input.search-field(name='query', type='text', placeholder='Поиск')
-            .radiobuttons
-                label#btn1.btn
-                    input#btn1(name='serviceId', value='in_color', form='btn', type='radio')
-                    | печать в цвете
-                label#btn2.btn
-                    input#btn2(name='serviceId', value='on_cups', form='btn', type='radio')
-                    | печать на кружках
-                label#btn3.btn
-                    input#btn3(name='serviceId', value='wide_format', form='btn', type='radio')
-                    | широкоформатная печать
-                label#btn4.btn
-                    input#btn4(name='serviceId', value='serigraphy', form='btn', type='radio')
-                    | шелкография
-            .selects
-                select.payment-method(name='paymentMethod')
-                    option(selected='') Способ оплаты
-                    option Наличный расчет
-                    option Расчет по карте
-                    option Оплата по счету
-                select.delivery-method(name='delivery')
-                    option(selected='') Доставка
-                    option самовывоз
-                    option почта России
-                    option с курьером
-            .checkboxes
-                label#check.check
-                    input#check(name='writesTheCheck', type='checkbox')
-                    | выдает чек
-                label#check.check
-                    input#check(name='orderByEmail', type='checkbox')
-                    | принимает заказ по e-mail
-            button(type='submit') Найти
+            .filter-field
+                .radiobuttons
+                    .btn
+                        input#btn1(name='serviceId', value='stencil_print', form='btn', type='radio')
+                        | Трафаретная печать
+                        label#btn1
+                    .btn
+                        input#btn2(name='serviceId', value='in_color_print', form='btn', type='radio')
+                        | Печать в цвете
+                        label#btn2
+                    .btn
+                        input#btn3(name='serviceId', value='wide_format_print', form='btn', type='radio')
+                        | Широкоформатная печать
+                        label#btn3
+                    .btn
+                        input#btn4(name='serviceId', value='on_cups_print', form='btn', type='radio')
+                        | Печать на кружках
+                        label#btn4
+                    .btn
+                        input#btn5(name='serviceId', value='digital_print', form='btn', type='radio')
+                        | Цифровая печать
+                        label#btn5
+                    .btn
+                        input#btn6(name='serviceId', value='serigraphy_print', form='btn', type='radio')
+                        | Шелкография
+                        label#btn6
+                .selects
+                    select.payment-method(name='paymentMethod')
+                        option(selected='') Способ оплаты
+                        option Наличный расчет
+                        option Расчет по карте
+                        option Оплата по счету
+                .checkboxes
+                    label#check.check
+                        input#check(name='writesTheCheck', type='checkbox')
+                        | выдает чек
+                .selects
+                    select.delivery-method(name='delivery')
+                        option(selected='') Доставка
+                        option самовывоз
+                        option почта России
+                        option с курьером
+                .checkboxes
+                    label#check.check
+                        input#check(name='orderByEmail', type='checkbox')
+                        | принимает заказ по e-mail
+                button(type='submit') Найти
     ul.results
         for polygraphy in polygraphies
             li

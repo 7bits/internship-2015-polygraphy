@@ -33,4 +33,16 @@ ALTER TABLE ONLY polygraphies_services ADD CONSTRAINT polygraphies_services_poly
 ALTER TABLE ONLY polygraphies_services ADD CONSTRAINT polygraphies_services_service_id_fkey FOREIGN KEY (service_id) REFERENCES service(id);
 ALTER TABLE ONLY polygraphies_services ADD CONSTRAINT polygraphies_services_pkey PRIMARY KEY(polygraphy_id,service_id);
 
+CREATE TABLE contacts(
+	polygraphy_id serial NOT NULL,
+	addres varchar(256),
+	email varchar(256),
+	website varchar(256),
+	phone varchar(12)
+);
+
+ALTER TABLE public.contacts OWNER TO polygraphy;
+ALTER TABLE ONLY contacts ADD CONSTRAINT contacts_polygraphy_id_fkey FOREIGN KEY (polygraphy_id) REFERENCES polygraphy(id);
+ALTER TABLE ONLY contacts ADD CONSTRAINT contacts_pkey PRIMARY KEY(polygraphy_id);
+
 

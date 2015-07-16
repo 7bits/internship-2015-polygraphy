@@ -61,7 +61,7 @@ VALUES
 	(7, 'изготовление магнитов',6);
 	(8, 'изготовление наклеек', 5);
 
-INSERT INTO polygraphies_services(polygraphy_id,service_id)
+INSERT INTO polygraphies_services(polygraphy_id, service_id)
 VALUES 
 	(1,4),
 	(1,5),
@@ -297,4 +297,8 @@ VALUES
 
 
 
+
+INSERT INTO contacts(polygraphy_id, addres, email, website, phone)
+VALUES
+	(1, 'ул. Масленникова, 28, офис 409', 'mail@901201.ru', 'http://www.dbiq.ru/', 3812901201);
 

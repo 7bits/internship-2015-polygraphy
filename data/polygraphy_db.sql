@@ -24,8 +24,8 @@ ALTER TABLE public.service OWNER TO polygraphy;
 ALTER TABLE ONLY service ADD CONSTRAINT service_pkey PRIMARY KEY(id);
 
 CREATE TABLE polygraphies_services(
-	polygraphy_id serial,
-	service_id serial
+	polygraphy_id int,
+	service_id int
 );
 
 ALTER TABLE public.polygraphies_services OWNER TO polygraphy;

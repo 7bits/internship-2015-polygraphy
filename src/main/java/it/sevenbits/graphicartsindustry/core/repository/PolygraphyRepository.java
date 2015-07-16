@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
+import it.sevenbits.graphicartsindustry.core.domain.Service;
 import it.sevenbits.graphicartsindustry.core.mappers.SearchMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,14 @@ public class PolygraphyRepository implements SearchRepository{
     public List<Polygraphy> findPolygraphies(String query) throws RepositoryException {
         try {
             return mapper.findPolygraphies(query);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+        }
+    }
+
+    public List<Service> findFrequentServices(int limit) throws RepositoryException {
+        try {
+            return mapper.findFrequentServices(limit);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
         }

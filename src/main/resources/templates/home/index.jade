@@ -12,30 +12,12 @@ block append content
                 input.search-field(name='query', type='text', placeholder='Поиск')
             .filter-field
                 .radiobuttons
-                    .btn
-                        input#btn1(name='serviceId', value='stencil_print', form='btn', type='radio')
-                        | Трафаретная печать
-                        label#btn1
-                    .btn
-                        input#btn2(name='serviceId', value='in_color_print', form='btn', type='radio')
-                        | Печать в цвете
-                        label#btn2
-                    .btn
-                        input#btn3(name='serviceId', value='wide_format_print', form='btn', type='radio')
-                        | Широкоформатная печать
-                        label#btn3
-                    .btn
-                        input#btn4(name='serviceId', value='on_cups_print', form='btn', type='radio')
-                        | Печать на кружках
-                        label#btn4
-                    .btn
-                        input#btn5(name='serviceId', value='digital_print', form='btn', type='radio')
-                        | Цифровая печать
-                        label#btn5
-                    .btn
-                        input#btn6(name='serviceId', value='serigraphy_print', form='btn', type='radio')
-                        | Шелкография
-                        label#btn6
+                    for service in services
+                        .btn
+                            label(for="btn"+service.id)=service.name
+                            input(id="btn"+service.id, name='serviceId', value=service.id, form='btn', type='radio')
+
+
                 .selects
                     select.payment-method(name='paymentMethod')
                         option(selected='') Способ оплаты

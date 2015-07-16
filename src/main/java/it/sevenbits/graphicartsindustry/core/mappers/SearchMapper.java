@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
+import it.sevenbits.graphicartsindustry.core.domain.Service;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
@@ -22,6 +23,13 @@ public interface SearchMapper {
             @Result(column = "name", property = "name")
     })
     List<Polygraphy> findPolygraphies(String query);
+
+    @Select("SELECT id, name, rating FROM service ORDER BY rating DESC LIMIT #{limit}")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name")
+    })
+    List<Service> findFrequentServices(int limit);
 
     @Select("SELECT id, name FROM polygraphy WHERE id=#{id}")
     @Results({

@@ -33,8 +33,8 @@ public class SearchController {
     public String search(@ModelAttribute SearchForm form,
                          final Model model) throws ServiceException{
 
+        model.addAttribute("services", service.findFrequentServices(limitRadioButton));
         // В модель добавим объект - список полиграфий удовлетвояющих поиску
-
         model.addAttribute("polygraphies", service.findPolygraphies(form));
         return "home/index";
     }

@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PageService {
+public class PagePolygraphyService {
     @Autowired
     private SearchRepository repository;
 

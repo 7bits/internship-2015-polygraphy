@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.service.PageService;
+import it.sevenbits.graphicartsindustry.web.domain.PolygraphyFullModel;
+import it.sevenbits.graphicartsindustry.web.service.PagePolygraphyService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class PageController {
+public class PagePolygraphyController {
     @Autowired
-    private PageService service;
+    private PagePolygraphyService service;
 
-    @RequestMapping(value = "/polygraphy/{id}", method = RequestMethod.GET)
-    public String index(@PathVariable(value = "id") String idStr, final Model model) throws ServiceException {
+    @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET)
+    public String index(@PathVariable(value = "id") int id, final Model model) throws ServiceException {
         // В модель добавим объект - полиграфию с полной информацией
-        //int id=1;
-        int id = Integer.parseInt(idStr);
+
 //Добавить обработчик try на 404
-        model.addAttribute("page", service.showPolygraphy(id));
+        PolygraphyFullModel polygraphy = service.showPolygraphy(id);
+        model.addAttribute("polygraphy", polygraphy);
 
         // Так как нет аннотации @ResponseBody, то spring будет искать шаблон по адресу home/index
         // Если шаблона не будет найдено, то вернется 404 ошибка

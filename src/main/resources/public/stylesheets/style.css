@@ -30,7 +30,7 @@ body{
 }
 
 .search-field{
-    width: 870px;
+    width: 845px;
     padding: 15px;
     border: none;
     box-shadow: 0 0 10px 5px rgb(171, 171, 171);
@@ -39,6 +39,7 @@ body{
     background-position: 15px center;
     background-color: white;
     outline: none;
+    padding-left: 40px;
 }
 
 .search-line
@@ -58,23 +59,33 @@ body{
 }
 
 .radiobuttons{
-    margin: 20px auto;
+    margin: auto;
     color: rgb(13, 105, 134);
     font-family: "FregatRegular";
 }
 
 .btn{
     margin: 0;
-    padding: 0 15px;
     display: inline-block;
-    width: 270px;
-    height: 50px;
+    width: 300px;
+    height: 45px;
     text-align: left;
-    line-height: 50px;
+    line-height: 45px;
+}
+
+.btn label{
+    margin: 0 35px;
 }
 
 input[type="radio"]{
     display: none;
+}
+
+input[type="radio"]+label:hover{
+    background-color: rgb(142, 199, 210);
+    border-radius: 6px;
+    border: 5px solid rgb(142, 199, 210);
+    color: white;
 }
 
 input[type="radio"]:checked+label{
@@ -86,32 +97,75 @@ input[type="radio"]:checked+label{
     width: 202px;
 }
 
-.selects{
-    margin: 20px auto;
+.selects select{
+    margin: auto;
+    padding: 0 20px;rgb(13, 105, 134)
+    width: 275px;
+    height: 45px;
+    background-color: rgb(142, 199, 210);
+    background-position: calc(100% - 20px);
+    border: 0;
+    line-height: 1;
+    -webkit-appearance: none;
+    font-family: "FregatRegular";
+    font-size: 16px;
+    color: black;
 }
 
 .payment-method{
-    width: 180px;
-    margin: 0 5px;
+    overflow: hidden;
+    width: 275px;
+    height: 50px;
+    background: url(../images/arrow.png) no-repeat right;
 }
 
 .delivery-method{
-    width: 180px;
-    margin: 0 5px;
+    overflow: hidden;
+    width: 275px;
+    height: 50px;
+    background: url(../images/arrow.png) no-repeat right;
 }
 
 .checkboxes{
-    margin: 20px auto;
+    margin: auto;
+    height: 50px;
+    width: 275px;
+    line-height: 50px;
+    font-family: "FregatRegular";
+    text-align: left;
 }
 
 .check{
-    width: 200px;
-    margin: 0 5px;
-    display: inline-block;
+    margin: 0 15px;
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+input[type="checkbox"]+label{
+    background: url(../images/checkbox.png) 0 0 no-repeat;
+    padding-left: 20px;
+    background-position-y: center;
+}
+
+input[type="checkbox"]:checked+label{
+    background: url(../images/checkbox-checked.png) 0 0 no-repeat;
+    padding-left: 20px;
+    background-position-y: center;
 }
 
 .submit{
-
+    text-decoration: none;
+    color: white;
+    font-family: "FregatRegular";
+    font-size: 20px;
+    width: 275px;
+    height: 50px;
+    line-height: 50px;
+    background-color: rgb(204, 109, 152);
+    border: none;
+    border-radius: 10px;
 }
 
 .results{
@@ -124,12 +178,13 @@ input[type="radio"]:checked+label{
     height: 124px;
     list-style-type: none;
     margin: 20px auto;
-    padding: 28px 50px;
+    padding: 28px 100px;
     background-color: rgb(142, 199, 210);
+    font-family: "FregatRegular";
 }
 
 .icon{
-    background-image: url(../images/icon1.png);
+    background-image: url(../images/icon2.png);
     background-repeat: no-repeat;
     float: left;
     background-size: auto;
@@ -138,22 +193,41 @@ input[type="radio"]:checked+label{
 }
 
 .info{
-    height: 100px;
-    width: 65%;
     float: left;
-    margin: 0 10px;
+    margin: 20px 30px;
+    color: rgb(16, 80, 99);
+    font-size: 18px;
+    width: 345px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 
 .info h3{
     text-align: left;
+    color: white;
     margin: 0 10px;
+    font-size: 26px;
+    margin: 0;
 }
 
 .detail{
-    width: 115px;
-    height: 100px;
+    width: 170px;
+    height: 45px;
     text-align: center;
     float: right;
-    line-height: 100px;
+    margin: 40px 0;
+}
+
+.detail a{
+    text-decoration: none;
+    width: 166px;
+    height: 41px;
+    line-height: 41px;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    display: block;
 }
 

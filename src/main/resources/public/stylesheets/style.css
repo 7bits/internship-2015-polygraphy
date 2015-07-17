@@ -82,10 +82,11 @@ input[type="radio"]{
 }
 
 input[type="radio"]+label:hover{
-    background-color: rgb(142, 199, 210);
+    background-color: rgb(13, 105, 134);
     border-radius: 6px;
-    border: 5px solid rgb(142, 199, 210);
+    border: 5px solid rgb(13, 105, 134);
     color: white;
+    cursor: pointer;
 }
 
 input[type="radio"]:checked+label{
@@ -99,7 +100,7 @@ input[type="radio"]:checked+label{
 
 .selects select{
     margin: auto;
-    padding: 0 20px;rgb(13, 105, 134)
+    padding: 0 20px;
     width: 275px;
     height: 45px;
     background-color: rgb(142, 199, 210);
@@ -110,6 +111,10 @@ input[type="radio"]:checked+label{
     font-family: "FregatRegular";
     font-size: 16px;
     color: black;
+}
+
+payment-method option:hover{
+ color: red;
 }
 
 .payment-method{
@@ -124,6 +129,10 @@ input[type="radio"]:checked+label{
     width: 275px;
     height: 50px;
     background: url(../images/arrow.png) no-repeat right;
+}
+
+option:disabled{
+    display: none;
 }
 
 .checkboxes{
@@ -206,9 +215,9 @@ input[type="checkbox"]:checked+label{
 .info h3{
     text-align: left;
     color: white;
-    margin: 0 10px;
     font-size: 26px;
-    margin: 0;
+    margin: auto;
+    padding: 0 0 10px 0;
 }
 
 .detail{
@@ -217,6 +226,16 @@ input[type="checkbox"]:checked+label{
     text-align: center;
     float: right;
     margin: 40px 0;
+}
+
+.detail a:focus{
+    background-color: rgb(13, 105, 134);
+    border-color: rgb(13, 105, 134);
+}
+
+.detail a:hover{
+    background-color: rgb(13, 105, 134);
+    border-color: rgb(13, 105, 134);
 }
 
 .detail a{

@@ -1,10 +1,20 @@
-extends ../layout
+extends ../layout-page
 
 block append content
 
-    div
-        h3= polygraphy.name
-        h5= polygraphy.addres
-        h5= polygraphy.phone
-        h5= polygraphy.email
-        h5= polygraphy.website
+
+    .header
+        a(href='/')
+            .logo
+    .comeback
+        a(href='/')
+            |Вернуться к поиску
+    .polygraphy-name
+        h1= polygraphy.name
+    .info
+        .polygraphy-logo
+        .short-info
+            p= polygraphy.addres
+            p= polygraphy.phone
+            p= polygraphy.email
+            a(href='#{polygraphy.website}')= polygraphy.website

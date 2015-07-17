@@ -27,9 +27,9 @@ public class PolygraphyRepository implements SearchRepository{
         }
     }
 
-    public List<Polygraphy> findPolygraphies(String query) throws RepositoryException {
+    public List<Polygraphy> findPolygraphies(String query, int limit) throws RepositoryException {
         try {
-            return mapper.findPolygraphies(query);
+            return mapper.findPolygraphies(query, limit);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
         }

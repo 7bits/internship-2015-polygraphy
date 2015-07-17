@@ -35,7 +35,7 @@ public class SearchController {
 
         model.addAttribute("services", service.findFrequentServices(limitRadioButton));
         // В модель добавим объект - список полиграфий удовлетвояющих поиску
-        model.addAttribute("polygraphies", service.findPolygraphies(form));
+        model.addAttribute("polygraphies", service.findPolygraphies(form, limitPolygraphy));
         return "home/index";
     }
 }

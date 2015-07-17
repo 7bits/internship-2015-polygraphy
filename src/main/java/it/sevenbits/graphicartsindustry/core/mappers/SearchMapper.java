@@ -28,7 +28,7 @@ public interface SearchMapper {
             @Result(column = "addres", property = "addres"),
             @Result(column = "phone", property = "phone")
     })
-    List<Polygraphy> findPolygraphies(@Param(value="query") String query);
+    List<Polygraphy> findPolygraphies(@Param(value="query") String query, @Param(value="limit") int  limit);
 
     @Select("SELECT id, name FROM service ORDER BY rating DESC LIMIT #{limit}")
     @Results({

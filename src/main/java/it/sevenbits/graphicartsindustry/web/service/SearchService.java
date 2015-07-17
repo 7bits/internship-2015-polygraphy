@@ -29,9 +29,9 @@ public class SearchService {
         }
     }
 
-    public List<PolygraphyMinModel> findPolygraphies(SearchForm query) throws ServiceException {
+    public List<PolygraphyMinModel> findPolygraphies(SearchForm query, int limit) throws ServiceException {
         try {
-            List<Polygraphy> polygraphies = repository.findPolygraphies(query.getQuery());
+            List<Polygraphy> polygraphies = repository.findPolygraphies(query.getQuery(), limit);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (Polygraphy p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddres(), p.getPhone()));

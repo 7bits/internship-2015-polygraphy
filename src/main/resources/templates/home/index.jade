@@ -18,14 +18,14 @@ block append content
                             label(for='btn'+service.id)=service.name
                 .selects
                     select.payment-method(name='paymentMethod')
-                        option(selected='') Способ оплаты
+                        option(disabled selected='') Способ оплаты
                         option Наличный расчет
                         option Расчет по карте
                         option Оплата по счету
                 .checkboxes
-                    label#check.check
-                        input#check(name='writesTheCheck', type='checkbox')
-                        | выдает чек
+                    .check
+                        input(id='check1',name='writesTheCheck', type='checkbox')
+                        label(for='check1') выдает чек
                 .selects
                     select.delivery-method(name='delivery')
                         option(selected='') Доставка
@@ -33,10 +33,10 @@ block append content
                         option почта России
                         option с курьером
                 .checkboxes
-                    label#check.check
-                        input#check(name='orderByEmail', type='checkbox')
-                        | принимает заказ по e-mail
-                button(type='submit') Найти
+                    .check
+                        input(id='check2',name='orderByEmail', type='checkbox')
+                        label(for='check2') принимает заказ по e-mail
+                button.submit(type='submit') НАЙТИ ПОЛИГРАФИЮ
     ul.results
         for polygraphy in polygraphies
             li
@@ -47,4 +47,4 @@ block append content
                     h5= polygraphy.phone
                 .detail(id='polygraphy-page')
                     a(href='/polygraphy/#{polygraphy.id}')
-                        |Подробнее..
+                        |Подробнее

@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class searchTest {
+public class SearchPolygraphyTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -18,17 +18,17 @@ public class searchTest {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://localhost:9000";
+    baseUrl = "http://localhost:9000/";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
-  public void testSearch() throws Exception {
+  public void testSearchPolygraphy() throws Exception {
     driver.get(baseUrl + "/");
-    driver.findElement(By.cssSelector("div.logo")).click();
-    driver.findElement(By.cssSelector("#btn4 > #btn4")).click();
-    driver.findElement(By.xpath("(//input[@id='check'])[2]")).click();
-    driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+    driver.findElement(By.name("query")).clear();
+    driver.findElement(By.name("query")).sendKeys("СКАЙ ПРИНТ");
+    driver.findElement(By.cssSelector("button.submit")).click();
+    driver.findElement(By.linkText("Подробнее")).click();
   }
 
   @After

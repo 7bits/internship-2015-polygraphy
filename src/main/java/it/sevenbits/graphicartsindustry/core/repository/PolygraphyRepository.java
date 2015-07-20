@@ -3,6 +3,7 @@ package it.sevenbits.graphicartsindustry.core.repository;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.Service;
 import it.sevenbits.graphicartsindustry.core.mappers.SearchMapper;
+import it.sevenbits.graphicartsindustry.web.domain.SearchForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,9 +28,15 @@ public class PolygraphyRepository implements SearchRepository{
         }
     }
 
-    public List<Polygraphy> findPolygraphies(String query, int limit) throws RepositoryException {
+    public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
-            return mapper.findPolygraphies(query, limit);
+            if (query.getQuery().isEmpty() && query.getServiceId()!=0)
+                return mapper.findPolygraphiesByService(query.getServiceId());
+            if (query.getServiceId()==0 && !query.getQuery().isEmpty())
+                return mapper.findPolygraphiesByName(query.getQuery());
+            if (!query.getQuery().isEmpty() && query.getServiceId()!=0)
+                return mapper.findPolygraphiesByNameAndService(query.getQuery(),query.getServiceId());
+            return findAll(3);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
         }

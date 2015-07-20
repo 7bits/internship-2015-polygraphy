@@ -22,6 +22,7 @@ public class SearchController {
     public String index(final Model model) throws ServiceException {
         // В модель добавим объект - список полиграфий
         model.addAttribute("services", service.findFrequentServices(limitRadioButton));
+        // В модель добавим объект - список полиграфий
         model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
 
         // Так как нет аннотации @ResponseBody, то spring будет искать шаблон по адресу home/index
@@ -30,12 +31,12 @@ public class SearchController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String search(@ModelAttribute SearchForm form,
-                         final Model model) throws ServiceException{
-
+    public String search(@ModelAttribute SearchForm form, final Model model) throws ServiceException{
+        // В модель добавим объект - список полиграфий
         model.addAttribute("services", service.findFrequentServices(limitRadioButton));
         // В модель добавим объект - список полиграфий удовлетвояющих поиску
-        model.addAttribute("polygraphies", service.findPolygraphies(form, limitPolygraphy));
+        model.addAttribute("polygraphies", service.findPolygraphies(form));
+
         return "home/index";
     }
 }

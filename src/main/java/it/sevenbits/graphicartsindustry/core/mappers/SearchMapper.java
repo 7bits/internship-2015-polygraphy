@@ -30,9 +30,11 @@ public interface SearchMapper {
             @Result(column = "phone", property = "phone")
     })
     List<Polygraphy> findPolygraphies(@Param(value = "query") String query,
-                                            @Param(value = "service") int service_id,
-                                            @Param(value = "check") boolean check,
-                                            @Param(value = "order") boolean order);
+                                      @Param(value = "service") int service_id,
+                                      @Param(value = "payment") int payment_id,
+                                      @Param(value = "check") boolean check,
+                                      @Param(value = "delivery") int delivery_id,
+                                      @Param(value = "order") boolean order);
 
 
     @Select("SELECT id, name FROM service ORDER BY rating DESC LIMIT #{limit}")

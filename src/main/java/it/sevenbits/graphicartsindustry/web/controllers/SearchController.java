@@ -22,6 +22,7 @@ public class SearchController {
     public String index(final Model model) throws ServiceException {
         // В модель добавим объект - список полиграфий
         model.addAttribute("services", service.findFrequentServices(limitRadioButton));
+
         // В модель добавим объект - список полиграфий
         model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
 

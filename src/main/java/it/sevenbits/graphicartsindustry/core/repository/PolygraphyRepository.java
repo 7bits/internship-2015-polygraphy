@@ -1,5 +1,7 @@
 package it.sevenbits.graphicartsindustry.core.repository;
 
+import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
+import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.Service;
 import it.sevenbits.graphicartsindustry.core.mappers.SearchMapper;
@@ -30,64 +32,12 @@ public class PolygraphyRepository implements SearchRepository{
 
     public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
-//            if (!query.getQuery().isEmpty() && query.getServiceId()==0 && !query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByName(query.getQuery());
-//            if (query.getQuery().isEmpty() && query.getServiceId()!=0 && !query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByService(query.getServiceId());
-//            if (!query.getQuery().isEmpty() && query.getServiceId()!=0 && !query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByNameAndService(query.getQuery(), query.getServiceId());
-//
-//            if (query.getQuery().isEmpty() && query.getServiceId()==0 && query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByCheck();
-//            if (!query.getQuery().isEmpty() && query.getServiceId()==0 && query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByNameAndCheck(query.getQuery());
-//            if (query.getQuery().isEmpty() && query.getServiceId()!=0 &&  query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByServiceAndCheck(query.getServiceId());
-//            if (!query.getQuery().isEmpty() && query.getServiceId()!=0 && query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByNameAndServiceAndCheck(query.getQuery(), query.getServiceId());
-//
-//            if (query.getQuery().isEmpty() && query.getServiceId()==0 && !query.getWritesTheCheck() &&
-//                    query.getOrderByEmail())
-//                return mapper.findPolygraphiesByOrder();
-//            if (!query.getQuery().isEmpty() && query.getServiceId()==0 && !query.getWritesTheCheck() &&
-//                    query.getOrderByEmail())
-//                return mapper.findPolygraphiesByNameAndOrder(query.getQuery());
-//            if (query.getQuery().isEmpty() && query.getServiceId()!=0 &&  !query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByServiceAndOrder(query.getServiceId());
-//            if (query.getQuery().isEmpty() && query.getServiceId()==0 && query.getWritesTheCheck() &&
-//                    query.getOrderByEmail())
-//                return mapper.findPolygraphiesByCheckAndOrder();
-//            if (!query.getQuery().isEmpty() && query.getServiceId()!=0 && !query.getWritesTheCheck() &&
-//                    query.getOrderByEmail())
-//                return mapper.findPolygraphiesByNameAndServiceAndOrder(query.getQuery(), query.getServiceId());
-//            if (!query.getQuery().isEmpty() && query.getServiceId()==0 && query.getWritesTheCheck() &&
-//                    query.getOrderByEmail())
-//                return mapper.findPolygraphiesByNameAndCheckAndOrder(query.getQuery());
-//            if (query.getQuery().isEmpty() && query.getServiceId()!=0 &&  query.getWritesTheCheck() &&
-//                    !query.getOrderByEmail())
-//                return mapper.findPolygraphiesByServiceAndCheckAndOrder(query.getServiceId());
-//            if (!query.getQuery().isEmpty() && query.getServiceId()!=0 && query.getWritesTheCheck() &&
-//                    query.getOrderByEmail())
-//                return mapper.findPolygraphiesByNameAndServiceAndCheckAndOrder(query.getQuery(), query.getServiceId());
-//
-//
-//            return findAll(3);
-
             if (query.getQuery().isEmpty() && query.getServiceId()==0 &&
                     query.getWritesTheCheck()==false && query.getOrderByEmail()==false)
                 return mapper.findAll(5);
 
             return mapper.findPolygraphies(query.getQuery(), query.getServiceId(),
                     query.getWritesTheCheck(), query.getOrderByEmail());
-
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
         }
@@ -96,6 +46,22 @@ public class PolygraphyRepository implements SearchRepository{
     public List<Service> findFrequentServices(int limit) throws RepositoryException {
         try {
             return mapper.findFrequentServices(limit);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+        }
+    }
+
+    public List<PaymentMethod> findPaymentMethods() throws RepositoryException {
+        try {
+            return mapper.findPaymentMethods();
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+        }
+    }
+
+    public List<DeliveryMethod> findDeliveryMethods() throws RepositoryException {
+        try {
+            return mapper.findDeliveryMethods();
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
         }

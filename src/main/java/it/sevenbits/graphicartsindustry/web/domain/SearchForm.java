@@ -4,8 +4,8 @@ public class SearchForm {
 
     private String query;
     private int serviceId;
-    private String paymentMethod;
-    private String delivery;
+    private int paymentMethod;
+    private int deliveryMethod;
     private boolean writesTheCheck;
     private boolean orderByEmail;
 
@@ -17,13 +17,12 @@ public class SearchForm {
         return serviceId;
     }
 
-    public String getPaymentMethod() {
+    public int getPaymentMethod() {
         return paymentMethod;
     }
 
-    public String getDelivery() {
-
-        return delivery;
+    public int getDeliveryMethod() {
+        return deliveryMethod;
     }
 
     public boolean getWritesTheCheck() {
@@ -42,12 +41,12 @@ public class SearchForm {
         this.serviceId = serviceId;
     }
 
-    public void setPaymentMethod(String paymentMethod) {
+    public void setPaymentMethod(int paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
-    public void setDelivery(String delivery) {
-        this.delivery = delivery;
+    public void setDeliveryMethod(int delivery) {
+        this.deliveryMethod = delivery;
     }
 
     public void setWritesTheCheck(boolean writesTheCheck) {

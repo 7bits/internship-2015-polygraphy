@@ -1,8 +1,10 @@
 @import url("fregat-font.css");
 
 body{
-    margin: 0;
+    width: 900px;
+    margin: 0 auto;
     background-color: #e9e9e9;
+    font-family: "FregatRegular";
 }
 
 .header{
@@ -14,7 +16,7 @@ body{
     background-image: url(../images/logo.png);
     height: 144px;
     width: 255px;
-    background-size: 255px auto;
+    background-size: 255px 144px;
     background-position: center center;
     background-repeat: no-repeat;
     margin: 28px auto;
@@ -42,17 +44,15 @@ body{
     padding-left: 40px;
 }
 
-.search-line
+/*.search-line
 .radiobuttons
 .selects
 .checkboxes{
-    width: 900px;
     text-align: center;
-}
+}*/
 
 .filter-field{
     height: 340px;
-    width: 900px;
     margin: auto;
     background-color: white;
     box-shadow: 0 0 10px 5px rgb(171, 171, 171);
@@ -61,7 +61,6 @@ body{
 .radiobuttons{
     margin: auto;
     color: rgb(13, 105, 134);
-    font-family: "FregatRegular";
 }
 
 .btn{
@@ -106,11 +105,11 @@ input[type="radio"]:checked+label{
     background-color: rgb(142, 199, 210);
     background-position: calc(100% - 20px);
     border: 0;
-    line-height: 1;
+    line-height: 45px;
     -webkit-appearance: none;
-    font-family: "FregatRegular";
     font-size: 16px;
     color: black;
+    font-family: "FregatRegular";
 }
 
 payment-method option:hover{
@@ -120,14 +119,14 @@ payment-method option:hover{
 .payment-method{
     overflow: hidden;
     width: 275px;
-    height: 50px;
+    height: 45px;
     background: url(../images/arrow.png) no-repeat right;
 }
 
 .delivery-method{
     overflow: hidden;
     width: 275px;
-    height: 50px;
+    height: 45px;
     background: url(../images/arrow.png) no-repeat right;
 }
 
@@ -140,7 +139,6 @@ option:disabled{
     height: 50px;
     width: 275px;
     line-height: 50px;
-    font-family: "FregatRegular";
     text-align: left;
 }
 
@@ -167,7 +165,6 @@ input[type="checkbox"]:checked+label{
 .submit{
     text-decoration: none;
     color: white;
-    font-family: "FregatRegular";
     font-size: 20px;
     width: 275px;
     height: 50px;
@@ -175,10 +172,10 @@ input[type="checkbox"]:checked+label{
     background-color: rgb(204, 109, 152);
     border: none;
     border-radius: 10px;
+    font-family: "FregatRegular";
 }
 
 .results{
-    width: 900px;
     margin: 50px auto;
     padding: 0;
 }
@@ -189,7 +186,6 @@ input[type="checkbox"]:checked+label{
     margin: 20px auto;
     padding: 28px 100px;
     background-color: rgb(142, 199, 210);
-    font-family: "FregatRegular";
 }
 
 .icon{

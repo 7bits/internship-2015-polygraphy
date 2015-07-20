@@ -16,7 +16,7 @@ body{
     background-image: url(../images/logo.png);
     height: 144px;
     width: 255px;
-    background-size: 255px auto;
+    background-size: 255px 144px;
     background-position: center center;
     background-repeat: no-repeat;
     margin: 28px auto;

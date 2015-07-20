@@ -30,12 +30,22 @@ public class PolygraphyRepository implements SearchRepository{
 
     public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
-            if (query.getQuery().isEmpty() && query.getServiceId()!=0)
-                return mapper.findPolygraphiesByService(query.getServiceId());
-            if (query.getServiceId()==0 && !query.getQuery().isEmpty())
+            if (!query.getQuery().isEmpty() && query.getServiceId()==0 && !query.getWritesTheCheck())
                 return mapper.findPolygraphiesByName(query.getQuery());
-            if (!query.getQuery().isEmpty() && query.getServiceId()!=0)
-                return mapper.findPolygraphiesByNameAndService(query.getQuery(),query.getServiceId());
+            if (query.getQuery().isEmpty() && query.getServiceId()!=0 && !query.getWritesTheCheck())
+                return mapper.findPolygraphiesByService(query.getServiceId());
+            if (!query.getQuery().isEmpty() && query.getServiceId()!=0 && !query.getWritesTheCheck())
+                return mapper.findPolygraphiesByNameAndService(query.getQuery(), query.getServiceId());
+
+            if (query.getQuery().isEmpty() && query.getServiceId()==0 && query.getWritesTheCheck())
+                return mapper.findPolygraphiesByCheck();
+            if (!query.getQuery().isEmpty() && query.getServiceId()==0 && query.getWritesTheCheck())
+                return mapper.findPolygraphiesByNameAndCheck(query.getQuery());
+            if (query.getQuery().isEmpty() && query.getServiceId()!=0 &&  query.getWritesTheCheck())
+                return mapper.findPolygraphiesByServiceAndCheck(query.getServiceId());
+            if (!query.getQuery().isEmpty() && query.getServiceId()!=0 && query.getWritesTheCheck())
+                return mapper.findPolygraphiesByNameAndServiceAndCheck(query.getQuery(), query.getServiceId());
+
             return findAll(3);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);

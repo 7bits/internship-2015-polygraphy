@@ -26,11 +26,11 @@ public class SearchForm {
         return delivery;
     }
 
-    public boolean isWritesTheCheck() {
+    public boolean getWritesTheCheck() {
         return writesTheCheck;
     }
 
-    public boolean isOrderByEmail() {
+    public boolean getOrderByEmail() {
         return orderByEmail;
     }
 

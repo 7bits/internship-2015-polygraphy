@@ -4,151 +4,57 @@ import java.util.Map;
 
 public class PolygraphyProvider {
 
-    // Polygraphy name
+    public static String findPolygraphies(final Map params) {
+        String query = params.get("query").toString();
+        String service = params.get("service").toString();
+        int service_id = Integer.parseInt(service);
+        String check = params.get("check").toString();
+        boolean writes_the_check = Boolean.parseBoolean(check);
+        String order = params.get("order").toString();
+        boolean order_by_email = Boolean.parseBoolean(order);
 
-    public static String findPolygraphiesByName(final Map params) {
-        String result = "SELECT id, name, addres, phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE name ILIKE '%" + params.get("query") + "%' ";
-        return result;
-    }
+        boolean somethingBefore = false;
 
-    // Polygraphy name and service
+        StringBuilder sqlQuery = new StringBuilder();
+        sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, c.addres, c.phone");
+        if (service_id!=0)
+            sqlQuery.append(", s.id");
+        if (writes_the_check==true)
+            sqlQuery.append(", writes_the_check");
+        if (order_by_email==true)
+            sqlQuery.append(", order_by_email");
 
-    public static String findPolygraphiesByService(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE s.id=" + params.get("id");
-        return result;
-    }
+        sqlQuery.append(" FROM polygraphy AS p");
+        if (service_id!=0)
+            sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
+                    "LEFT JOIN service AS s ON ps.service_id=s.id");
+        sqlQuery.append(" LEFT JOIN contacts AS c ON p.id=c.polygraphy_id");
 
-    public static String findPolygraphiesByNameAndService(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE p.name ILIKE '%" + params.get("query") + "%' AND s.id=" + params.get("id");
-        return result;
-    }
+        sqlQuery.append(" WHERE");
+        if (!query.isEmpty()) {
+            sqlQuery.append(" p.name ILIKE '%" + query + "%'");
+            somethingBefore = true;
+        }
 
-    // Polygraphy name, service, check
+        if (service_id!=0) {
+            if (somethingBefore)
+                sqlQuery.append(" AND");
+            sqlQuery.append(" s.id=" + service_id);
+            somethingBefore = true;
+        }
 
-    public static String findPolygraphiesByCheck() {
-        String result = "SELECT id , name, writes_the_check, addres, phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE writes_the_check=true";
-        return result;
-    }
+        if (writes_the_check==true) {
+            if (somethingBefore)
+                sqlQuery.append(" AND");
+            sqlQuery.append(" writes_the_check=true");
+            somethingBefore = true;
+        }
 
-    public static String findPolygraphiesByNameAndCheck(final Map params) {
-        String result = "SELECT id, name, addres, phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE name ILIKE '%" + params.get("query") + "%' AND writes_the_check=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByServiceAndCheck(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE s.id=" + params.get("id") + " AND writes_the_check=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByNameAndServiceAndCheck(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE p.name ILIKE '%" + params.get("query") + "%' AND s.id=" + params.get("id") +
-                " AND writes_the_check=true";
-        return result;
-    }
-
-    // Polygraphy name, service, check, order
-
-    public static String findPolygraphiesByOrder() {
-        String result = "SELECT id , name, writes_the_check, addres, phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE order_by_email=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByNameAndOrder(final Map params) {
-        String result = "SELECT id, name, addres, phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE name ILIKE '%" + params.get("query") + "%' AND order_by_email=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByServiceAndOrder(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE s.id=" + params.get("id") + " AND order_by_email=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByCheckAndOrder() {
-        String result = "SELECT id , name, writes_the_check, addres, phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE writes_the_check=true AND order_by_email=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByNameAndServiceAndOrder(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE p.name ILIKE '%" + params.get("query") + "%' AND s.id=" + params.get("id") +
-                " AND order_by_email=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByNameAndCheckAndOrder(final Map params) {
-        String result = "SELECT id, name, addres, phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE name ILIKE '%" + params.get("query") + "%' AND writes_the_check=true " +
-                "AND order_by_email=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByServiceAndCheckAndOrder(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE s.id=" + params.get("id") + " AND writes_the_check=true AND order_by_email=true";
-        return result;
-    }
-
-    public static String findPolygraphiesByNameAndServiceAndCheckAndOrder(final Map params) {
-        String result = "SELECT p.id AS idp, p.name, s.id, c.addres, c.phone " +
-                "FROM polygraphy AS p " +
-                "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                "LEFT JOIN service AS s ON ps.service_id=s.id " +
-                "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-                "WHERE p.name ILIKE '%" + params.get("query") + "%' AND s.id=" + params.get("id") +
-                " AND writes_the_check=true AND order_by_email=true";
-        return result;
+        if (order_by_email==true) {
+            if (somethingBefore)
+                sqlQuery.append(" AND");
+            sqlQuery.append(" order_by_email=true");
+        }
+        return sqlQuery.toString();
     }
 }

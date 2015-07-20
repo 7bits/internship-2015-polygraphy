@@ -18,7 +18,7 @@ block append content
                             label(for='btn'+service.id)=service.name
                 .selects
                     select.payment-method(name='paymentMethod')
-                        option(disabled selected='') Способ оплаты
+                        option(selected='', disabled)Способ оплаты
                         option Наличный расчет
                         option Расчет по карте
                         option Оплата по счету
@@ -28,7 +28,7 @@ block append content
                         label(for='check1') выдает чек
                 .selects
                     select.delivery-method(name='delivery')
-                        option(selected='') Доставка
+                        option(selected='', disabled) Доставка
                         option самовывоз
                         option почта России
                         option с курьером
@@ -43,8 +43,9 @@ block append content
                 .icon
                 .info
                     h3= polygraphy.name
-                    h5= polygraphy.addres
-                    h5= polygraphy.phone
+                    = polygraphy.addres
+                    br
+                    = polygraphy.phone
                 .detail(id='polygraphy-page')
                     a(href='/polygraphy/#{polygraphy.id}')
                         |Подробнее

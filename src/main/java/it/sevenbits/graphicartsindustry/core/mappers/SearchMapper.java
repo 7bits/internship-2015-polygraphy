@@ -95,6 +95,87 @@ public interface SearchMapper {
     List<Polygraphy> findPolygraphiesByNameAndServiceAndCheck(@Param(value="query") String query,
                                                       @Param(value="id") int id);
 
+    @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphiesByOrder")
+    @Results({
+            @Result(column = "idp", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByOrder();
+
+    @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphiesByNameAndOrder")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByNameAndOrder(@Param(value="query") String query);
+
+    @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphiesByServiceAndOrder")
+    @Results({
+            @Result(column = "idp", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByServiceAndOrder(@Param(value="id") int id);
+
+    @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphiesByCheckAndOrder")
+    @Results({
+            @Result(column = "idp", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByCheckAndOrder();
+
+    @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphiesByNameAndServiceAndOrder")
+    @Results({
+            @Result(column = "idp", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByNameAndServiceAndOrder(@Param(value="query") String query,
+                                                              @Param(value="id") int id);
+
+    @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphiesByNameAndCheckAndOrder")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByNameAndCheckAndOrder(@Param(value="query") String query);
+
+    @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphiesByServiceAndCheckAndOrder")
+    @Results({
+            @Result(column = "idp", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByServiceAndCheckAndOrder(@Param(value="id") int id);
+
+    @SelectProvider(type = PolygraphyProvider.class,
+            method = "findPolygraphiesByNameAndServiceAndCheckAndOrder")
+    @Results({
+            @Result(column = "idp", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "addres", property = "addres"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findPolygraphiesByNameAndServiceAndCheckAndOrder(@Param(value="query") String query,
+                                                                         @Param(value="id") int id);
+
+
+
+
+
+
+
 
 
 

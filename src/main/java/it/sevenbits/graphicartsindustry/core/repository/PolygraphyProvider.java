@@ -96,6 +96,7 @@ public class PolygraphyProvider {
                 delivery_id==0 && order_by_email==false) {
             sqlQuery.append(" p.id=0");
         }
+
         return sqlQuery.toString();
     }
 }

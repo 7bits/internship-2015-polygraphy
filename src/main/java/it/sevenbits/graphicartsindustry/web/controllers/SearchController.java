@@ -23,6 +23,10 @@ public class SearchController {
         // В модель добавим объект - список полиграфий
         model.addAttribute("services", service.findFrequentServices(limitRadioButton));
 
+        model.addAttribute("paymentMethods", service.findPaymentMethods());
+
+        model.addAttribute("deliveryMethods", service.findDeliveryMethods());
+
         // В модель добавим объект - список полиграфий
         model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
 
@@ -35,6 +39,11 @@ public class SearchController {
     public String search(@ModelAttribute SearchForm form, final Model model) throws ServiceException{
         // В модель добавим объект - список полиграфий
         model.addAttribute("services", service.findFrequentServices(limitRadioButton));
+
+        model.addAttribute("paymentMethods", service.findPaymentMethods());
+
+        model.addAttribute("deliveryMethods", service.findDeliveryMethods());
+
         // В модель добавим объект - список полиграфий удовлетвояющих поиску
         model.addAttribute("polygraphies", service.findPolygraphies(form));
 

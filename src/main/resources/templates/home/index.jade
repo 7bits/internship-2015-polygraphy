@@ -18,20 +18,20 @@ block append content
                             label(for='btn'+service.id)=service.name
                 .selects
                     select.payment-method(name='paymentMethod')
-                        option(selected='', disabled)Способ оплаты
-                        option Наличный расчет
-                        option Расчет по карте
-                        option Оплата по счету
+                        option(selected='', disabled) Способ оплаты
+                        for paymentMethod in paymentMethods
+                            option(value='#{paymentMethod.id}')=paymentMethod.name
+
                 .checkboxes
                     .check
                         input(id='check1',name='writesTheCheck', type='checkbox')
                         label(for='check1') выдает чек
                 .selects
-                    select.delivery-method(name='delivery')
+                    select.delivery-method(name='deliveryMethod')
                         option(selected='', disabled) Доставка
-                        option самовывоз
-                        option почта России
-                        option с курьером
+                        for deliveryMethod in deliveryMethods
+                            option(value='#{deliveryMethod.id}')=deliveryMethod.name
+
                 .checkboxes
                     .check
                         input(id='check2',name='orderByEmail', type='checkbox')

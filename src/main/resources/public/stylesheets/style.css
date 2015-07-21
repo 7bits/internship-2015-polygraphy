@@ -84,6 +84,7 @@ input[type="radio"]+label:hover{
     background-color: rgb(13, 105, 134);
     border-radius: 6px;
     border: 5px solid rgb(13, 105, 134);
+    //border-left: none;
     color: white;
     cursor: pointer;
 }
@@ -92,6 +93,7 @@ input[type="radio"]:checked+label{
     background-color: rgb(13, 105, 134);
     border-radius: 6px;
     border: 5px solid rgb(13, 105, 134);
+    //border-left: none;
     color: white;
     height: 28px;
     width: 202px;
@@ -151,15 +153,17 @@ input[type="checkbox"]{
 }
 
 input[type="checkbox"]+label{
-    background: url(../images/checkbox.png) 0 0 no-repeat;
+    background: url(../images/checkbox.png) 0px 0px no-repeat;
     padding-left: 20px;
-    background-position-y: center;
+    width: 13px;
+    height: 13px;
 }
 
 input[type="checkbox"]:checked+label{
-    background: url(../images/checkbox-checked.png) 0 0 no-repeat;
+    background: url(../images/checkbox.png) 0 -26px no-repeat;
     padding-left: 20px;
-    background-position-y: center;
+    width: 13px;
+    height: 13px;
 }
 
 .submit{
@@ -244,5 +248,13 @@ input[type="checkbox"]:checked+label{
     color: white;
     font-size: 20px;
     display: block;
+}
+
+.no-results{
+    text-align: center;
+    font-size: 22px;
+    color: rgb(16, 80, 99);
+    height: 30px;
+    line-height: 30px;
 }
 

@@ -60,8 +60,7 @@ block append content
 
                 button.submit(type='submit') НАЙТИ ПОЛИГРАФИЮ
     ul.results
-        =polygraphyiesIsNull
-
+        p.no-results= polygraphyiesIsNull
         for polygraphy in polygraphies
             li
                 .icon

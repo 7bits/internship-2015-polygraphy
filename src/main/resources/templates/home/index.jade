@@ -18,13 +18,9 @@ block append content
                             label(for='btn'+service.id)=service.name
                 .selects
                     select.payment-method(name='paymentMethod')
-                        option(selected='', disabled)Способ оплаты
-                        option(value='1') Наличный расчет
-                        option(value='2') Расчет по карте
-                        //option(value='3') Оплата по счету
-
-                        // for paymentMethod in services paymentMethod
-                        // option(value='#{paymentMethod.id}')=paymentMethod.name
+                        option(selected='', disabled) Способ оплаты
+                        for paymentMethod in paymentMethods
+                            option(value='#{paymentMethod.id}')=paymentMethod.name
 
                 .checkboxes
                     .check
@@ -33,12 +29,8 @@ block append content
                 .selects
                     select.delivery-method(name='deliveryMethod')
                         option(selected='', disabled) Доставка
-                        option(value='1') самовывоз
-                        option(value='2') с курьером
-                        option(value='3') почта России
-
-                        // for deliveryMethod in services deliveryMethod
-                        // option(value='#{deliveryMethod.id}')=deliveryMethod.name
+                        for deliveryMethod in deliveryMethods
+                            option(value='#{deliveryMethod.id}')=deliveryMethod.name
 
                 .checkboxes
                     .check

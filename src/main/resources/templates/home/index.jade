@@ -38,6 +38,7 @@ block append content
                         label(for='check2') принимает заказ по e-mail
                 button.submit(type='submit') НАЙТИ ПОЛИГРАФИЮ
     ul.results
+        =polygraphyiesIsNull
         for polygraphy in polygraphies
             li
                 .icon

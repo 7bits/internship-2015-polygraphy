@@ -91,6 +91,11 @@ public class PolygraphyProvider {
                 sqlQuery.append(" AND");
             sqlQuery.append(" order_by_email=true");
         }
+
+        if (query.isEmpty() && service_id==0 && payment_id==0 && writes_the_check==false &&
+                delivery_id==0 && order_by_email==false) {
+            sqlQuery.append(" p.id=0");
+        }
         return sqlQuery.toString();
     }
 }

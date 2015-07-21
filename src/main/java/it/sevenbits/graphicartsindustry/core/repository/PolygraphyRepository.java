@@ -32,11 +32,6 @@ public class PolygraphyRepository implements SearchRepository{
 
     public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
-            if (query.getQuery().isEmpty() && query.getServiceId()==0 && query.getPaymentMethod()==0 &&
-                    query.getWritesTheCheck()==false && query.getDeliveryMethod()==0 &&
-                    query.getOrderByEmail()==false)
-                return mapper.findAll(5);
-
             return mapper.findPolygraphies(query.getQuery().toLowerCase(), query.getServiceId(), query.getPaymentMethod(),
                     query.getWritesTheCheck(), query.getDeliveryMethod(), query.getOrderByEmail());
         } catch (Exception e) {

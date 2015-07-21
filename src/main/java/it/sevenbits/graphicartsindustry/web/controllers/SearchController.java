@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.web.domain.PolygraphyMinModel;
 import it.sevenbits.graphicartsindustry.web.domain.SearchForm;
 import it.sevenbits.graphicartsindustry.web.service.SearchService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
@@ -9,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 @Controller
 public class SearchController {
@@ -27,6 +30,8 @@ public class SearchController {
 
         model.addAttribute("deliveryMethods", service.findDeliveryMethods());
 
+        model.addAttribute("polygraphyiesIsNull", "");
+
         // В модель добавим объект - список полиграфий
         model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
 
@@ -43,6 +48,13 @@ public class SearchController {
         model.addAttribute("paymentMethods", service.findPaymentMethods());
 
         model.addAttribute("deliveryMethods", service.findDeliveryMethods());
+
+        List<PolygraphyMinModel> polygraphies = service.findPolygraphies(form);
+        if (polygraphies.size() == 0)
+            model.addAttribute("polygraphyiesIsNull", "Ни одна из полиграфий не удовлетворяет " +
+                        "требованиям запроса");
+        else
+            model.addAttribute("polygraphyiesIsNull", "");
 
         // В модель добавим объект - список полиграфий удовлетвояющих поиску
         model.addAttribute("polygraphies", service.findPolygraphies(form));

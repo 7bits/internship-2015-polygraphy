@@ -61,15 +61,24 @@ public class SearchController {
         // Добавим в модель объект - список методов доставки
         model.addAttribute("deliveryMethods", service.findDeliveryMethods());
 
-        // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
-        List<PolygraphyMinModel> polygraphies = service.findPolygraphies(form);
-        if (polygraphies.size() == 0)
-            model.addAttribute("polygraphyiesIsNull", "Ни одна из полиграфий не удовлетворяет " +
+
+
+        if (form.getQuery().isEmpty() && form.getServiceId()==0 && form.getPaymentMethod()==0 &&
+                form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
+                form.getOrderByEmail()==false)
+            // В модель добавим объект - рандомный список полиграфий
+            model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
+        else {
+            List<PolygraphyMinModel> polygraphies = service.findPolygraphies(form);
+            // В модель добавим объект - список полиграфий удовлетвояющих поиску
+            model.addAttribute("polygraphies", polygraphies);
+            // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
+            if (polygraphies.size() == 0)
+                model.addAttribute("polygraphyiesIsNull", "Ни одна из полиграфий не удовлетворяет " +
                         "требованиям запроса");
-        else
-            model.addAttribute("polygraphyiesIsNull", "");
-        // В модель добавим объект - список полиграфий удовлетвояющих поиску
-        model.addAttribute("polygraphies", service.findPolygraphies(form));
+            else
+                model.addAttribute("polygraphyiesIsNull", "");
+        }
         return "home/index";
     }
 }

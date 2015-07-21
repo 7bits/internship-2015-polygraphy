@@ -2,43 +2,66 @@ extends ../layout
 
 block append content
 
-
     .header
         a(href='/')
             .logo
     .search
         form(method='get', action='/search')
             .search-line
-                input.search-field(name='query', type='text', placeholder='Поиск')
+                if form != null
+                    if form.query != ""
+                        input.search-field(name='query', type='text', value='#{form.query}')
+                    else
+                        input.search-field(name='query', type='text', placeholder='Поиск')
+                else
+                    input.search-field(name='query', type='text', placeholder='Поиск')
             .filter-field
                 .radiobuttons
                     for service in services
                         .btn
-                            input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio')
-                            label(for='btn'+service.id)=service.name
+                            if service.id == form.serviceId
+                                input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio', checked)
+                                label(for='btn'+service.id)=service.name
+                            else
+                                input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio')
+                                label(for='btn'+service.id)=service.name
                 .selects
                     select.payment-method(name='paymentMethod')
                         option(selected='', disabled) Способ оплаты
-                        for paymentMethod in paymentMethods
-                            option(value='#{paymentMethod.id}')=paymentMethod.name
-
+                        for _paymentMethod in paymentMethods
+                            if _paymentMethod.id == form.paymentMethod
+                                option(value='#{_paymentMethod.id}', selected=true)=_paymentMethod.name
+                            else
+                                option(value='#{_paymentMethod.id}')=_paymentMethod.name
                 .checkboxes
                     .check
-                        input(id='check1',name='writesTheCheck', type='checkbox')
-                        label(for='check1') выдает чек
+                        if form.writesTheCheck == true
+                            input(id='check1', name='writesTheCheck', type='checkbox', checked)
+                            label(for='check1') выдает чек
+                        else
+                            input(id='check1', name='writesTheCheck', type='checkbox')
+                            label(for='check1') выдает чек
                 .selects
                     select.delivery-method(name='deliveryMethod')
                         option(selected='', disabled) Доставка
-                        for deliveryMethod in deliveryMethods
-                            option(value='#{deliveryMethod.id}')=deliveryMethod.name
-
+                        for _deliveryMethod in deliveryMethods
+                            if _deliveryMethod.id == form.deliveryMethod
+                                option(value='#{_deliveryMethod.id}', selected=true)=_deliveryMethod.name
+                            else
+                                option(value='#{_deliveryMethod.id}')=_deliveryMethod.name
                 .checkboxes
                     .check
-                        input(id='check2',name='orderByEmail', type='checkbox')
-                        label(for='check2') принимает заказ по e-mail
+                        if form.orderByEmail == true
+                            input(id='check2',name='orderByEmail', type='checkbox', checked)
+                            label(for='check2') принимает заказ по e-mail
+                        else
+                            input(id='check2',name='orderByEmail', type='checkbox')
+                            label(for='check2') принимает заказ по e-mail
+
                 button.submit(type='submit') НАЙТИ ПОЛИГРАФИЮ
     ul.results
         =polygraphyiesIsNull
+
         for polygraphy in polygraphies
             li
                 .icon

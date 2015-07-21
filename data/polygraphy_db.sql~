@@ -1,12 +1,6 @@
 CREATE TABLE polygraphy(
 	id serial NOT NULL,
 	name varchar(128) NOT NULL,
-	payment_cash boolean,
-	payment_credit_card boolean,
-	payment_on_account boolean,
-	delivery_pickup boolean,
-	delivery_courier boolean,
-	delivery_post boolean,
 	writes_the_check boolean,
 	order_by_email boolean
 );

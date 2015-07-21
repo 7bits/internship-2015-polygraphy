@@ -37,7 +37,7 @@ public class PolygraphyRepository implements SearchRepository{
                     query.getOrderByEmail()==false)
                 return mapper.findAll(5);
 
-            return mapper.findPolygraphies(query.getQuery(), query.getServiceId(), query.getPaymentMethod(),
+            return mapper.findPolygraphies(query.getQuery().toLowerCase(), query.getServiceId(), query.getPaymentMethod(),
                     query.getWritesTheCheck(), query.getDeliveryMethod(), query.getOrderByEmail());
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);

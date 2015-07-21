@@ -54,7 +54,7 @@ public class PolygraphyProvider {
 
         sqlQuery.append(" WHERE");
         if (!query.isEmpty()) {
-            sqlQuery.append(" p.name ILIKE '%" + query + "%'");
+            sqlQuery.append(" LOWER(p.name) ILIKE '%" + query + "%'");
             somethingBefore = true;
         }
 

@@ -9,6 +9,16 @@ public class SearchForm {
     private boolean writesTheCheck;
     private boolean orderByEmail;
 
+    public SearchForm(String query, Integer serviceId, Integer paymentMethod, Integer deliveryMethod,
+                      Boolean writesTheCheck, Boolean orderByEmail) {
+        this.query = query;
+        this.serviceId = serviceId;
+        this.paymentMethod = paymentMethod;
+        this.deliveryMethod = deliveryMethod;
+        this.writesTheCheck = writesTheCheck;
+        this.orderByEmail = orderByEmail;
+    }
+
     public String getQuery() {
         return query;
     }

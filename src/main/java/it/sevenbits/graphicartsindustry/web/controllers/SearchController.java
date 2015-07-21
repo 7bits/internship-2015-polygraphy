@@ -7,9 +7,9 @@ import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -40,8 +40,17 @@ public class SearchController {
         return "home/index";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
-    public String search(@ModelAttribute SearchForm form, final Model model) throws ServiceException{
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search(@RequestParam(value="query", required = false) String query,
+                         @RequestParam(value="serviceId", required = false, defaultValue = "0") Integer serviceId,
+                         @RequestParam(value="paymentMethod", required = false, defaultValue = "0") Integer paymentMethod,
+                         @RequestParam(value="deliveryMethod", required = false, defaultValue = "0") Integer deliveryMethod,
+                         @RequestParam(value="writesTheCheck", required = false, defaultValue = "false") Boolean writesTheCheck,
+                         @RequestParam(value="orderByEmail", required = false, defaultValue = "false") Boolean orderByEmail,
+                         final Model model) throws ServiceException{
+        SearchForm form = new SearchForm(query, serviceId, paymentMethod, deliveryMethod, writesTheCheck,
+                orderByEmail);
+
         // В модель добавим объект - список полиграфий
         model.addAttribute("services", service.findFrequentServices(limitRadioButton));
 

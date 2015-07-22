@@ -57,10 +57,9 @@ block append content
                         else
                             input(id='check2',name='orderByEmail', type='checkbox')
                             label(for='check2') принимает заказ по e-mail
-
                 button.submit(type='submit') НАЙТИ ПОЛИГРАФИЮ
     ul.results
-        p.no-results= polygraphyiesIsNull
+        span.no-results= polygraphyiesIsNull
         for polygraphy in polygraphies
             li
                 .icon

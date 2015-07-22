@@ -256,5 +256,6 @@ input[type="checkbox"]:checked+label{
     color: rgb(16, 80, 99);
     height: 30px;
     line-height: 30px;
+    padding: 0 40px;
 }
 

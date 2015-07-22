@@ -61,7 +61,11 @@ function call(event) {
 $(document).ready(function(){
     $("#form").on('submit', call);
 
+    $("button.submit").click(function(){
+        $(".filter-field").slideToggle();
+    });
+
     $("div.hide-show-search").click(function(){
-        $(".filter-field").slideToggle()();
+        $(".filter-field").slideToggle();
     });
 });

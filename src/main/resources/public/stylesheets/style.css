@@ -182,7 +182,7 @@ input[type="checkbox"]:checked+label{
 }
 
 .results{
-    margin: 50px auto;
+    margin: auto;
     padding: 0;
 }
 

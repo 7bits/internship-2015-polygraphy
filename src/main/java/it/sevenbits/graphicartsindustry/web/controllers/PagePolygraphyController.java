@@ -19,12 +19,9 @@ public class PagePolygraphyController {
     public String index(@PathVariable(value = "id") int id, final Model model) throws ServiceException {
         // В модель добавим объект - полиграфию с полной информацией
 
-//Добавить обработчик try на 404
         PolygraphyFullModel polygraphy = service.showPolygraphy(id);
         model.addAttribute("polygraphy", polygraphy);
 
-        // Так как нет аннотации @ResponseBody, то spring будет искать шаблон по адресу home/index
-        // Если шаблона не будет найдено, то вернется 404 ошибка
         return "home/page";
     }
 }

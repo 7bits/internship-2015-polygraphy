@@ -32,7 +32,9 @@ public class PolygraphyRepository implements SearchRepository{
 
     public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
-            return mapper.findPolygraphies(query.getQuery().toLowerCase(), query.getServiceId(), query.getPaymentMethod(),
+            String symbolIsBanned = "'";
+            String processedQuery = query.getQuery().replaceAll(symbolIsBanned,"");
+            return mapper.findPolygraphies(processedQuery.toLowerCase(), query.getServiceId(), query.getPaymentMethod(),
                     query.getWritesTheCheck(), query.getDeliveryMethod(), query.getOrderByEmail());
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);

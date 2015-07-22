@@ -19,6 +19,8 @@ public class SearchForm {
         this.orderByEmail = orderByEmail;
     }
 
+    public SearchForm() {}
+
     public String getQuery() {
         return query;
     }

@@ -24,18 +24,19 @@ body{
 
 .search{
     text-align: center;
-    margin: 40px auto;
+    margin: 5px auto;
 }
 
 .search-line{
-    margin: 20px auto;
+    margin: 5px auto;
 }
 
 .search-field{
     width: 845px;
     padding: 15px;
     border: none;
-    box-shadow: 0 0 10px 5px rgb(171, 171, 171);
+    border-radius: 10px 10px 0 0;
+    //box-shadow: 0 0 10px 5px rgb(171, 171, 171);
     background: url(../images/loupe.png) no-repeat;
     background-origin: padding-box;
     background-position: 15px center;
@@ -55,7 +56,7 @@ body{
     height: 340px;
     margin: auto;
     background-color: white;
-    box-shadow: 0 0 10px 5px rgb(171, 171, 171);
+    //box-shadow: 0 0 10px 5px rgb(171, 171, 171);
 }
 
 .radiobuttons{
@@ -177,6 +178,7 @@ input[type="checkbox"]:checked+label{
     border: none;
     border-radius: 10px;
     font-family: "FregatRegular";
+    outline: none;
 }
 
 .results{
@@ -257,5 +259,17 @@ input[type="checkbox"]:checked+label{
     height: 30px;
     line-height: 30px;
     padding: 0 40px;
+}
+
+.hide-show-search{
+    background-color: white;
+    color: #ccc;
+    font-size: 16px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 0 0 10px 10px;
+    //box-shadow: 0 0 10px 2px rgb(171, 171, 171);
+    cursor: pointer;
 }
 

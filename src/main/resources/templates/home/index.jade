@@ -6,7 +6,7 @@ block append content
         a(href='/')
             .logo
     .search
-        form(method='get', action='/search')
+        form(id='form', method='post', action='/search')
             .search-line
                 if form != null
                     if form.query != ""
@@ -58,16 +58,37 @@ block append content
                             input(id='check2',name='orderByEmail', type='checkbox')
                             label(for='check2') принимает заказ по e-mail
                 button.submit(type='submit') НАЙТИ ПОЛИГРАФИЮ
-    ul.results
-        span.no-results= polygraphyiesIsNull
-        for polygraphy in polygraphies
+    .hide-show-search
+        Показать/скрыть поиск
+
+    #polygraphiesList
+        ul.results
+            span.no-results= polygraphyiesIsNull
+            for polygraphy in polygraphies
+                li
+                    .icon
+                    .info
+                        h3= polygraphy.name
+                        = polygraphy.addres
+                        br
+                        = polygraphy.phone
+                    .detail(id='polygraphy-page')
+                        a(href='/polygraphy/#{polygraphy.id}')
+                            |Подробнее
+
+    script(id='polygraphies', type='text/x-handlebars-template')
+        ul.results
+            span.no-results {{polygraphyiesIsNull}}
+
+            | {{#each polygraphies}}
             li
                 .icon
                 .info
-                    h3= polygraphy.name
-                    = polygraphy.addres
+                    h3 {{name}}
+                    {{addres}}
                     br
-                    = polygraphy.phone
+                    {{phone}}
                 .detail(id='polygraphy-page')
-                    a(href='/polygraphy/#{polygraphy.id}')
+                    a(href='/polygraphy/{{id}}')
                         |Подробнее
+            | {{/each}}

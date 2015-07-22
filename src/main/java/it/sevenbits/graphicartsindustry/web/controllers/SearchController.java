@@ -7,10 +7,7 @@ import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -81,26 +78,10 @@ public class SearchController {
         return "home/index";
     }
 
-    @RequestMapping(value = "/results", method = RequestMethod.POST)
-    public String results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
-
-        if (form.getQuery().isEmpty() && form.getServiceId()==0 && form.getPaymentMethod()==0 &&
-                form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
-                form.getOrderByEmail()==false)
-            // В модель добавим объект - рандомный список полиграфий
-            model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
-        else {
-            List<PolygraphyMinModel> polygraphies = service.findPolygraphies(form);
-            // В модель добавим объект - список полиграфий удовлетвояющих поиску
-            model.addAttribute("polygraphies", polygraphies);
-            // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
-            if (polygraphies.size() == 0)
-                model.addAttribute("polygraphyiesIsNull", "Ни одна из полиграфий не удовлетворяет " +
-                        "требованиям запроса");
-            else
-                model.addAttribute("polygraphyiesIsNull", "");
-        }
-        return "home/index";
-
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    @ResponseBody
+    public List<PolygraphyMinModel> results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
+        List<PolygraphyMinModel> polygraphies = service.findPolygraphies(form);
+        return polygraphies;
     }
 }

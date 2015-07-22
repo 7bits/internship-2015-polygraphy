@@ -20,30 +20,48 @@ $(function(){
     //$('select > option').css("color", "red");
 });
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     $('form').submit(function(){
     // собираешь параметры с формы
     // отправляешь запрос с параметрами
     // рисуешь резльтат
+        var msg = $('form').serialize();
         $.ajax({
             url: '/results',
             type: 'POST',
-            dataType: 'html',
-            //data: '.results',
+            data: msg,
             success: function(data){
-                $('.results').html(data)
+                $('.results').html(data);
             }
         });
         return false;
     });
-});
+});*/
+
+function call(event) {
+    event.preventDefault();
+    var template = Handlebars.compile($('#polygraphies').html());
+    var msg = $('#form').serialize();
+    window.history.pushState('','', 'search?' + msg);
+    $.ajax({
+        type: 'POST',
+        url: '/search',
+        data: msg,
+        success: function(data) {
+            console.log(data);
+            var html = template({polygraphies: data});
+            $('#polygraphiesList').html(html);
+        },
+        error:  function(xhr, str){
+              alert('Возникла ошибка: ' + xhr.responseCode);
+        }
+    });
+}
 
 $(document).ready(function(){
-    $("button.submit").click(function(){
-        $(".search").slideUp("slow")(function(){
-            $(".logo").click(function(){
-                $(".search").slideDown("slow");
-            });
-        });
+    $("#form").on('submit', call);
+
+    $("div.hide-show-search").click(function(){
+        $(".filter-field").slideToggle()();
     });
 });

@@ -61,6 +61,8 @@ block append content
     .hide-show-search
         Показать/скрыть поиск
 
+    p.top-line
+        РЕЗУЛЬТАТЫ ПОИСКА
     #polygraphiesList
         span.no-results= results.polygraphiesListIsNull
         ul.results
@@ -91,3 +93,4 @@ block append content
                     a(href='/polygraphy/{{id}}')
                         |Подробнее
             | {{/each}}
+    p.bottom-line

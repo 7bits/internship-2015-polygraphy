@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.web.domain.PolygraphyResponse;
 import it.sevenbits.graphicartsindustry.web.domain.SearchForm;
 import it.sevenbits.graphicartsindustry.web.service.SearchService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Controller
 public class SearchController {
@@ -65,23 +63,39 @@ public class SearchController {
             // В модель добавим объект - рандомный список полиграфий
             model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
         else {
-            List<PolygraphyMinModel> polygraphies = service.findPolygraphies(form);
-            // В модель добавим объект - список полиграфий удовлетвояющих поиску
-            model.addAttribute("polygraphies", polygraphies);
-            // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
-            if (polygraphies.size() == 0)
-                model.addAttribute("polygraphyiesIsNull", "Ни одна из полиграфий не удовлетворяет " +
+            PolygraphyResponse results = new PolygraphyResponse();
+            results.setPolygraphies(service.findPolygraphies(form));
+            if (results.getPolygraphies().size()==0)
+                results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
                         "требованиям запроса");
             else
-                model.addAttribute("polygraphyiesIsNull", "");
+                results.setPolygraphiesListIsNull("");
+            model.addAttribute("results", results);
         }
         return "home/index";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public List<PolygraphyMinModel> results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
-        List<PolygraphyMinModel> polygraphies = service.findPolygraphies(form);
-        return polygraphies;
+    public PolygraphyResponse results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
+
+        PolygraphyResponse results = new PolygraphyResponse();
+        if (form.getQuery().isEmpty() && form.getServiceId()==0 && form.getPaymentMethod()==0 &&
+                form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
+                form.getOrderByEmail()==false) {
+            // В модель добавим объект - рандомный список полиграфий
+            results.setPolygraphies(service.findAll(limitPolygraphy));
+            results.setPolygraphiesListIsNull("");
+        }
+        else {
+            results.setPolygraphies(service.findPolygraphies(form));
+            if (results.getPolygraphies().size() == 0)
+                results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
+                        "требованиям запроса");
+            else
+                results.setPolygraphiesListIsNull("");
+        }
+
+        return results;
     }
 }

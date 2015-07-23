@@ -49,7 +49,8 @@ function call(event) {
         data: msg,
         success: function(data) {
             console.log(data);
-            var html = template({polygraphies: data});
+            var html = template({polygraphies: data.polygraphies,
+            polygraphiesListIsNull: data.polygraphiesListIsNull});
             $('#polygraphiesList').html(html);
         },
         error:  function(xhr, str){

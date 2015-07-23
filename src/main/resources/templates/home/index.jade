@@ -61,11 +61,9 @@ block append content
     .hide-show-search
         Показать/скрыть поиск
 
-    p.top-line
-        РЕЗУЛЬТАТЫ ПОИСКА
     #polygraphiesList
-        span.no-results= results.polygraphiesListIsNull
         ul.results
+            li.top-line РЕЗУЛЬТАТЫ ПОИСКА
             for polygraphy in results.polygraphies
                 li
                     .icon
@@ -77,10 +75,12 @@ block append content
                     .detail(id='polygraphy-page')
                         a(href='/polygraphy/#{polygraphy.id}')
                             |Подробнее
+            li.bottom-line
+        p.no-results= results.polygraphiesListIsNull
 
     script(id='results', type='text/x-handlebars-template')
-        span.no-results {{polygraphiesListIsNull}}
         ul.results
+            li.top-line РЕЗУЛЬТАТЫ ПОИСКА
             | {{#each polygraphies}}
             li
                 .icon
@@ -93,4 +93,5 @@ block append content
                     a(href='/polygraphy/{{id}}')
                         |Подробнее
             | {{/each}}
-    p.bottom-line
+            li.bottom-line
+        p.no-results {{polygraphiesListIsNull}}

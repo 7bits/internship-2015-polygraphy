@@ -59,7 +59,14 @@ function call(event) {
     });
 }
 
+/*
+    if(msg=='query='){
+        $('button.submit').attr('disabled', true);
+    };
+*/
+
 $(document).ready(function(){
+
     $("#form").on('submit', call);
 
     $("button.submit").click(function(){

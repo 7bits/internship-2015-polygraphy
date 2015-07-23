@@ -64,6 +64,8 @@ block append content
     #polygraphiesList
         ul.results
             li.top-line РЕЗУЛЬТАТЫ ПОИСКА
+            if results.polygraphiesListIsNull!=''
+                p.no-results= results.polygraphiesListIsNull
             for polygraphy in results.polygraphies
                 li
                     .icon
@@ -76,11 +78,13 @@ block append content
                         a(href='/polygraphy/#{polygraphy.id}')
                             |Подробнее
             li.bottom-line
-        p.no-results= results.polygraphiesListIsNull
 
     script(id='results', type='text/x-handlebars-template')
         ul.results
             li.top-line РЕЗУЛЬТАТЫ ПОИСКА
+            | {{#if polygraphiesListIsNull}}
+            p.no-results {{polygraphiesListIsNull}}
+            | {{/if}}
             | {{#each polygraphies}}
             li
                 .icon
@@ -94,4 +98,3 @@ block append content
                         |Подробнее
             | {{/each}}
             li.bottom-line
-        p.no-results {{polygraphiesListIsNull}}

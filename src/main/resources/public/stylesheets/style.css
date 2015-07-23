@@ -256,6 +256,13 @@ input[type="checkbox"]:checked+label{
     padding: 0 40px;
 }
 
+p.no-results{
+    margin: 0;
+    width: auto;
+    height: auto;
+    padding: 0px;
+}
+
 .hide-show-search{
     background-color: white;
     color: #ccc;

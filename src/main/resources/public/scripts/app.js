@@ -40,7 +40,7 @@ $(function(){
 
 function call(event) {
     event.preventDefault();
-    var template = Handlebars.compile($('#polygraphies').html());
+    var template = Handlebars.compile($('#results').html());
     var msg = $('#form').serialize();
     window.history.pushState('','', 'search?' + msg);
     $.ajax({

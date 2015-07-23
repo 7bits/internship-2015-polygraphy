@@ -76,8 +76,8 @@ block append content
                         a(href='/polygraphy/#{polygraphy.id}')
                             |Подробнее
 
-    script(id='polygraphies', type='text/x-handlebars-template')
-        span.no-results= {{polygraphiesListIsNull}}
+    script(id='results', type='text/x-handlebars-template')
+        span.no-results {{polygraphiesListIsNull}}
         ul.results
             | {{#each polygraphies}}
             li

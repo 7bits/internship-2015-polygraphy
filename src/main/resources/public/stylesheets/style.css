@@ -196,10 +196,10 @@ input[type="checkbox"]:checked+label{
 }
 
 .results li{
-    height: 124px;
+    height: 130px;
     list-style-type: none;
     margin: 5px auto;
-    padding: 28px 100px;
+    padding: 0 100px;
     background-color: rgb(142, 199, 210);
 }
 
@@ -208,27 +208,32 @@ input[type="checkbox"]:checked+label{
     background-repeat: no-repeat;
     float: left;
     background-size: auto;
-    width: 124px;
-    height: 123px;
+    width: 111px;
+    height: 110px;
+    margin: 10px 0;
 }
 
 .info{
     float: left;
-    margin: 20px 30px;
+    margin: 15px 30px;
     color: rgb(16, 80, 99);
     font-size: 18px;
-    width: 345px;
+    width: 355px;
+    max-height: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
-
+    white-space: nowrap;
 }
 
-.info h3{
+.info div{
     text-align: left;
     color: white;
-    font-size: 26px;
+    font-size: 27px;
     margin: auto;
-    padding: 0 0 10px 0;
+    padding: 0 0 20px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .detail{

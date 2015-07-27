@@ -68,7 +68,9 @@ block append content
                 li
                     .icon
                     .info
-                        div= polygraphy.name
+                        .polygraphy-name
+                            a(href='/polygraphy/#{polygraphy.id}')
+                                = polygraphy.name
                         = polygraphy.addres
                         br
                         = polygraphy.phone

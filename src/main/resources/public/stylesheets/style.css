@@ -116,6 +116,7 @@ select.delivery-method {
     background-repeat: no-repeat;
     background-color: rgb(142, 199, 210);
     line-height: 1em;
+    cursor: pointer;
   /* for FF */
     -moz-appearance: none;
     text-indent: 0.01px;
@@ -175,6 +176,10 @@ input[type="checkbox"]:checked+label{
     height: 13px;
 }
 
+input[type="checkbox"]+label:hover{
+    cursor: pointer;
+}
+
 .submit{
     text-decoration: none;
     color: #FFF;
@@ -190,6 +195,11 @@ input[type="checkbox"]:checked+label{
     margin: 10px auto;
 }
 
+button[type="submit"]:hover{
+    cursor: pointer;
+    background-color: rgb(205, 94, 136);
+}
+
 .results{
     margin: auto;
     padding: 0;
@@ -201,6 +211,12 @@ input[type="checkbox"]:checked+label{
     margin: 5px auto;
     padding: 0 100px;
     background-color: rgb(142, 199, 210);
+}
+
+.polygraphy-name a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
 
 .icon{

@@ -1,6 +1,3 @@
-$(function(){
-    //$('select > option').css("display", "block");
-});
 
 function call(event) {
     event.preventDefault();
@@ -23,21 +20,16 @@ function call(event) {
     });
 }
 
-/*
-    if(msg=='query='){
-        $('button.submit').attr('disabled', true);
-    };
-*/
-
 $(document).ready(function(){
 
     $("#form").on('submit', call);
 
     $("button.submit").click(function(){
-        $(".filter-field").slideToggle();
+        $(".filter-field").slideUp();
     });
 
     $("div.hide-show-search").click(function(){
         $(".filter-field").slideToggle();
     });
+
 });

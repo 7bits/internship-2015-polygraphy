@@ -1,10 +1,10 @@
-package it.sevenbits.graphicartsindustry.web.domain;
+package it.sevenbits.graphicartsindustry.web.domain.content;
 
-public class PaymentMethodModel {
+public class ServiceModel {
     private int id;
     private String name;
 
-    public PaymentMethodModel(int id, String name) {
+    public ServiceModel(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -17,9 +17,7 @@ public class PaymentMethodModel {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public void setName(String name) {
         this.name = name;

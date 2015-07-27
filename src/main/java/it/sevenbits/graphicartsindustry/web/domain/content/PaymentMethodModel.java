@@ -1,10 +1,10 @@
-package it.sevenbits.graphicartsindustry.web.domain;
+package it.sevenbits.graphicartsindustry.web.domain.content;
 
-public class DeliveryMethodModel {
+public class PaymentMethodModel {
     private int id;
     private String name;
 
-    public DeliveryMethodModel(int id, String name) {
+    public PaymentMethodModel(int id, String name) {
         this.id = id;
         this.name = name;
     }

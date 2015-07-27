@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.core.repository;
+package it.sevenbits.graphicartsindustry.core.repository.search;
 
 import java.util.Map;
 

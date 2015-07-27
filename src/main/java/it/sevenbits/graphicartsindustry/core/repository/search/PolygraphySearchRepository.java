@@ -1,11 +1,9 @@
-package it.sevenbits.graphicartsindustry.core.repository;
+package it.sevenbits.graphicartsindustry.core.repository.search;
 
-import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
-import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
-import it.sevenbits.graphicartsindustry.core.domain.Service;
-import it.sevenbits.graphicartsindustry.core.mappers.SearchMapper;
-import it.sevenbits.graphicartsindustry.web.domain.SearchForm;
+import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
+import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,12 +13,12 @@ import java.util.List;
 
 @Repository
 @Qualifier(value = "polygraphyRepository")
-public class PolygraphyRepository implements SearchRepository{
+public class PolygraphySearchRepository implements PolygraphyRepository {
 
-    private static Logger LOG = Logger.getLogger(PolygraphyRepository.class);
+    private static Logger LOG = Logger.getLogger(PolygraphySearchRepository.class);
 
     @Autowired
-    private SearchMapper mapper;
+    private PolygraphyMapper mapper;
 
     public List<Polygraphy> findAll(int limit) throws RepositoryException {
         try {
@@ -36,30 +34,6 @@ public class PolygraphyRepository implements SearchRepository{
             String processedQuery = query.getQuery().replaceAll(symbolIsBanned,"");
             return mapper.findPolygraphies(processedQuery.toLowerCase(), query.getServiceId(), query.getPaymentMethod(),
                     query.getWritesTheCheck(), query.getDeliveryMethod(), query.getOrderByEmail());
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
-        }
-    }
-
-    public List<Service> findFrequentServices(int limit) throws RepositoryException {
-        try {
-            return mapper.findFrequentServices(limit);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
-        }
-    }
-
-    public List<PaymentMethod> findPaymentMethods() throws RepositoryException {
-        try {
-            return mapper.findPaymentMethods();
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
-        }
-    }
-
-    public List<DeliveryMethod> findDeliveryMethods() throws RepositoryException {
-        try {
-            return mapper.findDeliveryMethods();
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
         }

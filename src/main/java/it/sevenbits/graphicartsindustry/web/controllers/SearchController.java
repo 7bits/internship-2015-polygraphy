@@ -1,8 +1,9 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.web.domain.PolygraphyResponse;
-import it.sevenbits.graphicartsindustry.web.domain.SearchForm;
-import it.sevenbits.graphicartsindustry.web.service.SearchService;
+import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
+import it.sevenbits.graphicartsindustry.web.service.ContentService;
+import it.sevenbits.graphicartsindustry.web.service.PolygraphyService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,10 @@ public class SearchController {
     private final int limitRadioButton = 6;
 
     @Autowired
-    private SearchService service;
+    private PolygraphyService polygraphyService;
+
+    @Autowired
+    private ContentService contentService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(final Model model) throws ServiceException {
@@ -23,17 +27,17 @@ public class SearchController {
         model.addAttribute("form", null);
 
         // Добавим в модель объект - список сервисов
-        model.addAttribute("services", service.findFrequentServices(limitRadioButton));
+        model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
         // Добавим в модель объект - список методов оплаты
-        model.addAttribute("paymentMethods", service.findPaymentMethods());
+        model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         // Добавим в модель объект - список методов доставки
-        model.addAttribute("deliveryMethods", service.findDeliveryMethods());
+        model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
 
 
         // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
         model.addAttribute("polygraphyiesIsNull", "");
         // В модель добавим объект - рандомный список полиграфий
-        model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
+        model.addAttribute("polygraphies", polygraphyService.findAll(limitPolygraphy));
         return "home/index";
     }
 
@@ -51,20 +55,20 @@ public class SearchController {
         model.addAttribute("form", form);
 
         // В модель добавим объект - список полиграфий
-        model.addAttribute("services", service.findFrequentServices(limitRadioButton));
+        model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
         // Добавим в модель объект - список методов оплаты
-        model.addAttribute("paymentMethods", service.findPaymentMethods());
+        model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         // Добавим в модель объект - список методов доставки
-        model.addAttribute("deliveryMethods", service.findDeliveryMethods());
+        model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
 
         if (form.getQuery().isEmpty() && form.getServiceId()==0 && form.getPaymentMethod()==0 &&
                 form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.getOrderByEmail()==false)
             // В модель добавим объект - рандомный список полиграфий
-            model.addAttribute("polygraphies", service.findAll(limitPolygraphy));
+            model.addAttribute("polygraphies", polygraphyService.findAll(limitPolygraphy));
         else {
             PolygraphyResponse results = new PolygraphyResponse();
-            results.setPolygraphies(service.findPolygraphies(form));
+            results.setPolygraphies(polygraphyService.findPolygraphies(form));
             if (results.getPolygraphies().size()==0)
                 results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
                         "требованиям запроса");
@@ -84,11 +88,11 @@ public class SearchController {
                 form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.getOrderByEmail()==false) {
             // В модель добавим объект - рандомный список полиграфий
-            results.setPolygraphies(service.findAll(limitPolygraphy));
+            results.setPolygraphies(polygraphyService.findAll(limitPolygraphy));
             results.setPolygraphiesListIsNull("");
         }
         else {
-            results.setPolygraphies(service.findPolygraphies(form));
+            results.setPolygraphies(polygraphyService.findPolygraphies(form));
             if (results.getPolygraphies().size() == 0)
                 results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
                         "требованиям запроса");

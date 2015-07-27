@@ -1,5 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.domain;
 
+import it.sevenbits.graphicartsindustry.web.domain.search.PolygraphyMinModel;
+
 import java.util.List;
 
 public class PolygraphyResponse {

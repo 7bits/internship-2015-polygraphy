@@ -17,7 +17,6 @@ public class PagePolygraphyController {
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET)
     public String index(@PathVariable(value = "id") int id, final Model model) throws ServiceException {
-        // В модель добавим объект - полиграфию с полной информацией
 
         PolygraphyFullModel polygraphy = service.showPolygraphy(id);
         model.addAttribute("polygraphy", polygraphy);

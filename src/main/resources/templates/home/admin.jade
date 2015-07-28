@@ -1,0 +1,8 @@
+extends ../layout
+
+block append content
+    form(action='/admin', method='post')
+        input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+        button.btn.btn-success(type="submit") Generate the link
+    p= generate
+

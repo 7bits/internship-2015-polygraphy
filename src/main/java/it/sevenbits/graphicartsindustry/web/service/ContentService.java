@@ -16,6 +16,7 @@ import java.util.List;
 public class ContentService {
     @Autowired
     private ContentRepository repository;
+
     public List<ServiceModel> findFrequentServices(int limit) throws ServiceException {
         try {
             List<it.sevenbits.graphicartsindustry.core.domain.Service> services = repository.findFrequentServices(limit);

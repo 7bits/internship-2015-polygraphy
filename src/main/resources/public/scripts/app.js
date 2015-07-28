@@ -40,6 +40,10 @@ $(function(){
 
 function call(event) {
     event.preventDefault();
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers = {};
+    headers[header] = token;
     var template = Handlebars.compile($('#results').html());
     var msg = $('#form').serialize();
     window.history.pushState('','', 'search?' + msg);
@@ -47,6 +51,7 @@ function call(event) {
         type: 'POST',
         url: '/search',
         data: msg,
+        headers: headers,
         success: function(data) {
             console.log(data);
             var html = template({polygraphies: data.polygraphies,
@@ -54,6 +59,7 @@ function call(event) {
             $('#polygraphiesList').html(html);
         },
         error:  function(xhr, str){
+                console.log(arguments);
               alert('Возникла ошибка: ' + xhr.responseCode);
         }
     });

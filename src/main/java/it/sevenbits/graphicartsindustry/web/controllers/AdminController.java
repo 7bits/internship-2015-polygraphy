@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.core.domain.RegistrationLink;
 import it.sevenbits.graphicartsindustry.web.service.RegistrationLinkService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class AdminController {
-    private String linkBasic = "http://localhost:9000/registration-link/";
-    private int min = 100000;
-    private int max = 999999;
+
 
     @Autowired
     private RegistrationLinkService service;
@@ -26,12 +25,12 @@ public class AdminController {
     @RequestMapping(value = "/admin", method = RequestMethod.POST)
     public String generate(final Model model) throws ServiceException {
 
-        int number = min + (int)(Math.random() * ((max - min) + 1));
-        String strNumber = Integer.toString(number);
+        RegistrationLink link = service.generateRegistrationLink();
+        model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
+                + link.getHash());
 
-        service.saveRegistrationLink(linkBasic + strNumber);
+        service.saveRegistrationLink(link);
 
-        model.addAttribute("generate", linkBasic + strNumber);
         return "home/admin";
     }
 }

@@ -20,6 +20,10 @@ function call(event) {
     });
 }
 
+
+//$(".payment-method-items").css({display:'none',visibility:'hidden'});
+//$(".delivery-method-items").css({display:'none',visibility:'hidden'});
+
 $(document).ready(function(){
 
     $("#form").on('submit', call);
@@ -32,7 +36,20 @@ $(document).ready(function(){
         $(".filter-field").slideToggle();
     });
 
-    /*$("input:radio").bind("change click", function () {
-        $(this).parent().css("backgroundColor", "#f3e642");
-    });*/
+    $(".payment-placeholder").click(function(){
+        $(".payment-method-items").slideToggle();
+    });
+
+    $(".delivery-placeholder").click(function(){
+        $(".delivery-method-items").slideToggle();
+    });
+
+    $("input.item-selection-payment").click(function(){
+        $(".payment-method-items").slideUp("slow");
+    });
+
+    $("input.item-selection-delivery").click(function(){
+        $(".delivery-method-items").slideUp("slow");
+    });
+
 });

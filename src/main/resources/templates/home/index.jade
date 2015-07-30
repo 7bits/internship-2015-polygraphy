@@ -15,6 +15,7 @@ block append content
             Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
             br
             Мы найдем полиграфии для ваших задач!
+
     .search
         form(id='form', method='post', action='/search')
             .search-line
@@ -27,26 +28,38 @@ block append content
                     input.search-field(name='query', type='text', placeholder='Что искать?')
                 .submit
                     button(type='submit') НАЙТИ ПОЛИГРАФИЮ
+
             .radiobuttons
                 Часто ищут:
                 for service in services
                     .btn
                         if service.id == form.serviceId
-                            input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio', checked)
+                            input.often-seek(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio', checked)
                             label(for='btn'+service.id)=service.name
                         else
-                            input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio')
+                            input.often-seek(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio')
                             label(for='btn'+service.id)=service.name
+
             .extended-search
                 .extended-search-title
                     РАСШИРЕННЫЙ ПОИСК
-                select.payment-method(name='paymentMethod')
-                    option.disabled(selected='', value=0) Способ оплаты
-                    for _paymentMethod in paymentMethods
-                        if _paymentMethod.id == form.paymentMethod
-                            option(value='#{_paymentMethod.id}', selected=true)=_paymentMethod.name
-                        else
-                            option(value='#{_paymentMethod.id}')=_paymentMethod.name
+                .payment-method
+                    .payment-placeholder
+                        Способ оплаты
+                    .payment-method-items
+                        .item
+                            input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value=0, checked)
+                            label(for='item1'+_paymentMethod.id) Любой
+                        for _paymentMethod in paymentMethods
+                            if _paymentMethod.id == form.paymentMethod
+                                .item
+                                    input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}', checked=true)
+                                    label(for='item1'+_paymentMethod.id)= _paymentMethod.name
+                            else
+                                .item
+                                    input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}')
+                                    label(for='item1'+_paymentMethod.id)= _paymentMethod.name
+
                 .checkboxes
                     .check
                         if form.writesTheCheck == true
@@ -55,13 +68,24 @@ block append content
                         else
                             input(id='check1', name='writesTheCheck', type='checkbox')
                             label(for='check1') Выдает чек
-                select.delivery-method(name='deliveryMethod')
-                    option.disabled(selected='', value=0) Доставка
-                    for _deliveryMethod in deliveryMethods
-                        if _deliveryMethod.id == form.deliveryMethod
-                            option(value='#{_deliveryMethod.id}', selected=true)=_deliveryMethod.name
-                        else
-                            option(value='#{_deliveryMethod.id}')=_deliveryMethod.name
+
+                .delivery-method
+                    .delivery-placeholder
+                        Способ доставки
+                    .delivery-method-items
+                        .item
+                            input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value=0, checked)
+                            label(for='item2'+_deliveryMethod.id) Любой
+                        for _deliveryMethod in deliveryMethods
+                            if _deliveryMethod.id == form.deliveryMethod
+                                .item
+                                    input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}', checked=true)
+                                    label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
+                            else
+                                .item
+                                    input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}')
+                                    label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
+
                 .checkboxes
                     .check
                         if form.orderByEmail == true
@@ -70,6 +94,7 @@ block append content
                         else
                             input(id='check2',name='orderByEmail', type='checkbox')
                             label(for='check2') Принимает заказ по e-mail
+
                 button.extend-submit(type='submit') Показать
 
     #polygraphiesList

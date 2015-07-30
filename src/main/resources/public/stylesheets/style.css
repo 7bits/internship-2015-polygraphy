@@ -129,7 +129,7 @@ body{
 }
 
 .submit>button:hover{
-    background-color: #63b434;
+    background-color: #88d280;
     cursor: pointer;
 }
 
@@ -184,7 +184,7 @@ body{
     color: black;
 }
 
-input[type="radio"]{
+input.often-seek[type="radio"]{
     display: none;
 }
 
@@ -193,66 +193,76 @@ input[type="radio"]{
     background-color: #f3e642;
 }
 
-input[type="radio"]+label:hover{
+input.often-seek[type="radio"]+label:hover{
     cursor: pointer;
 }
 
-input[type="radio"]:checked+label{
+input.often-seek[type="radio"]:checked+label{
     background-color: #f3e642;
 }
 
-select.payment-method,
-select.delivery-method {
-    width: 290px;
-    height: 40px;
-    margin-bottom: 15px;
-    padding-left: 22px;
-    border: none;
-    border-radius: 20px;
+
+.payment-method,
+.delivery-method{
+    margin: 20px 0 20px 40px;
     font-family: "OpenSansLightRegular";
     font-size: 16px;
-    -webkit-appearance: none;
-    background-image: url('../images/arrow.png');
-    background-position: calc(100% - 30px) center;
-    background-repeat: no-repeat;
+    display: block;
+    line-height: 40px;
     background-color: white;
-    line-height: 1em;
+    width: 290px;
+    border-radius: 20px;
     cursor: pointer;
-  /* for FF */
-    -moz-appearance: none;
-    text-indent: 0.01px;
-    text-overflow: '';
-  /* for IE */
-    -ms-appearance: none;
-    appearance: none!important;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-align: left;
+    text-indent: 22px;
 }
 
-select.payment-method option,
-select.delivery-method option{
-    padding-left: 22px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.payment-placeholder,
+.delivery-placeholder{
+    background: url("../images/arrow.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 90%;
 }
 
-option.disabled{
-    color: rgb(105, 105, 105);
+.payment-method-items,
+.delivery-method-items{
+    display: none;
 }
 
-select::-ms-expand {
-  display: none;
+.item > label{
+    width: auto;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: black;
 }
 
-select:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
+input.item-selection-payment[type="radio"],
+input.item-selection-delivery[type="radio"]{
+    display: none;
+}
+
+input.item-selection-payment[type="radio"]+label:hover,
+input.item-selection-delivery[type="radio"]+label:hover{
+    cursor: pointer;
+    background-color: #f3e642;
+}
+
+input.item-selection-payment[type="radio"]:checked+label,
+input.item-selection-delivery[type="radio"]:checked+label{
+    background-color: #f3e642;
 }
 
 .checkboxes{
-    //margin-bottom: 15px;
     margin: auto auto 15px auto;
     height: auto;
     width: 290px;
-    //line-height: 40px;
     text-align: left;
     color: white;
     font-family: "OpenSansLightRegular";
@@ -262,6 +272,9 @@ select:-moz-focusring {
 .check{
     margin: 0;
     margin-left: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 input[type="checkbox"]{
@@ -269,14 +282,14 @@ input[type="checkbox"]{
 }
 
 input[type="checkbox"]+label{
-    background: url(../images/check.png) 0px 0px no-repeat;
+    background: url("../images/check.png") 0px 0px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
 input[type="checkbox"]:checked+label{
-    background: url(../images/check.png) 0 -30px no-repeat;
+    background: url("../images/check.png") 0 -30px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
@@ -336,21 +349,6 @@ button.extend-submit[type="submit"]:hover{
     color: black;
     cursor: pointer;
 }
-
-/*.services{
-    height: 100px;
-    width: 100px;
-    margin: 0 20px;
-    float: left;
-}
-
-.service-icon{
-    background-image: url("../images/circle1-4.png");
-    background-repeat: no-repeat;
-    height: 30px;
-    width: 30px;
-    display: inline-block;
-}*/
 
 table.services{
     margin: auto 20px;

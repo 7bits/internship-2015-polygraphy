@@ -14,8 +14,23 @@ import java.util.List;
 
 @Service
 public class ContentService {
+
     @Autowired
     private ContentRepository repository;
+
+    public List<ServiceModel> findAllServices() throws ServiceException {
+        try {
+            List<it.sevenbits.graphicartsindustry.core.domain.Service> services = repository.findAllServices();
+            List<ServiceModel> models = new ArrayList<>(services.size());
+            for (it.sevenbits.graphicartsindustry.core.domain.Service s: services) {
+                models.add(new ServiceModel(s.getId(), s.getName()));
+            }
+            return models;
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while retrieving all services: "
+                    + e.getMessage(), e);
+        }
+    }
 
     public List<ServiceModel> findFrequentServices(int limit) throws ServiceException {
         try {
@@ -26,7 +41,8 @@ public class ContentService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new ServiceException("An error occurred while retrieving frequent services: "
+                    + e.getMessage(), e);
         }
     }
 
@@ -39,7 +55,8 @@ public class ContentService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new ServiceException("An error occurred while retrieving payment methods: "
+                    + e.getMessage(), e);
         }
     }
 
@@ -52,7 +69,8 @@ public class ContentService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new ServiceException("An error occurred while retrieving delivery methods: "
+                    + e.getMessage(), e);
         }
     }
 }

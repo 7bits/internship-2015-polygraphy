@@ -15,16 +15,27 @@ import java.util.List;
 @Repository
 @Qualifier(value = "contentRepository")
 public class ContentRepository {
+
     private static Logger LOG = Logger.getLogger(ContentRepository.class);
 
     @Autowired
     private ContentMapper mapper;
 
+    public List<Service> findAllServices() throws RepositoryException {
+        try {
+            return mapper.findAllServices();
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving all services: "
+                    + e.getMessage(), e);
+        }
+    }
+
     public List<Service> findFrequentServices(int limit) throws RepositoryException {
         try {
             return mapper.findFrequentServices(limit);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving frequent services: "
+                    + e.getMessage(), e);
         }
     }
 
@@ -32,7 +43,8 @@ public class ContentRepository {
         try {
             return mapper.findPaymentMethods();
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving payment methods: "
+                    + e.getMessage(), e);
         }
     }
 
@@ -40,7 +52,8 @@ public class ContentRepository {
         try {
             return mapper.findDeliveryMethods();
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving delivery methods: "
+                    + e.getMessage(), e);
         }
     }
 }

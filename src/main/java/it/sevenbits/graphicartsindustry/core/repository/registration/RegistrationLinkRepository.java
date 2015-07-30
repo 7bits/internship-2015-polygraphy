@@ -1,6 +1,5 @@
 package it.sevenbits.graphicartsindustry.core.repository.registration;
 
-import it.sevenbits.graphicartsindustry.core.domain.RegistrationLink;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationLinkMapper;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import org.apache.log4j.Logger;
@@ -9,7 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@Qualifier(value = "registrationLinkRepositoryC")
+@Qualifier(value = "registrationLinkRepository")
 public class RegistrationLinkRepository {
 
     private static Logger LOG = Logger.getLogger(RegistrationLinkRepository.class);
@@ -17,28 +16,30 @@ public class RegistrationLinkRepository {
     @Autowired
     private RegistrationLinkMapper mapper;
 
-    public void save(String link) throws RepositoryException {
+    public void save(String hash) throws RepositoryException {
         try {
-            mapper.save(link);
+            mapper.save(hash);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while saving hash registration link: "
+                    + e.getMessage(), e);
         }
     }
 
-    public void delete(String link) throws RepositoryException {
+    public void delete(String hash) throws RepositoryException {
         try {
-            mapper.delete(link);
+            mapper.delete(hash);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while deleting hash registration link: "
+                    + e.getMessage(), e);
         }
     }
 
-    public RegistrationLink find(String link) throws RepositoryException {
+    public String find(String hash) throws RepositoryException {
         try {
-            RegistrationLink l = mapper.find(link);
-            return mapper.find(link);
+            return mapper.find(hash);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving hash registration link: "
+                    + e.getMessage(), e);
         }
     }
 }

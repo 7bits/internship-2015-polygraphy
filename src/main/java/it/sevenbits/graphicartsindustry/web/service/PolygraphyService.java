@@ -13,6 +13,7 @@ import java.util.List;
 
 @Service
 public class PolygraphyService {
+
     @Autowired
     private PolygraphyRepository repository;
 
@@ -25,7 +26,7 @@ public class PolygraphyService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new ServiceException("An error occurred while retrieving all polygraphies: " + e.getMessage(), e);
         }
     }
 
@@ -38,18 +39,20 @@ public class PolygraphyService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new ServiceException("An error occurred while retrieving polygraphies " +
+                    "satisfy the query: " + e.getMessage(), e);
         }
     }
 
-    public PolygraphyFullModel showPolygraphy(int id) throws ServiceException {
+    public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
         try {
             Polygraphy polygraphy = repository.findPolygraphy(id);
             PolygraphyFullModel models = new PolygraphyFullModel(polygraphy.getId(), polygraphy.getName(),
                     polygraphy.getAddres(), polygraphy.getEmail(), polygraphy.getWebsite(),polygraphy.getPhone());
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new ServiceException("An error occurred while retrieving full information " +
+                    "about polygraphy: " + e.getMessage(), e);
         }
     }
 }

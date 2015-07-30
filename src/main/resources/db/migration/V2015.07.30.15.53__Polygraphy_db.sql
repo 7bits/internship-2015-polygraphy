@@ -29,7 +29,7 @@ ALTER TABLE ONLY polygraphies_services ADD CONSTRAINT polygraphies_services_pkey
 
 CREATE TABLE contacts(
 	polygraphy_id serial NOT NULL,
-	addres varchar(256),
+	address varchar(256),
 	email varchar(256),
 	website varchar(256),
 	phone varchar(12)
@@ -69,7 +69,6 @@ CREATE TABLE polygraphies_delivery_methods(
 	polygraphy_id int,
 	delivery_method_id int
 );
-
 
 ALTER TABLE ONLY polygraphies_delivery_methods ADD CONSTRAINT polygraphies_delivery_methods_polygraphy_id_fkey FOREIGN KEY (polygraphy_id) REFERENCES polygraphy(id);
 ALTER TABLE ONLY polygraphies_delivery_methods ADD CONSTRAINT polygraphies_delivery_methods_delivery_method_id_fkey FOREIGN KEY (delivery_method_id) REFERENCES delivery_method(id);

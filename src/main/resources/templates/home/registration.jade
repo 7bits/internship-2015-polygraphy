@@ -2,15 +2,16 @@ extends ../layout
 
 block append content
 
-  form(method='post', action='/registration')
+  form(method='post', action='/registration-link?id=#{hash}')
     input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+    input(type='hidden', name='hash', value='#{hash}')
     .form-group
       label(for='email-input') Email
       input#email-input.form-control(name='email', placeholder='Our email', type='text')
     .form-group
       label(for='password-input') Password
       input#password-input.form-control(name='password', placeholder='Our password', type='password')
-
+    p
     .form-group
       label(for='name-input') Name
       input#name-input.form-control(name='name', placeholder='Name polygraphy', type='text')
@@ -21,43 +22,40 @@ block append content
       label(for='phone-input') Phone
       input#phone-input.form-control(name='phone', placeholder='Phone polygraphy', type='text')
     .form-group
-      label(for='public-email-input') Public email
-      input#public-email-input.form-control(name='public_email', placeholder='Our public email', type='text')
-
-    .checkboxes
-      .check
-        input(id='orderByEmail',name='orderByEmail', type='checkbox')
-        label(for='orderByEmail') принимает заказ по e-mail
+      label(for='email-public-input') Public email
+      input#email-public-input.form-control(name='emailPublic', placeholder='Our public email', type='text')
+    p
+      .checkboxes
+        .check
+          input(id='orderByEmail',name='orderByEmail', type='checkbox')
+          label(for='orderByEmail') принимает заказ по e-mail
 
     .form-group
-      label(for='url-input') URL
-      input#url-input.form-control(name='url', placeholder='URL site polygraphy', type='text')
+      label(for='website-input') URL website
+      input#website-input.form-control(name='website', placeholder='URL site polygraphy', type='text')
 
     .checkboxes
     p Принимаем оплату
-      .check
-        input(id='cash_payment',name='cash_payment', type='checkbox')
-        label(for='cash_payment') наличный расчет
-      .check
-        input(id='card_payment',name='card_payment', type='checkbox')
-        label(for='card_payment') расчет по карте
+      for paymentMethod in paymentMethods
+        .check
+          input(id='payment#{paymentMethod.id}',name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+          label(for='payment'+paymentMethod.id)=paymentMethod.name
     p
       .check
         input(id='writesTheCheck',name='writesTheCheck', type='checkbox')
         label(for='writesTheCheck') выдаем чек
 
     p Доставка готового заказа
-      .check
-        input(id='pickup_delivery',name='pickup_delivery', type='checkbox')
-        label(for='pickup_delivery') самовывоз
-      .check
-        input(id='courier_delivery',name='courier_delivery', type='checkbox')
-        label(for='courier_delivery') курьер
-    p Предоставляемы услуги
-      for service in services
+      for deliveryMethod in deliveryMethods
         .check
-          input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='checkbox')
-          label(for='btn'+service.id)=service.name
+          input(id='delivery#{deliveryMethod.id}',name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+          label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+
+    p Предоставляемы услуги
+          for service in services
+            .check
+              input(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
+              label(for='btn'+service.id)=service.name
     button.btn.btn-success(type="submit") Registration
 
   p

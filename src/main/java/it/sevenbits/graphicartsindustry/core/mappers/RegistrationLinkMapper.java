@@ -1,18 +1,18 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
-import it.sevenbits.graphicartsindustry.core.domain.RegistrationLink;
 import org.apache.ibatis.annotations.*;
 
 public interface RegistrationLinkMapper {
-    @Insert("INSERT INTO registration_links (link) VALUES (#{link})")
-    void save(@Param(value = "link") final String registrationLink);
 
-    @Delete("DELETE link FROM registration_links WHERE link = #{link}")
-    void delete(@Param(value = "link") final String registrationLink);
+    @Insert("INSERT INTO registration_link (hash) VALUES (#{hash})")
+    void save(@Param("hash") final String hash);
 
-    @Select("SELECT link FROM registration_links WHERE link = #{link}")
-    @Results ({
-            @Result (column = "link", property = "hash")
-    })
-    RegistrationLink find(String link);
+
+    @Delete("DELETE hash FROM registration_link WHERE hash=#{hash}")
+    void delete(@Param("hash") final String hash);
+
+
+    @Select("SELECT hash FROM registration_link WHERE hash=#{hash}")
+    @Result (column = "hash")
+    String find(@Param("hash") final String hash);
 }

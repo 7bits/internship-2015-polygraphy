@@ -19,6 +19,14 @@ public interface ContentMapper {
     List<Service> findFrequentServices(int limit);
 
 
+    @Select("SELECT id, name FROM service")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name")
+    })
+    List<Service> findAllServices();
+
+
     @Select("SELECT id, name FROM payment_method")
     @Results({
             @Result(column = "id", property = "id"),

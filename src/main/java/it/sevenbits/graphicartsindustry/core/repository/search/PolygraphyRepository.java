@@ -24,7 +24,7 @@ public class PolygraphyRepository {
         try {
             return mapper.findAll(limit);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving all polygraphies: " + e.getMessage(), e);
         }
     }
 
@@ -35,7 +35,8 @@ public class PolygraphyRepository {
             return mapper.findPolygraphies(processedQuery.toLowerCase(), query.getServiceId(), query.getPaymentMethod(),
                     query.getWritesTheCheck(), query.getDeliveryMethod(), query.getOrderByEmail());
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving polygraphies " +
+                    "satisfy the query: " + e.getMessage(), e);
         }
     }
 
@@ -43,7 +44,8 @@ public class PolygraphyRepository {
         try {
             return mapper.findPolygraphy(id);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving subscriptions: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving full information " +
+                    "about polygraphy: " + e.getMessage(), e);
         }
     }
 }

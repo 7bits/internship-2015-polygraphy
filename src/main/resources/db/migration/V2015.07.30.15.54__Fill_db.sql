@@ -1,58 +1,59 @@
-INSERT INTO polygraphy (id, name, writes_the_check, order_by_email)
+INSERT INTO polygraphy (name, writes_the_check, order_by_email)
 VALUES
-	(1,'IQ дизайн-бюро', false, true),
-	(2,'Оригинал', true, true),
-	(3,'Крафтлайн', true, true),
-	(4,'Изба-принт', true, false),
-	(5,'futbolkaprint', true, true),
-	(6,'Принт Экспресс', true, false),
-	(7,'КАЙРОС', true, true),
-	(8,'Селбс', true, true),
-	(9,'Марка', true, true),
-	(10,'55Print', true, true),
-	(11,'Ретранс', true, false),
-	(12,'Компаньон', true, false),
-	(13,' Принт сервис', true, true),
-	(14,'Аванта', true, false),
-	(15,'Акула', true, false),
-	(16,'Алвест', true, false),
-	(17,'Алые паруса', true, true),
-	(18,'АЛЬФА-ПРИНТ', true,true),
-	(19,'АНТАРЕС', true, false),
-	(20,'АрТ-РЕКЛАМА, ООО Карбуш', true, false),
-	(21,'А3+', true, false),
-	(22,'Бумеранг', true, true),
-	(23,'Всемайки.ру', true, true),
-	(24,'Глобал Принт', true, false),
-	(25,'Дизайн-Проект', true, false),
-	(26,'ДимАрт', true, true),
-	(27,'Золотой тираж', true, false),
-	(28,'Мегаполис PRINT', true, false),
-	(29,'Медиаплюс', true, false),
-	(30,'Образование Информ', true, false),
-	(31,'ОмПАК', true, true),
-	(32,'Омская картографическая фабрика', true, true),
-	(33,'Отдел 55', true, false),
-	(34,'Офисная полиграфия и комфорт', true, false),
-	(35,'Печатное дело', true, true),
-	(36,'ПечатьPremier', true, true),
-	(37,' Полиграф', true, true),
-	(38,' Пульсар-98', true, false),
-	(39,'Рекламщик', true, true),
-	(40,'Сибирь', true, false),
-	(41,'Синяя Птица', true, true),
-	(42,'СКАЙ ПРИНТ', true, false),
-	(43,'Советская Сибирь, ОАО, типография', true, false),
-	(44,'Стиль фирмы, ООО, полиграфическая компания', true, true),
-	(45,'ТИСА, ООО, типография', true, false),
-	(46,'Тритон Плюс, ООО, рекламно-производственная компания', true, false),
-	(47,'Фото-М, фотоцентр', true, false),
-	(48,'Центр Рекламы, рекламно-полиграфическое агентство', true,true);
+	('IQ дизайн-бюро', false, true),
+	('Оригинал', true, true),
+	('Крафтлайн', true, true),
+	('Изба-принт', true, false),
+	('futbolkaprint', true, true),
+	('Принт Экспресс', true, false),
+	('КАЙРОС', true, true),
+	('Селбс', true, true),
+	('Марка', true, true),
+	('55Print', true, true),
+	('Ретранс', true, false),
+	('Компаньон', true, false),
+	('Принт сервис', true, true),
+	('Аванта', true, false),
+	('Акула', true, false),
+	('Алвест', true, false),
+	('Алые паруса', true, true),
+	('АЛЬФА-ПРИНТ', true,true),
+	('АНТАРЕС', true, false),
+	('АрТ-РЕКЛАМА', true, false),
+	('А3+', true, false),
+	('Бумеранг', true, true),
+	('Всемайки.ру', true, true),
+	('Глобал Принт', true, false),
+	('Дизайн-Проект', true, false),
+	('ДимАрт', true, true),
+	('Золотой тираж', true, false),
+	('Мегаполис PRINT', true, false),
+	('Медиаплюс', true, false),
+	('Образование Информ', true, false),
+	('ОмПАК', true, true),
+	('Омская картографическая фабрика', true, true),
+	('Отдел 55', true, false),
+	('Офисная полиграфия и комфорт', true, false),
+	('Печатное дело', true, true),
+	('ПечатьPremier', true, true),
+	('Полиграф', true, true),
+	('Пульсар-98', true, false),
+	('Рекламщик', true, true),
+	('Сибирь', true, false),
+	('Синяя Птица', true, true),
+	('СКАЙ ПРИНТ', true, false),
+	('Советская Сибирь', true, false),
+	('Стиль фирмы', true, true),
+	('ТИСА', true, false),
+	('Тритон Плюс', true, false),
+	('Фото-М', true, false),
+	('Центр Рекламы', true,true);
 
-INSERT INTO payment_method(id, name)
+INSERT INTO payment_method(name)
 VALUES 
-	(1, 'Наличный расчет'),
-	(2, 'Расчет по карте');
+	('Наличный расчет'),
+	('Расчет по карте'),
+	('Оплата по счету');
 
 INSERT INTO polygraphies_payment_methods(polygraphy_id, payment_method_id)
 VALUES 
@@ -139,12 +140,18 @@ VALUES
 	(44,2),
 	(45,2),
 	(46,2),
-	(47,2);
 
-INSERT INTO delivery_method(id, name)
+	(1,3),
+	(2,3),
+	(4,3),
+	(5,3),
+	(30,3),
+	(47,3);
+
+INSERT INTO delivery_method(name)
 VALUES 
-	(1, 'Самовывоз'),
-	(2, 'Доставка с курьером');
+	('Самовывоз'),
+	('Доставка с курьером');
 
 INSERT INTO polygraphies_delivery_methods(polygraphy_id, delivery_method_id)
 VALUES 
@@ -206,16 +213,16 @@ VALUES
 	(36,2),
 	(42,2);
 	
-INSERT INTO service (id, name, rating)
+INSERT INTO service (name, rating)
 VALUES 
-	(1, 'Печать на футболках', 1),
-	(2, 'Печать на кружках', 2),
-	(3, 'Изготовление значков', 0),
-	(4, 'Широкоформатная печать', 3),
-	(5, 'Изготовление блокнотов', 0),
-	(6, 'Изготовление календарей', 4),
-	(7, 'Изготовление магнитов',6),
-	(8, 'Изготовление наклеек', 5);
+	('Печать на футболках', 1),
+	('Печать на кружках', 2),
+	('Изготовление значков', 0),
+	('Широкоформатная печать', 3),
+	('Изготовление блокнотов', 0),
+	('Изготовление календарей', 4),
+	('Изготовление магнитов',6),
+	('Изготовление наклеек', 5);
 
 INSERT INTO polygraphies_services(polygraphy_id, service_id)
 VALUES 
@@ -404,7 +411,7 @@ VALUES
 	(48,5),
 	(48,6);
 
-INSERT INTO contacts(polygraphy_id, addres, email, website, phone)
+INSERT INTO contacts(polygraphy_id, address, email, website, phone)
 VALUES
 	(1, 'ул. Масленникова, 28, офис 409', 'mail@901201.ru', 'http://www.dbiq.ru/', 3812901201),
 	(2, 'Учебная, 83 - 311 офис; 3 этаж', 'original-omsk@yandex.ru', 'http://www.prostranstwo.blogspot.com', '3812510980'),
@@ -453,7 +460,7 @@ VALUES
 	(47, '10 лет Октября, 141а - 203 офис; 2 этаж; комплекс Статус 2009', 'fotom55@mail.ru', 'http://www.фото-эм.рф', '9040778818'),
 	(48, 'Маршала Жукова, 72 к1 - цокольный этаж; центр Золотая миля', 'ra.cr@mail.ru', 'http://www.cr55.ru', '9502189427');
 
-INSERT INTO contacts(polygraphy_id, addres, website, phone)
+INSERT INTO contacts(polygraphy_id, address, website, phone)
 VALUES
 	(25, 'Мира проспект, 34 - цокольный этаж', 'http://www.dizainproekt.nethouse.ru', '599809'),
 	(43, 'Карла Маркса проспект, 39 - 318 офис; 3 этаж', 'http://sovsib.ru', '310745');

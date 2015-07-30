@@ -25,7 +25,7 @@ public class PolygraphyProvider {
         boolean somethingBefore = false;
 
         StringBuilder sqlQuery = new StringBuilder();
-        sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, c.addres, c.phone");
+        sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, c.address, c.phone");
         if (service_id!=0)
             sqlQuery.append(", s.id");
         if (payment_id!=0)

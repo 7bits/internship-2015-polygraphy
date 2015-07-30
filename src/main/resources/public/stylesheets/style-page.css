@@ -31,11 +31,17 @@ header{
     bottom: 0;
 }
 
+.logo-box{
+    margin: 15px auto;
+    width: 281px;
+    height: 159px;
+}
 
 .logo{
     margin: 15px auto;
     background: url("../images/big-logo.png");
     background-repeat: no-repeat;
+    background-size: 281px 159px;
     width: 281px;
     height: 159px;
 }
@@ -51,6 +57,7 @@ main{
     outline: none;
     box-shadow: 0 0 5px rgb(216, 216, 216);     //!!!спросить
     clear: both;
+    margin-bottom: 30px;
 }
 
 .info{

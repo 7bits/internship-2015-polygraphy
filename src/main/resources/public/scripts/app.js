@@ -32,4 +32,7 @@ $(document).ready(function(){
         $(".filter-field").slideToggle();
     });
 
+    /*$("input:radio").bind("change click", function () {
+        $(this).parent().css("backgroundColor", "#f3e642");
+    });*/
 });

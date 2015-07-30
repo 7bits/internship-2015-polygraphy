@@ -3,8 +3,18 @@ extends ../layout
 block append content
 
     header.header
-        a(href='/')
-            figure.logo
+        .logo-box
+            a(href='/')
+                .logo
+        .more-info
+            .info-for-polygraphy
+                Информация для полиграфий
+            .about-project
+                О проекте
+        .slogan
+            Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
+            br
+            Мы найдем полиграфии для ваших задач!
     .search
         form(id='form', method='post', action='/search')
             .search-line
@@ -12,19 +22,24 @@ block append content
                     if form.query != ""
                         input.search-field(name='query', type='text', value='#{form.query}')
                     else
-                        input.search-field(name='query', type='text', placeholder='Поиск')
+                        input.search-field(name='query', type='text', placeholder='Что искать?')
                 else
-                    input.search-field(name='query', type='text', placeholder='Поиск')
-            .filter-field
-                .radiobuttons
-                    for service in services
-                        .btn
-                            if service.id == form.serviceId
-                                input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio', checked)
-                                label(for='btn'+service.id)=service.name
-                            else
-                                input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio')
-                                label(for='btn'+service.id)=service.name
+                    input.search-field(name='query', type='text', placeholder='Что искать?')
+                .submit
+                    button(type='submit') НАЙТИ ПОЛИГРАФИЮ
+            .radiobuttons
+                Часто ищут:
+                for service in services
+                    .btn
+                        if service.id == form.serviceId
+                            input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio', checked)
+                            label(for='btn'+service.id)=service.name
+                        else
+                            input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio')
+                            label(for='btn'+service.id)=service.name
+            .extended-search
+                .extended-search-title
+                    РАСШИРЕННЫЙ ПОИСК
                 select.payment-method(name='paymentMethod')
                     option.disabled(selected='', value=0) Способ оплаты
                     for _paymentMethod in paymentMethods
@@ -36,10 +51,10 @@ block append content
                     .check
                         if form.writesTheCheck == true
                             input(id='check1', name='writesTheCheck', type='checkbox', checked)
-                            label(for='check1') выдает чек
+                            label(for='check1') Выдает чек
                         else
                             input(id='check1', name='writesTheCheck', type='checkbox')
-                            label(for='check1') выдает чек
+                            label(for='check1') Выдает чек
                 select.delivery-method(name='deliveryMethod')
                     option.disabled(selected='', value=0) Доставка
                     for _deliveryMethod in deliveryMethods
@@ -51,50 +66,68 @@ block append content
                     .check
                         if form.orderByEmail == true
                             input(id='check2',name='orderByEmail', type='checkbox', checked)
-                            label(for='check2') принимает заказ по e-mail
+                            label(for='check2') Принимает заказ по e-mail
                         else
                             input(id='check2',name='orderByEmail', type='checkbox')
-                            label(for='check2') принимает заказ по e-mail
-                button.submit(type='submit') НАЙТИ ПОЛИГРАФИЮ
-    .hide-show-search
-        Показать/скрыть поиск
+                            label(for='check2') Принимает заказ по e-mail
+                button.extend-submit(type='submit') Показать
 
     #polygraphiesList
-        ul.results
-            li.top-line РЕЗУЛЬТАТЫ ПОИСКА
-            if results.polygraphiesListIsNull!=''
-                p.no-results= results.polygraphiesListIsNull
-            for polygraphy in results.polygraphies
-                li
-                    .icon
-                    .info
-                        .polygraphy-name
+        .results-field
+            ul.results
+                if results.polygraphiesListIsNull!=''
+                    p.no-results= results.polygraphiesListIsNull
+                for polygraphy in results.polygraphies
+                    li
+                        table.services
+                            tr
+                                td
+                                td
+                                td
+                            tr
+                                td
+                                td
+                                td
+                            tr
+                                td
+                                td
+                                td
+                        .info
+                            .polygraphy-name
+                                a(href='/polygraphy/#{polygraphy.id}')
+                                    = polygraphy.name
+                            .polygraphy-address= polygraphy.addres
+                            .polygraphy-phone-number= polygraphy.phone
+                        .detail(id='polygraphy-page')
                             a(href='/polygraphy/#{polygraphy.id}')
-                                = polygraphy.name
-                        = polygraphy.addres
-                        br
-                        = polygraphy.phone
-                    .detail(id='polygraphy-page')
-                        a(href='/polygraphy/#{polygraphy.id}')
-                            |Подробнее
-            li.bottom-line
+                                |Подробнее
 
     script(id='results', type='text/x-handlebars-template')
-        ul.results
-            li.top-line РЕЗУЛЬТАТЫ ПОИСКА
-            | {{#if polygraphiesListIsNull}}
-            p.no-results {{polygraphiesListIsNull}}
-            | {{/if}}
-            | {{#each polygraphies}}
-            li
-                .icon
-                .info
-                    div {{name}}
-                    {{addres}}
-                    br
-                    {{phone}}
-                .detail(id='polygraphy-page')
-                    a(href='/polygraphy/{{id}}')
-                        |Подробнее
-            | {{/each}}
-            li.bottom-line
+        .results-field
+            ul.results
+                | {{#if polygraphiesListIsNull}}
+                p.no-results {{polygraphiesListIsNull}}
+                | {{/if}}
+                | {{#each polygraphies}}
+                li
+                    table.services
+                        tr
+                            td
+                            td
+                            td
+                        tr
+                            td
+                            td
+                            td
+                        tr
+                            td
+                            td
+                            td
+                    .info
+                        .polygraphy-name {{name}}
+                        .polygraphy-address {{addres}}
+                        .polygraphy-phone-number{{phone}}
+                    .detail(id='polygraphy-page')
+                        a(href='/polygraphy/{{id}}')
+                            |Подробнее
+                | {{/each}}

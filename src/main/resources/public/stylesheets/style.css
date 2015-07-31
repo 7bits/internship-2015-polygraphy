@@ -135,7 +135,7 @@ body{
 
 .extended-search{
     width: 365px;
-    height: 590px;
+    height: auto;
     padding: 20px 0;
     background-color: #64be5f;
     border-radius: 10px;
@@ -201,10 +201,18 @@ input.often-seek[type="radio"]:checked+label{
     background-color: #f3e642;
 }
 
+.payment-method-headline,
+.delivery-method-headline{
+    font-family: "OpenSansLightRegular";
+    font-size: 16px;
+    color: white;
+    text-align: left;
+    text-indent: 50px;
+}
 
 .payment-method,
 .delivery-method{
-    margin: 20px 0 20px 40px;
+    margin: 10px 0 20px 40px;
     font-family: "OpenSansLightRegular";
     font-size: 16px;
     display: block;
@@ -260,7 +268,7 @@ input.item-selection-delivery[type="radio"]:checked+label{
 }
 
 .checkboxes{
-    margin: auto auto 15px auto;
+    margin: 20px auto;
     height: auto;
     width: 290px;
     text-align: left;

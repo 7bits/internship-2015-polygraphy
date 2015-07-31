@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.core.repository.registration;
 
+import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import org.apache.log4j.Logger;
@@ -22,25 +23,32 @@ public class RegistrationRepository {
                      String website, String phone, List<Integer> paymentMethods,
                      List<Integer> deliveryMethods, List<Integer> services) throws RepositoryException {
         try {
-            mapper.savePolygraphyBasic(name, check, order);
+            RegistrationBasic registrationBasic = new RegistrationBasic(null, name, check, order);
+            mapper.savePolygraphyBasic(registrationBasic);
 
-            int polygraphyId = mapper.findPolygraphyId(name);
+            int polygraphyId = registrationBasic.getId();
 
             mapper.savePolygraphyContacts(polygraphyId, address, email, website, phone);
 
-            for (Integer p : paymentMethods) {
-                if (p!=null)
-                    mapper.savePolygraphyPaymentMethod(polygraphyId, p);
+            if (paymentMethods != null) {
+                for (Integer p : paymentMethods) {
+                    if (p != null)
+                        mapper.savePolygraphyPaymentMethod(polygraphyId, p);
+                }
             }
 
-            for (Integer d : deliveryMethods) {
-                if (d!=null)
-                    mapper.savePolygraphyDeliveryMethod(polygraphyId, d);
+            if (deliveryMethods != null) {
+                for (Integer d : deliveryMethods) {
+                    if (d != null)
+                        mapper.savePolygraphyDeliveryMethod(polygraphyId, d);
+                }
             }
 
-            for (Integer s : services) {
-                if (s!=null)
-                    mapper.savePolygraphyService(polygraphyId, s);
+            if (services != null) {
+                for (Integer s : services) {
+                    if (s != null)
+                        mapper.savePolygraphyService(polygraphyId, s);
+                }
             }
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while saving registration form polygraphy "

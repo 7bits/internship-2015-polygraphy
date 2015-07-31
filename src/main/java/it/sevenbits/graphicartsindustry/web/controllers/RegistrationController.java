@@ -43,7 +43,7 @@ public class RegistrationController {
             return "home/registration";
         }
         else
-            return "home/not_found";
+            return "error/not_found";
     }
 
     @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
@@ -55,6 +55,6 @@ public class RegistrationController {
             return "home/success_registration";
         }
         else
-            return "home/not_found";
+            return "error/not_found";
     }
 }

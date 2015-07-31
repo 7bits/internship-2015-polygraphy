@@ -30,7 +30,7 @@ public class Application extends SpringBootServletInitializer {
             @Override
             public void customize(ConfigurableEmbeddedServletContainer container) {
 
-                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "/404.html");
+                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "error/not_found");
 
                 container.addErrorPages(error404Page);
             }

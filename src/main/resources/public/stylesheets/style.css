@@ -1,35 +1,80 @@
 @import url("fregat-font.css");
+@import url("osans.css");
 
 body{
-    width: 920px;
+    width: 1200px;
     margin: 0 auto;
-    background-color: #e9e9e9;
-    font-family: "FregatRegular";
-    font-size: 15px;
+    background-color: white;
+    font-family: "OpenSansRegular";
 }
 
 :focus{
     outline: none;
 }
 
-.container{
-    margin-bottom: 100px;
-}
-
 .header{
     margin: 0;
+    min-height: 165px;
     text-align: center;
+}
+
+.logo-box{
+    height: 165px;
+    width: 228px;
+    margin: auto 25px auto 50px;
+    float: left;
 }
 
 .logo{
     background-image: url(../images/logo.png);
-    height: 110px;
-    width: 100%;
-    background-size: 196px 110px;
+    height: 165px;
+    width: 228px;
     background-position: center center;
     background-repeat: no-repeat;
-    margin: auto;
-    padding: 28px;
+}
+
+.more-info{
+    height: 30px;
+    width: auto;
+    float: right;
+    font-family: "OpenSansLightRegular";
+    font-size: 16px;
+    margin-top: 38px;
+}
+
+.info-for-polygraphy,
+.about-project{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: auto;
+    padding: 0 20px;
+    background-color: rgb(232, 232, 232);
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.about-project{
+    margin-left: 15px;
+    margin-right: 50px;
+}
+
+.info-for-polygraphy:hover,
+.about-project:hover{
+    background-color: #f3e642;
+    cursor: pointer;
+}
+
+.slogan{
+    font-family: "OpenSansLightRegular";
+    font-size: 19px;
+    line-height: 21px;
+    height: auto;
+    width: 755px;
+    float: left;
+    text-align: left;
+    margin-top: 20px;
 }
 
 .search{
@@ -38,124 +83,198 @@ body{
 }
 
 .search-line{
-    margin: 5px 0;
+    margin: auto;
+    height: 50px;
+    width: 1100px;
+    position: relative;
 }
 
 .search-field{
-    width: 865px;
-    padding: 15px;
-    border: none;
-    border-radius: 10px 10px 0 0;
+    width: 1057px;
+    //min-height: 46px;
+    //max-height: 48px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 17px;
+    padding: 0px;
+    border: 2px solid #64be5f;
+    border-right: none;
+    border-radius: 25px;
     background: url(../images/loupe.png) no-repeat;
-    background-origin: padding-box;
     background-position: 15px center;
     background-color: white;
     outline: none;
     padding-left: 40px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
 }
 
-.filter-field{
-    height: 365px;
-    margin: auto;
-    background-color: white;
+.submit > button{
+    width: 295px;
+    height: 50px;
+    line-height: 50px;
+    font-family: "OpenSansLightRegular";
+    font-size: 22px;
+    color: white;
+    padding: 0;
+    border-radius: 0 25px 25px 0;
+    border: 2px solid #64be5f;
+    background-color: #64be5f;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 0px;
+}
+
+.submit>button:hover{
+    background-color: #88d280;
+    cursor: pointer;
+}
+
+.extended-search{
+    width: 365px;
+    height: 590px;
+    padding: 20px 0;
+    background-color: #64be5f;
+    border-radius: 10px;
+    float: left;
+    margin-left: 50px;
+}
+
+.extended-search-title{
+    font-family: "OpenSansLightRegular";
+    font-size: 22px;
+    color: white;
+    margin-bottom: 20px;
 }
 
 .radiobuttons{
-    margin: auto;
-    color: rgb(8, 61, 78);
+    margin: 20px auto;
+    //color: #5f5f5f;
+    color: black;
+    font-family: "OpenSansLightRegular";
+    font-size: 15px;
 }
 
 .btn{
-    margin: 5px 0px;
     display: inline-block;
-    width: 300px;
-    height: 40px;
-    text-align: left;
-    line-height: 40px;
+    width: auto;
+    height: 25px;
+    background-color: #e9e9e9;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin: 0;
+    margin-left: 10px;
+    color: black;
 }
 
-.btn label{
-    margin: 0 35px;
+.btn > label{
+    display: block;
+    width: auto;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 20px;
+    border: none;
+    padding: 0 20px;
+    margin: 0;
+    color: black;
 }
 
-input[type="radio"]{
+input.often-seek[type="radio"]{
     display: none;
 }
 
-input[type="radio"]+label:hover{
-    background-color: rgb(13, 105, 134);
-    border-radius: 2px;
-    border: 5px solid rgb(13, 105, 134);
-    //border-left: none;
-    color: white;
+.btn:hover{
+    cursor: pointer;
+    background-color: #f3e642;
+}
+
+input.often-seek[type="radio"]+label:hover{
     cursor: pointer;
 }
 
-input[type="radio"]:checked+label{
-    background-color: rgb(13, 105, 134);
-    border-radius: 2px;
-    border: 5px solid rgb(13, 105, 134);
-    color: white;
-    height: 28px;
-    width: 202px;
+input.often-seek[type="radio"]:checked+label{
+    background-color: #f3e642;
 }
 
-select.payment-method,
-select.delivery-method {
-    width: 300px;
-    height: 40px;
-    margin: 5px auto;
-    padding-left: 30px;
-    border: none;
-    border-radius: 5px;
-    font-family: "FregatRegular";
-    font-size: 15px;
-    -webkit-appearance: none;
-    background-image: url('../images/arrow.png');
-    background-position: calc(100% - 30px) center;
+
+.payment-method,
+.delivery-method{
+    margin: 20px 0 20px 40px;
+    font-family: "OpenSansLightRegular";
+    font-size: 16px;
+    display: block;
+    line-height: 40px;
+    background-color: white;
+    width: 290px;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-align: left;
+    text-indent: 22px;
+}
+
+.payment-placeholder,
+.delivery-placeholder{
+    background: url("../images/arrow.png");
     background-repeat: no-repeat;
-    background-color: rgb(142, 199, 210);
-    line-height: 1em;
+    background-position-y: center;
+    background-position-x: 90%;
+}
+
+.payment-method-items,
+.delivery-method-items{
+    display: none;
+}
+
+.item > label{
+    width: auto;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+input.item-selection-payment[type="radio"],
+input.item-selection-delivery[type="radio"]{
+    display: none;
+}
+
+input.item-selection-payment[type="radio"]+label:hover,
+input.item-selection-delivery[type="radio"]+label:hover{
     cursor: pointer;
-  /* for FF */
-    -moz-appearance: none;
-    text-indent: 0.01px;
-    text-overflow: '';
-  /* for IE */
-    -ms-appearance: none;
-    appearance: none!important;
+    background-color: #f3e642;
 }
 
-select.payment-method option,
-select.delivery-method option{
-    padding-left: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-option.disabled{
-    color: rgb(105, 105, 105);
-}
-
-select::-ms-expand {
-  display: none;
-}
-
-select:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
+input.item-selection-payment[type="radio"]:checked+label,
+input.item-selection-delivery[type="radio"]:checked+label{
+    background-color: #f3e642;
 }
 
 .checkboxes{
-    margin: 0px auto;
-    height: 40px;
-    width: 300px;
-    line-height: 40px;
+    margin: auto auto 15px auto;
+    height: auto;
+    width: 290px;
     text-align: left;
+    color: white;
+    font-family: "OpenSansLightRegular";
+    font-size: 16px;
 }
 
 .check{
-    margin: 0 30px;
+    margin: 0;
+    margin-left: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 input[type="checkbox"]{
@@ -163,41 +282,49 @@ input[type="checkbox"]{
 }
 
 input[type="checkbox"]+label{
-    background: url(../images/checkbox.png) 0px 0px no-repeat;
-    padding-left: 20px;
-    width: 13px;
-    height: 13px;
+    background: url("../images/check.png") 0px 0px no-repeat;
+    padding-left: 23px;
+    width: 15px;
+    height: 15px;
 }
 
 input[type="checkbox"]:checked+label{
-    background: url(../images/checkbox.png) 0 -26px no-repeat;
-    padding-left: 20px;
-    width: 13px;
-    height: 13px;
+    background: url("../images/check.png") 0 -30px no-repeat;
+    padding-left: 23px;
+    width: 15px;
+    height: 15px;
 }
 
 input[type="checkbox"]+label:hover{
     cursor: pointer;
 }
 
-.submit{
+.extend-submit{
     text-decoration: none;
-    color: #FFF;
-    font-size: 20px;
-    width: 230px;
-    height: 50px;
-    line-height: 50px;
-    background-color: rgb(230, 109,155);
-    border: medium none;
-    border-radius: 10px;
-    font-family: "FregatRegular";
-    outline: medium none;
-    margin: 10px auto;
+    color: black;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #efe553;
+    border: none;
+    border-radius: 20px;
+    font-family: "OpenSansLightRegular";
+    font-size: 16px;
+    outline: none;
+    margin: auto;
 }
 
-button[type="submit"]:hover{
+button.extend-submit[type="submit"]:hover{
     cursor: pointer;
-    background-color: rgb(205, 94, 136);
+    background-color: #dad14c;
+}
+
+.results-field{
+    width: 710px;
+    height: auto;
+    float: left;
+    margin: auto;
+    margin-left: 20px;
 }
 
 .results{
@@ -205,80 +332,108 @@ button[type="submit"]:hover{
     padding: 0;
 }
 
-.results li{
-    height: 130px;
+.results > li{
+    width: 100%;
+    height: 100px;
     list-style-type: none;
-    margin: 5px auto;
-    padding: 0 100px;
-    background-color: rgb(142, 199, 210);
+    margin: 0px auto 24px auto;
+    padding: 20px 0;
+    border-radius: 10px;
+    border: none;
+    background-color: #e9e9e9;
+    float: left;
 }
 
 .polygraphy-name a{
     text-decoration: none;
-    color: white;
+    color: black;
     cursor: pointer;
 }
 
-.icon{
-    background-image: url(../images/icon2.png);
-    background-repeat: no-repeat;
+table.services{
+    margin: auto 20px;
     float: left;
-    background-size: auto;
-    width: 111px;
-    height: 110px;
-    margin: 10px 0;
+    border-spacing: 0px;
+}
+
+table.services td{
+    background-image: url("../images/circle1-4.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
 }
 
 .info{
     float: left;
-    margin: 15px 30px;
-    color: rgb(16, 80, 99);
-    font-size: 18px;
+    color: black;
+    font-family: "OpenSansLightRegular";
+    font-size: 15px;
     width: 355px;
     max-height: 100px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    position: relative;
 }
 
-.info div{
+.polygraphy-name{
     text-align: left;
-    color: white;
-    font-size: 27px;
-    margin: auto;
-    padding: 0 0 20px 0;
+    color: black;
+    font-size: 20px;
+    margin: 0 0 15px 0;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-.detail{
-    width: 170px;
-    height: 45px;
-    text-align: center;
-    float: right;
-    margin: 40px 0;
+.polygraphy-address,
+.polygraphy-phone-number{
+    text-align: left;
+    color: black;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 20px;
 }
 
-.detail a:focus{
-    background-color: rgb(13, 105, 134);
-    border-color: rgb(13, 105, 134);
+.polygraphy-address{
+    background: url("../images/map-violet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.polygraphy-phone-number{
+    background: url("../images/phone-violet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.detail{
+    width: 162px;
+    margin: auto 25px auto 0;
+    text-align: center;
+    float: right;
+    padding: 30px 0;
 }
 
 .detail a:hover{
-    background-color: rgb(13, 105, 134);
-    border-color: rgb(13, 105, 134);
+    background-color: #736699;
+    border-color: #736699;
+    color: white;
 }
 
 .detail a{
     text-decoration: none;
-    width: 166px;
-    height: 41px;
-    line-height: 41px;
-    border: 2px solid white;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
+    width: 160px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #736699;
+    border-radius: 20px;
+    color: #736699;
+    font-size: 16px;
     display: block;
 }
 

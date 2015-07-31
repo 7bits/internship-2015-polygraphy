@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class SearchController {
-    private final int limitPolygraphy = 3;
-    private final int limitRadioButton = 6;
+    private final int limitPolygraphy = 4;
+    private final int limitRadioButton = 4;
 
     @Autowired
     private PolygraphyService polygraphyService;

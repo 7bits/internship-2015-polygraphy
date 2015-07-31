@@ -28,19 +28,25 @@ public class RegistrationRepository {
 
             mapper.savePolygraphyContacts(polygraphyId, address, email, website, phone);
 
-            for (Integer p : paymentMethods) {
-                if (p!=null)
-                    mapper.savePolygraphyPaymentMethod(polygraphyId, p);
+            if (paymentMethods != null) {
+                for (Integer p : paymentMethods) {
+                    if (p != null)
+                        mapper.savePolygraphyPaymentMethod(polygraphyId, p);
+                }
             }
 
-            for (Integer d : deliveryMethods) {
-                if (d!=null)
-                    mapper.savePolygraphyDeliveryMethod(polygraphyId, d);
+            if (deliveryMethods != null) {
+                for (Integer d : deliveryMethods) {
+                    if (d != null)
+                        mapper.savePolygraphyDeliveryMethod(polygraphyId, d);
+                }
             }
 
-            for (Integer s : services) {
-                if (s!=null)
-                    mapper.savePolygraphyService(polygraphyId, s);
+            if (services != null) {
+                for (Integer s : services) {
+                    if (s != null)
+                        mapper.savePolygraphyService(polygraphyId, s);
+                }
             }
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while saving registration form polygraphy "

@@ -3,12 +3,7 @@ package it.sevenbits.graphicartsindustry;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
-import org.springframework.boot.context.embedded.ErrorPage;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpStatus;
 
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
@@ -23,17 +18,17 @@ public class Application extends SpringBootServletInitializer {
         return builder.sources(Application.class);
     }
 
-    @Bean
-    public EmbeddedServletContainerCustomizer containerCustomizer() {
-
-        return new EmbeddedServletContainerCustomizer() {
-            @Override
-            public void customize(ConfigurableEmbeddedServletContainer container) {
-
-                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "error/not_found");
-
-                container.addErrorPages(error404Page);
-            }
-        };
-    }
+//    @Bean
+//    public EmbeddedServletContainerCustomizer containerCustomizer() {
+//
+//        return new EmbeddedServletContainerCustomizer() {
+//            @Override
+//            public void customize(ConfigurableEmbeddedServletContainer container) {
+//
+//                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "error/not_found");
+//
+//                container.addErrorPages(error404Page);
+//            }
+//        };
+//    }
 }

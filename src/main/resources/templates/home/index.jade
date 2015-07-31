@@ -25,14 +25,13 @@ block append content
                             else
                                 input(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='radio')
                                 label(for='btn'+service.id)=service.name
-                .selects
-                    select.payment-method(name='paymentMethod')
-                        option(selected='', disabled) Способ оплаты
-                        for _paymentMethod in paymentMethods
-                            if _paymentMethod.id == form.paymentMethod
-                                option(value='#{_paymentMethod.id}', selected=true)=_paymentMethod.name
-                            else
-                                option(value='#{_paymentMethod.id}')=_paymentMethod.name
+                select.payment-method(name='paymentMethod')
+                    option.disabled(selected='', value=0) Способ оплаты
+                    for _paymentMethod in paymentMethods
+                        if _paymentMethod.id == form.paymentMethod
+                            option(value='#{_paymentMethod.id}', selected=true)=_paymentMethod.name
+                        else
+                            option(value='#{_paymentMethod.id}')=_paymentMethod.name
                 .checkboxes
                     .check
                         if form.writesTheCheck == true
@@ -41,14 +40,13 @@ block append content
                         else
                             input(id='check1', name='writesTheCheck', type='checkbox')
                             label(for='check1') выдает чек
-                .selects
-                    select.delivery-method(name='deliveryMethod')
-                        option(selected='', disabled) Доставка
-                        for _deliveryMethod in deliveryMethods
-                            if _deliveryMethod.id == form.deliveryMethod
-                                option(value='#{_deliveryMethod.id}', selected=true)=_deliveryMethod.name
-                            else
-                                option(value='#{_deliveryMethod.id}')=_deliveryMethod.name
+                select.delivery-method(name='deliveryMethod')
+                    option.disabled(selected='', value=0) Доставка
+                    for _deliveryMethod in deliveryMethods
+                        if _deliveryMethod.id == form.deliveryMethod
+                            option(value='#{_deliveryMethod.id}', selected=true)=_deliveryMethod.name
+                        else
+                            option(value='#{_deliveryMethod.id}')=_deliveryMethod.name
                 .checkboxes
                     .check
                         if form.orderByEmail == true
@@ -70,7 +68,9 @@ block append content
                 li
                     .icon
                     .info
-                        h3= polygraphy.name
+                        .polygraphy-name
+                            a(href='/polygraphy/#{polygraphy.id}')
+                                = polygraphy.name
                         = polygraphy.addres
                         br
                         = polygraphy.phone
@@ -89,7 +89,7 @@ block append content
             li
                 .icon
                 .info
-                    h3 {{name}}
+                    div {{name}}
                     {{addres}}
                     br
                     {{phone}}

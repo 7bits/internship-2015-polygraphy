@@ -1,42 +1,3 @@
-/*(function($) {
-  console.log("Hello world");
-})(jQuery);*/
-
-/*(function($, undefined){
-    $(function(){
-        $("p").css("color", "#333");
-    });
-})(jQuery);*/
-
-/*//кликаешь на submit и форма пытается свернуться
-$(function(){
-    $('button').click(function(){
-        $('.search .search-line').next('.filter-field').stop().slideToggle();
-    });
-});*/
-
-$(function(){
-    $('select > option').css("display", "block");
-    //$('select > option').css("color", "red");
-});
-
-/*$(document).ready(function() {
-    $('form').submit(function(){
-    // собираешь параметры с формы
-    // отправляешь запрос с параметрами
-    // рисуешь резльтат
-        var msg = $('form').serialize();
-        $.ajax({
-            url: '/results',
-            type: 'POST',
-            data: msg,
-            success: function(data){
-                $('.results').html(data);
-            }
-        });
-        return false;
-    });
-});*/
 
 function call(event) {
     event.preventDefault();
@@ -65,22 +26,17 @@ function call(event) {
     });
 }
 
-/*
-    if(msg=='query='){
-        $('button.submit').attr('disabled', true);
-    };
-*/
-
 $(document).ready(function(){
 
     $("#form").on('submit', call);
     $("#form1").on('submit', call);
 
     $("button.submit").click(function(){
-        $(".filter-field").slideToggle();
+        $(".filter-field").slideUp();
     });
 
     $("div.hide-show-search").click(function(){
         $(".filter-field").slideToggle();
     });
+
 });

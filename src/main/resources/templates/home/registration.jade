@@ -1,64 +1,63 @@
-extends ../layout
+extends ../layout-registration
 
 block append content
 
-  form(method='post', action='/registration-link?id=#{hash}')
-    input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-    input(type='hidden', name='hash', value='#{hash}')
-    .form-group
-      label(for='email-input') Email
-      input#email-input.form-control(name='email', placeholder='Our email', type='text')
-    .form-group
-      label(for='password-input') Password
-      input#password-input.form-control(name='password', placeholder='Our password', type='password')
-    p
-    .form-group
-      label(for='name-input') Name
-      input#name-input.form-control(name='name', placeholder='Name polygraphy', type='text')
-    .form-group
-      label(for='address-input') Address
-      input#address-input.form-control(name='address', placeholder='Address polygraphy', type='text')
-    .form-group
-      label(for='phone-input') Phone
-      input#phone-input.form-control(name='phone', placeholder='Phone polygraphy', type='text')
-    .form-group
-      label(for='email-public-input') Public email
-      input#email-public-input.form-control(name='emailPublic', placeholder='Our public email', type='text')
-    p
-      .checkboxes
-        .check
-          input(id='orderByEmail',name='orderByEmail', type='checkbox')
-          label(for='orderByEmail') принимает заказ по e-mail
+    header.header
+        .logo-box
+            a(href='/')
+                .logo
+        .more-info
+            .info-for-polygraphy
+                Информация для полиграфий
+            .about-project
+                О проекте
+        .slogan
+            Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
+            br
+            Мы найдем полиграфии для ваших задач!
 
-    .form-group
-      label(for='website-input') URL website
-      input#website-input.form-control(name='website', placeholder='URL site polygraphy', type='text')
+    .registration-form
+        .registration-form-headline
+            РЕГИСТРАЦИЯ ПОЛИГРАФИИ
+        form(method='post', action='/registration-link?id=#{hash}')
+            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+            input(type='hidden', name='hash', value='#{hash}')
 
-    .checkboxes
-    p Принимаем оплату
-      for paymentMethod in paymentMethods
-        .check
-          input(id='payment#{paymentMethod.id}',name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
-          label(for='payment'+paymentMethod.id)=paymentMethod.name
-    p
-      .check
-        input(id='writesTheCheck',name='writesTheCheck', type='checkbox')
-        label(for='writesTheCheck') выдаем чек
-
-    p Доставка готового заказа
-      for deliveryMethod in deliveryMethods
-        .check
-          input(id='delivery#{deliveryMethod.id}',name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
-          label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-
-    p Предоставляемы услуги
-          for service in services
-            .check
-              input(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
-              label(for='btn'+service.id)=service.name
-    button.btn.btn-success(type="submit") Registration
-
-  p
-    = registration.email
-    = registration.password
-
+            .field-name
+                Название полиграфии
+                input.form-control#name-input(name='name', type='text')
+            .field-address
+                | Адрес
+                input.form-control#address-input(name='address', type='text')
+            .field-phone
+                | Телефон
+                input.form-control#phone-input(name='phone', type='text')
+            .field-email
+                | E-mail
+                input.form-control#email-public-input(name='emailPublic', type='text')
+            .field-checkbox-order-by-email
+                input(id='orderByEmail', name='orderByEmail', type='checkbox')
+                label(for='orderByEmail') Принимает заказ по e-mail
+            .field-site
+                | Сайт
+                input.form-control#website-input(name='website', type='text')
+            .field-checkboxes
+                .field-payment
+                    Принимаем оплату:
+                    for paymentMethod in paymentMethods
+                        .checkbox
+                            input(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                            label(for='payment'+paymentMethod.id)=paymentMethod.name
+                .field-delivery
+                    Доставка готового заказа:
+                    for deliveryMethod in deliveryMethods
+                        .checkbox
+                            input(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                            label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                .field-services
+                    Предоставляемые услуги:
+                    for service in services
+                        .checkbox
+                            input(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                            label(for='btn'+service.id)=service.name
+            button.submit-registration-form(type="submit") Зарегистрироваться

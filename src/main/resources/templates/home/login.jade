@@ -1,13 +1,31 @@
-extends ../layout
+extends ../layout-login
 
 block append content
 
-  form(action='/login', method='post')
-    input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-    .form-group
-      label(for='name-input') Email
-      input#name-input.form-control(name='username', placeholder='Our email', type='text')
-    .form-group
-      label(for='password-input') Password
-      input#password-input.form-control(name='password', placeholder='Our password', type='password')
-    button.btn.btn-success(type='submit') Login
+    header.header
+        .logo-box
+            a(href='/')
+                .logo
+        .more-info
+            .info-for-polygraphy
+                Информация для полиграфий
+            .about-project
+                О проекте
+        .slogan
+            Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
+            br
+            Мы найдем полиграфии для ваших задач!
+
+
+    .login-form
+        .login-headline
+            ВХОД НА САЙТ
+        form(action='/login', method='post')
+            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+            .field-email
+                | E-mail
+                input.form-control#name-input(name='username', type='text')
+                | Пароль
+            .field-password
+                input.form-control#password-input(name='password', type='password')
+            button.submit-login-form(type='submit') Войти

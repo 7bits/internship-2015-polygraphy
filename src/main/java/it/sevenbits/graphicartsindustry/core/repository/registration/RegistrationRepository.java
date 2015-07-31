@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.core.repository.registration;
 
+import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import org.apache.log4j.Logger;
@@ -22,9 +23,10 @@ public class RegistrationRepository {
                      String website, String phone, List<Integer> paymentMethods,
                      List<Integer> deliveryMethods, List<Integer> services) throws RepositoryException {
         try {
-            mapper.savePolygraphyBasic(name, check, order);
+            RegistrationBasic registrationBasic = new RegistrationBasic(null, name, check, order);
+            mapper.savePolygraphyBasic(registrationBasic);
 
-            int polygraphyId = mapper.findPolygraphyId(name);
+            int polygraphyId = registrationBasic.getId();
 
             mapper.savePolygraphyContacts(polygraphyId, address, email, website, phone);
 

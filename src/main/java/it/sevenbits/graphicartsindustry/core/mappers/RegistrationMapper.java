@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
+import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
 import org.apache.ibatis.annotations.*;
 
 public interface RegistrationMapper {
@@ -12,8 +13,8 @@ public interface RegistrationMapper {
 
     @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email) " +
             "VALUES (#{name}, #{check}, #{order})")
-    void savePolygraphyBasic(@Param("name") final String name, @Param("check") final Boolean check,
-                             @Param("order") final Boolean order);
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    void savePolygraphyBasic(final RegistrationBasic registrationBasic);
 
     @Insert("INSERT INTO contacts(polygraphy_id, address, email, website, phone) " +
             "VALUES (#{polygraphyId}, #{address}, #{email}, #{website}, #{phone})")

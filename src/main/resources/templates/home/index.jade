@@ -43,13 +43,15 @@ block append content
             .extended-search
                 .extended-search-title
                     РАСШИРЕННЫЙ ПОИСК
+                .payment-method-headline
+                    Способ оплаты
                 .payment-method
                     .payment-placeholder
-                        Способ оплаты
+                        Любой
                     .payment-method-items
                         .item
-                            input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value=0, checked)
-                            label(for='item1'+_paymentMethod.id) Любой
+                            input.item-selection-payment(id='item10', name='paymentMethod', type='radio', value=0, checked)
+                            label(for='item10') Любой
                         for _paymentMethod in paymentMethods
                             if _paymentMethod.id == form.paymentMethod
                                 .item
@@ -69,13 +71,15 @@ block append content
                             input(id='check1', name='writesTheCheck', type='checkbox')
                             label(for='check1') Выдает чек
 
+                .delivery-method-headline
+                    Способ доставки
                 .delivery-method
                     .delivery-placeholder
-                        Способ доставки
+                        Любой
                     .delivery-method-items
                         .item
-                            input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value=0, checked)
-                            label(for='item2'+_deliveryMethod.id) Любой
+                            input.item-selection-delivery(id='item0', name='deliveryMethod', type='radio', value=0, checked)
+                            label(for='item20') Любой
                         for _deliveryMethod in deliveryMethods
                             if _deliveryMethod.id == form.deliveryMethod
                                 .item

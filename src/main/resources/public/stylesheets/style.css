@@ -5,77 +5,13 @@ body{
     width: 1200px;
     margin: 0 auto;
     background-color: white;
-    font-family: "OpenSansRegular";
+    font-family: "OpenSansLightRegular";
 }
 
 :focus{
     outline: none;
 }
 
-.header{
-    margin: 0;
-    min-height: 165px;
-    text-align: center;
-}
-
-.logo-box{
-    height: 165px;
-    width: 228px;
-    margin: auto 25px auto 50px;
-    float: left;
-}
-
-.logo{
-    background-image: url(../images/logo.png);
-    height: 165px;
-    width: 228px;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
-
-.more-info{
-    height: 30px;
-    width: auto;
-    float: right;
-    font-family: "OpenSansLightRegular";
-    font-size: 16px;
-    margin-top: 38px;
-}
-
-.info-for-polygraphy,
-.about-project{
-    display: inline-block;
-    height: 30px;
-    line-height: 30px;
-    width: auto;
-    padding: 0 20px;
-    background-color: rgb(232, 232, 232);
-    border-radius: 20px;
-    border: none;
-    outline: none;
-}
-
-.about-project{
-    margin-left: 15px;
-    margin-right: 50px;
-}
-
-.info-for-polygraphy:hover,
-.about-project:hover{
-    background-color: #f3e642;
-    cursor: pointer;
-}
-
-.slogan{
-    font-family: "OpenSansLightRegular";
-    font-size: 19px;
-    line-height: 21px;
-    height: auto;
-    width: 755px;
-    float: left;
-    text-align: left;
-    margin-top: 20px;
-}
 
 .search{
     text-align: center;

@@ -1,8 +1,26 @@
 extends ../layout
 
 block append content
-    form(action='/admin', method='post')
-        input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-        button.btn.btn-success(type="submit") Generate the link
-    p= generate
+
+    header.header
+        .logo-box
+            a(href='/')
+                .logo
+        .more-info
+            .info-for-polygraphy
+                Информация для полиграфий
+            .about-project
+                О проекте
+        .slogan
+            Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
+            br
+            Мы найдем полиграфии для ваших задач!
+
+    .admin-form
+        .admin-headline
+            АДМИНИСТРАТОР
+        form(action='/admin', method='post')
+            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+            button.generate-link(type="submit") Сгенерировать ссылку
+        .link= generate
 

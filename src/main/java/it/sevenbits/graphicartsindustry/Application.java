@@ -17,18 +17,4 @@ public class Application extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(Application.class);
     }
-
-//    @Bean
-//    public EmbeddedServletContainerCustomizer containerCustomizer() {
-//
-//        return new EmbeddedServletContainerCustomizer() {
-//            @Override
-//            public void customize(ConfigurableEmbeddedServletContainer container) {
-//
-//                ErrorPage error404Page = new ErrorPage(HttpStatus.NOT_FOUND, "error/not_found");
-//
-//                container.addErrorPages(error404Page);
-//            }
-//        };
-//    }
 }

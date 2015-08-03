@@ -90,6 +90,7 @@ body{
     border: none;
     border-radius: 20px;
     //color: white;
+    font-family: "OpenSansLightRegular";
     font-size: 16px;
     text-decoration: none;
     background-color: #efe553;
@@ -105,3 +106,61 @@ button.submit-registration-form[type="submit"]:hover{
     background-color: #dad14c;
 }
 
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prev, .next {
+    height: 40px;
+    width: auto;
+    line-height: 40px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    background-color: #efe553;
+    outline: none;
+    margin: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.prev:hover, .next:hover {
+    cursor: pointer;
+    background-color: #dad14c;
+}
+
+.prev {
+    float: left;
+}
+
+.next {
+    float: right;
+}
+
+#steps {
+    list-style: none;
+    width: 100%;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+#steps li {
+    font-size: 24px;
+    float: left;
+    padding: 10px;
+    color: #b0b1b3;
+}
+
+#steps li span {
+    font-size: 11px;
+    display: block;
+}
+#steps li.current {
+    color: #000;
+}

@@ -19,45 +19,47 @@ block append content
     .registration-form
         .registration-form-headline
             РЕГИСТРАЦИЯ ПОЛИГРАФИИ
-        form(method='post', action='/registration-link?id=#{hash}')
-            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-            input(type='hidden', name='hash', value='#{hash}')
+        form(id='registration-form', method='post', action='/registration-link?id=#{hash}')
+            fieldset
+                input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+                input(type='hidden', name='hash', value='#{hash}')
 
-            .field-name
-                Название полиграфии
-                input.form-control#name-input(name='name', type='text')
-            .field-address
-                | Адрес
-                input.form-control#address-input(name='address', type='text')
-            .field-phone
-                | Телефон
-                input.form-control#phone-input(name='phone', type='text')
-            .field-email
-                | E-mail
-                input.form-control#email-public-input(name='emailPublic', type='text')
-            .field-checkbox-order-by-email
-                input(id='orderByEmail', name='orderByEmail', type='checkbox')
-                label(for='orderByEmail') Принимает заказ по e-mail
-            .field-site
-                | Сайт
-                input.form-control#website-input(name='website', type='text')
-            .field-checkboxes
-                .field-payment
-                    Принимаем оплату:
-                    for paymentMethod in paymentMethods
-                        .checkbox
-                            input(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
-                            label(for='payment'+paymentMethod.id)=paymentMethod.name
-                .field-delivery
-                    Доставка готового заказа:
-                    for deliveryMethod in deliveryMethods
-                        .checkbox
-                            input(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
-                            label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                .field-services
-                    Предоставляемые услуги:
-                    for service in services
-                        .checkbox
-                            input(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
-                            label(for='btn'+service.id)=service.name
-            button.submit-registration-form(type="submit") Зарегистрироваться
+                .field-name
+                    | Название полиграфии
+                    input.form-control#name-input(name='name', type='text')
+                .field-address
+                    | Адрес
+                    input.form-control#address-input(name='address', type='text')
+                .field-phone
+                    | Телефон
+                    input.form-control#phone-input(name='phone', type='text')
+                .field-email
+                    | E-mail
+                    input.form-control#email-public-input(name='emailPublic', type='text')
+                .field-checkbox-order-by-email
+                    input(id='orderByEmail', name='orderByEmail', type='checkbox')
+                    label(for='orderByEmail') Принимает заказ по e-mail
+                .field-site
+                    | Сайт
+                    input.form-control#website-input(name='website', type='text')
+            fieldset
+                .field-checkboxes
+                    .field-payment
+                        | Принимаем оплату:
+                        for paymentMethod in paymentMethods
+                            .checkbox
+                                input(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                                label(for='payment'+paymentMethod.id)=paymentMethod.name
+                    .field-delivery
+                        | Доставка готового заказа:
+                        for deliveryMethod in deliveryMethods
+                            .checkbox
+                                input(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                                label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                    .field-services
+                        | Предоставляемые услуги:
+                        for service in services
+                            .checkbox
+                                input(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                                label(for='btn'+service.id)=service.name
+            button.submit-registration-form(type="submit", id="submit-registration-form") Зарегистрироваться

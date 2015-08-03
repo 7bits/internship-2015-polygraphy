@@ -33,7 +33,6 @@ function call(event) {
 $(document).ready(function(){
 
     $("#form").on('submit', call);
-    $("#form1").on('submit', call);
 
     $("button.submit").click(function(){
         $(".filter-field").slideUp();

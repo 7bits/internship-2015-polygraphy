@@ -26,6 +26,10 @@ function call(event) {
     });
 }
 
+/*function pop-up-window(event){
+    event.preventDefault();
+}*/
+
 
 //$(".payment-method-items").css({display:'none',visibility:'hidden'});
 //$(".delivery-method-items").css({display:'none',visibility:'hidden'});
@@ -33,6 +37,9 @@ function call(event) {
 $(document).ready(function(){
 
     $("#form").on('submit', call);
+    $("#form").change(call);
+
+    //$(".detail").click(pop-up-window);
 
     $("button.submit").click(function(){
         $(".filter-field").slideUp();

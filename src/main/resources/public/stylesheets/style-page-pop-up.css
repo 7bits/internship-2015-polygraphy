@@ -1,65 +1,17 @@
 @import url("osans.css");
 
-body{
-    max-width: 940px;
-    margin: 0 auto;
-    background-color: #e9e9e9;
-    font-family: "OpenSansRegular";
-}
-
-
-header{
-    margin: 15px auto;
-    text-align: center;
-    max-height: 200px;
-    width: auto;
-    position: relative;
-}
-
-
-.comeback{
-    float: left;
-    background: url("../images/left-arrow.png");
-    background-size: 7px 11px;
-    background-position: left center;
-    background-repeat: no-repeat;
-    padding-left: 20px;
-    color: black;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-}
-
-.logo-box{
-    margin: 15px auto;
-    width: 281px;
-    height: 159px;
-}
-
-.logo{
-    margin: 15px auto;
-    background: url("../images/big-logo.png");
-    background-repeat: no-repeat;
-    background-size: 281px 159px;
-    width: 281px;
-    height: 159px;
-}
-
-
-main{
+.main-pop-up{
     width: 938px;
     height: 618px;
     text-align: center;
     background-color: white;
-    border-radius: 15px;        //!!!спросить
     border: none;
     outline: none;
     box-shadow: 0 0 5px rgb(216, 216, 216);     //!!!спросить
     clear: both;
-    margin-bottom: 30px;
 }
 
-.info{
+.info-pop-up{
     width: 800px;
     height: 490px;
     display: inline-block;
@@ -67,14 +19,14 @@ main{
     //border: 1px solid #ccc;
 }
 
-.helper{
+.helper-pop-up{
     display: inline-block;
     height: 100%;
     width: 0px;
     vertical-align: middle;
 }
 
-.summary{
+.summary-pop-up{
     width: 265px;
     height: 100%;
     display: inline-block;
@@ -83,17 +35,17 @@ main{
     text-align: left;
 }
 
-.polygraphy-name{
+.polygraphy-name-pop-up{
     font-family: "OpenSansLightRegular";
     font-size: 25px;
     color: black;
 }
 
-table.services{
+table.services-pop-up{
     margin: 25px auto;
 }
 
-table.services td{
+table.services-pop-up td{
     background-image: url("../images/circle1.png");
     background-repeat: no-repeat;
     padding: 0 5px 5px 0;
@@ -101,10 +53,10 @@ table.services td{
     width: 59px;
 }
 
-.address,
-.phone,
-.email,
-.site{
+.address-pop-up,
+.phone-pop-up,
+.email-pop-up,
+.site-pop-up{
     margin-bottom: 5px;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -113,36 +65,36 @@ table.services td{
     font-size: 17px;
 }
 
-.address{
+.address-pop-up{
     background: url("../images/map.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
-.phone{
+.phone-pop-up{
     background: url("../images/phone.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
-.email{
+.email-pop-up{
     background: url("../images/mail.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
-.site{
+.site-pop-up{
     background: url("../images/link.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
-.site > a{
+.site-pop-up > a{
     color: rgb(111, 194, 106);
 }
 
 
-.details{
+.details-pop-up{
     width: 455px;
     height: 100%;
     display: inline-block;
@@ -151,14 +103,44 @@ table.services td{
     text-align: left;
 }
 
-.about-title{
+.about-title-pop-up{
     font-family: "OpenSansLightRegular";
     font-size: 25px;
     color: black;
 }
 
-.about-text{
+.about-text-pop-up{
     font-size: 17px;
     margin: 30px auto;
     text-align: left;
+}
+
+.pop-up-overlay{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    text-align: center
+}
+
+.pop-up-overlay:after {
+        display: inline-block;
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+        content: ''
+    }
+
+.pop-up-window{
+    display: inline-block;
+    position: relative;
+    background: #fff;
+    vertical-align: middle;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    overflow: hidden;
 }

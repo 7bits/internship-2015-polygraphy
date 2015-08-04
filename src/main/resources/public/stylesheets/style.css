@@ -1,4 +1,3 @@
-@import url("fregat-font.css");
 @import url("osans.css");
 
 body{
@@ -86,7 +85,7 @@ body{
     margin-bottom: 20px;
 }
 
-.radiobuttons{
+.checkboxes{
     margin: 20px auto;
     //color: #5f5f5f;
     color: black;
@@ -94,7 +93,7 @@ body{
     font-size: 15px;
 }
 
-.btn{
+.checkbox-btn{
     display: inline-block;
     width: auto;
     height: 25px;
@@ -107,7 +106,7 @@ body{
     color: black;
 }
 
-.btn > label{
+.checkbox-btn > label{
     display: block;
     width: auto;
     height: 25px;
@@ -120,20 +119,20 @@ body{
     color: black;
 }
 
-input.often-seek[type="radio"]{
-    display: none;
-}
-
-.btn:hover{
+.checkbox-btn:hover{
     cursor: pointer;
     background-color: #f3e642;
 }
 
-input.often-seek[type="radio"]+label:hover{
+input.often-seek[type="checkbox"]{
+    display: none;
+}
+
+input.often-seek[type="checkbox"]+label:hover{
     cursor: pointer;
 }
 
-input.often-seek[type="radio"]:checked+label{
+input.often-seek[type="checkbox"]:checked+label{
     background-color: #f3e642;
 }
 
@@ -203,7 +202,7 @@ input.item-selection-delivery[type="radio"]:checked+label{
     background-color: #f3e642;
 }
 
-.checkboxes{
+.checkboxes-in-search-field{
     margin: 20px auto;
     height: auto;
     width: 290px;
@@ -221,25 +220,25 @@ input.item-selection-delivery[type="radio"]:checked+label{
     white-space: nowrap;
 }
 
-input[type="checkbox"]{
+input.checkbox[type="checkbox"]{
     display: none;
 }
 
-input[type="checkbox"]+label{
+input.checkbox[type="checkbox"]+label{
     background: url("../images/check.png") 0px 0px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
-input[type="checkbox"]:checked+label{
+input.checkbox[type="checkbox"]:checked+label{
     background: url("../images/check.png") 0 -30px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
-input[type="checkbox"]+label:hover{
+input.checkbox[type="checkbox"]+label:hover{
     cursor: pointer;
 }
 

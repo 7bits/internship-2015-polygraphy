@@ -52,3 +52,7 @@ button.generate-link[type="submit"]:hover{
     cursor: pointer;
     background-color: #dad14c;
 }
+
+.link a{
+    color: white;
+}

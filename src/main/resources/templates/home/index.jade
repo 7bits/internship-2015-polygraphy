@@ -100,13 +100,44 @@ block append content
                             label(for='check2') Принимает заказ по e-mail
 
                 button.extend-submit(type='submit') Показать
+    .help
+        #polygraphiesList
+            .results-field
+                ul.results
+                    if results.polygraphiesListIsNull!=''
+                        p.no-results= results.polygraphiesListIsNull
+                    for polygraphy in results.polygraphies
+                        li
+                            table.services
+                                tr
+                                    td
+                                    td
+                                    td
+                                tr
+                                    td
+                                    td
+                                    td
+                                tr
+                                    td
+                                    td
+                                    td
+                            .info
+                                .polygraphy-name
+                                    a(href='/polygraphy/#{polygraphy.id}')
+                                        = polygraphy.name
+                                .polygraphy-address= polygraphy.addres
+                                .polygraphy-phone-number= polygraphy.phone
+                            .detail(id='polygraphy-page')
+                                    a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
+                                        |Подробнее
 
-    #polygraphiesList
-        .results-field
-            ul.results
-                if results.polygraphiesListIsNull!=''
-                    p.no-results= results.polygraphiesListIsNull
-                for polygraphy in results.polygraphies
+        script(id='results', type='text/x-handlebars-template')
+            .results-field
+                ul.results
+                    | {{#if polygraphiesListIsNull}}
+                    p.no-results {{polygraphiesListIsNull}}
+                    | {{/if}}
+                    | {{#each polygraphies}}
                     li
                         table.services
                             tr
@@ -122,44 +153,13 @@ block append content
                                 td
                                 td
                         .info
-                            .polygraphy-name
-                                a(href='/polygraphy/#{polygraphy.id}')
-                                    = polygraphy.name
-                            .polygraphy-address= polygraphy.addres
-                            .polygraphy-phone-number= polygraphy.phone
+                            .polygraphy-name {{name}}
+                            .polygraphy-address {{addres}}
+                            .polygraphy-phone-number{{phone}}
                         .detail(id='polygraphy-page')
-                            a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
-                                |Подробнее
-
-    script(id='results', type='text/x-handlebars-template')
-        .results-field
-            ul.results
-                | {{#if polygraphiesListIsNull}}
-                p.no-results {{polygraphiesListIsNull}}
-                | {{/if}}
-                | {{#each polygraphies}}
-                li
-                    table.services
-                        tr
-                            td
-                            td
-                            td
-                        tr
-                            td
-                            td
-                            td
-                        tr
-                            td
-                            td
-                            td
-                    .info
-                        .polygraphy-name {{name}}
-                        .polygraphy-address {{addres}}
-                        .polygraphy-phone-number{{phone}}
-                    .detail(id='polygraphy-page')
-                        a(href='/polygraphy/{{id}}', id={{id}})
-                            |Подробнее
-                | {{/each}}
+                                a(href='/polygraphy/{{id}}', id='{{id}}')
+                                    |Подробнее
+                    | {{/each}}
     .pop-up-overlay
         .pop-up-window
         script(id='pop-up-window-detail', type='text/x-handlebars-template')

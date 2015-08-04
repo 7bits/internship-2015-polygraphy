@@ -36,6 +36,7 @@ function popUpWindow(event){
     var headers = {};
     headers[header] = token;
     var render = Handlebars.compile($('#pop-up-window-detail').html());
+    console.log(this);
     var id = $(this).attr('id');
     var url = '/polygraphy/'+id;
     console.log(url);
@@ -70,7 +71,7 @@ $(document).ready(function(){
     $("#form").on('submit', call);
     $("#form").change(call);
 
-    $("#polygraphy-page a").click(popUpWindow);
+    $(".help").on("click", ".detail a", popUpWindow);
 
     $('.pop-up-overlay').click(function(event) {
         event || window.event

@@ -15,8 +15,10 @@ function call(event) {
         headers: headers,
         success: function(data) {
             console.log(data);
-            var html = template({polygraphies: data.polygraphies,
-            polygraphiesListIsNull: data.polygraphiesListIsNull});
+            var html = template({
+                polygraphies: data.polygraphies,
+                polygraphiesListIsNull: data.polygraphiesListIsNull
+            });
             $('#polygraphiesList').html(html);
         },
         error:  function(xhr, str){
@@ -26,9 +28,38 @@ function call(event) {
     });
 }
 
-/*function pop-up-window(event){
+function popUpWindow(event){
     event.preventDefault();
-}*/
+    $('.pop-up-overlay').fadeIn("fast");
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers = {};
+    headers[header] = token;
+    var render = Handlebars.compile($('#pop-up-window-detail').html());
+    var id = $(this).attr('id');
+    var url = '/polygraphy/'+id;
+    console.log(url);
+    $.ajax({
+        type: 'GET',
+        //dataType: 'json',
+        url: url,
+        headers: headers,
+        success: function(data) {
+            data = {
+                        "name": "IQ дизайн-бюро",
+                        "addres": "ул. Масленникова, 28",
+                        "phone": "901201",
+                        "email": "mail@901201.ru",
+                        "website": "http://www.dbiq.ru/"
+                   }
+            $('.pop-up-window').html(render(data));
+        },
+        error:  function(xhr, str){
+                //console.log(arguments);
+              alert('Возникла ошибка: ' + xhr.responseCode);
+        }
+    });
+}
 
 
 //$(".payment-method-items").css({display:'none',visibility:'hidden'});
@@ -39,7 +70,14 @@ $(document).ready(function(){
     $("#form").on('submit', call);
     $("#form").change(call);
 
-    //$(".detail").click(pop-up-window);
+    $("#polygraphy-page a").click(popUpWindow);
+
+    $('.pop-up-overlay').click(function(event) {
+        event || window.event
+        if (event.target == this) {
+            $('.pop-up-overlay').fadeOut("fast");
+        }
+    });
 
     $("button.submit").click(function(){
         $(".filter-field").slideUp();

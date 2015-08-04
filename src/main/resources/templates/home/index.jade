@@ -128,7 +128,7 @@ block append content
                             .polygraphy-address= polygraphy.addres
                             .polygraphy-phone-number= polygraphy.phone
                         .detail(id='polygraphy-page')
-                            a(href='/polygraphy/#{polygraphy.id}')
+                            a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
                                 |Подробнее
 
     script(id='results', type='text/x-handlebars-template')
@@ -157,6 +157,35 @@ block append content
                         .polygraphy-address {{addres}}
                         .polygraphy-phone-number{{phone}}
                     .detail(id='polygraphy-page')
-                        a(href='/polygraphy/{{id}}')
+                        a(href='/polygraphy/{{id}}', id={{id}})
                             |Подробнее
                 | {{/each}}
+    .pop-up-overlay
+        .pop-up-window
+        script(id='pop-up-window-detail', type='text/x-handlebars-template')
+            .main-pop-up
+                .info-pop-up
+                    .summary-pop-up
+                        .polygraphy-name-pop-up {{name}}
+                        table.services-pop-up
+                            tr
+                                td
+                                td
+                                td
+                                td
+                            tr
+                                td
+                                td
+                                td
+                                td
+                        .address-pop-up {{addres}}
+                        .phone-pop-up {{phone}}
+                        .email-pop-up {{email}}
+                        .site-pop-up
+                            a(href='{{website}}')= {{website}}
+                    .details-pop-up
+                        .about-title-pop-up
+                            О ПОЛИГРАФИИ
+                        .about-text-pop-up
+                            Тут будет много текстаТут будет много текстаТут будет много текстаТут будет много текста
+                .helper-pop-up

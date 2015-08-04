@@ -23,7 +23,12 @@ block append content
             fieldset
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 input(type='hidden', name='hash', value='#{hash}')
-
+                .field-email
+                    |E-mail для регистрации
+                    input.form-control#email-input(name='email', type='text')
+                .field-password
+                    |Пароль
+                    input.form-control#password-input(name='password', type='password')
                 .field-name
                     | Название полиграфии
                     input.form-control#name-input(name='name', type='text')
@@ -33,8 +38,8 @@ block append content
                 .field-phone
                     | Телефон
                     input.form-control#phone-input(name='phone', type='text')
-                .field-email
-                    | E-mail
+                .field-public-email
+                    | Публичный e-mail
                     input.form-control#email-public-input(name='emailPublic', type='text')
                 .field-checkbox-order-by-email
                     input(id='orderByEmail', name='orderByEmail', type='checkbox')

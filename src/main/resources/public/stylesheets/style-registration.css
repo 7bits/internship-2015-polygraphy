@@ -31,8 +31,8 @@ body{
     margin-bottom: 20px;
 }
 
-.field-name, .field-address, .field-phone,
-.field-email, .field-site{
+.field-email, .field-password, .field-name, .field-address,
+.field-phone, .field-public-email, .field-site{
     font-size: 16px;
     //color: black;
     text-align: left;
@@ -47,6 +47,7 @@ body{
     box-sizing: border-box;
     padding: 0 25px;
     margin: 5px 0 15px 0;
+    font-size: 17px;
 }
 
 .form-control:hover,

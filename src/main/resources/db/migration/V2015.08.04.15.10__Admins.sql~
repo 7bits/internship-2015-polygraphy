@@ -1,0 +1,7 @@
+INSERT INTO users (email, password_hash, role, enabled)
+VALUES 
+	('ksenia.eroshchenko@7bits.it', '$$2a$10$FILY4NlkE/txFG6BexBlVeP6b6DFaH2/lRK/Oegk73HoT.cxBuMty', 'ROLE_ADMIN', true),
+	('konstantin.kolotyuk@7bits.it', '$$2a$10$FILY4NlkE/txFG6BexBlVeP6b6DFaH2/lRK/Oegk73HoT.cxBuMty', 'ROLE_ADMIN', true),
+	('anastasia.lyubich@gmail.com', '$$2a$10$FILY4NlkE/txFG6BexBlVeP6b6DFaH2/lRK/Oegk73HoT.cxBuMty', 'ROLE_ADMIN', true),
+	('sadullaeva.marina@gmail.com', '$$2a$10$FILY4NlkE/txFG6BexBlVeP6b6DFaH2/lRK/Oegk73HoT.cxBuMty', 'ROLE_ADMIN', true),
+	('nastyaproh21@gmail.com', '$$2a$10$FILY4NlkE/txFG6BexBlVeP6b6DFaH2/lRK/Oegk73HoT.cxBuMty', 'ROLE_ADMIN', true);

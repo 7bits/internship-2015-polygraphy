@@ -10,6 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 public class SessionController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLogin(HttpServletRequest request) {
-        return "home/login";
+        return "session/login";
     }
 }

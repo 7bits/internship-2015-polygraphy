@@ -16,7 +16,6 @@ public class CsrfInterceptor extends HandlerInterceptorAdapter {
             Object handler,
             ModelAndView mav
     ) throws Exception {
-        // Специальный фикс для jade, так как сама библиотека jade не складывает csrf токен в модель.
         if (mav != null) {
             mav.addObject("_csrf", request.getAttribute("_csrf"));
         }

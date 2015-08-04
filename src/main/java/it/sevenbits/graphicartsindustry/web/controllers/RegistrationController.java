@@ -25,9 +25,10 @@ public class RegistrationController {
     @Autowired
     private ContentService contentService;
 
+    //@Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.GET)
     public String registration(@RequestParam(value="id") String link,final Model model) throws ServiceException {
-
+        Boolean y = registrationLinkService.findRegistrationLink(link);
         if (registrationLinkService.findRegistrationLink(link)) {
             model.addAttribute("hash", link);
 
@@ -40,12 +41,13 @@ public class RegistrationController {
 
             model.addAttribute("registration", new RegistrationForm());
 
-            return "home/registration";
+            return "session/registration";
         }
         else
-            return "error/not_found";
+            return "/not_found";
     }
 
+    //@Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
     public String save(@ModelAttribute RegistrationForm form,
                        @RequestParam(value="hash") String link,
@@ -55,6 +57,6 @@ public class RegistrationController {
             return "home/success_registration";
         }
         else
-            return "error/not_found";
+            return "/not_found";
     }
 }

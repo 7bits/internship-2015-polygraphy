@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminController {
 
-
     @Autowired
     private RegistrationLinkService service;
 

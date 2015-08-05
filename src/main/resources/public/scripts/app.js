@@ -1,5 +1,5 @@
 
-function call(event) {
+function liveSearchResults(event) {
     event.preventDefault();
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
@@ -19,7 +19,7 @@ function call(event) {
                 polygraphies: data.polygraphies,
                 polygraphiesListIsNull: data.polygraphiesListIsNull
             });
-            $('#polygraphiesList').html(html);
+            $('#polygraphies-list').html(html);
         },
         error:  function(xhr, str){
                 console.log(arguments);
@@ -28,7 +28,7 @@ function call(event) {
     });
 }
 
-function popUpWindow(event){
+var popUpWindow = function (event){
     event.preventDefault();
     $('.pop-up-overlay').fadeIn("fast");
     var token = $("meta[name='_csrf']").attr("content");
@@ -57,7 +57,7 @@ function popUpWindow(event){
         },
         error:  function(xhr, str){
                 //console.log(arguments);
-              alert('Возникла ошибка: ' + xhr.responseCode);
+              alert('Ошибка: ' + xhr.responseCode);
         }
     });
 }
@@ -68,8 +68,8 @@ function popUpWindow(event){
 
 $(document).ready(function(){
 
-    $("#form").on('submit', call);
-    $("#form").change(call);
+    $("#form").on('submit', liveSearchResults);
+    $("#form").change(liveSearchResults);
 
     $(".help").on("click", ".detail a", popUpWindow);
 
@@ -78,10 +78,6 @@ $(document).ready(function(){
         if (event.target == this) {
             $('.pop-up-overlay').fadeOut("fast");
         }
-    });
-
-    $("button.submit").click(function(){
-        $(".filter-field").slideUp();
     });
 
     $("div.hide-show-search").click(function(){
@@ -96,20 +92,20 @@ $(document).ready(function(){
         $(".delivery-method-items").slideToggle();
     });
 
-    $("input.item-selection-payment").click(function(){
+    $(".item-selection-payment").click(function(){
         $(".payment-method-items").slideUp("slow");
     });
 
-    $("input.item-selection-delivery").click(function(){
+    $(".item-selection-delivery").click(function(){
         $(".delivery-method-items").slideUp("slow");
     });
 
-    $("input.item-selection-payment").change(function(){
+    $(".item-selection-payment").change(function(){
         var label = $('label[for=item1' + $(this).val() + ']').text()
         $(".payment-placeholder").text(label);
         });
 
-    $("input.item-selection-delivery").change(function(){
+    $(".item-selection-delivery").change(function(){
         var label = $('label[for=item2' + $(this).val() + ']').text()
         $(".delivery-placeholder").text(label);
         });

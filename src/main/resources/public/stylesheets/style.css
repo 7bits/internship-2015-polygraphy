@@ -35,7 +35,7 @@ body{
     border: 2px solid #64be5f;
     border-right: none;
     border-radius: 25px;
-    background: url(../images/loupe.png) no-repeat;
+    background: url("../images/loupe.png") no-repeat;
     background-position: 15px center;
     background-color: white;
     outline: none;
@@ -240,26 +240,6 @@ input.checkbox[type="checkbox"]:checked+label{
 
 input.checkbox[type="checkbox"]+label:hover{
     cursor: pointer;
-}
-
-.extend-submit{
-    text-decoration: none;
-    color: black;
-    width: 130px;
-    height: 40px;
-    line-height: 40px;
-    background-color: #efe553;
-    border: none;
-    border-radius: 20px;
-    font-family: "OpenSansLightRegular";
-    font-size: 16px;
-    outline: none;
-    margin: auto;
-}
-
-button.extend-submit[type="submit"]:hover{
-    cursor: pointer;
-    background-color: #dad14c;
 }
 
 .results-field{

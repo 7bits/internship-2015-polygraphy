@@ -41,20 +41,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
-                    .antMatchers("/", "/search", "/polygraphy/**", "/registration-link")
+                    .antMatchers("/", "/search", "/polygraphy/**", "/registration-link", "/info-for-polygraphy")
                     .permitAll()
-                    .anyRequest()
+                .anyRequest()
                     .authenticated()
                 .and()
                 .formLogin()
-                    .defaultSuccessUrl("/")
-                    .loginPage("/login")
-                    .permitAll()
+                .defaultSuccessUrl("/")
+                .loginPage("/login")
+                .permitAll()
                 .and()
                 .logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                     //.logoutSuccessUrl("/login")
-                    .logoutSuccessUrl("/")
-                    .permitAll();
+                .logoutSuccessUrl("/")
+                .permitAll();
     }
 }

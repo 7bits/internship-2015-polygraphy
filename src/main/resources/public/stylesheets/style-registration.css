@@ -33,7 +33,7 @@ body{
 }
 
 .field-email, .field-password, .field-name, .field-address,
-.field-phone, .field-public-email, .field-site{
+.field-phone, .field-public-email, .field-site, .field-text-area{
     font-size: 16px;
     text-align: left;
 }
@@ -46,6 +46,9 @@ body{
     background-size: 20px 20px;
 }
 
+.field{
+}
+
 .form-control{
     height: 40px;
     width: 100%;
@@ -55,7 +58,12 @@ body{
     box-sizing: border-box;
     padding: 0 25px;
     margin: 5px 0 15px 0;
-    font-size: 17px;
+    font-size: 16px;
+}
+
+textarea#text-area-field{
+    height: 300px;
+    padding: 25px;
 }
 
 .form-control:hover,

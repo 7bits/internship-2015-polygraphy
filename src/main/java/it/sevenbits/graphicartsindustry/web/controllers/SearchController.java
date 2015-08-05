@@ -102,4 +102,11 @@ public class SearchController {
 
         return results;
     }
+
+
+    @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.GET)
+    public String infoForPolygraphy (final Model model) {
+        return "home/infoForPolygraphy";
+    }
+
 }

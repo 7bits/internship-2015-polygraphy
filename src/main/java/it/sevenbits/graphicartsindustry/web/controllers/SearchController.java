@@ -37,7 +37,7 @@ public class SearchController {
         // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
         model.addAttribute("polygraphyiesIsNull", "");
         // В модель добавим объект - рандомный список полиграфий
-        model.addAttribute("polygraphies", polygraphyService.findAll(limitPolygraphy));
+        model.addAttribute("polygraphies", polygraphyService.findAll(0));
         return "home/index";
     }
 

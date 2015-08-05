@@ -1,11 +1,10 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationForm;
-import it.sevenbits.graphicartsindustry.web.service.ContentService;
-import it.sevenbits.graphicartsindustry.web.service.RegistrationLinkService;
-import it.sevenbits.graphicartsindustry.web.service.RegistrationService;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationUserForm;
+import it.sevenbits.graphicartsindustry.web.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegistrationController {
 
     @Autowired
+    private RegistrationUserService registrationUserForm;
+
+    @Autowired
     private RegistrationService registrationService;
 
     @Autowired
@@ -25,7 +27,7 @@ public class RegistrationController {
     @Autowired
     private ContentService contentService;
 
-    //@Secured({"ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.GET)
     public String registration(@RequestParam(value="id") String link,final Model model) throws ServiceException {
         Boolean y = registrationLinkService.findRegistrationLink(link);
@@ -39,7 +41,9 @@ public class RegistrationController {
             // Добавим в модель объект - список методов доставки
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
 
+            model.addAttribute("registrationUser", new RegistrationUserForm());
             model.addAttribute("registration", new RegistrationForm());
+
 
             return "session/registration";
         }
@@ -47,12 +51,15 @@ public class RegistrationController {
             return "/not_found";
     }
 
-    //@Secured({"ROLE_ADMIN"})
+    @Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
     public String save(@ModelAttribute RegistrationForm form,
-                       @RequestParam(value="hash") String link,
+                       @ModelAttribute RegistrationUserForm userForm,
+                       @RequestParam(value = "hash") String link,
                        final Model model) throws ServiceException {
         if (registrationLinkService.findRegistrationLink(link)) {
+
+            registrationUserForm.register(userForm);
             registrationService.saveAll(form);
             return "home/success_registration";
         }

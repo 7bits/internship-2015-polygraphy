@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebMvcSecurity
@@ -40,16 +41,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 .authorizeRequests()
-                .antMatchers("/", "/search", "/polygraphy/**", "/registration-link").permitAll()
-                .anyRequest().authenticated()
+                    .antMatchers("/", "/search", "/polygraphy/**", "/registration-link")
+                    .permitAll()
+                    .anyRequest()
+                    .authenticated()
                 .and()
                 .formLogin()
-                .defaultSuccessUrl("/")
-                .loginPage("/login")
-                .permitAll()
+                    .defaultSuccessUrl("/")
+                    .loginPage("/login")
+                    .permitAll()
                 .and()
                 .logout()
-                .logoutSuccessUrl("/")
-                .permitAll();
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    //.logoutSuccessUrl("/login")
+                    .logoutSuccessUrl("/")
+                    .permitAll();
     }
 }

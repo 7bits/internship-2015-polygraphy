@@ -26,8 +26,8 @@ public class UserRepository implements UserDetailsService {
         try {
             LOG.info("Loading user by username: " + username);
             User userDetails = this.findByUsername(username);
-            if (userDetails != null && (userDetails.getRole().equals(Role.ROLE_ADMIN))) {
-                    //|| userDetails.getRole().equals(Role.ROLE_POLYGRAPHY))) {
+            if (userDetails != null && (userDetails.getRole().equals(Role.ROLE_ADMIN) ||
+                    userDetails.getRole().equals(Role.ROLE_POLYGRAPHY))) {
                 return userDetails;
             }
         } catch (Exception e) {
@@ -73,6 +73,7 @@ public class UserRepository implements UserDetailsService {
         user.setEmail(email);
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(password));
+        user.setRole(Role.ROLE_POLYGRAPHY);
         try {
             userMapper.save(user);
         } catch (Exception e) {

@@ -16,6 +16,10 @@ block append content
             br
             Мы найдем полиграфии для ваших задач!
 
+    form(action="/logout", method="post")
+        input(type="hidden", name="#{_csrf.parameterName}", value="#{_csrf.token}")
+        input.exit-button(type='submit',value='Выход')
+
     .admin-form
         .admin-headline
             АДМИНИСТРАТОР
@@ -24,4 +28,6 @@ block append content
             button.generate-link(type="submit") Сгенерировать ссылку
         .link
             a(href='#{generate}')= generate
+
+
 

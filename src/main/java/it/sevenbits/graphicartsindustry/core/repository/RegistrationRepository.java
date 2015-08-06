@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
+import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,6 +82,24 @@ public class RegistrationRepository {
             mapper.deletePolygraphyBasic(polygraphyId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while deleting polygraphy "
+                    + e.getMessage(), e);
+        }
+    }
+
+    public void saveRequestOnRegistration(String email) throws RepositoryException {
+        try {
+            mapper.saveRequestOnRegistration(email);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while saving email request on registration "
+                    + e.getMessage(), e);
+        }
+    }
+
+    public List<RequestOnRegistration> findAllRequestOnRegistration() throws RepositoryException {
+        try {
+            return mapper.findAllRequestOnRegistration();
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while findind model request on registration "
                     + e.getMessage(), e);
         }
     }

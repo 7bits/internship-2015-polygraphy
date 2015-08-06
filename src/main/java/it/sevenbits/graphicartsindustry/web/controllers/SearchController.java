@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.web.domain.PolygraphyResponse;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
 import it.sevenbits.graphicartsindustry.web.service.SearchService;
@@ -105,8 +106,8 @@ public class SearchController {
 
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.GET)
-    public String infoForPolygraphy (final Model model) {
+    public String infoForPolygraphy (RequestOnRegistrationForm form, final Model model) {
+        model.addAttribute("request", form);
         return "home/page_with_info_for_polygraphy";
     }
-
 }

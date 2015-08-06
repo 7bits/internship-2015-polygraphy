@@ -12,30 +12,41 @@ body{
 }
 
 .registration-form{
-    width: 600px;
+    width: 700px;
     height: auto;
     background-color: #64be5f;
     border-radius: 20px;
-    //border: 3px solid #64be5f;
     text-align: center;
     margin: auto;
     margin-bottom: 40px;
     box-sizing: border-box;
-    padding: 40px 60px;
+    padding: 50px;
     color: white;
 }
 
 .registration-form-headline{
-    font-size: 22px;
-    //color: black;
-    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.text-fields{
+    font-family: "OpenSansRegular";
 }
 
 .field-email, .field-password, .field-name, .field-address,
-.field-phone, .field-public-email, .field-site{
+.field-phone, .field-public-email, .field-site, .field-text-area{
     font-size: 16px;
-    //color: black;
     text-align: left;
+}
+
+#email-public-input{
+    background: url("../images/question.png") no-repeat;
+    background-position: calc(100% - 15px) center;
+    background-color: white;
+    padding-right: 40px;
+    background-size: 20px 20px;
+}
+
+.field{
 }
 
 .form-control{
@@ -47,7 +58,12 @@ body{
     box-sizing: border-box;
     padding: 0 25px;
     margin: 5px 0 15px 0;
-    font-size: 17px;
+    font-size: 16px;
+}
+
+textarea#text-area-field{
+    height: 300px;
+    padding: 25px;
 }
 
 .form-control:hover,
@@ -55,18 +71,42 @@ body{
     border: 2px solid #efe553;
 }
 
-.field-checkbox-order-by-email,
-.checkbox{
+.field-checkbox{
     height: 30px;
     line-height: 30px;
     text-align: left;
     margin: 10px 0;
     font-size: 16px;
+    font-family: "OpenSansLightRegular";
 }
 
 .field-checkboxes{
     text-align: left;
-    margin: 20px 0;
+    //margin: 20px 0;
+    font-size: 18px;
+    font-family: "OpenSansRegular";
+}
+
+input.checkbox[type="checkbox"]{
+    display: none;
+}
+
+input.checkbox[type="checkbox"]+label{
+    background: url("../images/check.png") 0px 0px no-repeat;
+    padding-left: 23px;
+    width: 15px;
+    height: 15px;
+}
+
+input.checkbox[type="checkbox"]:checked+label{
+    background: url("../images/check.png") 0 -30px no-repeat;
+    padding-left: 23px;
+    width: 15px;
+    height: 15px;
+}
+
+input.checkbox[type="checkbox"]+label:hover{
+    cursor: pointer;
 }
 
 .field-payment,
@@ -74,14 +114,19 @@ body{
     width: 50%;
     height: 160px;
     float: left;
-    font-size: 18px;
 }
 
 .field-services{
     width: 100%;
     //height: 200px;
     float: left;
-    font-size: 18px;
+}
+
+.field-order-by-email{
+    width: 100%;
+    float: left;
+    margin: 0;
+    margin-bottom: 20px;
 }
 
 .submit-registration-form{
@@ -100,6 +145,7 @@ body{
     padding: 0 20px;
     box-sizing: border-box;
     margin-top: 10px;
+    float: right;
 }
 
 button.submit-registration-form[type="submit"]:hover{
@@ -117,12 +163,12 @@ fieldset {
     height: 40px;
     width: auto;
     line-height: 40px;
-    border: none;
+    border: 1px solid white;
     border-radius: 20px;
     font-size: 16px;
     text-decoration: none;
-    color: black;
-    background-color: #efe553;
+    color: white;
+    background-color: #64be5f;
     outline: none;
     margin: auto;
     padding: 0 20px;
@@ -132,7 +178,7 @@ fieldset {
 
 .prev:hover, .next:hover {
     cursor: pointer;
-    background-color: #dad14c;
+    background-color: #88d280;
 }
 
 .prev {
@@ -147,15 +193,17 @@ fieldset {
     list-style: none;
     width: 100%;
     overflow: hidden;
-    margin: 0px;
+    margin: 20px 0px;
     padding: 0px;
 }
 
 #steps li {
-    font-size: 24px;
+    font-size: 30px;
     float: left;
-    padding: 10px;
-    color: #b0b1b3;
+    padding: 0;
+    margin-right: 10px;
+    color: white;
+    opacity: 0.5;
 }
 
 #steps li span {
@@ -163,5 +211,6 @@ fieldset {
     display: block;
 }
 #steps li.current {
-    color: #000;
+    color: #efe553;
+    opacity: 1;
 }

@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationFormValidator;
@@ -64,7 +65,6 @@ public class RegistrationController {
     @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
     public String save(@ModelAttribute RegistrationFirstForm firstForm,
                        @ModelAttribute RegistrationSecondForm secondForm,
-                       @RequestParam(value = "hash") String link,
                        final Model model) throws ServiceException {
 
         final Map<String, String> errors = validator.validate(firstForm);
@@ -90,5 +90,12 @@ public class RegistrationController {
         model.addAttribute("registrationSecondStep", secondForm);
 
         return "home/success_registration";
+    }
+
+    @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
+    public String requestOnRegistration(RequestOnRegistrationForm form, Model model) throws ServiceException {
+        model.addAttribute("request", form);
+        registrationService.saveRequestOnRegistration(form);
+        return "home/success_request";
     }
 }

@@ -1,0 +1,15 @@
+extends ../layouts/layout-info-for-polygraphy
+block append content
+
+    .container-for-bid
+        .head-text
+            |Если Вы хотите, чтобы Ваша полиграфия появилась в поиске, оставьте
+            br
+            |нам свой e-mail, мы свяжемся с Вами в ближайшее время.
+
+        .form-container
+            form(id = 'request-form', 'method = 'post', action = '/info-for-polygraphy')
+                input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+                input.email-input(type='text', name='email')
+                button.submit-email(type='submit', id='submit-email')
+                    | Отправить

@@ -2,22 +2,6 @@ extends ../layouts/layout-admin
 
 block append content
 
-    header.header
-        .logo-box
-            a(href='/')
-                .logo
-        .more-info
-            .info-for-polygraphy
-                a(href='/info-for-polygraphy', id='info-for-polygraphy')
-                    Информация для полиграфий
-
-            .about-project
-                О проекте
-        .slogan
-            Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
-            br
-            Мы найдем полиграфии для ваших задач!
-
     form(action="/logout", method="post")
         input(type="hidden", name="#{_csrf.parameterName}", value="#{_csrf.token}")
         input.exit-button(type='submit',value='Выход')
@@ -26,10 +10,18 @@ block append content
         .admin-headline
             АДМИНИСТРАТОР
         form(action='/admin', method='post')
+            for request in requests
+                if request.hash
+                    .checkbox-btn
+                        input(id='btn#{request.id}', name='requestId', value='#{request.id}', type='checkbox')
+                        label(for='btn'+request.id)=request.email
+                else
+                    =request.email
+                    =request.hash
+
+
             input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
             button.generate-link(type="submit") Сгенерировать ссылку
         .link
             a(href='#{generate}')= generate
-
-
 

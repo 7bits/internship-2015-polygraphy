@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.web.service;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -76,6 +77,47 @@ public class CommonFieldValidator {
     ) {
         if (value != null && !errors.containsKey(field)) {
             if (value.length() > maxLength) {
+                errors.put(field, key);
+            }
+        }
+    }
+
+    /**
+     * Validate, whether value is too long
+     *
+     * @param value     Value of field
+     * @param minLength Length allowed
+     * @param errors    Map for errors
+     * @param field     Rejected field name
+     * @param key       Rejected message key
+     */
+    public void longerThan(
+            final String value,
+            final Integer minLength,
+            final Map<String, String> errors,
+            final String field,
+            final String key
+    ) {
+        if (value != null && !errors.containsKey(field)) {
+            if (value.length() < minLength) {
+                errors.put(field, key);
+            }
+        }
+    }
+
+    /**
+     * Validate whether value is valid email, otherwise reject it
+     *  @param value  Value of field
+     * @param errors Map for errors
+     * @param field  Rejected field name
+     * @param key    Rejected message key
+     */
+    public void isNotNullListId(final List<Integer> value,
+                              final Map<String, String> errors,
+                              final String field,
+                              final String key) {
+        if (value != null && !errors.containsKey(field)) {
+            if (value.size()==0) {
                 errors.put(field, key);
             }
         }

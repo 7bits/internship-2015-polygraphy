@@ -40,12 +40,17 @@ body{
     float: left;
     height: 50px;
     width: 450px;
-    border: none;
+    border: 2px solid white;
     border-radius: 25px;
     outline: none;
     padding: 0 30px;
     box-sizing: border-box;
     font-size: 17px;
+}
+
+.email-input:hover,
+.email-input:focus{
+    border-color: #f3e642;
 }
 
 .submit-email{

@@ -19,8 +19,9 @@ body{
 }
 
 .admin-form{
-    width: 500px;
-    height: 250px;
+    width: 800px;
+    //height: 250px;
+    height: auto;
     background-color: #64be5f;
     border-radius: 20px;
     //border: 3px solid #64be5f;
@@ -32,9 +33,9 @@ body{
 }
 
 .generate-link{
-    height: 40px;
+    height: 35px;
     width: auto;
-    line-height: 40px;
+    line-height: 35px;
     border: none;
     border-radius: 20px;
     //color: white;
@@ -45,7 +46,7 @@ body{
     margin: auto;
     padding: 0 20px;
     box-sizing: border-box;
-    margin: 10px 0 20px 0;
+    margin: 0;
 }
 
 button.generate-link[type="submit"]:hover{
@@ -55,4 +56,46 @@ button.generate-link[type="submit"]:hover{
 
 .link a{
     color: white;
+}
+
+.table-container{
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid white;
+    overflow: hidden;
+}
+
+table.admin-table{
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+.admin-table td,
+.admin-table th{
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.head-e-mail{
+    width: 30%;
+    border-right: 1px solid #64be5f;
+}
+
+.head-link{
+    width: 70%;
+}
+
+.head-e-mail,
+.head-link{
+    box-sizing: border-box;
+    border-bottom: 1px solid white;
+    background-color: white;
+    color: #64be5f;
+}
+
+.col-email{
+    text-align: left;
+    border-right: 1px solid white;
 }

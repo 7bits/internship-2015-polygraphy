@@ -1,21 +1,20 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.web.domain.RegistrationResponse;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationFormValidator;
+import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationFirstFormValidator;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationLinkService;
+import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationSecondFormValidator;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -24,7 +23,10 @@ public class RegistrationController {
     private static Logger LOG = Logger.getLogger(RegistrationController.class);
 
     @Autowired
-    private RegistrationFormValidator validator;
+    private RegistrationFirstFormValidator firstFormValidator;
+
+    @Autowired
+    private RegistrationSecondFormValidator secondFormValidator;
 
     @Autowired
     private RegistrationService registrationService;
@@ -43,17 +45,14 @@ public class RegistrationController {
             // Добавим в модель объект - hash ссылки на регистрацию
             model.addAttribute("hash", link);
 
-            // Добавим в модель объект - список сервисов
-            model.addAttribute("services", contentService.findAllServices());
-            // Добавим в модель объект - список методов оплаты
-            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-            // Добавим в модель объект - список методов доставки
-            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            RegistrationResponse registrationResponse = new RegistrationResponse();
+            registrationResponse.setPaymentMethods(contentService.findPaymentMethods());
+            registrationResponse.setDeliveryMethods(contentService.findDeliveryMethods());
+            registrationResponse.setServices(contentService.findAllServices());
+            registrationResponse.setFirstForm(new RegistrationFirstForm());
+            registrationResponse.setSecondForm(new RegistrationSecondForm());
 
-            // Добавим в модель объект - форма регистрации
-            model.addAttribute("registrationUser", new RegistrationFirstForm());
-            // Добавим в модель объект - форма регистрации
-            model.addAttribute("registration", new RegistrationSecondForm());
+            model.addAttribute("registrationResponse", registrationResponse);
 
             return "session/registration";
         }
@@ -63,31 +62,21 @@ public class RegistrationController {
 
     //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
-    public String save(@ModelAttribute RegistrationFirstForm firstForm,
-                       @ModelAttribute RegistrationSecondForm secondForm,
+    @ResponseBody
+    public Object save(@ModelAttribute RegistrationResponse registrationResponse,
                        final Model model) throws ServiceException {
 
-        final Map<String, String> errors = validator.validate(firstForm);
-        if (errors.size() != 0) {
-
-            model.addAttribute("registrationFirstStep", firstForm);
-            model.addAttribute("errors", errors);
-
-            return "session/registration";
+        final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationResponse.getFirstForm());
+        if (errorsFirstForm.size() != 0) {
+            registrationResponse.setErrors(errorsFirstForm);
+            return registrationResponse;
         }
 
-//        errors = validator.validate(secondForm);
-//        if (errors.size() != 0) {
-//
-//            model.addAttribute("registrationSecondStep", secondForm);
-//            model.addAttribute("errors", errors);
-//
-//            return "session/registration";
-//        }
-
-        model.addAttribute("polygraphy", registrationService.saveAll(firstForm, secondForm));
-        model.addAttribute("registrationFirstStep", firstForm);
-        model.addAttribute("registrationSecondStep", secondForm);
+        final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationResponse.getSecondForm());
+        if (errorsSecondForm.size() != 0) {
+            registrationResponse.setErrors(errorsSecondForm);
+            return registrationResponse;
+        }
 
         return "home/success_registration";
     }

@@ -31,10 +31,9 @@
     margin-right: 50px;
 }
 
-.info-for-polygraphy,
-.about-project{
+.navigate-button{
     display: inline-block;
-    height: 30px;
+    height: 100%;
     line-height: 30px;
     width: auto;
     padding: 0 20px;
@@ -43,9 +42,10 @@
     border: none;
     outline: none;
     margin-left: 15px;
+    vertical-align: middle;
 }
 
-.info-for-polygraphy a{
+.navigate-button a{
     text-decoration: none;
     color: black;
 }
@@ -54,10 +54,42 @@
     //margin-left: 15px;
 }
 
-.info-for-polygraphy:hover,
-.about-project:hover{
+.navigate-button:hover{
     background-color: #f3e642;
     cursor: pointer;
+}
+
+.icon-for-list{
+    height: 30px;
+    width: 30px;
+    background: url("../images/icon.png") calc(0% + 10px) center no-repeat,
+                url("../images/arrow.png") calc(100% - 10px) center no-repeat;
+    background-color: rgb(232, 232, 232);
+    float: right;
+    //background-repeat: no-repeat;
+    //background-size: 28px 28px;
+    //background-position: center center;
+}
+
+/*.bottom-arrow{
+    background: url("../images/arrow.png");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 100%;
+    float: right;
+    background-position: center center;
+    margin-left: 5px;
+}*/
+
+.options-list{
+    width: 140px;
+    background-color: rgb(232, 232, 232);
+    text-indent: 10px;
+    padding-left: 0;
+    margin-left: -20px;
+    margin-top: 30px;
+    //display: none;
+    visibility: hidden;
 }
 
 .slogan{
@@ -68,4 +100,19 @@
     float: left;
     text-align: left;
     margin-top: 20px;
+}
+
+ul.more-info>li{
+    list-style-type: none;
+    display: inline;
+}
+
+.list-item{
+    list-style-type: none;
+    width: 140px;
+    text-align: left;
+}
+
+.list-item:hover{
+    background-color: #f3e642;
 }

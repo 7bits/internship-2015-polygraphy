@@ -15,14 +15,14 @@ public class RegistrationLinkRepository {
     @Autowired
     private RegistrationLinkMapper mapper;
 
-    public void save(String hash) throws RepositoryException {
-        try {
-            mapper.save(hash);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while saving hash registration link: "
-                    + e.getMessage(), e);
-        }
-    }
+//    public void save(String hash) throws RepositoryException {
+//        try {
+//            mapper.save(hash);
+//        } catch (Exception e) {
+//            throw new RepositoryException("An error occurred while saving hash registration link: "
+//                    + e.getMessage(), e);
+//        }
+//    }
 
     public void delete(String hash) throws RepositoryException {
         try {

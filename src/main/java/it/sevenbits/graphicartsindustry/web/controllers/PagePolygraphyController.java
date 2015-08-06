@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.web.domain.content.PolygraphyFullModel;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,7 @@ public class PagePolygraphyController {
     private ContentService contentService;
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET)
-    public String index(@PathVariable(value = "id") int id, final Model model) throws ServiceException {
-
-        model.addAttribute("polygraphy", contentService.findPolygraphy(id));
-
-        return "home/page_about_polygraphy";
+    public PolygraphyFullModel pageInfoAboutPolygraphy(@PathVariable(value = "id") int id, final Model model) throws ServiceException {
+        return contentService.findPolygraphy(id);
     }
 }

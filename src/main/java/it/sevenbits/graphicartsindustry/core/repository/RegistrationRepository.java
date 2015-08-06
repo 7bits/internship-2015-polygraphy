@@ -3,6 +3,7 @@ package it.sevenbits.graphicartsindustry.core.repository;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
 import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
+import it.sevenbits.graphicartsindustry.core.mappers.RegistrationLinkMapper;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class RegistrationRepository {
 
     @Autowired
     private RegistrationMapper mapper;
+
+    @Autowired
+    private RegistrationLinkMapper linkMapper;
 
     public Polygraphy createPolygraphy(String name, String address, String phone, String email,
                                        Boolean order, String website, String info,
@@ -100,6 +104,15 @@ public class RegistrationRepository {
             return mapper.findAllRequestOnRegistration();
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while findind model request on registration "
+                    + e.getMessage(), e);
+        }
+    }
+
+    public void saveHash(String hash, int id) throws RepositoryException {
+        try {
+            linkMapper.save(hash, id);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while saving hash registration link: "
                     + e.getMessage(), e);
         }
     }

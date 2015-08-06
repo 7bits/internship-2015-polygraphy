@@ -16,24 +16,17 @@ block append content
                         | E-mail
                     th.head-link
                         | Ссылка для регистрации
-                tr
-                    td.col-email
-                        | sakharnaya@vata.com
-                    td.col-link
-                        form(action='/admin', method='post', id='first-link')
-                            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                            button.generate-link(type="submit", form='first-link', value='то, что отправится на сервер')
-                                | Сгенерировать ссылку
-                        .link
-                            a(href='#{generate}')= generate
-                tr
-                    td.col-email
-                        | chockoladnyi@batonchick.com
-                    td.col-link
-                        form(action='/admin', method='post', id='second-link')
-                            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                            button.generate-link(type="submit", form='second-link', value='то, что отправится на сервер')
-                                | Сгенерировать ссылку
-                        .link
-                            a(href='#{generate}')= generate
-
+                for request in requests
+                    tr
+                        td.col-email
+                            = request.email
+                        if request.hash
+                            = request.hash
+                        else
+                            td.col-link
+                                form(action='/admin', method='post', id='link#{request.id}')
+                                    input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+                                    button.generate-link(type="submit", form='link#{request.id}', name='buttonId', value='request.id')
+                                        | Сгенерировать ссылку
+                                .link
+                                    a(href='#{generate}')= generate

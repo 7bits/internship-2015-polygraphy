@@ -12,11 +12,11 @@ public interface RegistrationMapper {
 
 
     @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email) " +
-            "VALUES (#{name}, #{check}, #{order})")
+            "VALUES (#{name}, #{check}, #{order}, #{userId}), #{info}")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void savePolygraphyBasic(final RegistrationBasic registrationBasic);
 
-    @Insert("INSERT INTO contacts(polygraphy_id, address, email, website, phone) " +
+    @Insert("INSERT INTO contact(polygraphy_id, address, email, website, phone) " +
             "VALUES (#{polygraphyId}, #{address}, #{email}, #{website}, #{phone})")
     void savePolygraphyContacts(@Param("polygraphyId") int polygraphyId,
                                 @Param("address") final String address,
@@ -43,7 +43,7 @@ public interface RegistrationMapper {
     @Delete("DELETE FROM polygraphy WHERE id=#{polygraphyId}")
     void deletePolygraphyBasic(int polygraphyId);
 
-    @Delete("DELETE FROM contacts WHERE polygraphy_id=#{polygraphyId}")
+    @Delete("DELETE FROM contact WHERE polygraphy_id=#{polygraphyId}")
     void deletePolygraphyContacts(int polygraphyId);
 
     @Delete("DELETE FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")

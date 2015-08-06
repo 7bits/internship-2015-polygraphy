@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.core.domain;
 
+
 public class Service {
     private int id;
     private String name;

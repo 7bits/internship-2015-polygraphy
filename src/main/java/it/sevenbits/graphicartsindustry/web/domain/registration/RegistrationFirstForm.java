@@ -1,20 +1,15 @@
 package it.sevenbits.graphicartsindustry.web.domain.registration;
 
-import java.util.List;
-
-public class RegistrationForm {
+public class RegistrationFirstForm {
     private String email;
     private String password;
     private String name;
     private String address;
     private String phone;
-    private String emailPublic;
+    private String publicEmail;
     private Boolean orderByEmail;
     private String website;
-    private List<Integer> paymentMethods;
-    private Boolean writesTheCheck;
-    private List<Integer> deliveryMethods;
-    private List<Integer> services;
+    private String info;
 
     public String getEmail() {
         return email;
@@ -56,12 +51,12 @@ public class RegistrationForm {
         this.phone = phone;
     }
 
-    public String getEmailPublic() {
-        return emailPublic;
+    public String getPublicEmail() {
+        return publicEmail;
     }
 
-    public void setEmailPublic(String emailPublic) {
-        this.emailPublic = emailPublic;
+    public void setPublicEmail(String publicEmail) {
+        this.publicEmail = publicEmail;
     }
 
     public Boolean getOrderByEmail() {
@@ -80,36 +75,11 @@ public class RegistrationForm {
         this.website = website;
     }
 
-    public List<Integer> getPaymentMethods() {
-        return paymentMethods;
+    public String getInfo() {
+        return info;
     }
 
-    public void setPaymentMethods(List<Integer> paymentMethods) {
-        this.paymentMethods = paymentMethods;
-    }
-
-    public Boolean getWritesTheCheck() {
-        return writesTheCheck;
-    }
-
-    public void setWritesTheCheck(Boolean writesTheCheck) {
-        this.writesTheCheck = writesTheCheck;
-    }
-
-    public List<Integer> getDeliveryMethods() {
-        return deliveryMethods;
-    }
-
-    public void setDeliveryMethods(List<Integer> deliveryMethods) {
-        this.deliveryMethods = deliveryMethods;
-    }
-
-    public List<Integer> getServices() {
-        return services;
-    }
-
-    public void setServices(List<Integer> services) {
-        this.services = services;
+    public void setInfo(String info) {
+        this.info = info;
     }
 }
-

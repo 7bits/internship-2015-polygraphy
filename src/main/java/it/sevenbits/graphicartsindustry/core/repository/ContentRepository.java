@@ -1,10 +1,9 @@
-package it.sevenbits.graphicartsindustry.core.repository.content;
+package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
 import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.domain.Service;
 import it.sevenbits.graphicartsindustry.core.mappers.ContentMapper;
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -3,10 +3,11 @@ package it.sevenbits.graphicartsindustry.core.domain;
 public class Polygraphy {
     private int id;
     private String name;
-    private String addres;
+    private String address;
     private String email;
     private String website;
     private String phone;
+    private String info;
 
     public int getId() {
         return id;
@@ -24,12 +25,12 @@ public class Polygraphy {
         this.name = name;
     }
 
-    public String getAddres() {
-        return addres;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddres(String addres) {
-        this.addres = addres;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {
@@ -54,5 +55,13 @@ public class Polygraphy {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }

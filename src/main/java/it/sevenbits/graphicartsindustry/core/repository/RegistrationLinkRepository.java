@@ -1,7 +1,6 @@
-package it.sevenbits.graphicartsindustry.core.repository.registration;
+package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationLinkMapper;
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

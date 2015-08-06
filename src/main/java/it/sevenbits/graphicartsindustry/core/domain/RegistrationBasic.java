@@ -5,12 +5,16 @@ public class RegistrationBasic {
     private String name;
     private Boolean check;
     private Boolean order;
+    private String info;
+    private int userId;
 
-    public RegistrationBasic(Integer id, String name, Boolean check, Boolean order) {
+    public RegistrationBasic(Integer id, String name, Boolean check, Boolean order, String info, int userId) {
         this.id = id;
         this.name = name;
         this.check = check;
         this.order = order;
+        this.info = info;
+        this.userId = userId;
     }
 
     public Integer getId() {
@@ -43,5 +47,21 @@ public class RegistrationBasic {
 
     public void setOrder(Boolean order) {
         this.order = order;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

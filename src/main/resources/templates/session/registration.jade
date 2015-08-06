@@ -22,6 +22,10 @@ block append content
             РЕГИСТРАЦИЯ ПОЛИГРАФИИ
         form(id='registration-form', method='post', action='/registration-link?id=#{hash}')
             fieldset
+                if errors
+                    ul
+                        each error, key in errors
+                            li #{error}
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 input(type='hidden', name='hash', value='#{hash}')
                 .field-email

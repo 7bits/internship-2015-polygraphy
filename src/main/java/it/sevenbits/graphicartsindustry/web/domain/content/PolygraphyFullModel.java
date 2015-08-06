@@ -1,22 +1,23 @@
-package it.sevenbits.graphicartsindustry.web.domain.search;
+package it.sevenbits.graphicartsindustry.web.domain.content;
 
 
 public class PolygraphyFullModel {
     private int id;
     private String name;
     private String addres;
+    private String phone;
     private String email;
     private String website;
-    private String phone;
+    private String info;
 
-    public PolygraphyFullModel(int id, String name, String addres, String email, String website,
-            String phone) {
+    public PolygraphyFullModel(int id, String name, String addres, String email, String website, String phone, String info) {
         this.id = id;
         this.name = name;
         this.addres = addres;
         this.email = email;
         this.website = website;
         this.phone = phone;
+        this.info = info;
     }
 
     public int getId() {
@@ -65,5 +66,13 @@ public class PolygraphyFullModel {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 }

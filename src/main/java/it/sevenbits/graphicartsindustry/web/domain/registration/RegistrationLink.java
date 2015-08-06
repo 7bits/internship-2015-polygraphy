@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.core.domain;
+package it.sevenbits.graphicartsindustry.web.domain.registration;
 
 public class RegistrationLink {
     private String linkBasic;

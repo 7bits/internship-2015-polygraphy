@@ -3,13 +3,13 @@ package it.sevenbits.graphicartsindustry.web.domain.search;
 public class PolygraphyMinModel {
     private int id;
     private String name;
-    private String addres;
+    private String address;
     private String phone;
 
-    public PolygraphyMinModel(int id, String name, String addres, String phone) {
+    public PolygraphyMinModel(int id, String name, String address, String phone) {
         this.id = id;
         this.name = name;
-        this.addres = addres;
+        this.address = address;
         this.phone = phone;
     }
 
@@ -27,12 +27,12 @@ public class PolygraphyMinModel {
         this.name = name;
     }
 
-    public String getAddres() {
-        return addres;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddres(String addres) {
-        this.addres = addres;
+    public void setAddress(String addres) {
+        this.address = addres;
     }
 
     public String getPhone() {

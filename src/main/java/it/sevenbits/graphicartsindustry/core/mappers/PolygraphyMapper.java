@@ -1,30 +1,17 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
-import it.sevenbits.graphicartsindustry.core.repository.search.PolygraphyProvider;
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyProvider;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 public interface PolygraphyMapper {
-
-    @Select("SELECT id, name, address, phone FROM polygraphy AS p " +
-            "LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
-            "LIMIT #{limit}")
-    @Results({
-            @Result(column = "id", property = "id"),
-            @Result(column = "name", property = "name"),
-            @Result(column = "address", property = "addres"),
-            @Result(column = "phone", property = "phone")
-    })
-    List<Polygraphy> findAll(int limit);
-
-
     @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphies")
     @Results({
             @Result(column = "polygraphy_id", property = "id"),
             @Result(column = "name", property = "name"),
-            @Result(column = "address", property = "addres"),
+            @Result(column = "address", property = "address"),
             @Result(column = "phone", property = "phone")
     })
     List<Polygraphy> findPolygraphies(@Param(value = "query") String query,
@@ -35,15 +22,29 @@ public interface PolygraphyMapper {
                                       @Param(value = "order") boolean order);
 
 
-    @Select("SELECT id, name, address, phone, email, website FROM polygraphy AS p LEFT JOIN contacts AS c ON p.id=c.polygraphy_id " +
+    @Select("SELECT id, name, address, phone FROM polygraphy AS p " +
+            "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
+            "LIMIT #{limit}")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name"),
+            @Result(column = "address", property = "address"),
+            @Result(column = "phone", property = "phone")
+    })
+    List<Polygraphy> findAll(@Param(value = "limit") int limit);
+
+
+    @Select("SELECT id, name, address, phone, email, website, info FROM polygraphy AS p " +
+            "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
             "WHERE id=#{id}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name"),
-            @Result(column = "address", property = "addres"),
+            @Result(column = "address", property = "address"),
             @Result(column = "phone", property = "phone"),
             @Result(column = "email", property = "email"),
-            @Result(column = "website", property = "website")
+            @Result(column = "website", property = "website"),
+            @Result(column = "info", property = "info")
     })
-    Polygraphy findPolygraphy(int id);
+    Polygraphy findById(@Param(value = "id") int id);
 }

@@ -1,8 +1,8 @@
-package it.sevenbits.graphicartsindustry.core.repository.registration;
+package it.sevenbits.graphicartsindustry.core.repository;
 
+import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,14 +19,28 @@ public class RegistrationRepository {
     @Autowired
     private RegistrationMapper mapper;
 
-    public void saveAll(String name, Boolean check, Boolean order, String address, String email,
-                     String website, String phone, List<Integer> paymentMethods,
-                     List<Integer> deliveryMethods, List<Integer> services) throws RepositoryException {
+    public Polygraphy createPolygraphy(String name, String address, String phone, String email,
+                                       Boolean order, String website, String info,
+                                       List<Integer> paymentMethods, Boolean check,
+                                       List<Integer> deliveryMethods, List<Integer> services,
+                                       Integer userId) throws RepositoryException {
+//    public void saveAll(String name, Boolean check, Boolean order, String address, String email,
+//                        String website, String phone, List<Integer> paymentMethods,
+//                        List<Integer> deliveryMethods, List<Integer> services) throws RepositoryException {RepositoryException
         try {
-            RegistrationBasic registrationBasic = new RegistrationBasic(null, name, check, order);
+            RegistrationBasic registrationBasic = new RegistrationBasic(null, name, check, order, info, userId);
             mapper.savePolygraphyBasic(registrationBasic);
 
             int polygraphyId = registrationBasic.getId();
+
+            Polygraphy polygraphy = new Polygraphy();
+            polygraphy.setId(polygraphyId);
+            polygraphy.setName(name);
+            polygraphy.setAddress(address);
+            polygraphy.setPhone(phone);
+            polygraphy.setEmail(email);
+            polygraphy.setWebsite(website);
+            polygraphy.setInfo(info);
 
             mapper.savePolygraphyContacts(polygraphyId, address, email, website, phone);
 
@@ -50,13 +64,14 @@ public class RegistrationRepository {
                         mapper.savePolygraphyService(polygraphyId, s);
                 }
             }
+            return polygraphy;
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while saving registration form polygraphy "
                     + e.getMessage(), e);
         }
     }
 
-    public void deleteAll(int polygraphyId) throws RepositoryException {
+    public void deletePolygraphy(int polygraphyId) throws RepositoryException {
         try {
             mapper.deletePolygraphyServices(polygraphyId);
             mapper.deletePolygraphyDeliveryMethods(polygraphyId);

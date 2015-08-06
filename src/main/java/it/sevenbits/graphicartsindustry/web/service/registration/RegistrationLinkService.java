@@ -1,7 +1,8 @@
-package it.sevenbits.graphicartsindustry.web.service;
+package it.sevenbits.graphicartsindustry.web.service.registration;
 
-import it.sevenbits.graphicartsindustry.core.domain.RegistrationLink;
-import it.sevenbits.graphicartsindustry.core.repository.registration.RegistrationLinkRepository;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationLink;
+import it.sevenbits.graphicartsindustry.core.repository.RegistrationLinkRepository;
+import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

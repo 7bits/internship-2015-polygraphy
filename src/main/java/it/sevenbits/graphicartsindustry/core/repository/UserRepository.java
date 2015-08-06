@@ -49,7 +49,7 @@ public class UserRepository implements UserDetailsService {
         }
     }
 
-    public User findById(final Long id) throws RepositoryException {
+    public User findById(final Integer id) throws RepositoryException {
         if (id == null) {
             throw new RepositoryException("User id is null");
         }
@@ -68,12 +68,12 @@ public class UserRepository implements UserDetailsService {
         }
     }
 
-    public User createUser(String email, String password) throws RepositoryException {
+    public User createUser(String email, String password, Role role) throws RepositoryException {
         User user = new User();
         user.setEmail(email);
         PasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(password));
-        user.setRole(Role.ROLE_POLYGRAPHY);
+        user.setRole(role);
         try {
             userMapper.save(user);
         } catch (Exception e) {

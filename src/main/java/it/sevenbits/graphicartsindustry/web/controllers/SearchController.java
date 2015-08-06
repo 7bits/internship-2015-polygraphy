@@ -3,7 +3,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 import it.sevenbits.graphicartsindustry.web.domain.PolygraphyResponse;
 import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
-import it.sevenbits.graphicartsindustry.web.service.PolygraphyService;
+import it.sevenbits.graphicartsindustry.web.service.SearchService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ public class SearchController {
     private final int limitRadioButton = 4;
 
     @Autowired
-    private PolygraphyService polygraphyService;
+    private SearchService searchService;
 
     @Autowired
     private ContentService contentService;
@@ -37,7 +37,7 @@ public class SearchController {
         // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
         model.addAttribute("polygraphyiesIsNull", "");
         // В модель добавим объект - рандомный список полиграфий
-        model.addAttribute("polygraphies", polygraphyService.findAll(limitPolygraphy));
+        model.addAttribute("polygraphies", searchService.findAll(limitPolygraphy));
         return "home/index";
     }
 
@@ -65,10 +65,10 @@ public class SearchController {
                 form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.getOrderByEmail()==false)
             // В модель добавим объект - рандомный список полиграфий
-            model.addAttribute("polygraphies", polygraphyService.findAll(limitPolygraphy));
+            model.addAttribute("polygraphies", searchService.findAll(limitPolygraphy));
         else {
             PolygraphyResponse results = new PolygraphyResponse();
-            results.setPolygraphies(polygraphyService.findPolygraphies(form));
+            results.setPolygraphies(searchService.findPolygraphies(form));
             if (results.getPolygraphies().size()==0)
                 results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
                         "требованиям запроса");
@@ -88,11 +88,11 @@ public class SearchController {
                 form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.getOrderByEmail()==false) {
             // В модель добавим объект - рандомный список полиграфий
-            results.setPolygraphies(polygraphyService.findAll(limitPolygraphy));
+            results.setPolygraphies(searchService.findAll(limitPolygraphy));
             results.setPolygraphiesListIsNull("");
         }
         else {
-            results.setPolygraphies(polygraphyService.findPolygraphies(form));
+            results.setPolygraphies(searchService.findPolygraphies(form));
             if (results.getPolygraphies().size() == 0)
                 results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
                         "требованиям запроса");
@@ -106,7 +106,7 @@ public class SearchController {
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.GET)
     public String infoForPolygraphy (final Model model) {
-        return "home/infoForPolygraphy";
+        return "home/page_with_info_for_polygraphy";
     }
 
 }

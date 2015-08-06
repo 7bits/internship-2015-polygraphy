@@ -1,8 +1,7 @@
-package it.sevenbits.graphicartsindustry.core.repository.search;
+package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +41,7 @@ public class PolygraphyRepository {
 
     public Polygraphy findPolygraphy(int id) throws RepositoryException {
         try {
-            return mapper.findPolygraphy(id);
+            return mapper.findById(id);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving full information " +
                     "about polygraphy: " + e.getMessage(), e);

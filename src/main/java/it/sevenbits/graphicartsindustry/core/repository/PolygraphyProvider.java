@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.core.repository.search;
+package it.sevenbits.graphicartsindustry.core.repository;
 
 import java.util.Map;
 
@@ -50,7 +50,7 @@ public class PolygraphyProvider {
             sqlQuery.append(" LEFT JOIN polygraphies_delivery_methods AS pdm ON p.id=pdm.polygraphy_id " +
                     "LEFT JOIN delivery_method AS dm ON pdm.delivery_method_id=dm.id");
 
-        sqlQuery.append(" LEFT JOIN contacts AS c ON p.id=c.polygraphy_id");
+        sqlQuery.append(" LEFT JOIN contact AS c ON p.id=c.polygraphy_id");
 
         sqlQuery.append(" WHERE");
         if (!query.isEmpty()) {

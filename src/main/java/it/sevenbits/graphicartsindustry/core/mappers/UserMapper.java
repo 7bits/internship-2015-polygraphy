@@ -21,7 +21,7 @@ public interface UserMapper {
 
     @Select("SELECT id, email, password_hash, enabled, role " +
             "FROM users " +
-            "WHERE if=#{id}")
+            "WHERE id=#{id}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "email", property = "email"),
@@ -29,7 +29,7 @@ public interface UserMapper {
             @Result(column = "enabled", property = "enabled"),
             @Result(column = "role", property = "role", javaType = Role.class)
     })
-    User findById(@Param("id") Long id);
+    User findById(@Param("id") int id);
 
 
     @Insert("INSERT INTO users (email, password_hash, role) " +

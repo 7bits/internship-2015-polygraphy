@@ -39,11 +39,8 @@ public class RegistrationController {
 
     //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.GET)
-    public String registration(@RequestParam(value="id") String link, final Model model) throws ServiceException {
-        Boolean y = registrationLinkService.findRegistrationLink(link);
-        if (registrationLinkService.findRegistrationLink(link)) {
-            // Добавим в модель объект - hash ссылки на регистрацию
-            model.addAttribute("hash", link);
+    public String registration(@RequestParam(value="id") String hash, final Model model) throws ServiceException {
+        if (registrationLinkService.findRegistrationLink(hash)) {
 
             RegistrationResponse registrationResponse = new RegistrationResponse();
             registrationResponse.setPaymentMethods(contentService.findPaymentMethods());
@@ -51,6 +48,7 @@ public class RegistrationController {
             registrationResponse.setServices(contentService.findAllServices());
             registrationResponse.setFirstForm(new RegistrationFirstForm());
             registrationResponse.setSecondForm(new RegistrationSecondForm());
+            registrationResponse.setHash(hash);
 
             model.addAttribute("registrationResponse", registrationResponse);
 
@@ -78,7 +76,8 @@ public class RegistrationController {
             return registrationResponse;
         }
 
-        return "home/success_registration";
+        registrationService.deleteRequestOnRegistration(registrationResponse.getHash());
+        return "home/index";
     }
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)

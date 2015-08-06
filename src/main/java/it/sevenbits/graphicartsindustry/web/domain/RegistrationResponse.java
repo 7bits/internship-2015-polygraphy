@@ -16,6 +16,7 @@ public class RegistrationResponse {
     private Map<String, String> errors;
     private RegistrationFirstForm firstForm;
     private RegistrationSecondForm secondForm;
+    private String hash;
 
     public List<ServiceModel> getServices() {
         return services;
@@ -63,5 +64,13 @@ public class RegistrationResponse {
 
     public void setSecondForm(RegistrationSecondForm secondForm) {
         this.secondForm = secondForm;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 }

@@ -103,7 +103,7 @@ public class RegistrationRepository {
         try {
             return mapper.findAllRequestOnRegistration();
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while findind model request on registration "
+            throw new RepositoryException("An error occurred while finding model request on registration "
                     + e.getMessage(), e);
         }
     }
@@ -113,6 +113,15 @@ public class RegistrationRepository {
             linkMapper.save(hash, id);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while saving hash registration link: "
+                    + e.getMessage(), e);
+        }
+    }
+
+    public void deleteRequestOnRegistration(String hash) throws RepositoryException {
+        try {
+            mapper.deleteRequestOnRegistration(hash);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while deleting request on registration: "
                     + e.getMessage(), e);
         }
     }

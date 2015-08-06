@@ -104,4 +104,12 @@ public class RegistrationService {
             throw new ServiceException("An error occurred while saving hash");
         }
     }
+
+    public void deleteRequestOnRegistration (String hash) throws ServiceException {
+        try {
+            registrationRepository.deleteRequestOnRegistration(hash);
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while deleting request on registration");
+        }
+    }
 }

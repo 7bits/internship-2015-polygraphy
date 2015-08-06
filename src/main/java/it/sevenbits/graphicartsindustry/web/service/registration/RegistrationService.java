@@ -7,10 +7,7 @@ import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.RegistrationRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.web.domain.content.PolygraphyFullModel;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.domain.registration.*;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +17,8 @@ import java.util.List;
 
 @Service
 public class RegistrationService {
+    private int min = 100000000;
+    private int max = 999999999;
 
     @Autowired
     private UserRepository userRepository;
@@ -80,6 +79,29 @@ public class RegistrationService {
         } catch (Exception e) {
             throw new ServiceException("An error occurred while finding request on registration " +
                     e.getMessage(),e);
+        }
+    }
+
+    public void generateAndSaveHash (int id) throws ServiceException {
+        String hash = this.generateHash();
+        this.saveHash(hash, id);
+    }
+
+    private String generateHash() throws ServiceException {
+        try {
+            int number = min + (int) (Math.random() * ((max - min) + 1));
+            String hash = Integer.toString(number);
+            return hash;
+        }catch (Exception e) {
+            throw new ServiceException("An error occurred while generating hash");
+        }
+    }
+
+    private void saveHash(String hash, int id) throws ServiceException {
+        try {
+            registrationRepository.saveHash(hash, id);
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while saving hash");
         }
     }
 }

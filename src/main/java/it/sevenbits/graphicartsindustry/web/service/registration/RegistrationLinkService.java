@@ -23,14 +23,14 @@ public class RegistrationLinkService {
         return link;
     }
 
-    public void saveRegistrationLink(RegistrationLink link) throws ServiceException {
-        try {
-            repository.save(link.getHash());
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving hash registration link: "
-                    + e.getMessage(), e);
-        }
-    }
+//    public void saveRegistrationLink(RegistrationLink link) throws ServiceException {
+//        try {
+//            repository.save(link.getHash());
+//        } catch (Exception e) {
+//            throw new ServiceException("An error occurred while saving hash registration link: "
+//                    + e.getMessage(), e);
+//        }
+//    }
 
     public void deleteRegistrationLink(RegistrationLink link) throws ServiceException {
         try {

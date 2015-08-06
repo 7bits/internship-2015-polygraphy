@@ -42,17 +42,10 @@ var popUpWindow = function (event){
     console.log(url);
     $.ajax({
         type: 'GET',
-        //dataType: 'json',
+        dataType: 'json',
         url: url,
         headers: headers,
         success: function(data) {
-            data = {
-                        "name": "IQ дизайн-бюро",
-                        "addres": "ул. Масленникова, 28",
-                        "phone": "901201",
-                        "email": "mail@901201.ru",
-                        "website": "http://www.dbiq.ru/"
-                   }
             $('.pop-up-window').html(render(data));
         },
         error:  function(xhr, str){

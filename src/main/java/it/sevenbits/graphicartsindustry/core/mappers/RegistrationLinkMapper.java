@@ -4,8 +4,10 @@ import org.apache.ibatis.annotations.*;
 
 public interface RegistrationLinkMapper {
 
-    @Insert("INSERT INTO registration_hash (hash) VALUES (#{hash})")
-    void save(@Param("hash") String hash);
+    @Insert("INSERT INTO request_on_registration (hash) VALUES (#{hash}) " +
+            "WHERE id=#{id}")
+    void save(@Param("hash") final String hash,
+              @Param("id") final int id);
 
 
     @Delete("DELETE hash FROM registration_hash WHERE hash=#{hash}")

@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationLink;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationLinkService;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
@@ -9,6 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -28,15 +32,20 @@ public class AdminController {
     }
 
     //@Secured({"ROLE_ADMIN"})
-    @RequestMapping(value = "/admin", method = RequestMethod.POST)
-    public String generate(final Model model) throws ServiceException {
+    @RequestMapping(value = "/admin/registration-link", method = RequestMethod.POST)
+    @ResponseBody
+    public List<RequestOnRegistrationModel> generate(
+            @RequestParam(value="requestId", defaultValue = "0") Integer id,
+            final Model model) throws ServiceException {
 
-        RegistrationLink link = registrationLinkService.generateRegistrationLink();
-        model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
-                + link.getHash());
-        registrationLinkService.saveRegistrationLink(link);
-        model.addAttribute("requests", registrationService.showRequests());
-
-        return "home/admin";
+        if (id!=0)
+            registrationService.generateAndSaveHash(id);
+        //RegistrationLink link = registrationLinkService.generateRegistrationLink();
+        //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
+        //        + link.getHash());
+        //registrationLinkService.saveRegistrationLink(link);
+        //model.addAttribute("requests", registrationService.showRequests());
+        List<RequestOnRegistrationModel> requestOnRegistrationModel = registrationService.showRequests();
+        return requestOnRegistrationModel;
     }
 }

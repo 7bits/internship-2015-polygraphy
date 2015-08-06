@@ -111,7 +111,7 @@ block append content
                                 .polygraphy-name
                                     a(href='/polygraphy/#{polygraphy.id}')
                                         = polygraphy.name
-                                .polygraphy-address= polygraphy.addres
+                                .polygraphy-address= polygraphy.address
                                 .polygraphy-phone-number= polygraphy.phone
                             .detail(id='polygraphy-page')
                                     a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
@@ -140,7 +140,7 @@ block append content
                                 td
                         .info
                             .polygraphy-name {{name}}
-                            .polygraphy-address {{addres}}
+                            .polygraphy-address {{address}}
                             .polygraphy-phone-number{{phone}}
                         .detail(id='polygraphy-page')
                                 a(href='/polygraphy/{{id}}', id='{{id}}')
@@ -164,7 +164,7 @@ block append content
                                 td
                                 td
                                 td
-                        .address-pop-up {{addres}}
+                        .address-pop-up {{address}}
                         .phone-pop-up {{phone}}
                         .email-pop-up {{email}}
                         .site-pop-up
@@ -173,5 +173,5 @@ block append content
                         .about-title-pop-up
                             О ПОЛИГРАФИИ
                         .about-text-pop-up
-                            Тут будет много текстаТут будет много текстаТут будет много текстаТут будет много текста
+                            {{info}}
                 .helper-pop-up

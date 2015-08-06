@@ -2,12 +2,24 @@ header.header
     .logo-box
         a(href='/')
             .logo
-    .more-info
-        .info-for-polygraphy
-            a(href='/info-for-polygraphy', id='info-for-polygraphy')
-                Информация для полиграфий
-        .about-project
-            О проекте
+    ul.more-info
+        li.list
+            .navigate-button.icon-for-list
+                ul.options-list
+                    li.list-item
+                        | Личный кабинет
+                    li.list-item
+                        | Выход
+        li
+            .navigate-button.info-for-polygraphy
+                a(href='/info-for-polygraphy', id='info-for-polygraphy')
+                    | Информация для полиграфий
+        li
+            .navigate-button.about-project
+                | О проекте
+        li
+            .navigate-button.log-in
+                | Войти
     .slogan
         Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
         br

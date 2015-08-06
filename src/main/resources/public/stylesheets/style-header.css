@@ -109,10 +109,13 @@ ul.more-info>li{
 
 .list-item{
     list-style-type: none;
-    width: 140px;
+    width: 150px;
     text-align: left;
+    text-indent: 20px;
 }
 
 .list-item:hover{
-    background-color: #f3e642;
+    background: url('../images/circle1-1.png') left center no-repeat;
+    background-size: 15px 15px;
+    //background-color: #f3e642;
 }

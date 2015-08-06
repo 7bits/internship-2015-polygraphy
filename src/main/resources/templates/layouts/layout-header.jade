@@ -7,9 +7,11 @@ header.header
             .navigate-button.icon-for-list
                 ul.options-list
                     li.list-item
-                        | Личный кабинет
+                        a(href="/admin")
+                            | Личный кабинет
                     li.list-item
-                        | Выход
+                        a(href="/logout")
+                            | Выход
         li
             .navigate-button.info-for-polygraphy
                 a(href='/info-for-polygraphy', id='info-for-polygraphy')
@@ -19,7 +21,8 @@ header.header
                 | О проекте
         li
             .navigate-button.log-in
-                | Войти
+                a(href='/login')
+                    | Войти
     .slogan
         Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
         br

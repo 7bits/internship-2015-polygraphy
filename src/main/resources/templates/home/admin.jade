@@ -2,10 +2,6 @@ extends ../layouts/layout-admin
 
 block append content
 
-    form(action="/logout", method="post")
-        input(type="hidden", name="#{_csrf.parameterName}", value="#{_csrf.token}")
-        input.exit-button(type='submit',value='Выход')
-
     .admin-form
         .admin-headline
             АДМИНИСТРАТОР
@@ -24,9 +20,8 @@ block append content
                             = request.hash
                         else
                             td.col-link
-                                form(action='/admin', method='post', id='link#{request.id}')
-                                    input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                                    button.generate-link(type="submit", form='link#{request.id}', name='buttonId', value='request.id')
+                                .generate-link
+                                    a(href='/admin/registration-link', id='#{request.id}')
                                         | Сгенерировать ссылку
                                 .link
                                     a(href='#{generate}')= generate

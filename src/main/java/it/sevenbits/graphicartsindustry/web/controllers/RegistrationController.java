@@ -83,7 +83,8 @@ public class RegistrationController {
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public RequestOnRegistrationForm requestOnRegistration(RequestOnRegistrationForm form, Model model) throws ServiceException {        final Map<String, String> errorsRequestForm = requestOnRegistrationValidator.validate(form);
+    public RequestOnRegistrationForm requestOnRegistration(RequestOnRegistrationForm form, Model model) throws ServiceException {
+        final Map<String, String> errorsRequestForm = requestOnRegistrationValidator.validate(form);
         if (errorsRequestForm.size() != 0) {
             form.setErrors(errorsRequestForm);
             form.setSuccess(false);

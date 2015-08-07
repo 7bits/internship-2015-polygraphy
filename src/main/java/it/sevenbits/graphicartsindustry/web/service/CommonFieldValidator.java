@@ -135,6 +135,24 @@ public class CommonFieldValidator {
      * @param field  Rejected field name
      * @param key    Rejected message key
      */
+    public void isRequested(final String value,
+                              final Map<String, String> errors,
+                              final String field,
+                              final String key) throws ServiceException {
+        if (value != null && !errors.containsKey(field)) {
+            if (registrationService.isRequested(value)) {
+                errors.put(field, key);
+            }
+        }
+    }
+
+    /**
+     * Validate whether value is valid email, otherwise reject it
+     *  @param value  Value of field
+     * @param errors Map for errors
+     * @param field  Rejected field name
+     * @param key    Rejected message key
+     */
     public void isNotNullListId(final List<Integer> value,
                                 final Map<String, String> errors,
                                 final String field,

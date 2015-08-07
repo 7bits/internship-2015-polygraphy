@@ -30,6 +30,8 @@ public class RequestOnRegistrationValidator {
 
         validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 
+        validator.isRequested(form.getEmail(), errors, "email", "С этого email уже подана заявка. Введите другой email или свяжитесь с администратором anastasia.lyubich@gmail.com");
+
 
         for (Map.Entry<String, String> entry : errors.entrySet()) {
             LOG.info(String.format("Error found: Filed=%s, Error=%s",

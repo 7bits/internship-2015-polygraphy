@@ -18,6 +18,10 @@ public interface RegistrationMapper {
 
     @Select("SELECT email FROM users WHERE email=#{email}")
     @Result (column = "email")
+    String findUserByEmail(@Param("email") final String email);
+
+    @Select("SELECT email FROM request_on_registration WHERE email=#{email}")
+    @Result (column = "email")
     String findRequestByEmail(@Param("email") final String email);
 
     @Select("SELECT id, email, hash FROM request_on_registration ")

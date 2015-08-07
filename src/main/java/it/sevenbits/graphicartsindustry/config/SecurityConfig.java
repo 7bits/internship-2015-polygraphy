@@ -42,7 +42,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests()
                     .antMatchers("/", "/search", "/polygraphy/**", "/registration-link",
-                            "/info-for-polygraphy", "info-for-polygraphy-success")
+                            "/info-for-polygraphy", "/info-for-polygraphy-success")
                     .permitAll()
                 .anyRequest()
                     .authenticated()

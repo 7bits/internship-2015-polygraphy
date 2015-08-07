@@ -33,7 +33,7 @@ public class RegistrationLinkRepository {
         }
     }
 
-    public String find(String hash) throws RepositoryException {
+    public Integer find(String hash) throws RepositoryException {
         try {
             return mapper.find(hash);
         } catch (Exception e) {

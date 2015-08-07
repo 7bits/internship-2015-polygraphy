@@ -40,7 +40,8 @@ public class RegistrationController {
     //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.GET)
     public String registration(@RequestParam(value="id") String hash, final Model model) throws ServiceException {
-        if (registrationLinkService.findRegistrationLink(hash)) {
+        Integer requestId = registrationLinkService.findRegistrationLink(hash);
+        if (requestId!=null) {
 
             RegistrationResponse registrationResponse = new RegistrationResponse();
             registrationResponse.setPaymentMethods(contentService.findPaymentMethods());

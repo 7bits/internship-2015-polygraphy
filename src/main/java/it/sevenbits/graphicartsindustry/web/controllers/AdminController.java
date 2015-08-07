@@ -39,7 +39,8 @@ public class AdminController {
         RequestOnRegistrationModel requestOnRegistration = new RequestOnRegistrationModel();
         String hash = registrationService.generateAndSaveHash(id);
         requestOnRegistration.setHash(hash);
-        requestOnRegistration.setId(id);
+        int requestId = registrationLinkService.findRegistrationLink(hash);
+        requestOnRegistration.setId(requestId);
 
         //RegistrationLink link = registrationLinkService.generateRegistrationLink();
         //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()

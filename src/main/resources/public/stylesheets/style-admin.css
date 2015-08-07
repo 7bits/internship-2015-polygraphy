@@ -59,7 +59,7 @@ body{
 }
 
 .link a{
-    color: white;
+    color: black;
 }
 
 .table-container{
@@ -101,11 +101,11 @@ table.admin-table{
 
 .col-email{
     text-align: left;
-    color: black;
     border-right: 1px solid #64be5f;
 }
 
 .col-email,
 .col-link{
+    color: black;
     border-top: 1px solid #64be5f;
 }

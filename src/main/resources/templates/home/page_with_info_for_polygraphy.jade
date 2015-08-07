@@ -11,5 +11,6 @@ block append content
             form(id = 'request-form', 'method = 'post', action = '/info-for-polygraphy')
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 input.email-input(type='text', name='email')
-                button.submit-email(type='submit', id='submit-email')
+                button.submit-email(type='submit', id='submit-email', form = 'request-form')
                     | Отправить
+        .error-container

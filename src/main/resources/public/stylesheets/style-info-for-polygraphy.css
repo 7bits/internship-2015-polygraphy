@@ -13,7 +13,7 @@ body{
 
 .container-for-bid{
     width: 895px;
-    height: 255px;
+    height: 280px;
     background-color: #64be5f;
     border: none;
     outline: none;
@@ -69,5 +69,11 @@ body{
 .submit-email:hover{
     cursor: pointer;
     background-color: #dad14c;
+}
+
+.error-container{
+    display: block;
+    font-size: 18px;
+    color: red;
 }
 

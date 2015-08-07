@@ -5,6 +5,7 @@ import java.util.Map;
 public class RequestOnRegistrationForm {
     private String email;
     private Map<String, String> errors;
+    private boolean success;
 
     public String getEmail() {
         return email;
@@ -20,5 +21,13 @@ public class RequestOnRegistrationForm {
 
     public void setErrors(Map<String, String> errors) {
         this.errors = errors;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 }

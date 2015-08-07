@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.web.service.registration;
 
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.CommonFieldValidator;
+import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class RequestOnRegistrationValidator {
 
     private static final Logger LOG = Logger.getLogger(RequestOnRegistrationValidator.class);
 
-    public HashMap<String, String> validate(final RequestOnRegistrationForm form) {
+    public HashMap<String, String> validate(final RequestOnRegistrationForm form) throws ServiceException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 
@@ -26,6 +27,8 @@ public class RequestOnRegistrationValidator {
         validator.isEmail(form.getEmail(), errors, "email", "Введите правильный email");
 
         validator.shorterThan(form.getEmail(), 255, errors, "email", "Поле должно быть кроче чем 255 символов");
+
+        validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 
 
         for (Map.Entry<String, String> entry : errors.entrySet()) {

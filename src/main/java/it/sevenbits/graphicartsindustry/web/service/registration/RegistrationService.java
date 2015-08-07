@@ -113,4 +113,16 @@ public class RegistrationService {
             throw new ServiceException("An error occurred while deleting request on registration");
         }
     }
+
+    public boolean isRegistrated (String email) throws ServiceException {
+        try {
+            String returnedEmail = registrationRepository.findRequestByEmail(email);
+            if (returnedEmail!=null)
+                return true;
+            else
+                return false;
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while finding email in users");
+        }
+    }
 }

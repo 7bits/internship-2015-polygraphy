@@ -1,5 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
+import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +11,9 @@ import java.util.regex.Pattern;
 
 @Service
 public class CommonFieldValidator {
+
+    @Autowired
+    private RegistrationService registrationService;
 
     /** Email exists pattern */
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(
@@ -112,10 +117,28 @@ public class CommonFieldValidator {
      * @param field  Rejected field name
      * @param key    Rejected message key
      */
-    public void isNotNullListId(final List<Integer> value,
+    public void isRegistrated(final String value,
                               final Map<String, String> errors,
                               final String field,
-                              final String key) {
+                              final String key) throws ServiceException {
+        if (value != null && !errors.containsKey(field)) {
+            if (registrationService.isRegistrated(value)) {
+                errors.put(field, key);
+            }
+        }
+    }
+
+    /**
+     * Validate whether value is valid email, otherwise reject it
+     *  @param value  Value of field
+     * @param errors Map for errors
+     * @param field  Rejected field name
+     * @param key    Rejected message key
+     */
+    public void isNotNullListId(final List<Integer> value,
+                                final Map<String, String> errors,
+                                final String field,
+                                final String key) {
         if (value != null && !errors.containsKey(field)) {
             if (value.size()==0) {
                 errors.put(field, key);

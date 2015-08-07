@@ -16,6 +16,10 @@ public interface RegistrationMapper {
             "WHERE hash=#{hash}")
     void deleteRequestOnRegistration(@Param("hash") final String hash);
 
+    @Select("SELECT email FROM users WHERE email=#{email}")
+    @Result (column = "email")
+    String findRequestByEmail(@Param("email") final String email);
+
     @Select("SELECT id, email, hash FROM request_on_registration ")
     @Results({
             @Result(column = "id", property = "id"),

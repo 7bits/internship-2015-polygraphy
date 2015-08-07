@@ -5,6 +5,7 @@ import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
 import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationLinkMapper;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
+import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -123,6 +124,14 @@ public class RegistrationRepository {
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while deleting request on registration: "
                     + e.getMessage(), e);
+        }
+    }
+
+    public String findRequestByEmail (String email) throws RepositoryException {
+        try {
+            return mapper.findRequestByEmail(email);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while finding email in users", e);
         }
     }
 }

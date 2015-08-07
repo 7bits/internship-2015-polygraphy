@@ -3,15 +3,16 @@ header.header
         a(href='/')
             .logo
     ul.more-info
-        li.list
-            .navigate-button.icon-for-list
-                ul.options-list
-                    li.list-item
-                        a(href="/admin")
-                            | Личный кабинет
-                    li.list-item
-                        a(href="/logout")
-                            | Выход
+        if security.isUserInRole("ROLE_ADMIN")
+            li.list
+                .navigate-button.icon-for-list
+                    ul.options-list
+                        li.list-item
+                            a(href="/admin")
+                                | Личный кабинет
+                        li.list-item
+                            a(href="/logout")
+                                | Выход
         li
             .navigate-button.info-for-polygraphy
                 a(href='/info-for-polygraphy', id='info-for-polygraphy')
@@ -19,10 +20,11 @@ header.header
         li
             .navigate-button.about-project
                 | О проекте
-        li
-            .navigate-button.log-in
-                a(href='/login')
-                    | Войти
+        if !security.isUserInRole("ROLE_ADMIN")
+            li
+                .navigate-button.log-in
+                    a(href='/login')
+                        | Войти
     .slogan
         Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
         br

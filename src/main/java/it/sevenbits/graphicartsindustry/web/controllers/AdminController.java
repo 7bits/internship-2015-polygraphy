@@ -1,6 +1,5 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationLinkService;
@@ -40,6 +39,7 @@ public class AdminController {
         RequestOnRegistrationModel requestOnRegistration = new RequestOnRegistrationModel();
         String hash = registrationService.generateAndSaveHash(id);
         requestOnRegistration.setHash(hash);
+        requestOnRegistration.setId(id);
 
         //RegistrationLink link = registrationLinkService.generateRegistrationLink();
         //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()

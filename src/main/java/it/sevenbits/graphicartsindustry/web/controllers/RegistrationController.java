@@ -43,15 +43,13 @@ public class RegistrationController {
         Integer requestId = registrationLinkService.findRegistrationLink(hash);
         if (requestId!=null) {
 
-            RegistrationResponse registrationResponse = new RegistrationResponse();
-            registrationResponse.setPaymentMethods(contentService.findPaymentMethods());
-            registrationResponse.setDeliveryMethods(contentService.findDeliveryMethods());
-            registrationResponse.setServices(contentService.findAllServices());
-            registrationResponse.setFirstForm(new RegistrationFirstForm());
-            registrationResponse.setSecondForm(new RegistrationSecondForm());
-            registrationResponse.setHash(hash);
+            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            model.addAttribute("services", contentService.findAllServices());
+            model.addAttribute("firstForm", new RegistrationFirstForm());
+            model.addAttribute("secondForm", new RegistrationSecondForm());
+            model.addAttribute("hash", hash);
 
-            model.addAttribute("registrationResponse", registrationResponse);
 
             return "session/registration";
         }
@@ -62,7 +60,7 @@ public class RegistrationController {
     //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
     @ResponseBody
-    public Object save(@ModelAttribute RegistrationResponse registrationResponse,
+    public RegistrationResponse save(@ModelAttribute RegistrationResponse registrationResponse,
                        final Model model) throws ServiceException {
 
         final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationResponse.getFirstForm());
@@ -78,7 +76,7 @@ public class RegistrationController {
         }
 
         registrationService.deleteRequestOnRegistration(registrationResponse.getHash());
-        return "home/index";
+        return registrationResponse;
     }
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)

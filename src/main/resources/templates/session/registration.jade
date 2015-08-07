@@ -5,7 +5,7 @@ block append content
     .registration-form
         .registration-form-headline
             РЕГИСТРАЦИЯ ПОЛИГРАФИИ
-        form(id='registration-form', method='post', action='/registration-link?id=#{hash}')
+        form(id='registration-form', method='post', action='/registration-link')
             fieldset
                 if errors
                     ul

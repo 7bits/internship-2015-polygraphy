@@ -13,7 +13,7 @@ block append content
                     th.head-link
                         | Ссылка для регистрации
                 for request in requests
-                    tr
+                    tr.row
                         td.col-email
                             = request.email
                         td.col-link
@@ -24,4 +24,4 @@ block append content
                                     a(href='/admin/registration-link', id='#{request.id}')
                                         | Сгенерировать ссылку
                                 .link
-                                    a(href='#{generate}')= generate
+                                    a(href='#{generate}', id='#{request.id}')= generate

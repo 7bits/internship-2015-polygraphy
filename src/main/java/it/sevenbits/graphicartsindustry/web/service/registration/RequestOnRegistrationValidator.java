@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.service.registration;
 
-import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.CommonFieldValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class RequestOnRegistrationValidator {
 
     private static final Logger LOG = Logger.getLogger(RequestOnRegistrationValidator.class);
 
-    public HashMap<String, String> validate(final RegistrationFirstForm form) {
+    public HashMap<String, String> validate(final RequestOnRegistrationForm form) {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 

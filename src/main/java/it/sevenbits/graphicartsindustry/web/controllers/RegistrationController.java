@@ -6,10 +6,7 @@ import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSeco
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationFirstFormValidator;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationLinkService;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationSecondFormValidator;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
+import it.sevenbits.graphicartsindustry.web.service.registration.*;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +24,9 @@ public class RegistrationController {
 
     @Autowired
     private RegistrationSecondFormValidator secondFormValidator;
+
+    @Autowired
+    private RequestOnRegistrationValidator requestOnRegistrationValidator;
 
     @Autowired
     private RegistrationService registrationService;
@@ -82,8 +82,14 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
-    public String requestOnRegistration(RequestOnRegistrationForm form, Model model) throws ServiceException {
-        model.addAttribute("request", form);
+    public Object requestOnRegistration(RequestOnRegistrationForm form, Model model) throws ServiceException {
+
+        final Map<String, String> errorsRequestForm = requestOnRegistrationValidator.validate(form);
+        if (errorsRequestForm.size() != 0) {
+            form.setErrors(errorsRequestForm);
+            return form;
+        }
+
         registrationService.saveRequestOnRegistration(form);
         return "home/success_request";
     }

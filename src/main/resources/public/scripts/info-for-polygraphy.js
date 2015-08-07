@@ -16,6 +16,7 @@ var validateForm = function(event){
         success: function(data) {
             if(data.success){
                 $('button[form='+formId+']').submit();
+                window.location.href = '/home/success_request';
             }
             else{
                 for(var e in data.errors)

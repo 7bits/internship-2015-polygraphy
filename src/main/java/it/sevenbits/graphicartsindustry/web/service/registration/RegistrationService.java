@@ -82,9 +82,10 @@ public class RegistrationService {
         }
     }
 
-    public void generateAndSaveHash (int id) throws ServiceException {
+    public String generateAndSaveHash (int id) throws ServiceException {
         String hash = this.generateHash();
         this.saveHash(hash, id);
+        return hash;
     }
 
     private String generateHash() throws ServiceException {

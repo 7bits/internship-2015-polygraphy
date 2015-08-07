@@ -11,8 +11,9 @@ var requestId = function(event){
             dataType: 'json',
             url: '/admin/registration-link',
             headers: headers,
-            success: function(id) {
-                return id;
+            data: {'requestId': id},
+            success: function(responseData) {
+                
             }
     });
 }

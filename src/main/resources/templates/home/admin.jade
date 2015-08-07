@@ -16,10 +16,10 @@ block append content
                     tr
                         td.col-email
                             = request.email
-                        if request.hash
-                            = request.hash
-                        else
-                            td.col-link
+                        td.col-link
+                            if request.hash
+                                = request.hash
+                            else
                                 .generate-link
                                     a(href='/admin/registration-link', id='#{request.id}')
                                         | Сгенерировать ссылку

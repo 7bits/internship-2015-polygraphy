@@ -34,18 +34,16 @@ public class AdminController {
     //@Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/registration-link", method = RequestMethod.POST)
     @ResponseBody
-    public List<RequestOnRegistrationModel> generate(
+    public String generate(
             @RequestParam(value="requestId", defaultValue = "0") Integer id,
             final Model model) throws ServiceException {
 
-        if (id!=0)
-            registrationService.generateAndSaveHash(id);
+        String hash = registrationService.generateAndSaveHash(id);
         //RegistrationLink link = registrationLinkService.generateRegistrationLink();
         //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
         //        + link.getHash());
         //registrationLinkService.saveRegistrationLink(link);
         //model.addAttribute("requests", registrationService.showRequests());
-        List<RequestOnRegistrationModel> requestOnRegistrationModel = registrationService.showRequests();
-        return requestOnRegistrationModel;
+        return hash;
     }
 }

@@ -45,13 +45,13 @@ table.services-pop-up{
     margin: 25px auto;
 }
 
-table.services-pop-up td{
+/*table.services-pop-up td{
     background-image: url("../images/circle1.png");
     background-repeat: no-repeat;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
-}
+}*/
 
 .address-pop-up,
 .phone-pop-up,

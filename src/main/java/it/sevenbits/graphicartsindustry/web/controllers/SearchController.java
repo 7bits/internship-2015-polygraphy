@@ -110,4 +110,9 @@ public class SearchController {
         model.addAttribute("request", form);
         return "home/page_with_info_for_polygraphy";
     }
+
+    @RequestMapping(value = "/info-for-polygraphy-success", method = RequestMethod.GET)
+    public String infoForPolygraphy (final Model model) {
+        return "home/success_request";
+    }
 }

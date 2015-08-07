@@ -41,13 +41,10 @@ public class RegistrationLinkService {
         }
     }
 
-    public boolean findRegistrationLink(String link) throws ServiceException {
+    public Integer findRegistrationLink(String link) throws ServiceException {
         try {
-            String hash = repository.find(link);
-            if (hash==null)
-                return false;
-            else
-                return true;
+            Integer requestId = repository.find(link);
+            return requestId;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving hash registration link: "
                     + e.getMessage(), e);

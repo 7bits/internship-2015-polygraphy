@@ -14,7 +14,7 @@ public interface RegistrationLinkMapper {
     void delete(@Param("hash") String hash);
 
 
-    @Select("SELECT hash FROM request_on_registration WHERE hash=#{hash}")
-    @Result (column = "hash")
-    String find(@Param("hash") final String hash);
+    @Select("SELECT id, hash FROM request_on_registration WHERE hash=#{hash}")
+    @Result (column = "id")
+    Integer find(@Param("hash") final String hash);
 }

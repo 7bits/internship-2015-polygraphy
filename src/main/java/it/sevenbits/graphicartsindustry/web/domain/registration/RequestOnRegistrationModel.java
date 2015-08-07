@@ -4,11 +4,16 @@ public class RequestOnRegistrationModel {
     private int id;
     private String email;
     private String hash;
+    private String link;
+
+    public RequestOnRegistrationModel() {
+    }
 
     public RequestOnRegistrationModel(int id, String email, String hash) {
         this.id = id;
         this.email = email;
         this.hash = hash;
+        this.link = "http://polygraphy.7bits.it/registration-link?id=" + hash;
     }
 
     public int getId() {
@@ -33,5 +38,14 @@ public class RequestOnRegistrationModel {
 
     public void setHash(String hash) {
         this.hash = hash;
+        this.setLink("http://polygraphy.7bits.it/registration-link?id=" + hash);
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 }

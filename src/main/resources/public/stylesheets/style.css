@@ -407,7 +407,17 @@ li.top-line{
     padding: 0;
 }
 
-
+.up{
+    background: url("../images/up-arrow.png");
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    opacity: 0.5;
+    left: 35px;
+    bottom: 50px;
+    display: none;
+    cursor: pointer;
+}
 
 /**********************************/
 /* Эти стили нужны только для демо*/

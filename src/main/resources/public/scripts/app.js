@@ -81,6 +81,17 @@ $(document).ready(function(){
         }
     });
 
+    $(this).keydown(function(e) {
+        if( e.keyCode === 27 ) {
+            $('.pop-up-overlay').fadeOut("fast");
+            return false;
+        }
+    });
+
+    $(this).on("click", ".close", function(){
+        $('.pop-up-overlay').fadeOut("fast");
+    });
+
     $("div.hide-show-search").click(function(){
         $(".filter-field").slideToggle();
     });

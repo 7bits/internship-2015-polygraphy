@@ -53,12 +53,63 @@
             var stepName = "step" + i;
             $("#" + stepName + "commands").append("<a href='#' id='" + stepName + "Next' class='next'>Следующий шаг ></a>");
 
-            $("#" + stepName + "Next").bind("click", function(e) {
-                $("#" + stepName).hide();
-                $("#step" + (i + 1)).show();
-                if (i + 2 == count)
-                    $(submitButtonName).show();
-                selectStep(i + 1);
+            $("#" + stepName + "Next").bind("click", function(event) {
+                event.preventDefault();
+                var token = $("meta[name='_csrf']").attr("content");
+                var header = $("meta[name='_csrf_header']").attr("content");
+                var headers = {};
+                headers[header] = token;
+
+                var email = $('#email-input').val();
+                var password = $('#password-input').val();
+                var name = $('#name-input').val();
+                var address = $('#address-input').val();
+                var phone = $('#phone-input').val();
+                var publicEmail = $('#email-public-input').val();
+                var website = $('#website-input').val();
+                var textArea = $('#text-area-field').val();
+
+                $('.invalid-email').text('');
+                $('.invalid-password').text('');
+                $('.invalid-name').text('');
+                $('.invalid-address').text('');
+                $('.invalid-phone').text('');
+                $('.invalid-public-email').text('');
+
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: '/registration-link',
+                    headers: headers,
+                    data: {
+                            'email': email,
+                            'password': password,
+                            'name': name,
+                            'address': address,
+                            'phone': phone,
+                            'publicEmail': publicEmail,
+                            'website': website,
+                            'textArea': textArea
+                          },
+                    success: function(data) {
+                        if(data.success){
+                            //применяем действие по умолчанию для кнопки "Следующий шаг"
+                            $("#" + stepName).hide();
+                            $("#step" + (i + 1)).show();
+                            if (i + 2 == count)
+                                $(submitButtonName).show();
+                            selectStep(i + 1);
+                        }
+                        else{
+                            $('.invalid-email').text(data.errors['email']);
+                            $('.invalid-password').text(data.errors['password']);
+                            $('.invalid-name').text(data.errors['name']);
+                            $('.invalid-address').text(data.errors['address']);
+                            $('.invalid-phone').text(data.errors['phone']);
+                            $('.invalid-public-email').text(data.errors['publicEmail']);
+                        }
+                    }
+                });
             });
         }
 

@@ -17,28 +17,33 @@ block append content
                     .field-email
                         |E-mail для регистрации
                         input.form-control#email-input(name='email', type='text')
+                        .invalid-email
                     .field-password
                         |Пароль
                         input.form-control#password-input(name='password', type='password')
+                        .invalid-password
                     .field-name
                         | Название полиграфии
                         input.form-control#name-input(name='name', type='text')
+                        .invalid-name
                     .field-address
                         | Адрес
                         input.form-control#address-input(name='address', type='text')
+                        .invalid-address
                     .field-phone
                         | Телефон
                         input.form-control#phone-input(name='phone', type='text')
+                        .invalid-phone
                     .field-public-email
                         | Публичный e-mail
                         input.form-control#email-public-input(name='emailPublic', type='text')
+                        .invalid-public-email
                     .field-site
                         | Сайт
                         input.form-control#website-input(name='website', type='text')
                     .field-text-area
                         | Описание
                         textarea.form-control#text-area-field(name='textArea')
-                .error-container
             fieldset
                 .field-checkboxes
                     .field-order-by-email.field-checkbox

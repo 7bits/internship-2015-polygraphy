@@ -36,6 +36,7 @@ body{
 .field-phone, .field-public-email, .field-site, .field-text-area{
     font-size: 16px;
     text-align: left;
+    margin-bottom: 15px;
 }
 
 #email-public-input{
@@ -57,7 +58,7 @@ body{
     outline: none;
     box-sizing: border-box;
     padding: 0 25px;
-    margin: 5px 0 15px 0;
+    margin: 5px 0 0 0;
     font-size: 16px;
 }
 

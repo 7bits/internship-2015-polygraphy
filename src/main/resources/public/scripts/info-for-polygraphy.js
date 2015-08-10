@@ -5,7 +5,7 @@ var validateForm = function(event){
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
     headers[header] = token;
-    var email = $('input.email-input').val();
+    var email = $('.email-input').val();
     var formId = $(this).attr('form');
     $.ajax({
         type: 'POST',

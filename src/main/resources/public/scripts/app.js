@@ -55,6 +55,14 @@ var popUpWindow = function (event){
     });
 }
 
+var scrollUpWindow = function(){
+    if ( $(document).scrollTop() > 0 ) {
+        $('.up').fadeIn('fast');
+    } else {
+        $('.up').fadeOut('fast');
+    }
+};
+
 
 //$(".payment-method-items").css({display:'none',visibility:'hidden'});
 //$(".delivery-method-items").css({display:'none',visibility:'hidden'});
@@ -71,6 +79,17 @@ $(document).ready(function(){
         if (event.target == this) {
             $('.pop-up-overlay').fadeOut("fast");
         }
+    });
+
+    $(this).keydown(function(e) {
+        if( e.keyCode === 27 ) {
+            $('.pop-up-overlay').fadeOut("fast");
+            return false;
+        }
+    });
+
+    $(this).on("click", ".close", function(){
+        $('.pop-up-overlay').fadeOut("fast");
     });
 
     $("div.hide-show-search").click(function(){
@@ -101,6 +120,19 @@ $(document).ready(function(){
     $(".item-selection-delivery").change(function(){
         var label = $('label[for=item2' + $(this).val() + ']').text()
         $(".delivery-placeholder").text(label);
-        });
+    });
+
+    $(".up").mouseover(function(){
+        $(this).animate({opacity: 1}, 100);
+    }).mouseout(function(){
+        $(this).animate({opacity: 0.5}, 100);
+    });
+
+    $('.up').click(function(){
+        $('body,html').animate({scrollTop: 0}, 400);
+        return false;
+    });
+
+    $(window).scroll(scrollUpWindow);
 
 });

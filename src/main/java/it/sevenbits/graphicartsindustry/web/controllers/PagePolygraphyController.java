@@ -16,13 +16,14 @@ public class PagePolygraphyController {
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
-    public PolygraphyFullModel pageInfoAboutPolygraphyJson(@PathVariable(value = "id") int id, final Model model) throws ServiceException {
+    public PolygraphyFullModel pageInfoAboutPolygraphyJson(@PathVariable(value = "id") int id, final Model model)
+            throws ServiceException {
         return contentService.findPolygraphy(id);
     }
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET)
-    public String pageInfoAboutPolygraphy(@PathVariable(value = "id") int id, final Model model) throws ServiceException {
-
+    public String pageInfoAboutPolygraphy(@PathVariable(value = "id") int id, final Model model) throws
+            ServiceException {
         model.addAttribute("polygraphy", contentService.findPolygraphy(id));
         return "home/page_about_polygraphy";
     }

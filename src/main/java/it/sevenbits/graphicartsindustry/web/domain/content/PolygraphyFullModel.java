@@ -4,16 +4,16 @@ package it.sevenbits.graphicartsindustry.web.domain.content;
 public class PolygraphyFullModel {
     private int id;
     private String name;
-    private String addres;
+    private String address;
     private String phone;
     private String email;
     private String website;
     private String info;
 
-    public PolygraphyFullModel(int id, String name, String addres, String email, String website, String phone, String info) {
+    public PolygraphyFullModel(int id, String name, String address,  String phone, String email, String website, String info) {
         this.id = id;
         this.name = name;
-        this.addres = addres;
+        this.address = address;
         this.email = email;
         this.website = website;
         this.phone = phone;
@@ -36,12 +36,12 @@ public class PolygraphyFullModel {
         this.name = name;
     }
 
-    public String getAddres() {
-        return addres;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddres(String addres) {
-        this.addres = addres;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {

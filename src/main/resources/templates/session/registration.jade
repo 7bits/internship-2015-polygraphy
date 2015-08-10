@@ -47,24 +47,30 @@ block append content
             fieldset
                 .field-checkboxes
                     .field-order-by-email.field-checkbox
-                        input.checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
+                        input.js-obe.checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
                         label(for='orderByEmail') Принимаем заказы по e-mail
+                    .field-issue-check.field-checkbox
+                        input.js-wtc.checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
+                        label(for='writesTheCheck') Выдаем чек
                     .field-payment
                         | Принимаем оплату:
                         for paymentMethod in paymentMethods
                             .field-checkbox
-                                input.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                                input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                                 label(for='payment'+paymentMethod.id)=paymentMethod.name
+                        .invalid-payment-method
                     .field-delivery
                         | Доставка готового заказа:
                         for deliveryMethod in deliveryMethods
                             .field-checkbox
-                                input.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                                input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                                 label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                        .invalid-delivery-method
                     .field-services
                         | Предоставляемые услуги:
                         for service in services
                             .field-checkbox
-                                input.checkbox(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
-                                label(for='btn'+service.id)=service.name
+                                input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                                label(for='service'+service.id)=service.name
+                        .invalid-services
                 button.submit-registration-form(type="submit", id="submit-registration-form") Сохранить данные

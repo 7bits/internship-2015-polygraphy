@@ -79,7 +79,7 @@
                 $.ajax({
                     type: 'POST',
                     dataType: 'json',
-                    url: '/registration-link',
+                    url: '/registration/first-step',
                     headers: headers,
                     data: {
                             'email': email,

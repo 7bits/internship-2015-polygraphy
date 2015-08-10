@@ -37,30 +37,25 @@ public class RegistrationController {
     private ContentService contentService;
 
     //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
-    @RequestMapping(value = "/registration-link", method = RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(@RequestParam(value="id") String hash, final Model model) throws ServiceException {
         Integer requestId = registrationLinkService.findRegistrationLink(hash);
         if (requestId!=null) {
-
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
             model.addAttribute("services", contentService.findAllServices());
             model.addAttribute("firstForm", new RegistrationFirstForm());
             model.addAttribute("secondForm", new RegistrationSecondForm());
             model.addAttribute("hash", hash);
-
-
             return "session/registration";
         }
         else
             return "/fffff";
     }
 
-    //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
-    @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST)
     @ResponseBody
-    public Object save(@ModelAttribute RegistrationFirstForm registrationFirstForm,
-                       @ModelAttribute RegistrationSecondForm registrationSecondForm,
+    public Object firstStep(@ModelAttribute RegistrationFirstForm registrationFirstForm,
                        final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
 
@@ -71,21 +66,40 @@ public class RegistrationController {
             return registrationErrors;
         }
 
+        registrationErrors.setSuccess(true);
+        return registrationErrors;
+    }
+
+    @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST)
+    @ResponseBody
+    public RegistrationErrors secondStep (@ModelAttribute RegistrationFirstForm registrationFirstForm,
+                                          @ModelAttribute RegistrationSecondForm registrationSecondForm,
+                                          @RequestParam(value = "hash") String hash,
+                                          final Model model) throws ServiceException {
+        RegistrationErrors registrationErrors = new RegistrationErrors();
+
         final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationSecondForm);
         if (errorsSecondForm.size() != 0) {
+            registrationErrors.setErrors(errorsSecondForm);
+            registrationErrors.setSuccess(false);
+            return registrationErrors;
+        }
+
+        final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+        if (errorsFirstForm.size() != 0) {
             registrationErrors.setErrors(errorsFirstForm);
             registrationErrors.setSuccess(false);
             return registrationErrors;
         }
 
         registrationErrors.setSuccess(true);
-        //registrationService.deleteRequestOnRegistration(registrationResponse.getHash());
+        registrationService.deleteRequestOnRegistration(hash);
         return registrationErrors;
     }
 
+
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-
     public RequestOnRegistrationForm requestOnRegistration(@ModelAttribute RequestOnRegistrationForm form, Model model) throws ServiceException {
         final Map<String, String> errorsRequestForm = requestOnRegistrationValidator.validate(form);
         if (errorsRequestForm.size() != 0) {

@@ -1,4 +1,52 @@
 
+/*function liveSearchResults(event){
+    event.preventDefault();
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers = {};
+    headers[header] = token;
+
+    var oftenSeek = $('.js-pm:checked').map(function(){return $(this).attr('value');});
+    var paymentMethod = $('.item-selection-payment:checked').attr('value');
+    var deliveryMethod = $('.item-selection-delivery:checked').attr('value');
+    var writesTheCheck = $('.js-write-the-check').attr('checked');
+    var orderByEmail = $('.js-order-by-email').attr('checked');
+
+    *//* *******************************************************************
+        На сервер придут данные:
+            1. oftenSeek - "часто ищут" - список выбранных чекбоксов
+            2. paymentMethod - id выбранного способа оплаты (одно число)
+            3. deliveryMethod - id выбранного способа доставки (одно число)
+            4. writesTheCheck - "выдает чек" - true или false
+            5. orderByEmail - "принимает заказ по e-mail" - true или false
+    ******************************************************************** *//*
+
+    var template = Handlebars.compile($('#results').html());
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '/search',
+        data:{
+            'oftenSeek': oftenSeek,
+            'paymentMethod': paymentMethod,
+            'deliveryMethod': deliveryMethod,
+            'writesTheCheck': writesTheCheck,
+            'orderByEmail': orderByEmail
+        },
+        headers: headers,
+        success: function(data){
+            var html = template({
+                polygraphies: data.polygraphies,
+                polygraphiesListIsNull: data.polygraphiesListIsNull
+            });
+            $('#polygraphies-list').html(html);
+        }
+    });
+
+}*/
+
+
 function liveSearchResults(event) {
     event.preventDefault();
     var token = $("meta[name='_csrf']").attr("content");
@@ -27,6 +75,7 @@ function liveSearchResults(event) {
         }
     });
 }
+
 
 var popUpWindow = function (event){
     event.preventDefault();
@@ -63,9 +112,6 @@ var scrollUpWindow = function(){
     }
 };
 
-
-//$(".payment-method-items").css({display:'none',visibility:'hidden'});
-//$(".delivery-method-items").css({display:'none',visibility:'hidden'});
 
 $(document).ready(function(){
 

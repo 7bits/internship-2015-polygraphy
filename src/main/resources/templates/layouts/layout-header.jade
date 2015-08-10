@@ -20,11 +20,6 @@ header.header
         li
             .navigate-button.about-project
                 | О проекте
-        if !security.isUserInRole("ROLE_ADMIN")
-            li
-                .navigate-button.log-in
-                    a(href='/login')
-                        | Войти
     .slogan
         Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
         br

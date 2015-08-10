@@ -1,6 +1,5 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.RegistrationResponse;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
@@ -60,23 +59,28 @@ public class RegistrationController {
     //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration-link", method = RequestMethod.POST)
     @ResponseBody
-    public RegistrationResponse save(@ModelAttribute RegistrationResponse registrationResponse,
+    public Object save(@ModelAttribute RegistrationFirstForm registrationFirstForm,
+                       @ModelAttribute RegistrationSecondForm registrationSecondForm,
                        final Model model) throws ServiceException {
+        RegistrationErrors registrationErrors = new RegistrationErrors();
 
-        final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationResponse.getFirstForm());
+        final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
         if (errorsFirstForm.size() != 0) {
-            registrationResponse.setErrors(errorsFirstForm);
-            return registrationResponse;
+            registrationErrors.setErrors(errorsFirstForm);
+            registrationErrors.setSuccess(false);
+            return registrationErrors;
         }
 
-        final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationResponse.getSecondForm());
+        final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationSecondForm);
         if (errorsSecondForm.size() != 0) {
-            registrationResponse.setErrors(errorsSecondForm);
-            return registrationResponse;
+            registrationErrors.setErrors(errorsFirstForm);
+            registrationErrors.setSuccess(false);
+            return registrationErrors;
         }
 
-        registrationService.deleteRequestOnRegistration(registrationResponse.getHash());
-        return registrationResponse;
+        registrationErrors.setSuccess(true);
+        //registrationService.deleteRequestOnRegistration(registrationResponse.getHash());
+        return registrationErrors;
     }
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)

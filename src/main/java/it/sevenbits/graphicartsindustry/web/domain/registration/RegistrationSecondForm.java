@@ -8,6 +8,7 @@ public class RegistrationSecondForm {
     private List<Integer> deliveryMethods;
     private List<Integer> services;
 
+
     public List<Integer> getPaymentMethods() {
         return paymentMethods;
     }

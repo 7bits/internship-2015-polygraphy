@@ -6,6 +6,17 @@ var validateSecondStep = function(event){
     var headers = {};
     headers[header] = token;
 
+    /* Поля первого шага */
+    var email = $('#email-input').val();
+    var password = $('#password-input').val();
+    var name = $('#name-input').val();
+    var address = $('#address-input').val();
+    var phone = $('#phone-input').val();
+    var publicEmail = $('#email-public-input').val();
+    var website = $('#website-input').val();
+    var textArea = $('#text-area-field').val();
+
+    /* Поля второго шага*/
     var paymentMethods = [];
     $('.js-pm:checked').each(function(i){ paymentMethods.push($(this).attr('value')); });
     var deliveryMethods = [];
@@ -26,6 +37,14 @@ var validateSecondStep = function(event){
         headers: headers,
         contentType: 'application/json',
         data: {
+                  'email': email,
+                  'password': password,
+                  'name': name,
+                  'address': address,
+                  'phone': phone,
+                  'publicEmail': publicEmail,
+                  'website': website,
+                  'textArea': textArea,
                   'paymentMethods': paymentMethods,
                   'deliveryMethods': deliveryMethods,
                   'services': services,

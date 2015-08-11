@@ -1,5 +1,6 @@
 INSERT INTO polygraphy (name, writes_the_check, order_by_email)
 VALUES
+<<<<<<< HEAD:src/main/resources/db/migration/V2015.07.30.15.54__Fill_db.sql
 	('IQ дизайн-бюро', false, true),
 	('Оригинал', true, true),
 	('Крафтлайн', true, true),

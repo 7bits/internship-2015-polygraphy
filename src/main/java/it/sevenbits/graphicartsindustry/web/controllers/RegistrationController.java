@@ -56,17 +56,24 @@ public class RegistrationController {
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST)
     @ResponseBody
     public Object firstStep(@ModelAttribute RegistrationFirstForm registrationFirstForm,
-                       final Model model) throws ServiceException {
+                            @RequestParam(value = "hash") String hash,
+                            final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
+        Integer requestId = registrationLinkService.findRegistrationLink(hash);
+        if (requestId!=null) {
+            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+            if (errorsFirstForm.size() != 0) {
+                registrationErrors.setErrors(errorsFirstForm);
+                registrationErrors.setSuccess(false);
+                return registrationErrors;
+            }
+            registrationErrors.setSuccess(true);
 
-        final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
-        if (errorsFirstForm.size() != 0) {
-            registrationErrors.setErrors(errorsFirstForm);
+        }else {
+            registrationErrors.setBase("Ссылка на регистрацию устарела");
             registrationErrors.setSuccess(false);
-            return registrationErrors;
         }
 
-        registrationErrors.setSuccess(true);
         return registrationErrors;
     }
 
@@ -77,23 +84,27 @@ public class RegistrationController {
                                           @RequestParam(value = "hash") String hash,
                                           final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
+        Integer requestId = registrationLinkService.findRegistrationLink(hash);
+        if (requestId!=null) {
+            final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationSecondForm);
+            if (errorsSecondForm.size() != 0) {
+                registrationErrors.setErrors(errorsSecondForm);
+                registrationErrors.setSuccess(false);
+                return registrationErrors;
+            }
 
-        final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationSecondForm);
-        if (errorsSecondForm.size() != 0) {
-            registrationErrors.setErrors(errorsSecondForm);
+            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+            if (errorsFirstForm.size() != 0) {
+                registrationErrors.setErrors(errorsFirstForm);
+                registrationErrors.setSuccess(false);
+                return registrationErrors;
+            }
+            registrationErrors.setSuccess(true);
+            registrationService.deleteRequestOnRegistration(hash);
+        } else {
+            registrationErrors.setBase("Ссылка на регистрацию устарела");
             registrationErrors.setSuccess(false);
-            return registrationErrors;
         }
-
-        final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
-        if (errorsFirstForm.size() != 0) {
-            registrationErrors.setErrors(errorsFirstForm);
-            registrationErrors.setSuccess(false);
-            return registrationErrors;
-        }
-
-        registrationErrors.setSuccess(true);
-        registrationService.deleteRequestOnRegistration(hash);
         return registrationErrors;
     }
 

@@ -5,6 +5,7 @@ import java.util.Map;
 public class RegistrationErrors {
     private Map<String, String> errors;
     private boolean success;
+    private String base;
 
     public Map<String, String> getErrors() {
         return errors;
@@ -20,5 +21,13 @@ public class RegistrationErrors {
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public String getBase() {
+        return base;
+    }
+
+    public void setBase(String base) {
+        this.base = base;
     }
 }

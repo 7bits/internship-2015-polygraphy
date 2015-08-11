@@ -1,16 +1,17 @@
-
-/*function liveSearchResults(event){
+/*
+function liveSearchResults(event){
     event.preventDefault();
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
     headers[header] = token;
 
-    var oftenSeek = $('.js-pm:checked').map(function(){return $(this).attr('value');});
+    var oftenSeek = [];
+    $('.often-seek:checked').each( function(i){ oftenSeek.push($(this).attr("value")) } );
     var paymentMethod = $('.item-selection-payment:checked').attr('value');
     var deliveryMethod = $('.item-selection-delivery:checked').attr('value');
-    var writesTheCheck = $('.js-write-the-check').attr('checked');
-    var orderByEmail = $('.js-order-by-email').attr('checked');
+    var writesTheCheck = $('.js-write-the-check').prop('checked');
+    var orderByEmail = $('.js-order-by-email').prop('checked');
 
     *//* *******************************************************************
         На сервер придут данные:
@@ -34,6 +35,7 @@
             'writesTheCheck': writesTheCheck,
             'orderByEmail': orderByEmail
         },
+        contentType: 'application/json',
         headers: headers,
         success: function(data){
             var html = template({

@@ -19,12 +19,8 @@ header.header
                     | Информация для полиграфий
         li
             .navigate-button.about-project
-                | О проекте
-        if !security.isUserInRole("ROLE_ADMIN")
-            li
-                .navigate-button.log-in
-                    a(href='/login')
-                        | Войти
+                a(href='/about-project')
+                    | О проекте
     .slogan
         Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
         br

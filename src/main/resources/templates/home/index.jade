@@ -52,10 +52,10 @@ block append content
                 .checkboxes-in-search-field
                     .check
                         if form.writesTheCheck == true
-                            input.checkbox(id='check1', name='writesTheCheck', type='checkbox', checked)
+                            input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox', checked)
                             label(for='check1') Выдает чек
                         else
-                            input.checkbox(id='check1', name='writesTheCheck', type='checkbox')
+                            input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox')
                             label(for='check1') Выдает чек
 
                 .delivery-method-headline
@@ -80,10 +80,10 @@ block append content
                 .checkboxes-in-search-field
                     .check
                         if form.orderByEmail == true
-                            input.checkbox(id='check2',name='orderByEmail', type='checkbox', checked)
+                            input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox', checked)
                             label(for='check2') Принимает заказ по e-mail
                         else
-                            input.checkbox(id='check2',name='orderByEmail', type='checkbox')
+                            input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox')
                             label(for='check2') Принимает заказ по e-mail
 
     .help

@@ -1,10 +1,12 @@
 @import url("osans.css");
 
 .header{
-    margin: 0;
+    width: 1200px;
+    margin: 0 auto;
     margin-bottom: 20px;
     min-height: 165px;
     text-align: center;
+    font-family: "OpenSansLightRegular";
 }
 
 .logo-box{

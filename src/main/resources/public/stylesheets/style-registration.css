@@ -125,7 +125,8 @@ input.checkbox[type="checkbox"]+label:hover{
     float: left;
 }
 
-.field-order-by-email{
+.field-order-by-email,
+.field-issue-check{
     width: 100%;
     float: left;
     margin: 0;

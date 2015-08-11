@@ -6,11 +6,14 @@ var validateSecondStep = function(event){
     var headers = {};
     headers[header] = token;
 
-    var paymentMethods = $('.js-pm:checked').map(function(){return $(this).attr('value');});
-    var deliveryMethods = $('.js-dm:checked').map(function(){return $(this).attr('value');});
-    var services = $('.js-s:checked').map(function(){return $(this).attr('value');});
-    var writesTheCheck = $('.js-wtc').attr('checked');
-    var orderByEmail = $('.js-obe').attr('checked');
+    var paymentMethods = [];
+    $('.js-pm:checked').each(function(i){ paymentMethods.push($(this).attr('value')); });
+    var deliveryMethods = [];
+    $('.js-dm:checked').each(function(i){ deliveryMethods.push($(this).attr('value')); });
+    var services = [];
+    $('.js-s:checked').each(function(i){ services.push($(this).attr('value')); });
+    var writesTheCheck = $('.js-wtc').prop('checked');
+    var orderByEmail = $('.js-obe').prop('checked');
 
     $('.invalid-payment-method').text('');
     $('.invalid-delivery-method').text('');
@@ -21,6 +24,7 @@ var validateSecondStep = function(event){
         dataType: 'json',
         url: '/registration-link/second-step',
         headers: headers,
+        contentType: 'application/json',
         data: {
                   'paymentMethods': paymentMethods,
                   'deliveryMethods': deliveryMethods,

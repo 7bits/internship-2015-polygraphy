@@ -1,5 +1,7 @@
 package it.sevenbits.graphicartsindustry.core.repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class PolygraphyProvider {
@@ -7,8 +9,13 @@ public class PolygraphyProvider {
     public static String findPolygraphies(final Map params) {
         String query = params.get("query").toString();
 
-        String service = params.get("service").toString();
-        int service_id = Integer.parseInt(service);
+        String services = params.get("services").toString();
+        List<Integer> service_id = new ArrayList<Integer>();
+        char services_id_c[];
+        String strEnd=services.replaceAll("\\D","");
+        services_id_c=strEnd.toCharArray();
+        for (int index=0; index < services_id_c.length; index++)
+            service_id.add(Integer.parseInt(String.valueOf(services_id_c[index])));
 
         String payment = params.get("payment").toString();
         int payment_id = Integer.parseInt(payment);
@@ -26,7 +33,9 @@ public class PolygraphyProvider {
 
         StringBuilder sqlQuery = new StringBuilder();
         sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, c.address, c.phone");
-        if (service_id!=0)
+        //if (service_id!=0)
+        //    sqlQuery.append(", s.id");
+        if (service_id!=null)
             sqlQuery.append(", s.id");
         if (payment_id!=0)
             sqlQuery.append(", pm.id");
@@ -38,9 +47,12 @@ public class PolygraphyProvider {
             sqlQuery.append(", order_by_email");
 
         sqlQuery.append(" FROM polygraphy AS p");
-        if (service_id!=0)
+        if (service_id!=null)
             sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
                     "LEFT JOIN service AS s ON ps.service_id=s.id");
+        //if (service_id!=0)
+        //    sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
+        //            "LEFT JOIN service AS s ON ps.service_id=s.id");
 
         if (payment_id!=0)
             sqlQuery.append(" LEFT JOIN polygraphies_payment_methods AS ppm ON p.id=ppm.polygraphy_id " +
@@ -58,12 +70,23 @@ public class PolygraphyProvider {
             somethingBefore = true;
         }
 
-        if (service_id!=0) {
+        if (service_id!=null) {
             if (somethingBefore)
                 sqlQuery.append(" AND");
-            sqlQuery.append(" s.id=" + service_id);
+            for (int index = 0; index<service_id.size(); index++) {
+                sqlQuery.append(" s.id=" + service_id.get(index));
+                if (index < service_id.size() - 1)
+                    sqlQuery.append(" OR");
+            }
             somethingBefore = true;
         }
+
+        //if (service_id!=0) {
+        //    if (somethingBefore)
+        //        sqlQuery.append(" AND");
+        //    sqlQuery.append(" s.id=" + service_id);
+        //    somethingBefore = true;
+        //}
 
         if (payment_id!=0) {
             if (somethingBefore)
@@ -92,7 +115,7 @@ public class PolygraphyProvider {
             sqlQuery.append(" order_by_email=true");
         }
 
-        if (query.isEmpty() && service_id==0 && payment_id==0 && writes_the_check==false &&
+        if (query.isEmpty() && service_id==null && payment_id==0 && writes_the_check==false &&
                 delivery_id==0 && order_by_email==false) {
             sqlQuery.append(" p.id=0");
         }

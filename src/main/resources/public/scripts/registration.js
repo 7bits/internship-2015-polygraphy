@@ -22,9 +22,9 @@ var validateSecondStep = function(event){
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '/registration-link/second-step',
+        url: '/registration/second-step',
         headers: headers,
-        contentType: 'application/json',
+        //contentType: 'application/json',
         data: {
                   'paymentMethods': paymentMethods,
                   'deliveryMethods': deliveryMethods,

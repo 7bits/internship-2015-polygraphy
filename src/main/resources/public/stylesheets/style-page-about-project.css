@@ -1,0 +1,40 @@
+@import url("osans.css");
+
+body{
+    width: 1200px;
+    margin: 0 auto;
+    font-family: "OpenSansLightRegular";
+    text-align: center;
+}
+
+:focus{
+    outline: none;
+}
+
+.content-block{
+    width: 70%;
+    height: auto;
+    //height: 400px;
+    margin: auto;
+    margin-bottom: 50px;
+    background-color: rgb(232, 232, 232);
+    padding: 50px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 10px;
+}
+
+.headline{
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.content{
+    font-size: 18px;
+    text-align: left;
+    text-indent: 20px;
+}
+
+.link{
+    color: #64be5f;
+}

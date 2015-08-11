@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class SearchController {
     private final int limitPolygraphy = 4;
@@ -44,14 +46,15 @@ public class SearchController {
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(@RequestParam(value="query", required = false) String query,
-                         @RequestParam(value="serviceId", required = false, defaultValue = "0") Integer serviceId,
+                         @RequestParam(value="services", required = false) List<Integer> services,
                          @RequestParam(value="paymentMethod", required = false, defaultValue = "0") Integer paymentMethod,
                          @RequestParam(value="deliveryMethod", required = false, defaultValue = "0") Integer deliveryMethod,
                          @RequestParam(value="writesTheCheck", required = false, defaultValue = "false") Boolean writesTheCheck,
                          @RequestParam(value="orderByEmail", required = false, defaultValue = "false") Boolean orderByEmail,
                          final Model model) throws ServiceException{
-        SearchForm form = new SearchForm(query, serviceId, paymentMethod, deliveryMethod, writesTheCheck,
+        SearchForm form = new SearchForm(query, services, paymentMethod, deliveryMethod, writesTheCheck,
                 orderByEmail);
+
         // Добавим в модель объект - форма запроса
         model.addAttribute("form", form);
 
@@ -62,9 +65,9 @@ public class SearchController {
         // Добавим в модель объект - список методов доставки
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
 
-        if (form.getQuery().isEmpty() && form.getServiceId()==0 && form.getPaymentMethod()==0 &&
-                form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
-                form.getOrderByEmail()==false)
+        if (form.getQuery().isEmpty() && form.getServices() ==  null && form.getPaymentMethod()==0 &&
+                form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
+                form.isOrderByEmail()==false)
             // В модель добавим объект - рандомный список полиграфий
             model.addAttribute("polygraphies", searchService.findAll(limitPolygraphy));
         else {
@@ -85,9 +88,9 @@ public class SearchController {
     public PolygraphyResponse results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
 
         PolygraphyResponse results = new PolygraphyResponse();
-        if (form.getQuery().isEmpty() && form.getServiceId()==0 && form.getPaymentMethod()==0 &&
-                form.getWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
-                form.getOrderByEmail()==false) {
+        if (form.getQuery().isEmpty() && form.getServices()==null && form.getPaymentMethod()==0 &&
+                form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
+                form.isOrderByEmail()==false) {
             // В модель добавим объект - рандомный список полиграфий
             results.setPolygraphies(searchService.findAll(limitPolygraphy));
             results.setPolygraphiesListIsNull("");

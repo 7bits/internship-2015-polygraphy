@@ -15,7 +15,7 @@ public interface PolygraphyMapper {
             @Result(column = "phone", property = "phone")
     })
     List<Polygraphy> findPolygraphies(@Param(value = "query") String query,
-                                      @Param(value = "service") int service_id,
+                                      @Param(value = "services") List<Integer> services,
                                       @Param(value = "payment") int payment_id,
                                       @Param(value = "check") boolean check,
                                       @Param(value = "delivery") int delivery_id,

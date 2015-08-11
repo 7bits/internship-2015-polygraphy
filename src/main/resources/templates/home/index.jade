@@ -21,10 +21,10 @@ block append content
                 for service in services
                     .checkbox-btn
                         if service.id == form.serviceId
-                            input.often-seek(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='checkbox', checked)
+                            input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox', checked)
                             label(for='btn'+service.id)=service.name
                         else
-                            input.often-seek(id='btn#{service.id}', name='serviceId', value='#{service.id}', type='checkbox')
+                            input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
                             label(for='btn'+service.id)=service.name
 
             .extended-search

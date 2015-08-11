@@ -1,18 +1,20 @@
 package it.sevenbits.graphicartsindustry.web.domain.search;
 
+import java.util.List;
+
 public class SearchForm {
 
     private String query;
-    private int serviceId;
+    private List<Integer> services;
     private int paymentMethod;
     private int deliveryMethod;
     private boolean writesTheCheck;
     private boolean orderByEmail;
 
-    public SearchForm(String query, Integer serviceId, Integer paymentMethod, Integer deliveryMethod,
-                      Boolean writesTheCheck, Boolean orderByEmail) {
+    public SearchForm(String query, List<Integer> services, int paymentMethod, int deliveryMethod,
+                      boolean writesTheCheck, boolean orderByEmail) {
         this.query = query;
-        this.serviceId = serviceId;
+        this.services = services;
         this.paymentMethod = paymentMethod;
         this.deliveryMethod = deliveryMethod;
         this.writesTheCheck = writesTheCheck;
@@ -25,48 +27,47 @@ public class SearchForm {
         return query;
     }
 
-    public int getServiceId() {
-        return serviceId;
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public List<Integer> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Integer> services) {
+        this.services = services;
     }
 
     public int getPaymentMethod() {
         return paymentMethod;
     }
 
-    public int getDeliveryMethod() {
-        return deliveryMethod;
-    }
-
-    public boolean getWritesTheCheck() {
-        return writesTheCheck;
-    }
-
-    public boolean getOrderByEmail() {
-        return orderByEmail;
-    }
-
-    public void setQuery(String query) {
-        this.query = query;
-    }
-
-    public void setServiceId(int serviceId) {
-        this.serviceId = serviceId;
-    }
-
     public void setPaymentMethod(int paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
 
-    public void setDeliveryMethod(int delivery) {
-        this.deliveryMethod = delivery;
+    public int getDeliveryMethod() {
+        return deliveryMethod;
+    }
+
+    public void setDeliveryMethod(int deliveryMethod) {
+        this.deliveryMethod = deliveryMethod;
+    }
+
+    public boolean isWritesTheCheck() {
+        return writesTheCheck;
     }
 
     public void setWritesTheCheck(boolean writesTheCheck) {
         this.writesTheCheck = writesTheCheck;
     }
 
+    public boolean isOrderByEmail() {
+        return orderByEmail;
+    }
+
     public void setOrderByEmail(boolean orderByEmail) {
         this.orderByEmail = orderByEmail;
     }
-
 }

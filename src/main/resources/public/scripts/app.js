@@ -1,5 +1,4 @@
-/*
-function liveSearchResults(event){
+/*function liveSearchResults(event){
     event.preventDefault();
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
@@ -47,7 +46,6 @@ function liveSearchResults(event){
     });
 
 }*/
-
 
 function liveSearchResults(event) {
     event.preventDefault();
@@ -113,6 +111,14 @@ var scrollUpWindow = function(){
         $('.up').fadeOut('fast');
     }
 };
+
+var delay = (function(){
+    var timer = 0;
+    return function(callback, ms){
+        clearTimeout (timer);
+        timer = setTimeout(callback, ms);
+    };
+})();
 
 
 $(document).ready(function(){
@@ -182,5 +188,13 @@ $(document).ready(function(){
     });
 
     $(window).scroll(scrollUpWindow);
+
+    $('.search-field').keyup(function() {
+        delay(function(){
+            $('.search-field').blur();
+        }, 1500 );
+    });
+
+    $('input').attr('autocomplete', 'off');
 
 });

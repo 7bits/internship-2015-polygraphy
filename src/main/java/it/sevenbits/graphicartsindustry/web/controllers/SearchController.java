@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -52,6 +53,10 @@ public class SearchController {
                          @RequestParam(value="writesTheCheck", required = false, defaultValue = "false") Boolean writesTheCheck,
                          @RequestParam(value="orderByEmail", required = false, defaultValue = "false") Boolean orderByEmail,
                          final Model model) throws ServiceException{
+        if (services==null) {
+            services = new ArrayList<Integer>();
+            services.add(0);
+        }
         SearchForm form = new SearchForm(query, services, paymentMethod, deliveryMethod, writesTheCheck,
                 orderByEmail);
 
@@ -87,6 +92,9 @@ public class SearchController {
     @ResponseBody
     public PolygraphyResponse results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
 
+        if (form.getServices()==null) {
+            form.setServices(new ArrayList<Integer>(0));
+        }
         PolygraphyResponse results = new PolygraphyResponse();
         if (form.getQuery().isEmpty() && form.getServices()==null && form.getPaymentMethod()==0 &&
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&

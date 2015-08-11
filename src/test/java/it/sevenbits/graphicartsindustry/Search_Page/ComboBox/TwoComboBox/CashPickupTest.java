@@ -1,10 +1,8 @@
-package it.sevenbits.graphicartsindustry.Search_Page.ComboBox;
+package it.sevenbits.graphicartsindustry.Search_Page.ComboBox.TwoComboBox;
 
 import java.sql.DriverManager;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-
-import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -12,12 +10,11 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class CashTest {
+public class CashPickupTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -25,24 +22,27 @@ public class CashTest {
 
   @Before
    public void setUp() throws Exception {
-    //driver = new FirefoxDriver();
-    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/ChromeDriver//chromedriver.exe");
+   // driver = new FirefoxDriver();
+    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/ChromeDriver/chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
-  public void testCash() throws Exception {
-      driver.get(baseUrl + "/");
+  public void testCashPickup() throws Exception {
+    driver.get(baseUrl + "/");
 
-    driver.findElement(By.cssSelector(".payment-placeholder")).click();
+   // driver.findElement(By.cssSelector(".payment-placeholder")).click();
     WebElement we = driver.findElement(By.id("item11"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-   // driver.findElement(By.cssSelector(".extend-submit")).click();
+    WebElement wee = driver.findElement(By.id("item21"));
+    JavascriptExecutor executore = (JavascriptExecutor)driver;
+    executore.executeScript("arguments[0].click();", wee);
+  //  driver.findElement(By.cssSelector(".extend-submit")).click();
 
-
+    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
     driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
@@ -54,7 +54,7 @@ public class CashTest {
     driver.findElement(By.xpath(".//*[text()='55Print']/.."));
     driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
     driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
     driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
@@ -77,8 +77,8 @@ public class CashTest {
     driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
     driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
     driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
+      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));

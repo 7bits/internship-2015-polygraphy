@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.Search_Page.ComboBox;
+package it.sevenbits.graphicartsindustry.Search_Page.ComboAndCheckBox.TwoCheckBox;
 
 import java.sql.DriverManager;
 import java.util.regex.Pattern;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-  public class СourierTest {
+  public class TwoCheckСourierTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -30,25 +30,32 @@ import org.openqa.selenium.support.ui.WebDriverWait;
   }
 
   @Test
-  public void testCourier() throws Exception {
+  public void testTwoCheckCourier() throws Exception {
     driver.get(baseUrl + "/");
 
-      driver.findElement(By.cssSelector(".payment-placeholder")).click();
+//доставка с курьером
       WebElement we = driver.findElement(By.id("item22"));
       JavascriptExecutor executor = (JavascriptExecutor)driver;
       executor.executeScript("arguments[0].click();", we);
-   //   driver.findElement(By.cssSelector(".extend-submit")).click();
+//выдает чек
+      WebElement wee = driver.findElement(By.id("check1"));
+      JavascriptExecutor executore = (JavascriptExecutor)driver;
+      executore.executeScript("arguments[0].click();", wee);
+//заказ по  email
+      WebElement ch = driver.findElement(By.id("check2"));
+      JavascriptExecutor performer = (JavascriptExecutor)driver;
+      performer.executeScript("arguments[0].click();", ch);     
+ //   driver.findElement(By.cssSelector(".extend-submit")).click();
 
-   driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-   driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-   driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-   driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-   driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
+   driver.findElement(By.xpath(".//*[text()='55Print']/.."));
    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-  }
+   driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
+   driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
+   driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+ }
 
   @After
   public void tearDown() throws Exception {

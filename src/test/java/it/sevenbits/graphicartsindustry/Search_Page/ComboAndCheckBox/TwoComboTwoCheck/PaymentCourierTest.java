@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.Search_Page.ComboBox;
+package it.sevenbits.graphicartsindustry.Search_Page.ComboAndCheckBox.TwoComboTwoCheck;
 
 import java.sql.DriverManager;
 import java.util.regex.Pattern;
@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-  public class СourierTest {
+  public class PaymentCourierTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -23,36 +23,40 @@ import org.openqa.selenium.support.ui.WebDriverWait;
   @Before
    public void setUp() throws Exception {
    // driver = new FirefoxDriver();
-    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/ChromeDriver/chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "/home/nastya/internship-2015-polygraphy/src/test/java/it/sevenbits/graphicartsindustry/ChromeDriver/chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 
   @Test
-  public void testCourier() throws Exception {
+  public void testPaymentCourier() throws Exception {
     driver.get(baseUrl + "/");
 
-      driver.findElement(By.cssSelector(".payment-placeholder")).click();
-      WebElement we = driver.findElement(By.id("item22"));
-      JavascriptExecutor executor = (JavascriptExecutor)driver;
-      executor.executeScript("arguments[0].click();", we);
-   //   driver.findElement(By.cssSelector(".extend-submit")).click();
+//оплата по счету
+    WebElement we = driver.findElement(By.id("item13"));
+    JavascriptExecutor executor = (JavascriptExecutor)driver;
+    executor.executeScript("arguments[0].click();", we);
+//доставка с курьером
+    WebElement wee = driver.findElement(By.id("item22"));
+    JavascriptExecutor executore = (JavascriptExecutor)driver;
+    executore.executeScript("arguments[0].click();", wee);
+//выдает чек
+    WebElement che = driver.findElement(By.id("check1"));
+    JavascriptExecutor doer = (JavascriptExecutor)driver;
+    doer.executeScript("arguments[0].click();", che);
+//заказ по  email
+    WebElement ch = driver.findElement(By.id("check2"));
+    JavascriptExecutor performer = (JavascriptExecutor)driver;
+    performer.executeScript("arguments[0].click();", ch);
+   // driver.findElement(By.cssSelector(".extend-submit")).click();
 
-   driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-   driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-   driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-   driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-   driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-   driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-   driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-   driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-   driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
   }
 
   @After
   public void tearDown() throws Exception {
-   driver.quit();
+    driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);

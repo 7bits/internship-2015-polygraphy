@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.Search_Page.ComboBox;
+package it.sevenbits.graphicartsindustry.Search_Page.ComboAndCheckBox;
 
 import java.sql.DriverManager;
 import java.util.regex.Pattern;
@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class CashTest {
+public class CheckCashTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -33,13 +33,15 @@ public class CashTest {
   }
 
   @Test
-  public void testCash() throws Exception {
+  public void testCheckCash() throws Exception {
       driver.get(baseUrl + "/");
 
-    driver.findElement(By.cssSelector(".payment-placeholder")).click();
     WebElement we = driver.findElement(By.id("item11"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
+    WebElement wee = driver.findElement(By.id("check1"));
+    JavascriptExecutor executore = (JavascriptExecutor)driver;
+    executore.executeScript("arguments[0].click();", wee);
    // driver.findElement(By.cssSelector(".extend-submit")).click();
 
 

@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.Search_Page.ComboBox;
+package it.sevenbits.graphicartsindustry.Search_Page.CheckBox;
 
 import java.sql.DriverManager;
 import java.util.regex.Pattern;
@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class CashTest {
+public class CheckTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -33,14 +33,13 @@ public class CashTest {
   }
 
   @Test
-  public void testCash() throws Exception {
+  public void testCheck() throws Exception {
       driver.get(baseUrl + "/");
 
-    driver.findElement(By.cssSelector(".payment-placeholder")).click();
-    WebElement we = driver.findElement(By.id("item11"));
+    WebElement we = driver.findElement(By.id("check1"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-   // driver.findElement(By.cssSelector(".extend-submit")).click();
+  //  driver.findElement(By.cssSelector(".extend-submit")).click();
 
 
     driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
@@ -66,7 +65,7 @@ public class CashTest {
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
+    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
@@ -80,12 +79,16 @@ public class CashTest {
     driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
     driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
     driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
   }
 
   @After

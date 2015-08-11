@@ -60,6 +60,7 @@
                 var headers = {};
                 headers[header] = token;
 
+                var hash = $("#hash").attr('value');
                 var email = $('#email-input').val();
                 var password = $('#password-input').val();
                 var name = $('#name-input').val();
@@ -89,7 +90,8 @@
                             'phone': phone,
                             'publicEmail': publicEmail,
                             'website': website,
-                            'textArea': textArea
+                            'textArea': textArea,
+                            'hash': hash
                           },
                     success: function(data) {
                         if(data.success){

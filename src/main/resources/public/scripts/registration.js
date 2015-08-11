@@ -7,6 +7,7 @@ var validateSecondStep = function(event){
     headers[header] = token;
 
     /* Поля первого шага */
+    var hash = $("#hash").attr('value');
     var email = $('#email-input').val();
     var password = $('#password-input').val();
     var name = $('#name-input').val();
@@ -49,7 +50,8 @@ var validateSecondStep = function(event){
                   'deliveryMethods': deliveryMethods,
                   'services': services,
                   'writesTheCheck': writesTheCheck,
-                  'orderByEmail': orderByEmail
+                  'orderByEmail': orderByEmail,
+                  'hash': hash
               },
         success: function(data) {
             console.log(data);

@@ -64,9 +64,29 @@ var validateSecondStep = function(event){
                 window.location.href = '/registration-success';
             }
             else{
-                $('.invalid-payment-method').text(data.errors['paymentMethods']);
-                $('.invalid-delivery-method').text(data.errors['deliveryMethods']);
-                $('.invalid-services').text(data.errors['services']);
+                if (data.errors['paymentMethods']){
+                    $('.invalid-payment-method').css('display', 'block');
+                    $('.invalid-payment-method').text(data.errors['paymentMethods']);
+                }
+                else {
+                    $('.invalid-payment-method').css('display', 'none');
+                };
+
+                if (data.errors['deliveryMethods']){
+                    $('.invalid-delivery-method').css('display', 'block');
+                    $('.invalid-delivery-method').text(data.errors['deliveryMethods']);
+                }
+                else {
+                    $('.invalid-delivery-method').css('display', 'none');
+                };
+
+                if (data.errors['services']){
+                    $('.invalid-services').css('display', 'block');
+                    $('.invalid-services').text(data.errors['services']);
+                }
+                else {
+                    $('.invalid-services').css('display', 'none');
+                };
             }
         }
     });

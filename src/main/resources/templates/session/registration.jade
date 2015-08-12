@@ -60,23 +60,26 @@ block append content
                         label(for='writesTheCheck') Выдаем чек
                     .field-payment
                         | Принимаем оплату:
-                        for paymentMethod in paymentMethods
-                            .field-checkbox
-                                input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
-                                label(for='payment'+paymentMethod.id)=paymentMethod.name
-                        .invalid-payment-method
+                        .input-wrapper
+                            for paymentMethod in paymentMethods
+                                .field-checkbox
+                                    input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                                    label(for='payment'+paymentMethod.id)=paymentMethod.name
+                            .invalid-payment-method
                     .field-delivery
                         | Доставка готового заказа:
-                        for deliveryMethod in deliveryMethods
-                            .field-checkbox
-                                input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
-                                label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                        .invalid-delivery-method
+                        .input-wrapper
+                            for deliveryMethod in deliveryMethods
+                                .field-checkbox
+                                    input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                                    label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                            .invalid-delivery-method
                     .field-services
                         | Предоставляемые услуги:
-                        for service in services
-                            .field-checkbox
-                                input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
-                                label(for='service'+service.id)=service.name
-                        .invalid-services
+                        .input-wrapper
+                            for service in services
+                                .field-checkbox
+                                    input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                                    label(for='service'+service.id)=service.name
+                            .invalid-services
                 button.submit-registration-form(type="submit", id="submit-registration-form") Сохранить данные

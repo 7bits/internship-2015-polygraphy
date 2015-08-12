@@ -215,7 +215,32 @@ fieldset {
     font-size: 11px;
     display: block;
 }
+
 #steps li.current {
     color: #efe553;
     opacity: 1;
+}
+
+.input-wrapper{
+    position: relative;
+}
+
+.invalid-email, .invalid-password, .invalid-name,
+.invalid-address, .invalid-phone, .invalid-public-email{
+    //visibility: hidden;
+    display: none;
+    position: absolute;
+    top: 56%;
+    left: 122%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red;
+    box-sizing: border-box;
+    padding: 8px 0;
+    border: 2px solid red;
+    border-radius: 25px;
+    min-width: 250px;
+    min-height: 40px;
+    font-size: 14px;
+    text-align: center;
 }

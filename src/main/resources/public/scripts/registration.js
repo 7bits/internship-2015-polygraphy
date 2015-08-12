@@ -74,6 +74,8 @@ var validateSecondStep = function(event){
 
 $(document).ready(function(){
 
+    $('input').attr('autocomplete', 'off');
+
     $('.registration-form').on('click', '.submit-registration-form', validateSecondStep);
 
 });

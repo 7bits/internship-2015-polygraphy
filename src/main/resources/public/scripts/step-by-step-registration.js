@@ -104,12 +104,53 @@
                             selectStep(i + 1);
                         }
                         else{
-                            $('.invalid-email').text(data.errors['email']);
-                            $('.invalid-password').text(data.errors['password']);
-                            $('.invalid-name').text(data.errors['name']);
-                            $('.invalid-address').text(data.errors['address']);
-                            $('.invalid-phone').text(data.errors['phone']);
-                            $('.invalid-public-email').text(data.errors['publicEmail']);
+                            if (data.errors['email']){
+                                $('.invalid-email').css('display', 'block');
+                                $('.invalid-email').text(data.errors['email']);
+                            }
+                            else {
+                                $('.invalid-email').css('display', 'none');
+                            };
+
+                            if (data.errors['password']){
+                                $('.invalid-password').css('display', 'block');
+                                $('.invalid-password').text(data.errors['password']);
+                            }
+                            else {
+                                $('.invalid-password').css('display', 'none');
+                            };
+
+                            if (data.errors['name']){
+                                $('.invalid-name').css('display', 'block');
+                                $('.invalid-name').text(data.errors['name']);
+                            }
+                            else {
+                                $('.invalid-name').css('display', 'none');
+                            };
+
+                            if (data.errors['address']){
+                                $('.invalid-address').css('display', 'block');
+                                $('.invalid-address').text(data.errors['address']);
+                            }
+                            else {
+                                $('.invalid-address').css('display', 'none');
+                            };
+
+                            if (data.errors['phone']){
+                                $('.invalid-phone').css('display', 'block');
+                                $('.invalid-phone').text(data.errors['phone']);
+                            }
+                            else {
+                                $('.invalid-phone').css('display', 'none');
+                            };
+
+                            if (data.errors['publicEmail']){
+                                $('.invalid-public-email').css('display', 'block');
+                                $('.invalid-public-email').text(data.errors['publicEmail']);
+                            }
+                            else {
+                                $('.invalid-public-email').css('display', 'none');
+                            };
                         }
                     }
                 });
@@ -125,5 +166,9 @@
 })(jQuery);
 
 $(document).ready(function(){
-           $("#registration-form").formToWizard({ submitButton: 'submit-registration-form' })
-       });
+
+    $('input').attr('autocomplete', 'off');
+
+    $("#registration-form").formToWizard({ submitButton: 'submit-registration-form' });
+
+});

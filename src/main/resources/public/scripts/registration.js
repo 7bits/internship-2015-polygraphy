@@ -38,7 +38,7 @@ var validateSecondStep = function(event){
         headers: headers,
         contentType: 'application/json',
         data: JSON.stringify({
-            firstStepForm: {
+            firstForm: {
                 'email': email,
                 'password': password,
                 'name': name,
@@ -46,10 +46,10 @@ var validateSecondStep = function(event){
                 'phone': phone,
                 'publicEmail': publicEmail,
                 'website': website,
-                'textArea': textArea,
+                'info': textArea,
                 'hash': hash
             },
-            secondStepForm: {
+            secondForm: {
                 'paymentMethods': paymentMethods,
                 'deliveryMethods': deliveryMethods,
                 'services': services,

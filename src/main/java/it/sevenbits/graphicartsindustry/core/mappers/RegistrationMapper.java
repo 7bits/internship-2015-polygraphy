@@ -38,8 +38,8 @@ public interface RegistrationMapper {
     int findPolygraphyId(@Param("name") final String name);
 
 
-    @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email) " +
-            "VALUES (#{name}, #{check}, #{order}, #{userId}), #{info}")
+    @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email, info) " +
+            "VALUES (#{name}, #{check}, #{order}, #{info})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void savePolygraphyBasic(final RegistrationBasic registrationBasic);
 

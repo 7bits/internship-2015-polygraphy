@@ -7,7 +7,6 @@ public class RegistrationFirstForm {
     private String address;
     private String phone;
     private String publicEmail;
-    private Boolean orderByEmail;
     private String website;
     private String info;
     private String hash;
@@ -58,14 +57,6 @@ public class RegistrationFirstForm {
 
     public void setPublicEmail(String publicEmail) {
         this.publicEmail = publicEmail;
-    }
-
-    public Boolean getOrderByEmail() {
-        return orderByEmail;
-    }
-
-    public void setOrderByEmail(Boolean orderByEmail) {
-        this.orderByEmail = orderByEmail;
     }
 
     public String getWebsite() {

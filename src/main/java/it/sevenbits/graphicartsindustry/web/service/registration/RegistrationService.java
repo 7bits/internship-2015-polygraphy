@@ -33,7 +33,7 @@ public class RegistrationService {
                     Role.ROLE_POLYGRAPHY);
 
             Polygraphy polygraphy = registrationRepository.createPolygraphy(firstForm.getName(), firstForm.getAddress(),
-                    firstForm.getPhone(), firstForm.getPublicEmail(), firstForm.getOrderByEmail(),
+                    firstForm.getPhone(), firstForm.getPublicEmail(), secondForm.getOrderByEmail(),
                     firstForm.getWebsite(), firstForm.getInfo(), secondForm.getPaymentMethods(),
                     secondForm.getWritesTheCheck(), secondForm.getDeliveryMethods(),
                     secondForm.getServices(), user.getId());

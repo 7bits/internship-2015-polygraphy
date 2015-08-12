@@ -3,11 +3,19 @@ package it.sevenbits.graphicartsindustry.web.domain.registration;
 import java.util.List;
 
 public class RegistrationSecondForm {
+    private Boolean orderByEmail;
     private List<Integer> paymentMethods;
     private Boolean writesTheCheck;
     private List<Integer> deliveryMethods;
     private List<Integer> services;
 
+    public Boolean getOrderByEmail() {
+        return orderByEmail;
+    }
+
+    public void setOrderByEmail(Boolean orderByEmail) {
+        this.orderByEmail = orderByEmail;
+    }
 
     public List<Integer> getPaymentMethods() {
         return paymentMethods;

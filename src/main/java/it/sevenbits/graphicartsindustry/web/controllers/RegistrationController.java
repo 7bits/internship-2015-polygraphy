@@ -83,24 +83,25 @@ public class RegistrationController {
     public RegistrationErrors secondStep (@RequestBody RegistrationForm registrationForm,
                                           final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
-        Integer requestId = registrationLinkService.findRegistrationLink(registrationForm.getFirstStepForm().
+        Integer requestId = registrationLinkService.findRegistrationLink(registrationForm.getFirstForm().
                 getHash());
         if (requestId!=null) {
-            final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationForm.getSecondStepForm());
+            final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationForm.getSecondForm());
             if (errorsSecondForm.size() != 0) {
                 registrationErrors.setErrors(errorsSecondForm);
                 registrationErrors.setSuccess(false);
                 return registrationErrors;
             }
 
-            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationForm.getFirstStepForm());
+            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationForm.getFirstForm());
             if (errorsFirstForm.size() != 0) {
                 registrationErrors.setErrors(errorsFirstForm);
                 registrationErrors.setSuccess(false);
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-            registrationService.deleteRequestOnRegistration(registrationForm.getFirstStepForm().getHash());
+            registrationService.deleteRequestOnRegistration(registrationForm.getFirstForm().getHash());
+            registrationService.saveAll(registrationForm.getFirstForm(), registrationForm.getSecondForm());
         } else {
             registrationErrors.setBase("Ссылка на регистрацию устарела");
             registrationErrors.setSuccess(false);

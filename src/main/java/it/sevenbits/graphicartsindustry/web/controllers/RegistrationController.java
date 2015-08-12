@@ -40,6 +40,7 @@ public class RegistrationController {
     //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(@RequestParam(value="id") String hash, final Model model) throws ServiceException {
+
         Integer requestId = registrationLinkService.findRegistrationLink(hash);
         if (requestId!=null) {
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
@@ -99,7 +100,7 @@ public class RegistrationController {
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-//            registrationService.deleteRequestOnRegistration(registrationFirstForm.getHash());
+            registrationService.deleteRequestOnRegistration(registrationForm.getFirstStepForm().getHash());
         } else {
             registrationErrors.setBase("Ссылка на регистрацию устарела");
             registrationErrors.setSuccess(false);

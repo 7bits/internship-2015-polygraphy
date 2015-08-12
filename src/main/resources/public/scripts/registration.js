@@ -36,8 +36,8 @@ var validateSecondStep = function(event){
         dataType: 'json',
         url: '/registration/second-step',
         headers: headers,
-        //contentType: 'application/json',
-        data: {
+        contentType: 'application/json',
+        data: JSON.stringify({
                   'email': email,
                   'password': password,
                   'name': name,
@@ -52,9 +52,9 @@ var validateSecondStep = function(event){
                   'writesTheCheck': writesTheCheck,
                   'orderByEmail': orderByEmail,
                   'hash': hash
-              },
+              }),
         success: function(data) {
-            console.log(data);
+            //console.log(data);
             if(data.success){
                 $('.submit-registration-form').submit();
             }

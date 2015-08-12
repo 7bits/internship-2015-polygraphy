@@ -82,7 +82,8 @@
                     dataType: 'json',
                     url: '/registration/first-step',
                     headers: headers,
-                    data: {
+                    contentType: 'application/json',
+                    data: JSON.stringify({
                             'email': email,
                             'password': password,
                             'name': name,
@@ -92,7 +93,7 @@
                             'website': website,
                             'textArea': textArea,
                             'hash': hash
-                          },
+                          }),
                     success: function(data) {
                         if(data.success){
                             //применяем действие по умолчанию для кнопки "Следующий шаг"

@@ -7,11 +7,17 @@ import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.RegistrationRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.web.domain.content.PolygraphyFullModel;
-import it.sevenbits.graphicartsindustry.web.domain.registration.*;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,7 +97,7 @@ public class RegistrationService {
     private String generateHash() throws ServiceException {
         try {
             int number = min + (int) (Math.random() * ((max - min) + 1));
-            String hash = Integer.toString(number);
+            String hash = sha1(Integer.toString(number));
             return hash;
         }catch (Exception e) {
             throw new ServiceException("An error occurred while generating hash");
@@ -136,5 +142,27 @@ public class RegistrationService {
         } catch (Exception e) {
             throw new ServiceException("An error occurred while finding email in users");
         }
+    }
+
+    public static String sha1(String Param) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+        MessageDigest SHA = MessageDigest.getInstance("SHA-1");
+        SHA.reset();
+        SHA.update(Param.getBytes("UTF-8"), 0, Param.length());
+        byte[] sha1hash = SHA.digest();
+        return bytesToHexStr(sha1hash);
+    }
+
+    public static String bytesToHexStr(byte[] raw) {
+        char[] kDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        int length = raw.length;
+        char[] hex = new char[length * 2];
+        for (int i = 0; i < length; i++) {
+            int value = (raw[i] + 256) % 256;
+            int highIndex = value >> 4;
+            int lowIndex = value & 0x0f;
+            hex[i * 2 + 0] = kDigits[highIndex];
+            hex[i * 2 + 1] = kDigits[lowIndex];
+        }
+        return new String(hex);
     }
 }

@@ -157,8 +157,8 @@ public class CommonFieldValidator {
                                 final Map<String, String> errors,
                                 final String field,
                                 final String key) {
-        if (!errors.containsKey(field)) {
-            if (value == null) {
+        if (value != null && !errors.containsKey(field)) {
+            if (value.size() == 0) {
                 errors.put(field, key);
             }
         }

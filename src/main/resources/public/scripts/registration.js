@@ -38,25 +38,30 @@ var validateSecondStep = function(event){
         headers: headers,
         contentType: 'application/json',
         data: JSON.stringify({
-                  'email': email,
-                  'password': password,
-                  'name': name,
-                  'address': address,
-                  'phone': phone,
-                  'publicEmail': publicEmail,
-                  'website': website,
-                  'textArea': textArea,
-                  'paymentMethods': paymentMethods,
-                  'deliveryMethods': deliveryMethods,
-                  'services': services,
-                  'writesTheCheck': writesTheCheck,
-                  'orderByEmail': orderByEmail,
-                  'hash': hash
+            firstStepForm: {
+                'email': email,
+                'password': password,
+                'name': name,
+                'address': address,
+                'phone': phone,
+                'publicEmail': publicEmail,
+                'website': website,
+                'textArea': textArea,
+                'hash': hash
+            },
+            secondStepForm: {
+                'paymentMethods': paymentMethods,
+                'deliveryMethods': deliveryMethods,
+                'services': services,
+                'writesTheCheck': writesTheCheck,
+                'orderByEmail': orderByEmail
+            }
               }),
         success: function(data) {
             //console.log(data);
             if(data.success){
-                $('.submit-registration-form').submit();
+                //$('.submit-registration-form').submit();
+                window.location.href = '/registration-success';
             }
             else{
                 $('.invalid-payment-method').text(data.errors['paymentMethods']);

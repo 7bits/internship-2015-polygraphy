@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/", "/search", "/polygraphy/**", "/registration",
                             "/info-for-polygraphy", "/info-for-polygraphy-success", "/about-project",
-                            "/registration/first-step", "/registration/second-step")
+                            "/registration/first-step", "/registration/second-step", "/registration-success")
                     .permitAll()
                 .anyRequest()
                     .authenticated()

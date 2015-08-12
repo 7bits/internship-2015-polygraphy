@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
+import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
@@ -55,11 +56,10 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public Object firstStep(@ModelAttribute RegistrationFirstForm registrationFirstForm,
-                            @RequestParam(value = "hash") String hash,
+    public Object firstStep(@RequestBody RegistrationFirstForm registrationFirstForm,
                             final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
-        Integer requestId = registrationLinkService.findRegistrationLink(hash);
+        Integer requestId = registrationLinkService.findRegistrationLink(registrationFirstForm.getHash());
         if (requestId!=null) {
             final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
             if (errorsFirstForm.size() != 0) {
@@ -79,33 +79,37 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public RegistrationErrors secondStep (@ModelAttribute RegistrationFirstForm registrationFirstForm,
-                                          @ModelAttribute RegistrationSecondForm registrationSecondForm,
-                                          @RequestParam(value = "hash") String hash,
+    public RegistrationErrors secondStep (@RequestBody RegistrationForm registrationForm,
                                           final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
-        Integer requestId = registrationLinkService.findRegistrationLink(hash);
+        Integer requestId = registrationLinkService.findRegistrationLink(registrationForm.getFirstStepForm().
+                getHash());
         if (requestId!=null) {
-            final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationSecondForm);
+            final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationForm.getSecondStepForm());
             if (errorsSecondForm.size() != 0) {
                 registrationErrors.setErrors(errorsSecondForm);
                 registrationErrors.setSuccess(false);
                 return registrationErrors;
             }
 
-            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationForm.getFirstStepForm());
             if (errorsFirstForm.size() != 0) {
                 registrationErrors.setErrors(errorsFirstForm);
                 registrationErrors.setSuccess(false);
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-            registrationService.deleteRequestOnRegistration(hash);
+//            registrationService.deleteRequestOnRegistration(registrationFirstForm.getHash());
         } else {
             registrationErrors.setBase("Ссылка на регистрацию устарела");
             registrationErrors.setSuccess(false);
         }
         return registrationErrors;
+    }
+
+    @RequestMapping(value = "/registration-success", method = RequestMethod.GET)
+    public String registrationSuccess (final Model model) {
+        return "home/success_registration";
     }
 
 

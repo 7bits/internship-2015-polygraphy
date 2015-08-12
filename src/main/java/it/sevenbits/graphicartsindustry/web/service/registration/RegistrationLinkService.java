@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegistrationLinkService {
     private String linkBasic = "http://polygraphy.7bits.it";
-    private String linkRegistration = "/registration-link?id=";
+    private String linkRegistration = "/registration?id=";
     private int min = 100000;
     private int max = 999999;
 

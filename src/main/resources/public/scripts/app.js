@@ -56,6 +56,7 @@ function liveSearchResults(event) {
     var template = Handlebars.compile($('#results').html());
     var msg = $('#form').serialize();
     window.history.pushState('','', 'search?' + msg);
+    $('.js-overlay').css('visibility', 'visible');
     $.ajax({
         type: 'POST',
         url: '/search',
@@ -68,10 +69,12 @@ function liveSearchResults(event) {
                 polygraphiesListIsNull: data.polygraphiesListIsNull
             });
             $('#polygraphies-list').html(html);
+            $('.js-overlay').css('visibility', 'hidden');
         },
         error:  function(xhr, str){
-                console.log(arguments);
-              alert('Возникла ошибка: ' + xhr.responseCode);
+            console.log(arguments);
+            alert('Возникла ошибка: ' + xhr.responseCode);
+            $('.js-overlay').css('visibility', 'visible');
         }
     });
 }

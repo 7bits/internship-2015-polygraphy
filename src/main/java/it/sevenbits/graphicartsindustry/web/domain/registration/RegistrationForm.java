@@ -1,22 +1,22 @@
 package it.sevenbits.graphicartsindustry.web.domain.registration;
 
 public class RegistrationForm {
-    private RegistrationFirstForm firstStepForm;
-    private RegistrationSecondForm secondStepForm;
+    private RegistrationFirstForm firstForm;
+    private RegistrationSecondForm secondForm;
 
-    public RegistrationFirstForm getFirstStepForm() {
-        return firstStepForm;
+    public RegistrationFirstForm getFirstForm() {
+        return firstForm;
     }
 
-    public void setFirstStepForm(RegistrationFirstForm firstStepForm) {
-        this.firstStepForm = firstStepForm;
+    public void setFirstForm(RegistrationFirstForm firstForm) {
+        this.firstForm = firstForm;
     }
 
-    public RegistrationSecondForm getSecondStepForm() {
-        return secondStepForm;
+    public RegistrationSecondForm getSecondForm() {
+        return secondForm;
     }
 
-    public void setSecondStepForm(RegistrationSecondForm secondStepForm) {
-        this.secondStepForm = secondStepForm;
+    public void setSecondForm(RegistrationSecondForm secondForm) {
+        this.secondForm = secondForm;
     }
 }

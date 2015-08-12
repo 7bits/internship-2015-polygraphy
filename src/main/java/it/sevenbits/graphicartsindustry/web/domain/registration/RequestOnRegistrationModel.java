@@ -13,7 +13,7 @@ public class RequestOnRegistrationModel {
         this.id = id;
         this.email = email;
         this.hash = hash;
-        this.link = "http://polygraphy.7bits.it/registration-link?id=" + hash;
+        this.link = "http://polygraphy.7bits.it/registration?id=" + hash;
     }
 
     public int getId() {

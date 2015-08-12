@@ -106,6 +106,11 @@ public class RegistrationController {
         return registrationErrors;
     }
 
+    @RequestMapping(value = "/registration-success", method = RequestMethod.GET)
+    public String registrationSuccess (final Model model) {
+        return "home/success_registration";
+    }
+
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
     @ResponseBody

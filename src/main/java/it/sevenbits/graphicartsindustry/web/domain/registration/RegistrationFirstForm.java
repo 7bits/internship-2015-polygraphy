@@ -10,6 +10,7 @@ public class RegistrationFirstForm {
     private Boolean orderByEmail;
     private String website;
     private String info;
+    private String hash;
 
     public String getEmail() {
         return email;
@@ -81,5 +82,13 @@ public class RegistrationFirstForm {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 }

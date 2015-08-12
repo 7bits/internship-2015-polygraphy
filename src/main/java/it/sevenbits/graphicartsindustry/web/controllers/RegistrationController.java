@@ -56,10 +56,9 @@ public class RegistrationController {
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST)
     @ResponseBody
     public Object firstStep(@ModelAttribute RegistrationFirstForm registrationFirstForm,
-                            @RequestParam(value = "hash") String hash,
                             final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
-        Integer requestId = registrationLinkService.findRegistrationLink(hash);
+        Integer requestId = registrationLinkService.findRegistrationLink(registrationFirstForm.getHash());
         if (requestId!=null) {
             final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
             if (errorsFirstForm.size() != 0) {
@@ -81,10 +80,9 @@ public class RegistrationController {
     @ResponseBody
     public RegistrationErrors secondStep (@ModelAttribute RegistrationFirstForm registrationFirstForm,
                                           @ModelAttribute RegistrationSecondForm registrationSecondForm,
-                                          @RequestParam(value = "hash") String hash,
                                           final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
-        Integer requestId = registrationLinkService.findRegistrationLink(hash);
+        Integer requestId = registrationLinkService.findRegistrationLink(registrationFirstForm.getHash());
         if (requestId!=null) {
             final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationSecondForm);
             if (errorsSecondForm.size() != 0) {
@@ -100,7 +98,7 @@ public class RegistrationController {
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-            registrationService.deleteRequestOnRegistration(hash);
+//            registrationService.deleteRequestOnRegistration(registrationFirstForm.getHash());
         } else {
             registrationErrors.setBase("Ссылка на регистрацию устарела");
             registrationErrors.setSuccess(false);

@@ -53,7 +53,7 @@ public class RegistrationController {
             return "/fffff";
     }
 
-    @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public Object firstStep(@ModelAttribute RegistrationFirstForm registrationFirstForm,
                             final Model model) throws ServiceException {
@@ -76,7 +76,7 @@ public class RegistrationController {
         return registrationErrors;
     }
 
-    @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public RegistrationErrors secondStep (@ModelAttribute RegistrationFirstForm registrationFirstForm,
                                           @ModelAttribute RegistrationSecondForm registrationSecondForm,

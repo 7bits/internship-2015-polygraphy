@@ -56,7 +56,8 @@ var validateSecondStep = function(event){
         success: function(data) {
             //console.log(data);
             if(data.success){
-                $('.submit-registration-form').submit();
+                //$('.submit-registration-form').submit();
+                window.location.href = '/registration-success';
             }
             else{
                 $('.invalid-payment-method').text(data.errors['paymentMethods']);

@@ -49,7 +49,7 @@ var validateSecondStep = function(event){
                 'textArea': textArea,
                 'hash': hash
             },
-            secondStepForm{
+            secondStepForm: {
                 'paymentMethods': paymentMethods,
                 'deliveryMethods': deliveryMethods,
                 'services': services,

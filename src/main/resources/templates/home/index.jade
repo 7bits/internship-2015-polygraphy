@@ -17,19 +17,14 @@ block append content
                     button(type='submit') НАЙТИ ПОЛИГРАФИЮ
 
             .checkboxes
-                - checked_service
                 Часто ищут:
                 for service in services
-                    checked_service=0
-                    for service_id in services_id
-                        if service.id == form.service_id
-                            checked_service=1
                     .checkbox-btn
-                        if checked_service == 1
-                            input.often-seek(id='btn#{service.id}', name='services_id', value='#{service.id}', type='checkbox', checked)
+                        if form.services.contains(service.id)
+                            input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox', checked)
                             label(for='btn'+service.id)=service.name
                         else
-                            input.often-seek(id='btn#{service.id}', name='services_id', value='#{service.id}', type='checkbox')
+                            input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
                             label(for='btn'+service.id)=service.name
 
             .extended-search

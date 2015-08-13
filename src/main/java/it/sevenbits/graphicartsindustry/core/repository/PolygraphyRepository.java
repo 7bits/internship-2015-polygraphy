@@ -31,7 +31,7 @@ public class PolygraphyRepository {
         try {
             String symbolIsBanned = "'";
             String processedQuery = query.getQuery().replaceAll(symbolIsBanned,"");
-            return mapper.findPolygraphies(processedQuery.toLowerCase(), query.getServices_id(), query.getPaymentMethod(),
+            return mapper.findPolygraphies(processedQuery.toLowerCase(), query.getServices(), query.getPaymentMethod(),
                     query.isWritesTheCheck(), query.getDeliveryMethod(), query.isOrderByEmail());
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving polygraphies " +

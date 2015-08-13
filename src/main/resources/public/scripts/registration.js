@@ -27,6 +27,10 @@ var validateSecondStep = function(event){
     var writesTheCheck = $('.js-wtc').prop('checked');
     var orderByEmail = $('.js-obe').prop('checked');
 
+    $('.invalid-payment-method').css('display', 'none');
+    $('.invalid-delivery-method').css('display', 'none');
+    $('.invalid-services').css('display', 'none');
+
     $('.invalid-payment-method').text('');
     $('.invalid-delivery-method').text('');
     $('.invalid-services').text('');
@@ -58,9 +62,7 @@ var validateSecondStep = function(event){
             }
               }),
         success: function(data) {
-            //console.log(data);
             if(data.success){
-                //$('.submit-registration-form').submit();
                 window.location.href = '/registration-success';
             }
             else{

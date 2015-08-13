@@ -39,7 +39,7 @@ public class PolygraphyProvider {
 //        if (service_id.size()!=0)
 //            sqlQuery.append(", s.id");
         if (payment_id!=0)
-            sqlQuery.append(", рpm.payment_method_id");
+            sqlQuery.append(", ppm.payment_method_id");
         if (writes_the_check==true)
             sqlQuery.append(", writes_the_check");
         if (delivery_id!=0)

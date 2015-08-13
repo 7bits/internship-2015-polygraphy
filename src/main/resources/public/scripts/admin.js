@@ -46,6 +46,29 @@ var removeBid = function(event){
     });
 }
 
+var removeFromSearch = function(event){
+    event.preventDefault();
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers = {};
+    headers[header] = token;
+
+    var id = $(this).attr('id');
+    var btn = $(this);
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '/admin/remove-polygraphy',
+        headers: headers,
+        data: {'requestId': id},
+        success: function(data) {
+            var reqId = data.id;
+            $(btn).parent().parent(),parent().remove();
+        }
+    });
+}
+
 var availabilityInSearch = function(event){
     event.preventDefault();
     var token = $("meta[name='_csrf']").attr("content");
@@ -97,6 +120,8 @@ $(document).ready(function(){
 
     $('.label-for-checkbox').on('click', availabilityInSearch);
 
-    $('.row').on('click', '.remove-bid', removeBid);
+    $('.remove-bid').on('click', removeBid);
+
+    $('.remove-from-search').on('click', removeFromSearch);
 
 });

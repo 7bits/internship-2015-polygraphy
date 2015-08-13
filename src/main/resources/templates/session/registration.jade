@@ -5,12 +5,8 @@ block append content
     .registration-form
         .registration-form-headline
             РЕГИСТРАЦИЯ ПОЛИГРАФИИ
-        form(id='registration-form', method='post', action='/registration-link')
+        form(id='registration-form')
             fieldset
-                if errors
-                    ul
-                        each error, key in errors
-                            li #{error}
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 input#hash(type='hidden', name='hash', value='#{hash}')
                 .text-fields
@@ -82,4 +78,4 @@ block append content
                                     input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                                     label(for='service'+service.id)=service.name
                             .invalid-services
-                button.submit-registration-form(type="submit", id="submit-registration-form") Сохранить данные
+                button.submit-registration-form(type="button", id="submit-registration-form") Сохранить данные

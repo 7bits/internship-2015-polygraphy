@@ -10,11 +10,11 @@ block append content
         .form-container
             form(id = 'request-form', 'method = 'post', action = '/info-for-polygraphy')
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                div
+                .input-wrapper
                     input.email-input(type='text', name='email')
                     button.submit-email(type='submit', id='submit-email', form = 'request-form')
                         | Отправить
-                .error-container
+                        .error-container
         .head-text
             |Если Ваша полиграфия уже есть в нашем поиске, можете
             br

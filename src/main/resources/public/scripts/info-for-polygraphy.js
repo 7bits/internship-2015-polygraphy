@@ -7,6 +7,11 @@ var validateForm = function(event){
     headers[header] = token;
     var email = $('.email-input').val();
     var formId = $(this).attr('form');
+
+    $('.email-input').css('borderColor', 'white');
+    $('.error-container').css('display', 'none');
+    $('.email-input').text('');
+
     $.ajax({
         type: 'POST',
         dataType: 'json',
@@ -15,12 +20,20 @@ var validateForm = function(event){
         data: {'email': email},
         success: function(data) {
             if(data.success){
-                $('button[form='+formId+']').submit();
                 window.location.href = '/info-for-polygraphy-success';
             }
             else{
-                for(var e in data.errors)
-                    $('.error-container').text(data.errors[e]);
+                            if (data.errors['email']){
+                                $('.email-input').css('borderColor', 'red');
+                                $('.error-container').css('display', 'block');
+                                $('.error-container').text(data.errors['email']);
+                            }
+                            else {
+                                $('.email-input').css('borderColor', 'white');
+                                $('.error-container').css('display', 'none');
+                            };
+                /*for(var e in data.errors)
+                    $('.error-container').text(data.errors[e]);*/
             }
         }
     });
@@ -28,6 +41,7 @@ var validateForm = function(event){
 
 $(document).ready(function(){
 
+    $('input').attr('autocomplete', 'off');
     $('button.submit-email[type=submit]').click(validateForm);
 
 });

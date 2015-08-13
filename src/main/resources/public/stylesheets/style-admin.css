@@ -18,7 +18,7 @@ body{
     margin-bottom: 20px;
     text-align: left;
     margin: auto;
-    width: 850px;
+    width: 1000px;
 }
 
 .tab{
@@ -39,7 +39,7 @@ body{
 }
 
 .admin{
-    width: 850px;
+    width: 1000px;
     height: auto;
     background-color: rgb(232, 232, 232);
     border-radius: 0 10px 10px 10px;
@@ -125,6 +125,15 @@ table.admin-table{
 a.take-link{
 
     color: #25BB1D;
+}
+
+.button-container{
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.col-edit{
+    min-width: 310px;
 }
 
 .option{

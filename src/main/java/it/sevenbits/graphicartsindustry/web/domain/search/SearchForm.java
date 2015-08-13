@@ -5,7 +5,7 @@ import java.util.List;
 public class SearchForm {
 
     private String query;
-    private List<Integer> services;
+    private List<Integer> services_id;
     private int paymentMethod;
     private int deliveryMethod;
     private boolean writesTheCheck;
@@ -14,7 +14,7 @@ public class SearchForm {
     public SearchForm(String query, List<Integer> services, int paymentMethod, int deliveryMethod,
                       boolean writesTheCheck, boolean orderByEmail) {
         this.query = query;
-        this.services = services;
+        this.services_id = services;
         this.paymentMethod = paymentMethod;
         this.deliveryMethod = deliveryMethod;
         this.writesTheCheck = writesTheCheck;
@@ -31,12 +31,12 @@ public class SearchForm {
         this.query = query;
     }
 
-    public List<Integer> getServices() {
-        return services;
+    public List<Integer> getServices_id() {
+        return services_id;
     }
 
-    public void setServices(List<Integer> services) {
-        this.services = services;
+    public void setServices_id(List<Integer> services_id) {
+        this.services_id = services_id;
     }
 
     public int getPaymentMethod() {

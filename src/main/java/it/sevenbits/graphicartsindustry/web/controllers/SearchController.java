@@ -70,7 +70,7 @@ public class SearchController {
         // Добавим в модель объект - список методов доставки
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
 
-        if (form.getQuery().isEmpty() && form.getServices().size() == 0 && form.getPaymentMethod()==0 &&
+        if (form.getQuery().isEmpty() && form.getServices_id().size() == 0 && form.getPaymentMethod()==0 &&
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.isOrderByEmail()==false)
             // В модель добавим объект - рандомный список полиграфий
@@ -92,11 +92,11 @@ public class SearchController {
     @ResponseBody
     public PolygraphyResponse results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
 
-        if (form.getServices()==null) {
-            form.setServices(new ArrayList<Integer>(0));
+        if (form.getServices_id()==null) {
+            form.setServices_id(new ArrayList<Integer>(0));
         }
         PolygraphyResponse results = new PolygraphyResponse();
-        if (form.getQuery().isEmpty() && form.getServices().size()==0 && form.getPaymentMethod()==0 &&
+        if (form.getQuery().isEmpty() && form.getServices_id().size()==0 && form.getPaymentMethod()==0 &&
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.isOrderByEmail()==false) {
             // В модель добавим объект - рандомный список полиграфий

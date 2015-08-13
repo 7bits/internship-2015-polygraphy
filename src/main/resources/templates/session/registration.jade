@@ -74,12 +74,12 @@ block append content
                                     input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
                             .invalid-delivery-method
-                    .field-services
+                    .field-services_id
                         | Предоставляемые услуги:
                         .input-wrapper
-                            for service in services
+                            for service in services_id
                                 .field-checkbox
-                                    input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                                    input.js-s.checkbox(id='service#{service.id}', name='services_id', value='#{service.id}', type='checkbox')
                                     label(for='service'+service.id)=service.name
-                            .invalid-services
+                            .invalid-services_id
                 button.submit-registration-form(type="submit", id="submit-registration-form") Сохранить данные

@@ -55,16 +55,16 @@ var availabilityInSearch = function(event){
 
     var checkbox = $(this);
     var id = $(this).attr('id');
-    var checkboxCondition = $(this).prop('checked');
+    var condition = $(this).prop('checked');
 
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '',
+        url: '/admin/change-status-display',
         headers: headers,
         data: {
-                  'requestId': id,
-                  'checkboxCondition': checkboxCondition
+                  'polygraphyId': id,
+                  'condition': condition
               },
         success: function(data) {
             if ($(checkbox).prop('checked')){

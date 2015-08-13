@@ -70,6 +70,20 @@
                 var website = $('#website-input').val();
                 var textArea = $('#text-area-field').val();
 
+                $('.invalid-email').css('display', 'none');
+                $('.invalid-password').css('display', 'none');
+                $('.invalid-name').css('display', 'none');
+                $('.invalid-address').css('display', 'none');
+                $('.invalid-phone').css('display', 'none');
+                $('.invalid-public-email').css('display', 'none');
+
+                $('.form-control#email-input').css('borderColor', 'white');
+                $('.form-control#password-input').css('borderColor', 'white');
+                $('.form-control#name-input').css('borderColor', 'white');
+                $('.form-control#address-input').css('borderColor', 'white');
+                $('.form-control#phone-input').css('borderColor', 'white');
+                $('.form-control#email-public-input').css('borderColor', 'white');
+
                 $('.invalid-email').text('');
                 $('.invalid-password').text('');
                 $('.invalid-name').text('');

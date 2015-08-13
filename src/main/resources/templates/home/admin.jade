@@ -54,8 +54,12 @@ block append content
                             td.col.col-mail
                                 = polygraphy.email
                             td.col.col-search
-                                input.checkbox(type='checkbox', checked, id='какой-то уникальный id')
-                                label.label-for-checkbox(for='какой-то уникальный id')
+                                if polygraphy.displayed
+                                    input.checkbox(type='checkbox', id='#{polygraphyId}', checked)
+                                    label.label-for-checkbox(for='#{polygraphyId}')
+                                else
+                                    input.checkbox(type='checkbox', id='#{polygraphyId}')
+                                    label.label-for-checkbox(for='#{polygraphyId}')
                             td.col.col-edit
                                 .button-container
                                     button.option(type='button')

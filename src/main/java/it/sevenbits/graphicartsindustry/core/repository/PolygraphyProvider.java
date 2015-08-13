@@ -35,7 +35,7 @@ public class PolygraphyProvider {
 
 
         StringBuilder sqlQuery = new StringBuilder();
-        sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, c.address, c.phone");
+        sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, p.displayed, c.address, c.phone");
 //        if (service_id.size()!=0)
 //            sqlQuery.append(", s.id");
         if (payment_id!=0)
@@ -56,7 +56,7 @@ public class PolygraphyProvider {
         sqlQuery.append(" LEFT JOIN contact AS c ON p.id=c.polygraphy_id");
 
 
-        sqlQuery.append(" WHERE");
+        sqlQuery.append(" WHERE p.displayed=true AND");
         if (!query.isEmpty()) {
             sqlQuery.append(" LOWER(p.name) ILIKE '%" + query + "%'");
             somethingBefore = true;

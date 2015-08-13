@@ -8,6 +8,7 @@ public class Polygraphy {
     private String email;
     private String website;
     private String info;
+    private boolean displayed;
 
     public int getId() {
         return id;
@@ -63,5 +64,13 @@ public class Polygraphy {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public boolean isDisplayed() {
+        return displayed;
+    }
+
+    public void setDisplayed(boolean displayed) {
+        this.displayed = displayed;
     }
 }

@@ -22,5 +22,5 @@ public interface RequestOnRegistrationMapper {
             @Result(column = "email", property = "email"),
             @Result(column = "hash", property = "hash")
     })
-    List<RequestOnRegistration> findAllRequestOnRegistration();
+    List<RequestOnRegistration> findAllRequestsOnRegistration();
 }

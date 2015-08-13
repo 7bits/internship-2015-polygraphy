@@ -69,8 +69,12 @@ public class AdminController {
         return responseToRemovingRequestOnRegistration;
     }
 
-    @RequestMapping(value = "/admin/change-status-display", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/change-condition-display-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public void changingConditionPolygraphy() {
+    public void changingConditionDisplayPolygraphy(
+            @RequestParam(value = "polygraphyId", defaultValue = "0") Integer polygraphyId,
+            @RequestParam(value = "condition", defaultValue = "false") Boolean condition,
+            final Model model) throws ServiceException {
+        adminService.changeConditionDisplayPolygraphy(polygraphyId, condition);
     }
 }

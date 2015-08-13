@@ -35,7 +35,7 @@ public class RequestOnRegistrationRepository {
 
     public List<RequestOnRegistration> findAllRequestsOnRegistration() throws RepositoryException {
         try {
-            return requestOnRegistrationMapper.findAllRequestOnRegistration();
+            return requestOnRegistrationMapper.findAllRequestsOnRegistration();
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving all requests on registration "
                     + e.getMessage(), e);

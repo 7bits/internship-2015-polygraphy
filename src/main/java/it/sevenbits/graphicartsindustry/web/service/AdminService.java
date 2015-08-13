@@ -25,7 +25,7 @@ public class AdminService {
         try {
             requestOnRegistrationRepository.removeRequestOnRegistration(requestId);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while removing request on registration");
+            throw new ServiceException("An error occurred while removing request on registration ");
         }
     }
 
@@ -34,7 +34,7 @@ public class AdminService {
             List<Polygraphy> polygraphies = polygraphyRepository.findAllPolygraphies();
             List<PolygraphyAdminModel> models = new ArrayList<>(polygraphies.size());
             for (Polygraphy p: polygraphies) {
-                models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail()));
+                models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail(), p.isDisplayed()));
             }
             return models;
         } catch (Exception e) {
@@ -54,6 +54,15 @@ public class AdminService {
             return models;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while showing all requests on registration " +
+                    e.getMessage(),e);
+        }
+    }
+
+    public void changeConditionDisplayPolygraphy (int polygraphyId, boolean condition) throws ServiceException {
+        try {
+            polygraphyRepository.changeConditionDisplayPolygraphy(polygraphyId, condition);
+        } catch (Exception e) {
+            throw new  ServiceException("An error occurred while changing condition polygraphy " +
                     e.getMessage(),e);
         }
     }

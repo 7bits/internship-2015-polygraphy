@@ -35,7 +35,7 @@ public class AdminController {
     }
 
     //@Secured({"ROLE_ADMIN"})
-    @RequestMapping(value = "/admin/registration-link", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/generate-registration-link", method = RequestMethod.POST)
     @ResponseBody
     public RequestOnRegistrationModel generate(
             @RequestParam(value="requestId", defaultValue = "0") Integer id,
@@ -55,7 +55,7 @@ public class AdminController {
         return requestOnRegistration;
     }
 
-    @RequestMapping(value = "/admin/registration-link-remove", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/remove-request-on-registration", method = RequestMethod.POST)
     @ResponseBody
     public ResponseToRemovingRequestOnRegistration removingRequestOnRegistration(
             @RequestParam(value = "requestId", defaultValue = "0") Integer requestId,

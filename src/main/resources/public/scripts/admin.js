@@ -11,7 +11,7 @@ var requestId = function(event){
     $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: '/admin/registration-link',
+            url: '/admin/generate-registration-link',
             headers: headers,
             data: {'requestId': id},
             success: function(responseData) {
@@ -36,7 +36,7 @@ var removeBid = function(event){
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '/admin/registration-link-remove',
+        url: '/admin/remove-request-on-registration',
         headers: headers,
         data: {'requestId': id},
         success: function(data) {

@@ -2,26 +2,69 @@ extends ../layouts/layout-admin
 
 block append content
 
-    .admin-form
-        .admin-headline
-            СПИСОК ЗАЯВОК НА РЕГИСТРАЦИЮ
-        .table-container
-            table.admin-table
-                tr
-                    th.head-e-mail
-                        | E-mail
-                    th.head-link
-                        | Ссылка для регистрации
-                for request in requests
+    .admin-headline
+        .tab.tab1
+            | ЗАЯВКИ НА РЕГИСТРАЦИЮ
+        .tab.tab2
+            | СПИСОК ПОЛИГРАФИЙ
+    .admin
+        .content.for-tab1
+            .table-container
+                table.admin-table
+                    tr
+                        th.head.head-e-mail
+                            | E-mail
+                        th.head.head-link
+                            | Ссылка для регистрации
+                        th.head.head-link
+                            | Действия
+                    for request in requests
+                        tr.row
+                            td.col.col-email
+                                = request.email
+                            td.col.col-link
+                                if request.hash
+                                    a.take-link(href='#{request.link}', id='#{request.id}')= request.link
+                                else
+                                    .generate-link
+                                        a.get-link(href='/admin/registration-link', id='#{request.id}')
+                                            | Сгенерировать ссылку
+                                    .link
+                                        a(href='#{generate}', id='#{request.id}')= generate
+                            td.col.col-action
+                                button.option(type='button')
+                                    | Удалить
+        .content.for-tab2
+            .table-container
+                table.admin-table
+                    tr
+                        th.head
+                            | Название
+                        th.head
+                            | E-mail
+                        th.head
+                            | Есть в поиске
+                        th.head
+                            | Действия
                     tr.row
-                        td.col-email
-                            = request.email
-                        td.col-link
-                            if request.hash
-                                a(href='#{request.link}', id='#{request.id}')= request.link
-                            else
-                                .generate-link
-                                    a(href='/admin/registration-link', id='#{request.id}')
-                                        | Сгенерировать ссылку
-                                .link
-                                    a(href='#{generate}', id='#{request.id}')= generate
+                        td.col.col-name
+                            | Polygraphy
+                        td.col.col-mail
+                            | qwerty@qwerty.qwerty
+                        td.col.col-search
+                            input.checkbox(type='checkbox', checked, id='какой-то уникальный id')
+                            label.label-for-checkbox(for='какой-то уникальный id')
+                        td.col.col-edit
+                            button.option(type='button')
+                                | Редактировать
+                    tr.row
+                        td.col.col-name
+                            | Polygraphy
+                        td.col.col-mail
+                            | qwerty@qwerty.qwerty
+                        td.col.col-search
+                            input.checkbox(type='checkbox', checked, id='уникальный id'))
+                            label.label-for-checkbox(for='уникальный id')
+                        td.col.col-edit
+                            button.option(type='button')
+                                | Редактировать

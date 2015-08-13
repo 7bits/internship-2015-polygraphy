@@ -16,17 +16,36 @@ body{
     font-size: 22px;
     color: black;
     margin-bottom: 20px;
+    text-align: left;
+    margin: auto;
+    width: 850px;
 }
 
-.admin-form{
-    width: 800px;
-    //height: 250px;
+.tab{
+    display: inline-block;
+    padding: 10px 0;
+    padding-right: 15px;
+    margin-right: 2px;
+    cursor: pointer;
+    border: none;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    text-indent: 10px;
+    background-color: rgb(232, 232, 232);
+}
+
+.tab2{
+    background-color: rgb(240, 240, 240);
+}
+
+.admin{
+    width: 850px;
     height: auto;
     background-color: rgb(232, 232, 232);
-    border-radius: 10px;
-    //border: 3px solid #64be5f;
+    border-radius: 0 10px 10px 10px;
     text-align: center;
     margin: auto;
+    margin-bottom: 50px;
     box-sizing: border-box;
     padding: 40px 60px;
     color: white;
@@ -38,7 +57,6 @@ body{
     line-height: 35px;
     border: none;
     border-radius: 20px;
-    //color: white;
     font-size: 16px;
     text-decoration: none;
     background-color: #efe553;
@@ -48,7 +66,7 @@ body{
     margin: 0 auto;
 }
 
-.generate-link a{
+a.get-link{
     text-decoration: none;
     color: black;
 }
@@ -83,16 +101,15 @@ table.admin-table{
 }
 
 .head-e-mail{
-    width: 30%;
+    //width: 30%;
     border-right: 1px solid #64be5f;
 }
 
 .head-link{
-    width: 70%;
+    //width: 70%;
 }
 
-.head-e-mail,
-.head-link{
+.head{
     box-sizing: border-box;
     border-bottom: 1px solid #64be5f;
     background-color: #64be5f;
@@ -101,11 +118,65 @@ table.admin-table{
 
 .col-email{
     text-align: left;
+}
+
+.col-action{
+}
+a.take-link{
+
+    color: #25BB1D;
+}
+
+.option{
+    height: 35px;
+    width: auto;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: 'OpenSansLightRegular';
+    text-decoration: none;
+    background-color: #efe553;
+    outline: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.option:hover{
+    cursor: pointer;
+    background-color: #dad14c;
+}
+
+.col{
+    color: black;
+    border-top: 1px solid #64be5f;
     border-right: 1px solid #64be5f;
 }
 
-.col-email,
-.col-link{
-    color: black;
-    border-top: 1px solid #64be5f;
+
+input.checkbox[type="checkbox"]{
+    display: none;
+}
+
+input.checkbox[type="checkbox"]+label{
+    background: url("../images/check.png") 0px 0px no-repeat;
+    padding-left: 16px;
+    width: 15px;
+    height: 15px;
+}
+
+input.checkbox[type="checkbox"]:checked+label{
+    background: url("../images/check.png") 0 -30px no-repeat;
+    padding-left: 16px;
+    width: 15px;
+    height: 15px;
+}
+
+input.checkbox[type="checkbox"]+label:hover{
+    cursor: pointer;
+}
+
+.for-tab2{
+    display: none;
+    //visibility: hidden;
 }

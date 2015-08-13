@@ -24,6 +24,31 @@ var requestId = function(event){
 
 $(document).ready(function(){
 
+    $('.tab1').on('click', function(){
+        $('.for-tab2').css('display', 'none');
+        $('.tab2').css('backgroundColor', 'rgb(240, 240, 240)');
+        $('.for-tab1').css('display', 'block');
+        $('.tab1').css('backgroundColor', 'rgb(232, 232, 232)');
+    });
+
+    $('.tab2').on('click', function(){
+        $('.for-tab1').css('display', 'none');
+        $('.tab1').css('backgroundColor', 'rgb(240, 240, 240)');
+        $('.for-tab2').css('display', 'block');
+        $('.tab2').css('backgroundColor', 'rgb(232, 232, 232)');
+    });
+
     $('.row').on('click', '.generate-link a', requestId);
+
+    $('.label-for-checkbox').on('click', function(){
+        var id = $(this).attr('id');
+        if ($('.checkbox[id='+id+']').prop('checked')){
+            $(this).removeAttr('checked');
+        }
+        else{
+            $(this).attr('checked', 'checked');
+        }
+
+    });
 
 });

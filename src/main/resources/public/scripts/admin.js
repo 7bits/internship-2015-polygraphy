@@ -46,6 +46,37 @@ var removeBid = function(event){
     });
 }
 
+var availabilityInSearch = function(event){
+    event.preventDefault();
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers = {};
+    headers[header] = token;
+
+    var checkbox = $(this);
+    var id = $(this).attr('id');
+    var checkboxCondition = $(this).prop('checked');
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '',
+        headers: headers,
+        data: {
+                  'requestId': id,
+                  'checkboxCondition': checkboxCondition
+              },
+        success: function(data) {
+            if ($(checkbox).prop('checked')){
+                $(this).removeAttr('checked');
+            }
+            else{
+                $(this).attr('checked', 'checked');
+            }
+        }
+    });
+}
+
 $(document).ready(function(){
 
     $('.tab1').on('click', function(){
@@ -64,18 +95,8 @@ $(document).ready(function(){
 
     $('.row').on('click', '.generate-link a', requestId);
 
-    $('.label-for-checkbox').on('click', function(){
-        var id = $(this).attr('id');
-        if ($('.checkbox[id='+id+']').prop('checked')){
-            $(this).removeAttr('checked');
-        }
-        else{
-            $(this).attr('checked', 'checked');
-        }
-    });
+    $('.label-for-checkbox').on('click', availabilityInSearch);
 
     $('.row').on('click', '.remove-bid', removeBid);
-    /*$('.row').on('click', '.remove-bid', function(){
-        $(this).parent().parent().remove();
-    });*/
+
 });

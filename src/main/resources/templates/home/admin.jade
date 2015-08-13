@@ -32,7 +32,7 @@ block append content
                                     .link
                                         a(href='#{generate}', id='#{request.id}')= generate
                             td.col.col-action
-                                button.option(type='button')
+                                button.option.remove-bid(type='button', id='#{request.id}')
                                     | Удалить
         .content.for-tab2
             .table-container

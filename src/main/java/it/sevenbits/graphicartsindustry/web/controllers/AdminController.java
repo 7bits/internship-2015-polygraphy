@@ -60,10 +60,10 @@ public class AdminController {
     public ResponseToRemovingRequestOnRegistration removingRequestOnRegistration(
             @RequestParam(value = "requestId", defaultValue = "0") Integer requestId,
             final Model model) throws ServiceException {
-        ResponseToRemovingRequestOnRegistration responseToRemovingLink = new ResponseToRemovingRequestOnRegistration();
+        ResponseToRemovingRequestOnRegistration responseToRemovingRequestOnRegistration = new ResponseToRemovingRequestOnRegistration();
         adminService.removeRequestOnRegistration(requestId);
-        responseToRemovingLink.setSuccess(true);
-        responseToRemovingLink.setRequestId(requestId);
-        return responseToRemovingLink;
+        responseToRemovingRequestOnRegistration.setSuccess(true);
+        responseToRemovingRequestOnRegistration.setRequestId(requestId);
+        return responseToRemovingRequestOnRegistration;
     }
 }

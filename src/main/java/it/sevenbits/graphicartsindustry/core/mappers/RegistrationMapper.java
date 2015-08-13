@@ -12,10 +12,6 @@ public interface RegistrationMapper {
             "VALUES (#{email})")
     void saveRequestOnRegistration(@Param("email") final String email);
 
-    @Delete("DELETE FROM request_on_registration " +
-            "WHERE hash=#{hash}")
-    void deleteRequestOnRegistration(@Param("hash") final String hash);
-
     @Select("SELECT email FROM users WHERE email=#{email}")
     @Result (column = "email")
     String findUserByEmail(@Param("email") final String email);

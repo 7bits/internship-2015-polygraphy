@@ -5,6 +5,7 @@ import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.RegistrationRepository;
+import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.web.domain.content.PolygraphyFullModel;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
@@ -31,6 +32,9 @@ public class RegistrationService {
 
     @Autowired
     private RegistrationRepository registrationRepository;
+
+    @Autowired
+    private RequestOnRegistrationRepository requestOnRegistrationRepository;
 
     public PolygraphyFullModel saveAll (RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
             throws ServiceException {
@@ -112,11 +116,11 @@ public class RegistrationService {
         }
     }
 
-    public void deleteRequestOnRegistration (String hash) throws ServiceException {
+    public void removeRequestOnRegistration(String hash) throws ServiceException {
         try {
-            registrationRepository.deleteRequestOnRegistration(hash);
+            requestOnRegistrationRepository.removeRequestOnRegistration(hash);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while deleting request on registration");
+            throw new ServiceException("An error occurred while removing request on registration");
         }
     }
 

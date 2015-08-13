@@ -117,15 +117,6 @@ public class RegistrationRepository {
         }
     }
 
-    public void deleteRequestOnRegistration(String hash) throws RepositoryException {
-        try {
-            mapper.deleteRequestOnRegistration(hash);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while deleting request on registration: "
-                    + e.getMessage(), e);
-        }
-    }
-
     public String findUserByEmail (String email) throws RepositoryException {
         try {
             return mapper.findUserByEmail(email);

@@ -1,6 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingRequestOnRegistration;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.service.AdminService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationLinkService;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
@@ -14,6 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AdminController {
+
+    @Autowired
+    private AdminService adminService;
 
     @Autowired
     private RegistrationLinkService registrationLinkService;
@@ -48,5 +53,17 @@ public class AdminController {
         //registrationLinkService.saveRegistrationLink(link);
         //model.addAttribute("requests", registrationService.showRequests());
         return requestOnRegistration;
+    }
+
+    @RequestMapping(value = "/admin/registration-link-remove", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseToRemovingRequestOnRegistration removingRequestOnRegistration(
+            @RequestParam(value = "requestId", defaultValue = "0") Integer requestId,
+            final Model model) throws ServiceException {
+        ResponseToRemovingRequestOnRegistration responseToRemovingLink = new ResponseToRemovingRequestOnRegistration();
+        adminService.removeRequestOnRegistration(requestId);
+        responseToRemovingLink.setSuccess(true);
+        responseToRemovingLink.setRequestId(requestId);
+        return responseToRemovingLink;
     }
 }

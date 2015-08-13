@@ -100,7 +100,7 @@ public class RegistrationController {
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-            registrationService.deleteRequestOnRegistration(registrationForm.getFirstForm().getHash());
+            registrationService.removeRequestOnRegistration(registrationForm.getFirstForm().getHash());
             registrationService.saveAll(registrationForm.getFirstForm(), registrationForm.getSecondForm());
         } else {
             registrationErrors.setBase("Ссылка на регистрацию устарела");

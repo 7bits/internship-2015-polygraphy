@@ -18,7 +18,7 @@ block append content
                             = request.email
                         td.col-link
                             if request.hash
-                                = request.link
+                                a(href='#{request.link}', id='#{request.id}')= request.link
                             else
                                 .generate-link
                                     a(href='/admin/registration-link', id='#{request.id}')

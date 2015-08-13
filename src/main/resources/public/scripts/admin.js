@@ -5,6 +5,7 @@ var requestId = function(event){
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
     headers[header] = token;
+
     var id = $(this).attr('id');
 
     $.ajax({
@@ -19,6 +20,28 @@ var requestId = function(event){
                 $('.link a[id='+reqId+']').attr('href', responseData.link);
                 $('.link a[id='+reqId+']').text(responseData.link);
             }
+    });
+}
+
+var removeBid = function(event){
+    event.preventDefault();
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers = {};
+    headers[header] = token;
+
+    var id = $(this).attr('id');
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: '/admin/registration-link-remove',
+        headers: headers,
+        data: {'requestId': id},
+        success: function(data) {
+            var reqId = data.id;
+            $(this).parent().parent().remove();
+        }
     });
 }
 
@@ -48,7 +71,10 @@ $(document).ready(function(){
         else{
             $(this).attr('checked', 'checked');
         }
-
     });
 
+    $('.row').on('click', '.remove-bid', removeBid);
+    /*$('.row').on('click', '.remove-bid', function(){
+        $(this).parent().parent().remove();
+    });*/
 });

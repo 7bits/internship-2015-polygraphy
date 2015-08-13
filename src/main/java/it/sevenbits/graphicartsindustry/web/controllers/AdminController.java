@@ -68,4 +68,9 @@ public class AdminController {
         responseToRemovingRequestOnRegistration.setRequestId(requestId);
         return responseToRemovingRequestOnRegistration;
     }
+
+    @RequestMapping(value = "/admin/change-status-display", method = RequestMethod.POST)
+    @ResponseBody
+    public void changingConditionPolygraphy() {
+    }
 }

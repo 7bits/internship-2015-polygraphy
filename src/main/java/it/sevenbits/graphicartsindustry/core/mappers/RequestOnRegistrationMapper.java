@@ -16,7 +16,7 @@ public interface RequestOnRegistrationMapper {
             "WHERE hash=#{hash}")
     void removeRequestOnRegistration(@Param("hash") final String hash);
 
-    @Select("SELECT id, email, hash FROM request_on_registration ")
+    @Select("SELECT id, email, hash FROM request_on_registration")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "email", property = "email"),

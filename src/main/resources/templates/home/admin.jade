@@ -46,25 +46,16 @@ block append content
                             | Есть в поиске
                         th.head
                             | Действия
-                    tr.row
-                        td.col.col-name
-                            | Polygraphy
-                        td.col.col-mail
-                            | qwerty@qwerty.qwerty
-                        td.col.col-search
-                            input.checkbox(type='checkbox', checked, id='какой-то уникальный id')
-                            label.label-for-checkbox(for='какой-то уникальный id')
-                        td.col.col-edit
-                            button.option(type='button')
-                                | Редактировать
-                    tr.row
-                        td.col.col-name
-                            | Polygraphy
-                        td.col.col-mail
-                            | qwerty@qwerty.qwerty
-                        td.col.col-search
-                            input.checkbox(type='checkbox', checked, id='уникальный id'))
-                            label.label-for-checkbox(for='уникальный id')
-                        td.col.col-edit
-                            button.option(type='button')
-                                | Редактировать
+
+                    for polygraphy in polygraphies
+                        tr.row
+                            td.col.col-name
+                                = polygraphy.name
+                            td.col.col-mail
+                                = polygraphy.email
+                            td.col.col-search
+                                input.checkbox(type='checkbox', checked, id='какой-то уникальный id')
+                                label.label-for-checkbox(for='какой-то уникальный id')
+                            td.col.col-edit
+                                button.option(type='button')
+                                    | Редактировать

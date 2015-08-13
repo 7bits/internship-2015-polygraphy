@@ -17,21 +17,13 @@ public class PolygraphyRepository {
     private static Logger LOG = Logger.getLogger(PolygraphyRepository.class);
 
     @Autowired
-    private PolygraphyMapper mapper;
-
-    public List<Polygraphy> findAll(int limit) throws RepositoryException {
-        try {
-            return mapper.findAll(limit);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving all polygraphies: " + e.getMessage(), e);
-        }
-    }
+    private PolygraphyMapper polygraphyMapper;
 
     public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
             String symbolIsBanned = "'";
             String processedQuery = query.getQuery().replaceAll(symbolIsBanned,"");
-            return mapper.findPolygraphies(processedQuery.toLowerCase(), query.getServices(), query.getPaymentMethod(),
+            return polygraphyMapper.findPolygraphies(processedQuery.toLowerCase(), query.getServices(), query.getPaymentMethod(),
                     query.isWritesTheCheck(), query.getDeliveryMethod(), query.isOrderByEmail());
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving polygraphies " +
@@ -39,12 +31,30 @@ public class PolygraphyRepository {
         }
     }
 
+    public List<Polygraphy> findAll(int limit) throws RepositoryException {
+        try {
+            return polygraphyMapper.findAll(limit);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving all polygraphies: " + e.getMessage(), e);
+        }
+    }
+
+    public List<Polygraphy> findAllPolygraphies() throws RepositoryException {
+        try {
+            return polygraphyMapper.findAllPolygraphy();
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving all polygraphies "
+                    + e.getMessage(), e);
+        }
+    }
+
     public Polygraphy findPolygraphy(int id) throws RepositoryException {
         try {
-            return mapper.findById(id);
+            return polygraphyMapper.findPolygraphy(id);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving full information " +
                     "about polygraphy: " + e.getMessage(), e);
         }
     }
+
 }

@@ -14,11 +14,11 @@ import java.util.List;
 public class SearchService {
 
     @Autowired
-    private PolygraphyRepository repository;
+    private PolygraphyRepository polygraphyRepository;
 
     public List<PolygraphyMinModel> findAll(int limit) throws ServiceException {
         try {
-            List<Polygraphy> polygraphies = repository.findAll(limit);
+            List<Polygraphy> polygraphies = polygraphyRepository.findAll(limit);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (Polygraphy p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
@@ -31,7 +31,7 @@ public class SearchService {
 
     public List<PolygraphyMinModel> findPolygraphies(SearchForm query) throws ServiceException {
         try {
-            List<Polygraphy> polygraphies = repository.findPolygraphies(query);
+            List<Polygraphy> polygraphies = polygraphyRepository.findPolygraphies(query);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (Polygraphy p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));

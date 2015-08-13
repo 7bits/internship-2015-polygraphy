@@ -4,9 +4,9 @@ public class Polygraphy {
     private int id;
     private String name;
     private String address;
+    private String phone;
     private String email;
     private String website;
-    private String phone;
     private String info;
 
     public int getId() {
@@ -33,6 +33,14 @@ public class Polygraphy {
         this.address = address;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -47,14 +55,6 @@ public class Polygraphy {
 
     public void setWebsite(String website) {
         this.website = website;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getInfo() {

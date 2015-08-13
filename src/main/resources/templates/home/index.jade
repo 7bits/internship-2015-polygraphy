@@ -99,7 +99,7 @@ block append content
                         p.no-results= results.polygraphiesListIsNull
                     for polygraphy in results.polygraphies
                         li
-                            table.services_id
+                            table.services
                                 tr
                                     td.small-blue
                                     td.small-yellow
@@ -130,7 +130,7 @@ block append content
                     | {{/if}}
                     | {{#each polygraphies}}
                     li
-                        table.services_id
+                        table.services
                             tr
                                 td.small-blue
                                 td.small-yellow
@@ -160,7 +160,7 @@ block append content
                 .info-pop-up
                     .summary-pop-up
                         .polygraphy-name-pop-up {{name}}
-                        table.services_id-pop-up
+                        table.services-pop-up
                             tr
                                 td.pink
                                 td.blue

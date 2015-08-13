@@ -20,7 +20,7 @@ block append content
                 Часто ищут:
                 for service in services
                     .checkbox-btn
-                        if service.id == form.serviceId
+                        if form.services.contains(service.id)
                             input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox', checked)
                             label(for='btn'+service.id)=service.name
                         else

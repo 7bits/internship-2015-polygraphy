@@ -30,13 +30,15 @@ public class RegistrationFirstFormValidator {
         validator.isNotNullOrEmpty(form.getAddress(), errors, "address", "Поле не должно быть пустым");
 
         validator.isEmail(form.getEmail(), errors, "email", "Введите правильный email");
-        validator.isEmail(form.getPublicEmail(), errors, "publicEmail", "Введите правильный email");
+        if (form.getPublicEmail().length() != 0) {
+            validator.isEmail(form.getPublicEmail(), errors, "publicEmail", "Введите правильный email");
+        }
 
-        validator.shorterThan(form.getEmail(), 255, errors, "email", "Поле должно быть кроче чем 255 символов");
-        validator.shorterThan(form.getPassword(), 255, errors, "password", "Поле должно быть кроче чем 255 символов");
-        validator.shorterThan(form.getName(), 255, errors, "name", "Поле должно быть кроче чем 255 символов");
-        validator.shorterThan(form.getAddress(), 255, errors, "address", "Поле должно быть кроче чем 255 символов");
-        validator.shorterThan(form.getPhone(), 15, errors, "phone", "Поле должно быть кроче чем 15 символов");
+        validator.shorterThan(form.getEmail(), 255, errors, "email", "Поле должно быть короче чем 255 символов");
+        validator.shorterThan(form.getPassword(), 255, errors, "password", "Поле должно быть короче чем 255 символов");
+        validator.shorterThan(form.getName(), 255, errors, "name", "Поле должно быть короче чем 255 символов");
+        validator.shorterThan(form.getAddress(), 255, errors, "address", "Поле должно быть короче чем 255 символов");
+        validator.shorterThan(form.getPhone(), 15, errors, "phone", "Поле должно быть короче чем 15 символов");
 
         validator.longerThan(form.getPassword(), 5, errors, "password", "Поле должно быть длинее чем 5 символов");
 

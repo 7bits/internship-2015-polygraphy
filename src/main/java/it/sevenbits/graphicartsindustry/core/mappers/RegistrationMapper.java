@@ -1,10 +1,7 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
 import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
-import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import org.apache.ibatis.annotations.*;
-
-import java.util.List;
 
 public interface RegistrationMapper {
 
@@ -20,13 +17,7 @@ public interface RegistrationMapper {
     @Result (column = "email")
     String findRequestByEmail(@Param("email") final String email);
 
-    @Select("SELECT id, email, hash FROM request_on_registration ")
-    @Results({
-            @Result(column = "id", property = "id"),
-            @Result(column = "email", property = "email"),
-            @Result(column = "hash", property = "hash")
-    })
-    List<RequestOnRegistration> findAllRequestOnRegistration();
+
 
     @Select("SELECT id, name FROM polygraphy AS p " +
             "WHERE name=#{name}")

@@ -1,7 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.service.registration;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
-import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.RegistrationRepository;
@@ -11,7 +10,6 @@ import it.sevenbits.graphicartsindustry.web.domain.content.PolygraphyFullModel;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +17,6 @@ import org.springframework.stereotype.Service;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class RegistrationService {
@@ -78,19 +74,6 @@ public class RegistrationService {
         }
     }
 
-    public List<RequestOnRegistrationModel> showRequests() throws ServiceException {
-        try {
-            List<RequestOnRegistration> requestOnRegistrations = registrationRepository.findAllRequestOnRegistration();
-            List<RequestOnRegistrationModel> models = new ArrayList<>(requestOnRegistrations.size());
-            for (RequestOnRegistration r: requestOnRegistrations) {
-                models.add(new RequestOnRegistrationModel(r.getId(), r.getEmail(), r.getHash()));
-            }
-            return models;
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while finding request on registration " +
-                    e.getMessage(),e);
-        }
-    }
 
     public String generateAndSaveHash (int id) throws ServiceException {
         String hash = this.generateHash();

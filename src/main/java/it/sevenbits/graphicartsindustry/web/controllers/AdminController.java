@@ -30,7 +30,8 @@ public class AdminController {
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(final Model model) throws ServiceException {
         model.addAttribute("generate", "");
-        model.addAttribute("requests", registrationService.showRequests());
+        model.addAttribute("requests", adminService.showAllRequests());
+        model.addAttribute("polygraphies", adminService.showAllPolygraphy());
         return "home/admin";
     }
 
@@ -51,7 +52,7 @@ public class AdminController {
         //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
         //        + link.getHash());
         //registrationLinkService.saveRegistrationLink(link);
-        //model.addAttribute("requests", registrationService.showRequests());
+        //model.addAttribute("requests", registrationService.showAllRequests());
         return requestOnRegistration;
     }
 
@@ -60,7 +61,8 @@ public class AdminController {
     public ResponseToRemovingRequestOnRegistration removingRequestOnRegistration(
             @RequestParam(value = "requestId", defaultValue = "0") Integer requestId,
             final Model model) throws ServiceException {
-        ResponseToRemovingRequestOnRegistration responseToRemovingRequestOnRegistration = new ResponseToRemovingRequestOnRegistration();
+        ResponseToRemovingRequestOnRegistration responseToRemovingRequestOnRegistration =
+                new ResponseToRemovingRequestOnRegistration();
         adminService.removeRequestOnRegistration(requestId);
         responseToRemovingRequestOnRegistration.setSuccess(true);
         responseToRemovingRequestOnRegistration.setRequestId(requestId);

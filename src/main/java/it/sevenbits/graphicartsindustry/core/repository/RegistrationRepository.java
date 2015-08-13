@@ -2,7 +2,6 @@ package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
-import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationLinkMapper;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
 import org.apache.log4j.Logger;
@@ -99,14 +98,6 @@ public class RegistrationRepository {
         }
     }
 
-    public List<RequestOnRegistration> findAllRequestOnRegistration() throws RepositoryException {
-        try {
-            return mapper.findAllRequestOnRegistration();
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while finding model request on registration "
-                    + e.getMessage(), e);
-        }
-    }
 
     public void saveHash(String hash, int id) throws RepositoryException {
         try {

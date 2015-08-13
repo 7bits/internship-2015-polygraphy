@@ -49,9 +49,6 @@ public class PolygraphyProvider {
 
 
         sqlQuery.append(" FROM polygraphy AS p");
-//        if (service_id.size()!=0)
-//            sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-//                    "LEFT JOIN service AS s ON ps.service_id=s.id");
         if (payment_id!=0)
             sqlQuery.append(" LEFT JOIN polygraphies_payment_methods AS ppm ON p.id=ppm.polygraphy_id ");
         if (delivery_id!=0)

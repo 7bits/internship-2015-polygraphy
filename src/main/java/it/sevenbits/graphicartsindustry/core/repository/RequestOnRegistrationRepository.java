@@ -1,9 +1,12 @@
 package it.sevenbits.graphicartsindustry.core.repository;
 
+import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.mappers.RequestOnRegistrationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 @Qualifier(value = "requestOnRegistrationRepository")
@@ -26,6 +29,15 @@ public class RequestOnRegistrationRepository {
             requestOnRegistrationMapper.removeRequestOnRegistration(hash);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while removing request on registration: "
+                    + e.getMessage(), e);
+        }
+    }
+
+    public List<RequestOnRegistration> findAllRequestsOnRegistration() throws RepositoryException {
+        try {
+            return requestOnRegistrationMapper.findAllRequestOnRegistration();
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving all requests on registration "
                     + e.getMessage(), e);
         }
     }

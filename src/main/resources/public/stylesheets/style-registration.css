@@ -226,12 +226,30 @@ fieldset {
 }
 
 .invalid-email, .invalid-password, .invalid-name,
-.invalid-address, .invalid-phone, .invalid-public-email{
-    //visibility: hidden;
+.invalid-address, .invalid-phone, .invalid-public-email,
+.invalid-delivery-method, .invalid-services{
     display: none;
     position: absolute;
     top: 56%;
     left: 122%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    color: red;
+    box-sizing: border-box;
+    padding: 8px 0;
+    border: 2px solid red;
+    border-radius: 25px;
+    min-width: 250px;
+    min-height: 40px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.invalid-payment-method{
+    display: none;
+    position: absolute;
+    top: 56%;
+    right: 65%;
     transform: translate(-50%, -50%);
     background-color: white;
     color: red;

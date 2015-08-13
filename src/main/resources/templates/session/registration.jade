@@ -15,27 +15,27 @@ block append content
                 input#hash(type='hidden', name='hash', value='#{hash}')
                 .text-fields
                     .field-email
-                        |E-mail для регистрации
+                        |E-mail для регистрации *
                         .input-wrapper
                             input.form-control#email-input(name='email', type='text')
                             .invalid-email
                     .field-password
-                        |Пароль
+                        |Пароль *
                         .input-wrapper
                             input.form-control#password-input(name='password', type='password')
                             .invalid-password
                     .field-name
-                        | Название полиграфии
+                        | Название полиграфии *
                         .input-wrapper
                             input.form-control#name-input(name='name', type='text')
                             .invalid-name
                     .field-address
-                        | Адрес
+                        | Адрес *
                         .input-wrapper
                             input.form-control#address-input(name='address', type='text')
                             .invalid-address
                     .field-phone
-                        | Телефон
+                        | Телефон *
                         .input-wrapper
                             input.form-control#phone-input(name='phone', type='text')
                             .invalid-phone
@@ -59,7 +59,7 @@ block append content
                         input.js-wtc.checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
                         label(for='writesTheCheck') Выдаем чек
                     .field-payment
-                        | Принимаем оплату:
+                        | Принимаем оплату: *
                         .input-wrapper
                             for paymentMethod in paymentMethods
                                 .field-checkbox
@@ -67,7 +67,7 @@ block append content
                                     label(for='payment'+paymentMethod.id)=paymentMethod.name
                             .invalid-payment-method
                     .field-delivery
-                        | Доставка готового заказа:
+                        | Доставка готового заказа: *
                         .input-wrapper
                             for deliveryMethod in deliveryMethods
                                 .field-checkbox
@@ -75,7 +75,7 @@ block append content
                                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
                             .invalid-delivery-method
                     .field-services
-                        | Предоставляемые услуги:
+                        | Предоставляемые услуги: *
                         .input-wrapper
                             for service in services
                                 .field-checkbox

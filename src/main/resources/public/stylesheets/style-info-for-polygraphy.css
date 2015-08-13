@@ -71,10 +71,25 @@ body{
     background-color: #dad14c;
 }
 
+.input-wrapper{
+    position: relative;
+}
+
 .error-container{
-    display: block;
-    font-size: 18px;
-    color: white;
-    text-align: left;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 81%;
+    transform: translate(-50%, 0%);
+    background-color: white;
+    color: red;
+    box-sizing: border-box;
+    padding: 15px 0;
+    border: 2px solid red;
+    border-radius: 25px;
+    min-width: 250px;
+    min-height: 50px;
+    font-size: 14px;
+    text-align: center;
 }
 

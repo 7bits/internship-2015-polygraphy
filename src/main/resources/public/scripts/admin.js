@@ -31,6 +31,7 @@ var removeBid = function(event){
     headers[header] = token;
 
     var id = $(this).attr('id');
+    var btn = $(this);
 
     $.ajax({
         type: 'POST',
@@ -40,7 +41,7 @@ var removeBid = function(event){
         data: {'requestId': id},
         success: function(data) {
             var reqId = data.id;
-            $(this).parent().parent().remove();
+            $(btn).parent().parent().remove();
         }
     });
 }

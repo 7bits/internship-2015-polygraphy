@@ -33,41 +33,31 @@ public class PolygraphyProvider {
 
         boolean somethingBefore = false;
 
+
         StringBuilder sqlQuery = new StringBuilder();
-        sqlQuery.append("SELECT");
-        if (service_id.size()>1)
-            sqlQuery.append(" DISTINCT ON (p.id)");
-        sqlQuery.append(" p.id AS polygraphy_id, p.name, c.address, c.phone");
-        //if (service_id!=0)
-        //    sqlQuery.append(", s.id");
-        if (service_id.size()!=0)
-            sqlQuery.append(", s.id");
+        sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, c.address, c.phone");
+//        if (service_id.size()!=0)
+//            sqlQuery.append(", s.id");
         if (payment_id!=0)
-            sqlQuery.append(", pm.id");
+            sqlQuery.append(", ppm.payment_method_id");
         if (writes_the_check==true)
             sqlQuery.append(", writes_the_check");
         if (delivery_id!=0)
-            sqlQuery.append(", dm.id");
+            sqlQuery.append(", pdm.delivery_method_id");
         if (order_by_email==true)
             sqlQuery.append(", order_by_email");
 
+
         sqlQuery.append(" FROM polygraphy AS p");
-        if (service_id.size()!=0)
-            sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-                    "LEFT JOIN service AS s ON ps.service_id=s.id");
-        //if (service_id!=0)
-        //    sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-        //            "LEFT JOIN service AS s ON ps.service_id=s.id");
-
+//        if (service_id.size()!=0)
+//            sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
+//                    "LEFT JOIN service AS s ON ps.service_id=s.id");
         if (payment_id!=0)
-            sqlQuery.append(" LEFT JOIN polygraphies_payment_methods AS ppm ON p.id=ppm.polygraphy_id " +
-                    "LEFT JOIN payment_method AS pm ON ppm.payment_method_id=pm.id");
-
+            sqlQuery.append(" LEFT JOIN polygraphies_payment_methods AS ppm ON p.id=ppm.polygraphy_id ");
         if (delivery_id!=0)
-            sqlQuery.append(" LEFT JOIN polygraphies_delivery_methods AS pdm ON p.id=pdm.polygraphy_id " +
-                    "LEFT JOIN delivery_method AS dm ON pdm.delivery_method_id=dm.id");
-
+            sqlQuery.append(" LEFT JOIN polygraphies_delivery_methods AS pdm ON p.id=pdm.polygraphy_id ");
         sqlQuery.append(" LEFT JOIN contact AS c ON p.id=c.polygraphy_id");
+
 
         sqlQuery.append(" WHERE");
         if (!query.isEmpty()) {
@@ -78,24 +68,16 @@ public class PolygraphyProvider {
         if (service_id.size()!=0) {
             if (somethingBefore)
                 sqlQuery.append(" AND");
-            if (service_id.size()>1)
-                sqlQuery.append(" (");
+            sqlQuery.append(" (SELECT COUNT(*) FROM polygraphies_services AS ps " +
+                    "WHERE ps.polygraphy_id=p.id AND ps.service_id in (");
             for (int index = 0; index<service_id.size(); index++) {
-                sqlQuery.append(" s.id=" + service_id.get(index));
+                sqlQuery.append(service_id.get(index));
                 if (index < service_id.size() - 1)
-                    sqlQuery.append(" OR");
+                    sqlQuery.append(",");
             }
-            if (service_id.size()>1)
-                sqlQuery.append(" )");
+            sqlQuery.append("))=" + service_id.size());
             somethingBefore = true;
         }
-
-        //if (service_id!=0) {
-        //    if (somethingBefore)
-        //        sqlQuery.append(" AND");
-        //    sqlQuery.append(" s.id=" + service_id);
-        //    somethingBefore = true;
-        //}
 
         if (payment_id!=0) {
             if (somethingBefore)

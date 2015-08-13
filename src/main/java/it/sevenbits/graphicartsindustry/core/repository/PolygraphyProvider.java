@@ -66,23 +66,25 @@ public class PolygraphyProvider {
         }
 
         if (service_id.size()!=0) {
-            if (somethingBefore)
-                sqlQuery.append(" AND");
-            sqlQuery.append(" (SELECT COUNT(*) FROM polygraphies_services AS ps " +
-                    "WHERE ps.polygraphy_id=p.id AND ps.service_id in (");
-            for (int index = 0; index<service_id.size(); index++) {
-                sqlQuery.append(service_id.get(index));
-                if (index < service_id.size() - 1)
-                    sqlQuery.append(",");
+            if (service_id.get(0)!=0) {
+                if (somethingBefore)
+                    sqlQuery.append(" AND");
+                sqlQuery.append(" (SELECT COUNT(*) FROM polygraphies_services AS ps " +
+                        "WHERE ps.polygraphy_id=p.id AND ps.service_id in (");
+                for (int index = 0; index < service_id.size(); index++) {
+                    sqlQuery.append(service_id.get(index));
+                    if (index < service_id.size() - 1)
+                        sqlQuery.append(",");
+                }
+                sqlQuery.append("))=" + service_id.size());
+                somethingBefore = true;
             }
-            sqlQuery.append("))=" + service_id.size());
-            somethingBefore = true;
         }
 
         if (payment_id!=0) {
             if (somethingBefore)
                 sqlQuery.append(" AND");
-            sqlQuery.append(" pm.id=" + payment_id);
+            sqlQuery.append(" ppm.payment_method_id=" + payment_id);
             somethingBefore = true;
         }
 
@@ -96,7 +98,7 @@ public class PolygraphyProvider {
         if (delivery_id!=0) {
             if (somethingBefore)
                 sqlQuery.append(" AND");
-            sqlQuery.append(" dm.id=" + delivery_id);
+            sqlQuery.append(" pdm.delivery_method_id=" + delivery_id);
             somethingBefore = true;
         }
 

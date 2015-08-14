@@ -172,7 +172,7 @@ $(document).ready(function(){
     $(".item-selection-payment").change(function(){
         var label = $('label[for=item1' + $(this).val() + ']').text()
         $(".payment-placeholder").text(label);
-        });
+    });
 
     $(".item-selection-delivery").change(function(){
         var label = $('label[for=item2' + $(this).val() + ']').text()
@@ -199,5 +199,13 @@ $(document).ready(function(){
     });
 
     $('input').attr('autocomplete', 'off');
+
+    $(".payment-placeholder").text(
+        $('label[for=item1' + $(".item-selection-payment:checked").attr('value') + ']').text()
+    );
+
+    $(".delivery-placeholder").text(
+        $('label[for=item2' + $(".item-selection-delivery:checked").attr('value') + ']').text()
+    );
 
 });

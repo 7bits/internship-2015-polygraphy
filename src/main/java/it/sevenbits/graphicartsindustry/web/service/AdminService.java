@@ -29,6 +29,14 @@ public class AdminService {
         }
     }
 
+    public void removePolygraphy(int polygraphyId) throws ServiceException {
+        try {
+            polygraphyRepository.removePolygraphy(polygraphyId);
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while removing polygraphy ");
+        }
+    }
+
     public List<PolygraphyAdminModel> showAllPolygraphy() throws ServiceException {
         try {
             List<Polygraphy> polygraphies = polygraphyRepository.findAllPolygraphies();

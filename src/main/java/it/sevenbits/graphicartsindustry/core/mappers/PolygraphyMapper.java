@@ -72,4 +72,21 @@ public interface PolygraphyMapper {
             "WHERE id=#{polygraphyId}")
     void changeConditionDisplayPolygraphy(@Param(value = "polygraphyId") int polygraphyId,
                                           @Param(value = "condition") boolean condition);
+
+
+
+    @Delete("DELETE FROM polygraphy WHERE id=#{polygraphyId}")
+    void deletePolygraphyBasic(int polygraphyId);
+
+    @Delete("DELETE FROM contact WHERE polygraphy_id=#{polygraphyId}")
+    void deletePolygraphyContacts(int polygraphyId);
+
+    @Delete("DELETE FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")
+    void deletePolygraphyPaymentMethods(int polygraphyId);
+
+    @Delete("DELETE FROM polygraphies_delivery_methods WHERE polygraphy_id=#{polygraphyId}")
+    void deletePolygraphyDeliveryMethods(int polygraphyId);
+
+    @Delete("DELETE FROM polygraphies_services WHERE polygraphy_id=#{polygraphyId}")
+    void deletePolygraphyServices(int polygraphyId);
 }

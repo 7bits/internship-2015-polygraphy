@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToChangingConditionDisplayPolygraphy;
+import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingPolygraphy;
 import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingRequestOnRegistration;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.AdminService;
@@ -81,5 +82,16 @@ public class AdminController {
         adminService.changeConditionDisplayPolygraphy(polygraphyId, curCondition);
         responseToChangingConditionDisplayPolygraphy.setSuccess(true);
         return responseToChangingConditionDisplayPolygraphy;
+    }
+
+    @RequestMapping(value = "/admin/remove-polygraphy", method = RequestMethod.POST)
+    @ResponseBody
+    public ResponseToRemovingPolygraphy removingPolygraphy(
+            @RequestParam(value = "polygraphyId", defaultValue = "0") Integer polygraphyId,
+            final Model model) throws ServiceException {
+        ResponseToRemovingPolygraphy responseToRemovingPolygraphy = new ResponseToRemovingPolygraphy();
+        adminService.removePolygraphy(polygraphyId);
+        responseToRemovingPolygraphy.setSuccess(true);
+        return responseToRemovingPolygraphy;
     }
 }

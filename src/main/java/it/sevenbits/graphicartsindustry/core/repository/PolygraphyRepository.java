@@ -65,4 +65,17 @@ public class PolygraphyRepository {
                     e.getMessage(), e);
         }
     }
+
+    public void removePolygraphy(int polygraphyId) throws RepositoryException {
+        try {
+            polygraphyMapper.deletePolygraphyServices(polygraphyId);
+            polygraphyMapper.deletePolygraphyDeliveryMethods(polygraphyId);
+            polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
+            polygraphyMapper.deletePolygraphyContacts(polygraphyId);
+            polygraphyMapper.deletePolygraphyBasic(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while removing request on registration: "
+                    + e.getMessage(), e);
+        }
+    }
 }

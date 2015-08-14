@@ -61,10 +61,10 @@ var removeFromSearch = function(event){
         dataType: 'json',
         url: '/admin/remove-polygraphy',
         headers: headers,
-        data: {'requestId': id},
+        data: {'polygraphyId': id},
         success: function(data) {
             var reqId = data.id;
-            $(btn).parent().parent(),parent().remove();
+            $(btn).parent().parent().parent().remove();
         }
     });
 }

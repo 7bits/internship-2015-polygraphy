@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -61,7 +62,7 @@ public class RegistrationController {
                             final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
         Integer requestId = registrationLinkService.findRegistrationLink(registrationFirstForm.getHash());
-        if (requestId!=null) {
+        if (requestId != null) {
             final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
             if (errorsFirstForm.size() != 0) {
                 registrationErrors.setErrors(errorsFirstForm);
@@ -69,9 +70,10 @@ public class RegistrationController {
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-
         }else {
-            registrationErrors.setBase("Ссылка на регистрацию устарела");
+            HashMap<String, String> errors = new HashMap<>();
+            errors.put("base", "Ссылка на регистрацию устарела");
+            registrationErrors.setErrors(errors);
             registrationErrors.setSuccess(false);
         }
 
@@ -103,7 +105,9 @@ public class RegistrationController {
             registrationService.deleteRequestOnRegistration(registrationForm.getFirstForm().getHash());
             registrationService.saveAll(registrationForm.getFirstForm(), registrationForm.getSecondForm());
         } else {
-            registrationErrors.setBase("Ссылка на регистрацию устарела");
+            HashMap<String, String> errors = new HashMap<>();
+            errors.put("base", "Ссылка на регистрацию устарела");
+            registrationErrors.setErrors(errors);
             registrationErrors.setSuccess(false);
         }
         return registrationErrors;

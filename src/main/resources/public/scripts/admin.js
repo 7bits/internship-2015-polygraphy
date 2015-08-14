@@ -76,8 +76,10 @@ var availabilityInSearch = function(event){
     var headers = {};
     headers[header] = token;
 
-    var checkbox = $(this);
+    var thisCheckbox = $(this);
     var id = $(this).attr('for');
+    var checkbox = $('.checkbox[id='+id+']');
+    var label = $('label[for='+id+']');
     var curCondition = $('.checkbox[id='+id+']').prop('checked');
 
     $.ajax({
@@ -90,11 +92,13 @@ var availabilityInSearch = function(event){
                   'curCondition': curCondition
               },
         success: function(data) {
-            if ($(checkbox).prop('checked')){
-                $(this).removeAttr('checked');
+            if (curCondition){
+                $(checkbox).removeAttr('checked');
+                $(label).css('backgroundPositionY', '0px');
             }
             else{
-                $(this).attr('checked', 'checked');
+                $(checkbox).attr('checked', 'checked');
+                $(label).css('backgroundPositionY', '-30px');
             }
         }
     });

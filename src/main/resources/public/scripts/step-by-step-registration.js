@@ -76,6 +76,7 @@
                 $('.invalid-address').css('display', 'none');
                 $('.invalid-phone').css('display', 'none');
                 $('.invalid-public-email').css('display', 'none');
+                $('.base-error').css('display', 'none');
 
                 $('.form-control#email-input').css('borderColor', 'white');
                 $('.form-control#password-input').css('borderColor', 'white');
@@ -90,6 +91,7 @@
                 $('.invalid-address').text('');
                 $('.invalid-phone').text('');
                 $('.invalid-public-email').text('');
+                $('.base-error').text('');
 
                 $.ajax({
                     type: 'POST',
@@ -118,65 +120,74 @@
                             selectStep(i + 1);
                         }
                         else{
-                            if (data.errors['email']){
-                                $('.form-control#email-input').css('borderColor', 'red');
-                                $('.invalid-email').css('display', 'block');
-                                $('.invalid-email').text(data.errors['email']);
+                            if (data.errors['base']){
+                                $('.base-error').css('display', 'block');
+                                $('.base-error').text(data.errors['base']);
                             }
                             else {
-                                $('.form-control#email-input').css('borderColor', 'white');
-                                $('.invalid-email').css('display', 'none');
+                                $('.base-error').css('display', 'none');
+
+                                if (data.errors['email']){
+                                    $('.form-control#email-input').css('borderColor', 'red');
+                                    $('.invalid-email').css('display', 'block');
+                                    $('.invalid-email').text(data.errors['email']);
+                                }
+                                else {
+                                    $('.form-control#email-input').css('borderColor', 'white');
+                                    $('.invalid-email').css('display', 'none');
+                                };
+
+                                if (data.errors['password']){
+                                    $('.form-control#password-input').css('borderColor', 'red');
+                                    $('.invalid-password').css('display', 'block');
+                                    $('.invalid-password').text(data.errors['password']);
+                                }
+                                else {
+                                    $('.form-control#password-input').css('borderColor', 'white');
+                                    $('.invalid-password').css('display', 'none');
+                                };
+
+                                if (data.errors['name']){
+                                    $('.form-control#name-input').css('borderColor', 'red');
+                                    $('.invalid-name').css('display', 'block');
+                                    $('.invalid-name').text(data.errors['name']);
+                                }
+                                else {
+                                    $('.form-control#name-input').css('borderColor', 'white');
+                                    $('.invalid-name').css('display', 'none');
+                                };
+
+                                if (data.errors['address']){
+                                    $('.form-control#address-input').css('borderColor', 'red');
+                                    $('.invalid-address').css('display', 'block');
+                                    $('.invalid-address').text(data.errors['address']);
+                                }
+                                else {
+                                    $('.form-control#address-input').css('borderColor', 'white');
+                                    $('.invalid-address').css('display', 'none');
+                                };
+
+                                if (data.errors['phone']){
+                                    $('.form-control#phone-input').css('borderColor', 'red');
+                                    $('.invalid-phone').css('display', 'block');
+                                    $('.invalid-phone').text(data.errors['phone']);
+                                }
+                                else {
+                                    $('.form-control#phone-input').css('borderColor', 'white');
+                                    $('.invalid-phone').css('display', 'none');
+                                };
+
+                                if (data.errors['publicEmail']){
+                                    $('.form-control#email-public-input').css('borderColor', 'red');
+                                    $('.invalid-public-email').css('display', 'block');
+                                    $('.invalid-public-email').text(data.errors['publicEmail']);
+                                }
+                                else {
+                                    $('.form-control#email-public-input').css('borderColor', 'white');
+                                    $('.invalid-public-email').css('display', 'none');
+                                };
                             };
 
-                            if (data.errors['password']){
-                                $('.form-control#password-input').css('borderColor', 'red');
-                                $('.invalid-password').css('display', 'block');
-                                $('.invalid-password').text(data.errors['password']);
-                            }
-                            else {
-                                $('.form-control#password-input').css('borderColor', 'white');
-                                $('.invalid-password').css('display', 'none');
-                            };
-
-                            if (data.errors['name']){
-                                $('.form-control#name-input').css('borderColor', 'red');
-                                $('.invalid-name').css('display', 'block');
-                                $('.invalid-name').text(data.errors['name']);
-                            }
-                            else {
-                                $('.form-control#name-input').css('borderColor', 'white');
-                                $('.invalid-name').css('display', 'none');
-                            };
-
-                            if (data.errors['address']){
-                                $('.form-control#address-input').css('borderColor', 'red');
-                                $('.invalid-address').css('display', 'block');
-                                $('.invalid-address').text(data.errors['address']);
-                            }
-                            else {
-                                $('.form-control#address-input').css('borderColor', 'white');
-                                $('.invalid-address').css('display', 'none');
-                            };
-
-                            if (data.errors['phone']){
-                                $('.form-control#phone-input').css('borderColor', 'red');
-                                $('.invalid-phone').css('display', 'block');
-                                $('.invalid-phone').text(data.errors['phone']);
-                            }
-                            else {
-                                $('.form-control#phone-input').css('borderColor', 'white');
-                                $('.invalid-phone').css('display', 'none');
-                            };
-
-                            if (data.errors['publicEmail']){
-                                $('.form-control#email-public-input').css('borderColor', 'red');
-                                $('.invalid-public-email').css('display', 'block');
-                                $('.invalid-public-email').text(data.errors['publicEmail']);
-                            }
-                            else {
-                                $('.form-control#email-public-input').css('borderColor', 'white');
-                                $('.invalid-public-email').css('display', 'none');
-                            };
                         }
                     }
                 });

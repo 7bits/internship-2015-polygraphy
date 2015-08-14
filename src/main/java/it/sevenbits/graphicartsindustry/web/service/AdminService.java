@@ -58,9 +58,9 @@ public class AdminService {
         }
     }
 
-    public void changeConditionDisplayPolygraphy (int polygraphyId, boolean condition) throws ServiceException {
+    public void changeConditionDisplayPolygraphy (int polygraphyId, boolean curCondition) throws ServiceException {
         try {
-            polygraphyRepository.changeConditionDisplayPolygraphy(polygraphyId, condition);
+            polygraphyRepository.changeConditionDisplayPolygraphy(polygraphyId, !curCondition);
         } catch (Exception e) {
             throw new  ServiceException("An error occurred while changing condition polygraphy " +
                     e.getMessage(),e);

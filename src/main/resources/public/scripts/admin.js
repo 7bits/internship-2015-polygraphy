@@ -78,7 +78,7 @@ var availabilityInSearch = function(event){
 
     var checkbox = $(this);
     var id = $(this).attr('for');
-    var condition = $('.checkbox[id='+id+']').prop('checked');
+    var curCondition = $('.checkbox[id='+id+']').prop('checked');
 
     $.ajax({
         type: 'POST',
@@ -87,7 +87,7 @@ var availabilityInSearch = function(event){
         headers: headers,
         data: {
                   'polygraphyId': id,
-                  'condition': condition
+                  'curCondition': curCondition
               },
         success: function(data) {
             if ($(checkbox).prop('checked')){

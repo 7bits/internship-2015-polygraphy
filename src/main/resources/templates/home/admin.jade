@@ -55,11 +55,11 @@ block append content
                                 = polygraphy.email
                             td.col.col-search
                                 if polygraphy.displayed
-                                    input.checkbox(type='checkbox', id='#{polygraphyId}', checked)
-                                    label.label-for-checkbox(for='#{polygraphyId}')
+                                    input.checkbox(type='checkbox', id='#{polygraphy.id}', checked)
+                                    label.label-for-checkbox(for='#{polygraphy.id}')
                                 else
-                                    input.checkbox(type='checkbox', id='#{polygraphyId}')
-                                    label.label-for-checkbox(for='#{polygraphyId}')
+                                    input.checkbox(type='checkbox', id='#{polygraphy.id}')
+                                    label.label-for-checkbox(for='#{polygraphy.id}')
                             td.col.col-edit
                                 .button-container
                                     button.option(type='button')

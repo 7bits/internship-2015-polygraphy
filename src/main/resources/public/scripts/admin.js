@@ -77,8 +77,8 @@ var availabilityInSearch = function(event){
     headers[header] = token;
 
     var checkbox = $(this);
-    var id = $(this).attr('id');
-    var condition = $(this).prop('checked');
+    var id = $(this).attr('for');
+    var condition = $('.checkbox[id='+id+']').prop('checked');
 
     $.ajax({
         type: 'POST',

@@ -9,12 +9,12 @@ public interface RequestOnRegistrationMapper {
 
     @Delete("DELETE FROM request_on_registration " +
             "WHERE id=#{requestId}")
-    void removeRequestOnRegistration(@Param("requestId") final int requestId);
+    void removeRequestOnRegistrationById(@Param("requestId") final int requestId);
 
 
     @Delete("DELETE FROM request_on_registration " +
             "WHERE hash=#{hash}")
-    void removeRequestOnRegistration(@Param("hash") final String hash);
+    void removeRequestOnRegistrationByHash(@Param("hash") final String hash);
 
     @Select("SELECT id, email, hash FROM request_on_registration")
     @Results({

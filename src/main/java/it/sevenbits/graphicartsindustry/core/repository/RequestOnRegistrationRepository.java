@@ -17,7 +17,7 @@ public class RequestOnRegistrationRepository {
 
     public void removeRequestOnRegistration(int requestId) throws RepositoryException {
         try {
-            requestOnRegistrationMapper.removeRequestOnRegistration(requestId);
+            requestOnRegistrationMapper.removeRequestOnRegistrationById(requestId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while removing request on registration: "
                     + e.getMessage(), e);
@@ -26,7 +26,7 @@ public class RequestOnRegistrationRepository {
 
     public void removeRequestOnRegistration(String hash) throws RepositoryException {
         try {
-            requestOnRegistrationMapper.removeRequestOnRegistration(hash);
+            requestOnRegistrationMapper.removeRequestOnRegistrationByHash(hash);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while removing request on registration: "
                     + e.getMessage(), e);

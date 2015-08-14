@@ -145,6 +145,14 @@ $(document).ready(function(){
         }
     });
 
+    $('#form').bind("keypress", function(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            liveSearchResults();
+            return false;
+        }
+    });
+
     $(this).on("click", ".close", function(){
         $('.pop-up-overlay').fadeOut("fast");
     });

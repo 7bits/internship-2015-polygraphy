@@ -47,8 +47,7 @@
 
 }*/
 
-function liveSearchResults(event) {
-    event.preventDefault();
+function liveSearchResults() {
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
@@ -194,9 +193,7 @@ $(document).ready(function(){
     $(window).scroll(scrollUpWindow);
 
     $('.search-field').keyup(function() {
-        delay(function(){
-            $('.search-field').blur();
-        }, 1500 );
+        delay(liveSearchResults, 1500);
     });
 
     $('input').attr('autocomplete', 'off');

@@ -14,7 +14,7 @@ block append content
                 else
                     input.search-field(name='query', type='text', placeholder='Что искать?')
                 .submit
-                    button(type='submit') НАЙТИ ПОЛИГРАФИЮ
+                    button(type='button') НАЙТИ ПОЛИГРАФИЮ
 
             .checkboxes
                 Часто ищут:
@@ -166,7 +166,7 @@ block append content
                         .phone-pop-up {{phone}}
                         .email-pop-up {{email}}
                         .site-pop-up
-                            a(href='{{website}}') {{website}}
+                            a(href='{{website}}', target="_blank") {{website}}
                     .details-pop-up
                         .about-title-pop-up
                             О ПОЛИГРАФИИ

@@ -60,9 +60,6 @@ table.services-pop-up{
 .email-pop-up,
 .site-pop-up{
     margin-bottom: 5px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
     padding-left: 24px;
     font-size: 17px;
 }

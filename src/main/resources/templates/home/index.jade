@@ -106,7 +106,7 @@ block append content
                                     td.small-blue
                                     td.small-yellow
                             .info
-                                .polygraphy-name= polygraphy.name
+                                .polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
                                 .polygraphy-address= polygraphy.address
                                 .polygraphy-phone-number= polygraphy.phone
                             .detail(id='polygraphy-page')
@@ -135,7 +135,7 @@ block append content
                                 td.small-blue
                                 td.small-yellow
                         .info
-                            .polygraphy-name {{name}}
+                            .polygraphy-name(id='{{id}}') {{name}}
                             .polygraphy-address {{address}}
                             .polygraphy-phone-number{{phone}}
                         .detail(id='polygraphy-page')

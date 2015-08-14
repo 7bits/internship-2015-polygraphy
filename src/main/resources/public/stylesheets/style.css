@@ -76,6 +76,7 @@ body{
     border-radius: 10px;
     float: left;
     margin-left: 50px;
+    margin-bottom: 50px;
 }
 
 .extended-search-title{
@@ -309,6 +310,7 @@ table.services{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .polygraphy-address,

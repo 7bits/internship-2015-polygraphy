@@ -130,6 +130,7 @@ $(document).ready(function(){
     $("#form").change(liveSearchResults);
 
     $(".help").on("click", ".detail a", popUpWindow);
+    $(".help").on("click", ".polygraphy-name", popUpWindow);
 
     $('.pop-up-overlay').click(function(event) {
         event || window.event

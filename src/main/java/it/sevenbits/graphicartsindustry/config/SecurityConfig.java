@@ -45,18 +45,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                             "/info-for-polygraphy", "/info-for-polygraphy-success", "/about-project",
                             "/registration/first-step", "/registration/second-step", "/registration-success")
                     .permitAll()
-                .anyRequest()
+                    .anyRequest()
                     .authenticated()
                 .and()
-                .formLogin()
-                .defaultSuccessUrl("/")
-                .loginPage("/login")
-                .permitAll()
+                    .formLogin()
+                        .defaultSuccessUrl("/")
+                        .loginPage("/login")
+                        .permitAll()
+                        .defaultSuccessUrl("/admin")
                 .and()
-                .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    //.logoutSuccessUrl("/login")
-                .logoutSuccessUrl("/")
+                    .logout()
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                         //.logoutSuccessUrl("/login")
+                        .logoutSuccessUrl("/")
                 .permitAll();
     }
 }

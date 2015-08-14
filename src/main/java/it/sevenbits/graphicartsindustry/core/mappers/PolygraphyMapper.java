@@ -42,7 +42,8 @@ public interface PolygraphyMapper {
 
 
     @Select("SELECT id, name, email, displayed FROM polygraphy AS p " +
-            "LEFT JOIN contact AS c ON p.id=c.polygraphy_id ")
+            "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
+            "ORDER BY name")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name"),

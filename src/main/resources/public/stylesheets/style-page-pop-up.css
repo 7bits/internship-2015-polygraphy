@@ -129,11 +129,11 @@ table.services-pop-up{
 }
 
 .pop-up-overlay:after {
-        display: inline-block;
-        height: 100%;
-        width: 0;
-        vertical-align: middle;
-        content: ''
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+    content: ''
 }
 
 .pop-up-window{

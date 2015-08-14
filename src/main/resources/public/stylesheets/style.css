@@ -430,6 +430,11 @@ li.top-line{
     height: 100%;
     background: rgba(255, 255, 255, 0.3);
     text-align: center;
+    margin: auto;
+    background: url('../images/load.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
 }
 
 /**********************************/

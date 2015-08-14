@@ -24,9 +24,8 @@ public interface RegistrationMapper {
     @Result(column = "id")
     int findPolygraphyId(@Param("name") final String name);
 
-
-    @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email, info) " +
-            "VALUES (#{name}, #{check}, #{order}, #{info})")
+    @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email, info, user_id) " +
+            "VALUES (#{name}, #{check}, #{order}, #{info}, #{userId})")
     @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     void savePolygraphyBasic(final RegistrationBasic registrationBasic);
 

@@ -36,4 +36,8 @@ public interface UserMapper {
             "VALUES (#{email}, #{password}, #{role})")
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
     void save(User user);
+
+
+    @Delete("DELETE FROM users WHERE id=#{userId}")
+    void deleteUser(@Param(value = "userId") int userId);
 }

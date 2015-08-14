@@ -441,58 +441,168 @@ li.top-line{
 /* Эти стили нужны только для демо*/
 
 
-.small-blue{
-    background-image: url("../images/circle1-3.png");
+.small-a4{
+    background-image: url("../images/A4.png");
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 30px 30px;
     padding: 2px;
     height: 30px;
     width: 30px;
 }
-.small-yellow{
-    background-image: url("../images/circle1-1.png");
+.small-a1{
+    background-image: url("../images/A1.png");
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 30px 30px;
     padding: 2px;
     height: 30px;
     width: 30px;
 }
-.small-pink{
-    background-image: url("../images/circle1-5.png");
+.small-a2{
+    background-image: url("../images/A2.png");
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 30px 30px;
     padding: 2px;
     height: 30px;
     width: 30px;
 }
 
-.green{
-    background-image: url("../images/circle1.png");
+.small-a3{
+    background-image: url("../images/A3.png");
     background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-bunner{
+    background-image: url("../images/bunner.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-calendar{
+    background-image: url("../images/calendar.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-cup{
+    background-image: url("../images/cup.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-magnit{
+    background-image: url("../images/magnit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-sticker{
+    background-image: url("../images/sticker.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+/***********************************************************/
+
+.A1{
+    background-image: url("../images/A1.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
 }
 
-.yellow{
-    background-image: url("../images/circle4.png");
+.A2{
+    background-image: url("../images/A2.png");
     background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
 }
 
-.blue{
-    background-image: url("../images/circle7.png");
+.A3{
+    background-image: url("../images/A3.png");
     background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
 }
 
-.pink{
-    background-image: url("../images/circle6.png");
+.A4{
+    background-image: url("../images/A4.png");
     background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.bunner{
+    background-image: url("../images/bunner.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.calendar{
+    background-image: url("../images/calendar.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.cup{
+    background-image: url("../images/cup.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.magnit{
+    background-image: url("../images/magnit.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.sticker{
+    background-image: url("../images/sticker.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;

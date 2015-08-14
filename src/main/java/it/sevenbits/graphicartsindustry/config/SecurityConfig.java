@@ -40,24 +40,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-                .authorizeRequests()
-                    .antMatchers("/", "/search", "/polygraphy/**", "/registration",
-                            "/info-for-polygraphy", "/info-for-polygraphy-success", "/about-project",
-                            "/registration/first-step", "/registration/second-step", "/registration-success")
-                    .permitAll()
-                    .anyRequest()
-                    .authenticated()
+                    .authorizeRequests()
+                    .antMatchers("/", "/search", "/polygraphy/**", "/info-for-polygraphy",
+                            "/info-for-polygraphy-success", "/about-project").permitAll()
+                    .antMatchers("/admin**").hasRole("ADMIN")
+                    .antMatchers("/registration**").anonymous()
+//                    .anyRequest().denyAll()
                 .and()
                     .formLogin()
-                        .defaultSuccessUrl("/")
-                        .loginPage("/login")
-                        .permitAll()
+                        .loginPage("/login").permitAll()
                         .defaultSuccessUrl("/admin")
                 .and()
                     .logout()
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                         //.logoutSuccessUrl("/login")
-                        .logoutSuccessUrl("/")
-                .permitAll();
+                        .logoutSuccessUrl("/").permitAll();
     }
 }

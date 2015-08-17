@@ -3,11 +3,11 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToChangingConditionDisplayPolygraphy;
 import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingPolygraphy;
 import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingRequestOnRegistration;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.AdminService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationLinkService;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
+import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,12 +23,11 @@ public class AdminController {
     private AdminService adminService;
 
     @Autowired
-    private RegistrationLinkService registrationLinkService;
+    private RequestOnRegistrationService requestOnRegistrationService;
 
     @Autowired
     private RegistrationService registrationService;
 
-    //@Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(final Model model) throws ServiceException {
         model.addAttribute("generate", "");
@@ -37,25 +36,22 @@ public class AdminController {
         return "home/admin";
     }
 
-    //@Secured({"ROLE_ADMIN"})
     @RequestMapping(value = "/admin/generate-registration-link", method = RequestMethod.POST)
     @ResponseBody
     public RequestOnRegistrationModel generate(
-            @RequestParam(value="requestId", defaultValue = "0") Integer id,
+            @RequestParam(value="requestId", defaultValue = "0") Integer requestId,
             final Model model) throws ServiceException {
 
-        RequestOnRegistrationModel requestOnRegistration = new RequestOnRegistrationModel();
-        String hash = registrationService.generateAndSaveHash(id);
-        requestOnRegistration.setHash(hash);
-        int requestId = registrationLinkService.findRegistrationLink(hash);
-        requestOnRegistration.setId(requestId);
+        String hash = requestOnRegistrationService.generateAndSaveHash(requestId);
+        RequestOnRegistrationModel requestOnRegistrationModel =
+                requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
 
         //RegistrationLink link = registrationLinkService.generateRegistrationLink();
         //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
         //        + link.getHash());
         //registrationLinkService.saveRegistrationLink(link);
         //model.addAttribute("requests", registrationService.showAllRequests());
-        return requestOnRegistration;
+        return requestOnRegistrationModel;
     }
 
     @RequestMapping(value = "/admin/remove-request-on-registration", method = RequestMethod.POST)

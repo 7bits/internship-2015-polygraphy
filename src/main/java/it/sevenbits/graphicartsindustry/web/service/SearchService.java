@@ -16,7 +16,7 @@ public class SearchService {
     @Autowired
     private PolygraphyRepository polygraphyRepository;
 
-    public List<PolygraphyMinModel> findAll(int limit) throws ServiceException {
+    public List<PolygraphyMinModel> findAllAllowedPolygraphy(int limit) throws ServiceException {
         try {
             List<Polygraphy> polygraphies = polygraphyRepository.findAll(limit);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());

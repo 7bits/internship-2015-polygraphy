@@ -5,7 +5,7 @@ import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
 import it.sevenbits.graphicartsindustry.web.domain.admin.PolygraphyAdminModel;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

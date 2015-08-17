@@ -5,19 +5,9 @@ import org.apache.ibatis.annotations.*;
 
 public interface RegistrationMapper {
 
-    @Insert("INSERT INTO request_on_registration (email) " +
-            "VALUES (#{email})")
-    void saveRequestOnRegistration(@Param("email") final String email);
-
     @Select("SELECT email FROM users WHERE email=#{email}")
     @Result (column = "email")
     String findUserByEmail(@Param("email") final String email);
-
-    @Select("SELECT email FROM request_on_registration WHERE email=#{email}")
-    @Result (column = "email")
-    String findRequestByEmail(@Param("email") final String email);
-
-
 
     @Select("SELECT id, name FROM polygraphy AS p " +
             "WHERE name=#{name}")

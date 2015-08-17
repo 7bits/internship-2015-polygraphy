@@ -1,7 +1,4 @@
 header.header
-    .logo-box
-        a(href='/')
-            .logo
     ul.more-info
         if security.isUserInRole("ROLE_ADMIN")
             li.list
@@ -21,7 +18,12 @@ header.header
             .navigate-button.about-project
                 a(href='/about-project')
                     | О проекте
+    .logo-box
+        a(href='/')
+            .logo
     .slogan
         Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
         br
         Мы найдем полиграфии для ваших задач!
+    .slogan-mini
+        Быстрый поиск по полиграфиям

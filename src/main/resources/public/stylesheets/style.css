@@ -26,14 +26,11 @@ body{
 
 .search-field{
     width: 1057px;
-    //min-height: 46px;
-    //max-height: 48px;
     height: 50px;
     line-height: 50px;
     font-size: 17px;
     padding: 0px;
     border: 2px solid #64be5f;
-    border-right: none;
     border-radius: 25px;
     background: url("../images/loupe.png") no-repeat;
     background-position: 15px center;
@@ -88,7 +85,6 @@ body{
 
 .checkboxes{
     margin: 20px auto;
-    //color: #5f5f5f;
     color: black;
     font-family: "OpenSansLightRegular";
     font-size: 15px;
@@ -280,15 +276,6 @@ table.services{
     border-spacing: 0px;
 }
 
-/*table.services td{
-    background-image: url("../images/circle1-4.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}*/
-
 .info{
     float: left;
     color: black;
@@ -337,11 +324,12 @@ table.services{
 }
 
 .detail{
-    width: 162px;
+    width: 160px;
     margin: auto 25px auto 0;
     text-align: center;
     float: right;
     padding: 30px 0;
+    box-sizing: border-box;
 }
 
 .detail a:hover{
@@ -352,7 +340,7 @@ table.services{
 
 .detail a{
     text-decoration: none;
-    width: 160px;
+    width: 100%;
     height: 40px;
     line-height: 40px;
     border: 1px solid #736699;
@@ -360,6 +348,7 @@ table.services{
     color: #736699;
     font-size: 16px;
     display: block;
+    box-sizing: border-box;
 }
 
 .no-results{
@@ -428,74 +417,287 @@ li.top-line{
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     text-align: center;
     margin: auto;
-    background: url('../images/load.gif');
+    background-image: url('../images/load.gif');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100px 100px;
 }
 
+
+@media screen and (max-width: 320px){
+
+    body{
+        width: 100%;
+    }
+
+    .search-line{
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    .submit{
+        display: none;
+    }
+
+    .search-field{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .checkboxes{
+        display: none;
+    }
+
+    .extended-search{
+        display: block;
+        width: 95%;
+        float: none;
+        margin: auto auto;
+        box-sizing: border-box;
+        padding: 20px 10px;
+    }
+
+    .payment-method,
+    .delivery-method{
+        margin: 10px 0 10px 0px;
+        width: 100%;
+        text-indent: 22px;
+    }
+
+    .payment-method-headline,
+    .delivery-method-headline{
+        text-indent: 0px;
+    }
+
+    .check{
+        margin-left: 0;
+    }
+
+    .results-field{
+        width: 95%;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .results > li{
+        height: 140px;
+        float: none;
+        margin: 10px auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .polygraphy-address,
+    .polygraphy-phone-number{
+        display: none;
+    }
+
+    .polygraphy-name{
+        margin-bottom: 0px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .info{
+        width: 160px;
+        height: auto;
+    }
+
+    .detail{
+        width: 120px;
+        margin: 40px 0px auto 0px;
+        float: right;
+        padding: 0px;
+    }
+
+    .detail a{
+        font-size: 15px;
+        height: 35px;
+        line-height: 35px;
+        display: block;
+    }
+
+    table.services{
+        margin: auto;
+    }
+
+
+}
+
 /**********************************/
-/* Эти стили нужны только для демо*/
+/* Эти стили нужны для иконок в результатах поиска */
 
 
-.small-blue{
-    background-image: url("../images/circle1-3.png");
+.small-a4{
+    background-image: url("../images/A4.png");
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 30px 30px;
     padding: 2px;
     height: 30px;
     width: 30px;
 }
-.small-yellow{
-    background-image: url("../images/circle1-1.png");
+.small-a1{
+    background-image: url("../images/A1.png");
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 30px 30px;
     padding: 2px;
     height: 30px;
     width: 30px;
 }
-.small-pink{
-    background-image: url("../images/circle1-5.png");
+.small-a2{
+    background-image: url("../images/A2.png");
     background-repeat: no-repeat;
     background-position: center center;
+    background-size: 30px 30px;
     padding: 2px;
     height: 30px;
     width: 30px;
 }
 
-.green{
-    background-image: url("../images/circle1.png");
+.small-a3{
+    background-image: url("../images/A3.png");
     background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-bunner{
+    background-image: url("../images/bunner.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-calendar{
+    background-image: url("../images/calendar.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-cup{
+    background-image: url("../images/cup.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-magnit{
+    background-image: url("../images/magnit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-sticker{
+    background-image: url("../images/sticker.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+/***********************************************************/
+/* Эти стили нужны для иконок во всплывающем окне*/
+
+.A1{
+    background-image: url("../images/A1.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
 }
 
-.yellow{
-    background-image: url("../images/circle4.png");
+.A2{
+    background-image: url("../images/A2.png");
     background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
 }
 
-.blue{
-    background-image: url("../images/circle7.png");
+.A3{
+    background-image: url("../images/A3.png");
     background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
 }
 
-.pink{
-    background-image: url("../images/circle6.png");
+.A4{
+    background-image: url("../images/A4.png");
     background-repeat: no-repeat;
+    background-size: 58px 59px;
     padding: 0 5px 5px 0;
     height: 58px;
     width: 59px;
 }
 
-/**********************************/
+.bunner{
+    background-image: url("../images/bunner.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.calendar{
+    background-image: url("../images/calendar.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.cup{
+    background-image: url("../images/cup.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.magnit{
+    background-image: url("../images/magnit.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.sticker{
+    background-image: url("../images/sticker.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+/**********************************************************/

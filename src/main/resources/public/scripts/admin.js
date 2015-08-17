@@ -127,4 +127,8 @@ $(document).ready(function(){
 
     $('.remove-from-search').on('click', removeFromSearch);
 
+    $('.edit').click(function(){
+        alert('Кнопочка в разработке :)');
+    });
+
 });

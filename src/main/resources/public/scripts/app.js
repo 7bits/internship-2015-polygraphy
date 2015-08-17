@@ -198,7 +198,9 @@ $(document).ready(function(){
         return false;
     });
 
-    $(window).scroll(scrollUpWindow);
+    if ($(document).width() > 320){
+        $(window).scroll(scrollUpWindow);
+    }
 
     $('.search-field').keyup(function() {
         delay(liveSearchResults, 1500);

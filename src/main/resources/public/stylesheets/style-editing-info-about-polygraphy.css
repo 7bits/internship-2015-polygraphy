@@ -1,0 +1,13 @@
+@import url("osans.css");
+
+body{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    font-family: "OpenSansLightRegular";
+
+}
+
+:focus{
+    outline: none;
+}

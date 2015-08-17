@@ -74,7 +74,7 @@ public interface PolygraphyMapper {
     void changeConditionDisplayPolygraphy(@Param(value = "polygraphyId") int polygraphyId,
                                           @Param(value = "condition") boolean condition);
 
-    @Select("SELECT id, user_id FROM polygraphy WHERE id=#{polygraphyId}")
+    @Select("SELECT user_id FROM polygraphy WHERE id=#{polygraphyId}")
     @Result(column = "user_id")
     Integer getUserId(@Param(value = "polygraphyId") int polygraphyId);
 

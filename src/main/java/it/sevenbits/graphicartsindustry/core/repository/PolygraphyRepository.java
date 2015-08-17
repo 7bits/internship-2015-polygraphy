@@ -77,9 +77,9 @@ public class PolygraphyRepository {
             polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
             polygraphyMapper.deletePolygraphyContacts(polygraphyId);
             Integer userId = polygraphyMapper.getUserId(polygraphyId);
+            polygraphyMapper.deletePolygraphyBasic(polygraphyId);
             if (userId!=null)
                 userMapper.deleteUser(userId);
-            polygraphyMapper.deletePolygraphyBasic(polygraphyId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while removing request on registration: "
                     + e.getMessage(), e);

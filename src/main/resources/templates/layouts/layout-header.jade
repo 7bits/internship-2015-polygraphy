@@ -1,5 +1,13 @@
 header.header
     ul.more-info
+        li
+            .navigate-button.info-for-polygraphy
+                a(href='/info-for-polygraphy', id='info-for-polygraphy')
+                    | Информация для полиграфий
+        li
+            .navigate-button.about-project
+                a(href='/about-project')
+                    | О проекте
         if security.isUserInRole("ROLE_ADMIN")
             li.list
                 .navigate-button.icon-for-list
@@ -10,14 +18,6 @@ header.header
                         li.list-item
                             a(href="/logout")
                                 | Выход
-        li
-            .navigate-button.info-for-polygraphy
-                a(href='/info-for-polygraphy', id='info-for-polygraphy')
-                    | Информация для полиграфий
-        li
-            .navigate-button.about-project
-                a(href='/about-project')
-                    | О проекте
     .logo-box
         a(href='/')
             .logo

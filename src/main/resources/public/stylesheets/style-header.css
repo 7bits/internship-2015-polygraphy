@@ -154,7 +154,15 @@ ul.more-info>li{
 
     .navigate-button{
         margin-left: 2px;
-        padding: 0 15px;
+        padding: 0 5px;
         line-height: 25px;
+    }
+
+    .icon-for-list{
+        background: url("../images/icon.png") calc(0% + 6px) center no-repeat;
+        background-color: rgb(232, 232, 232);
+        height: 25px;
+        width: 25px;
+        float: none;
     }
 }

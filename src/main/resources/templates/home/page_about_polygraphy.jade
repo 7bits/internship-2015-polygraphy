@@ -25,7 +25,7 @@ block append content
                 .phone= polygraphy.phone
                 .email= polygraphy.email
                 .site
-                    a(href='#{polygraphy.website}')= polygraphy.website
+                    a(href='#{polygraphy.website}', target="_blank")= polygraphy.website
             if(polygraphy.info != '')
                 .details
                     .about-title

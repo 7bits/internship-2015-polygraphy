@@ -5,6 +5,7 @@ import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingPolyg
 import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingRequestOnRegistration;
 import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.AdminService;
+import it.sevenbits.graphicartsindustry.web.service.SendingMessagesService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
 import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationService;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.mail.MessagingException;
 
 @Controller
 public class AdminController {
@@ -28,6 +31,9 @@ public class AdminController {
     @Autowired
     private RegistrationService registrationService;
 
+    @Autowired
+    private SendingMessagesService sendingMessagesService;
+
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(final Model model) throws ServiceException {
         model.addAttribute("generate", "");
@@ -40,12 +46,12 @@ public class AdminController {
     @ResponseBody
     public RequestOnRegistrationModel generate(
             @RequestParam(value="requestId", defaultValue = "0") Integer requestId,
-            final Model model) throws ServiceException {
+            final Model model) throws ServiceException, MessagingException {
 
         String hash = requestOnRegistrationService.generateAndSaveHash(requestId);
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
-
+        sendingMessagesService.sendingRegistrationLink(requestId);
         //RegistrationLink link = registrationLinkService.generateRegistrationLink();
         //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
         //        + link.getHash());

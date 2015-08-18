@@ -1,6 +1,6 @@
-package it.sevenbits.graphicartsindustry.web.service.registration;
+package it.sevenbits.graphicartsindustry.web.service.request;
 
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
+import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.CommonFieldValidator;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.apache.log4j.Logger;

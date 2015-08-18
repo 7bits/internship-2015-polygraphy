@@ -1,12 +1,18 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationErrors;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
+import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationForm;
+import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.service.registration.*;
+import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationFirstFormValidator;
+import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationSecondFormValidator;
+import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
+import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationService;
+import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +39,7 @@ public class RegistrationController {
     private RegistrationService registrationService;
 
     @Autowired
-    private RegistrationLinkService registrationLinkService;
+    private RequestOnRegistrationService requestOnRegistrationService;
 
     @Autowired
     private ContentService contentService;
@@ -42,8 +48,9 @@ public class RegistrationController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(@RequestParam(value="id") String hash, final Model model) throws ServiceException {
 
-        Integer requestId = registrationLinkService.findRegistrationLink(hash);
-        if (requestId!=null) {
+        RequestOnRegistrationModel requestOnRegistrationModel =
+                requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
+        if (requestOnRegistrationModel != null) {
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
             model.addAttribute("services", contentService.findAllServices());
@@ -61,8 +68,9 @@ public class RegistrationController {
     public Object firstStep(@RequestBody RegistrationFirstForm registrationFirstForm,
                             final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
-        Integer requestId = registrationLinkService.findRegistrationLink(registrationFirstForm.getHash());
-        if (requestId != null) {
+        RequestOnRegistrationModel requestOnRegistrationModel =
+                requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash());
+        if (requestOnRegistrationModel != null) {
             final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
             if (errorsFirstForm.size() != 0) {
                 registrationErrors.setErrors(errorsFirstForm);
@@ -85,9 +93,9 @@ public class RegistrationController {
     public RegistrationErrors secondStep (@RequestBody RegistrationForm registrationForm,
                                           final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
-        Integer requestId = registrationLinkService.findRegistrationLink(registrationForm.getFirstForm().
-                getHash());
-        if (requestId!=null) {
+        RequestOnRegistrationModel requestOnRegistrationModel =
+                requestOnRegistrationService.findRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
+        if (requestOnRegistrationModel != null) {
             final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationForm.getSecondForm());
             if (errorsSecondForm.size() != 0) {
                 registrationErrors.setErrors(errorsSecondForm);
@@ -102,8 +110,8 @@ public class RegistrationController {
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-            registrationService.removeRequestOnRegistration(registrationForm.getFirstForm().getHash());
-            registrationService.saveAll(registrationForm.getFirstForm(), registrationForm.getSecondForm());
+            requestOnRegistrationService.removeRequestOnRegistration(registrationForm.getFirstForm().getHash());
+            registrationService.saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
         } else {
             HashMap<String, String> errors = new HashMap<>();
             errors.put("base", "Ссылка на регистрацию устарела");
@@ -129,7 +137,7 @@ public class RegistrationController {
             return form;
         }
         form.setSuccess(true);
-        registrationService.saveRequestOnRegistration(form);
+        requestOnRegistrationService.saveRequestOnRegistration(form);
         return form;
     }
 }

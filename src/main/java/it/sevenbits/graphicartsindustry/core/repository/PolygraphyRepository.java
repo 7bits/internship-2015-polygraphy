@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
+import it.sevenbits.graphicartsindustry.core.mappers.UserMapper;
 import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class PolygraphyRepository {
 
     @Autowired
     private PolygraphyMapper polygraphyMapper;
+
+    @Autowired
+    private UserMapper userMapper;
 
     public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
@@ -72,7 +76,10 @@ public class PolygraphyRepository {
             polygraphyMapper.deletePolygraphyDeliveryMethods(polygraphyId);
             polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
             polygraphyMapper.deletePolygraphyContacts(polygraphyId);
+            Integer userId = polygraphyMapper.getUserId(polygraphyId);
             polygraphyMapper.deletePolygraphyBasic(polygraphyId);
+            if (userId!=null)
+                userMapper.deleteUser(userId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while removing request on registration: "
                     + e.getMessage(), e);

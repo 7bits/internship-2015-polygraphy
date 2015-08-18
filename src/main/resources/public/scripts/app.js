@@ -202,7 +202,7 @@ $(document).ready(function(){
         return false;
     });
 
-    if ($(document).width() > 320){
+    if ($(document).width() > 414){
         $(window).scroll(scrollUpWindow);
     }
 

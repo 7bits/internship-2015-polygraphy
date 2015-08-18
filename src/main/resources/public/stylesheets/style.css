@@ -427,7 +427,7 @@ li.top-line{
 }
 
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 414px){
 
     body{
         width: 100%;
@@ -457,13 +457,13 @@ li.top-line{
         float: none;
         margin: auto auto;
         box-sizing: border-box;
-        padding: 20px 10px;
+        padding: 20px 15px;
     }
 
     .payment-method,
     .delivery-method{
-        margin: 10px 0 10px 0px;
-        width: 100%;
+        margin: 10px auto 10px auto;
+        width: 95%;
         text-indent: 22px;
     }
 
@@ -491,9 +491,13 @@ li.top-line{
         box-sizing: border-box;
     }
 
-    .polygraphy-address,
-    .polygraphy-phone-number{
+    .polygraphy-address{
         display: none;
+    }
+
+    .polygraphy-phone-number{
+        margin-left: 20px;
+        margin-top: 5px;
     }
 
     .polygraphy-name{
@@ -509,7 +513,7 @@ li.top-line{
 
     .detail{
         width: 120px;
-        margin: 40px 0px auto 0px;
+        margin: 20px 0px auto 0px;
         float: right;
         padding: 0px;
     }

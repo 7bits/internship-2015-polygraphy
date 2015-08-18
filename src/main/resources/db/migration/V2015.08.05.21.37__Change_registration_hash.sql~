@@ -1,2 +1,0 @@
-ALTER TABLE registration_hash ADD COLUMN email varchar(255) NOT NULL;
-ALTER TABLE registration_hash ADD COLUMN created TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL;

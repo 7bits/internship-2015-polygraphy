@@ -13,7 +13,7 @@ body{
 
 .container-for-bid{
     width: 895px;
-    height: 330px;
+    height: auto;
     background-color: #64be5f;
     border: none;
     outline: none;
@@ -73,7 +73,7 @@ body{
 }
 
 .button-login-container{
-    margin: 20px auto;
+    margin: 20px auto 0px auto;
 }
 
 .button-login{
@@ -157,6 +157,9 @@ body{
         padding: 0 20px;
     }
 
+    .button-login-container{
+        margin: 20px auto 20px auto;
+    }
 
     .button-login{
         font-size: 16px;

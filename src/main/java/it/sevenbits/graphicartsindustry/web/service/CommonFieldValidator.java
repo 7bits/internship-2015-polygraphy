@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
+import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,9 @@ public class CommonFieldValidator {
 
     @Autowired
     private RegistrationService registrationService;
+
+    @Autowired
+    private RequestOnRegistrationService requestOnRegistrationService;
 
     /** Email exists pattern */
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(
@@ -112,7 +116,7 @@ public class CommonFieldValidator {
 
     /**
      * Validate whether value is valid email, otherwise reject it
-     *  @param value  Value of field
+     * @param value  Value of field
      * @param errors Map for errors
      * @param field  Rejected field name
      * @param key    Rejected message key
@@ -130,7 +134,7 @@ public class CommonFieldValidator {
 
     /**
      * Validate whether value is valid email, otherwise reject it
-     *  @param value  Value of field
+     * @param value  Value of field
      * @param errors Map for errors
      * @param field  Rejected field name
      * @param key    Rejected message key
@@ -140,7 +144,7 @@ public class CommonFieldValidator {
                               final String field,
                               final String key) throws ServiceException {
         if (value != null && !errors.containsKey(field)) {
-            if (registrationService.isRequested(value)) {
+            if (requestOnRegistrationService.isRequested(value)) {
                 errors.put(field, key);
             }
         }
@@ -148,7 +152,7 @@ public class CommonFieldValidator {
 
     /**
      * Validate whether value is valid email, otherwise reject it
-     *  @param value  Value of field
+     * @param value  Value of field
      * @param errors Map for errors
      * @param field  Rejected field name
      * @param key    Rejected message key

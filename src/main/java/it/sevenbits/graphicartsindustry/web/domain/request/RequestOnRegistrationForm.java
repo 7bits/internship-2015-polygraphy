@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.web.domain.registration;
+package it.sevenbits.graphicartsindustry.web.domain.request;
 
 import java.util.Map;
 

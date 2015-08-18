@@ -32,8 +32,6 @@ var validateForm = function(event){
                                 $('.email-input').css('borderColor', 'white');
                                 $('.error-container').css('display', 'none');
                             };
-                /*for(var e in data.errors)
-                    $('.error-container').text(data.errors[e]);*/
             }
         }
     });
@@ -42,6 +40,6 @@ var validateForm = function(event){
 $(document).ready(function(){
 
     $('input').attr('autocomplete', 'off');
-    $('button.submit-email[type=submit]').click(validateForm);
+    $('.submit-email').click(validateForm);
 
 });

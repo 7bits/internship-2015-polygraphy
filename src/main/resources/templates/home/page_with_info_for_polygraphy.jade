@@ -8,15 +8,15 @@ block append content
             |нам свой e-mail, мы свяжемся с Вами в ближайшее время.
 
         .form-container
-            form(id = 'request-form', 'method = 'post', action = '/info-for-polygraphy')
+            form(id = 'request-form', method = 'post', action = '/info-for-polygraphy')
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 .input-wrapper
                     input.email-input(type='text', name='email')
-                    button.submit-email(type='submit', id='submit-email', form = 'request-form')
+                    button.submit-email(type='button', id='submit-email', form = 'request-form')
                         | Отправить
                         .error-container
         .head-text
             |Если Ваша полиграфия уже есть в нашем поиске, можете
-            br
-            a(href='/login')
-                |войти в личный кабинет.
+            .button-login-container
+                a.button-login(href='/login')
+                    | Войти

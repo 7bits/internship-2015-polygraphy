@@ -110,8 +110,11 @@ block append content
                                 .polygraphy-address= polygraphy.address
                                 .polygraphy-phone-number= polygraphy.phone
                             .detail(id='polygraphy-page')
-                                    a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
-                                        |Подробнее
+                                a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
+                                    |Подробнее
+                            .small-detail(id='polygraphy-page')
+                                a(href='/polygraphy/#{polygraphy.id}')
+                                    |Подробнее
 
         script(id='results', type='text/x-handlebars-template')
             .results-field
@@ -139,8 +142,11 @@ block append content
                             .polygraphy-address {{address}}
                             .polygraphy-phone-number {{phone}}
                         .detail(id='polygraphy-page')
-                                a(href='/polygraphy/{{id}}', id='{{id}}')
-                                    |Подробнее
+                            a(href='/polygraphy/{{id}}', id='{{id}}')
+                                |Подробнее
+                        .small-detail(id='polygraphy-page')
+                            a(href='/polygraphy/#{polygraphy.id}')
+                                |Подробнее
                     | {{/each}}
     .up
     .pop-up-overlay

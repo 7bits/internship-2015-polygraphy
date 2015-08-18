@@ -4,7 +4,7 @@ block append content
 
     .login-form
         .login-headline
-            ВХОД НА САЙТ
+            | ВХОД НА САЙТ
         form(action='/login', method='post')
             input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
             .field-email
@@ -13,4 +13,5 @@ block append content
                 | Пароль
             .field-password
                 input.form-control#password-input(name='password', type='password')
-            button.submit-login-form(type='submit') Войти
+            button.submit-login-form(type='submit')
+                | Войти

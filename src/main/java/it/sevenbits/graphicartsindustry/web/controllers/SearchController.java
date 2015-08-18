@@ -1,7 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.PolygraphyResponse;
-import it.sevenbits.graphicartsindustry.web.domain.registration.RequestOnRegistrationForm;
+import it.sevenbits.graphicartsindustry.web.domain.search.PolygraphyResponse;
+import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
 import it.sevenbits.graphicartsindustry.web.service.ContentService;
 import it.sevenbits.graphicartsindustry.web.service.SearchService;
@@ -41,7 +41,7 @@ public class SearchController {
         // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
         model.addAttribute("polygraphyiesIsNull", "");
         // В модель добавим объект - рандомный список полиграфий
-        model.addAttribute("polygraphies", searchService.findAll(limitPolygraphy));
+        model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
         return "home/index";
     }
 
@@ -74,7 +74,7 @@ public class SearchController {
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.isOrderByEmail()==false)
             // В модель добавим объект - рандомный список полиграфий
-            model.addAttribute("polygraphies", searchService.findAll(limitPolygraphy));
+            model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
         else {
             PolygraphyResponse results = new PolygraphyResponse();
             results.setPolygraphies(searchService.findPolygraphies(form));
@@ -100,7 +100,7 @@ public class SearchController {
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.isOrderByEmail()==false) {
             // В модель добавим объект - рандомный список полиграфий
-            results.setPolygraphies(searchService.findAll(limitPolygraphy));
+            results.setPolygraphies(searchService.findAllAllowedPolygraphy(limitPolygraphy));
             results.setPolygraphiesListIsNull("");
         }
         else {

@@ -2,7 +2,6 @@ package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
-import it.sevenbits.graphicartsindustry.core.mappers.RegistrationLinkMapper;
 import it.sevenbits.graphicartsindustry.core.mappers.RegistrationMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +19,12 @@ public class RegistrationRepository {
     @Autowired
     private RegistrationMapper mapper;
 
-    @Autowired
-    private RegistrationLinkMapper linkMapper;
-
     public Polygraphy createPolygraphy(String name, String address, String phone, String email,
                                        Boolean order, String website, String info,
                                        List<Integer> paymentMethods, Boolean check,
                                        List<Integer> deliveryMethods, List<Integer> services,
                                        Integer userId) throws RepositoryException {
-//    public void saveAll(String name, Boolean check, Boolean order, String address, String email,
+//    public void saveRegistrationForm(String name, Boolean check, Boolean order, String address, String email,
 //                        String website, String phone, List<Integer> paymentMethods,
 //                        List<Integer> deliveryMethods, List<Integer> services) throws RepositoryException {RepositoryException
         try {
@@ -75,52 +71,25 @@ public class RegistrationRepository {
         }
     }
 
-    public void deletePolygraphy(int polygraphyId) throws RepositoryException {
-        try {
-            mapper.deletePolygraphyServices(polygraphyId);
-            mapper.deletePolygraphyDeliveryMethods(polygraphyId);
-            mapper.deletePolygraphyPaymentMethods(polygraphyId);
-            mapper.deletePolygraphyContacts(polygraphyId);
-
-            mapper.deletePolygraphyBasic(polygraphyId);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while deleting polygraphy "
-                    + e.getMessage(), e);
-        }
-    }
-
-    public void saveRequestOnRegistration(String email) throws RepositoryException {
-        try {
-            mapper.saveRequestOnRegistration(email);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while saving email request on registration "
-                    + e.getMessage(), e);
-        }
-    }
-
-
-    public void saveHash(String hash, int id) throws RepositoryException {
-        try {
-            linkMapper.save(hash, id);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while saving hash registration link: "
-                    + e.getMessage(), e);
-        }
-    }
+//    public void deletePolygraphy(int polygraphyId) throws RepositoryException {
+//        try {
+//            mapper.deletePolygraphyServices(polygraphyId);
+//            mapper.deletePolygraphyDeliveryMethods(polygraphyId);
+//            mapper.deletePolygraphyPaymentMethods(polygraphyId);
+//            mapper.deletePolygraphyContacts(polygraphyId);
+//
+//            mapper.deletePolygraphyBasic(polygraphyId);
+//        } catch (Exception e) {
+//            throw new RepositoryException("An error occurred while deleting polygraphy "
+//                    + e.getMessage(), e);
+//        }
+//    }
 
     public String findUserByEmail (String email) throws RepositoryException {
         try {
             return mapper.findUserByEmail(email);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while finding email in users", e);
-        }
-    }
-
-    public String findRequestByEmail (String email) throws RepositoryException {
-        try {
-            return mapper.findRequestByEmail(email);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while finding email in request", e);
         }
     }
 }

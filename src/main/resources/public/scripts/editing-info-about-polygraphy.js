@@ -22,6 +22,35 @@ var validateEditForm = function(){
     var services = [];
     $('.js-s:checked').each(function(i){ services.push($(this).attr('value')); });
 
+    $('.invalid-email').css('display', 'none');
+    $('.invalid-password').css('display', 'none');
+    $('.invalid-name').css('display', 'none');
+    $('.invalid-address').css('display', 'none');
+    $('.invalid-phone').css('display', 'none');
+    $('.invalid-public-email').css('display', 'none');
+    $('.base-error').css('display', 'none');
+    $('.invalid-payment-method').css('display', 'none');
+    $('.invalid-delivery-method').css('display', 'none');
+    $('.invalid-services').css('display', 'none');
+
+    $('#email-input').css('borderColor', 'white');
+    $('#password-input').css('borderColor', 'white');
+    $('#name-input').css('borderColor', 'white');
+    $('#address-input').css('borderColor', 'white');
+    $('#phone-input').css('borderColor', 'white');
+    $('#email-public-input').css('borderColor', 'white');
+
+    $('.invalid-email').text('');
+    $('.invalid-password').text('');
+    $('.invalid-name').text('');
+    $('.invalid-address').text('');
+    $('.invalid-phone').text('');
+    $('.invalid-public-email').text('');
+    $('.base-error').text('');
+    $('.invalid-payment-method').text('');
+    $('.invalid-delivery-method').text('');
+    $('.invalid-services').text('');
+
     $.ajax({
         type: 'PUT',
         dataType: 'json',

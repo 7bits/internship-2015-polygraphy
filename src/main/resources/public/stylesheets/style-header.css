@@ -114,11 +114,13 @@ ul.more-info>li{
     background-size: 15px 15px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 414px){
+@media screen and (max-width: 700px){
 
     body{
-        margin: auto 0;
+        margin: auto;
         width: 100%;
+        max-width: 450px;
+        min-width: 320px;
     }
 
     .header{
@@ -178,5 +180,37 @@ ul.more-info>li{
         height: 25px;
         width: 40px;
         float: none;
+    }
+}
+
+
+@media screen and (min-width: 701px) and (max-width: 1000px){
+
+    body{
+        margin: auto;
+        width: 100%;
+    }
+
+    .header{
+        width: 95%;
+    }
+
+    .logo-box{
+        margin: auto 20px auto 20px;
+    }
+
+    .info-for-polygraphy{
+        display: none;
+    }
+
+    .short-info-for-polygraphy{
+        display: inline-block;
+    }
+
+    .slogan{
+        width: 55%;
+        font-size: 16px;
+        margin-left: 10px;
+        margin-top: 0px;
     }
 }

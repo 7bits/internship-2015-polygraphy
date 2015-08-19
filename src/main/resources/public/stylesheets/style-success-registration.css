@@ -24,7 +24,7 @@ body{
     color: white;
 }
 
-@media screen and (min-width: 320px) and (max-width: 414px){
+@media screen and (max-width: 700px){
 
     .success-registration{
         width: 90%;
@@ -34,4 +34,23 @@ body{
         color: white;
         margin: 20px auto;
     }
+}
+
+@media screen and (min-width: 701px) and (max-width: 1000px) {
+
+    body {
+        margin: auto;
+        width: 100%;
+    }
+
+    .success-registration{
+        width: 90%;
+        max-width: 500px;
+        height: auto;
+        padding: 20px 10px;
+        font-size: 16px;
+        color: white;
+        margin: 30px auto;
+    }
+
 }

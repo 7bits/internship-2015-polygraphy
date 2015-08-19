@@ -71,25 +71,90 @@ public interface PolygraphyMapper {
     @Update("UPDATE polygraphy " +
             "SET displayed=#{condition} " +
             "WHERE id=#{polygraphyId}")
-    void changeConditionDisplayPolygraphy(@Param(value = "polygraphyId") int polygraphyId,
+    void updateConditionDisplayPolygraphy(@Param(value = "polygraphyId") int polygraphyId,
                                           @Param(value = "condition") boolean condition);
+
+
+    @Update("UPDATE polygraphy SET name=#{name} WHERE id=#{id}")
+    void updatePolygraphyName(@Param(value = "id") final int polygraphyId,
+                              @Param(value = "name") final String name);
+
+    @Update("UPDATE polygraphy SET writes_the_check=#{check} WHERE id=#{id}")
+    void updatePolygraphyWritesTheCheck(@Param(value = "id") final int polygraphyId,
+                                        @Param(value = "check") final boolean check);
+
+    @Update("UPDATE polygraphy SET order_by_email=#{order} WHERE id=#{id}")
+    void updatePolygraphyOrderByEmail(@Param(value = "id") final int polygraphyId,
+                                        @Param(value = "order") final boolean order);
+
+    @Update("UPDATE polygraphy SET info=#{info} WHERE id=#{id}")
+    void updatePolygraphyInfo(@Param(value = "id") final int polygraphyId,
+                              @Param(value = "info") final String info);
+
+    @Update("UPDATE contact SET address=#{address} WHERE polygraphy_id=#{id}")
+    void updateContactAddress(@Param(value = "id") final int polygraphyId,
+                              @Param(value = "address") final String address);
+
+    @Update("UPDATE contact SET phone=#{phone} WHERE polygraphy_id=#{id}")
+    void updateContactPhone(@Param(value = "id") final int polygraphyId,
+                              @Param(value = "phone") final String phone);
+
+    @Update("UPDATE contact SET email=#{email} WHERE polygraphy_id=#{id}")
+    void updateContactEmail(@Param(value = "id") final int polygraphyId,
+                              @Param(value = "email") final String email);
+
+    @Update("UPDATE contact SET website=#{website} WHERE polygraphy_id=#{id}")
+    void updateContactWebsite(@Param(value = "id") final int polygraphyId,
+                            @Param(value = "website") final String website);
+
+    @Insert("INSERT INTO polygraphies_payment_methods(polygraphy_id, payment_method_id) " +
+            "VALUES (#{polygraphyId}, #{paymentMethodId})")
+    void insertPaymentMethod(@Param(value = "polygraphyId") final int polygraphyId,
+                             @Param(value = "paymentMethodId") final int paymentMethodId);
+
+    @Insert("INSERT INTO polygraphies_delivery_methods(polygraphy_id, delivery_method_id) " +
+            "VALUES (#{polygraphyId}, #{deliveryMethodId})")
+    void insertDeliveryMethod(@Param(value = "polygraphyId") final int polygraphyId,
+                              @Param(value = "deliveryMethodId") final int deliveryMethodId);
+
+    @Insert("INSERT INTO polygraphies_services(polygraphy_id, service_id) " +
+            "VALUES (#{polygraphyId}, #{serviceId})")
+    void insertService(@Param(value = "polygraphyId") final int polygraphyId,
+                       @Param(value = "serviceId") final int serviceId);
+
+    @Delete("DELETE FROM polygraphies_payment_methods " +
+            "WHERE polygraphy_id=#{polygraphyId} AND payment_method_id=#{paymentMethodId}")
+    void deletePolygraphyPaymentMethod(@Param(value = "polygraphyId") final int polygraphyId,
+                                       @Param(value = "paymentMethodId") final int paymentMethodId);
+
+    @Delete("DELETE FROM polygraphies_delivery_methods " +
+            "WHERE polygraphy_id=#{polygraphyId} AND delivery_method_id=#{deliveryMethodId}")
+    void deletePolygraphyDeliveryMethod(@Param(value = "polygraphyId") final int polygraphyId,
+                                       @Param(value = "deliveryMethodId") final int deliveryMethodId);
+
+    @Delete("DELETE FROM polygraphies_services " +
+            "WHERE polygraphy_id=#{polygraphyId} AND service_id=#{serviceId}")
+    void deletePolygraphyService(@Param(value = "polygraphyId") final int polygraphyId,
+                                       @Param(value = "serviceId") final int serviceId);
+
 
     @Select("SELECT user_id FROM polygraphy WHERE id=#{polygraphyId}")
     @Result(column = "user_id")
-    Integer getUserId(@Param(value = "polygraphyId") int polygraphyId);
+    Integer getUserId(@Param(value = "polygraphyId") final int polygraphyId);
+
 
     @Delete("DELETE FROM polygraphy WHERE id=#{polygraphyId}")
-    void deletePolygraphyBasic(int polygraphyId);
+    void deletePolygraphyBasic(final int polygraphyId);
 
     @Delete("DELETE FROM contact WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyContacts(int polygraphyId);
+    void deletePolygraphyContacts(final int polygraphyId);
 
     @Delete("DELETE FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyPaymentMethods(int polygraphyId);
+    void deletePolygraphyPaymentMethods(final int polygraphyId);
 
     @Delete("DELETE FROM polygraphies_delivery_methods WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyDeliveryMethods(int polygraphyId);
+    void deletePolygraphyDeliveryMethods(final int polygraphyId);
 
     @Delete("DELETE FROM polygraphies_services WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyServices(int polygraphyId);
+    void deletePolygraphyServices(final int polygraphyId);
 }

@@ -63,11 +63,15 @@ public class PolygraphyRepository {
 
     public void changeConditionDisplayPolygraphy(int polygraphyId, boolean condition) throws RepositoryException {
         try {
-            polygraphyMapper.changeConditionDisplayPolygraphy(polygraphyId, condition);
+            polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, condition);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while changing condition polygraphy " +
                     e.getMessage(), e);
         }
+    }
+
+    public void editPolygraphy() {
+
     }
 
     public void removePolygraphy(int polygraphyId) throws RepositoryException {

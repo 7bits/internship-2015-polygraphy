@@ -63,7 +63,9 @@ public class UserRepository implements UserDetailsService {
     public User findByPolygraphyId(final int polygraphyId) throws RepositoryException {
         Integer userId = polygraphyMapper.getUserId(polygraphyId);
         if (userId == null) {
-            throw new RepositoryException("Polygraphy has not user");
+            User user = new User();
+            user.setEmail(null);
+            return user;
         }
         try {
             return userMapper.findById(userId);

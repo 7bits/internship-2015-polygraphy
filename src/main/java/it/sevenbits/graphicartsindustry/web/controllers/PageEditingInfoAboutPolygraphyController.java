@@ -7,20 +7,21 @@ import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PageEditingInfoAboutPolygraphyController {
 
     @Autowired
     private EditingPolygraphyService editingPolygraphyService;
+
     @Autowired
     private ContentService contentService;
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
-    public String pageEditingInfoAboutPolygraphy(@RequestParam(value = "id") int polygraphyId,
+    public String pageEditingInfoAboutPolygraphy(@PathVariable(value = "id") int  polygraphyId,
                                                  final Model model) throws ServiceException, RepositoryException {
 
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());

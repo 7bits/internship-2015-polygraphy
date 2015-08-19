@@ -59,39 +59,21 @@ block append content
         .checkbox-input-wrapper
             label.input-label
                 | Способы оплаты
-            input.js-pm.checkbox(id='payment', type='checkbox')
-            label(for='payment')
-                | paymentMethod.name
-            input.js-pm.checkbox(id='payment', type='checkbox')
-            label(for='payment')
-                | paymentMethod.name
-            input.js-pm.checkbox(id='payment', type='checkbox')
-            label(for='payment')
-                |paymentMethod.name
+            for paymentMethod in paymentMethods
+                input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                label(for='payment'+paymentMethod.id)=paymentMethod.name
         .checkbox-input-wrapper
             label.input-label
                 | Способы доставки
-            input.js-dm.checkbox(id='delivery', type='checkbox')
-            label(for='delivery')
-                | deliveryMethod.name
-            input.js-dm.checkbox(id='delivery', type='checkbox')
-            label(for='delivery')
-                | deliveryMethod.name
-            input.js-dm.checkbox(id='delivery', type='checkbox')
-            label(for='delivery')
-                | deliveryMethod.name
+            for deliveryMethod in deliveryMethods
+                input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
         .checkbox-input-service-wrapper
             label.input-label
                 | Предоставляемые услуги
-            input.js-s.checkbox(id='service', type='checkbox')
-            label(for='service')
-                | serviceMethod.name
-            input.js-s.checkbox(id='service', type='checkbox')
-            label(for='service')
-                | serviceMethod.name
-            input.js-s.checkbox(id='service', type='checkbox')
-            label(for='service')
-                |serviceMethod.name
+            for service in services
+                input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                label(for='service'+service.id)=service.name
         .button-container
             button.save(type='button')
                 | Сохранить

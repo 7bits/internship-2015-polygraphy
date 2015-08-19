@@ -20,6 +20,7 @@ public class PageEditingInfoAboutPolygraphyController {
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
         model.addAttribute("services", contentService.findAllServices());
+        model.addAttribute("editingForm");
 
         return "home/page_editing_info_about_polygraphy";
     }

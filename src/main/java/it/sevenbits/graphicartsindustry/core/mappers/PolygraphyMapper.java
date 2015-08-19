@@ -68,6 +68,26 @@ public interface PolygraphyMapper {
     })
     Polygraphy findPolygraphy(@Param(value = "id") int id);
 
+    @Select("SELECT writes_the_check FROM polygraphy WHERE id=#{polygraphyId}")
+    @Result(column = "writes_the_check")
+    Boolean isWritesTheCheck(@Param(value = "polygraphyId") final int polygraphyId);
+
+    @Select("SELECT order_by_email FROM polygraphy WHERE id=#{polygraphyId}")
+    @Result(column = "order_by_email")
+    Boolean isOrderByEmail(@Param(value = "polygraphyId") final int polygraphyId);
+
+    @Select("SELECT payment_method_id FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")
+    @Result(column = "payment_method_id")
+    List<Integer> findPolygraphyPaymentMethods(@Param(value = "polygraphyId") final int polygraphyId);
+
+    @Select("SELECT delivery_method_id FROM polygraphies_delivery_methods WHERE polygraphy_id=#{polygraphyId}")
+    @Result(column = "delivery_method_id")
+    List<Integer> findPolygraphyDeliveryMethods(@Param(value = "polygraphyId") final int polygraphyId);
+
+    @Select("SELECT service_id FROM polygraphies_services WHERE polygraphy_id=#{polygraphyId}")
+    @Result(column = "service_id")
+    List<Integer> findPolygraphyServices(@Param(value = "polygraphyId") final int polygraphyId);
+
     @Update("UPDATE polygraphy " +
             "SET displayed=#{condition} " +
             "WHERE id=#{polygraphyId}")

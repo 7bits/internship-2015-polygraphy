@@ -70,6 +70,51 @@ public class PolygraphyRepository {
         }
     }
 
+    public boolean isWritesTheCheck(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.isWritesTheCheck(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy (isWritesTheCheck) " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public boolean isOrderByEmail(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.isOrderByEmail(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy (isOrderByEmail) " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public List<Integer> findPolygraphyPaymentMethods(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.findPolygraphyPaymentMethods(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy payment methods " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public List<Integer> findPolygraphyDeliveryMethods(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.findPolygraphyDeliveryMethods(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy delivery methods " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public List<Integer> findPolygraphyServices(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.findPolygraphyServices(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy services " +
+                    e.getMessage(), e);
+        }
+    }
+
     public void editPolygraphy() {
 
     }

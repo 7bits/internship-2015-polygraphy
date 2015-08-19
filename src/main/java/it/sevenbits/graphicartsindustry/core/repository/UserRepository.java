@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
+import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
 import it.sevenbits.graphicartsindustry.core.mappers.UserMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class UserRepository implements UserDetailsService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private PolygraphyMapper polygraphyMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -56,13 +60,24 @@ public class UserRepository implements UserDetailsService {
         return userMapper.findById(id);
     }
 
+    public User findByPolygraphyId(final int polygraphyId) throws RepositoryException {
+        Integer userId = polygraphyMapper.getUserId(polygraphyId);
+        if (userId == null) {
+            throw new RepositoryException("Polygraphy has not user");
+        }
+        try {
+            return userMapper.findById(userId);
+        } catch (Exception e) {
+            throw new RepositoryException("General database error " + e.getMessage(), e);
+        }
+    }
+
     public User findByUsername(final String username) throws RepositoryException {
         if (username == null) {
             throw new RepositoryException("User Name is null");
         }
         try {
-            User u = userMapper.findByUsername(username);
-            return u;//userMapper.findByUsername(username);
+            return userMapper.findByUsername(username);
         } catch (Exception e) {
             throw new RepositoryException("General database error " + e.getMessage(), e);
         }

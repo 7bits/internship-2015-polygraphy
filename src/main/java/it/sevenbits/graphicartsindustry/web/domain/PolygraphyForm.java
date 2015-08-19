@@ -18,6 +18,34 @@ public class PolygraphyForm {
     private List<Integer> deliveryMethods;
     private List<Integer> services;
 
+    public PolygraphyForm(int polygraphyId, String email, String password, String name, String address,
+                          String phone, String publicEmail, String website, String info, Boolean orderByEmail,
+                          List<Integer> paymentMethods, Boolean writesTheCheck, List<Integer> deliveryMethods,
+                          List<Integer> services) {
+        this.polygraphyId = polygraphyId;
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.publicEmail = publicEmail;
+        this.website = website;
+        this.info = info;
+        this.orderByEmail = orderByEmail;
+        this.paymentMethods = paymentMethods;
+        this.writesTheCheck = writesTheCheck;
+        this.deliveryMethods = deliveryMethods;
+        this.services = services;
+    }
+
+    public int getPolygraphyId() {
+        return polygraphyId;
+    }
+
+    public void setPolygraphyId(int polygraphyId) {
+        this.polygraphyId = polygraphyId;
+    }
+
     public String getEmail() {
         return email;
     }

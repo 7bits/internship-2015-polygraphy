@@ -107,6 +107,7 @@ block append content
                                                 td.small-calendar
                                         .info
                                             .polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
+                                            .adaptive-polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
                                             .polygraphy-address= polygraphy.address
                                             .polygraphy-phone-number= polygraphy.phone
                                         .detail(id='polygraphy-page')
@@ -138,6 +139,7 @@ block append content
                                             td.small-calendar
                                     .info
                                         .polygraphy-name(id='{{id}}') {{name}}
+                                        .adaptive-polygraphy-name(id='{{id}}') {{name}}
                                         .polygraphy-address {{address}}
                                         .polygraphy-phone-number {{phone}}
                                     .detail(id='polygraphy-page')

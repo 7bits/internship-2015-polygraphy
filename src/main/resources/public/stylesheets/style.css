@@ -300,6 +300,18 @@ table.services{
     cursor: pointer;
 }
 
+.adaptive-polygraphy-name{
+    display: none;
+    text-align: left;
+    color: black;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
 .polygraphy-address,
 .polygraphy-phone-number{
     text-align: left;
@@ -323,8 +335,7 @@ table.services{
     background-position: left center;
 }
 
-.detail,
-.small-detail{
+.detail{
     width: 160px;
     margin: auto 25px auto 0;
     text-align: center;
@@ -333,15 +344,13 @@ table.services{
     box-sizing: border-box;
 }
 
-.detail a:hover,
-.small-detail a:hover{
+.detail a:hover{
     background-color: #736699;
     border-color: #736699;
     color: white;
 }
 
-.detail a,
-.small-detail a{
+.detail a{
     text-decoration: none;
     width: 100%;
     height: 40px;
@@ -355,7 +364,25 @@ table.services{
 }
 
 .small-detail{
+    width: 160px;
+    margin: auto 25px auto 0;
+    text-align: center;
+    float: right;
+    padding: 30px 0;
     display: none;
+    box-sizing: border-box;
+    border: 1px solid #79689D;
+    background-color: rgb(232,232,232);
+    border-radius: 25px;
+    height: 35px;
+    color: #79689D;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.small-detail:hover{
+    background-color: #736699;
+    color: white;
 }
 
 .no-results{
@@ -515,6 +542,11 @@ li.top-line{
     }
 
     .polygraphy-name{
+        display: none;
+    }
+
+    .adaptive-polygraphy-name{
+        display: block;
         margin-bottom: 0px;
         padding-left: 20px;
         box-sizing: border-box;
@@ -537,13 +569,6 @@ li.top-line{
         margin: 15px 0px auto 0px;
         float: right;
         padding: 0px;
-    }
-
-    .small-detail a{
-        font-size: 15px;
-        height: 35px;
-        line-height: 35px;
-        display: block;
     }
 
     table.services{
@@ -631,6 +656,11 @@ li.top-line{
     }
 
     .polygraphy-name{
+        display: none;
+    }
+
+    .adaptive-polygraphy-name{
+        display: block;
         margin-bottom: 0px;
         padding-left: 20px;
         box-sizing: border-box;
@@ -653,13 +683,6 @@ li.top-line{
         margin: 15px 0px auto 0px;
         float: right;
         padding: 0px;
-    }
-
-    .small-detail a{
-        font-size: 15px;
-        height: 35px;
-        line-height: 35px;
-        display: block;
     }
 
     table.services{

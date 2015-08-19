@@ -553,7 +553,7 @@ li.top-line{
 
 }
 
-@media screen and (min-width: 701px) and (max-width: 1000px){
+@media screen and (min-width: 701px) and (max-width: 1024px){
 
     body{
         margin: auto;
@@ -562,6 +562,7 @@ li.top-line{
 
     .search-line{
         width: 95%;
+        max-width: 900px;
         margin: 10px auto;
     }
 
@@ -577,14 +578,12 @@ li.top-line{
     }
 
     .extended-search{
-        display: inline-block;
-        width: 41%;
-        max-width: 300px;
-        float: left;
         margin: auto;
-        margin-left: 1.5%;
-        box-sizing: border-box;
         padding: 20px 15px;
+        display: inline-block;
+        width: 310px;
+        box-sizing: border-box;
+        margin-right: 10px;
     }
 
     .payment-method,
@@ -608,10 +607,9 @@ li.top-line{
     }
 
     .results-field {
-        width: 54%;
-        float: none;
+        margin: auto;
         display: inline-block;
-        margin: auto 1.5%;
+        width: calc(100% - 320px);
     }
 
 
@@ -670,6 +668,8 @@ li.top-line{
 
     .wrapper{
         margin: auto;
+        width: 95%;
+        max-width: 900px;
     }
 
 }

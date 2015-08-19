@@ -89,7 +89,7 @@ button.submit-login-form[type="submit"]:hover{
     }
 }
 
-@media screen and (min-width: 701px) and (max-width: 1000px) {
+@media screen and (min-width: 701px) and (max-width: 1024px) {
 
     body {
         margin: auto;

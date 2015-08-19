@@ -133,6 +133,12 @@ $(document).ready(function(){
     $(".help").on("click", ".detail a", popUpWindow);
     $(".help").on("click", ".polygraphy-name", popUpWindow);
 
+    $(this).on('click', '.small-detail', function(){
+        var id = $(this).attr('id');
+        console.log(id);
+        window.location.href = '/polygraphy/'+id;
+    });
+
     $('.pop-up-overlay').click(function(event) {
         event || window.event
         if (event.target == this) {
@@ -202,7 +208,7 @@ $(document).ready(function(){
         return false;
     });
 
-    if ($(document).width() > 650){
+    if ($(document).width() > 1024){
         $(window).scroll(scrollUpWindow);
     }
 

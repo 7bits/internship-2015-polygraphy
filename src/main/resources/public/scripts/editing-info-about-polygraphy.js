@@ -5,6 +5,7 @@ var validateEditForm = function(){
     var headers = {};
     headers[header] = token;
 
+    var polygraphyId = $('#polygraphy-id').val();
     var email = $('#email-input').val();
     var password = $('#password-input').val();
     var name = $('#name-input').val();
@@ -21,6 +22,7 @@ var validateEditForm = function(){
     $('.js-dm:checked').each(function(i){ deliveryMethods.push($(this).attr('value')); });
     var services = [];
     $('.js-s:checked').each(function(i){ services.push($(this).attr('value')); });
+/*
 
     $('.invalid-email').css('display', 'none');
     $('.invalid-password').css('display', 'none');
@@ -50,14 +52,16 @@ var validateEditForm = function(){
     $('.invalid-payment-method').text('');
     $('.invalid-delivery-method').text('');
     $('.invalid-services').text('');
+*/
 
     $.ajax({
         type: 'PUT',
         dataType: 'json',
-        url: '',
+        url: '/polygraphy/'+polygraphyId+'/update',
         headers: headers,
         contentType: 'application/json',
         data: JSON.stringify({
+                'polygraphyId': polygraphyId,
                 'email': email,
                 'password': password,
                 'name': name,
@@ -73,10 +77,11 @@ var validateEditForm = function(){
                 'orderByEmail': orderByEmail
         }),
         success: function(data) {
+
             if(data.success){
-                window.location.href = '';
+                window.location.href = '/registration-success';
             }
-            else{
+            /*else{
                 if (data.errors['base']){
                     $('.base-error').css('display', 'block');
                     $('.base-error').text(data.errors['base']);
@@ -169,7 +174,7 @@ var validateEditForm = function(){
                         $('.invalid-services').css('display', 'none');
                     }
                 }
-            }
+            }*/
         }
     });
 }

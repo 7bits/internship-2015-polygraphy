@@ -7,7 +7,7 @@ block append content
             | РЕДАКТИРОВАНИЕ
 
         input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-        input#hash(type='hidden', name='hash', value='#{hash}')
+        input#polygraphy-id(type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
 
         .text-input-wrapper
             label.input-label

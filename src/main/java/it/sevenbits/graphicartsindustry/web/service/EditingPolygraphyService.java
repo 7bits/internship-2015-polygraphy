@@ -37,4 +37,16 @@ public class EditingPolygraphyService {
                     "about polygraphy: " + e.getMessage(), e);
         }
     }
+
+    public void saveEditing(PolygraphyForm form, int polygrahyId) throws ServiceException {
+        try {
+            polygraphyRepository.saveEditingPolygraphy(form.getPolygraphyId(), form.getEmail(), form.getPassword(),
+                    form.getName(), form.getAddress(), form.getPhone(), form.getPublicEmail(), form.getWebsite(),
+                    form.getInfo(), form.getOrderByEmail(), form.getPaymentMethods(), form.getWritesTheCheck(),
+                    form.getDeliveryMethods(), form.getServices());
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while saving editing information about polygraphy " +
+                    "about polygraphy: " + e.getMessage(), e);
+        }
+    }
 }

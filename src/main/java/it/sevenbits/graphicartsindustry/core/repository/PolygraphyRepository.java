@@ -134,4 +134,40 @@ public class PolygraphyRepository {
                     + e.getMessage(), e);
         }
     }
+
+    public void saveEditingPolygraphy(int polygraphyId, String email, String password, String name,
+                                      String address, String phone, String publicEmail, String website,
+                                      String info, Boolean orderByEmail, List<Integer> paymentMethods,
+                                      Boolean writesTheCheck, List<Integer> deliveryMethods,
+                                      List<Integer> services) throws RepositoryException {
+        try {
+            polygraphyMapper.updatePolygraphyName(polygraphyId, name);
+            polygraphyMapper.updateContactAddress(polygraphyId, address);
+            polygraphyMapper.updateContactPhone(polygraphyId, phone);
+            polygraphyMapper.updateContactEmail(polygraphyId, publicEmail);
+            polygraphyMapper.updateContactWebsite(polygraphyId, website);
+            polygraphyMapper.updatePolygraphyInfo(polygraphyId, info);
+            polygraphyMapper.updatePolygraphyOrderByEmail(polygraphyId, orderByEmail);
+
+            polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
+            for (Integer p: paymentMethods) {
+                polygraphyMapper.insertPaymentMethod(polygraphyId, p);
+            }
+
+            polygraphyMapper.updatePolygraphyWritesTheCheck(polygraphyId, writesTheCheck);
+
+            polygraphyMapper.deletePolygraphyDeliveryMethods(polygraphyId);
+            for (Integer d: deliveryMethods) {
+                polygraphyMapper.insertDeliveryMethod(polygraphyId, d);
+            }
+
+            polygraphyMapper.deletePolygraphyServices(polygraphyId);
+            for (Integer s: services) {
+                polygraphyMapper.insertService(polygraphyId, s);
+            }
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while saving editing information about polygraphy " +
+                    "about polygraphy: " + e.getMessage(), e);
+        }
+    }
 }

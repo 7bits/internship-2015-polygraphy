@@ -18,6 +18,9 @@ public class PolygraphyForm {
     private List<Integer> deliveryMethods;
     private List<Integer> services;
 
+    public PolygraphyForm() {
+    }
+
     public PolygraphyForm(int polygraphyId, String email, String password, String name, String address,
                           String phone, String publicEmail, String website, String info, Boolean orderByEmail,
                           List<Integer> paymentMethods, Boolean writesTheCheck, List<Integer> deliveryMethods,

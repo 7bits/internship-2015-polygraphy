@@ -1,0 +1,173 @@
+/**********************************/
+/* Эти стили нужны для иконок в результатах поиска */
+
+
+.small-a4{
+    background-image: url("../images/A4.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-a1{
+    background-image: url("../images/A1.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-a2{
+    background-image: url("../images/A2.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-a3{
+    background-image: url("../images/A3.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-bunner{
+    background-image: url("../images/bunner.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-calendar{
+    background-image: url("../images/calendar.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-cup{
+    background-image: url("../images/cup.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-magnit{
+    background-image: url("../images/magnit.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+.small-sticker{
+    background-image: url("../images/sticker.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+/***********************************************************/
+/* Эти стили нужны для иконок во всплывающем окне*/
+
+.A1{
+    background-image: url("../images/A1.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.A2{
+    background-image: url("../images/A2.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.A3{
+    background-image: url("../images/A3.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.A4{
+    background-image: url("../images/A4.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.bunner{
+    background-image: url("../images/bunner.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.calendar{
+    background-image: url("../images/calendar.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.cup{
+    background-image: url("../images/cup.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.magnit{
+    background-image: url("../images/magnit.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.sticker{
+    background-image: url("../images/sticker.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+/**********************************************************/

@@ -14,7 +14,6 @@ body{
 .content-block{
     width: 70%;
     height: auto;
-    //height: 400px;
     margin: auto;
     margin-bottom: 50px;
     background-color: rgb(232, 232, 232);
@@ -37,4 +36,23 @@ body{
 
 .link{
     color: #64be5f;
+}
+
+@media screen and (min-width: 320px) and (max-width: 414px){
+
+    body{
+        width: 100%;
+    }
+
+    .content-block{
+        width: 95%;
+        height: auto;
+        margin: 20px auto;
+        padding: 20px 10px;
+    }
+
+    .content{
+        font-size: 16px;
+    }
+
 }

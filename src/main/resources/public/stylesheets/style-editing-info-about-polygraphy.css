@@ -135,3 +135,12 @@ input.checkbox[type="checkbox"]+label:hover{
     background-color: #dad14c;
 }
 
+.invalid-email, .invalid-password, .invalid-name,
+.invalid-address, .invalid-phone, .invalid-public-email, .invalid-site,
+.invalid-payment-method, .invalid-delivery-method, .invalid-services{
+    display: none;
+}
+
+.base-error{
+    display: none;
+}

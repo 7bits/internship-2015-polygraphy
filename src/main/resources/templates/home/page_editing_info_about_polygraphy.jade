@@ -12,42 +12,42 @@ block append content
         .text-input-wrapper
             label.input-label
                 | E-mail для регистрации *
-            input.input-field(type='text')
+            input.input-field(type='text', id='email-input')
             .invalid-email
         .text-input-wrapper
             label.input-label
                 | Пароль *
-            input.input-field(type='text')
+            input.input-field(type='text', id='password-input')
             .invalid-password
         .text-input-wrapper
             label.input-label
                 | Название полиграфии *
-            input.input-field(type='text')
+            input.input-field(type='text', id='name-input')
             .invalid-name
         .text-input-wrapper
             label.input-label
                 | Адрес *
-            input.input-field(type='text')
+            input.input-field(type='text', id='address-input')
             .invalid-address
         .text-input-wrapper
             label.input-label
                 | Телефон *
-            input.input-field(type='text')
+            input.input-field(type='text', id='phone-input')
             .invalid-phone
         .text-input-wrapper
             label.input-label
                 | Публичный e-mail
-            input.input-field(type='text')
+            input.input-field(type='text', id='email-public-input')
             .invalid-public-email
         .text-input-wrapper
             label.input-label
                 | Сайт
-            input.input-field(type='text')
+            input.input-field(type='text', id='website-input')
             .invalid-site
         .text-input-wrapper
             label.input-label
                 | Описание
-            textarea.textarea-field
+            textarea.textarea-field(id='text-area-field')
 
         input.js-obe.checkbox(id='order-by-email', type='checkbox')
         label(for='order-by-email')
@@ -62,18 +62,22 @@ block append content
             for paymentMethod in paymentMethods
                 input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                 label(for='payment'+paymentMethod.id)=paymentMethod.name
+            .invalid-payment-method
         .checkbox-input-wrapper
             label.input-label
                 | Способы доставки
             for deliveryMethod in deliveryMethods
                 input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                 label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+            .invalid-delivery-method
         .checkbox-input-service-wrapper
             label.input-label
                 | Предоставляемые услуги
             for service in services
                 input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                 label(for='service'+service.id)=service.name
+            .invalid-services
+        .base-error
         .button-container
             button.save(type='button')
                 | Сохранить

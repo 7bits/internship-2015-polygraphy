@@ -323,7 +323,8 @@ table.services{
     background-position: left center;
 }
 
-.detail{
+.detail,
+.small-detail{
     width: 160px;
     margin: auto 25px auto 0;
     text-align: center;
@@ -332,13 +333,15 @@ table.services{
     box-sizing: border-box;
 }
 
-.detail a:hover{
+.detail a:hover,
+.small-detail a:hover{
     background-color: #736699;
     border-color: #736699;
     color: white;
 }
 
-.detail a{
+.detail a,
+.small-detail a{
     text-decoration: none;
     width: 100%;
     height: 40px;
@@ -349,6 +352,10 @@ table.services{
     font-size: 16px;
     display: block;
     box-sizing: border-box;
+}
+
+.small-detail{
+    display: none;
 }
 
 .no-results{
@@ -427,7 +434,7 @@ li.top-line{
 }
 
 
-@media screen and (max-width: 320px){
+@media screen and (min-width: 320px) and (max-width: 414px){
 
     body{
         width: 100%;
@@ -457,13 +464,13 @@ li.top-line{
         float: none;
         margin: auto auto;
         box-sizing: border-box;
-        padding: 20px 10px;
+        padding: 20px 15px;
     }
 
     .payment-method,
     .delivery-method{
-        margin: 10px 0 10px 0px;
-        width: 100%;
+        margin: 10px auto 10px auto;
+        width: 95%;
         text-indent: 22px;
     }
 
@@ -491,9 +498,13 @@ li.top-line{
         box-sizing: border-box;
     }
 
-    .polygraphy-address,
-    .polygraphy-phone-number{
+    .polygraphy-address{
         display: none;
+    }
+
+    .polygraphy-phone-number{
+        margin-left: 20px;
+        margin-top: 5px;
     }
 
     .polygraphy-name{
@@ -507,14 +518,21 @@ li.top-line{
         height: auto;
     }
 
-    .detail{
+    .detail,
+    .detail a,
+    .detail a:hover{
+        display: none;
+    }
+
+    .small-detail{
+        display: inline-block;
         width: 120px;
-        margin: 40px 0px auto 0px;
+        margin: 20px 0px auto 0px;
         float: right;
         padding: 0px;
     }
 
-    .detail a{
+    .small-detail a{
         font-size: 15px;
         height: 35px;
         line-height: 35px;
@@ -528,176 +546,3 @@ li.top-line{
 
 }
 
-/**********************************/
-/* Эти стили нужны для иконок в результатах поиска */
-
-
-.small-a4{
-    background-image: url("../images/A4.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-a1{
-    background-image: url("../images/A1.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-a2{
-    background-image: url("../images/A2.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-
-.small-a3{
-    background-image: url("../images/A3.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-bunner{
-    background-image: url("../images/bunner.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-calendar{
-    background-image: url("../images/calendar.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-
-.small-cup{
-    background-image: url("../images/cup.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-magnit{
-    background-image: url("../images/magnit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-sticker{
-    background-image: url("../images/sticker.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-
-/***********************************************************/
-/* Эти стили нужны для иконок во всплывающем окне*/
-
-.A1{
-    background-image: url("../images/A1.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.A2{
-    background-image: url("../images/A2.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.A3{
-    background-image: url("../images/A3.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.A4{
-    background-image: url("../images/A4.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.bunner{
-    background-image: url("../images/bunner.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.calendar{
-    background-image: url("../images/calendar.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.cup{
-    background-image: url("../images/cup.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.magnit{
-    background-image: url("../images/magnit.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.sticker{
-    background-image: url("../images/sticker.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-/**********************************************************/

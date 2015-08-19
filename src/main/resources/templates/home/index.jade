@@ -17,7 +17,7 @@ block append content
                     button(type='button') НАЙТИ ПОЛИГРАФИЮ
 
             .checkboxes
-                Часто ищут:
+                | Часто ищут:
                 for service in services
                     .checkbox-btn
                         if form.services.contains(service.id)
@@ -29,9 +29,9 @@ block append content
 
             .extended-search
                 .extended-search-title
-                    РАСШИРЕННЫЙ ПОИСК
+                    | РАСШИРЕННЫЙ ПОИСК
                 .payment-method-headline
-                    Способ оплаты
+                    | Способ оплаты
                 .payment-method
                     .payment-placeholder
                     .payment-method-items
@@ -58,7 +58,7 @@ block append content
                             label(for='check1') Выдает чек
 
                 .delivery-method-headline
-                    Способ доставки
+                    | Способ доставки
                 .delivery-method
                     .delivery-placeholder
                     .delivery-method-items
@@ -137,7 +137,7 @@ block append content
                         .info
                             .polygraphy-name(id='{{id}}') {{name}}
                             .polygraphy-address {{address}}
-                            .polygraphy-phone-number{{phone}}
+                            .polygraphy-phone-number {{phone}}
                         .detail(id='polygraphy-page')
                                 a(href='/polygraphy/{{id}}', id='{{id}}')
                                     |Подробнее
@@ -169,8 +169,7 @@ block append content
                             a(href='{{website}}', target="_blank") {{website}}
                     .details-pop-up
                         .about-title-pop-up
-                            О ПОЛИГРАФИИ
-                        .about-text-pop-up
-                            {{info}}
+                            | О ПОЛИГРАФИИ
+                        .about-text-pop-up {{info}}
                 .helper-pop-up
     .js-overlay

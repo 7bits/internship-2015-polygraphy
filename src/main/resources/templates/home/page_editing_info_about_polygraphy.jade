@@ -1,3 +1,97 @@
 extends ../layouts/layout-editing-info-about-polygraphy
 
 block append content
+
+    .edit-form
+        .edit-form-headline
+            | РЕДАКТИРОВАНИЕ
+
+        input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+        input#hash(type='hidden', name='hash', value='#{hash}')
+
+        .text-input-wrapper
+            label.input-label
+                | E-mail для регистрации *
+            input.input-field(type='text')
+            .invalid-email
+        .text-input-wrapper
+            label.input-label
+                | Пароль *
+            input.input-field(type='text')
+            .invalid-password
+        .text-input-wrapper
+            label.input-label
+                | Название полиграфии *
+            input.input-field(type='text')
+            .invalid-name
+        .text-input-wrapper
+            label.input-label
+                | Адрес *
+            input.input-field(type='text')
+            .invalid-address
+        .text-input-wrapper
+            label.input-label
+                | Телефон *
+            input.input-field(type='text')
+            .invalid-phone
+        .text-input-wrapper
+            label.input-label
+                | Публичный e-mail
+            input.input-field(type='text')
+            .invalid-public-email
+        .text-input-wrapper
+            label.input-label
+                | Сайт
+            input.input-field(type='text')
+            .invalid-site
+        .text-input-wrapper
+            label.input-label
+                | Описание
+            textarea.textarea-field
+
+        input.js-obe.checkbox(id='order-by-email', type='checkbox')
+        label(for='order-by-email')
+            | Принимаем заказ по e-mail
+        input.js-wtc.checkbox(id='writes-the-check', type='checkbox')
+        label(for='writes-the-check')
+            | Выдаем чек
+
+        .checkbox-input-wrapper
+            label.input-label
+                | Способы оплаты
+            input.js-pm.checkbox(id='payment', type='checkbox')
+            label(for='payment')
+                | paymentMethod.name
+            input.js-pm.checkbox(id='payment', type='checkbox')
+            label(for='payment')
+                | paymentMethod.name
+            input.js-pm.checkbox(id='payment', type='checkbox')
+            label(for='payment')
+                |paymentMethod.name
+        .checkbox-input-wrapper
+            label.input-label
+                | Способы доставки
+            input.js-dm.checkbox(id='delivery', type='checkbox')
+            label(for='delivery')
+                | deliveryMethod.name
+            input.js-dm.checkbox(id='delivery', type='checkbox')
+            label(for='delivery')
+                | deliveryMethod.name
+            input.js-dm.checkbox(id='delivery', type='checkbox')
+            label(for='delivery')
+                | deliveryMethod.name
+        .checkbox-input-service-wrapper
+            label.input-label
+                | Предоставляемые услуги
+            input.js-s.checkbox(id='service', type='checkbox')
+            label(for='service')
+                | serviceMethod.name
+            input.js-s.checkbox(id='service', type='checkbox')
+            label(for='service')
+                | serviceMethod.name
+            input.js-s.checkbox(id='service', type='checkbox')
+            label(for='service')
+                |serviceMethod.name
+        .button-container
+            button.save(type='button')
+                | Сохранить

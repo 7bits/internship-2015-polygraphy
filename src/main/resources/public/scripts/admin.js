@@ -103,7 +103,7 @@ var availabilityInSearch = function(event){
     });
 }
 
-var EditPolygraphy = function(){
+/*var EditPolygraphy = function(){
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
@@ -122,7 +122,7 @@ var EditPolygraphy = function(){
             window.location.href = '/editing-info-about-polygraphy';
         }
     });
-}
+}*/
 
 $(document).ready(function(){
 
@@ -148,6 +148,6 @@ $(document).ready(function(){
 
     $('.remove-from-search').on('click', removeFromSearch);
 
-    $('.edit').click(EditPolygraphy);
+    //$('.edit').click(EditPolygraphy);
 
 });

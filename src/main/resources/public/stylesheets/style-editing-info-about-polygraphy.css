@@ -120,6 +120,18 @@ input.checkbox[type="checkbox"]+label:hover{
 }
 
 .save{
+    font-size: 18px;
+    font-family: "OpenSansLightRegular";
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    width: 140px;
+    height: 50px;
+    background-color: #f3e642;
+    cursor: pointer;
+}
 
+.save:hover{
+    background-color: #dad14c;
 }
 

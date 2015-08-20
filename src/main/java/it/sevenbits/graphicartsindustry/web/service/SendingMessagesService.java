@@ -41,20 +41,24 @@ public class SendingMessagesService {
                 "<html>\n" +
                 "  <head>\n" +
                 "    <meta charset=\"UTF-8\">\n" +
-                "    <link rel=\"stylesheet\" href=\"http://polygraphy.7bits.it/stylesheets/osans.css\">\n" +
                 "  </head>\n" +
                 "  <body>\n" +
-                "    <div style=\"width: 800px; height: 600px; background-color: white; box-sizing: border-box; padding: auto 50px;\" class=\"wrapper\">\n" +
-                "      <div style=\"height: 170px; width: 100%; background-image: url('http://polygraphy.7bits.it/images/logo.png'); background-position: center center; background-repeat: no-repeat;\" class=\"logo-box\"></div>\n" +
-                "      <div style=\"width: 733px; height: 300px; font-family: &quot;OpenSansLightRegular&quot;; background-color: rgb(232,232,232); border-radius: 10px; border: none; outline: none; margin: auto; padding: 50px; box-sizing: border-box; text-align: center; line-height: 30px; font-size: 20px;\" class=\"content-box\">\n" +
-                "        <div style=\"display: block; width: 100%; height: auto;\" class=\"text\">" +
-                "           Здравствуйте! " +
-                "           <br> Вы оставили свою заявку на регистрацию полиграфии. Для того, " +
-                "           <br> чтобы Ваша полиграфия появилась в поиске на сайте " +
-                "           <br> <a href=\"http://polygraphy.7bits.it/\" style=\"color: #64be5f;\">polygraphy.7bits.it</a>, пожалуйста, заполните информацию о ней." +
+                "    <div style=\"width: 800px; height: 600px; background-color: white; box-sizing: border-box; padding: 0px 50px;\" class=\"wrapper\">\n" +
+                "      <div style=\"height: 170px; width: 100%; background: white url('http://polygraphy.7bits.it/images/logo.png') no-repeat center;\" class=\"logo-box\"></div>\n" +
+                "      <div style=\"width: 700px; font-family: 'Arial'; background-color: rgb(232,232,232); border-radius: 10px; border: none; outline: none; margin: auto; padding: 50px; box-sizing: border-box; text-align: center; line-height: 30px; font-size: 20px;\" class=\"content-box\">\n" +
+                "        <div style=\"display: block; width: 100%;\" class=\"text\">\n" +
+                "            <p style=\"margin: 0px;\"> Здравствуйте!</p> \n" +
+                "            <br> Вы оставили свою заявку на регистрацию полиграфии. Для того, \n" +
+                "            <br>чтобы Ваша полиграфия появилась в поиске на сайте \n" +
+                "            <br> \n" +
+                "            <a href=\"http://polygraphy.7bits.it/\" style=\"color: #64be5f;\"> \n" +
+                "                 polygraphy.7bits.it\n" +
+                "            </a> , пожалуйста, заполните информацию о ней.\n" +
                 "        </div>\n" +
-                "        <div style=\"display: block; width: 100%; height: auto; margin: 30px auto;\" class=\"link\"><a href=\""+request.getLink()+"\" style=\" text-decoration: none; color: white; line-height: 40px; background-color: #64be5f; border: none; outline: none; border-radius: 25px; padding: 10px 30px;\">" +
-                "           Заполнить информацию</a>" +
+                "        <div style=\"display: block; width: 100%; height: auto; margin-top: 30px;\" class=\"link\">\n" +
+                "            <a href=\"" + request.getLink() + "\" style=\" text-decoration: none; color: white; line-height: 40px; background-color: #64be5f; border: none; outline: none; border-radius: 25px; padding: 10px 30px;\">\n" +
+                "                Заполнить информацию\n" +
+                "            </a>\n" +
                 "        </div>\n" +
                 "      </div>\n" +
                 "    </div>\n" +

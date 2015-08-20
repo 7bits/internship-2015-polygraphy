@@ -12,6 +12,7 @@ block append content
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 .input-wrapper
                     input.email-input(type='text', name='email')
+                    input.phone-input(type='text', name='phone')
                     button.submit-email(type='button', id='submit-email', form = 'request-form')
                         | Отправить
                         .error-container

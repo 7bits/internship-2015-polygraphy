@@ -27,7 +27,7 @@ public class PageEditingInfoAboutPolygraphyController {
     private ContentService contentService;
 
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
-    public String pageEditingInfoAboutPolygraphy(@PathVariable(value = "id") int  polygraphyId,
+    public String pageEditingInfoAboutPolygraphyByAdmin(@PathVariable(value = "id") int  polygraphyId,
                                                  final Model model) throws ServiceException, RepositoryException {
 
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
@@ -57,4 +57,18 @@ public class PageEditingInfoAboutPolygraphyController {
         editingPolygraphyErrors.setSuccess(true);
         return editingPolygraphyErrors;
     }
+
+    @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.GET)
+    public String pageEditingInfoAboutPolygraphyByPolygraphy(@PathVariable(value = "id") int  polygraphyId,
+                                                 final Model model) throws ServiceException, RepositoryException {
+
+        model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+        model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+        model.addAttribute("services", contentService.findAllServices());
+        model.addAttribute("editingForm", editingPolygraphyService.showFullInfoAboutPolygraphy(polygraphyId));
+        model.addAttribute("editingForm.polygraphyId", polygraphyId);
+
+        return "home/page_editing_info_about_polygraphy";
+    }
+
 }

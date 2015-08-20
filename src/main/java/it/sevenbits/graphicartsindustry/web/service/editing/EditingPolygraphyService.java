@@ -40,7 +40,7 @@ public class EditingPolygraphyService {
 
     public PolygraphyForm showFullInfoAboutPolygraphyByPolygraphy(int polygraphyId) throws RepositoryException, ServiceException {
         try {
-            User user = userRepository.findByPolygraphyId(polygraphyId);
+            User user = userRepository.findUserByPolygraphyId(polygraphyId);
             Polygraphy polygraphy = polygraphyRepository.findPolygraphy(polygraphyId);
 
             PolygraphyForm polygraphyForm = new PolygraphyForm(polygraphyId, user.getUsername(), null,
@@ -80,6 +80,15 @@ public class EditingPolygraphyService {
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving editing information about polygraphy " +
                     "about polygraphy: " + e.getMessage(), e);
+        }
+    }
+
+    public String findUserEmailByPolygraphyId(int polygraphyId) throws ServiceException {
+        try {
+            return userRepository.findUserByPolygraphyId(polygraphyId).getUsername();
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while retrieving user by polygraphyId "
+                    + e.getMessage(), e);
         }
     }
 }

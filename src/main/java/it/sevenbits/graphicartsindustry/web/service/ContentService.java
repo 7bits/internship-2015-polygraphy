@@ -82,7 +82,7 @@ public class ContentService {
 
     public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
         try {
-            Polygraphy polygraphy = polygraphyRepository.findPolygraphy(id);
+            Polygraphy polygraphy = polygraphyRepository.findPolygraphyDisplayed(id);
             PolygraphyFullModel models = new PolygraphyFullModel(polygraphy.getId(), polygraphy.getName(),
                     polygraphy.getAddress(), polygraphy.getPhone(), polygraphy.getEmail(), polygraphy.getWebsite(),
                     polygraphy.getInfo());

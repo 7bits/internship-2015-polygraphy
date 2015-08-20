@@ -1,7 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
 import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 public class CommonFieldValidator {
 
     @Autowired
-    private PolygraphyRepository polygraphyRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private RegistrationService registrationService;
@@ -133,7 +133,7 @@ public class CommonFieldValidator {
                               final String field,
                               final String key) throws ServiceException, RepositoryException {
         if (value != null && !errors.containsKey(field)) {
-            if (!polygraphyRepository.findPolygraphyEmailById(valueId).equals(value))
+            if (!userRepository.findUserByPolygraphyId(valueId).getUsername().equals(value))
                 if (registrationService.isRegistrated(value)) {
                     errors.put(field, key);
             }

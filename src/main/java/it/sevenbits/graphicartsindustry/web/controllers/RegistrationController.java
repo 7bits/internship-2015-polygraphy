@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationErrors;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationForm;
@@ -66,7 +67,7 @@ public class RegistrationController {
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public Object firstStep(@RequestBody RegistrationFirstForm registrationFirstForm,
-                            final Model model) throws ServiceException {
+                            final Model model) throws ServiceException, RepositoryException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash());
@@ -91,7 +92,7 @@ public class RegistrationController {
     @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public RegistrationErrors secondStep (@RequestBody RegistrationForm registrationForm,
-                                          final Model model) throws ServiceException {
+                                          final Model model) throws ServiceException, RepositoryException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
@@ -129,7 +130,7 @@ public class RegistrationController {
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public RequestOnRegistrationForm requestOnRegistration(@ModelAttribute RequestOnRegistrationForm form, Model model) throws ServiceException {
+    public RequestOnRegistrationForm requestOnRegistration(@ModelAttribute RequestOnRegistrationForm form, Model model) throws ServiceException, RepositoryException {
         final Map<String, String> errorsRequestForm = requestOnRegistrationValidator.validate(form);
         if (errorsRequestForm.size() != 0) {
             form.setErrors(errorsRequestForm);

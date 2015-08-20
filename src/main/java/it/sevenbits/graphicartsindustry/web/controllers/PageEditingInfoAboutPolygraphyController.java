@@ -52,7 +52,7 @@ public class PageEditingInfoAboutPolygraphyController {
     @ResponseBody
     public EditingPolygraphyErrors editingInfoAboutPolygraphyByAdmin(@PathVariable(value = "id") int polygraphyId,
                                                                 @RequestBody PolygraphyForm form,
-                                                                final Model model) throws ServiceException {
+                                                                final Model model) throws ServiceException, RepositoryException {
         EditingPolygraphyErrors editingPolygraphyErrors = new EditingPolygraphyErrors();
 
         final Map<String, String> errors = editingPolygraphyFormByAdminValidator.validate(form);

@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.service.editing;
 
+import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.web.domain.PolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.service.CommonFieldValidator;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class EditingPolygraphyFormByAdminValidator {
 
     private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormByAdminValidator.class);
 
-    public HashMap<String, String> validate(final PolygraphyForm form) throws ServiceException {
+    public HashMap<String, String> validate(final PolygraphyForm form) throws RepositoryException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 

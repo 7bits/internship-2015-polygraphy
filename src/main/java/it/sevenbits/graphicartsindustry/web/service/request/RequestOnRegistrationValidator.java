@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.service.request;
 
+import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.service.CommonFieldValidator;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
@@ -18,7 +19,7 @@ public class RequestOnRegistrationValidator {
 
     private static final Logger LOG = Logger.getLogger(RequestOnRegistrationValidator.class);
 
-    public HashMap<String, String> validate(final RequestOnRegistrationForm form) throws ServiceException {
+    public HashMap<String, String> validate(final RequestOnRegistrationForm form) throws RepositoryException, ServiceException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 

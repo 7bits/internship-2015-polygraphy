@@ -92,6 +92,10 @@ public interface PolygraphyMapper {
     @Result(column = "user_id")
     Integer getUserIdByPolygraphyId(@Param(value = "polygraphyId") final int polygraphyId);
 
+    @Select("SELECT email FROM contact " +
+            "WHERE email=#{email}")
+    @Result(column = "user_id")
+    String getPolygraphyPublicEmail(@Param(value = "email") final String email);
 
 
     @Select("SELECT payment_method_id FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")

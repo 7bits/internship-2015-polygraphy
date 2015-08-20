@@ -72,12 +72,23 @@ public class PolygraphyRepository {
 
 
 
+    public String getPolygraphyPublicEmail(String email) throws RepositoryException {
+        try {
+            return polygraphyMapper.getPolygraphyPublicEmail(email);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy public email " +
+                    e.getMessage(), e);
+        }
+    }
+
+
+
     public Integer getPolygraphyIdByUserId(int userId) throws RepositoryException {
         try {
             return polygraphyMapper.getPolygraphyIdByUserId(userId);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving polygraphy email " +
-                    "about polygraphy: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving polygraphy id " +
+                    e.getMessage(), e);
         }
     }
 

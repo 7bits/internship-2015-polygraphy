@@ -9,16 +9,17 @@ block append content
         input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
         input#polygraphy-id(type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
 
-        .text-input-wrapper
-            label.input-label
-                | E-mail для регистрации *
-            input.input-field(type='text', id='email-input', value='#{editingForm.email}')
-            .invalid-email
-        .text-input-wrapper
-            label.input-label
-                | Пароль *
-            input.input-field(type='text', id='password-input')
-            .invalid-password
+        if security.isUserInRole("ROLE_POLYGRAPHY")
+            .text-input-wrapper
+                label.input-label
+                    | E-mail для регистрации *
+                input.input-field(type='text', id='email-input', value='#{editingForm.email}')
+                .invalid-email
+            .text-input-wrapper
+                label.input-label
+                    | Пароль *
+                input.input-field(type='text', id='password-input')
+                .invalid-password
         .text-input-wrapper
             label.input-label
                 | Название полиграфии *

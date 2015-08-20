@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.web.service;
+package it.sevenbits.graphicartsindustry.web.service.editing;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.User;
@@ -6,6 +6,7 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.web.domain.PolygraphyForm;
+import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,9 +41,9 @@ public class EditingPolygraphyService {
 
     public void saveEditing(PolygraphyForm form, int polygrahyId) throws ServiceException {
         try {
-            polygraphyRepository.saveEditingPolygraphy(form.getPolygraphyId(), form.getEmail(), form.getPassword(),
-                    form.getName(), form.getAddress(), form.getPhone(), form.getPublicEmail(), form.getWebsite(),
-                    form.getInfo(), form.getOrderByEmail(), form.getPaymentMethods(), form.getWritesTheCheck(),
+            polygraphyRepository.saveEditingPolygraphyFromAdmin(form.getPolygraphyId(), form.getName(),
+                    form.getAddress(), form.getPhone(), form.getPublicEmail(), form.getWebsite(), form.getInfo(),
+                    form.getOrderByEmail(), form.getPaymentMethods(), form.getWritesTheCheck(),
                     form.getDeliveryMethods(), form.getServices());
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving editing information about polygraphy " +

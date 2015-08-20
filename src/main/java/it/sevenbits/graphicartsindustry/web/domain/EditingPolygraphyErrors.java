@@ -2,7 +2,7 @@ package it.sevenbits.graphicartsindustry.web.domain;
 
 import java.util.Map;
 
-public class ResponseEditingPolygraphy {
+public class EditingPolygraphyErrors {
 
     private Map<String, String> errors;
     private boolean success;

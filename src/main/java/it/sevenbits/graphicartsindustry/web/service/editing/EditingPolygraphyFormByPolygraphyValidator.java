@@ -39,13 +39,14 @@ public class EditingPolygraphyFormByPolygraphyValidator {
         validator.shorterThan(form.getPassword(), 255, errors, "password", "Поле должно быть короче, чем 255 символов");
 //        validator.shorterThan(form.getPasswordConfirmation(), 255, errors, "password confirmation", "Поле должно быть кроче чем 255 символов");
         validator.shorterThan(form.getName(), 255, errors, "name", "Поле должно быть короче, чем 255 символов");
-        validator.shorterThan(form.getPhone(), 15, errors, "phone", "Поле должно быть короче, чем 15 символов");
+        validator.shorterThan(form.getPhone(), 19, errors, "phone", "Поле должно быть короче, чем 19 символов");
         validator.shorterThan(form.getAddress(), 255, errors, "address", "Поле должно быть, короче чем 255 символов");
+        validator.shorterThan(form.getWebsite(), 255, errors, "website", "Поле должно быть, короче чем 255 символов");
 
         if (form.getPassword().length() != 0) {
-            validator.longerThan(form.getPassword(), 5, errors, "password", "Поле должно быть длинее, чем 5 символов");
+            validator.longerThan(form.getPassword(), 6, errors, "password", "Поле должно быть длинее, чем 6 символов");
         }
-        validator.longerThan(form.getPhone(), 4, errors, "phone", "Поле должно быть длинее, чем 4 символа");
+        validator.longerThan(form.getPhone(), 5, errors, "phone", "Поле должно быть длинее, чем 5 символа");
 
         validator.isRegistratedFindCompliance(form.getEmail(), form.getPolygraphyId(), errors, "email", "Такой email уже зарегистрирован");
         validator.isRequested(form.getEmail(), errors, "email", "С этого email подана заявка на регистрацию");

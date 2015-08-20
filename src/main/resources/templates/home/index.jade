@@ -26,128 +26,128 @@ block append content
                         else
                             input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
                             label(for='btn'+service.id)=service.name
+            .wrapper
+                .extended-search
+                    .extended-search-title
+                        | РАСШИРЕННЫЙ ПОИСК
+                    .payment-method-headline
+                        | Способ оплаты
+                    .payment-method
+                        .payment-placeholder
+                        .payment-method-items
+                            .item
+                                input.item-selection-payment(id='item10', name='paymentMethod', type='radio', value=0, checked)
+                                label(for='item10') Любой
+                            for _paymentMethod in paymentMethods
+                                if _paymentMethod.id == form.paymentMethod
+                                    .item
+                                        input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}', checked=true)
+                                        label(for='item1'+_paymentMethod.id)= _paymentMethod.name
+                                else
+                                    .item
+                                        input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}')
+                                        label(for='item1'+_paymentMethod.id)= _paymentMethod.name
 
-            .extended-search
-                .extended-search-title
-                    | РАСШИРЕННЫЙ ПОИСК
-                .payment-method-headline
-                    | Способ оплаты
-                .payment-method
-                    .payment-placeholder
-                    .payment-method-items
-                        .item
-                            input.item-selection-payment(id='item10', name='paymentMethod', type='radio', value=0, checked)
-                            label(for='item10') Любой
-                        for _paymentMethod in paymentMethods
-                            if _paymentMethod.id == form.paymentMethod
-                                .item
-                                    input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}', checked=true)
-                                    label(for='item1'+_paymentMethod.id)= _paymentMethod.name
+                    .checkboxes-in-search-field
+                        .check
+                            if form.writesTheCheck == true
+                                input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox', checked)
+                                label(for='check1') Выдает чек
                             else
-                                .item
-                                    input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}')
-                                    label(for='item1'+_paymentMethod.id)= _paymentMethod.name
+                                input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox')
+                                label(for='check1') Выдает чек
 
-                .checkboxes-in-search-field
-                    .check
-                        if form.writesTheCheck == true
-                            input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox', checked)
-                            label(for='check1') Выдает чек
-                        else
-                            input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox')
-                            label(for='check1') Выдает чек
+                    .delivery-method-headline
+                        | Способ доставки
+                    .delivery-method
+                        .delivery-placeholder
+                        .delivery-method-items
+                            .item
+                                input.item-selection-delivery(id='item20', name='deliveryMethod', type='radio', value=0, checked)
+                                label(for='item20') Любой
+                            for _deliveryMethod in deliveryMethods
+                                if _deliveryMethod.id == form.deliveryMethod
+                                    .item
+                                        input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}', checked=true)
+                                        label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
+                                else
+                                    .item
+                                        input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}')
+                                        label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
 
-                .delivery-method-headline
-                    | Способ доставки
-                .delivery-method
-                    .delivery-placeholder
-                    .delivery-method-items
-                        .item
-                            input.item-selection-delivery(id='item20', name='deliveryMethod', type='radio', value=0, checked)
-                            label(for='item20') Любой
-                        for _deliveryMethod in deliveryMethods
-                            if _deliveryMethod.id == form.deliveryMethod
-                                .item
-                                    input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}', checked=true)
-                                    label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
+                    .checkboxes-in-search-field
+                        .check
+                            if form.orderByEmail == true
+                                input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox', checked)
+                                label(for='check2') Принимает заказ по e-mail
                             else
-                                .item
-                                    input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}')
-                                    label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
+                                input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox')
+                                label(for='check2') Принимает заказ по e-mail
 
-                .checkboxes-in-search-field
-                    .check
-                        if form.orderByEmail == true
-                            input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox', checked)
-                            label(for='check2') Принимает заказ по e-mail
-                        else
-                            input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox')
-                            label(for='check2') Принимает заказ по e-mail
+                .help
+                    #polygraphies-list
+                        .results-field
+                            ul.results
+                                if results.polygraphiesListIsNull!=''
+                                    p.no-results= results.polygraphiesListIsNull
+                                for polygraphy in results.polygraphies
+                                    li
+                                        table.services
+                                            tr
+                                                td.small-bunner
+                                                td.small-a1
+                                                td.small-cup
+                                            tr
+                                                td.small-a3
+                                                td.small-a2
+                                                td.small-magnit
+                                            tr
+                                                td.small-sticker
+                                                td.small-a4
+                                                td.small-calendar
+                                        .info
+                                            .polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
+                                            .adaptive-polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
+                                            .polygraphy-address= polygraphy.address
+                                            .polygraphy-phone-number= polygraphy.phone
+                                        .detail(id='polygraphy-page')
+                                            a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
+                                                |Подробнее
+                                        button.small-detail(type='button', id='#{polygraphy.id}')
+                                            |Подробнее
 
-    .help
-        #polygraphies-list
-            .results-field
-                ul.results
-                    if results.polygraphiesListIsNull!=''
-                        p.no-results= results.polygraphiesListIsNull
-                    for polygraphy in results.polygraphies
-                        li
-                            table.services
-                                tr
-                                    td.small-bunner
-                                    td.small-a1
-                                    td.small-cup
-                                tr
-                                    td.small-a3
-                                    td.small-a2
-                                    td.small-magnit
-                                tr
-                                    td.small-sticker
-                                    td.small-a4
-                                    td.small-calendar
-                            .info
-                                .polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
-                                .polygraphy-address= polygraphy.address
-                                .polygraphy-phone-number= polygraphy.phone
-                            .detail(id='polygraphy-page')
-                                a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
-                                    |Подробнее
-                            .small-detail(id='polygraphy-page')
-                                a(href='/polygraphy/#{polygraphy.id}')
-                                    |Подробнее
-
-        script(id='results', type='text/x-handlebars-template')
-            .results-field
-                ul.results
-                    | {{#if polygraphiesListIsNull}}
-                    p.no-results {{polygraphiesListIsNull}}
-                    | {{/if}}
-                    | {{#each polygraphies}}
-                    li
-                        table.services
-                            tr
-                                td.small-bunner
-                                td.small-a1
-                                td.small-cup
-                            tr
-                                td.small-a3
-                                td.small-a2
-                                td.small-magnit
-                            tr
-                                td.small-sticker
-                                td.small-a4
-                                td.small-calendar
-                        .info
-                            .polygraphy-name(id='{{id}}') {{name}}
-                            .polygraphy-address {{address}}
-                            .polygraphy-phone-number {{phone}}
-                        .detail(id='polygraphy-page')
-                            a(href='/polygraphy/{{id}}', id='{{id}}')
-                                |Подробнее
-                        .small-detail(id='polygraphy-page')
-                            a(href='/polygraphy/#{polygraphy.id}')
-                                |Подробнее
-                    | {{/each}}
+                    script(id='results', type='text/x-handlebars-template')
+                        .results-field
+                            ul.results
+                                | {{#if polygraphiesListIsNull}}
+                                p.no-results {{polygraphiesListIsNull}}
+                                | {{/if}}
+                                | {{#each polygraphies}}
+                                li
+                                    table.services
+                                        tr
+                                            td.small-bunner
+                                            td.small-a1
+                                            td.small-cup
+                                        tr
+                                            td.small-a3
+                                            td.small-a2
+                                            td.small-magnit
+                                        tr
+                                            td.small-sticker
+                                            td.small-a4
+                                            td.small-calendar
+                                    .info
+                                        .polygraphy-name(id='{{id}}') {{name}}
+                                        .adaptive-polygraphy-name(id='{{id}}') {{name}}
+                                        .polygraphy-address {{address}}
+                                        .polygraphy-phone-number {{phone}}
+                                    .detail(id='polygraphy-page')
+                                        a(href='/polygraphy/{{id}}', id='{{id}}')
+                                            |Подробнее
+                                    button.small-detail(type='button', id='{{id}}')
+                                        |Подробнее
+                                | {{/each}}
     .up
     .pop-up-overlay
         .pop-up-window

@@ -300,6 +300,18 @@ table.services{
     cursor: pointer;
 }
 
+.adaptive-polygraphy-name{
+    display: none;
+    text-align: left;
+    color: black;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
 .polygraphy-address,
 .polygraphy-phone-number{
     text-align: left;
@@ -323,8 +335,7 @@ table.services{
     background-position: left center;
 }
 
-.detail,
-.small-detail{
+.detail{
     width: 160px;
     margin: auto 25px auto 0;
     text-align: center;
@@ -333,15 +344,13 @@ table.services{
     box-sizing: border-box;
 }
 
-.detail a:hover,
-.small-detail a:hover{
+.detail a:hover{
     background-color: #736699;
     border-color: #736699;
     color: white;
 }
 
-.detail a,
-.small-detail a{
+.detail a{
     text-decoration: none;
     width: 100%;
     height: 40px;
@@ -355,7 +364,25 @@ table.services{
 }
 
 .small-detail{
+    width: 160px;
+    margin: auto 25px auto 0;
+    text-align: center;
+    float: right;
+    padding: 30px 0;
     display: none;
+    box-sizing: border-box;
+    border: 1px solid #79689D;
+    background-color: rgb(232,232,232);
+    border-radius: 25px;
+    height: 35px;
+    color: #79689D;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.small-detail:hover{
+    background-color: #736699;
+    color: white;
 }
 
 .no-results{
@@ -434,10 +461,13 @@ li.top-line{
 }
 
 
-@media screen and (min-width: 320px) and (max-width: 414px){
+@media screen and (max-width: 700px){
 
     body{
+        margin: auto;
         width: 100%;
+        max-width: 450px;
+        min-width: 320px;
     }
 
     .search-line{
@@ -483,6 +513,10 @@ li.top-line{
         margin-left: 0;
     }
 
+    .checkboxes-in-search-field{
+        margin: 20px auto 20px 25px;
+    }
+
     .results-field{
         width: 95%;
         float: none;
@@ -508,6 +542,11 @@ li.top-line{
     }
 
     .polygraphy-name{
+        display: none;
+    }
+
+    .adaptive-polygraphy-name{
+        display: block;
         margin-bottom: 0px;
         padding-left: 20px;
         box-sizing: border-box;
@@ -527,22 +566,134 @@ li.top-line{
     .small-detail{
         display: inline-block;
         width: 120px;
-        margin: 20px 0px auto 0px;
+        margin: 15px 0px auto 0px;
         float: right;
         padding: 0px;
-    }
-
-    .small-detail a{
-        font-size: 15px;
-        height: 35px;
-        line-height: 35px;
-        display: block;
     }
 
     table.services{
         margin: auto;
     }
 
+
+}
+
+@media screen and (min-width: 701px) and (max-width: 1024px){
+
+    body{
+        margin: auto;
+        width: 100%;
+    }
+
+    .search-line{
+        width: 95%;
+        max-width: 900px;
+        margin: 10px auto;
+    }
+
+    .search-field{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .checkboxes {
+        width: 95%;
+        height: 25px;
+        overflow: hidden;
+    }
+
+    .extended-search{
+        margin: auto;
+        padding: 20px 15px;
+        display: inline-block;
+        width: 310px;
+        box-sizing: border-box;
+        margin-right: 10px;
+    }
+
+    .payment-method,
+    .delivery-method{
+        margin: 10px auto 10px auto;
+        width: 95%;
+        text-indent: 22px;
+    }
+
+    .payment-method-headline,
+    .delivery-method-headline{
+        text-indent: 0px;
+    }
+
+    .check{
+        margin-left: 0;
+    }
+
+    .checkboxes-in-search-field{
+        margin: 20px auto 20px 25px;
+    }
+
+    .results-field {
+        margin: auto;
+        display: inline-block;
+        width: calc(100% - 320px);
+    }
+
+
+    .results > li{
+        height: 140px;
+        float: none;
+        margin: 0px auto 10px auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .polygraphy-address{
+        display: none;
+    }
+
+    .polygraphy-phone-number{
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .polygraphy-name{
+        display: none;
+    }
+
+    .adaptive-polygraphy-name{
+        display: block;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .info{
+        width: 160px;
+        height: auto;
+    }
+
+    .detail,
+    .detail a,
+    .detail a:hover{
+        display: none;
+    }
+
+    .small-detail{
+        display: inline-block;
+        width: 120px;
+        margin: 15px 0px auto 0px;
+        float: right;
+        padding: 0px;
+    }
+
+    table.services{
+        margin: auto;
+    }
+
+    .wrapper{
+        margin: auto;
+        width: 95%;
+        max-width: 900px;
+    }
 
 }
 

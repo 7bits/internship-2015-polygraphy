@@ -151,6 +151,11 @@ a.take-link{
     margin: 0 auto;
 }
 
+.option a{
+    text-decoration: none;
+    color: black;
+}
+
 .option:hover{
     cursor: pointer;
     background-color: #dad14c;

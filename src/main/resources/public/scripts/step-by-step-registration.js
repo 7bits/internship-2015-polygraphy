@@ -128,7 +128,7 @@
                                 $('.base-error').css('display', 'none');
 
                                 if (data.errors['email']){
-                                    $('.form-control#email-input').css('borderColor', 'red');
+                                    $('.form-control#email-input').css('borderColor', '#ea5c59');
                                     $('.invalid-email').css('display', 'block');
                                     $('.invalid-email').text(data.errors['email']);
                                 }
@@ -138,7 +138,7 @@
                                 };
 
                                 if (data.errors['password']){
-                                    $('.form-control#password-input').css('borderColor', 'red');
+                                    $('.form-control#password-input').css('borderColor', '#ea5c59');
                                     $('.invalid-password').css('display', 'block');
                                     $('.invalid-password').text(data.errors['password']);
                                 }
@@ -148,7 +148,7 @@
                                 };
 
                                 if (data.errors['name']){
-                                    $('.form-control#name-input').css('borderColor', 'red');
+                                    $('.form-control#name-input').css('borderColor', '#ea5c59');
                                     $('.invalid-name').css('display', 'block');
                                     $('.invalid-name').text(data.errors['name']);
                                 }
@@ -158,7 +158,7 @@
                                 };
 
                                 if (data.errors['address']){
-                                    $('.form-control#address-input').css('borderColor', 'red');
+                                    $('.form-control#address-input').css('borderColor', '#ea5c59');
                                     $('.invalid-address').css('display', 'block');
                                     $('.invalid-address').text(data.errors['address']);
                                 }
@@ -168,7 +168,7 @@
                                 };
 
                                 if (data.errors['phone']){
-                                    $('.form-control#phone-input').css('borderColor', 'red');
+                                    $('.form-control#phone-input').css('borderColor', '#ea5c59');
                                     $('.invalid-phone').css('display', 'block');
                                     $('.invalid-phone').text(data.errors['phone']);
                                 }
@@ -178,7 +178,7 @@
                                 };
 
                                 if (data.errors['publicEmail']){
-                                    $('.form-control#email-public-input').css('borderColor', 'red');
+                                    $('.form-control#email-public-input').css('borderColor', '#ea5c59');
                                     $('.invalid-public-email').css('display', 'block');
                                     $('.invalid-public-email').text(data.errors['publicEmail']);
                                 }

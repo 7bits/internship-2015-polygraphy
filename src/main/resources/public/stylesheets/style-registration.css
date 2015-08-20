@@ -234,10 +234,10 @@ fieldset {
     left: 122%;
     transform: translate(-50%, -50%);
     background-color: white;
-    color: red;
+    color: #ea5c59;
     box-sizing: border-box;
     padding: 8px 0;
-    border: 2px solid red;
+    border: 2px solid #ea5c59;
     border-radius: 25px;
     min-width: 250px;
     min-height: 40px;
@@ -252,10 +252,10 @@ fieldset {
     right: 65%;
     transform: translate(-50%, -50%);
     background-color: white;
-    color: red;
+    color: #ea5c59;
     box-sizing: border-box;
     padding: 8px 0;
-    border: 2px solid red;
+    border: 2px solid #ea5c59;
     border-radius: 25px;
     min-width: 250px;
     min-height: 40px;
@@ -266,10 +266,10 @@ fieldset {
 .base-error{
     display: none;
     background-color: white;
-    color: red;
+    color: #ea5c59;
     box-sizing: border-box;
     padding: 8px 0;
-    border: 2px solid red;
+    border: 2px solid #ea5c59;
     border-radius: 25px;
     min-width: 250px;
     min-height: 40px;

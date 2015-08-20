@@ -11,7 +11,7 @@ var requestId = function(event){
     $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: '/admin/generate-registration-link',
+            url: '/admin/send-registration-link',
             headers: headers,
             data: {'requestId': id},
             success: function(responseData) {

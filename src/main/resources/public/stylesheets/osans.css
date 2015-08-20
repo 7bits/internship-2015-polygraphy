@@ -19,3 +19,14 @@
     font-style: normal;
 
 }
+
+@font-face {
+    font-family: 'OpenSansBold';
+    src: url('http://polygraphy.7bits.it/fonts/opensans-bold/opensans-bold.eot');
+    src: url('http://polygraphy.7bits.it/fonts/opensans-bold/opensans-bold.eot?#iefix') format('embedded-opentype'),
+         url('http://polygraphy.7bits.it/fonts/opensans-bold/opensans-bold.woff') format('woff'),
+         url('http://polygraphy.7bits.it/fonts/opensans-bold/opensans-bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}

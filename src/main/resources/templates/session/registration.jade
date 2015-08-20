@@ -46,6 +46,8 @@ block append content
                     .field-text-area
                         | Описание
                         textarea.form-control#text-area-field(name='textArea')
+                        script.
+                            CKEDITOR.replace('textArea')
                 .base-error
             fieldset
                 .field-checkboxes

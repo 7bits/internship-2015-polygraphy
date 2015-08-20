@@ -11,18 +11,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class EditingPolygraphyFormValidator {
+public class EditingPolygraphyFormByAdminValidator {
 
     @Autowired
     private CommonFieldValidator validator;
 
-    private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormValidator.class);
+    private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormByAdminValidator.class);
 
     public HashMap<String, String> validate(final PolygraphyForm form) throws ServiceException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 
-//        validator.isNotNullOrEmpty(form.getPasswordConfirmation(), errors, "password confirmation", "Поле не должно быть пустым");
         validator.isNotNullOrEmpty(form.getName(), errors, "name", "Поле не должно быть пустым");
         validator.isNotNullOrEmpty(form.getPhone(), errors, "phone", "Поле не должно быть пустым");
         validator.isNotNullOrEmpty(form.getAddress(), errors, "address", "Поле не должно быть пустым");
@@ -38,10 +37,6 @@ public class EditingPolygraphyFormValidator {
         validator.longerThan(form.getPhone(), 4, errors, "phone", "Поле должно быть длинее, чем 4 символа");
 
         validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
-
-//        if (!form.getPassword().equals(form.getPasswordConfirmation())) {
-//            errors.put("password", "Пароли должны совпадать");
-//        }
 
         validator.isNotNullListId(form.getServices(), errors, "services", "Необходимо выбрать хотя бы одну услугу");
         validator.isNotNullListId(form.getDeliveryMethods(), errors, "deliveryMethods", "Необходимо выбрать хотя бы " +

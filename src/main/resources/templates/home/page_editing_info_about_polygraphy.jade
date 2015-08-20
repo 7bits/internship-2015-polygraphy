@@ -1,3 +1,107 @@
 extends ../layouts/layout-editing-info-about-polygraphy
 
 block append content
+
+    .edit-form
+        .edit-form-headline
+            | РЕДАКТИРОВАНИЕ
+
+        input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+        input#polygraphy-id(type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
+
+        if security.isUserInRole("ROLE_POLYGRAPHY")
+            .text-input-wrapper
+                label.input-label
+                    | E-mail для регистрации *
+                input.input-field(type='text', id='email-input', value='#{editingForm.email}')
+                .invalid-email
+            .text-input-wrapper
+                label.input-label
+                    | Пароль *
+                input.input-field(type='text', id='password-input')
+                .invalid-password
+        .text-input-wrapper
+            label.input-label
+                | Название полиграфии *
+            input.input-field(type='text', id='name-input', value='#{editingForm.name}')
+            .invalid-name
+        .text-input-wrapper
+            label.input-label
+                | Адрес *
+            input.input-field(type='text', id='address-input', value='#{editingForm.address}')
+            .invalid-address
+        .text-input-wrapper
+            label.input-label
+                | Телефон *
+            input.input-field(type='text', id='phone-input', value='#{editingForm.phone}')
+            .invalid-phone
+        .text-input-wrapper
+            label.input-label
+                | Публичный e-mail
+            input.input-field(type='text', id='email-public-input', value='#{editingForm.publicEmail}')
+            .invalid-public-email
+        .text-input-wrapper
+            label.input-label
+                | Сайт
+            input.input-field(type='text', id='website-input', value='#{editingForm.website}')
+            .invalid-site
+        .text-input-wrapper
+            label.input-label
+                | Описание
+            textarea.textarea-field(id='text-area-field')
+                =editingForm.info
+
+        if editingForm.orderByEmail
+            input.js-obe.checkbox(id='order-by-email', type='checkbox', checked)
+            label(for='order-by-email')
+                | Принимаем заказ по e-mail
+        else
+            input.js-obe.checkbox(id='order-by-email', type='checkbox')
+            label(for='order-by-email')
+                | Принимаем заказ по e-mail
+        if editingForm.writesTheCheck
+            input.js-wtc.checkbox(id='writes-the-check', type='checkbox', checked)
+            label(for='writes-the-check')
+                | Выдаем чек
+        else
+            input.js-wtc.checkbox(id='writes-the-check', type='checkbox', checked)
+            label(for='writes-the-check')
+                | Выдаем чек
+
+        .checkbox-input-wrapper
+            label.input-label
+                | Способы оплаты
+            for paymentMethod in paymentMethods
+                if editingForm.paymentMethods.contains(paymentMethod.id)
+                    input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox', checked)
+                    label(for='payment'+paymentMethod.id)=paymentMethod.name
+                else
+                    input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                    label(for='payment'+paymentMethod.id)=paymentMethod.name
+            .invalid-payment-method
+        .checkbox-input-wrapper
+            label.input-label
+                | Способы доставки
+            for deliveryMethod in deliveryMethods
+                if editingForm.deliveryMethods.contains(deliveryMethod.id)
+                    input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox', checked)
+                    label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                else
+                    input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                    label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+            .invalid-delivery-method
+        .checkbox-input-service-wrapper
+            label.input-label
+                | Предоставляемые услуги
+            for service in services
+                if editingForm.services.contains(service.id)
+                    input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox', checked)
+                    label(for='service'+service.id)=service.name
+                else
+                    input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                    label(for='service'+service.id)=service.name
+            .invalid-services
+        .base-error
+        .button-container
+            button.save(type='button')
+                | Сохранить

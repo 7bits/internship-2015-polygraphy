@@ -1,9 +1,8 @@
 /**********************************/
 /* Эти стили нужны для иконок в результатах поиска */
 
-
-.small-a4{
-    background-image: url("../images/A4.png");
+.small-a0{
+    background-image: url("../images/A0.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 30px 30px;
@@ -11,6 +10,7 @@
     height: 30px;
     width: 30px;
 }
+
 .small-a1{
     background-image: url("../images/A1.png");
     background-repeat: no-repeat;
@@ -20,6 +20,7 @@
     height: 30px;
     width: 30px;
 }
+
 .small-a2{
     background-image: url("../images/A2.png");
     background-repeat: no-repeat;
@@ -39,6 +40,17 @@
     height: 30px;
     width: 30px;
 }
+
+.small-a4{
+    background-image: url("../images/A4.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
 .small-bunner{
     background-image: url("../images/bunner.png");
     background-repeat: no-repeat;
@@ -48,6 +60,7 @@
     height: 30px;
     width: 30px;
 }
+
 .small-calendar{
     background-image: url("../images/calendar.png");
     background-repeat: no-repeat;
@@ -67,6 +80,7 @@
     height: 30px;
     width: 30px;
 }
+
 .small-magnit{
     background-image: url("../images/magnit.png");
     background-repeat: no-repeat;
@@ -76,6 +90,7 @@
     height: 30px;
     width: 30px;
 }
+
 .small-sticker{
     background-image: url("../images/sticker.png");
     background-repeat: no-repeat;
@@ -86,8 +101,67 @@
     width: 30px;
 }
 
+.small-badge{
+    background-image: url("../images/badge.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-card{
+    background-image: url("../images/card.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-note{
+    background-image: url("../images/note.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-t-shirt{
+    background-image: url("../images/t-shirt.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-defolt{
+    background-image: url("../images/defolt.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
 /***********************************************************/
 /* Эти стили нужны для иконок во всплывающем окне*/
+
+.A0{
+    background-image: url("../images/A0.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
 
 .A1{
     background-image: url("../images/A1.png");
@@ -169,5 +243,52 @@
     height: 58px;
     width: 59px;
 }
+
+
+.badge{
+    background-image: url("../images/badge.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.card{
+    background-image: url("../images/card.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.note{
+    background-image: url("../images/note.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.t-shirt{
+    background-image: url("../images/t-shirt.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.defolt{
+    background-image: url("../images/defolt.png");
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
 
 /**********************************************************/

@@ -52,6 +52,14 @@ public class AdminController {
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
         sendingMessagesService.sendingRegistrationLink(requestId);
+<<<<<<< HEAD
+=======
+        //RegistrationLink link = registrationLinkService.generateRegistrationLink();
+        //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
+        //        + link.getHash());
+        //registrationLinkService.saveRegistrationLink(link);
+        //model.addAttribute("requests", registrationService.showAllRequests());
+>>>>>>> feature/send_mail
         return requestOnRegistrationModel;
     }
 

@@ -5,6 +5,8 @@ var validateEditForm = function(){
     var headers = {};
     headers[header] = token;
 
+    var url = $('form').attr('action');
+
     var polygraphyId = $('#polygraphy-id').val();
     var email = $('#email-input').val();
     var password = $('#password-input').val();
@@ -57,7 +59,7 @@ var validateEditForm = function(){
     $.ajax({
         type: 'PUT',
         dataType: 'json',
-        url: '/admin/polygraphy/'+polygraphyId+'/update',
+        url: url,
         headers: headers,
         contentType: 'application/json',
         data: JSON.stringify({
@@ -89,7 +91,6 @@ var validateEditForm = function(){
                 else {
                     $('.base-error').css('display', 'none');
 
-//                    if security.isUserInRole("ROLE_POLYGRAPHY")
 //                        if (data.errors['email']){
 //                            $('#email-input').css('borderColor', 'red');
 //                            $('.invalid-email').css('display', 'block');

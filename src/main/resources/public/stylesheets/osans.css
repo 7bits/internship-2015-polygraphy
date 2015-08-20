@@ -1,21 +1,20 @@
 
 @font-face {
     font-family: 'OpenSansLightRegular';
-    src: url('../fonts/opensans-light/opensans-light.eot');
-    src: url('../fonts/opensans-light/opensans-light.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/opensans-light/opensans-light.woff') format('woff'),
-         url('../fonts/opensans-light/opensans-light.ttf') format('truetype');
+    src: url('http://polygraphy.7bits.it/fonts/opensans-light/opensans-light.eot');
+    src: url('http://polygraphy.7bits.it/fonts/opensans-light/opensans-light.eot?#iefix') format('embedded-opentype'),
+         url('http://polygraphy.7bits.it/fonts/opensans-light/opensans-light.woff') format('woff'),
+         url('http://polygraphy.7bits.it/fonts/opensans-light/opensans-light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
     font-family: 'OpenSansRegular';
-    src: url('../fonts/opensans-regular/opensans-regular.eot');
-    src: url('../fonts/opensans-regular/opensans-regular.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/opensans-regular/opensans-regular.woff') format('woff'),
-         url('../fonts/opensans-regular/opensans-regular.ttf') format('truetype');
+    src: url('http://polygraphy.7bits.it/fonts/opensans-regular/opensans-regular.eot');
+    src: url('http://polygraphy.7bits.it/fonts/opensans-regular/opensans-regular.eot?#iefix') format('embedded-opentype'),
+         url('http://polygraphy.7bits.it/fonts/opensans-regular/opensans-regular.woff') format('woff'),
+         url('http://polygraphy.7bits.it/fonts/opensans-regular/opensans-regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 

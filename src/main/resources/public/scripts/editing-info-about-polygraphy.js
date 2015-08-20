@@ -91,25 +91,25 @@ var validateEditForm = function(){
                 else {
                     $('.base-error').css('display', 'none');
 
-//                        if (data.errors['email']){
-//                            $('#email-input').css('borderColor', 'red');
-//                            $('.invalid-email').css('display', 'block');
-//                            $('.invalid-email').text(data.errors['email']);
-//                        }
-//                        else {
-//                            $('#email-input').css('borderColor', 'white');
-//                            $('.invalid-email').css('display', 'none');
-//                        }
-//
-//                        if (data.errors['password']){
-//                            $('#password-input').css('borderColor', 'red');
-//                            $('.invalid-password').css('display', 'block');
-//                            $('.invalid-password').text(data.errors['password']);
-//                        }
-//                        else {
-//                            $('#password-input').css('borderColor', 'white');
-//                            $('.invalid-password').css('display', 'none');
-//                        }
+                        if (data.errors['email']){
+                            $('#email-input').css('borderColor', 'red');
+                            $('.invalid-email').css('display', 'block');
+                            $('.invalid-email').text(data.errors['email']);
+                        }
+                        else {
+                            $('#email-input').css('borderColor', 'white');
+                            $('.invalid-email').css('display', 'none');
+                        }
+
+                        if (data.errors['password']){
+                            $('#password-input').css('borderColor', 'red');
+                            $('.invalid-password').css('display', 'block');
+                            $('.invalid-password').text(data.errors['password']);
+                        }
+                        else {
+                            $('#password-input').css('borderColor', 'white');
+                            $('.invalid-password').css('display', 'none');
+                        }
 
                     if (data.errors['name']){
                         $('#name-input').css('borderColor', 'red');

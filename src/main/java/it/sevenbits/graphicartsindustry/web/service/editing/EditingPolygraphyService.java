@@ -19,7 +19,26 @@ public class EditingPolygraphyService {
     @Autowired
     private UserRepository userRepository;
 
-    public PolygraphyForm showFullInfoAboutPolygraphy(int polygraphyId) throws RepositoryException, ServiceException {
+    public PolygraphyForm showFullInfoAboutPolygraphyByAdmin(int polygraphyId) throws RepositoryException, ServiceException {
+        try {
+            Polygraphy polygraphy = polygraphyRepository.findPolygraphy(polygraphyId);
+
+            PolygraphyForm polygraphyForm = new PolygraphyForm(polygraphyId, null, null,
+                    polygraphy.getName(), polygraphy.getAddress(), polygraphy.getPhone(), polygraphy.getEmail(),
+                    polygraphy.getWebsite(), polygraphy.getInfo(),
+                    polygraphyRepository.isOrderByEmail(polygraphyId),
+                    polygraphyRepository.findPolygraphyPaymentMethods(polygraphyId),
+                    polygraphyRepository.isWritesTheCheck(polygraphyId),
+                    polygraphyRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                    polygraphyRepository.findPolygraphyServices(polygraphyId));
+            return polygraphyForm;
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while retrieving full information " +
+                    "about polygraphy: " + e.getMessage(), e);
+        }
+    }
+
+    public PolygraphyForm showFullInfoAboutPolygraphyByPolygraphy(int polygraphyId) throws RepositoryException, ServiceException {
         try {
             User user = userRepository.findByPolygraphyId(polygraphyId);
             Polygraphy polygraphy = polygraphyRepository.findPolygraphy(polygraphyId);
@@ -39,12 +58,25 @@ public class EditingPolygraphyService {
         }
     }
 
-    public void saveEditing(PolygraphyForm form, int polygrahyId) throws ServiceException {
+    public void saveEditingPolygraphyByAdmin(PolygraphyForm form) throws ServiceException {
         try {
-            polygraphyRepository.saveEditingPolygraphyFromAdmin(form.getPolygraphyId(), form.getName(),
+            polygraphyRepository.saveEditingPolygraphy(form.getPolygraphyId(), form.getName(),
                     form.getAddress(), form.getPhone(), form.getPublicEmail(), form.getWebsite(), form.getInfo(),
                     form.getOrderByEmail(), form.getPaymentMethods(), form.getWritesTheCheck(),
                     form.getDeliveryMethods(), form.getServices());
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while saving editing information about polygraphy " +
+                    "about polygraphy: " + e.getMessage(), e);
+        }
+    }
+
+    public void saveEditingPolygraphyByPolygraphy(PolygraphyForm form) throws ServiceException {
+        try {
+            userRepository.saveEditingUser(form.getPolygraphyId(), form.getEmail(), form.getPassword());
+            polygraphyRepository.saveEditingPolygraphy(form.getPolygraphyId(), form.getName(), form.getAddress(), form.getPhone(),
+                    form.getPublicEmail(), form.getWebsite(), form.getInfo(), form.getOrderByEmail(),
+                    form.getPaymentMethods(), form.getWritesTheCheck(), form.getDeliveryMethods(),
+                    form.getServices());
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving editing information about polygraphy " +
                     "about polygraphy: " + e.getMessage(), e);

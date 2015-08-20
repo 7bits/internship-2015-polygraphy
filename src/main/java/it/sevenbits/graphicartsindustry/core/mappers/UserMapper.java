@@ -31,6 +31,13 @@ public interface UserMapper {
     })
     User findById(@Param("id") int id);
 
+    @Update("UPDATE users SET email=#{email} WHERE id=#{userId}")
+    void updateEmail(@Param(value = "userId") final int userId,
+                     @Param(value = "email") final String email);
+
+    @Update("UPDATE users SET password_hash=#{password} WHERE id=#{userId}")
+    void updatePassword(@Param(value = "userId") final int userId,
+                     @Param(value = "password") final String password);
 
     @Insert("INSERT INTO users (email, password_hash, role) " +
             "VALUES (#{email}, #{password}, #{role})")

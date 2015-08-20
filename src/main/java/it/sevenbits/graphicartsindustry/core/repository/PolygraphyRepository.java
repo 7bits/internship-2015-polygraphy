@@ -61,6 +61,24 @@ public class PolygraphyRepository {
         }
     }
 
+    public String findPolygraphyEmailById(int id) throws RepositoryException {
+        try {
+            return polygraphyMapper.findPolygraphy(id).getEmail();
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy email " +
+                    "about polygraphy: " + e.getMessage(), e);
+        }
+    }
+
+    public Integer getPolygraphyIdByUserId(int userId) throws RepositoryException {
+        try {
+            return polygraphyMapper.getPolygraphyIdByUserId(userId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy email " +
+                    "about polygraphy: " + e.getMessage(), e);
+        }
+    }
+
     public void changeConditionDisplayPolygraphy(int polygraphyId, boolean condition) throws RepositoryException {
         try {
             polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, condition);
@@ -115,11 +133,11 @@ public class PolygraphyRepository {
         }
     }
 
-    public void saveEditingPolygraphyFromAdmin(int polygraphyId, String name, String address, String phone,
-                                               String publicEmail, String website, String info,
-                                               Boolean orderByEmail, List<Integer> paymentMethods,
-                                               Boolean writesTheCheck, List<Integer> deliveryMethods,
-                                               List<Integer> services) throws RepositoryException {
+    public void saveEditingPolygraphy(int polygraphyId, String name, String address, String phone,
+                                      String publicEmail, String website, String info,
+                                      Boolean orderByEmail, List<Integer> paymentMethods,
+                                      Boolean writesTheCheck, List<Integer> deliveryMethods,
+                                      List<Integer> services) throws RepositoryException {
         try {
             polygraphyMapper.updatePolygraphyName(polygraphyId, name);
             polygraphyMapper.updateContactAddress(polygraphyId, address);

@@ -68,6 +68,10 @@ public interface PolygraphyMapper {
     })
     Polygraphy findPolygraphy(@Param(value = "id") int id);
 
+    @Select("SELECT id FROM polygraphy WHERE user_id=#{userId}")
+    @Result(column = "id")
+    Integer getPolygraphyIdByUserId(@Param(value = "userId") final int userId);
+
     @Select("SELECT writes_the_check FROM polygraphy WHERE id=#{polygraphyId}")
     @Result(column = "writes_the_check")
     Boolean isWritesTheCheck(@Param(value = "polygraphyId") final int polygraphyId);

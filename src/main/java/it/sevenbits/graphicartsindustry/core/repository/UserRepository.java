@@ -88,9 +88,10 @@ public class UserRepository implements UserDetailsService {
     public User createUser(String email, String password, Role role) throws RepositoryException {
         User user = new User();
         user.setEmail(email);
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(password));
         user.setRole(role);
+        user.setEnabled(true);
         try {
             userMapper.save(user);
         } catch (Exception e) {
@@ -98,5 +99,19 @@ public class UserRepository implements UserDetailsService {
         }
 
         return user;
+    }
+
+    public void saveEditingUser(int polygraphyId, String email, String password) throws RepositoryException {
+        try {
+            userMapper.updateEmail(polygraphyMapper.getUserId(polygraphyId), email);
+            if (password != null) {
+                PasswordEncoder encoder = new BCryptPasswordEncoder();
+                userMapper.updatePassword(polygraphyMapper.getUserId(polygraphyId), encoder.encode(password));
+            }
+
+        } catch (Exception e) {
+        throw new RepositoryException("An error occurred while saving editing information about user "
+                + e.getMessage(), e);
+    }
     }
 }

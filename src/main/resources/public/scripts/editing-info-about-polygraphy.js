@@ -90,7 +90,7 @@ var validateEditForm = function(){
         success: function(data) {
 
             if(data.success){
-                window.location.href = '/info-for-polygraphy-success';
+                window.location.href = '/success-editing';
             }
             else{
                 if (data.errors['base']){

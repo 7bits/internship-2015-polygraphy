@@ -39,7 +39,6 @@ public class PageEditingInfoAboutPolygraphyController {
         return "home/page_editing_info_about_polygraphy";
     }
 
-    //@Secured("ROLE_ADMIN")
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
     public EditingPolygraphyErrors editingInfoAboutPolygraphy(@PathVariable(value = "id") int polygraphyId,

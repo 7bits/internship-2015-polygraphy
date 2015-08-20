@@ -99,4 +99,18 @@ public class UserRepository implements UserDetailsService {
 
         return user;
     }
+
+    public void saveEditingUser(int polygraphyId, String email, String password) throws RepositoryException {
+        try {
+            userMapper.updateEmail(polygraphyMapper.getUserId(polygraphyId), email);
+            if (password != null) {
+                PasswordEncoder encoder = new BCryptPasswordEncoder();
+                userMapper.updatePassword(polygraphyMapper.getUserId(polygraphyId), encoder.encode(password));
+            }
+
+        } catch (Exception e) {
+        throw new RepositoryException("An error occurred while saving editing information about user "
+                + e.getMessage(), e);
+    }
+    }
 }

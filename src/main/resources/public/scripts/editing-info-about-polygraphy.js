@@ -94,7 +94,7 @@ var validateEditForm = function(){
             }
             else{
                 if (data.errors['base']){
-                    $('.base-error').css('display', 'inline-block');
+                    $('.base-error').css('display', 'block');
                     $('.base-error').text(data.errors['base']);
                 }
                 else {

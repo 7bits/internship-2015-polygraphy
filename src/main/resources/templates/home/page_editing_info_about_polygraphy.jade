@@ -7,9 +7,9 @@ block append content
             | РЕДАКТИРОВАНИЕ
 
         if security.isUserInRole("ROLE_ADMIN")
-            - url = '/admin/polygraphy/' + editingForm.polygraphyId + '/edit'
+            - url = '/admin/polygraphy/' + editingForm.polygraphyId + '/update'
         if security.isUserInRole("ROLE_POLYGRAPHY")
-            - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/edit'
+            - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/update'
 
         form(action=url)
             input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')

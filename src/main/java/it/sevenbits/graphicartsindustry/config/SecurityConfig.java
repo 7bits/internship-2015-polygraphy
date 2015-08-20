@@ -49,8 +49,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .anyRequest().denyAll()
                 .and()
                     .formLogin()
-                        .loginPage("/login").permitAll()
-                        .defaultSuccessUrl("/admin")
+                    .defaultSuccessUrl("/")
+                    .loginPage("/login")
+                    .permitAll()
+
                 .and()
                     .logout()
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

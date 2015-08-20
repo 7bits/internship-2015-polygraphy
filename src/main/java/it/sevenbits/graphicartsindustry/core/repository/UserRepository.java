@@ -88,9 +88,10 @@ public class UserRepository implements UserDetailsService {
     public User createUser(String email, String password, Role role) throws RepositoryException {
         User user = new User();
         user.setEmail(email);
-        PasswordEncoder encoder = new BCryptPasswordEncoder();
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         user.setPassword(encoder.encode(password));
         user.setRole(role);
+        user.setEnabled(true);
         try {
             userMapper.save(user);
         } catch (Exception e) {

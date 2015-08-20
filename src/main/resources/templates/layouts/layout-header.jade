@@ -11,13 +11,17 @@ header.header
             .navigate-button.about-project
                 a(href='/about-project')
                     | О проекте
-        if security.isUserInRole("ROLE_ADMIN")
+        if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole("ROLE_POLYGRAPHY")
             li.list
                 .navigate-button.icon-for-list
                     ul.options-list
                         li.list-item
-                            a(href="/admin")
-                                | Личный кабинет
+                            if security.isUserInRole("ROLE_ADMIN")
+                                a(href="/admin")
+                                    | Личный кабинет
+                            if security.isUserInRole("ROLE_POLYGRAPHY")
+                                a(href="/admin-polygraphy/polygraphy/" + security.getUserId() + "/edit")
+                                    | Личный кабинет
                         li.list-item
                             a(href="/logout")
                                 | Выход

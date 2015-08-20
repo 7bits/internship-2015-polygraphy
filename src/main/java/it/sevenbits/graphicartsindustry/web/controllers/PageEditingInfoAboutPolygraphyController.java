@@ -62,7 +62,7 @@ public class PageEditingInfoAboutPolygraphyController {
         return editingPolygraphyErrors;
     }
 
-    @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
     public String pageEditingInfoAboutPolygraphyByPolygraphy(@PathVariable(value = "id") int  polygraphyId,
                                                  final Model model) throws ServiceException, RepositoryException {
 

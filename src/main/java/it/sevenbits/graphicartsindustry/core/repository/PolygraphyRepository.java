@@ -70,6 +70,15 @@ public class PolygraphyRepository {
         }
     }
 
+    public Integer getPolygraphyIdByUserId(int userId) throws RepositoryException {
+        try {
+            return polygraphyMapper.getPolygraphyIdByUserId(userId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy email " +
+                    "about polygraphy: " + e.getMessage(), e);
+        }
+    }
+
     public void changeConditionDisplayPolygraphy(int polygraphyId, boolean condition) throws RepositoryException {
         try {
             polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, condition);

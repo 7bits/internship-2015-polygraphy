@@ -1,12 +1,11 @@
 @import url("osans.css");
 
 body{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    font-family: "OpenSansLightRegular";
-    margin: auto;
-    background-color: #e9e9e9;
+    margin: 0;
+    background: url("../images/404-bg.png") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'OpenSansLightRegular';
+    text-align: center;
 }
 
 :focus{
@@ -14,27 +13,99 @@ body{
 }
 
 .content{
+    width: 60%;
+    margin: auto;
+}
+
+.error-num{
+    font-size: 260px;
+    color: white;
     text-align: center;
-    font-size: 65px;
-    color: #64be5f;
-    margin: auto;
-    background-color: white;
-    width: 70%;
-    height: auto;
-    border-radius: 10px;
-    border: 3px solid #64be5f;
-    padding: 50px 0;
 }
 
-.head-404{
-    margin: auto;
+.encouraging-text{
+    color: white;
+    font-size: 35px;
+    text-align: center;
 }
 
-.logo{
-    background: url('../images/logo.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    height: 200px;
-    width: 100%;
-    margin-bottom: 50px;
+.to-home{
+    height: 70px;
+    width: auto;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 30px;
+    background-color: #efe553;
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 0 30px;
+    margin: 50px auto;
+}
+
+.to-home:hover{
+    background-color: #dad14c;
+}
+
+.to-home a{
+    text-decoration: none;
+    color: black;
+}
+
+@media screen and (max-width: 700px){
+
+    body{
+        margin: auto;
+        width: 100%;
+        max-width: 450px;
+        min-width: 320px;
+    }
+
+    .content{
+        width: 95%;
+        height: auto;
+        margin: auto;
+        padding: 20px 10px;
+    }
+
+    .error-num{
+        font-size: 200px;
+    }
+
+    .encouraging-text{
+        font-size: 25px;
+    }
+
+    .to-home{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+
+    body {
+        margin: auto;
+        width: 100%;
+    }
+
+    .content{
+        width: 95%;
+        max-width: 900px;
+        height: auto;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .error-num{
+        font-size: 220px;
+    }
+
+    .encouraging-text{
+        font-size: 30px;
+    }
+
+    .to-home{
+        font-size: 25px;
+    }
 }

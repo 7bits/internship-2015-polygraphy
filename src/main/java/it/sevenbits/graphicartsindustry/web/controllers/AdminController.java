@@ -42,7 +42,7 @@ public class AdminController {
         return "home/admin";
     }
 
-    @RequestMapping(value = "/admin/generate-registration-link", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/send-registration-link", method = RequestMethod.POST)
     @ResponseBody
     public RequestOnRegistrationModel generate(
             @RequestParam(value="requestId", defaultValue = "0") Integer requestId,
@@ -52,11 +52,6 @@ public class AdminController {
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
         sendingMessagesService.sendingRegistrationLink(requestId);
-        //RegistrationLink link = registrationLinkService.generateRegistrationLink();
-        //model.addAttribute("generate", link.getLinkBasic() + link.getLinkRegistration()
-        //        + link.getHash());
-        //registrationLinkService.saveRegistrationLink(link);
-        //model.addAttribute("requests", registrationService.showAllRequests());
         return requestOnRegistrationModel;
     }
 

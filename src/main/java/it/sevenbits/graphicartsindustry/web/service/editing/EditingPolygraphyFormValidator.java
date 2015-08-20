@@ -32,10 +32,10 @@ public class EditingPolygraphyFormValidator {
         }
 
         validator.shorterThan(form.getName(), 255, errors, "name", "Поле должно быть короче, чем 255 символов");
-        validator.shorterThan(form.getPhone(), 15, errors, "phone", "Поле должно быть короче, чем 15 символов");
+        validator.shorterThan(form.getPhone(), 19, errors, "phone", "Поле должно быть короче, чем 19 символов");
         validator.shorterThan(form.getAddress(), 255, errors, "address", "Поле должно быть, короче чем 255 символов");
 
-        validator.longerThan(form.getPhone(), 4, errors, "phone", "Поле должно быть длинее, чем 4 символа");
+        validator.longerThan(form.getPhone(), 4, errors, "phone", "Поле должно быть длиннее, чем 4 символа");
 
         validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 

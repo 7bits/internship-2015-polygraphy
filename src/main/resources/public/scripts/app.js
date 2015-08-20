@@ -81,6 +81,8 @@ function liveSearchResults() {
 
 var popUpWindow = function (event){
     event.preventDefault();
+    $('body').css('overflow', 'hidden');
+    $('.pop-up-overlay').css('overflow', 'auto');
     $('.pop-up-overlay').fadeIn("fast");
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
@@ -122,6 +124,12 @@ var delay = (function(){
     };
 })();
 
+var jumpToPageOfPolygraphy = function(){
+    var id = $(this).attr('id');
+    console.log(id);
+    window.location.href = '/polygraphy/'+id;
+}
+
 
 $(document).ready(function(){
 
@@ -131,10 +139,14 @@ $(document).ready(function(){
     $(".help").on("click", ".detail a", popUpWindow);
     $(".help").on("click", ".polygraphy-name", popUpWindow);
 
+    $(this).on("click", ".adaptive-polygraphy-name", jumpToPageOfPolygraphy);
+    $(this).on('click', '.small-detail', jumpToPageOfPolygraphy);
+
     $('.pop-up-overlay').click(function(event) {
         event || window.event
         if (event.target == this) {
             $('.pop-up-overlay').fadeOut("fast");
+            $('body').css('overflow', 'auto');
         }
     });
 
@@ -155,6 +167,7 @@ $(document).ready(function(){
 
     $(this).on("click", ".close", function(){
         $('.pop-up-overlay').fadeOut("fast");
+        $('body').css('overflow', 'auto');
     });
 
     $("div.hide-show-search").click(function(){
@@ -198,7 +211,9 @@ $(document).ready(function(){
         return false;
     });
 
-    $(window).scroll(scrollUpWindow);
+    if ($(document).width() > 1024){
+        $(window).scroll(scrollUpWindow);
+    }
 
     $('.search-field').keyup(function() {
         delay(liveSearchResults, 1500);

@@ -26,14 +26,11 @@ body{
 
 .search-field{
     width: 1057px;
-    //min-height: 46px;
-    //max-height: 48px;
     height: 50px;
     line-height: 50px;
     font-size: 17px;
     padding: 0px;
     border: 2px solid #64be5f;
-    border-right: none;
     border-radius: 25px;
     background: url("../images/loupe.png") no-repeat;
     background-position: 15px center;
@@ -88,7 +85,6 @@ body{
 
 .checkboxes{
     margin: 20px auto;
-    //color: #5f5f5f;
     color: black;
     font-family: "OpenSansLightRegular";
     font-size: 15px;
@@ -280,15 +276,6 @@ table.services{
     border-spacing: 0px;
 }
 
-/*table.services td{
-    background-image: url("../images/circle1-4.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}*/
-
 .info{
     float: left;
     color: black;
@@ -303,6 +290,18 @@ table.services{
 }
 
 .polygraphy-name{
+    text-align: left;
+    color: black;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.adaptive-polygraphy-name{
+    display: none;
     text-align: left;
     color: black;
     font-size: 20px;
@@ -337,11 +336,12 @@ table.services{
 }
 
 .detail{
-    width: 162px;
+    width: 160px;
     margin: auto 25px auto 0;
     text-align: center;
     float: right;
     padding: 30px 0;
+    box-sizing: border-box;
 }
 
 .detail a:hover{
@@ -352,7 +352,7 @@ table.services{
 
 .detail a{
     text-decoration: none;
-    width: 160px;
+    width: 100%;
     height: 40px;
     line-height: 40px;
     border: 1px solid #736699;
@@ -360,6 +360,29 @@ table.services{
     color: #736699;
     font-size: 16px;
     display: block;
+    box-sizing: border-box;
+}
+
+.small-detail{
+    width: 160px;
+    margin: auto 25px auto 0;
+    text-align: center;
+    float: right;
+    padding: 30px 0;
+    display: none;
+    box-sizing: border-box;
+    border: 1px solid #79689D;
+    background-color: rgb(232,232,232);
+    border-radius: 25px;
+    height: 35px;
+    color: #79689D;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.small-detail:hover{
+    background-color: #736699;
+    color: white;
 }
 
 .no-results{
@@ -428,184 +451,249 @@ li.top-line{
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.3);
     text-align: center;
     margin: auto;
-    background: url('../images/load.gif');
+    background-image: url('../images/load.gif');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100px 100px;
 }
 
-/**********************************/
-/* Эти стили нужны только для демо*/
+
+@media screen and (max-width: 700px){
+
+    body{
+        margin: auto;
+        width: 100%;
+        max-width: 450px;
+        min-width: 320px;
+    }
+
+    .search-line{
+        width: 95%;
+        margin: 10px auto;
+    }
+
+    .submit{
+        display: none;
+    }
+
+    .search-field{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .checkboxes{
+        display: none;
+    }
+
+    .extended-search{
+        display: block;
+        width: 95%;
+        float: none;
+        margin: auto auto;
+        box-sizing: border-box;
+        padding: 20px 15px;
+    }
+
+    .payment-method,
+    .delivery-method{
+        margin: 10px auto 10px auto;
+        width: 95%;
+        text-indent: 22px;
+    }
+
+    .payment-method-headline,
+    .delivery-method-headline{
+        text-indent: 0px;
+    }
+
+    .check{
+        margin-left: 0;
+    }
+
+    .checkboxes-in-search-field{
+        margin: 20px auto 20px 25px;
+    }
+
+    .results-field{
+        width: 95%;
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .results > li{
+        height: 140px;
+        float: none;
+        margin: 10px auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .polygraphy-address{
+        display: none;
+    }
+
+    .polygraphy-phone-number{
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .polygraphy-name{
+        display: none;
+    }
+
+    .adaptive-polygraphy-name{
+        display: block;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .info{
+        width: 160px;
+        height: auto;
+    }
+
+    .detail,
+    .detail a,
+    .detail a:hover{
+        display: none;
+    }
+
+    .small-detail{
+        display: inline-block;
+        width: 120px;
+        margin: 15px 0px auto 0px;
+        float: right;
+        padding: 0px;
+    }
+
+    table.services{
+        margin: auto;
+    }
 
 
-.small-a4{
-    background-image: url("../images/A4.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-a1{
-    background-image: url("../images/A1.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-a2{
-    background-image: url("../images/A2.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
 }
 
-.small-a3{
-    background-image: url("../images/A3.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-bunner{
-    background-image: url("../images/bunner.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-calendar{
-    background-image: url("../images/calendar.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
+@media screen and (min-width: 701px) and (max-width: 1024px){
+
+    body{
+        margin: auto;
+        width: 100%;
+    }
+
+    .search-line{
+        width: 95%;
+        max-width: 900px;
+        margin: 10px auto;
+    }
+
+    .search-field{
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .checkboxes {
+        width: 95%;
+        height: 25px;
+        overflow: hidden;
+    }
+
+    .extended-search{
+        margin: auto;
+        padding: 20px 15px;
+        display: inline-block;
+        width: 310px;
+        box-sizing: border-box;
+        margin-right: 10px;
+    }
+
+    .payment-method,
+    .delivery-method{
+        margin: 10px auto 10px auto;
+        width: 95%;
+        text-indent: 22px;
+    }
+
+    .payment-method-headline,
+    .delivery-method-headline{
+        text-indent: 0px;
+    }
+
+    .check{
+        margin-left: 0;
+    }
+
+    .checkboxes-in-search-field{
+        margin: 20px auto 20px 25px;
+    }
+
+    .results-field {
+        margin: auto;
+        display: inline-block;
+        width: calc(100% - 320px);
+    }
+
+
+    .results > li{
+        height: 140px;
+        float: none;
+        margin: 0px auto 10px auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .polygraphy-address{
+        display: none;
+    }
+
+    .polygraphy-phone-number{
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .polygraphy-name{
+        display: none;
+    }
+
+    .adaptive-polygraphy-name{
+        display: block;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .info{
+        width: 160px;
+        height: auto;
+    }
+
+    .detail,
+    .detail a,
+    .detail a:hover{
+        display: none;
+    }
+
+    .small-detail{
+        display: inline-block;
+        width: 120px;
+        margin: 15px 0px auto 0px;
+        float: right;
+        padding: 0px;
+    }
+
+    table.services{
+        margin: auto;
+    }
+
+    .wrapper{
+        margin: auto;
+        width: 95%;
+        max-width: 900px;
+    }
+
 }
 
-.small-cup{
-    background-image: url("../images/cup.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-magnit{
-    background-image: url("../images/magnit.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-.small-sticker{
-    background-image: url("../images/sticker.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 30px 30px;
-    padding: 2px;
-    height: 30px;
-    width: 30px;
-}
-
-/***********************************************************/
-
-.A1{
-    background-image: url("../images/A1.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.A2{
-    background-image: url("../images/A2.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.A3{
-    background-image: url("../images/A3.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.A4{
-    background-image: url("../images/A4.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.bunner{
-    background-image: url("../images/bunner.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.calendar{
-    background-image: url("../images/calendar.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.cup{
-    background-image: url("../images/cup.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.magnit{
-    background-image: url("../images/magnit.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-.sticker{
-    background-image: url("../images/sticker.png");
-    background-repeat: no-repeat;
-    background-size: 58px 59px;
-    padding: 0 5px 5px 0;
-    height: 58px;
-    width: 59px;
-}
-
-/**********************************/

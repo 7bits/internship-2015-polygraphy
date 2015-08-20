@@ -62,8 +62,9 @@ block append content
                                     label.label-for-checkbox(for='#{polygraphy.id}')
                             td.col.col-edit
                                 .button-container
-                                    button.option.edit(type='button')
-                                        | Редактировать
+                                    button.option.edit(type='button', id='#{polygraphy.id}')
+                                        a(href='/admin/polygraphy/#{polygraphy.id}/edit')
+                                            | Редактировать
                                 .button-container
                                     button.option.remove-from-search(type='button', id='#{polygraphy.id}')
                                         | Удалить

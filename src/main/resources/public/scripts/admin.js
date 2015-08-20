@@ -11,7 +11,7 @@ var requestId = function(event){
     $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: '/admin/generate-registration-link',
+            url: '/admin/send-registration-link',
             headers: headers,
             data: {'requestId': id},
             success: function(responseData) {
@@ -103,6 +103,27 @@ var availabilityInSearch = function(event){
     });
 }
 
+/*var EditPolygraphy = function(){
+    var token = $("meta[name='_csrf']").attr("content");
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var headers = {};
+    headers[header] = token;
+
+    var id = $(this).attr('id');
+
+    $.ajax({
+        type: 'POST',
+        url: '/editing-info-about-polygraphy',
+        headers: headers,
+        data: {
+            'polygraphyId': id
+        },
+        success: function(){
+            window.location.href = '/editing-info-about-polygraphy';
+        }
+    });
+}*/
+
 $(document).ready(function(){
 
     $('.tab1').on('click', function(){
@@ -127,8 +148,6 @@ $(document).ready(function(){
 
     $('.remove-from-search').on('click', removeFromSearch);
 
-    $('.edit').click(function(){
-        alert('Кнопочка в разработке :)');
-    });
+    //$('.edit').click(EditPolygraphy);
 
 });

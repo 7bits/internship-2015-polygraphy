@@ -1,15 +1,10 @@
-extends ../layouts/layout-page
+extends ../layouts/layout-page-about-polygraphy
 
 block append content
 
-
-    header
-        a(href='/')
-            .comeback
-                | Вернуться к поиску
-        .logo-box
-            a(href='/')
-                .logo
+    .comeback-button-container
+        a.comeback(href='/')
+            | Вернуться к поиску
     main
         .info
             .summary
@@ -17,23 +12,36 @@ block append content
                     = polygraphy.name
                 table.services
                     tr
-                        td
-                        td
-                        td
-                        td
+                        td.sticker
+                        td.A4
+                        td.calendar
+                        td.magnit
                     tr
-                        td
-                        td
-                        td
-                        td
-                .address= polygraphy.addres
+                        td.cup
+                        td.A1
+                        td.bunner
+                        td.A2
+                table.adaptive-services
+                    tr
+                        td.bunner
+                        td.A1
+                        td.cup
+                    tr
+                        td.A3
+                        td.A2
+                        td.magnit
+                    tr
+                        td.sticker
+                        td.A4
+                        td.calendar
+                .address= polygraphy.address
                 .phone= polygraphy.phone
                 .email= polygraphy.email
                 .site
-                    a(href='#{polygraphy.website}')= polygraphy.website
-            .details
-                .about-title
-                    О ПОЛИГРАФИИ
-                .about-text
-                    = polygraphy.info
+                    a(href='#{polygraphy.website}', target="_blank")= polygraphy.website
+            if(polygraphy.info != '')
+                .details
+                    .about-title
+                        | О ПОЛИГРАФИИ
+                    .about-text= polygraphy.info
         .helper

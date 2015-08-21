@@ -1,5 +1,7 @@
 package it.sevenbits.graphicartsindustry.core.domain;
 
+import java.util.List;
+
 public class Polygraphy {
     private int id;
     private String name;
@@ -9,6 +11,7 @@ public class Polygraphy {
     private String website;
     private String info;
     private boolean displayed;
+    private List<String> services;
 
     public int getId() {
         return id;
@@ -72,5 +75,13 @@ public class Polygraphy {
 
     public void setDisplayed(boolean displayed) {
         this.displayed = displayed;
+    }
+
+    public List<String> getServices() {
+        return services;
+    }
+
+    public void setServices(List<String> services) {
+        this.services = services;
     }
 }

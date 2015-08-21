@@ -18,6 +18,6 @@ public class SessionController {
     public String getLogin(HttpServletRequest request) {
         if (userResolver.isUserInRole("ROLE_ANONYMOUS"))
             return "session/login";
-        return "../static/not_found";
+        return "/fffff";
     }
 }

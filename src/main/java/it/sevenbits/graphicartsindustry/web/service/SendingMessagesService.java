@@ -34,9 +34,8 @@ public class SendingMessagesService {
 
         helper = new MimeMessageHelper(message, true,"UTF-8");
         helper.setFrom("polygraphy.polygraphy@gmail.com");
-        helper.setTo("polygraphy.polygraphy@gmail.com");
-        helper.setSubject("Message with link on registration "
-                + request.getEmail());
+        helper.setTo(request.getEmail());
+        helper.setSubject("Message with link on registration ");
         helper.setText("<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "  <head>\n" +

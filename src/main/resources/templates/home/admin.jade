@@ -56,7 +56,7 @@ block append content
                             td.col.col-search
                                 if polygraphy.displayed
                                     input.checkbox(type='checkbox', id='#{polygraphy.id}', checked)
-                                    label.label-for-checkbox(for='#{polygraphy.id}')
+                                    label.label-for-checkbox(for='#{polygraphy.id}', data-name='#{polygraphy.name}')
                                 else
                                     input.checkbox(type='checkbox', id='#{polygraphy.id}')
                                     label.label-for-checkbox(for='#{polygraphy.id}')

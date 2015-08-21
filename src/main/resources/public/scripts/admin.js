@@ -76,6 +76,7 @@ var availabilityInSearch = function(event){
 
     var label = $(this);
     var id = $(this).attr('for');
+    var name = $(this).attr('data-name');
     var checkbox = $('.checkbox[id='+id+']');
     var curCondition = $('.checkbox[id='+id+']').prop('checked');
 
@@ -92,10 +93,18 @@ var availabilityInSearch = function(event){
             if (curCondition){
                 $(checkbox).prop('checked', false);
                 $(label).css('backgroundPositionY', '0px');
+                $.gritter.add({
+                    title: name,
+                    text: 'Полиграфия была исключена из поиска'
+                });
             }
             else{
                 $(checkbox).prop('checked', true);
                 $(label).css('backgroundPositionY', '-30px');
+                $.gritter.add({
+                    title: name,
+                    text: 'Полиграфия была добавлена в поиск'
+                });
             }
         }
     });

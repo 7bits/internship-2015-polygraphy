@@ -71,7 +71,11 @@ block append content
     .pop-up-overlay
         .pop-up-window
             .main-pop-up
-                button.yes(type='button')
-                    | yes
-                button.no(type='button')
-                    | no
+                .question
+                    | Вы уверены?
+                    br
+                    | Это действие уничтожит все данные об этой полиграфии.
+                button.verification.yes(type='button')
+                    | Подтвердить
+                button.verification.no(type='button')
+                    | Отмена

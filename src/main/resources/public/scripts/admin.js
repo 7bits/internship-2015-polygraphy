@@ -46,18 +46,11 @@ var removeBid = function(event){
     });
 }
 
-var removeFromSearch = function(event){
-    event.preventDefault();
-    $('body').css('overflow', 'hidden');
-    $('.pop-up-overlay').css('overflow', 'auto');
-    $('.pop-up-overlay').fadeIn("fast");
+var removeFromSearch = function(id, btn){
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
     headers[header] = token;
-
-    var id = $(this).attr('id');
-    var btn = $(this);
 
     $.ajax({
         type: 'POST',
@@ -68,6 +61,8 @@ var removeFromSearch = function(event){
         success: function(data) {
             var reqId = data.id;
             $(btn).parent().parent().parent().remove();
+            $('.pop-up-overlay').fadeOut("fast");
+            //$('body').css('overflow', 'auto');
         }
     });
 }
@@ -106,6 +101,14 @@ var availabilityInSearch = function(event){
     });
 }
 
+var hidePopupWindow = function(event) {
+    event || window.event
+    if (event.target == this) {
+        $('.pop-up-overlay').fadeOut("fast");
+        $('body').css('overflow', 'auto');
+    }
+}
+
 $(document).ready(function(){
 
     $('.tab1').on('click', function(){
@@ -128,14 +131,25 @@ $(document).ready(function(){
 
     $('.remove-bid').on('click', removeBid);
 
-    $('.remove-from-search').on('click', removeFromSearch);
+    $('.remove-from-search').on('click', function(){
 
-    $('.pop-up-overlay').click(function(event) {
-        event || window.event
-        if (event.target == this) {
-            $('.pop-up-overlay').fadeOut("fast");
-            $('body').css('overflow', 'auto');
-        }
+        var id = $(this).attr('id');
+        var btn = $(this);
+
+        //$('body').css('overflow', 'hidden');
+        $('.pop-up-overlay').css('overflow', 'auto');
+        $('.pop-up-overlay').fadeIn("fast");
+
+        $('.main-pop-up').on('click', '.yes', function(){
+            $(this).data('clicked', true);
+            if ($('.yes').data('clicked', true)){
+                removeFromSearch(id, btn);
+            }
+        });
+
+        $('.main-pop-up').on('click', '.no', hidePopupWindow);
     });
+
+    $('.pop-up-overlay').click(hidePopupWindow);
 
 });

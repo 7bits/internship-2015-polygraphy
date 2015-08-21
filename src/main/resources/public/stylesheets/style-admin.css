@@ -202,7 +202,7 @@ input.checkbox[type="checkbox"]+label:hover{
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.1);
     text-align: center;
 }
 
@@ -224,7 +224,7 @@ input.checkbox[type="checkbox"]+label:hover{
     outline: none;
     overflow: hidden;
 }
-
+/*
 .close{
     position: absolute;
     top: 30px;
@@ -239,17 +239,39 @@ input.checkbox[type="checkbox"]+label:hover{
 .close:hover{
     opacity: 1;
     cursor: pointer;
-}
+}*/
 
 .main-pop-up{
-    width: 300px;
-    height: 100px;
+    width: 400px;
+    height: auto;
+    font-size: 18px;
     text-align: center;
     background-color: white;
     border: none;
     outline: none;
     box-shadow: 0 0 5px rgb(216, 216, 216);
     clear: both;
-    padding: 50px;
+    padding: 50px 40px;
     box-sizing: border-box;
+}
+
+.verification{
+    margin: 30px 5px 0px 5px;
+    border: none;
+    outline: none;
+    height: 30px;
+    width: auto;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: 'OpenSansLightRegular';
+    text-decoration: none;
+    background-color: #efe553;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+}
+
+.verification:hover{
+    cursor: pointer;
+    background-color: #dad14c;
 }

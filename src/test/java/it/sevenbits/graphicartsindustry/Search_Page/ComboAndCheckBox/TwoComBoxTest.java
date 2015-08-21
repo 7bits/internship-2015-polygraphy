@@ -113,12 +113,12 @@ public class TwoComBoxTest {
     driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
   }
 
-// расчет по карте + самовывоз + выдает чек
+// оплата по счету + доставка с курьером + выдает чек
 @Test
   public void testCCashlessCourier() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement we = driver.findElement(By.id("item12"));            // расчет по карте
+    WebElement we = driver.findElement(By.id("item13"));            // оплата по счету
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
     WebElement wee = driver.findElement(By.id("item22"));           // доставка с курьером
@@ -139,12 +139,12 @@ public class TwoComBoxTest {
     driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
   }
 
-// расчет по карте + самовывоз + выдает чек
+// оплата по счету + самовывоз + выдает чек
   @Test
   public void testCChashlessPickup() throws Exception {
     driver.get(baseUrl + "/");
 
-      WebElement we = driver.findElement(By.id("item12"));         // расчет по карте
+      WebElement we = driver.findElement(By.id("item13"));         // оплата по счету
       JavascriptExecutor executor = (JavascriptExecutor)driver;
       executor.executeScript("arguments[0].click();", we);
       WebElement wee = driver.findElement(By.id("item21"));        // самовывоз
@@ -192,12 +192,12 @@ public class TwoComBoxTest {
       driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
   }
 
-// оплата по счету + доставка с курьером + выдает чек
+// расчет по карте + доставка с курьером + выдает чек
 @Test
   public void testCPaymentCourier() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement we = driver.findElement(By.id("item13"));         // оплата по счету
+    WebElement we = driver.findElement(By.id("item12"));         // расчет по карте
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
     WebElement wee = driver.findElement(By.id("item22"));        // доставка с курьером
@@ -207,15 +207,17 @@ public class TwoComBoxTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+ 
   }
 
-// оплата по счету + самовывоз + выдает чек
+// расчет по карте + самовывоз + выдает чек
   @Test
   public void testCPaymentPickup() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement we = driver.findElement(By.id("item13"));        // оплата по счету
+    WebElement we = driver.findElement(By.id("item12"));        // расчет по карте
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
     WebElement wee = driver.findElement(By.id("item21"));       // самовывоз
@@ -225,11 +227,14 @@ public class TwoComBoxTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
+    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+
     }
 
 // наличный расчет + самовывоз + заказ по  email
@@ -291,12 +296,12 @@ public class TwoComBoxTest {
     driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
     driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
      }
-// расчет по карте + доставка с курьером + заказ по  email
+// оплата по счету + доставка с курьером + заказ по  email
   @Test
   public void testECashlessCourier() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement we = driver.findElement(By.id("item12"));         // расчет по карте
+    WebElement we = driver.findElement(By.id("item13"));         // оплата по счету
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
     WebElement wee = driver.findElement(By.id("item22"));        // доставка с курьером
@@ -315,12 +320,12 @@ public class TwoComBoxTest {
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
   }
-// расчет по карте + самовывоз + заказ по  email
+// оплата по счету + самовывоз + заказ по  email
  @Test
   public void testEChashlessPickup() throws Exception {
     driver.get(baseUrl + "/");
   
-      WebElement we = driver.findElement(By.id("item12"));        //расчет по карте
+      WebElement we = driver.findElement(By.id("item13"));        //оплата по счету
       JavascriptExecutor executor = (JavascriptExecutor)driver;
       executor.executeScript("arguments[0].click();", we);
       WebElement wee = driver.findElement(By.id("item21"));       //самовывоз
@@ -351,12 +356,12 @@ public class TwoComBoxTest {
       driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
      }
 
-// оплата по счету + доставка с курьером + заказ по  email
+// расчет по карте + доставка с курьером + заказ по  email
   @Test
   public void testEPaymentCourier() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement we = driver.findElement(By.id("item13"));         // оплата по счету
+    WebElement we = driver.findElement(By.id("item12"));         // расчет по карте
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
     WebElement wee = driver.findElement(By.id("item22"));        // доставка с курьером
@@ -366,15 +371,15 @@ public class TwoComBoxTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-  }
+      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+}
 
-// оплата по счету + самовывоз + заказ по  email
+// расчет по карте + самовывоз + заказ по  email
   @Test
   public void testEPaymentPickup() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement we = driver.findElement(By.id("item13"));         //оплата по счету
+    WebElement we = driver.findElement(By.id("item12"));         //расчет по карте
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
     WebElement wee = driver.findElement(By.id("item21"));        //самовывоз
@@ -384,10 +389,11 @@ public class TwoComBoxTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-  }
+      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+      driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
+ }
 
   @After
   public void tearDown() throws Exception {

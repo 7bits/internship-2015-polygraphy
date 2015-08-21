@@ -15,8 +15,10 @@ block append content
                     button.submit-email(type='button', id='submit-email', form = 'request-form')
                         | Отправить
                         .error-container
-        .head-text
-            |Если Ваша полиграфия уже есть в нашем поиске, можете
-        .button-login-container
-            a.button-login(href='/login')
-                | Войти
+
+        if security.isUserInRole("ROLE_ANONYMOUS")
+            .head-text
+                |Если Ваша полиграфия уже есть в нашем поиске, можете
+            .button-login-container
+                a.button-login(href='/login')
+                    | Войти

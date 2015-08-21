@@ -78,7 +78,7 @@ public class PageEditingInfoAboutPolygraphyController {
             model.addAttribute("editingForm.polygraphyId", polygraphyId);
             return "home/page_editing_info_about_polygraphy";
         }
-        return "../static/not_found";
+        return "/fffff";
     }
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")

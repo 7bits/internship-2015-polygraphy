@@ -59,10 +59,10 @@ block append content
             .text-input-wrapper
                 label.input-label
                     | Описание
-                textarea.textarea-field(id='text-area-field')
+                textarea.textarea-field(name='text-area-field', id='text-area-field')
+                    != editingForm.info
                 script.
                     CKEDITOR.replace('text-area-field')
-                    =editingForm.info
 
             if editingForm.orderByEmail
                 input.js-obe.checkbox(id='order-by-email', type='checkbox', checked)

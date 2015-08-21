@@ -48,6 +48,9 @@ var removeBid = function(event){
 
 var removeFromSearch = function(event){
     event.preventDefault();
+    $('body').css('overflow', 'hidden');
+    $('.pop-up-overlay').css('overflow', 'auto');
+    $('.pop-up-overlay').fadeIn("fast");
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
@@ -103,27 +106,6 @@ var availabilityInSearch = function(event){
     });
 }
 
-/*var EditPolygraphy = function(){
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
-    var headers = {};
-    headers[header] = token;
-
-    var id = $(this).attr('id');
-
-    $.ajax({
-        type: 'POST',
-        url: '/editing-info-about-polygraphy',
-        headers: headers,
-        data: {
-            'polygraphyId': id
-        },
-        success: function(){
-            window.location.href = '/editing-info-about-polygraphy';
-        }
-    });
-}*/
-
 $(document).ready(function(){
 
     $('.tab1').on('click', function(){
@@ -148,6 +130,12 @@ $(document).ready(function(){
 
     $('.remove-from-search').on('click', removeFromSearch);
 
-    //$('.edit').click(EditPolygraphy);
+    $('.pop-up-overlay').click(function(event) {
+        event || window.event
+        if (event.target == this) {
+            $('.pop-up-overlay').fadeOut("fast");
+            $('body').css('overflow', 'auto');
+        }
+    });
 
 });

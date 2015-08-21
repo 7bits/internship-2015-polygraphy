@@ -68,7 +68,7 @@
                 var phone = $('#phone-input').val();
                 var publicEmail = $('#email-public-input').val();
                 var website = $('#website-input').val();
-                var textArea = $('#text-area-field').val();
+                var textArea = CKEDITOR.instances['text-area-field'].getData();
 
                 $('.invalid-email').css('display', 'none');
                 $('.invalid-password').css('display', 'none');

@@ -28,7 +28,7 @@ block append content
                                 else
                                     .generate-link
                                         a.get-link(href='/admin/registration-link', id='#{request.id}')
-                                            | Сгенерировать ссылку
+                                            | Отправить приглашение
                                     .link
                                         a(href='#{generate}', id='#{request.id}')= generate
                             td.col.col-action
@@ -68,3 +68,10 @@ block append content
                                 .button-container
                                     button.option.remove-from-search(type='button', id='#{polygraphy.id}')
                                         | Удалить
+    .pop-up-overlay
+        .pop-up-window
+            .main-pop-up
+                button.yes(type='button')
+                    | yes
+                button.no(type='button')
+                    | no

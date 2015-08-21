@@ -1,6 +1,5 @@
 
-var validateForm = function(event){
-    event.preventDefault();
+var validateForm = function(){
     var token = $("meta[name='_csrf']").attr("content");
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
@@ -11,6 +10,7 @@ var validateForm = function(event){
     $('.email-input').css('borderColor', 'white');
     $('.error-container').css('display', 'none');
     $('.email-input').text('');
+    $('.for-error').css('display', 'none');
 
     $.ajax({
         type: 'POST',
@@ -24,12 +24,14 @@ var validateForm = function(event){
             }
             else{
                             if (data.errors['email']){
-                                $('.email-input').css('borderColor', 'red');
+                                $('.email-input').css('borderColor', '#ea5c59');
+                                $('.for-error').css('display', 'block');
                                 $('.error-container').css('display', 'block');
                                 $('.error-container').text(data.errors['email']);
                             }
                             else {
                                 $('.email-input').css('borderColor', 'white');
+                                $('.for-error').css('display', 'none');
                                 $('.error-container').css('display', 'none');
                             };
             }
@@ -41,5 +43,13 @@ $(document).ready(function(){
 
     $('input').attr('autocomplete', 'off');
     $('.submit-email').click(validateForm);
+
+    $('#request-form').bind("keypress", function(e) {
+        if (e.keyCode == 13) {
+            e.preventDefault();
+            validateForm();
+            return false;
+        }
+    });
 
 });

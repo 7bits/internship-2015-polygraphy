@@ -60,6 +60,8 @@ block append content
                 label.input-label
                     | Описание
                 textarea.textarea-field(id='text-area-field')
+                script.
+                    CKEDITOR.replace('text-area-field')
                     =editingForm.info
 
             if editingForm.orderByEmail

@@ -7,9 +7,9 @@ block append content
             | РЕДАКТИРОВАНИЕ
 
         if security.isUserInRole("ROLE_ADMIN")
-            - url = '/admin/polygraphy/' + editingForm.polygraphyId + '/edit'
+            - url = '/admin/polygraphy/' + editingForm.polygraphyId + '/update'
         if security.isUserInRole("ROLE_POLYGRAPHY")
-            - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/edit'
+            - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/update'
 
         form(action=url)
             input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
@@ -30,26 +30,31 @@ block append content
                 label.input-label
                     | Название полиграфии *
                 input.input-field(type='text', id='name-input', value='#{editingForm.name}')
+                .for-error-name
                 .invalid-name
             .text-input-wrapper
                 label.input-label
                     | Адрес *
                 input.input-field(type='text', id='address-input', value='#{editingForm.address}')
+                .for-error-address
                 .invalid-address
             .text-input-wrapper
                 label.input-label
                     | Телефон *
                 input.input-field(type='text', id='phone-input', value='#{editingForm.phone}')
+                .for-error-phone
                 .invalid-phone
             .text-input-wrapper
                 label.input-label
                     | Публичный e-mail
                 input.input-field(type='text', id='email-public-input', value='#{editingForm.publicEmail}')
+                .for-error-public-email
                 .invalid-public-email
             .text-input-wrapper
                 label.input-label
                     | Сайт
                 input.input-field(type='text', id='website-input', value='#{editingForm.website}')
+                .for-error-site
                 .invalid-site
             .text-input-wrapper
                 label.input-label
@@ -84,6 +89,7 @@ block append content
                     else
                         input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                         label(for='payment'+paymentMethod.id)=paymentMethod.name
+                .for-error-payment-method
                 .invalid-payment-method
             .checkbox-input-wrapper
                 label.input-label
@@ -95,6 +101,7 @@ block append content
                     else
                         input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                         label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                .for-error-delivery-method
                 .invalid-delivery-method
             .checkbox-input-service-wrapper
                 label.input-label
@@ -106,6 +113,7 @@ block append content
                     else
                         input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                         label(for='service'+service.id)=service.name
+                .for-error-services
                 .invalid-services
             .base-error
             .button-container

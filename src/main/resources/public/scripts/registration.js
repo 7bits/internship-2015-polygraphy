@@ -31,6 +31,10 @@ var validateSecondStep = function(event){
     $('.invalid-delivery-method').css('display', 'none');
     $('.invalid-services').css('display', 'none');
 
+    $('.for-error-payment-method').css('display', 'none');
+    $('.for-error-delivery-method').css('display', 'none');
+    $('.for-error-services').css('display', 'none');
+
     $('.invalid-payment-method').text('');
     $('.invalid-delivery-method').text('');
     $('.invalid-services').text('');
@@ -67,26 +71,32 @@ var validateSecondStep = function(event){
             }
             else{
                 if (data.errors['paymentMethods']){
+                    $('.for-error-payment-method').css('display', 'block');
                     $('.invalid-payment-method').css('display', 'block');
                     $('.invalid-payment-method').text(data.errors['paymentMethods']);
                 }
                 else {
+                    $('.for-error-payment-method').css('display', 'none');
                     $('.invalid-payment-method').css('display', 'none');
                 };
 
                 if (data.errors['deliveryMethods']){
+                    $('.for-error-delivery-method').css('display', 'block');
                     $('.invalid-delivery-method').css('display', 'block');
                     $('.invalid-delivery-method').text(data.errors['deliveryMethods']);
                 }
                 else {
+                    $('.for-error-delivery-method').css('display', 'none');
                     $('.invalid-delivery-method').css('display', 'none');
                 };
 
                 if (data.errors['services']){
+                    $('.for-error-services').css('display', 'block');
                     $('.invalid-services').css('display', 'block');
                     $('.invalid-services').text(data.errors['services']);
                 }
                 else {
+                    $('.for-error-services').css('display', 'none');
                     $('.invalid-services').css('display', 'none');
                 };
             }

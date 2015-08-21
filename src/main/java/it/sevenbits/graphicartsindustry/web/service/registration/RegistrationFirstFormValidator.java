@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.service.registration;
 
+import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.service.CommonFieldValidator;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class RegistrationFirstFormValidator {
 
     private static final Logger LOG = Logger.getLogger(RegistrationFirstFormValidator.class);
 
-    public HashMap<String, String> validate(final RegistrationFirstForm form) throws ServiceException {
+    public HashMap<String, String> validate(final RegistrationFirstForm form) throws RepositoryException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 
@@ -38,11 +38,12 @@ public class RegistrationFirstFormValidator {
         validator.shorterThan(form.getPassword(), 255, errors, "password", "Поле должно быть короче, чем 255 символов");
 //        validator.shorterThan(form.getPasswordConfirmation(), 255, errors, "password confirmation", "Поле должно быть кроче чем 255 символов");
         validator.shorterThan(form.getName(), 255, errors, "name", "Поле должно быть короче, чем 255 символов");
-        validator.shorterThan(form.getPhone(), 15, errors, "phone", "Поле должно быть короче, чем 15 символов");
+        validator.shorterThan(form.getPhone(), 19, errors, "phone", "Поле должно быть короче, чем 19 символов");
         validator.shorterThan(form.getAddress(), 255, errors, "address", "Поле должно быть, короче чем 255 символов");
+        validator.shorterThan(form.getWebsite(), 255, errors, "website", "Поле должно быть, короче чем 255 символов");
 
-        validator.longerThan(form.getPassword(), 5, errors, "password", "Поле должно быть длинее, чем 5 символов");
-        validator.longerThan(form.getPhone(), 4, errors, "phone", "Поле должно быть длинее, чем 4 символа");
+        validator.longerThan(form.getPassword(), 6, errors, "password", "Поле должно быть длинее, чем 6 символов");
+        validator.longerThan(form.getPhone(), 5, errors, "phone", "Поле должно быть длинее, чем 5 символа");
 
         validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 

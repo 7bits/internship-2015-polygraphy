@@ -44,7 +44,7 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/send-registration-link", method = RequestMethod.POST)
     @ResponseBody
-    public RequestOnRegistrationModel generate(
+    public RequestOnRegistrationModel send(
             @RequestParam(value="requestId", defaultValue = "0") Integer requestId,
             final Model model) throws ServiceException, MessagingException {
 

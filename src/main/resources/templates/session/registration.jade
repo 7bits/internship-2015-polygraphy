@@ -14,31 +14,37 @@ block append content
                         |E-mail для регистрации *
                         .input-wrapper
                             input.form-control#email-input(name='email', type='text')
+                            .for-error-email
                             .invalid-email
                     .field-password
                         |Пароль *
                         .input-wrapper
                             input.form-control#password-input(name='password', type='password')
+                            .for-error-password
                             .invalid-password
                     .field-name
                         | Название полиграфии *
                         .input-wrapper
                             input.form-control#name-input(name='name', type='text')
+                            .for-error-name
                             .invalid-name
                     .field-address
                         | Адрес *
                         .input-wrapper
                             input.form-control#address-input(name='address', type='text')
+                            .for-error-address
                             .invalid-address
                     .field-phone
                         | Телефон *
                         .input-wrapper
                             input.form-control#phone-input(name='phone', type='text')
+                            .for-error-phone
                             .invalid-phone
                     .field-public-email
                         | Публичный e-mail
                         .input-wrapper
                             input.form-control#email-public-input(name='emailPublic', type='text')
+                            .for-error-public-email
                             .invalid-public-email
                     .field-site
                         | Сайт
@@ -64,7 +70,8 @@ block append content
                                 .field-checkbox
                                     input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                                     label(for='payment'+paymentMethod.id)=paymentMethod.name
-                            .invalid-payment-method
+                        .for-error-payment-method
+                        .invalid-payment-method
                     .field-delivery
                         | Доставка готового заказа: *
                         .input-wrapper
@@ -72,7 +79,8 @@ block append content
                                 .field-checkbox
                                     input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                            .invalid-delivery-method
+                        .for-error-delivery-method
+                        .invalid-delivery-method
                     .field-services
                         | Предоставляемые услуги: *
                         .input-wrapper
@@ -80,5 +88,6 @@ block append content
                                 .field-checkbox
                                     input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                                     label(for='service'+service.id)=service.name
-                            .invalid-services
+                        .for-error-services
+                        .invalid-services
                 button.submit-registration-form(type="button", id="submit-registration-form") Сохранить данные

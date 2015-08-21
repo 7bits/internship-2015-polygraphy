@@ -24,7 +24,6 @@ var validateEditForm = function(){
     $('.js-dm:checked').each(function(i){ deliveryMethods.push($(this).attr('value')); });
     var services = [];
     $('.js-s:checked').each(function(i){ services.push($(this).attr('value')); });
-/*
 
     $('.invalid-email').css('display', 'none');
     $('.invalid-password').css('display', 'none');
@@ -32,10 +31,21 @@ var validateEditForm = function(){
     $('.invalid-address').css('display', 'none');
     $('.invalid-phone').css('display', 'none');
     $('.invalid-public-email').css('display', 'none');
-    $('.base-error').css('display', 'none');
     $('.invalid-payment-method').css('display', 'none');
     $('.invalid-delivery-method').css('display', 'none');
     $('.invalid-services').css('display', 'none');
+    $('.base-error').css('display', 'none');
+
+    $('.for-error-email').css('display', 'none');
+    $('.for-error-password').css('display', 'none');
+    $('.for-error-name').css('display', 'none');
+    $('.for-error-address').css('display', 'none');
+    $('.for-error-phone').css('display', 'none');
+    $('.for-error-public-email').css('display', 'none');
+    $('.for-error-payment-method').css('display', 'none');
+    $('.for-error-delivery-method').css('display', 'none');
+    $('.for-error-services').css('display', 'none');
+    $('.base-error').css('display', 'none');
 
     $('#email-input').css('borderColor', 'white');
     $('#password-input').css('borderColor', 'white');
@@ -54,7 +64,6 @@ var validateEditForm = function(){
     $('.invalid-payment-method').text('');
     $('.invalid-delivery-method').text('');
     $('.invalid-services').text('');
-*/
 
     $.ajax({
         type: 'PUT',
@@ -81,7 +90,7 @@ var validateEditForm = function(){
         success: function(data) {
 
             if(data.success){
-                window.location.href = '/info-for-polygraphy-success';
+                window.location.href = '/success-editing';
             }
             else{
                 if (data.errors['base']){
@@ -91,88 +100,106 @@ var validateEditForm = function(){
                 else {
                     $('.base-error').css('display', 'none');
 
-//                        if (data.errors['email']){
-//                            $('#email-input').css('borderColor', 'red');
-//                            $('.invalid-email').css('display', 'block');
-//                            $('.invalid-email').text(data.errors['email']);
-//                        }
-//                        else {
-//                            $('#email-input').css('borderColor', 'white');
-//                            $('.invalid-email').css('display', 'none');
-//                        }
-//
-//                        if (data.errors['password']){
-//                            $('#password-input').css('borderColor', 'red');
-//                            $('.invalid-password').css('display', 'block');
-//                            $('.invalid-password').text(data.errors['password']);
-//                        }
-//                        else {
-//                            $('#password-input').css('borderColor', 'white');
-//                            $('.invalid-password').css('display', 'none');
-//                        }
+                    if (data.errors['email']){
+                        $('#email-input').css('borderColor', '#FD5D58');
+                        $('.for-error-email').css('display', 'block');
+                        $('.invalid-email').css('display', 'inline-block');
+                        $('.invalid-email').text(data.errors['email']);
+                    }
+                    else {
+                        $('#email-input').css('borderColor', 'white');
+                        $('.for-error-email').css('display', 'none');
+                        $('.invalid-email').css('display', 'none');
+                    }
+
+                    if (data.errors['password']){
+                        $('#password-input').css('borderColor', '#FD5D58');
+                        $('.for-error-password').css('display', 'block');
+                        $('.invalid-password').css('display', 'inline-block');
+                        $('.invalid-password').text(data.errors['password']);
+                    }
+                    else {
+                        $('#password-input').css('borderColor', 'white');
+                        $('.for-error-password').css('display', 'none');
+                        $('.invalid-password').css('display', 'none');
+                    }
 
                     if (data.errors['name']){
-                        $('#name-input').css('borderColor', 'red');
-                        $('.invalid-name').css('display', 'block');
+                        $('#name-input').css('borderColor', '#FD5D58');
+                        $('.for-error-name').css('display', 'block');
+                        $('.invalid-name').css('display', 'inline-block');
                         $('.invalid-name').text(data.errors['name']);
                     }
                     else {
                         $('#name-input').css('borderColor', 'white');
+                        $('.for-error-name').css('display', 'none');
                         $('.invalid-name').css('display', 'none');
                     }
 
                     if (data.errors['address']){
-                        $('#address-input').css('borderColor', 'red');
-                        $('.invalid-address').css('display', 'block');
+                        $('#address-input').css('borderColor', '#FD5D58');
+                        $('.for-error-address').css('display', 'block');
+                        $('.invalid-address').css('display', 'inline-block');
                         $('.invalid-address').text(data.errors['address']);
                     }
                     else {
                         $('#address-input').css('borderColor', 'white');
+                        $('.for-error-address').css('display', 'none');
                         $('.invalid-address').css('display', 'none');
                     }
 
                     if (data.errors['phone']){
-                        $('#phone-input').css('borderColor', 'red');
-                        $('.invalid-phone').css('display', 'block');
+                        $('#phone-input').css('borderColor', '#FD5D58');
+                        $('.for-error-phone').css('display', 'block');
+                        $('.invalid-phone').css('display', 'inline-block');
                         $('.invalid-phone').text(data.errors['phone']);
                     }
                     else {
                         $('#phone-input').css('borderColor', 'white');
+                        $('.for-error-phone').css('display', 'none');
                         $('.invalid-phone').css('display', 'none');
                     }
 
                     if (data.errors['publicEmail']){
-                        $('#email-public-input').css('borderColor', 'red');
-                        $('.invalid-public-email').css('display', 'block');
+                        $('#email-public-input').css('borderColor', '#FD5D58');
+                        $('.for-error-public-email').css('display', 'block');
+                        $('.invalid-public-email').css('display', 'inline-block');
                         $('.invalid-public-email').text(data.errors['publicEmail']);
                     }
                     else {
                         $('#email-public-input').css('borderColor', 'white');
+                        $('.for-error-public-email').css('display', 'none');
                         $('.invalid-public-email').css('display', 'none');
                     }
 
 
                     if (data.errors['paymentMethods']) {
-                        $('.invalid-payment-method').css('display', 'block');
+                        $('.for-error-payment-method').css('display', 'block');
+                        $('.invalid-payment-method').css('display', 'inline-block');
                         $('.invalid-payment-method').text(data.errors['paymentMethods']);
                     }
                     else {
+                        $('.for-error-payment-method').css('display', 'none');
                         $('.invalid-payment-method').css('display', 'none');
                     }
 
                     if (data.errors['deliveryMethods']) {
-                        $('.invalid-delivery-method').css('display', 'block');
+                        $('.for-error-delivery-method').css('display', 'block');
+                        $('.invalid-delivery-method').css('display', 'inline-block');
                         $('.invalid-delivery-method').text(data.errors['deliveryMethods']);
                     }
                     else {
+                        $('.for-error-delivery-method').css('display', 'none');
                         $('.invalid-delivery-method').css('display', 'none');
                     }
 
                     if (data.errors['services']) {
-                        $('.invalid-services').css('display', 'block');
+                        $('.for-error-services').css('display', 'block');
+                        $('.invalid-services').css('display', 'inline-block');
                         $('.invalid-services').text(data.errors['services']);
                     }
                     else {
+                        $('.for-error-services').css('display', 'none');
                         $('.invalid-services').css('display', 'none');
                     }
                 }

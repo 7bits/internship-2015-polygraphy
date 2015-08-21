@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.service.editing;
 
+import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.web.domain.PolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.service.CommonFieldValidator;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class EditingPolygraphyFormByAdminValidator {
 
     private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormByAdminValidator.class);
 
-    public HashMap<String, String> validate(final PolygraphyForm form) throws ServiceException {
+    public HashMap<String, String> validate(final PolygraphyForm form) throws RepositoryException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 
@@ -33,8 +33,9 @@ public class EditingPolygraphyFormByAdminValidator {
         validator.shorterThan(form.getName(), 255, errors, "name", "Поле должно быть короче, чем 255 символов");
         validator.shorterThan(form.getPhone(), 19, errors, "phone", "Поле должно быть короче, чем 19 символов");
         validator.shorterThan(form.getAddress(), 255, errors, "address", "Поле должно быть, короче чем 255 символов");
+        validator.shorterThan(form.getWebsite(), 255, errors, "website", "Поле должно быть, короче чем 255 символов");
 
-        validator.longerThan(form.getPhone(), 4, errors, "phone", "Поле должно быть длиннее, чем 4 символа");
+        validator.longerThan(form.getPhone(), 5, errors, "phone", "Поле должно быть длиннее, чем 5 символа");
 
         validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 

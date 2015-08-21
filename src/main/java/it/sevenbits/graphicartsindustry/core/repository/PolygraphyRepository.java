@@ -35,20 +35,20 @@ public class PolygraphyRepository {
         }
     }
 
-    public List<Polygraphy> findAll(int limit) throws RepositoryException {
-        try {
-            return polygraphyMapper.findAll(limit);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving all polygraphies: " + e.getMessage(), e);
-        }
-    }
-
     public List<Polygraphy> findAllPolygraphies() throws RepositoryException {
         try {
-            return polygraphyMapper.findAllPolygraphy();
+            return polygraphyMapper.findAllPolygraphies();
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving all polygraphies "
                     + e.getMessage(), e);
+        }
+    }
+
+    public List<Polygraphy> findAllPolygraphiesDisplayed(int limit) throws RepositoryException {
+        try {
+            return polygraphyMapper.findAllPolygraphiesDisplayed(limit);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving all polygraphies: " + e.getMessage(), e);
         }
     }
 
@@ -61,14 +61,38 @@ public class PolygraphyRepository {
         }
     }
 
-    public String findPolygraphyEmailById(int id) throws RepositoryException {
+    public Polygraphy findPolygraphyDisplayed(int id) throws RepositoryException {
         try {
-            return polygraphyMapper.findPolygraphy(id).getEmail();
+            return polygraphyMapper.findPolygraphyDisplayed(id);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving polygraphy email " +
+            throw new RepositoryException("An error occurred while retrieving full information " +
                     "about polygraphy: " + e.getMessage(), e);
         }
     }
+
+
+
+    public String getPolygraphyPublicEmail(String email) throws RepositoryException {
+        try {
+            return polygraphyMapper.getPolygraphyPublicEmail(email);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy public email " +
+                    e.getMessage(), e);
+        }
+    }
+
+
+
+    public Integer getPolygraphyIdByUserId(int userId) throws RepositoryException {
+        try {
+            return polygraphyMapper.getPolygraphyIdByUserId(userId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy id " +
+                    e.getMessage(), e);
+        }
+    }
+
+
 
     public void changeConditionDisplayPolygraphy(int polygraphyId, boolean condition) throws RepositoryException {
         try {
@@ -79,23 +103,7 @@ public class PolygraphyRepository {
         }
     }
 
-    public boolean isWritesTheCheck(int polygraphyId) throws RepositoryException {
-        try {
-            return polygraphyMapper.isWritesTheCheck(polygraphyId);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving polygraphy (isWritesTheCheck) " +
-                    e.getMessage(), e);
-        }
-    }
 
-    public boolean isOrderByEmail(int polygraphyId) throws RepositoryException {
-        try {
-            return polygraphyMapper.isOrderByEmail(polygraphyId);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving polygraphy (isOrderByEmail) " +
-                    e.getMessage(), e);
-        }
-    }
 
     public List<Integer> findPolygraphyPaymentMethods(int polygraphyId) throws RepositoryException {
         try {
@@ -123,6 +131,26 @@ public class PolygraphyRepository {
                     e.getMessage(), e);
         }
     }
+
+    public boolean isWritesTheCheck(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.isWritesTheCheck(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy (isWritesTheCheck) " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public boolean isOrderByEmail(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.isOrderByEmail(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy (isOrderByEmail) " +
+                    e.getMessage(), e);
+        }
+    }
+
+
 
     public void saveEditingPolygraphy(int polygraphyId, String name, String address, String phone,
                                       String publicEmail, String website, String info,
@@ -166,9 +194,9 @@ public class PolygraphyRepository {
             polygraphyMapper.deletePolygraphyDeliveryMethods(polygraphyId);
             polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
             polygraphyMapper.deletePolygraphyContacts(polygraphyId);
-            Integer userId = polygraphyMapper.getUserId(polygraphyId);
+            Integer userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
             polygraphyMapper.deletePolygraphyBasic(polygraphyId);
-            if (userId!=null)
+            if (userId != null)
                 userMapper.deleteUser(userId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while removing polygraphy "

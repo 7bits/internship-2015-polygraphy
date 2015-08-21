@@ -1,8 +1,8 @@
-package it.sevenbits.graphicartsindustry.core.domain;
+package it.sevenbits.graphicartsindustry.web.domain.content;
 
 import java.util.List;
 
-public class Polygraphy {
+public class PolygraphyDisplayedFullModel {
     private int id;
     private String name;
     private String address;
@@ -10,8 +10,19 @@ public class Polygraphy {
     private String email;
     private String website;
     private String info;
-    private boolean displayed;
     private List<String> tags;
+
+    public PolygraphyDisplayedFullModel(int id, String name, String address, String phone, String email,
+                                        String website, String info, List<String> tags) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.website = website;
+        this.info = info;
+        this.tags = tags;
+    }
 
     public int getId() {
         return id;
@@ -67,14 +78,6 @@ public class Polygraphy {
 
     public void setInfo(String info) {
         this.info = info;
-    }
-
-    public boolean isDisplayed() {
-        return displayed;
-    }
-
-    public void setDisplayed(boolean displayed) {
-        this.displayed = displayed;
     }
 
     public List<String> getTags() {

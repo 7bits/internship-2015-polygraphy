@@ -5,10 +5,7 @@ import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.repository.ContentRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.web.domain.content.DeliveryMethodModel;
-import it.sevenbits.graphicartsindustry.web.domain.content.PaymentMethodModel;
-import it.sevenbits.graphicartsindustry.web.domain.content.ServiceModel;
-import it.sevenbits.graphicartsindustry.web.domain.content.PolygraphyFullModel;
+import it.sevenbits.graphicartsindustry.web.domain.content.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,12 +77,12 @@ public class ContentService {
         }
     }
 
-    public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
+    public PolygraphyDisplayedFullModel findPolygraphy(int id) throws ServiceException {
         try {
             Polygraphy polygraphy = polygraphyRepository.findPolygraphyDisplayed(id);
-            PolygraphyFullModel models = new PolygraphyFullModel(polygraphy.getId(), polygraphy.getName(),
+            PolygraphyDisplayedFullModel models = new PolygraphyDisplayedFullModel(polygraphy.getId(), polygraphy.getName(),
                     polygraphy.getAddress(), polygraphy.getPhone(), polygraphy.getEmail(), polygraphy.getWebsite(),
-                    polygraphy.getInfo());
+                    polygraphy.getInfo(), polygraphy.getTags());
             return models;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving full information " +

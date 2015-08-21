@@ -65,11 +65,10 @@ public interface PolygraphyMapper {
     })
     Polygraphy findPolygraphy(@Param(value = "id") final int id);
 
-    @Select("SELECT  p.id, p.name, c.address, c.phone, c.email, c.website, s.tag, p.info, p.displayed " +
+
+    @Select("SELECT  id, name, address, phone, email, website, info, displayed " +
             "FROM polygraphy AS p " +
             "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
-            "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
-            "LEFT JOIN service AS s ON ps.service_id=s.id " +
             "WHERE displayed=true AND id=#{id}")
     @Results({
             @Result(column = "id", property = "id"),
@@ -80,9 +79,31 @@ public interface PolygraphyMapper {
             @Result(column = "website", property = "website"),
             @Result(column = "info", property = "info"),
             @Result(column = "displayed", property = "displayed"),
-            @Result(column = "tag", property = "services")
+            @Result(column = "id", property = "tags", javaType=List.class, many=@Many(select="getTags"))
     })
     Polygraphy findPolygraphyDisplayed(@Param(value = "id") final int id);
+
+    @Select("SELECT tag FROM polygraphy AS p " +
+            "LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id " +
+            "LEFT JOIN service AS s ON ps.service_id=s.id " +
+            "WHERE displayed=true AND p.id=#{polygraphyId}")
+    @Result(column = "tag")
+    List<String> getTags(@Param(value = "polygraphyId") final int polygraphyId);
+
+//    @Select("SELECT id, name, address, phone, email, website, info, displayed FROM polygraphy AS p " +
+//            "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
+//            "WHERE displayed=true AND id=#{id}")
+//    @Results({
+//            @Result(column = "id", property = "id"),
+//            @Result(column = "name", property = "name"),
+//            @Result(column = "address", property = "address"),
+//            @Result(column = "phone", property = "phone"),
+//            @Result(column = "email", property = "email"),
+//            @Result(column = "website", property = "website"),
+//            @Result(column = "info", property = "info"),
+//            @Result(column = "displayed", property = "displayed")
+//    })
+//    Polygraphy findPolygraphyDisplayed(@Param(value = "id") final int id);
 
 
 

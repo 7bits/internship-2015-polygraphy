@@ -1,6 +1,13 @@
-extends ../layouts/layout-admin
+extends ../layouts/layout
 
-block append content
+block append head
+    link(rel="stylesheet", href="../stylesheets/style-admin.css")
+    link(rel="stylesheet", href="../stylesheets/jquery.gritter.css")
+    script(type='application/javascript', src='../vendor/scripts/jquery.gritter.min.js')
+    script(type='application/javascript', src='../vendor/scripts/jquery.gritter.js')
+    script(type='application/javascript', src='../scripts/admin.js')
+
+block content
 
     .admin-headline
         .tab.tab1

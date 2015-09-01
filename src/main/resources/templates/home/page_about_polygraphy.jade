@@ -1,6 +1,10 @@
-extends ../layouts/layout-page-about-polygraphy
+extends ../layouts/layout
 
-block append content
+block append head
+    link(rel="stylesheet", href="../stylesheets/style-page-about-polygraphy.css")
+    link(rel="stylesheet", href="../stylesheets/icons.css")
+
+block content
 
     .comeback-button-container
         a.comeback(href='/')

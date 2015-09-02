@@ -32,7 +32,7 @@ body{
     padding: 0px;
     border: 2px solid #64be5f;
     border-radius: 25px;
-    background: url("../images/loupe.png") no-repeat;
+    background: url("/images/loupe.png") no-repeat;
     background-position: 15px center;
     background-color: white;
     outline: none;
@@ -161,7 +161,7 @@ input.often-seek[type="checkbox"]:checked+label{
 
 .payment-placeholder,
 .delivery-placeholder{
-    background: url("../images/arrow.png");
+    background: url("/images/arrow.png");
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 90%;
@@ -222,14 +222,14 @@ input.checkbox[type="checkbox"]{
 }
 
 input.checkbox[type="checkbox"]+label{
-    background: url("../images/check.png") 0px 0px no-repeat;
+    background: url("/images/check.png") 0px 0px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
 input.checkbox[type="checkbox"]:checked+label{
-    background: url("../images/check.png") 0 -30px no-repeat;
+    background: url("/images/check.png") 0 -30px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
@@ -324,13 +324,13 @@ table.services{
 }
 
 .polygraphy-address{
-    background: url("../images/map-violet.png");
+    background: url("/images/map-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .polygraphy-phone-number{
-    background: url("../images/phone-violet.png");
+    background: url("/images/phone-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
@@ -433,7 +433,7 @@ li.top-line{
 }
 
 .up{
-    background: url("../images/up-arrow.png");
+    background: url("/images/up-arrow.png");
     height: 60px;
     width: 60px;
     position: fixed;
@@ -454,7 +454,7 @@ li.top-line{
     background-color: rgba(255, 255, 255, 0.3);
     text-align: center;
     margin: auto;
-    background-image: url('../images/loader.gif');
+    background-image: url('/images/loader.gif');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100px 100px;

@@ -55,25 +55,25 @@ table.services-pop-up{
 }
 
 .address-pop-up{
-    background: url("../images/map-violet.png");
+    background: url("/images/map-violet.png");
     background-repeat: no-repeat;
     background-position: left calc(0% + 5px);
 }
 
 .phone-pop-up{
-    background: url("../images/phone-violet.png");
+    background: url("/images/phone-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .email-pop-up{
-    background: url("../images/mail-violet.png");
+    background: url("/images/mail-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .site-pop-up{
-    background: url("../images/link-violet.png");
+    background: url("/images/link-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
@@ -141,7 +141,7 @@ table.services-pop-up{
     position: absolute;
     top: 30px;
     right: 30px;
-    background: url("../images/close.png");
+    background: url("/images/close.png");
     height: 17px;
     width: 17px;
     background-repeat: no-repeat;

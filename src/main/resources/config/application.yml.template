@@ -1,0 +1,22 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/polygraphy
+    username:
+    password:
+
+mail:
+   username:
+   password:
+   protocol: smtp
+   host: smtp.gmail.com
+   port: 587
+   charset: UTF-8
+   smtp:
+       auth: true
+       starttls:
+           enable: true
+           required: true
+       debug: true

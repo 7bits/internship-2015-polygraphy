@@ -96,25 +96,25 @@ table.adaptive-services{
 }
 
 .address{
-    background: url("../images/map-violet.png");
+    background: url("/images/map-violet.png");
     background-repeat: no-repeat;
     background-position: left calc(0% + 5px);
 }
 
 .phone{
-    background: url("../images/phone-violet.png");
+    background: url("/images/phone-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .email{
-    background: url("../images/mail-violet.png");
+    background: url("/images/mail-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .site{
-    background: url("../images/link-violet.png");
+    background: url("/images/link-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
     overflow: hidden;

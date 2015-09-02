@@ -17,7 +17,7 @@
 }
 
 .logo{
-    background-image: url("../images/logo.png");
+    background-image: url("/images/logo.png");
     height: 100%;
     width: 100%;
     background-position: center center;
@@ -67,8 +67,8 @@
 .icon-for-list{
     height: 30px;
     width: 30px;
-    background: url("../images/icon.png") calc(0% + 10px) center no-repeat,
-                url("../images/arrow.png") calc(100% - 10px) center no-repeat;
+    background: url("/images/icon.png") calc(0% + 10px) center no-repeat,
+                url("/images/arrow.png") calc(100% - 10px) center no-repeat;
     background-color: rgb(232, 232, 232);
     float: right;
 }
@@ -110,7 +110,7 @@ ul.more-info>li{
 }
 
 .list-item:hover{
-    background: url('../images/defolt.png') left center no-repeat;
+    background: url('/images/defolt.png') left center no-repeat;
     background-size: 15px 15px;
 }
 

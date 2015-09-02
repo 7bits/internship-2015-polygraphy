@@ -173,14 +173,14 @@ input.checkbox[type="checkbox"]{
 }
 
 input.checkbox[type="checkbox"]+label{
-    background: url("../images/check.png") 0px 0px no-repeat;
+    background: url("/images/check.png") 0px 0px no-repeat;
     padding-left: 16px;
     width: 15px;
     height: 15px;
 }
 
 input.checkbox[type="checkbox"]:checked+label{
-    background: url("../images/check.png") 0 -30px no-repeat;
+    background: url("/images/check.png") 0 -30px no-repeat;
     padding-left: 16px;
     width: 15px;
     height: 15px;
@@ -229,7 +229,7 @@ input.checkbox[type="checkbox"]+label:hover{
     position: absolute;
     top: 30px;
     right: 30px;
-    background: url("../images/close.png");
+    background: url("/images/close.png");
     height: 17px;
     width: 17px;
     background-repeat: no-repeat;

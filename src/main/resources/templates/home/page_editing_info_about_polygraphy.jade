@@ -1,6 +1,11 @@
-extends ../layouts/layout-editing-info-about-polygraphy
+extends ../layouts/layout
 
-block append content
+block append head
+    link(rel="stylesheet", href="/stylesheets/style-editing-info-about-polygraphy.css")
+    script(type='application/javascript', src='/scripts/editing-info-about-polygraphy.js')
+    script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
+
+block content
 
     .edit-form
         .edit-form-headline

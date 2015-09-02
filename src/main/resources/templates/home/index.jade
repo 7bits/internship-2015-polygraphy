@@ -10,7 +10,7 @@ block content
 
     .search
 
-        form(id='form', method='post', action='/search')
+        form(id='search-form', method='post', action='/search')
             .search-line
                 if form != null
                     if form.query != ""
@@ -91,37 +91,7 @@ block content
                                 label(for='check2') Принимает заказ по e-mail
 
                 .help
-                    #polygraphies-list
-                        .results-field
-                            ul.results
-                                if results.polygraphiesListIsNull!=''
-                                    p.no-results= results.polygraphiesListIsNull
-                                for polygraphy in results.polygraphies
-                                    li
-                                        table.services
-                                            tr
-                                                td.small-bunner
-                                                td.small-t-shirt
-                                                td.small-cup
-                                            tr
-                                                td.small-note
-                                                td.small-badge
-                                                td.small-magnit
-                                            tr
-                                                td.small-sticker
-                                                td.small-card
-                                                td.small-calendar
-                                        .info
-                                            .polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
-                                            .adaptive-polygraphy-name(id='#{polygraphy.id}')= polygraphy.name
-                                            .polygraphy-address= polygraphy.address
-                                            .polygraphy-phone-number= polygraphy.phone
-                                        .detail(id='polygraphy-page')
-                                            a(href='/polygraphy/#{polygraphy.id}', id='#{polygraphy.id}')
-                                                |Подробнее
-                                        button.small-detail(type='button', id='#{polygraphy.id}')
-                                            |Подробнее
-
+                    .polygraphies-list
                     script(id='results', type='text/x-handlebars-template')
                         .results-field
                             ul.results

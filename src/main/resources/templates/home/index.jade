@@ -1,6 +1,12 @@
-extends ../layouts/layout-index
+extends ../layouts/layout
 
-block append content
+block append head
+    link(rel="stylesheet", href="../stylesheets/style.css")
+    link(rel="stylesheet", href="../stylesheets/icons.css")
+    link(rel="stylesheet", href="../stylesheets/style-page-pop-up.css")
+    script(type='application/javascript', src='../scripts/app.js')
+
+block content
 
     .search
 

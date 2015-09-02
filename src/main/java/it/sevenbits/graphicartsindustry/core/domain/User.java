@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.core.domain;
 
+import it.sevenbits.graphicartsindustry.core.domain.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 

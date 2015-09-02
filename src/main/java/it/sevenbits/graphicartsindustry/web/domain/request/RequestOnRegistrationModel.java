@@ -9,11 +9,11 @@ public class RequestOnRegistrationModel {
     public RequestOnRegistrationModel() {
     }
 
-    public RequestOnRegistrationModel(int id, String email, String hash) {
+    public RequestOnRegistrationModel(int id, String email, String hash, String link) {
         this.id = id;
         this.email = email;
         this.hash = hash;
-        this.link = "http://polygraphy.7bits.it/registration?id=" + hash;
+        this.link = link;
     }
 
     public int getId() {
@@ -38,7 +38,6 @@ public class RequestOnRegistrationModel {
 
     public void setHash(String hash) {
         this.hash = hash;
-        this.setLink("http://polygraphy.7bits.it/registration?id=" + hash);
     }
 
     public String getLink() {

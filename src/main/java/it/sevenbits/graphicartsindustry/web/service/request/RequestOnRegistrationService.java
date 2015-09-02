@@ -5,6 +5,7 @@ import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRep
 import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.utils.UrlResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +15,14 @@ import java.security.NoSuchAlgorithmException;
 
 @Service
 public class RequestOnRegistrationService {
-//    private String linkBasic = "http://polygraphy.7bits.it";
-//    private String linkRegistration = "/registration?id=";
     private int min = 100000000;
     private int max = 999999999;
 
     @Autowired
     private RequestOnRegistrationRepository requestOnRegistrationRepository;
+
+    @Autowired
+    private UrlResolver urlResolver;
 
     public void saveRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
         try {
@@ -49,6 +51,7 @@ public class RequestOnRegistrationService {
             RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByHash(hash);
             RequestOnRegistrationModel requestOnRegistrationModel =
                     new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
+                            requestOnRegistration.getHash(), "http://" + urlResolver.getDomain() + "/registration?id=" +
                             requestOnRegistration.getHash());
             return requestOnRegistrationModel;
         } catch (Exception e) {
@@ -62,6 +65,7 @@ public class RequestOnRegistrationService {
             RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestById(requestId);
             RequestOnRegistrationModel requestOnRegistrationModel =
                     new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
+                            requestOnRegistration.getHash(), "http://" + urlResolver.getDomain() + "/registration?id=" +
                             requestOnRegistration.getHash());
             return requestOnRegistrationModel;
         } catch (Exception e) {

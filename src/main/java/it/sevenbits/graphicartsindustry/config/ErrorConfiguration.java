@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 
 @Configuration
-public class ErrorConfig {
+public class ErrorConfiguration {
 
     @Bean
     public EmbeddedServletContainerCustomizer containerCustomizer() {

@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @MapperScan(basePackages = "it.sevenbits.graphicartsindustry.core.mappers")
-public class DatabaseConfig {
+public class DatabaseConfiguration {
 
     @Autowired
     private DataSource dataSource;

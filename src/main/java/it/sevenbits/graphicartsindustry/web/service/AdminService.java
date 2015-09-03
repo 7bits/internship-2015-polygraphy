@@ -6,6 +6,7 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
 import it.sevenbits.graphicartsindustry.web.domain.admin.PolygraphyAdminModel;
 import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.utils.UrlResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,9 @@ public class AdminService {
 
     @Autowired
     private PolygraphyRepository polygraphyRepository;
+
+    @Autowired
+    private UrlResolver urlResolver;
 
     public void removeRequestOnRegistration(int requestId) throws ServiceException {
         try {
@@ -57,7 +61,8 @@ public class AdminService {
                     requestOnRegistrationRepository.findAllRequestsOnRegistration();
             List<RequestOnRegistrationModel> models = new ArrayList<>(requestsOnRegistration.size());
             for (RequestOnRegistration r: requestsOnRegistration) {
-                models.add(new RequestOnRegistrationModel(r.getId(), r.getEmail(), r.getHash()));
+                models.add(new RequestOnRegistrationModel(r.getId(), r.getEmail(), r.getHash(),
+                        "http://" + urlResolver.getDomain() + "/registration?id=" + r.getHash()));
             }
             return models;
         } catch (Exception e) {

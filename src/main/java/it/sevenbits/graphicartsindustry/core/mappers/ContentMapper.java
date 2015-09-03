@@ -11,20 +11,20 @@ import java.util.List;
 
 public interface ContentMapper {
 
-    @Select("SELECT id, name FROM service ORDER BY rating DESC LIMIT #{limit}")
-    @Results({
-            @Result(column = "id", property = "id"),
-            @Result(column = "name", property = "name")
-    })
-    List<Service> findFrequentServices(int limit);
-
-
     @Select("SELECT id, name FROM service")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")
     })
     List<Service> findAllServices();
+
+
+    @Select("SELECT id, name FROM service ORDER BY rating DESC LIMIT #{limit}")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name")
+    })
+    List<Service> findFrequentServices(int limit);
 
 
     @Select("SELECT id, name FROM payment_method")

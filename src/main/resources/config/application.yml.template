@@ -4,12 +4,12 @@ server:
 ---
 
 spring:
-  profiles: development
+  profiles.active: staging
   datasource:
     url: jdbc:postgresql://localhost:5432/polygraphy
     username:
     password:
-  domain: localhost:9000
+  domain: polygraphy.7bits.it
 
 server:
   port: 9000
@@ -31,12 +31,12 @@ mail:
 ---
 
 spring:
-  profiles: staging
+  profiles: development
   datasource:
     url: jdbc:postgresql://localhost:5432/polygraphy
     username:
     password:
-  domain: polygraphy.7bits.it
+  domain: localhost:9000
 
 server:
   port: 9000

@@ -38,18 +38,18 @@ public class ContentRepository {
         }
     }
 
-    public List<PaymentMethod> findPaymentMethods() throws RepositoryException {
+    public List<PaymentMethod> findAllPaymentMethods() throws RepositoryException {
         try {
-            return mapper.findPaymentMethods();
+            return mapper.findAllPaymentMethods();
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving payment methods "
                     + e.getMessage(), e);
         }
     }
 
-    public List<DeliveryMethod> findDeliveryMethods() throws RepositoryException {
+    public List<DeliveryMethod> findAllDeliveryMethods() throws RepositoryException {
         try {
-            return mapper.findDeliveryMethods();
+            return mapper.findAllDeliveryMethods();
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving delivery methods "
                     + e.getMessage(), e);

@@ -54,7 +54,7 @@ public class ContentService {
 
     public List<PaymentMethodModel> findPaymentMethods() throws ServiceException {
         try {
-            List<PaymentMethod> paymentMethods = contentRepository.findPaymentMethods();
+            List<PaymentMethod> paymentMethods = contentRepository.findAllPaymentMethods();
             List<PaymentMethodModel> models = new ArrayList<>(paymentMethods.size());
             for (PaymentMethod p: paymentMethods) {
                 models.add(new PaymentMethodModel(p.getId(), p.getName()));
@@ -68,7 +68,7 @@ public class ContentService {
 
     public List<DeliveryMethodModel> findDeliveryMethods() throws ServiceException {
         try {
-            List<DeliveryMethod> deliveryMethods = contentRepository.findDeliveryMethods();
+            List<DeliveryMethod> deliveryMethods = contentRepository.findAllDeliveryMethods();
             List<DeliveryMethodModel> models = new ArrayList<>(deliveryMethods.size());
             for (DeliveryMethod d: deliveryMethods) {
                 models.add(new DeliveryMethodModel(d.getId(), d.getName()));

@@ -32,7 +32,7 @@ public interface ContentMapper {
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")
     })
-    List<PaymentMethod> findPaymentMethods();
+    List<PaymentMethod> findAllPaymentMethods();
 
 
     @Select("SELECT id, name FROM delivery_method")
@@ -40,5 +40,5 @@ public interface ContentMapper {
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")
     })
-    List<DeliveryMethod> findDeliveryMethods();
+    List<DeliveryMethod> findAllDeliveryMethods();
 }

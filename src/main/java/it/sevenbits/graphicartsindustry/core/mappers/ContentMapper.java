@@ -17,9 +17,10 @@ public interface ContentMapper {
             @Result(column = "name", property = "name")
     })
     List<Service> findAllServices();
-
-
-    @Select("SELECT id, name FROM service ORDER BY rating DESC LIMIT #{limit}")
+    
+    @Select("SELECT id, name FROM service " +
+            "ORDER BY rating DESC " +
+            "LIMIT #{limit}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")

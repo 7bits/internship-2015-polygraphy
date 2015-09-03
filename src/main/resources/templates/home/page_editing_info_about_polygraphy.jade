@@ -18,49 +18,51 @@ block content
 
         form(action=url)
             input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-            input#polygraphy-id(type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
+            input.input-field(id = 'polygraphy-id', type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
 
             if security.isUserInRole("ROLE_POLYGRAPHY")
                 .text-input-wrapper
                     label.input-label
                         | E-mail для регистрации *
-                    input.input-field(type='text', id='email-input', value='#{editingForm.email}')
-                    .invalid-email
+                    input.input-field(type='text', id='email-input', name = 'email', value='#{editingForm.email}')
+                    .for-error(id = 'email-for-error')
+                    .invalid(id = 'email-error')
                 .text-input-wrapper
                     label.input-label
                         | Пароль *
-                    input.input-field(type='text', id='password-input')
-                    .invalid-password
+                    input.input-field(type='text', id='password-input', name = 'password')
+                    .for-error(id = 'password-for-error')
+                    .invalid(id = 'password-error')
             .text-input-wrapper
                 label.input-label
                     | Название полиграфии *
-                input.input-field(type='text', id='name-input', value='#{editingForm.name}')
-                .for-error-name
-                .invalid-name
+                input.input-field(type='text', id='name-input', name = 'name', value='#{editingForm.name}')
+                .for-error(id = 'name-for-error')
+                .invalid(id = 'name-error')
             .text-input-wrapper
                 label.input-label
                     | Адрес *
-                input.input-field(type='text', id='address-input', value='#{editingForm.address}')
-                .for-error-address
-                .invalid-address
+                input.input-field(type='text', id='address-input', name = 'address', value='#{editingForm.address}')
+                .for-error(id = 'address-for-error')
+                .invalid(id = 'address-error')
             .text-input-wrapper
                 label.input-label
                     | Телефон *
-                input.input-field(type='text', id='phone-input', value='#{editingForm.phone}')
-                .for-error-phone
-                .invalid-phone
+                input.input-field(type='text', id='phone-input', name = 'phone', value='#{editingForm.phone}')
+                .for-error(id = 'phone-for-error')
+                .invalid(id = 'phone-error')
             .text-input-wrapper
                 label.input-label
                     | Публичный e-mail
-                input.input-field(type='text', id='email-public-input', value='#{editingForm.publicEmail}')
-                .for-error-public-email
-                .invalid-public-email
+                input.input-field(type='text', id='email-public-input', name = 'publicEmail', value='#{editingForm.publicEmail}')
+                .for-error(id='publicEmail-for-error')
+                .invalid(id = 'publicEmail-error')
             .text-input-wrapper
                 label.input-label
                     | Сайт
-                input.input-field(type='text', id='website-input', value='#{editingForm.website}')
-                .for-error-site
-                .invalid-site
+                input.input-field(type='text', id='website-input', name = 'website', value='#{editingForm.website}')
+                .for-error(id = 'website-for-error')
+                .invalid(id = 'website-error')
             .text-input-wrapper
                 label.input-label
                     | Описание
@@ -70,19 +72,19 @@ block content
                     CKEDITOR.replace('text-area-field')
 
             if editingForm.orderByEmail
-                input.js-obe.checkbox(id='order-by-email', type='checkbox', checked)
+                input.js-obe.checkbox(id='order-by-email', name='orderByEmail', type='checkbox', checked)
                 label(for='order-by-email')
                     | Принимаем заказ по e-mail
             else
-                input.js-obe.checkbox(id='order-by-email', type='checkbox')
+                input.js-obe.checkbox(id='order-by-email', name='orderByEmail', type='checkbox')
                 label(for='order-by-email')
                     | Принимаем заказ по e-mail
             if editingForm.writesTheCheck
-                input.js-wtc.checkbox(id='writes-the-check', type='checkbox', checked)
+                input.js-wtc.checkbox(id='writes-the-check', name='writesTheCheck', type='checkbox', checked)
                 label(for='writes-the-check')
                     | Выдаем чек
             else
-                input.js-wtc.checkbox(id='writes-the-check', type='checkbox', checked)
+                input.js-wtc.checkbox(id='writes-the-check', name='writesTheCheck', type='checkbox', checked)
                 label(for='writes-the-check')
                     | Выдаем чек
 
@@ -96,8 +98,8 @@ block content
                     else
                         input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                         label(for='payment'+paymentMethod.id)=paymentMethod.name
-                .for-error-payment-method
-                .invalid-payment-method
+                .for-error(id='paymentMethods-for-error')
+                .invalid(id='paymentMethods-error')
             .checkbox-input-wrapper
                 label.input-label
                     | Способы доставки
@@ -108,8 +110,8 @@ block content
                     else
                         input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                         label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                .for-error-delivery-method
-                .invalid-delivery-method
+                .for-error(id='deliveryMethods-for-error')
+                .invalid(id='deliveryMethods-error')
             .checkbox-input-service-wrapper
                 label.input-label
                     | Предоставляемые услуги
@@ -120,8 +122,8 @@ block content
                     else
                         input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                         label(for='service'+service.id)=service.name
-                .for-error-services
-                .invalid-services
+                .for-error(id='services-for-error')
+                .invalid(id='services-error')
             .base-error
             .button-container
                 button.save(type='button')

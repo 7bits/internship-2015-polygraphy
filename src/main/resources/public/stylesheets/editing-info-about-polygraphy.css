@@ -32,6 +32,7 @@ body{
 }
 
 .text-input-wrapper{
+    display: inline-block;
     height: auto;
     width: 100%;
     margin-bottom: 20px;
@@ -135,17 +136,7 @@ input.checkbox[type="checkbox"]+label:hover{
     background-color: #dad14c;
 }
 
-.for-error-email, .for-error-password, .for-error-name,
-.for-error-address, .for-error-phone, .for-error-public-email, .for-error-site{
-    display: none;
-    height: 7px;
-    background-image: url("/images/for-error.png");
-    background-size: 13px 7px;
-    background-repeat: no-repeat;
-    background-position: calc(100% - 50px);
-}
-
-.for-error-payment-method, .for-error-delivery-method, .for-error-services{
+.for-error{
     display: none;
     height: 7px;
     background-image: url("/images/for-error.png");
@@ -154,19 +145,7 @@ input.checkbox[type="checkbox"]+label:hover{
     background-position: calc(0% + 50px);
 }
 
-.invalid-email, .invalid-password, .invalid-name,
-.invalid-address, .invalid-phone, .invalid-public-email, .invalid-site{
-    display: none;
-    background-color: #FD5D58;
-    max-width: 80%;
-    float: right;
-    padding: 5px 15px;
-    border-radius: 25px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.invalid-payment-method, .invalid-delivery-method, .invalid-services{
+.invalid{
     display: none;
     background-color: #FD5D58;
     max-width: 80%;

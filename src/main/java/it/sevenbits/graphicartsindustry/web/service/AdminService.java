@@ -27,7 +27,7 @@ public class AdminService {
 
     public void removeRequestOnRegistration(int requestId) throws ServiceException {
         try {
-            requestOnRegistrationRepository.removeRequestOnRegistration(requestId);
+            requestOnRegistrationRepository.removeRequestOnRegistrationById(requestId);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while removing request on registration ");
         }

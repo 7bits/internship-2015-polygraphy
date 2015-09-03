@@ -76,7 +76,7 @@ public class RequestOnRegistrationService {
 
     public void removeRequestOnRegistration(String hash) throws ServiceException {
         try {
-            requestOnRegistrationRepository.removeRequestOnRegistration(hash);
+            requestOnRegistrationRepository.removeRequestOnRegistrationByHash(hash);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while removing request on registration ");
         }

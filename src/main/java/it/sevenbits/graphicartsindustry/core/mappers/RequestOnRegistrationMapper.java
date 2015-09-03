@@ -7,14 +7,41 @@ import java.util.List;
 
 public interface RequestOnRegistrationMapper {
 
-    @Delete("DELETE FROM request_on_registration " +
+    @Select("SELECT id, email, hash FROM request_on_registration")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "email", property = "email"),
+            @Result(column = "hash", property = "hash")
+    })
+    List<RequestOnRegistration> findAllRequestsOnRegistration();
+
+    @Select("SELECT id, email, hash FROM request_on_registration " +
             "WHERE id=#{requestId}")
-    void removeRequestOnRegistrationById(@Param("requestId") final int requestId);
+    @Results ({
+            @Result(column = "id", property = "id"),
+            @Result(column = "email", property = "email"),
+            @Result(column = "hash", property = "hash")
+    })
+    RequestOnRegistration findRequestById(@Param("requestId") final int requestId);
 
+    @Select("SELECT id, email, hash FROM request_on_registration " +
+            "WHERE email=#{email}")
+    @Results ({
+            @Result(column = "id", property = "id"),
+            @Result(column = "email", property = "email"),
+            @Result(column = "hash", property = "hash")
+    })
+    RequestOnRegistration findRequestByEmail(@Param("email") final String email);
 
-    @Delete("DELETE FROM request_on_registration " +
+    @Select("SELECT id, email, hash FROM request_on_registration " +
             "WHERE hash=#{hash}")
-    void removeRequestOnRegistrationByHash(@Param("hash") final String hash);
+    @Results ({
+            @Result(column = "id", property = "id"),
+            @Result(column = "email", property = "email"),
+            @Result(column = "hash", property = "hash")
+    })
+    RequestOnRegistration findRequestByHash(@Param("hash") final String hash);
+
 
     @Insert("INSERT INTO request_on_registration (email) " +
             "VALUES (#{email})")
@@ -25,35 +52,12 @@ public interface RequestOnRegistrationMapper {
     void saveHash(@Param("hash") final String hash,
                   @Param("id") final int id);
 
-    @Select("SELECT id, email, hash FROM request_on_registration")
-    @Results({
-            @Result(column = "id", property = "id"),
-            @Result(column = "email", property = "email"),
-            @Result(column = "hash", property = "hash")
-    })
-    List<RequestOnRegistration> findAllRequestsOnRegistration();
 
-    @Select("SELECT id, email, hash FROM request_on_registration WHERE id=#{requestId}")
-    @Results ({
-            @Result(column = "id", property = "id"),
-            @Result(column = "email", property = "email"),
-            @Result(column = "hash", property = "hash")
-    })
-    RequestOnRegistration findRequestById(@Param("requestId") final int requestId);
+    @Delete("DELETE FROM request_on_registration " +
+            "WHERE id=#{requestId}")
+    void removeRequestOnRegistrationById(@Param("requestId") final int requestId);
 
-    @Select("SELECT id, email, hash FROM request_on_registration WHERE email=#{email}")
-    @Results ({
-            @Result(column = "id", property = "id"),
-            @Result(column = "email", property = "email"),
-            @Result(column = "hash", property = "hash")
-    })
-    RequestOnRegistration findRequestByEmail(@Param("email") final String email);
-
-    @Select("SELECT id, email, hash FROM request_on_registration WHERE hash=#{hash}")
-    @Results ({
-            @Result(column = "id", property = "id"),
-            @Result(column = "email", property = "email"),
-            @Result(column = "hash", property = "hash")
-    })
-    RequestOnRegistration findRequestByHash(@Param("hash") final String hash);
+    @Delete("DELETE FROM request_on_registration " +
+            "WHERE hash=#{hash}")
+    void removeRequestOnRegistrationByHash(@Param("hash") final String hash);
 }

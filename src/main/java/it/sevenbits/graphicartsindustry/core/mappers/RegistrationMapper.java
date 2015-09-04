@@ -1,60 +1,19 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
-import it.sevenbits.graphicartsindustry.core.domain.RegistrationBasic;
-import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.Select;
 
 public interface RegistrationMapper {
 
+//    @Select("SELECT id, name FROM polygraphy AS p " +
+//            "WHERE name=#{name}")
+//    @Result(column = "id")
+//    int findPolygraphyId(@Param("name") final String name);
+
+
+    //User
     @Select("SELECT email FROM users WHERE email=#{email}")
     @Result (column = "email")
     String findUserByEmail(@Param("email") final String email);
-
-    @Select("SELECT id, name FROM polygraphy AS p " +
-            "WHERE name=#{name}")
-    @Result(column = "id")
-    int findPolygraphyId(@Param("name") final String name);
-
-    @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email, info, user_id) " +
-            "VALUES (#{name}, #{check}, #{order}, #{info}, #{userId})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    void savePolygraphyBasic(final RegistrationBasic registrationBasic);
-
-    @Insert("INSERT INTO contact(polygraphy_id, address, email, website, phone) " +
-            "VALUES (#{polygraphyId}, #{address}, #{email}, #{website}, #{phone})")
-    void savePolygraphyContacts(@Param("polygraphyId") int polygraphyId,
-                                @Param("address") final String address,
-                                @Param("email") final String email,
-                                @Param("website") final String website,
-                                @Param("phone") final String phone);
-
-    @Insert("INSERT INTO polygraphies_payment_methods (polygraphy_id, payment_method_id) " +
-            "VALUES (#{polygraphyId}, #{paymentId})")
-    void savePolygraphyPaymentMethod(@Param("polygraphyId") int polygraphyId,
-                                     @Param("paymentId") int paymentId);
-
-    @Insert("INSERT INTO polygraphies_delivery_methods(polygraphy_id, delivery_method_id) " +
-            "VALUES (#{polygraphyId}, #{deliveryId})")
-    void savePolygraphyDeliveryMethod(@Param("polygraphyId") int polygraphyId,
-                                      @Param("deliveryId") int deliveryId);
-
-    @Insert("INSERT INTO polygraphies_services(polygraphy_id, service_id) " +
-            "VALUES (#{polygraphyId}, #{serviceId})")
-    void savePolygraphyService(@Param("polygraphyId") int polygraphyId,
-                               @Param("serviceId") int serviceId);
-
-
-    @Delete("DELETE FROM polygraphy WHERE id=#{polygraphyId}")
-    void deletePolygraphyBasic(int polygraphyId);
-
-    @Delete("DELETE FROM contact WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyContacts(int polygraphyId);
-
-    @Delete("DELETE FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyPaymentMethods(int polygraphyId);
-
-    @Delete("DELETE FROM polygraphies_delivery_methods WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyDeliveryMethods(int polygraphyId);
-
-    @Delete("DELETE FROM polygraphies_services WHERE polygraphy_id=#{polygraphyId}")
-    void deletePolygraphyServices(int polygraphyId);
 }

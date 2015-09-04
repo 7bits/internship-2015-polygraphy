@@ -1,9 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
-import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
+import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
+import it.sevenbits.graphicartsindustry.core.repository.*;
 import it.sevenbits.graphicartsindustry.web.domain.admin.PolygraphyAdminModel;
 import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.utils.UrlResolver;
@@ -17,10 +16,19 @@ import java.util.List;
 public class AdminService {
 
     @Autowired
-    private RequestOnRegistrationRepository requestOnRegistrationRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private PolygraphyRepository polygraphyRepository;
+
+    @Autowired
+    private PolygraphyContactRepository polygraphyContactRepository;
+
+    @Autowired
+    private PolygraphyServicesRepository polygraphyServicesRepository;
+
+    @Autowired
+    private RequestOnRegistrationRepository requestOnRegistrationRepository;
 
     @Autowired
     private UrlResolver urlResolver;
@@ -35,7 +43,18 @@ public class AdminService {
 
     public void removePolygraphy(int polygraphyId) throws ServiceException {
         try {
-            polygraphyRepository.removePolygraphy(polygraphyId);
+            polygraphyServicesRepository.removePolygraphyPaymentMethods(polygraphyId);
+            polygraphyServicesRepository.removePolygraphyDeliveryMethods(polygraphyId);
+            polygraphyServicesRepository.removePolygraphyServices(polygraphyId);
+
+            polygraphyContactRepository.removePolygraphyContacts(polygraphyId);
+
+            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
+
+            polygraphyRepository.deletePolygraphy(polygraphyId);
+
+            if (userId != null)
+                userRepository.deleteUser(userId);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while removing polygraphy ");
         }
@@ -43,9 +62,9 @@ public class AdminService {
 
     public List<PolygraphyAdminModel> showAllPolygraphy() throws ServiceException {
         try {
-            List<Polygraphy> polygraphies = polygraphyRepository.findAllPolygraphies();
+            List<PolygraphyContacts> polygraphies = polygraphyRepository.findAllPolygraphies();
             List<PolygraphyAdminModel> models = new ArrayList<>(polygraphies.size());
-            for (Polygraphy p: polygraphies) {
+            for (PolygraphyContacts p: polygraphies) {
                 models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail(), p.isDisplayed()));
             }
             return models;

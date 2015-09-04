@@ -3,9 +3,7 @@ package it.sevenbits.graphicartsindustry.web.service.registration;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.repository.RegistrationRepository;
-import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
-import it.sevenbits.graphicartsindustry.web.domain.content.PolygraphyFullModel;
+import it.sevenbits.graphicartsindustry.core.repository.*;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
@@ -19,50 +17,61 @@ public class RegistrationService {
     private UserRepository userRepository;
 
     @Autowired
-    private RegistrationRepository registrationRepository;
+    private PolygraphyRepository polygraphyRepository;
 
-    public PolygraphyFullModel saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
+    @Autowired
+    private PolygraphyContactRepository polygraphyContactRepository;
+
+    @Autowired
+    private PolygraphyServicesRepository polygraphyServicesRepository;
+
+    public void saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
             throws ServiceException {
         try {
             User user = userRepository.createUser(firstForm.getEmail(), firstForm.getPassword(),
                     Role.ROLE_POLYGRAPHY);
 
-            Polygraphy polygraphy = registrationRepository.createPolygraphy(firstForm.getName(), firstForm.getAddress(),
-                    firstForm.getPhone(), firstForm.getPublicEmail(), secondForm.getOrderByEmail(),
-                    firstForm.getWebsite(), firstForm.getInfo(), secondForm.getPaymentMethods(),
-                    secondForm.getWritesTheCheck(), secondForm.getDeliveryMethods(),
-                    secondForm.getServices(), user.getId());
+            Polygraphy polygraphy = new Polygraphy(null, firstForm.getName(), secondForm.getWritesTheCheck(),
+                    secondForm.getOrderByEmail(), firstForm.getInfo(), user.getId());
+            polygraphyRepository.createPolygraphy(polygraphy);
 
-            PolygraphyFullModel models = new PolygraphyFullModel(polygraphy.getId(), polygraphy.getName(),
-                    polygraphy.getAddress(), polygraphy.getPhone(), polygraphy.getEmail(), polygraphy.getWebsite(),
-                    polygraphy.getInfo());
+            int polygraphyId = polygraphy.getId();
 
-            return models;
+            polygraphyContactRepository.createPolygraphyContacts(polygraphyId, firstForm.getAddress(), firstForm.getPhone(),
+                    firstForm.getPublicEmail(), firstForm.getWebsite());
+
+
+            for (Integer p : secondForm.getPaymentMethods()) {
+                if (p != null)
+                    polygraphyServicesRepository.createPolygraphyPaymentMethod(polygraphyId, p);
+            }
+
+            for (Integer d : secondForm.getDeliveryMethods()) {
+                if (d != null)
+                    polygraphyServicesRepository.createPolygraphyDeliveryMethod(polygraphyId, d);
+            }
+
+            for (Integer s : secondForm.getServices()) {
+                if (s != null)
+                    polygraphyServicesRepository.createPolygraphyService(polygraphyId, s);
+            }
+
         } catch (Exception e) {
         throw new ServiceException("An error occurred while saving registration form polygraphy "
                 + e.getMessage(), e);
         }
     }
 
-//    public void deleteAll (int polygraphyId) throws ServiceException {
-//        try {
-//            registrationRepository.deletePolygraphy(polygraphyId);
-//        } catch (Exception e) {
-//            throw new ServiceException("An error occurred while deleting polygraphy "
-//                    + e.getMessage(), e);
-//        }
-//        return;
-//    }
 
-    public boolean isRegistrated (String email) throws ServiceException {
-        try {
-            String returnedEmail = registrationRepository.findUserByEmail(email);
-            if (returnedEmail!=null)
-                return true;
-            else
-                return false;
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while finding email in users");
-        }
-    }
+//    public boolean isRegistrated (String email) throws ServiceException {
+//        try {
+//            String returnedEmail = registrationRepository.findUserByEmail(email);
+//            if (returnedEmail!=null)
+//                return true;
+//            else
+//                return false;
+//        } catch (Exception e) {
+//            throw new ServiceException("An error occurred while finding email in users");
+//        }
+//    }
 }

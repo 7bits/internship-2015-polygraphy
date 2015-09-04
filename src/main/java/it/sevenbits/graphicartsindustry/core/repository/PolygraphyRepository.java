@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
+import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
 import it.sevenbits.graphicartsindustry.core.mappers.UserMapper;
 import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
@@ -23,7 +24,7 @@ public class PolygraphyRepository {
     @Autowired
     private UserMapper userMapper;
 
-    public List<Polygraphy> findPolygraphies(SearchForm query) throws RepositoryException {
+    public List<PolygraphyContacts> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
             String symbolIsBanned = "'";
             String processedQuery = query.getQuery().replaceAll(symbolIsBanned,"");
@@ -35,7 +36,7 @@ public class PolygraphyRepository {
         }
     }
 
-    public List<Polygraphy> findAllPolygraphies() throws RepositoryException {
+    public List<PolygraphyContacts> findAllPolygraphies() throws RepositoryException {
         try {
             return polygraphyMapper.findAllPolygraphies();
         } catch (Exception e) {
@@ -44,7 +45,7 @@ public class PolygraphyRepository {
         }
     }
 
-    public List<Polygraphy> findAllPolygraphiesDisplayed(int limit) throws RepositoryException {
+    public List<PolygraphyContacts> findAllPolygraphiesDisplayed(int limit) throws RepositoryException {
         try {
             return polygraphyMapper.findAllPolygraphiesDisplayed(limit);
         } catch (Exception e) {
@@ -52,7 +53,7 @@ public class PolygraphyRepository {
         }
     }
 
-    public Polygraphy findPolygraphy(int id) throws RepositoryException {
+    public PolygraphyContacts findPolygraphy(int id) throws RepositoryException {
         try {
             return polygraphyMapper.findPolygraphy(id);
         } catch (Exception e) {
@@ -61,7 +62,7 @@ public class PolygraphyRepository {
         }
     }
 
-    public Polygraphy findPolygraphyDisplayed(int id) throws RepositoryException {
+    public PolygraphyContacts findPolygraphyDisplayed(int id) throws RepositoryException {
         try {
             return polygraphyMapper.findPolygraphyDisplayed(id);
         } catch (Exception e) {
@@ -92,7 +93,24 @@ public class PolygraphyRepository {
         }
     }
 
+    public Integer getUserIdByPolygraphyId(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving user id " +
+                    e.getMessage(), e);
+        }
+    }
 
+
+    public void createPolygraphy(Polygraphy polygraphy) throws RepositoryException {
+        try {
+            polygraphyMapper.createPolygraphy(polygraphy);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while creating polygraphy " +
+                    e.getMessage(), e);
+        }
+    }
 
     public void changeConditionDisplayPolygraphy(int polygraphyId, boolean condition) throws RepositoryException {
         try {
@@ -150,57 +168,101 @@ public class PolygraphyRepository {
         }
     }
 
-
-
-    public void saveEditingPolygraphy(int polygraphyId, String name, String address, String phone,
-                                      String publicEmail, String website, String info,
-                                      Boolean orderByEmail, List<Integer> paymentMethods,
-                                      Boolean writesTheCheck, List<Integer> deliveryMethods,
-                                      List<Integer> services) throws RepositoryException {
+    public void editPolygraphyName(int polygraphyId, String name) throws RepositoryException {
         try {
             polygraphyMapper.updatePolygraphyName(polygraphyId, name);
-            polygraphyMapper.updateContactAddress(polygraphyId, address);
-            polygraphyMapper.updateContactPhone(polygraphyId, phone);
-            polygraphyMapper.updateContactEmail(polygraphyId, publicEmail);
-            polygraphyMapper.updateContactWebsite(polygraphyId, website);
-            polygraphyMapper.updatePolygraphyInfo(polygraphyId, info);
-            polygraphyMapper.updatePolygraphyOrderByEmail(polygraphyId, orderByEmail);
-
-            polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
-            for (Integer p: paymentMethods) {
-                polygraphyMapper.insertPaymentMethod(polygraphyId, p);
-            }
-
-            polygraphyMapper.updatePolygraphyWritesTheCheck(polygraphyId, writesTheCheck);
-
-            polygraphyMapper.deletePolygraphyDeliveryMethods(polygraphyId);
-            for (Integer d: deliveryMethods) {
-                polygraphyMapper.insertDeliveryMethod(polygraphyId, d);
-            }
-
-            polygraphyMapper.deletePolygraphyServices(polygraphyId);
-            for (Integer s: services) {
-                polygraphyMapper.insertService(polygraphyId, s);
-            }
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while saving editing information about polygraphy "
-                    + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while editing polygraphy name " +
+                    e.getMessage(), e);
         }
     }
 
-    public void removePolygraphy(int polygraphyId) throws RepositoryException {
+    public void editPolygraphyInfo(int polygraphyId, String info) throws RepositoryException {
         try {
-            polygraphyMapper.deletePolygraphyServices(polygraphyId);
-            polygraphyMapper.deletePolygraphyDeliveryMethods(polygraphyId);
-            polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
-            polygraphyMapper.deletePolygraphyContacts(polygraphyId);
-            Integer userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
-            polygraphyMapper.deletePolygraphyBasic(polygraphyId);
-            if (userId != null)
-                userMapper.deleteUser(userId);
+            polygraphyMapper.updatePolygraphyInfo(polygraphyId, info);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while removing polygraphy "
-                    + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while editing polygraphy info " +
+                    e.getMessage(), e);
         }
     }
+
+    public void editPolygraphyOrderByEmail(int polygraphyId, boolean orderByEmail) throws RepositoryException {
+        try {
+            polygraphyMapper.updatePolygraphyOrderByEmail(polygraphyId, orderByEmail);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while editing polygraphy order by email " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public void editPolygraphyWritesTheCheck(int polygraphyId, boolean writesTheCheck) throws RepositoryException {
+        try {
+            polygraphyMapper.updatePolygraphyOrderByEmail(polygraphyId, writesTheCheck);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while editing polygraphy writes the check " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public void deletePolygraphy(int polygraphyId) throws RepositoryException {
+        try {
+            polygraphyMapper.deletePolygraphy(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while removing polygraphy " +
+                    e.getMessage(), e);
+        }
+    }
+
+
+//    public void saveEditingPolygraphy(int polygraphyId, String name, String address, String phone,
+//                                      String publicEmail, String website, String info,
+//                                      Boolean orderByEmail, List<Integer> paymentMethods,
+//                                      Boolean writesTheCheck, List<Integer> deliveryMethods,
+//                                      List<Integer> services) throws RepositoryException {
+//        try {
+//            polygraphyMapper.updatePolygraphyName(polygraphyId, name);
+//            polygraphyMapper.updateContactAddress(polygraphyId, address);
+//            polygraphyMapper.updateContactPhone(polygraphyId, phone);
+//            polygraphyMapper.updateContactEmail(polygraphyId, publicEmail);
+//            polygraphyMapper.updateContactWebsite(polygraphyId, website);
+//            polygraphyMapper.updatePolygraphyInfo(polygraphyId, info);
+//            polygraphyMapper.updatePolygraphyOrderByEmail(polygraphyId, orderByEmail);
+//
+//            polygraphyMapper.deletePolygraphyPaymentMethods(polygraphyId);
+//            for (Integer p: paymentMethods) {
+//                polygraphyMapper.insertPaymentMethod(polygraphyId, p);
+//            }
+//
+//            polygraphyMapper.updatePolygraphyWritesTheCheck(polygraphyId, writesTheCheck);
+//
+//            polygraphyMapper.deletePolygraphyDeliveryMethods(polygraphyId);
+//            for (Integer d: deliveryMethods) {
+//                polygraphyMapper.insertDeliveryMethod(polygraphyId, d);
+//            }
+//
+//            polygraphyMapper.deletePolygraphyServices(polygraphyId);
+//            for (Integer s: services) {
+//                polygraphyMapper.insertService(polygraphyId, s);
+//            }
+//        } catch (Exception e) {
+//            throw new RepositoryException("An error occurred while saving editing information about polygraphy "
+//                    + e.getMessage(), e);
+//        }
+//    }
+
+//    public void removePolygraphy(int polygraphyId) throws RepositoryException {
+//        try {
+//            polygraphyMapper.removePolygraphyServices(polygraphyId);
+//            polygraphyMapper.removePolygraphyDeliveryMethods(polygraphyId);
+//            polygraphyMapper.removePolygraphyPaymentMethods(polygraphyId);
+//            polygraphyMapper.removePolygraphyContacts(polygraphyId);
+//            Integer userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
+//            polygraphyMapper.deletePolygraphy(polygraphyId);
+//            if (userId != null)
+//                userMapper.deleteUser(userId);
+//        } catch (Exception e) {
+//            throw new RepositoryException("An error occurred while removing polygraphy "
+//                    + e.getMessage(), e);
+//        }
+//    }
 }

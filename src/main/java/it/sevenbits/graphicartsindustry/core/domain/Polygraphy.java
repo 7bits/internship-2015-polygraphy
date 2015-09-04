@@ -1,21 +1,36 @@
 package it.sevenbits.graphicartsindustry.core.domain;
 
 public class Polygraphy {
-    private int id;
+    private Integer id;
     private String name;
-    private String address;
-    private String phone;
-    private String email;
-    private String website;
+    private Boolean check;
+    private Boolean order;
     private String info;
-    private boolean displayed;
+    private int userId;
 
-    public int getId() {
+    public Polygraphy(Integer id, String name, Boolean check, Boolean order, String info, int userId) {
+        this.id = id;
+        this.name = name;
+        this.check = check;
+        this.order = order;
+        this.info = info;
+        this.userId = userId;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Boolean getCheck() {
+        return check;
+    }
+
+    public void setCheck(Boolean check) {
+        this.check = check;
     }
 
     public String getName() {
@@ -26,36 +41,12 @@ public class Polygraphy {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
+    public Boolean getOrder() {
+        return order;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getWebsite() {
-        return website;
-    }
-
-    public void setWebsite(String website) {
-        this.website = website;
+    public void setOrder(Boolean order) {
+        this.order = order;
     }
 
     public String getInfo() {
@@ -66,11 +57,11 @@ public class Polygraphy {
         this.info = info;
     }
 
-    public boolean isDisplayed() {
-        return displayed;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setDisplayed(boolean displayed) {
-        this.displayed = displayed;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

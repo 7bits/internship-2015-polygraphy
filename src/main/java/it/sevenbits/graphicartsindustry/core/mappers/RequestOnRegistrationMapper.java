@@ -45,12 +45,14 @@ public interface RequestOnRegistrationMapper {
 
     @Insert("INSERT INTO request_on_registration (email) " +
             "VALUES (#{email})")
-    void saveRequestOnRegistration(@Param(value = "email") final String email);
+    void insertRequestOnRegistration(@Param(value = "email") final String email);
 
-    @Insert("UPDATE request_on_registration SET hash=#{hash} " +
+
+    @Update("UPDATE request_on_registration " +
+            "SET hash=#{hash} " +
             "WHERE id=#{id}")
-    void saveHash(@Param(value = "hash") final String hash,
-                  @Param(value = "id") final int id);
+    void updateHash(@Param(value = "hash") final String hash,
+                    @Param(value = "id") final int id);
 
 
     @Delete("DELETE FROM request_on_registration " +

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 @Qualifier(value = "polygraphyServicesRepository")
 public class PolygraphyServicesRepository {
@@ -14,6 +16,33 @@ public class PolygraphyServicesRepository {
 
     @Autowired
     private PolygraphyServicesMapper polygraphyServicesMapper;
+
+    public List<Integer> findPolygraphyPaymentMethods(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyServicesMapper.findPolygraphyPaymentMethods(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy payment methods " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public List<Integer> findPolygraphyDeliveryMethods(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyServicesMapper.findPolygraphyDeliveryMethods(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy delivery methods " +
+                    e.getMessage(), e);
+        }
+    }
+
+    public List<Integer> findPolygraphyServices(int polygraphyId) throws RepositoryException {
+        try {
+            return polygraphyServicesMapper.findPolygraphyServices(polygraphyId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while retrieving polygraphy services " +
+                    e.getMessage(), e);
+        }
+    }
 
     public void createPolygraphyPaymentMethod(int polygraphyId, int paymentMethodId) throws RepositoryException {
         try {

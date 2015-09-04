@@ -1,9 +1,9 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
 import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class CommonFieldValidator {
     private PolygraphyRepository polygraphyRepository;
 
     @Autowired
-    private RegistrationService registrationService;
+    private PolygraphyContactRepository polygraphyContactRepository;
 
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
@@ -140,7 +140,7 @@ public class CommonFieldValidator {
             if (!userRepository.findUserByPolygraphyId(valueId).getUsername().equals(value) ||
                     polygraphyRepository.findPolygraphy(valueId).getEmail().equals(value))
                 if (userRepository.findUserByUsername(value) != null ||
-                        polygraphyRepository.getPolygraphyPublicEmail(value) != null) {
+                        polygraphyContactRepository.getPolygraphyPublicEmail(value) != null) {
                     errors.put(field, key);
             }
         }
@@ -159,7 +159,7 @@ public class CommonFieldValidator {
                               final String key) throws RepositoryException {
         if (value != null && !errors.containsKey(field)) {
             if (userRepository.findUserByUsername(value) != null ||
-                    polygraphyRepository.getPolygraphyPublicEmail(value) != null) {
+                    polygraphyContactRepository.getPolygraphyPublicEmail(value) != null) {
                 errors.put(field, key);
             }
         }

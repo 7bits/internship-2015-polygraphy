@@ -1,10 +1,26 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 public interface PolygraphyServicesMapper {
+
+    @Select("SELECT payment_method_id FROM polygraphies_payment_methods " +
+            "WHERE polygraphy_id=#{polygraphyId}")
+    @Result(column = "payment_method_id")
+    List<Integer> findPolygraphyPaymentMethods(@Param(value = "polygraphyId") final int polygraphyId);
+
+    @Select("SELECT delivery_method_id FROM polygraphies_delivery_methods " +
+            "WHERE polygraphy_id=#{polygraphyId}")
+    @Result(column = "delivery_method_id")
+    List<Integer> findPolygraphyDeliveryMethods(@Param(value = "polygraphyId") final int polygraphyId);
+
+    @Select("SELECT service_id FROM polygraphies_services " +
+            "WHERE polygraphy_id=#{polygraphyId}")
+    @Result(column = "service_id")
+    List<Integer> findPolygraphyServices(@Param(value = "polygraphyId") final int polygraphyId);
+
 
     @Insert("INSERT INTO polygraphies_payment_methods(polygraphy_id, payment_method_id) " +
             "VALUES (#{polygraphyId}, #{paymentMethodId})")

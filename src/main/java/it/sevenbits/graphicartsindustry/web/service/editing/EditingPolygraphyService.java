@@ -31,10 +31,10 @@ public class EditingPolygraphyService {
                     polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
                     polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
                     polygraphyRepository.isOrderByEmail(polygraphyId),
-                    polygraphyRepository.findPolygraphyPaymentMethods(polygraphyId),
+                    polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
                     polygraphyRepository.isWritesTheCheck(polygraphyId),
-                    polygraphyRepository.findPolygraphyDeliveryMethods(polygraphyId),
-                    polygraphyRepository.findPolygraphyServices(polygraphyId));
+                    polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                    polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving full information " +
@@ -51,10 +51,10 @@ public class EditingPolygraphyService {
                     polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
                     polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
                     polygraphyRepository.isOrderByEmail(polygraphyId),
-                    polygraphyRepository.findPolygraphyPaymentMethods(polygraphyId),
+                    polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
                     polygraphyRepository.isWritesTheCheck(polygraphyId),
-                    polygraphyRepository.findPolygraphyDeliveryMethods(polygraphyId),
-                    polygraphyRepository.findPolygraphyServices(polygraphyId));
+                    polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                    polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving full information " +

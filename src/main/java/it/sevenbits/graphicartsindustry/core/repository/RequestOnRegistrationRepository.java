@@ -64,7 +64,7 @@ public class RequestOnRegistrationRepository {
             throw new RepositoryException("Email is null");
         }
         try {
-            requestOnRegistrationMapper.saveRequestOnRegistration(email);
+            requestOnRegistrationMapper.insertRequestOnRegistration(email);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while saving request on registration "
                     + e.getMessage(), e);
@@ -76,7 +76,7 @@ public class RequestOnRegistrationRepository {
             throw new RepositoryException("Hash is null");
         }
         try {
-            requestOnRegistrationMapper.saveHash(hash, id);
+            requestOnRegistrationMapper.updateHash(hash, id);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while saving hash registration link in request "
                     + e.getMessage(), e);

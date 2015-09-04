@@ -16,7 +16,7 @@ public interface UserMapper {
             @Result(column = "enabled", property = "enabled"),
             @Result(column = "role", property = "role", javaType = Role.class)
     })
-    User findUserById(@Param("id") final int id);
+    User findUserById(@Param(value = "id") final int id);
 
     @Select("SELECT id, email, password_hash, enabled, role " +
             "FROM users " +
@@ -28,7 +28,13 @@ public interface UserMapper {
             @Result(column = "enabled", property = "enabled"),
             @Result(column = "role", property = "role", javaType = Role.class)
     })
-    User findUserByUsername(@Param("userName") final String userName);
+    User findUserByUsername(@Param(value = "userName") final String userName);
+
+
+    @Insert("INSERT INTO users (email, password_hash, role, enabled) " +
+            "VALUES (#{email}, #{password}, #{role}, #{enabled})")
+    @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
+    void insertUser(final User user);
 
 
     @Update("UPDATE users " +
@@ -41,13 +47,8 @@ public interface UserMapper {
             "SET password_hash=#{password} " +
             "WHERE id=#{userId}")
     void updatePassword(@Param(value = "userId") final int userId,
-                     @Param(value = "password") final String password);
+                        @Param(value = "password") final String password);
 
-
-    @Insert("INSERT INTO users (email, password_hash, role, enabled) " +
-            "VALUES (#{email}, #{password}, #{role}, #{enabled})")
-    @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
-    void saveUser(final User user);
 
     @Delete("DELETE FROM users " +
             "WHERE id=#{userId}")

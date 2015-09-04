@@ -9,7 +9,6 @@ import java.util.List;
 
 public interface PolygraphyMapper {
 
-    //PolygraphyContacts
     @SelectProvider(type = PolygraphyProvider.class, method = "findPolygraphies")
     @Results({
             @Result(column = "polygraphy_id", property = "id"),
@@ -22,11 +21,11 @@ public interface PolygraphyMapper {
             @Result(column = "displayed", property = "displayed")
     })
     List<PolygraphyContacts> findPolygraphies(@Param(value = "query") final String query,
-                                      @Param(value = "services") final List<Integer> services,
-                                      @Param(value = "payment") final int payment_id,
-                                      @Param(value = "check") final boolean check,
-                                      @Param(value = "delivery") final int delivery_id,
-                                      @Param(value = "order") final boolean order);
+                                              @Param(value = "services") final List<Integer> services,
+                                              @Param(value = "payment") final int payment_id,
+                                              @Param(value = "check") final boolean check,
+                                              @Param(value = "delivery") final int delivery_id,
+                                              @Param(value = "order") final boolean order);
 
     @Select("SELECT id, name, email, displayed FROM polygraphy AS p " +
             "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
@@ -82,22 +81,15 @@ public interface PolygraphyMapper {
     })
     PolygraphyContacts findPolygraphyDisplayed(@Param(value = "id") final int id);
 
-
     @Select("SELECT id FROM polygraphy " +
             "WHERE user_id=#{userId}")
     @Result(column = "id")
-    Integer getPolygraphyIdByUserId(@Param(value = "userId") final int userId);
+    Integer findPolygraphyIdByUserId(@Param(value = "userId") final int userId);
 
     @Select("SELECT user_id FROM polygraphy " +
             "WHERE id=#{polygraphyId}")
     @Result(column = "user_id")
-    Integer getUserIdByPolygraphyId(@Param(value = "polygraphyId") final int polygraphyId);
-
-
-    @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email, info, user_id) " +
-            "VALUES (#{name}, #{check}, #{order}, #{info}, #{userId})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-    void createPolygraphy(final Polygraphy polygraphy);
+    Integer findUserIdByPolygraphyId(@Param(value = "polygraphyId") final int polygraphyId);
 
 
     @Select("SELECT writes_the_check FROM polygraphy WHERE id=#{polygraphyId}")
@@ -109,11 +101,10 @@ public interface PolygraphyMapper {
     Boolean isOrderByEmail(@Param(value = "polygraphyId") final int polygraphyId);
 
 
-    @Update("UPDATE polygraphy " +
-            "SET displayed=#{condition} " +
-            "WHERE id=#{polygraphyId}")
-    void updateConditionDisplayPolygraphy(@Param(value = "polygraphyId") int polygraphyId,
-                                          @Param(value = "condition") boolean condition);
+    @Insert("INSERT INTO polygraphy (name, writes_the_check, order_by_email, info, user_id) " +
+            "VALUES (#{name}, #{check}, #{order}, #{info}, #{userId})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    void createPolygraphy(final Polygraphy polygraphy);
 
 
     @Update("UPDATE polygraphy " +
@@ -140,38 +131,13 @@ public interface PolygraphyMapper {
     void updatePolygraphyInfo(@Param(value = "id") final int polygraphyId,
                               @Param(value = "info") final String info);
 
+    @Update("UPDATE polygraphy " +
+            "SET displayed=#{condition} " +
+            "WHERE id=#{polygraphyId}")
+    void updateConditionDisplayPolygraphy(@Param(value = "polygraphyId") int polygraphyId,
+                                          @Param(value = "condition") boolean condition);
 
 
     @Delete("DELETE FROM polygraphy WHERE id=#{polygraphyId}")
-    void deletePolygraphy(@Param(value = "polygraphyId")final int polygraphyId);
-
-
-
-    //Contact
-    @Select("SELECT email FROM contact " +
-            "WHERE email=#{email}")
-    @Result(column = "user_id")
-    String getPolygraphyPublicEmail(@Param(value = "email") final String email);
-
-
-
-
-
-
-
-    //PSs
-    @Select("SELECT payment_method_id FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")
-    @Result(column = "payment_method_id")
-    List<Integer> findPolygraphyPaymentMethods(@Param(value = "polygraphyId") final int polygraphyId);
-
-    @Select("SELECT delivery_method_id FROM polygraphies_delivery_methods WHERE polygraphy_id=#{polygraphyId}")
-    @Result(column = "delivery_method_id")
-    List<Integer> findPolygraphyDeliveryMethods(@Param(value = "polygraphyId") final int polygraphyId);
-
-    @Select("SELECT service_id FROM polygraphies_services WHERE polygraphy_id=#{polygraphyId}")
-    @Result(column = "service_id")
-    List<Integer> findPolygraphyServices(@Param(value = "polygraphyId") final int polygraphyId);
-
-
-
+    void deletePolygraphy(@Param(value = "polygraphyId") final int polygraphyId);
 }

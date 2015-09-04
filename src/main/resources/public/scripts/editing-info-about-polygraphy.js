@@ -1,18 +1,22 @@
 
 var validateEditForm = function(){
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
+    var token = $("meta[name='_csrf']").attr('content');
+    var header = $("meta[name='_csrf_header']").attr('content');
     var headers = {};
     headers[header] = token;
 
     var url = $('form').attr('action');
+
+    CKEDITOR.instances['text-area-field'].updateElement();
+    var writesTheCheck = $('.js-wtc').prop('checked');
+    var orderByEmail = $('.js-obe').prop('checked');
 
     var names = {}
     $('.input-field').each(function(){
         names[$(this).attr('name')] = $(this).val();
         $(this).css('borderColor', 'white');
         $('.invalid').css('display', 'none');
-        $(".for-error").css('display', 'none');
+        $('.for-error').css('display', 'none');
         $('.invalid').text('');
     });
 
@@ -25,10 +29,6 @@ var validateEditForm = function(){
             value.push($(this).attr('value'));
         });
     });
-
-    var textArea = CKEDITOR.instances['text-area-field'].getData();
-    var writesTheCheck = $('.js-wtc').prop('checked');
-    var orderByEmail = $('.js-obe').prop('checked');
 
     $('.base-error').css('display', 'none');
     $('.base-error').text('');
@@ -48,7 +48,7 @@ var validateEditForm = function(){
                 'phone': names.phone,
                 'publicEmail': names.publicEmail,
                 'website': names.website,
-                'info': textArea,
+                'info': names.textArea,
                 'paymentMethods': checkboxes.paymentMethods,
                 'deliveryMethods': checkboxes.deliveryMethods,
                 'services': checkboxes.services,
@@ -61,21 +61,7 @@ var validateEditForm = function(){
                 window.location.href = '/success-editing';
             }
             else{
-                if (data.errors['base']){
-                    $('.base-error').css('display', 'block');
-                    $('.base-error').text(data.errors['base']);
-                }
-                else {
-                    $('.base-error').css('display', 'none');
-
-                    $.each(data.errors, function(key, value){
-                        $(".input-field[name="+key+"]").css('borderColor', '#FD5D58');
-                        $(".for-error#"+key+"-for-error").css('display', 'block');
-                        $(".invalid#"+key+"-error").css('display', 'block');
-                        $(".invalid#"+key+"-error").text(value);
-                    });
-
-                }
+                displayErrors(data);
             }
         }
     });

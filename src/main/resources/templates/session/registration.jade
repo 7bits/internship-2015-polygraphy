@@ -1,9 +1,10 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/registration.css")
+    link(rel='stylesheet', href='/stylesheets/registration.css')
     script(type='application/javascript', src='/scripts/step-by-step-registration.js')
     script(type='application/javascript', src='/scripts/registration.js')
+    script(type='application/javascript', src='/scripts/display-errors.js')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
@@ -14,50 +15,52 @@ block content
         form(id='registration-form')
             fieldset
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                input#hash(type='hidden', name='hash', value='#{hash}')
+                input.input-field#hash(type='hidden', name='hash', value='#{hash}')
                 .text-fields
-                    .field-email
-                        |E-mail для регистрации *
-                        .input-wrapper
-                            input.form-control#email-input(name='email', type='text')
-                            .for-error-email
-                            .invalid-email
-                    .field-password
-                        |Пароль *
-                        .input-wrapper
-                            input.form-control#password-input(name='password', type='password')
-                            .for-error-password
-                            .invalid-password
-                    .field-name
-                        | Название полиграфии *
-                        .input-wrapper
-                            input.form-control#name-input(name='name', type='text')
-                            .for-error-name
-                            .invalid-name
-                    .field-address
-                        | Адрес *
-                        .input-wrapper
-                            input.form-control#address-input(name='address', type='text')
-                            .for-error-address
-                            .invalid-address
-                    .field-phone
-                        | Телефон *
-                        .input-wrapper
-                            input.form-control#phone-input(name='phone', type='text')
-                            .for-error-phone
-                            .invalid-phone
-                    .field-public-email
-                        | Публичный e-mail
-                        .input-wrapper
-                            input.form-control#email-public-input(name='emailPublic', type='text')
-                            .for-error-public-email
-                            .invalid-public-email
-                    .field-site
-                        | Сайт
-                        input.form-control#website-input(name='website', type='text')
-                    .field-text-area
-                        | Описание
-                        textarea.form-control#text-area-field(name='textArea')
+                    .text-input-wrapper
+                        label.input-label
+                            |E-mail для регистрации *
+                        input.input-field#email-input(name='email', type='text')
+                        .for-error(id = 'email-for-error')
+                        .invalid(id = 'email-error')
+                    .text-input-wrapper
+                        label.input-label
+                            |Пароль *
+                        input.input-field#password-input(name='password', type='password')
+                        .for-error(id = 'password-for-error')
+                        .invalid(id='password-error')
+                    .text-input-wrapper
+                        label.input-label
+                            | Название полиграфии *
+                        input.input-field#name-input(name='name', type='text')
+                        .for-error(id='name-for-error')
+                        .invalid(id='name-error')
+                    .text-input-wrapper
+                        label.input-label
+                            | Адрес *
+                        input.input-field#address-input(name='address', type='text')
+                        .for-error(id='address-for-error')
+                        .invalid(id='address-error')
+                    .text-input-wrapper
+                        label.input-label
+                            | Телефон *
+                        input.input-field#phone-input(name='phone', type='text')
+                        .for-error(id='phone-for-error')
+                        .invalid(id='phone-error')
+                    .text-input-wrapper
+                        label.input-label
+                            | Публичный e-mail
+                        input.input-field#email-public-input(name='publicEmail', type='text')
+                        .for-error(id='publicEmail-for-error')
+                        .invalid(id='publicEmail-error')
+                    .text-input-wrapper
+                        label.input-label
+                            | Сайт
+                        input.input-field#website-input(name='website', type='text')
+                    .text-input-wrapper
+                        label.input-label
+                            | Описание
+                        textarea.input-field.textarea-field#text-area-field(name='textArea')
                         script.
                             CKEDITOR.replace('textArea')
                 .base-error
@@ -70,30 +73,33 @@ block content
                         input.js-wtc.checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
                         label(for='writesTheCheck') Выдаем чек
                     .field-payment
-                        | Принимаем оплату: *
+                        label.input-label
+                            | Принимаем оплату: *
                         .input-wrapper
                             for paymentMethod in paymentMethods
                                 .field-checkbox
                                     input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                                     label(for='payment'+paymentMethod.id)=paymentMethod.name
-                        .for-error-payment-method
-                        .invalid-payment-method
+                        .for-error(id='paymentMethods-for-error')
+                        .invalid(id='paymentMethods-error')
                     .field-delivery
-                        | Доставка готового заказа: *
+                        label.input-label
+                            | Доставка готового заказа: *
                         .input-wrapper
                             for deliveryMethod in deliveryMethods
                                 .field-checkbox
                                     input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                        .for-error-delivery-method
-                        .invalid-delivery-method
+                        .for-error(id='deliveryMethods-for-error')
+                        .invalid(id='deliveryMethods-error')
                     .field-services
-                        | Предоставляемые услуги: *
+                        label.input-label
+                            | Предоставляемые услуги: *
                         .input-wrapper
                             for service in services
                                 .field-checkbox
                                     input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                                     label(for='service'+service.id)=service.name
-                        .for-error-services
-                        .invalid-services
-                button.submit-registration-form(type="button", id="submit-registration-form") Сохранить данные
+                        .for-error(id='services-for-error')
+                        .invalid(id='services-error')
+                button.submit-registration-form(type='button', id='submit-registration-form') Сохранить данные

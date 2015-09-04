@@ -62,7 +62,7 @@ body{
     border: 2px solid #efe553;
 }
 
-.textarea-field{
+.input-field.textarea-field{
     border: 2px solid white;
     border-radius: 20px;
     box-sizing: border-box;

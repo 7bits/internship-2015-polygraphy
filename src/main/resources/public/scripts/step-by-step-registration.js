@@ -66,6 +66,7 @@
                 $('.invalid').text('');
 
                 CKEDITOR.instances['text-area-field'].updateElement();
+                var textArea = $('#text-area-field').val();
                 $('.base-error').css('display', 'none');
                 $('.base-error').text('');
 

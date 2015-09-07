@@ -6,38 +6,31 @@ var validateSecondStep = function(event){
     var headers = {};
     headers[header] = token;
 
-    /* Поля первого шага */
-    var hash = $("#hash").attr('value');
-    var email = $('#email-input').val();
-    var password = $('#password-input').val();
-    var name = $('#name-input').val();
-    var address = $('#address-input').val();
-    var phone = $('#phone-input').val();
-    var publicEmail = $('#email-public-input').val();
-    var website = $('#website-input').val();
-    var textArea = CKEDITOR.instances['text-area-field'].getData();
+    $('.input-field').css('borderColor', 'white');
+    $('.invalid').css('display', 'none');
+    $(".for-error").css('display', 'none');
+    $('.invalid').text('');
 
-    /* Поля второго шага*/
-    var paymentMethods = [];
-    $('.js-pm:checked').each(function(i){ paymentMethods.push($(this).attr('value')); });
-    var deliveryMethods = [];
-    $('.js-dm:checked').each(function(i){ deliveryMethods.push($(this).attr('value')); });
-    var services = [];
-    $('.js-s:checked').each(function(i){ services.push($(this).attr('value')); });
+    CKEDITOR.instances['text-area-field'].updateElement();
     var writesTheCheck = $('.js-wtc').prop('checked');
     var orderByEmail = $('.js-obe').prop('checked');
 
-    $('.invalid-payment-method').css('display', 'none');
-    $('.invalid-delivery-method').css('display', 'none');
-    $('.invalid-services').css('display', 'none');
+    /* Поля первого шага */
+    var names = {}
+    $('.input-field').each(function(){
+        names[$(this).attr('name')] = $(this).val();
+    });
 
-    $('.for-error-payment-method').css('display', 'none');
-    $('.for-error-delivery-method').css('display', 'none');
-    $('.for-error-services').css('display', 'none');
-
-    $('.invalid-payment-method').text('');
-    $('.invalid-delivery-method').text('');
-    $('.invalid-services').text('');
+    /* Поля второго шага */
+    var checkboxes = {}
+    $('.checkbox').each(function(){
+        checkboxes[$(this).attr('name')] = [];
+    });
+    $.each(checkboxes, function(key, value){
+        $('.checkbox[name='+key+']:checked').each(function(){
+            value.push($(this).attr('value'));
+        });
+    });
 
     $.ajax({
         type: 'POST',
@@ -47,20 +40,20 @@ var validateSecondStep = function(event){
         contentType: 'application/json',
         data: JSON.stringify({
             firstForm: {
-                'email': email,
-                'password': password,
-                'name': name,
-                'address': address,
-                'phone': phone,
-                'publicEmail': publicEmail,
-                'website': website,
+                'email': names.email,
+                'password': names.password,
+                'name': names.name,
+                'address': names.address,
+                'phone': names.phone,
+                'publicEmail': names.publicEmail,
+                'website': names.website,
                 'info': textArea,
-                'hash': hash
+                'hash': names.hash
             },
             secondForm: {
-                'paymentMethods': paymentMethods,
-                'deliveryMethods': deliveryMethods,
-                'services': services,
+                'paymentMethods': checkboxes.paymentMethods,
+                'deliveryMethods': checkboxes.deliveryMethods,
+                'services': checkboxes.services,
                 'writesTheCheck': writesTheCheck,
                 'orderByEmail': orderByEmail
             }
@@ -70,35 +63,7 @@ var validateSecondStep = function(event){
                 window.location.href = '/registration-success';
             }
             else{
-                if (data.errors['paymentMethods']){
-                    $('.for-error-payment-method').css('display', 'block');
-                    $('.invalid-payment-method').css('display', 'block');
-                    $('.invalid-payment-method').text(data.errors['paymentMethods']);
-                }
-                else {
-                    $('.for-error-payment-method').css('display', 'none');
-                    $('.invalid-payment-method').css('display', 'none');
-                };
-
-                if (data.errors['deliveryMethods']){
-                    $('.for-error-delivery-method').css('display', 'block');
-                    $('.invalid-delivery-method').css('display', 'block');
-                    $('.invalid-delivery-method').text(data.errors['deliveryMethods']);
-                }
-                else {
-                    $('.for-error-delivery-method').css('display', 'none');
-                    $('.invalid-delivery-method').css('display', 'none');
-                };
-
-                if (data.errors['services']){
-                    $('.for-error-services').css('display', 'block');
-                    $('.invalid-services').css('display', 'block');
-                    $('.invalid-services').text(data.errors['services']);
-                }
-                else {
-                    $('.for-error-services').css('display', 'none');
-                    $('.invalid-services').css('display', 'none');
-                };
+                displayErrors(data);
             }
         }
     });

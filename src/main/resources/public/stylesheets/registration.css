@@ -32,46 +32,53 @@ body{
     font-family: "OpenSansRegular";
 }
 
-.field-email, .field-password, .field-name, .field-address,
-.field-phone, .field-public-email, .field-site, .field-text-area{
+.text-input-wrapper{
     font-size: 16px;
     text-align: left;
     margin-bottom: 15px;
 }
 
-/*#email-public-input{
-    background: url("/images/question.png") no-repeat;
-    background-position: calc(100% - 15px) center;
-    background-color: white;
-    padding-right: 40px;
-    background-size: 20px 20px;
-}*/
-
-.field{
+.input-label{
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
 }
 
-.form-control{
-    height: 40px;
+.text-input-wrapper{
+    display: inline-block;
+    height: auto;
     width: 100%;
-    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.input-field{
     border: 2px solid white;
-    outline: none;
+    border-radius: 20px;
     box-sizing: border-box;
-    padding: 0 25px;
-    margin: 5px 0 0 0;
+    outline: none;
+    padding: 0 30px;
     font-size: 16px;
+    width: 100%;
+    height: 40px;
 }
 
-textarea#text-area-field{
-    height: 300px;
+.input-field:hover,
+.input-field:focus,
+.textarea-field:hover,
+.textarea-field:focus{
+    border: 2px solid #efe553;
+}
+
+.input-field.textarea-field{
+    border: 2px solid white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
     width: 100%;
+    height: 300px;
     padding: 25px;
     resize: none;
-}
-
-.form-control:hover,
-.form-control:focus{
-    border: 2px solid #efe553;
 }
 
 .field-checkbox{
@@ -217,22 +224,7 @@ fieldset {
     opacity: 1;
 }
 
-.input-wrapper{
-    position: relative;
-}
-
-
-.for-error-email, .for-error-password, .for-error-name,
-.for-error-address, .for-error-phone, .for-error-public-email, .for-error-site{
-    display: none;
-    height: 7px;
-    background-image: url("/images/for-error.png");
-    background-size: 13px 7px;
-    background-repeat: no-repeat;
-    background-position: calc(100% - 50px);
-}
-
-.for-error-payment-method, .for-error-delivery-method, .for-error-services{
+.for-error{
     display: none;
     height: 7px;
     background-image: url("/images/for-error.png");
@@ -241,19 +233,7 @@ fieldset {
     background-position: calc(0% + 50px);
 }
 
-.base-error, .invalid-email, .invalid-password, .invalid-name,
-.invalid-address, .invalid-phone, .invalid-public-email, .invalid-site{
-    display: none;
-    background-color: #FD5D58;
-    max-width: 80%;
-    float: right;
-    padding: 5px 15px;
-    border-radius: 25px;
-    font-size: 14px;
-    text-align: center;
-}
-
-.invalid-payment-method, .invalid-delivery-method, .invalid-services{
+.invalid{
     display: none;
     background-color: #FD5D58;
     max-width: 80%;
@@ -266,4 +246,11 @@ fieldset {
 
 .base-error{
     display: none;
+    background-color: #FD5D58;
+    max-width: 80%;
+    float: right;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-align: center;
 }

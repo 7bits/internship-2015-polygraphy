@@ -56,9 +56,9 @@ public class PolygraphyProvider {
         sqlQuery.append(" LEFT JOIN contact AS c ON p.id=c.polygraphy_id");
 
 
-        sqlQuery.append(" WHERE p.displayed=true AND");
+        sqlQuery.append(" WHERE p.displayed=true");
         if (!query.isEmpty()) {
-            sqlQuery.append(" LOWER(p.name) ILIKE '%" + query + "%'");
+            sqlQuery.append(" AND LOWER(p.name) ILIKE '%" + query + "%'");
             somethingBefore = true;
         }
 

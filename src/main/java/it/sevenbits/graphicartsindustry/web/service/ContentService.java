@@ -2,7 +2,7 @@ package it.sevenbits.graphicartsindustry.web.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
 import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
-import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
+import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.ContentRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.web.domain.content.DeliveryMethodModel;
@@ -54,7 +54,7 @@ public class ContentService {
 
     public List<PaymentMethodModel> findPaymentMethods() throws ServiceException {
         try {
-            List<PaymentMethod> paymentMethods = contentRepository.findPaymentMethods();
+            List<PaymentMethod> paymentMethods = contentRepository.findAllPaymentMethods();
             List<PaymentMethodModel> models = new ArrayList<>(paymentMethods.size());
             for (PaymentMethod p: paymentMethods) {
                 models.add(new PaymentMethodModel(p.getId(), p.getName()));
@@ -68,7 +68,7 @@ public class ContentService {
 
     public List<DeliveryMethodModel> findDeliveryMethods() throws ServiceException {
         try {
-            List<DeliveryMethod> deliveryMethods = contentRepository.findDeliveryMethods();
+            List<DeliveryMethod> deliveryMethods = contentRepository.findAllDeliveryMethods();
             List<DeliveryMethodModel> models = new ArrayList<>(deliveryMethods.size());
             for (DeliveryMethod d: deliveryMethods) {
                 models.add(new DeliveryMethodModel(d.getId(), d.getName()));
@@ -82,10 +82,10 @@ public class ContentService {
 
     public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
         try {
-            Polygraphy polygraphy = polygraphyRepository.findPolygraphyDisplayed(id);
-            PolygraphyFullModel models = new PolygraphyFullModel(polygraphy.getId(), polygraphy.getName(),
-                    polygraphy.getAddress(), polygraphy.getPhone(), polygraphy.getEmail(), polygraphy.getWebsite(),
-                    polygraphy.getInfo());
+            PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphyDisplayed(id);
+            PolygraphyFullModel models = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
+                    polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
+                    polygraphyContacts.getInfo());
             return models;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving full information " +

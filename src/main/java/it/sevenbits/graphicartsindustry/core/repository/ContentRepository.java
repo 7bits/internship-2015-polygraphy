@@ -24,7 +24,7 @@ public class ContentRepository {
         try {
             return mapper.findAllServices();
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving all services: "
+            throw new RepositoryException("An error occurred while retrieving all services "
                     + e.getMessage(), e);
         }
     }
@@ -33,25 +33,25 @@ public class ContentRepository {
         try {
             return mapper.findFrequentServices(limit);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving frequent services: "
+            throw new RepositoryException("An error occurred while retrieving frequent services "
                     + e.getMessage(), e);
         }
     }
 
-    public List<PaymentMethod> findPaymentMethods() throws RepositoryException {
+    public List<PaymentMethod> findAllPaymentMethods() throws RepositoryException {
         try {
-            return mapper.findPaymentMethods();
+            return mapper.findAllPaymentMethods();
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving payment methods: "
+            throw new RepositoryException("An error occurred while retrieving payment methods "
                     + e.getMessage(), e);
         }
     }
 
-    public List<DeliveryMethod> findDeliveryMethods() throws RepositoryException {
+    public List<DeliveryMethod> findAllDeliveryMethods() throws RepositoryException {
         try {
-            return mapper.findDeliveryMethods();
+            return mapper.findAllDeliveryMethods();
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving delivery methods: "
+            throw new RepositoryException("An error occurred while retrieving delivery methods "
                     + e.getMessage(), e);
         }
     }

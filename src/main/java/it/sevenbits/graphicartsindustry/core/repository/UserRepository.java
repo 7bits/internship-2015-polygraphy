@@ -67,7 +67,7 @@ public class UserRepository implements UserDetailsService {
     public User findUserByPolygraphyId(int polygraphyId) throws RepositoryException {
         Integer userId = null;
         try {
-            userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
+            userId = polygraphyMapper.findUserIdByPolygraphyId(polygraphyId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving userId by polygraphyId "
                     + e.getMessage(), e);
@@ -97,7 +97,7 @@ public class UserRepository implements UserDetailsService {
         user.setRole(role);
         user.setEnabled(true);
         try {
-            userMapper.saveUser(user);
+            userMapper.insertUser(user);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while creating user " + e.getMessage(), e);
         }
@@ -109,16 +109,25 @@ public class UserRepository implements UserDetailsService {
             throw new RepositoryException("Null user received");
         }
         try {
-            userMapper.saveUser(user);
+            userMapper.insertUser(user);
         } catch (Exception e) {
             throw new RepositoryException("General database error" + e.getMessage(), e);
+        }
+    }
+
+    public void deleteUser(int userId) throws RepositoryException {
+        try {
+            userMapper.deleteUser(userId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while removing user "
+                    + e.getMessage(), e);
         }
     }
 
     public void saveEditingUser(int polygraphyId, String email, String password) throws RepositoryException {
         Integer userId = null;
         try {
-            userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
+            userId = polygraphyMapper.findUserIdByPolygraphyId(polygraphyId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving userId by polygraphyId "
                     + e.getMessage(), e);

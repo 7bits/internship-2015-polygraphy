@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
-import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
+import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.web.domain.search.PolygraphyMinModel;
 import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
@@ -18,9 +18,9 @@ public class SearchService {
 
     public List<PolygraphyMinModel> findAllAllowedPolygraphy(int limit) throws ServiceException {
         try {
-            List<Polygraphy> polygraphies = polygraphyRepository.findAllPolygraphiesDisplayed(limit);
+            List<PolygraphyContacts> polygraphies = polygraphyRepository.findAllPolygraphiesDisplayed(limit);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
-            for (Polygraphy p: polygraphies) {
+            for (PolygraphyContacts p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;
@@ -31,9 +31,9 @@ public class SearchService {
 
     public List<PolygraphyMinModel> findPolygraphies(SearchForm query) throws ServiceException {
         try {
-            List<Polygraphy> polygraphies = polygraphyRepository.findPolygraphies(query);
+            List<PolygraphyContacts> polygraphies = polygraphyRepository.findPolygraphies(query);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
-            for (Polygraphy p: polygraphies) {
+            for (PolygraphyContacts p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;

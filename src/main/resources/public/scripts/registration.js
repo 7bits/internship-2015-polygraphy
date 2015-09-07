@@ -12,6 +12,7 @@ var validateSecondStep = function(event){
     $('.invalid').text('');
 
     CKEDITOR.instances['text-area-field'].updateElement();
+    var textArea = $('#text-area-field').val();
     var writesTheCheck = $('.js-wtc').prop('checked');
     var orderByEmail = $('.js-obe').prop('checked');
 

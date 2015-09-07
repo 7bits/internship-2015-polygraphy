@@ -71,11 +71,9 @@ public class PolygraphyRepository {
         }
     }
 
-
-
     public Integer getPolygraphyIdByUserId(int userId) throws RepositoryException {
         try {
-            return polygraphyMapper.findPolygraphyIdByUserId(userId);
+            return polygraphyMapper.getPolygraphyIdByUserId(userId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving polygraphy id " +
                     e.getMessage(), e);
@@ -84,13 +82,12 @@ public class PolygraphyRepository {
 
     public Integer getUserIdByPolygraphyId(int polygraphyId) throws RepositoryException {
         try {
-            return polygraphyMapper.findUserIdByPolygraphyId(polygraphyId);
+            return polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving user id " +
                     e.getMessage(), e);
         }
     }
-
 
     public void createPolygraphy(Polygraphy polygraphy) throws RepositoryException {
         try {
@@ -109,10 +106,6 @@ public class PolygraphyRepository {
                     e.getMessage(), e);
         }
     }
-
-
-
-
 
     public boolean isWritesTheCheck(int polygraphyId) throws RepositoryException {
         try {
@@ -220,7 +213,7 @@ public class PolygraphyRepository {
 //            polygraphyMapper.removePolygraphyDeliveryMethods(polygraphyId);
 //            polygraphyMapper.removePolygraphyPaymentMethods(polygraphyId);
 //            polygraphyMapper.removePolygraphyContacts(polygraphyId);
-//            Integer userId = polygraphyMapper.findUserIdByPolygraphyId(polygraphyId);
+//            Integer userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
 //            polygraphyMapper.deletePolygraphy(polygraphyId);
 //            if (userId != null)
 //                userMapper.deleteUser(userId);

@@ -15,11 +15,11 @@ public class PolygraphyContactRepository {
     @Autowired
     private PolygraphyContactMapper polygraphyContactMapper;
 
-    public String getPolygraphyPublicEmail(String email) throws RepositoryException {
+    public Integer getPolygraphyPublicEmail(String email) throws RepositoryException {
         try {
-            return polygraphyContactMapper.getEmail(email);
+            return polygraphyContactMapper.getPolygraphyIdByEmail(email);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving polygraphy public email " +
+            throw new RepositoryException("An error occurred while geting polygraphy id by public email " +
                     e.getMessage(), e);
         }
     }

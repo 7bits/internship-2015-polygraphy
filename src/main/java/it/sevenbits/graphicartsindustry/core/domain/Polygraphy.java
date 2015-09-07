@@ -6,9 +6,9 @@ public class Polygraphy {
     private Boolean check;
     private Boolean order;
     private String info;
-    private int userId;
+    private Integer userId;
 
-    public Polygraphy(Integer id, String name, Boolean check, Boolean order, String info, int userId) {
+    public Polygraphy(Integer id, String name, Boolean check, Boolean order, String info, Integer userId) {
         this.id = id;
         this.name = name;
         this.check = check;
@@ -57,11 +57,11 @@ public class Polygraphy {
         this.info = info;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 }

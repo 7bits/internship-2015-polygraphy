@@ -81,15 +81,16 @@ public interface PolygraphyMapper {
     })
     PolygraphyContacts findPolygraphyDisplayed(@Param(value = "id") final int id);
 
+
     @Select("SELECT id FROM polygraphy " +
             "WHERE user_id=#{userId}")
     @Result(column = "id")
-    Integer findPolygraphyIdByUserId(@Param(value = "userId") final int userId);
+    Integer getPolygraphyIdByUserId(@Param(value = "userId") final int userId);
 
     @Select("SELECT user_id FROM polygraphy " +
             "WHERE id=#{polygraphyId}")
     @Result(column = "user_id")
-    Integer findUserIdByPolygraphyId(@Param(value = "polygraphyId") final int polygraphyId);
+    Integer getUserIdByPolygraphyId(@Param(value = "polygraphyId") final int polygraphyId);
 
 
     @Select("SELECT writes_the_check FROM polygraphy WHERE id=#{polygraphyId}")

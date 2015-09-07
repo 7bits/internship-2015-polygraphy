@@ -67,7 +67,7 @@ public class UserRepository implements UserDetailsService {
     public User findUserByPolygraphyId(int polygraphyId) throws RepositoryException {
         Integer userId = null;
         try {
-            userId = polygraphyMapper.findUserIdByPolygraphyId(polygraphyId);
+            userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving userId by polygraphyId "
                     + e.getMessage(), e);
@@ -127,7 +127,7 @@ public class UserRepository implements UserDetailsService {
     public void saveEditingUser(int polygraphyId, String email, String password) throws RepositoryException {
         Integer userId = null;
         try {
-            userId = polygraphyMapper.findUserIdByPolygraphyId(polygraphyId);
+            userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while retrieving userId by polygraphyId "
                     + e.getMessage(), e);

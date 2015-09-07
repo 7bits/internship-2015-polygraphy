@@ -1,6 +1,5 @@
 package it.sevenbits.graphicartsindustry.core.domain;
 
-import it.sevenbits.graphicartsindustry.core.domain.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class User implements UserDetails {
-    private Integer id;
+    private int id;
     private String email;
     private String password;
     private Role role;
@@ -59,11 +58,11 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

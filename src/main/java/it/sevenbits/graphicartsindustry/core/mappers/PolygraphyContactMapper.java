@@ -6,8 +6,8 @@ public interface PolygraphyContactMapper {
 
     @Select("SELECT email FROM contact " +
             "WHERE email=#{email}")
-    @Result(column = "user_id")
-    String getEmail(@Param(value = "email") final String email);
+    @Result(column = "polygraphy_id")
+    Integer getPolygraphyIdByEmail(@Param(value = "email") final String email);
 
 
     @Insert("INSERT INTO contact(polygraphy_id, address, email, website, phone) " +

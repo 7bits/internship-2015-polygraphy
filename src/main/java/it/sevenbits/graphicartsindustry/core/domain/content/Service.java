@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.core.domain;
+package it.sevenbits.graphicartsindustry.core.domain.content;
 
 public class Service {
     private Integer id;

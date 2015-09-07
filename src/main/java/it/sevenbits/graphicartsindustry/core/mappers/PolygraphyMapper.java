@@ -93,11 +93,13 @@ public interface PolygraphyMapper {
     Integer getUserIdByPolygraphyId(@Param(value = "polygraphyId") final int polygraphyId);
 
 
-    @Select("SELECT writes_the_check FROM polygraphy WHERE id=#{polygraphyId}")
+    @Select("SELECT writes_the_check FROM polygraphy " +
+            "WHERE id=#{polygraphyId}")
     @Result(column = "writes_the_check")
     Boolean isWritesTheCheck(@Param(value = "polygraphyId") final int polygraphyId);
 
-    @Select("SELECT order_by_email FROM polygraphy WHERE id=#{polygraphyId}")
+    @Select("SELECT order_by_email FROM polygraphy " +
+            "WHERE id=#{polygraphyId}")
     @Result(column = "order_by_email")
     Boolean isOrderByEmail(@Param(value = "polygraphyId") final int polygraphyId);
 
@@ -139,6 +141,7 @@ public interface PolygraphyMapper {
                                           @Param(value = "condition") boolean condition);
 
 
-    @Delete("DELETE FROM polygraphy WHERE id=#{polygraphyId}")
+    @Delete("DELETE FROM polygraphy " +
+            "WHERE id=#{polygraphyId}")
     void deletePolygraphy(@Param(value = "polygraphyId") final int polygraphyId);
 }

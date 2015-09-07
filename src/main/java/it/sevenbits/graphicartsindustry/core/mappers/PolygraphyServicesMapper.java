@@ -38,28 +38,15 @@ public interface PolygraphyServicesMapper {
                                  @Param(value = "serviceId") final int serviceId);
 
 
-//    @Delete("DELETE FROM polygraphies_payment_methods " +
-//            "WHERE polygraphy_id=#{polygraphyId} AND payment_method_id=#{paymentMethodId}")
-//    void deletePolygraphyPaymentMethod(@Param(value = "polygraphyId") final int polygraphyId,
-//                                       @Param(value = "paymentMethodId") final int paymentMethodId);
-//
-//    @Delete("DELETE FROM polygraphies_delivery_methods " +
-//            "WHERE polygraphy_id=#{polygraphyId} AND delivery_method_id=#{deliveryMethodId}")
-//    void deletePolygraphyDeliveryMethod(@Param(value = "polygraphyId") final int polygraphyId,
-//                                        @Param(value = "deliveryMethodId") final int deliveryMethodId);
-//
-//    @Delete("DELETE FROM polygraphies_services " +
-//            "WHERE polygraphy_id=#{polygraphyId} AND service_id=#{serviceId}")
-//    void deletePolygraphyService(@Param(value = "polygraphyId") final int polygraphyId,
-//                                 @Param(value = "serviceId") final int serviceId);
-
-
-    @Delete("DELETE FROM polygraphies_payment_methods WHERE polygraphy_id=#{polygraphyId}")
+    @Delete("DELETE FROM polygraphies_payment_methods " +
+            "WHERE polygraphy_id=#{polygraphyId}")
     void deletePolygraphyPaymentMethods(@Param(value = "polygraphyId")final int polygraphyId);
 
-    @Delete("DELETE FROM polygraphies_delivery_methods WHERE polygraphy_id=#{polygraphyId}")
+    @Delete("DELETE FROM polygraphies_delivery_methods " +
+            "WHERE polygraphy_id=#{polygraphyId}")
     void deletePolygraphyDeliveryMethods(@Param(value = "polygraphyId")final int polygraphyId);
 
-    @Delete("DELETE FROM polygraphies_services WHERE polygraphy_id=#{polygraphyId}")
+    @Delete("DELETE FROM polygraphies_services " +
+            "WHERE polygraphy_id=#{polygraphyId}")
     void deletePolygraphyServices(@Param(value = "polygraphyId")final int polygraphyId);
 }

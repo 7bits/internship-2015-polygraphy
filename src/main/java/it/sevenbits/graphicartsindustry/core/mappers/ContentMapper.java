@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
-import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
-import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
-import it.sevenbits.graphicartsindustry.core.domain.Service;
+import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.Service;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;

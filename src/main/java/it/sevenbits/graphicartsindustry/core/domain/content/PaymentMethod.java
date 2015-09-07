@@ -1,6 +1,6 @@
-package it.sevenbits.graphicartsindustry.core.domain;
+package it.sevenbits.graphicartsindustry.core.domain.content;
 
-public class DeliveryMethod {
+public class PaymentMethod {
     private Integer id;
     private String name;
 
@@ -20,5 +20,3 @@ public class DeliveryMethod {
         this.name = name;
     }
 }
-
-

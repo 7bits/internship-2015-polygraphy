@@ -64,9 +64,9 @@ public class PolygraphyProvider {
 
         if (service_id.size()!=0) {
             if (service_id.get(0)!=0) {
-                if (somethingBefore)
-                    sqlQuery.append(" AND");
-                sqlQuery.append(" (SELECT COUNT(*) FROM polygraphies_services AS ps " +
+//                if (somethingBefore)
+//                    sqlQuery.append(" AND");
+                sqlQuery.append(" AND (SELECT COUNT(*) FROM polygraphies_services AS ps " +
                         "WHERE ps.polygraphy_id=p.id AND ps.service_id in (");
                 for (int index = 0; index < service_id.size(); index++) {
                     sqlQuery.append(service_id.get(index));
@@ -79,35 +79,35 @@ public class PolygraphyProvider {
         }
 
         if (payment_id!=0) {
-            if (somethingBefore)
-                sqlQuery.append(" AND");
-            sqlQuery.append(" ppm.payment_method_id=" + payment_id);
+//            if (somethingBefore)
+//                sqlQuery.append(" AND");
+            sqlQuery.append(" AND ppm.payment_method_id=" + payment_id);
             somethingBefore = true;
         }
 
         if (writes_the_check==true) {
-            if (somethingBefore)
-                sqlQuery.append(" AND");
-            sqlQuery.append(" writes_the_check=true");
+//            if (somethingBefore)
+//                sqlQuery.append(" AND");
+            sqlQuery.append(" AND writes_the_check=true");
             somethingBefore = true;
         }
 
         if (delivery_id!=0) {
-            if (somethingBefore)
-                sqlQuery.append(" AND");
-            sqlQuery.append(" pdm.delivery_method_id=" + delivery_id);
+//            if (somethingBefore)
+//                sqlQuery.append(" AND");
+            sqlQuery.append(" AND pdm.delivery_method_id=" + delivery_id);
             somethingBefore = true;
         }
 
         if (order_by_email==true) {
-            if (somethingBefore)
-                sqlQuery.append(" AND");
-            sqlQuery.append(" order_by_email=true");
+//            if (somethingBefore)
+//                sqlQuery.append(" AND");
+            sqlQuery.append(" AND order_by_email=true");
         }
 
         if (query.isEmpty() && service_id.size()==0 && payment_id==0 && writes_the_check==false &&
                 delivery_id==0 && order_by_email==false) {
-            sqlQuery.append(" p.id=0");
+            sqlQuery.append(" AND p.id=0");
         }
 
         return sqlQuery.toString();

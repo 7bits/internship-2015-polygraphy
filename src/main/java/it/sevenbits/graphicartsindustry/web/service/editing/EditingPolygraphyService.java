@@ -3,12 +3,11 @@ package it.sevenbits.graphicartsindustry.web.service.editing;
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.*;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
 import it.sevenbits.graphicartsindustry.web.domain.PolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -47,7 +46,11 @@ public class EditingPolygraphyService {
 
     public PolygraphyForm showFullInfoAboutPolygraphyByPolygraphy(int polygraphyId) throws ServiceException {
         try {
-            User user = userRepository.findUserByPolygraphyId(polygraphyId);
+            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
+            if (userId == null) {
+                throw new ServiceException("UserId is null");
+            }
+            User user = userRepository.findUserById(polygraphyId);
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
 
             PolygraphyForm polygraphyForm = new PolygraphyForm(polygraphyId, user.getUsername(), null,
@@ -118,9 +121,27 @@ public class EditingPolygraphyService {
     }
 
     public void saveEditingPolygraphyByPolygraphy(PolygraphyForm polygraphyForm) throws ServiceException {
+        Integer userId = null;
         try {
-            userRepository.saveEditingUser(polygraphyForm.getPolygraphyId(), polygraphyForm.getEmail(),
-                    polygraphyForm.getPassword());
+            userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyForm.getPolygraphyId());
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while retrieving userId by polygraphyId "
+                    + e.getMessage(), e);
+        }
+        if (userId == null) {
+            throw new ServiceException("UserId is null");
+        }
+        try {
+            userRepository.editEmail(userId, polygraphyForm.getEmail());
+            if (polygraphyForm.getPassword() !=null && !polygraphyForm.getPassword().isEmpty()) {
+                PasswordEncoder encoder = new BCryptPasswordEncoder();
+                userRepository.editPassword(userId, encoder.encode(polygraphyForm.getPassword()));
+            }
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while saving editing information about user "
+                    + e.getMessage(), e);
+        }
+        try {
             this.saveEditingPolygraphy(polygraphyForm);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving editing information about polygraphy ");
@@ -129,7 +150,12 @@ public class EditingPolygraphyService {
 
     public String findUserEmailByPolygraphyId(int polygraphyId) throws ServiceException {
         try {
-            return userRepository.findUserByPolygraphyId(polygraphyId).getUsername();
+            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
+            if (userId == null) {
+                throw new ServiceException("UserId is null");
+            }
+            User user = userRepository.findUserById(polygraphyId);
+            return user.getUsername();
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving user by polygraphyId ");
         }

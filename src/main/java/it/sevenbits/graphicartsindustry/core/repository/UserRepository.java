@@ -2,7 +2,6 @@ package it.sevenbits.graphicartsindustry.core.repository;
 
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
 import it.sevenbits.graphicartsindustry.core.mappers.UserMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,20 +9,16 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 @Repository
 @Qualifier(value = "userRepository")
 public class UserRepository implements UserDetailsService {
+
     private static final Logger LOG = Logger.getLogger(UserRepository.class);
 
     @Autowired
     private UserMapper userMapper;
-
-    @Autowired
-    private PolygraphyMapper polygraphyMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -42,108 +37,77 @@ public class UserRepository implements UserDetailsService {
         throw new UsernameNotFoundException("There are no user details for this username ");
     }
 
-
-    public User findUserById(int id) throws RepositoryException {
+    public User findUserById(Integer userId) throws RepositoryException {
+       if (userId == null) {
+           throw new RepositoryException("User ID is null");
+       }
        try {
-           return userMapper.findUserById(id);
+           return userMapper.findUserById(userId);
        } catch (Exception e) {
-           throw new RepositoryException("An error occurred while retrieving editing user by id "
+           throw new RepositoryException("An error occurred while retrieving user by id "
                    + e.getMessage(), e);
        }
     }
 
     public User findUserByUsername(String username) throws RepositoryException {
         if (username == null) {
-            throw new RepositoryException("User Name is null");
+            throw new RepositoryException("Username is null");
         }
         try {
             return userMapper.findUserByUsername(username);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving editing user by username "
+            throw new RepositoryException("An error occurred while retrieving user by username "
                     + e.getMessage(), e);
         }
     }
 
-    public User findUserByPolygraphyId(int polygraphyId) throws RepositoryException {
-        Integer userId = null;
-        try {
-            userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving userId by polygraphyId "
-                    + e.getMessage(), e);
+    public void createUser(User user) throws RepositoryException {
+        if (user == null) {
+            throw new RepositoryException("User is null");
         }
-        if (userId == null) {
-            throw new RepositoryException("UserId is null");
-        }
-//        if (userId == null) {
-//            User user = new User();
-//            user.setEmail(null);
-//            return user;
-//        }
-        try {
-            return userMapper.findUserById(userId);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving user by user id "
-                    + e.getMessage(), e);
-        }
-    }
-
-
-    public User createUser(String email, String password, Role role) throws RepositoryException {
-        User user = new User();
-        user.setEmail(email);
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        user.setPassword(encoder.encode(password));
-        user.setRole(role);
-        user.setEnabled(true);
         try {
             userMapper.insertUser(user);
         } catch (Exception e) {
             throw new RepositoryException("An error occurred while creating user " + e.getMessage(), e);
         }
-        return user;
     }
 
-    public void saveUser(User user) throws RepositoryException {
-        if (user == null) {
-            throw new RepositoryException("Null user received");
-        }
-        try {
-            userMapper.insertUser(user);
-        } catch (Exception e) {
-            throw new RepositoryException("General database error" + e.getMessage(), e);
-        }
-    }
-
-    public void deleteUser(int userId) throws RepositoryException {
-        try {
-            userMapper.deleteUser(userId);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while removing user "
-                    + e.getMessage(), e);
-        }
-    }
-
-    public void saveEditingUser(int polygraphyId, String email, String password) throws RepositoryException {
-        Integer userId = null;
-        try {
-            userId = polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
-        } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving userId by polygraphyId "
-                    + e.getMessage(), e);
-        }
+    public void editEmail(Integer userId, String email) throws RepositoryException {
         if (userId == null) {
-            throw new RepositoryException("UserId is null");
+            throw new RepositoryException("User ID is null");
+        }
+        if (email == null) {
+            throw new RepositoryException("Email is null");
         }
         try {
             userMapper.updateEmail(userId, email);
-            if (password !=null && !password.isEmpty()) {
-                PasswordEncoder encoder = new BCryptPasswordEncoder();
-                userMapper.updatePassword(userId, encoder.encode(password));
-            }
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while saving editing information about user "
-                    + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while editing email of user " + e.getMessage(), e);
+        }
+    }
+
+    public void editPassword(Integer userId, String password) throws RepositoryException {
+        if (userId == null) {
+            throw new RepositoryException("User ID is null");
+        }
+        if (password == null) {
+            throw new RepositoryException("Password is null");
+        }
+        try {
+            userMapper.updatePassword(userId, password);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while editing email of user " + e.getMessage(), e);
+        }
+    }
+
+    public void removeUser(Integer userId) throws RepositoryException {
+        if (userId == null) {
+            throw new RepositoryException("User ID is null");
+        }
+        try {
+            userMapper.deleteUser(userId);
+        } catch (Exception e) {
+            throw new RepositoryException("An error occurred while removing user " + e.getMessage(), e);
         }
     }
 }

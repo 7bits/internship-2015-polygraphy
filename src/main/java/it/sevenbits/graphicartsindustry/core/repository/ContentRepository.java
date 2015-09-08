@@ -29,7 +29,10 @@ public class ContentRepository {
         }
     }
 
-    public List<Service> findFrequentServices(int limit) throws RepositoryException {
+    public List<Service> findFrequentServices(Integer limit) throws RepositoryException {
+        if (limit == null) {
+            throw new RepositoryException("Limit is null");
+        }
         try {
             return mapper.findFrequentServices(limit);
         } catch (Exception e) {

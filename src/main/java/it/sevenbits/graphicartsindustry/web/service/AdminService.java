@@ -57,7 +57,7 @@ public class AdminService {
             polygraphyRepository.deletePolygraphy(polygraphyId);
 
             if (userId != null)
-                userRepository.deleteUser(userId);
+                userRepository.removeUser(userId);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while removing polygraphy ");
         }
@@ -95,7 +95,7 @@ public class AdminService {
 
     public void changeConditionDisplayPolygraphy (int polygraphyId, boolean curCondition) throws ServiceException {
         try {
-            polygraphyRepository.changeConditionDisplayPolygraphy(polygraphyId, !curCondition);
+            polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
         } catch (Exception e) {
             throw new  ServiceException("An error occurred while changing condition polygraphy " +
                     e.getMessage(),e);

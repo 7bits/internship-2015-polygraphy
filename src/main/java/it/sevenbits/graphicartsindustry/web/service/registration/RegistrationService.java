@@ -4,13 +4,11 @@ import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.*;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.domain.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,9 +28,19 @@ public class RegistrationService {
 
     public void saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
             throws ServiceException {
+
+        User user = new User();
+        user.setEmail(firstForm.getEmail());
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        user.setPassword(encoder.encode(firstForm.getPassword()));
+        user.setRole(Role.ROLE_POLYGRAPHY);
+        user.setEnabled(true);
+
         try {
-            User user = userRepository.createUser(firstForm.getEmail(), firstForm.getPassword(),
-                    Role.ROLE_POLYGRAPHY);
+            userRepository.createUser(user);
+
+//            User user = userRepository.createUser(firstForm.getEmail(), firstForm.getPassword(),
+//                    Role.ROLE_POLYGRAPHY);
 
             Polygraphy polygraphy = new Polygraphy(null, firstForm.getName(), secondForm.getWritesTheCheck(),
                     secondForm.getOrderByEmail(), firstForm.getInfo(), user.getId());

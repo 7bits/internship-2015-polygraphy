@@ -22,7 +22,7 @@ public interface RequestOnRegistrationMapper {
             @Result(column = "email", property = "email"),
             @Result(column = "hash", property = "hash")
     })
-    RequestOnRegistration findRequestById(@Param(value = "requestId") final int requestId);
+    RequestOnRegistration findRequestById(@Param(value = "requestId") final Integer requestId);
 
     @Select("SELECT id, email, hash FROM request_on_registration " +
             "WHERE email=#{email}")
@@ -50,14 +50,14 @@ public interface RequestOnRegistrationMapper {
 
     @Update("UPDATE request_on_registration " +
             "SET hash=#{hash} " +
-            "WHERE id=#{id}")
-    void updateHash(@Param(value = "hash") final String hash,
-                    @Param(value = "id") final int id);
+            "WHERE id=#{requestId}")
+    void updateHash(@Param(value = "requestId") final Integer requestId,
+                    @Param(value = "hash") final String hash);
 
 
     @Delete("DELETE FROM request_on_registration " +
             "WHERE id=#{requestId}")
-    void removeRequestOnRegistrationById(@Param(value = "requestId") final int requestId);
+    void removeRequestOnRegistrationById(@Param(value = "requestId") final Integer requestId);
 
     @Delete("DELETE FROM request_on_registration " +
             "WHERE hash=#{hash}")

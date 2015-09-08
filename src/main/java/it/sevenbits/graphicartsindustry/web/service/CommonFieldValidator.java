@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
+import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
@@ -137,10 +138,16 @@ public class CommonFieldValidator {
                               final String field,
                               final String key) throws ServiceException, RepositoryException {
         if (value != null && !errors.containsKey(field)) {
-            if (!userRepository.findUserByPolygraphyId(valueId).getUsername().equals(value) ||
+
+            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(valueId);
+            if (userId == null) {
+                throw new ServiceException("UserId is null");
+            }
+            User user = userRepository.findUserById(valueId);
+            if (!user.getUsername().equals(value) ||
                     polygraphyRepository.findPolygraphy(valueId).getEmail().equals(value))
                 if (userRepository.findUserByUsername(value) != null ||
-                        polygraphyContactRepository.getPolygraphyPublicEmail(value) != null) {
+                        polygraphyContactRepository.getPolygraphyIdByEmail(value) != null) {
                     errors.put(field, key);
             }
         }
@@ -159,7 +166,7 @@ public class CommonFieldValidator {
                               final String key) throws RepositoryException {
         if (value != null && !errors.containsKey(field)) {
             if (userRepository.findUserByUsername(value) != null ||
-                    polygraphyContactRepository.getPolygraphyPublicEmail(value) != null) {
+                    polygraphyContactRepository.getPolygraphyIdByEmail(value) != null) {
                 errors.put(field, key);
             }
         }

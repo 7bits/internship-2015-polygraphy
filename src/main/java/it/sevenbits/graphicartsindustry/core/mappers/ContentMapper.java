@@ -26,7 +26,7 @@ public interface ContentMapper {
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")
     })
-    List<Service> findFrequentServices(@Param(value = "limit") final int limit);
+    List<Service> findFrequentServices(@Param(value = "limit") final Integer limit);
 
 
     @Select("SELECT id, name FROM payment_method")

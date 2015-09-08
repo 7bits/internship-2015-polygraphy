@@ -8,7 +8,7 @@ public interface UserMapper {
 
     @Select("SELECT id, email, password_hash, enabled, role " +
             "FROM users " +
-            "WHERE id=#{id}")
+            "WHERE id=#{userId}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "email", property = "email"),
@@ -16,11 +16,11 @@ public interface UserMapper {
             @Result(column = "enabled", property = "enabled"),
             @Result(column = "role", property = "role", javaType = Role.class)
     })
-    User findUserById(@Param(value = "id") final int id);
+    User findUserById(@Param(value = "userId") final Integer userId);
 
     @Select("SELECT id, email, password_hash, enabled, role " +
             "FROM users " +
-            "WHERE email=#{userName}")
+            "WHERE email=#{username}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "email", property = "email"),
@@ -28,7 +28,7 @@ public interface UserMapper {
             @Result(column = "enabled", property = "enabled"),
             @Result(column = "role", property = "role", javaType = Role.class)
     })
-    User findUserByUsername(@Param(value = "userName") final String userName);
+    User findUserByUsername(@Param(value = "username") final String username);
 
 
     @Insert("INSERT INTO users (email, password_hash, role, enabled) " +
@@ -40,17 +40,17 @@ public interface UserMapper {
     @Update("UPDATE users " +
             "SET email=#{email} " +
             "WHERE id=#{userId}")
-    void updateEmail(@Param(value = "userId") final int userId,
+    void updateEmail(@Param(value = "userId") final Integer userId,
                      @Param(value = "email") final String email);
 
     @Update("UPDATE users " +
             "SET password_hash=#{password} " +
             "WHERE id=#{userId}")
-    void updatePassword(@Param(value = "userId") final int userId,
+    void updatePassword(@Param(value = "userId") final Integer userId,
                         @Param(value = "password") final String password);
 
 
     @Delete("DELETE FROM users " +
             "WHERE id=#{userId}")
-    void deleteUser(@Param(value = "userId") final int userId);
+    void deleteUser(@Param(value = "userId") final Integer userId);
 }

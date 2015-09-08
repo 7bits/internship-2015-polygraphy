@@ -15,18 +15,23 @@ public class PolygraphyContactRepository {
     @Autowired
     private PolygraphyContactMapper polygraphyContactMapper;
 
-    public Integer getPolygraphyPublicEmail(String email) throws RepositoryException {
+    public Integer getPolygraphyIdByEmail(String email) throws RepositoryException {
+        if (email == null) {
+            throw new RepositoryException("Email is null");
+        }
         try {
             return polygraphyContactMapper.getPolygraphyIdByEmail(email);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while geting polygraphy id by public email " +
+            throw new RepositoryException("An error occurred while getting polygraphy id by public email " +
                     e.getMessage(), e);
         }
     }
 
-
-    public void createPolygraphyContacts(int polygraphyId, String address, String phone, String email, String website)
-            throws RepositoryException {
+    public void createPolygraphyContacts(Integer polygraphyId, String address, String phone, String email,
+                                         String website) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyContactMapper.insertContacts(polygraphyId, address, phone, email, website);
         } catch (Exception e) {
@@ -35,8 +40,10 @@ public class PolygraphyContactRepository {
         }
     }
 
-    public void editPolygraphyAddress(int polygraphyId, String address)
-            throws RepositoryException {
+    public void editPolygraphyAddress(Integer polygraphyId, String address) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyContactMapper.updateAddress(polygraphyId, address);
         } catch (Exception e) {
@@ -45,8 +52,10 @@ public class PolygraphyContactRepository {
         }
     }
 
-    public void editPolygraphyPhone(int polygraphyId, String phone)
-            throws RepositoryException {
+    public void editPolygraphyPhone(Integer polygraphyId, String phone) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyContactMapper.updatePhone(polygraphyId, phone);
         } catch (Exception e) {
@@ -55,8 +64,10 @@ public class PolygraphyContactRepository {
         }
     }
 
-    public void editPolygraphyEmail(int polygraphyId, String email)
-            throws RepositoryException {
+    public void editPolygraphyEmail(Integer polygraphyId, String email) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyContactMapper.updateEmail(polygraphyId, email);
         } catch (Exception e) {
@@ -65,8 +76,10 @@ public class PolygraphyContactRepository {
         }
     }
 
-    public void editPolygraphyWebsite(int polygraphyId, String website)
-            throws RepositoryException {
+    public void editPolygraphyWebsite(Integer polygraphyId, String website) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyContactMapper.updateWebsite(polygraphyId, website);
         } catch (Exception e) {
@@ -75,7 +88,10 @@ public class PolygraphyContactRepository {
         }
     }
 
-    public void removePolygraphyContacts(int polygraphyId) throws RepositoryException {
+    public void removePolygraphyContacts(Integer polygraphyId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyContactMapper.deleteContacts(polygraphyId);
         } catch (Exception e) {

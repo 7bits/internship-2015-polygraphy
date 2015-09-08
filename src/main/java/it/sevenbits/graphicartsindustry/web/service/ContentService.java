@@ -1,7 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.service;
 
-import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
-import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.ContentRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
@@ -26,9 +26,9 @@ public class ContentService {
 
     public List<ServiceModel> findAllServices() throws ServiceException {
         try {
-            List<it.sevenbits.graphicartsindustry.core.domain.Service> services = contentRepository.findAllServices();
+            List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services = contentRepository.findAllServices();
             List<ServiceModel> models = new ArrayList<>(services.size());
-            for (it.sevenbits.graphicartsindustry.core.domain.Service s: services) {
+            for (it.sevenbits.graphicartsindustry.core.domain.content.Service s: services) {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;
@@ -40,9 +40,9 @@ public class ContentService {
 
     public List<ServiceModel> findFrequentServices(int limit) throws ServiceException {
         try {
-            List<it.sevenbits.graphicartsindustry.core.domain.Service> services = contentRepository.findFrequentServices(limit);
+            List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services = contentRepository.findFrequentServices(limit);
             List<ServiceModel> models = new ArrayList<>(services.size());
-            for (it.sevenbits.graphicartsindustry.core.domain.Service s: services) {
+            for (it.sevenbits.graphicartsindustry.core.domain.content.Service s: services) {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;

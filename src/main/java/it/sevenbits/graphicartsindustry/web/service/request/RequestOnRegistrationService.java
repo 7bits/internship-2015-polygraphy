@@ -26,7 +26,7 @@ public class RequestOnRegistrationService {
 
     public void saveRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
         try {
-            requestOnRegistrationRepository.saveRequestOnRegistration(form.getEmail());
+            requestOnRegistrationRepository.createRequestOnRegistration(form.getEmail());
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving email request on registration " +
                     e.getMessage(),e);
@@ -82,15 +82,15 @@ public class RequestOnRegistrationService {
         }
     }
 
-    public String generateAndSaveHash (int id) throws ServiceException {
+    public String generateAndSaveHash (int requestId) throws ServiceException {
         String hash = this.generateHash();
-        this.saveHash(hash, id);
+        this.saveHash(requestId, hash);
         return hash;
     }
 
-    private void saveHash(String hash, int id) throws ServiceException {
+    private void saveHash(int requestId, String hash) throws ServiceException {
         try {
-            requestOnRegistrationRepository.saveHash(hash, id);
+            requestOnRegistrationRepository.editHash(requestId, hash);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving hash ");
         }

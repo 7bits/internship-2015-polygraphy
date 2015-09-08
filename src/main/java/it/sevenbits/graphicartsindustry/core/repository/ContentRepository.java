@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.core.repository;
 
-import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
-import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
-import it.sevenbits.graphicartsindustry.core.domain.Service;
+import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.Service;
 import it.sevenbits.graphicartsindustry.core.mappers.ContentMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,10 @@ public class ContentRepository {
         }
     }
 
-    public List<Service> findFrequentServices(int limit) throws RepositoryException {
+    public List<Service> findFrequentServices(Integer limit) throws RepositoryException {
+        if (limit == null) {
+            throw new RepositoryException("Limit is null");
+        }
         try {
             return mapper.findFrequentServices(limit);
         } catch (Exception e) {

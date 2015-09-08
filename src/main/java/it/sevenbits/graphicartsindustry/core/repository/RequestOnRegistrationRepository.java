@@ -27,63 +27,70 @@ public class RequestOnRegistrationRepository {
         }
     }
 
-    public RequestOnRegistration findRequestById(int requestId) throws RepositoryException {
+    public RequestOnRegistration findRequestById(Integer requestId) throws RepositoryException {
+        if (requestId == null) {
+            throw new RepositoryException("Request on registration ID is null");
+        }
         try {
             return requestOnRegistrationMapper.findRequestById(requestId);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving request by id "
+            throw new RepositoryException("An error occurred while retrieving request on registration by id "
                     + e.getMessage(), e);
         }
     }
 
     public RequestOnRegistration findRequestByEmail (String email) throws RepositoryException {
         if (email == null) {
-            throw new RepositoryException("Email is null");
+            throw new RepositoryException("Request on registartion email is null");
         }
         try {
             return requestOnRegistrationMapper.findRequestByEmail(email);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving request by email", e);
+            throw new RepositoryException("An error occurred while retrieving request on registration by email" +
+                    e.getMessage(), e);
         }
     }
 
     public RequestOnRegistration findRequestByHash(String hash) throws RepositoryException {
         if (hash == null) {
-            throw new RepositoryException("Hash is null");
+            throw new RepositoryException("Request on registration hash is null");
         }
         try {
             return requestOnRegistrationMapper.findRequestByHash(hash);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while retrieving request by hash registration link "
-                    + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving request on registration by hash " +
+                    "registration link " + e.getMessage(), e);
         }
     }
 
-    public void saveRequestOnRegistration(String email) throws RepositoryException {
+    public void createRequestOnRegistration(String email) throws RepositoryException {
         if (email == null) {
-            throw new RepositoryException("Email is null");
+            throw new RepositoryException("Request on registration email is null");
         }
         try {
             requestOnRegistrationMapper.insertRequestOnRegistration(email);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while saving request on registration "
+            throw new RepositoryException("An error occurred while creating request on registration "
                     + e.getMessage(), e);
         }
     }
 
-    public void saveHash(String hash, int id) throws RepositoryException {
-        if (hash == null) {
-            throw new RepositoryException("Hash is null");
+    public void editHash(Integer requestId, String hash) throws RepositoryException {
+        if (requestId == null) {
+            throw new RepositoryException("Request on registration ID is null");
         }
         try {
-            requestOnRegistrationMapper.updateHash(hash, id);
+            requestOnRegistrationMapper.updateHash(requestId, hash);
         } catch (Exception e) {
-            throw new RepositoryException("An error occurred while saving hash registration link in request "
-                    + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while editing hash registration link in request on " +
+                    "registration " + e.getMessage(), e);
         }
     }
 
-    public void removeRequestOnRegistrationById(int requestId) throws RepositoryException {
+    public void removeRequestOnRegistrationById(Integer requestId) throws RepositoryException {
+        if (requestId == null) {
+            throw new RepositoryException("Request on registration ID is null");
+        }
         try {
             requestOnRegistrationMapper.removeRequestOnRegistrationById(requestId);
         } catch (Exception e) {
@@ -94,7 +101,7 @@ public class RequestOnRegistrationRepository {
 
     public void removeRequestOnRegistrationByHash(String hash) throws RepositoryException {
         if (hash == null) {
-            throw new RepositoryException("Hash is null");
+            throw new RepositoryException("Request on registration hash is null");
         }
         try {
             requestOnRegistrationMapper.removeRequestOnRegistrationByHash(hash);

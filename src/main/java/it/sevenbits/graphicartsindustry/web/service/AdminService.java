@@ -3,6 +3,9 @@ package it.sevenbits.graphicartsindustry.web.service;
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.repository.*;
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
 import it.sevenbits.graphicartsindustry.web.domain.admin.PolygraphyAdminModel;
 import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.utils.UrlResolver;
@@ -54,7 +57,7 @@ public class AdminService {
             polygraphyRepository.deletePolygraphy(polygraphyId);
 
             if (userId != null)
-                userRepository.deleteUser(userId);
+                userRepository.removeUser(userId);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while removing polygraphy ");
         }
@@ -92,7 +95,7 @@ public class AdminService {
 
     public void changeConditionDisplayPolygraphy (int polygraphyId, boolean curCondition) throws ServiceException {
         try {
-            polygraphyRepository.changeConditionDisplayPolygraphy(polygraphyId, !curCondition);
+            polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
         } catch (Exception e) {
             throw new  ServiceException("An error occurred while changing condition polygraphy " +
                     e.getMessage(),e);

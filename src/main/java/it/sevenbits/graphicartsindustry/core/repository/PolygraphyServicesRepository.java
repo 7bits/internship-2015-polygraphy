@@ -17,7 +17,10 @@ public class PolygraphyServicesRepository {
     @Autowired
     private PolygraphyServicesMapper polygraphyServicesMapper;
 
-    public List<Integer> findPolygraphyPaymentMethods(int polygraphyId) throws RepositoryException {
+    public List<Integer> findPolygraphyPaymentMethods(Integer polygraphyId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             return polygraphyServicesMapper.findPolygraphyPaymentMethods(polygraphyId);
         } catch (Exception e) {
@@ -26,7 +29,10 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public List<Integer> findPolygraphyDeliveryMethods(int polygraphyId) throws RepositoryException {
+    public List<Integer> findPolygraphyDeliveryMethods(Integer polygraphyId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             return polygraphyServicesMapper.findPolygraphyDeliveryMethods(polygraphyId);
         } catch (Exception e) {
@@ -35,7 +41,10 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public List<Integer> findPolygraphyServices(int polygraphyId) throws RepositoryException {
+    public List<Integer> findPolygraphyServices(Integer polygraphyId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             return polygraphyServicesMapper.findPolygraphyServices(polygraphyId);
         } catch (Exception e) {
@@ -44,7 +53,13 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public void createPolygraphyPaymentMethod(int polygraphyId, int paymentMethodId) throws RepositoryException {
+    public void createPolygraphyPaymentMethod(Integer polygraphyId, Integer paymentMethodId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
+        if (paymentMethodId == null) {
+            throw new RepositoryException("Payment method ID is null");
+        }
         try {
             polygraphyServicesMapper.insertPolygraphyPaymentMethod(polygraphyId, paymentMethodId);
         } catch (Exception e) {
@@ -53,7 +68,13 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public void createPolygraphyDeliveryMethod(int polygraphyId, int deliveryMethodId) throws RepositoryException {
+    public void createPolygraphyDeliveryMethod(Integer polygraphyId, Integer deliveryMethodId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
+        if (deliveryMethodId == null) {
+            throw new RepositoryException("Delivery method ID is null");
+        }
         try {
             polygraphyServicesMapper.insertPolygraphyDeliveryMethod(polygraphyId, deliveryMethodId);
         } catch (Exception e) {
@@ -62,7 +83,13 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public void createPolygraphyService(int polygraphyId, int serviceId) throws RepositoryException {
+    public void createPolygraphyService(Integer polygraphyId, Integer serviceId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
+        if (serviceId == null) {
+            throw new RepositoryException("Service ID is null");
+        }
         try {
            polygraphyServicesMapper.insertPolygraphyService(polygraphyId, serviceId);
         } catch (Exception e) {
@@ -71,7 +98,10 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public void removePolygraphyPaymentMethods(int polygraphyId) throws RepositoryException {
+    public void removePolygraphyPaymentMethods(Integer polygraphyId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyServicesMapper.deletePolygraphyPaymentMethods(polygraphyId);
         } catch (Exception e) {
@@ -80,7 +110,10 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public void removePolygraphyDeliveryMethods(int polygraphyId) throws RepositoryException {
+    public void removePolygraphyDeliveryMethods(Integer polygraphyId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyServicesMapper.deletePolygraphyDeliveryMethods(polygraphyId);
         } catch (Exception e) {
@@ -89,7 +122,10 @@ public class PolygraphyServicesRepository {
         }
     }
 
-    public void removePolygraphyServices(int polygraphyId) throws RepositoryException {
+    public void removePolygraphyServices(Integer polygraphyId) throws RepositoryException {
+        if (polygraphyId == null) {
+            throw new RepositoryException("Polygraphy ID is null");
+        }
         try {
             polygraphyServicesMapper.deletePolygraphyServices(polygraphyId);
         } catch (Exception e) {

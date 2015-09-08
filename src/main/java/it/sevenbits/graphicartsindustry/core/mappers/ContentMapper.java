@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.core.mappers;
 
-import it.sevenbits.graphicartsindustry.core.domain.DeliveryMethod;
-import it.sevenbits.graphicartsindustry.core.domain.PaymentMethod;
-import it.sevenbits.graphicartsindustry.core.domain.Service;
+import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
+import it.sevenbits.graphicartsindustry.core.domain.content.Service;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
@@ -26,7 +26,7 @@ public interface ContentMapper {
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name")
     })
-    List<Service> findFrequentServices(@Param(value = "limit") final int limit);
+    List<Service> findFrequentServices(@Param(value = "limit") final Integer limit);
 
 
     @Select("SELECT id, name FROM payment_method")

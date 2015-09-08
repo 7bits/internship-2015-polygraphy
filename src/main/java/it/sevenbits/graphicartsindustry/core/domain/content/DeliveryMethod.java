@@ -1,14 +1,14 @@
-package it.sevenbits.graphicartsindustry.core.domain;
+package it.sevenbits.graphicartsindustry.core.domain.content;
 
-public class PaymentMethod {
-    private int id;
+public class DeliveryMethod {
+    private Integer id;
     private String name;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -20,3 +20,5 @@ public class PaymentMethod {
         this.name = name;
     }
 }
+
+

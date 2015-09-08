@@ -1,20 +1,20 @@
 package it.sevenbits.graphicartsindustry.core.domain;
 
 public class PolygraphyContacts {
-    private int id;
+    private Integer id;
     private String name;
     private String address;
     private String phone;
     private String email;
     private String website;
     private String info;
-    private boolean displayed;
+    private Boolean displayed;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -66,11 +66,11 @@ public class PolygraphyContacts {
         this.info = info;
     }
 
-    public boolean isDisplayed() {
+    public Boolean isDisplayed() {
         return displayed;
     }
 
-    public void setDisplayed(boolean displayed) {
+    public void setDisplayed(Boolean displayed) {
         this.displayed = displayed;
     }
 }

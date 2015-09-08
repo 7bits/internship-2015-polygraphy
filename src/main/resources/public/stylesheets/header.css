@@ -2,117 +2,118 @@
 
 .header{
     width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    min-height: 165px;
+    height: 150px;
+    margin: 20px auto;
     text-align: center;
     font-family: "OpenSansLightRegular";
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 50px;
 }
 
-.logo-box{
-    height: 165px;
+.header.small-header{
+    display: none;
+}
+
+.header__logo-wrapper{
     width: 228px;
-    margin: auto 25px auto 50px;
-    float: left;
+    height: 128px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.logo{
-    background-image: url("/images/logo.png");
-    height: 100%;
-    width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
+.header__content{
+    height: 128px;
+    width: 850px;
+    margin-left: 25px;
+    position: absolute;
+    top: 50%;
+    left: 280px;
+    transform: translateY(-50%);
 }
 
-.more-info{
+.header__menu {
     height: 30px;
     width: auto;
     float: right;
-    font-size: 16px;
-    margin-top: 38px;
-    margin-right: 50px;
 }
 
-.navigate-button{
+.header__menu a {
+    line-height: 25px;
+}
+
+.header__menu-item{
     display: inline-block;
-    height: 100%;
-    line-height: 30px;
-    width: auto;
-    padding: 0 20px;
     background-color: rgb(232, 232, 232);
-    border-radius: 20px;
+    padding: 0 20px;
     border: none;
     outline: none;
-    margin-left: 15px;
-    vertical-align: middle;
+    border-radius: 20px;
+    margin-left: 10px;
+    line-height: 30px;
 }
 
-.navigate-button a{
+.header__menu-item.header_menu-item-mini{
+    display: none;
+}
+
+.header__menu-item.header_menu-item-full{
+    display: inline-block;
+}
+
+.header__menu-item a{
+    text-decoration: none;
+    color: black;
+    line-height: 30px;
+}
+
+.header__menu-item:hover{
+    background-color: #f3e642;
+}
+
+.header__slogan{
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+    box-sizing: border-box;
+    padding-right: 30px;
+}
+
+.header__dropdown{
+    cursor: pointer;
+}
+
+ul.header__dropdown-menu{
+    padding: 0;
+    overflow: hidden;
+    margin:0;
+    position: absolute;
+    right: 10px;
+    background-color: rgb(232,232,232);
+    z-index: 999;
+}
+
+li.header__dropdown-menu-item{
+    font-size: 14px;
+    list-style-type: none;
+    list-style-position: inside;
+    color: #a1a1a1;
+    padding: 0 5px;
+}
+
+li.header__dropdown-menu-item:hover{
+    background-color: #f3e642;
+}
+
+li.header__dropdown-menu-item a{
     text-decoration: none;
     color: black;
 }
 
-.short-info-for-polygraphy{
-    display: none;
-}
-
-.about-project{
-}
-
-.navigate-button:hover{
-    background-color: #f3e642;
-    cursor: pointer;
-}
-
-.icon-for-list{
-    height: 30px;
-    width: 30px;
-    background: url("/images/icon.png") calc(0% + 10px) center no-repeat,
-                url("/images/arrow.png") calc(100% - 10px) center no-repeat;
-    background-color: rgb(232, 232, 232);
-    float: right;
-}
-
-.options-list{
-    width: 140px;
-    background-color: rgb(232, 232, 232);
-    text-indent: 10px;
-    padding-left: 0;
-    margin-left: -20px;
-    margin-top: 30px;
-    visibility: hidden;
-}
-
-.slogan{
-    font-size: 19px;
-    line-height: 21px;
-    height: auto;
-    width: 755px;
-    float: left;
-    text-align: left;
-    margin-top: 20px;
-}
-
-.slogan-mini{
-    display: none;
-}
-
-ul.more-info>li{
-    list-style-type: none;
-    display: inline;
-}
-
-.list-item{
-    list-style-type: none;
-    width: 150px;
-    text-align: left;
-    text-indent: 20px;
-}
-
-.list-item:hover{
-    background: url('/images/defolt.png') left center no-repeat;
-    background-size: 15px 15px;
-}
 
 @media screen and (max-width: 700px){
 
@@ -124,63 +125,62 @@ ul.more-info>li{
     }
 
     .header{
+        display: none;
+    }
+
+    .header.small-header{
+        display: block;
         width: 100%;
         margin: 0;
-        min-height: 140px;
+        min-height: 130px;
+        height: auto;
+        padding: 0;
+        text-align: center;
+        font-family: "OpenSansLightRegular";
+        position: relative;
+        box-sizing: border-box;
     }
 
-    .slogan{
-        display: none;
-    }
-
-    .slogan-mini{
-        display: block;
-        font-size: 16px;
-    }
-
-    .logo-box{
+    .header__logo-wrapper{
         height: 80px;
         width: 142px;
-        display: block;
-        float: none;
-        margin: auto;
+        position: static;
+        transform: translateY(0%);
     }
 
-    .logo{
-        background-size: 142px 80px;
-    }
-
-    .more-info{
-        display: block;
+    .header__menu{
         float: none;
-        font-size: 13px;
-        margin: 10px 0;
-        padding-left: 8px;
-        width: 100%;
         height: 25px;
+        margin: 5px 0;
     }
 
-    .navigate-button{
-        margin-right: 10px;
-        margin-left: 0px;
-        padding: 0 10px;
+    .header__menu a{
         line-height: 25px;
+        font-size: 14px;
     }
 
-    .info-for-polygraphy{
-        display: none;
+    .header__menu-item{
+        margin: 0 5px;
+        padding: 0 10px;
+        vertical-align: top;
+        line-height: 25px;
+        font-size: 14px;
     }
 
-    .short-info-for-polygraphy{
-        display: inline-block;
+    .header__slogan{
+        position: static;
+        height: auto;
+        text-align: center;
+        padding: 0;
     }
 
-    .icon-for-list{
-        background-color: rgb(232, 232, 232);
-        height: 25px;
-        width: 40px;
-        float: none;
+    .header__content{
+        position: static;
+        transform: translateY(0%);
+        width: 100%;
+        margin: 0;
     }
+
 }
 
 
@@ -193,24 +193,51 @@ ul.more-info>li{
 
     .header{
         width: 95%;
+        padding: 0;
+        min-height: 128px;
+        height: auto;
     }
 
-    .logo-box{
-        margin: auto 20px auto 20px;
+    .header__logo-wrapper{
+        position: static;
+        transform: none;
+        float: left;
+        width: 35%;
     }
 
-    .info-for-polygraphy{
-        display: none;
+    .header__content{
+        position: static;
+        transform: none;
+        float: left;
+        width: 65%;
+        margin: 0;
     }
 
-    .short-info-for-polygraphy{
+    .header__menu{
+        font-size: 15px;
+        width: auto;
+        float: right;
+        margin-bottom: 20px;
+    }
+
+    .header__menu-item{
+        margin: 0 5px;
         display: inline-block;
     }
 
-    .slogan{
-        width: 55%;
-        font-size: 16px;
-        margin-left: 10px;
-        margin-top: 0px;
+    .header__menu-item.header_menu-item-mini{
+        margin: 0 5px;
+        display: inline-block;
+    }
+
+    .header__menu-item.header_menu-item-full{
+        display: none;
+    }
+
+    .header__slogan{
+        height: auto;
+        position: static;
+        display: inline-block;
+        padding-left: 20px;
     }
 }

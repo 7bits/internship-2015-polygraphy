@@ -1,36 +1,53 @@
 header.header
-    ul.more-info
-        li
-            .navigate-button.info-for-polygraphy
+    .header__logo-wrapper
+        a(href='/')
+            img(src ='/images/logo.png', alt='Полиграфия')
+    .header__content
+        .header__menu
+            .header__menu-item.header_menu-item-full
                 a(href='/info-for-polygraphy', id='info-for-polygraphy')
                     | Информация для полиграфий
-            .navigate-button.short-info-for-polygraphy
+            .header__menu-item.header_menu-item-mini
                 a(href='/info-for-polygraphy', id='info-for-polygraphy')
                     | Полиграфиям
-        li
-            .navigate-button.about-project
+            .header__menu-item
                 a(href='/about-project')
                     | О проекте
-        if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole("ROLE_POLYGRAPHY")
-            li.list
-                .navigate-button.icon-for-list
-                    ul.options-list
-                        li.list-item
-                            if security.isUserInRole("ROLE_ADMIN")
-                                a(href="/admin")
-                                    | Личный кабинет
-                            if security.isUserInRole("ROLE_POLYGRAPHY")
-                                a(href="/admin-polygraphy/polygraphy/" + security.getUserId() + "/edit")
-                                    | Личный кабинет
-                        li.list-item
-                            a(href="/logout")
-                                | Выход
-    .logo-box
+            if security.isUserInRole("ROLE_ADMIN")
+                .header__menu-item.header__dropdown
+                    | More
+                ul.header__dropdown-menu
+                    li.header__dropdown-menu-item
+                        a(href="/admin")
+                            | Личный кабинет
+                    li.header__dropdown-menu-item
+                        a(href="/logout")
+                            | Выход
+        .header__slogan
+            | Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
+            br
+            | Мы найдем полиграфии для ваших задач!
+
+header.header.small-header
+    .header__menu
+        .header__menu-item
+            a(href='/info-for-polygraphy', id='info-for-polygraphy')
+                | Полиграфиям
+        .header__menu-item
+            a(href='/about-project')
+                | О проекте
+        if security.isUserInRole("ROLE_ADMIN")
+            .header__menu-item.header__dropdown
+                | More
+            ul.header__dropdown-menu
+                li.header__dropdown-menu-item
+                    a(href="/admin")
+                        | Личный кабинет
+                li.header__dropdown-menu-item
+                    a(href="/logout")
+                        | Выход
+    .header__logo-wrapper
         a(href='/')
-            .logo
-    .slogan
-        | Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
-        br
-        | Мы найдем полиграфии для ваших задач!
-    .slogan-mini
+            img(src ='/images/logo.png', alt='Полиграфия', height='80px', width='142px')
+    .header__slogan
         | Быстрый поиск по полиграфиям

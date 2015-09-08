@@ -20,11 +20,11 @@ public class TestConfiguration {
     private String operaDriver;
     @Value("test.driver.safari")
     private String safariDriver;
-    @Value("test.driver.ie8")
+    @Value("test.driver.ie")
     private String iEDriver;
 
     @Bean
-    public TestResolver urlResolver() {
+    public TestResolver testResolver() {
         TestResolver testResolver = new TestResolver();
         testResolver.setUsername(username);
         testResolver.setPassword(password);

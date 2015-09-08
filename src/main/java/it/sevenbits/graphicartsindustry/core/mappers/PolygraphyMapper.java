@@ -22,9 +22,9 @@ public interface PolygraphyMapper {
     })
     List<PolygraphyContacts> findPolygraphies(@Param(value = "query") final String query,
                                               @Param(value = "services") final List<Integer> services,
-                                              @Param(value = "payment") final Integer payment_id,
+                                              @Param(value = "payment") final Integer paymentMethodId,
                                               @Param(value = "check") final Boolean check,
-                                              @Param(value = "delivery") final Integer delivery_id,
+                                              @Param(value = "delivery") final Integer deliveryMethodId,
                                               @Param(value = "order") final Boolean order);
 
     @Select("SELECT id, name, email, displayed FROM polygraphy AS p " +
@@ -53,7 +53,7 @@ public interface PolygraphyMapper {
 
     @Select("SELECT id, name, address, phone, email, website, info, displayed FROM polygraphy AS p " +
             "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
-            "WHERE id=#{id}")
+            "WHERE id=#{polygraphyId}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name"),
@@ -64,11 +64,11 @@ public interface PolygraphyMapper {
             @Result(column = "info", property = "info"),
             @Result(column = "displayed", property = "displayed")
     })
-    PolygraphyContacts findPolygraphy(@Param(value = "id") final Integer id);
+    PolygraphyContacts findPolygraphy(@Param(value = "polygraphyId") final Integer polygraphyId);
 
     @Select("SELECT id, name, address, phone, email, website, info, displayed FROM polygraphy AS p " +
             "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
-            "WHERE displayed=true AND id=#{id}")
+            "WHERE displayed=true AND id=#{polygraphyId}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "name", property = "name"),
@@ -79,7 +79,7 @@ public interface PolygraphyMapper {
             @Result(column = "info", property = "info"),
             @Result(column = "displayed", property = "displayed")
     })
-    PolygraphyContacts findPolygraphyDisplayed(@Param(value = "id") final Integer id);
+    PolygraphyContacts findPolygraphyDisplayed(@Param(value = "polygraphyId") final Integer polygraphyId);
 
 
     @Select("SELECT id FROM polygraphy " +
@@ -112,26 +112,26 @@ public interface PolygraphyMapper {
 
     @Update("UPDATE polygraphy " +
             "SET name=#{name} " +
-            "WHERE id=#{id}")
-    void updatePolygraphyName(@Param(value = "id") final Integer polygraphyId,
+            "WHERE id=#{polygraphyId}")
+    void updatePolygraphyName(@Param(value = "polygraphyId") final Integer polygraphyId,
                               @Param(value = "name") final String name);
 
     @Update("UPDATE polygraphy " +
             "SET writes_the_check=#{check} " +
-            "WHERE id=#{id}")
-    void updatePolygraphyWritesTheCheck(@Param(value = "id") final Integer polygraphyId,
+            "WHERE id=#{polygraphyId}")
+    void updatePolygraphyWritesTheCheck(@Param(value = "polygraphyId") final Integer polygraphyId,
                                         @Param(value = "check") final Boolean check);
 
     @Update("UPDATE polygraphy " +
             "SET order_by_email=#{order} " +
-            "WHERE id=#{id}")
-    void updatePolygraphyOrderByEmail(@Param(value = "id") final Integer polygraphyId,
+            "WHERE id=#{polygraphyId}")
+    void updatePolygraphyOrderByEmail(@Param(value = "polygraphyId") final Integer polygraphyId,
                                       @Param(value = "order") final Boolean order);
 
     @Update("UPDATE polygraphy " +
             "SET info=#{info} " +
-            "WHERE id=#{id}")
-    void updatePolygraphyInfo(@Param(value = "id") final Integer polygraphyId,
+            "WHERE id=#{polygraphyId}")
+    void updatePolygraphyInfo(@Param(value = "polygraphyId") final Integer polygraphyId,
                               @Param(value = "info") final String info);
 
     @Update("UPDATE polygraphy " +

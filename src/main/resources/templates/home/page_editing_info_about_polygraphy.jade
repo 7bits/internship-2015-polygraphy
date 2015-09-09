@@ -2,7 +2,7 @@ extends ../layouts/layout
 
 block append head
     link(rel='stylesheet', href='/stylesheets/editing-info-about-polygraphy.css')
-    script(type='application/javascript', src='/scripts/editing-info-about-polygraphy.js')
+    script(type='application/javascript', src='/scripts/about-polygraphy.js')
     script(type='application/javascript', src='/scripts/display-errors.js')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
@@ -72,59 +72,62 @@ block content
                 script.
                     CKEDITOR.replace('text-area-field')
 
-            if editingForm.orderByEmail
-                input.js-obe.checkbox(id='order-by-email', name='orderByEmail', type='checkbox', checked)
-                label(for='order-by-email')
-                    | Принимаем заказ по e-mail
-            else
-                input.js-obe.checkbox(id='order-by-email', name='orderByEmail', type='checkbox')
-                label(for='order-by-email')
-                    | Принимаем заказ по e-mail
-            if editingForm.writesTheCheck
-                input.js-wtc.checkbox(id='writes-the-check', name='writesTheCheck', type='checkbox', checked)
-                label(for='writes-the-check')
-                    | Выдаем чек
-            else
-                input.js-wtc.checkbox(id='writes-the-check', name='writesTheCheck', type='checkbox')
-                label(for='writes-the-check')
-                    | Выдаем чек
+            input.js-obe.checkbox(id='order-by-email',
+                                name='orderByEmail',
+                                type='checkbox',
+                                checked='#{editingForm.orderByEmail}')
+            label(for='order-by-email')
+                | Принимаем заказ по e-mail
+
+            input.js-wtc.checkbox(id='writes-the-check',
+                                name='writesTheCheck',
+                                type='checkbox',
+                                checked='#{editingForm.writesTheCheck}')
+            label(for='writes-the-check')
+                | Выдаем чек
 
             .checkbox-input-wrapper
                 label.input-label
                     | Способы оплаты
                 for paymentMethod in paymentMethods
-                    if editingForm.paymentMethods.contains(paymentMethod.id)
-                        input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox', checked)
-                        label(for='payment'+paymentMethod.id)=paymentMethod.name
-                    else
-                        input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
-                        label(for='payment'+paymentMethod.id)=paymentMethod.name
+                    - pm_checked = editingForm.paymentMethods.contains(paymentMethod.id)
+                    input.js-pm.checkbox(id='payment#{paymentMethod.id}',
+                                        name='paymentMethods',
+                                        value='#{paymentMethod.id}',
+                                        type='checkbox',
+                                        checked=pm_checked)
+                    label(for='payment'+paymentMethod.id)=paymentMethod.name
                 .for-error(id='paymentMethods-for-error')
                 .invalid(id='paymentMethods-error')
+
             .checkbox-input-wrapper
                 label.input-label
                     | Способы доставки
                 for deliveryMethod in deliveryMethods
-                    if editingForm.deliveryMethods.contains(deliveryMethod.id)
-                        input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox', checked)
-                        label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                    else
-                        input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
-                        label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                    - dm_checked = editingForm.deliveryMethods.contains(deliveryMethod.id)
+                    input.js-dm.checkbox(id='delivery#{deliveryMethod.id}',
+                                        name='deliveryMethods',
+                                        value='#{deliveryMethod.id}',
+                                        type='checkbox',
+                                        checked=dm_checked)
+                    label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
                 .for-error(id='deliveryMethods-for-error')
                 .invalid(id='deliveryMethods-error')
+
             .checkbox-input-service-wrapper
                 label.input-label
                     | Предоставляемые услуги
                 for service in services
-                    if editingForm.services.contains(service.id)
-                        input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox', checked)
-                        label(for='service'+service.id)=service.name
-                    else
-                        input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
-                        label(for='service'+service.id)=service.name
+                    - s_checked = editingForm.services.contains(service.id)
+                    input.js-s.checkbox(id='service#{service.id}',
+                                        name='services',
+                                        value='#{service.id}',
+                                        type='checkbox',
+                                        checked=s_checked)
+                    label(for='service'+service.id)=service.name
                 .for-error(id='services-for-error')
                 .invalid(id='services-error')
+
             .base-error
             .button-container
                 button.save(type='button')

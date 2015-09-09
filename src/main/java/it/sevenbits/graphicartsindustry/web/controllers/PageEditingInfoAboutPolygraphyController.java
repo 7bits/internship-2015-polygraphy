@@ -45,7 +45,7 @@ public class PageEditingInfoAboutPolygraphyController {
         model.addAttribute("editingForm", editingPolygraphyService.showFullInfoAboutPolygraphyByAdmin(polygraphyId));
         model.addAttribute("editingForm.polygraphyId", polygraphyId);
 
-        return "home/page_editing_info_about_polygraphy";
+        return "home/editing_polygraphy";
     }
 
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
@@ -76,7 +76,7 @@ public class PageEditingInfoAboutPolygraphyController {
             model.addAttribute("services", contentService.findAllServices());
             model.addAttribute("editingForm", editingPolygraphyService.showFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
             model.addAttribute("editingForm.polygraphyId", polygraphyId);
-            return "home/page_editing_info_about_polygraphy";
+            return "home/editing_polygraphy";
         }
         return "/fffff";
     }

@@ -1,16 +1,17 @@
 var displayErrors = function(data){
+    var className = $('#big-form').attr('class');
     if (data.errors['base']){
-        $('.base-error').css('display', 'block');
-        $('.base-error').text(data.errors['base']);
+        $('.'+className+'__base-error').css('display', 'block');
+        $('.'+className+'__base-error').text(data.errors['base']);
     }
     else {
-        $('.base-error').css('display', 'none');
+        $('.'+className+'__base-error').css('display', 'none');
 
         $.each(data.errors, function(key, value){
-            $('.input-field[name='+key+']').css('borderColor', '#FD5D58');
-            $('.for-error#'+key+'-for-error').css('display', 'block');
-            $('.invalid#'+key+'-error').css('display', 'block');
-            $('.invalid#'+key+'-error').text(value);
+            $('.'+className+'__input[name='+key+']').css('borderColor', '#FD5D58');
+            $('.'+className+'__for-error#'+key+'-for-error').css('display', 'block');
+            $('.'+className+'__invalid#'+key+'-error').css('display', 'block');
+            $('.'+className+'__invalid#'+key+'-error').text(value);
         });
     }
 };

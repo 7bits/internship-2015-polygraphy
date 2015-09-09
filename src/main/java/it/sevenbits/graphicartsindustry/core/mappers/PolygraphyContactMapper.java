@@ -4,7 +4,7 @@ import org.apache.ibatis.annotations.*;
 
 public interface PolygraphyContactMapper {
 
-    @Select("SELECT email FROM contact " +
+    @Select("SELECT polygraphy_id FROM contact " +
             "WHERE email=#{email}")
     @Result(column = "polygraphy_id")
     Integer getPolygraphyIdByEmail(@Param(value = "email") final String email);

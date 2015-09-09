@@ -9,97 +9,97 @@ block append head
 
 block content
 
-    .registration-form
-        .registration-form-headline
+    .b-registration(id='big-form')
+        .b-registration__headline
             | РЕГИСТРАЦИЯ ПОЛИГРАФИИ
         form(id='registration-form')
             fieldset
                 input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                input.input-field#hash(type='hidden', name='hash', value='#{hash}')
-                .text-fields
-                    .text-input-wrapper
-                        label.input-label
+                input.b-registration__input#hash(type='hidden', name='hash', value='#{hash}')
+                .b-registration__text-fields
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             |E-mail для регистрации *
-                        input.input-field#email-input(name='email', type='text')
-                        .for-error(id = 'email-for-error')
-                        .invalid(id = 'email-error')
-                    .text-input-wrapper
-                        label.input-label
+                        input.b-registration__input#email-input(name='email', type='text')
+                        .b-registration__for-error(id = 'email-for-error')
+                        .b-registration__invalid(id = 'email-error')
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             |Пароль *
-                        input.input-field#password-input(name='password', type='password')
-                        .for-error(id = 'password-for-error')
-                        .invalid(id='password-error')
-                    .text-input-wrapper
-                        label.input-label
+                        input.b-registration__input#password-input(name='password', type='password')
+                        .b-registration__for-error(id = 'password-for-error')
+                        .b-registration__invalid(id='password-error')
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             | Название полиграфии *
-                        input.input-field#name-input(name='name', type='text')
-                        .for-error(id='name-for-error')
-                        .invalid(id='name-error')
-                    .text-input-wrapper
-                        label.input-label
+                        input.b-registration__input#name-input(name='name', type='text')
+                        .b-registration__for-error(id='name-for-error')
+                        .b-registration__invalid(id='name-error')
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             | Адрес *
-                        input.input-field#address-input(name='address', type='text')
-                        .for-error(id='address-for-error')
-                        .invalid(id='address-error')
-                    .text-input-wrapper
-                        label.input-label
+                        input.b-registration__input#address-input(name='address', type='text')
+                        .b-registration__for-error(id='address-for-error')
+                        .b-registration__invalid(id='address-error')
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             | Телефон *
-                        input.input-field#phone-input(name='phone', type='text')
-                        .for-error(id='phone-for-error')
-                        .invalid(id='phone-error')
-                    .text-input-wrapper
-                        label.input-label
+                        input.b-registration__input#phone-input(name='phone', type='text')
+                        .b-registration__for-error(id='phone-for-error')
+                        .b-registration__invalid(id='phone-error')
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             | Публичный e-mail
-                        input.input-field#email-public-input(name='publicEmail', type='text')
-                        .for-error(id='publicEmail-for-error')
-                        .invalid(id='publicEmail-error')
-                    .text-input-wrapper
-                        label.input-label
+                        input.b-registration__input#email-public-input(name='publicEmail', type='text')
+                        .b-registration__for-error(id='publicEmail-for-error')
+                        .b-registration__invalid(id='publicEmail-error')
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             | Сайт
-                        input.input-field#website-input(name='website', type='text')
-                    .text-input-wrapper
-                        label.input-label
+                        input.b-registration__input#website-input(name='website', type='text')
+                    .b-registration__text-input-wrapper
+                        label.b-registration__input-label
                             | Описание
-                        textarea.input-field.textarea-field#text-area-field(name='textArea')
+                        textarea.b-registration__input.textarea-field#text-area-field(name='textArea')
                         script.
                             CKEDITOR.replace('textArea')
-                .base-error
+                .b-registration__base-error
             fieldset
-                .field-checkboxes
-                    .field-order-by-email.field-checkbox
-                        input.js-obe.checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
+                .b-registration__field-checkboxes
+                    .b-registration__field-checkbox.b-registration_checkbox-order-by-email
+                        input.js-obe.b-registration__checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
                         label(for='orderByEmail') Принимаем заказы по e-mail
-                    .field-issue-check.field-checkbox
-                        input.js-wtc.checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
+                    .b-registration__field-checkbox.b-registration_checkbox-issue-check
+                        input.js-wtc.b-registration__checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
                         label(for='writesTheCheck') Выдаем чек
-                    .field-payment
-                        label.input-label
+                    .b-registration__checkboxes-wrapper
+                        label.b-registration__input-label
                             | Принимаем оплату: *
-                        .input-wrapper
+                        .b-registration__input-wrapper
                             for paymentMethod in paymentMethods
-                                .field-checkbox
-                                    input.js-pm.checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                                .b-registration__field-checkbox
+                                    input.js-pm.b-registration__checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                                     label(for='payment'+paymentMethod.id)=paymentMethod.name
-                        .for-error(id='paymentMethods-for-error')
-                        .invalid(id='paymentMethods-error')
-                    .field-delivery
-                        label.input-label
+                        .b-registration__for-error(id='paymentMethods-for-error')
+                        .b-registration__invalid(id='paymentMethods-error')
+                    .b-registration__checkboxes-wrapper
+                        label.b-registration__input-label
                             | Доставка готового заказа: *
-                        .input-wrapper
+                        .b-registration__input-wrapper
                             for deliveryMethod in deliveryMethods
-                                .field-checkbox
-                                    input.js-dm.checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                                .b-registration__field-checkbox
+                                    input.js-dm.b-registration__checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                        .for-error(id='deliveryMethods-for-error')
-                        .invalid(id='deliveryMethods-error')
-                    .field-services
-                        label.input-label
+                        .b-registration__for-error(id='deliveryMethods-for-error')
+                        .b-registration__invalid(id='deliveryMethods-error')
+                    .b-registration__checkboxes-wrapper
+                        label.b-registration__input-label
                             | Предоставляемые услуги: *
-                        .input-wrapper
+                        .b-registration__input-wrapper
                             for service in services
-                                .field-checkbox
-                                    input.js-s.checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                                .b-registration__field-checkbox
+                                    input.js-s.b-registration__checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                                     label(for='service'+service.id)=service.name
-                        .for-error(id='services-for-error')
-                        .invalid(id='services-error')
+                        .b-registration__for-error(id='services-for-error')
+                        .b-registration__invalid(id='services-error')
                 button.submit-registration-form(type='button', id='submit-registration-form') Сохранить данные

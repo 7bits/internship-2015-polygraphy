@@ -1,0 +1,232 @@
+@import url("osans.css");
+
+body{
+    width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    font-family: "OpenSansLightRegular";
+}
+
+:focus{
+    outline: none;
+}
+
+.b-comeback{
+    margin: 10px auto 0px auto;
+    text-align: center;
+}
+
+.b-comeback__button{
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 25px;
+    border: 1px solid rgb(120, 103, 156);
+    color: rgb(120, 103, 156);
+    background-color: white;
+    height: 30px;
+    width: auto;
+    padding: 5px 10px;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.b-comeback__button:hover{
+    background-color: rgb(120, 103, 156);
+    color: white;
+}
+
+.b-about-polygraphy{
+    width: 938px;
+    height: auto;
+    text-align: center;
+    background-color: white;
+    outline: none;
+    clear: both;
+    padding: 50px;
+    box-sizing: border-box;
+    border: none;
+    overflow: hidden;
+    margin: 0 auto 50px auto;
+}
+
+.b-about-polygraphy__content{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.b-about-polygraphy__helper{
+    display: inline-block;
+    height: 100%;
+    width: 0px;
+    vertical-align: middle;
+}
+
+.b-about-polygraphy__summary{
+    width: 265px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    text-align: left;
+}
+
+.b-about-polygraphy__name{
+    font-family: "OpenSansLightRegular";
+    font-size: 25px;
+    color: black;
+}
+
+table.b-about-polygraphy__services{
+    margin: 25px auto;
+}
+
+table.b-about-polygraphy__adaptive-services{
+    display: none;
+    margin: 25px auto;
+}
+
+.b-about-polygraphy__address,
+.b-about-polygraphy__phone,
+.b-about-polygraphy__email,
+.b-about-polygraphy__site{
+    margin-bottom: 5px;
+    padding-left: 24px;
+    font-size: 17px;
+}
+
+.b-about-polygraphy__address{
+    background: url("/images/map-violet.png");
+    background-repeat: no-repeat;
+    background-position: left calc(0% + 5px);
+}
+
+.b-about-polygraphy__phone{
+    background: url("/images/phone-violet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.b-about-polygraphy__email{
+    background: url("/images/mail-violet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.b-about-polygraphy__site{
+    background: url("/images/link-violet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgb(111, 194, 106);
+}
+
+.b-about-polygraphy__site > a{
+    color: rgb(111, 194, 106);
+}
+
+.b-about-polygraphy__details{
+    width: 455px;
+    height: 100%;
+    display: inline-block;
+    float: right;
+    text-align: left;
+}
+
+.b-about-polygraphy__about-title{
+    font-family: "OpenSansLightRegular";
+    font-size: 25px;
+    color: black;
+}
+
+.b-about-polygraphy__about-text{
+    font-size: 17px;
+    margin-top: 30px;
+    padding-right: 5px;
+    text-align: left;
+    text-indent: 20px;
+    height: 90%;
+}
+
+@media screen and (max-width: 700px){
+
+    body{
+        width: 100%;
+    }
+
+    .b-about-polygraphy{
+        width: 100%;
+        padding: 20px;
+    }
+
+    .b-about-polygraphy__summary{
+        width: 100%;
+        display: block;
+        float: none;
+    }
+
+    .b-about-polygraphy__name{
+        text-align: center;
+    }
+
+    table.b-about-polygraphy__services{
+        margin: 25px auto;
+    }
+
+    .b-about-polygraphy__details{
+        width: 100%;
+        display: block;
+        float: none;
+    }
+
+    .b-about-polygraphy__about-title{
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .b-about-polygraphy__about-text{
+        font-size: 16px;
+        height: auto;
+        margin-top: 10px;
+    }
+
+    .b-about-polygraphy__content {
+        max-width: 330px;
+    }
+
+}
+
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+
+    body {
+        margin: auto;
+        width: 100%;
+    }
+
+    .b-about-polygraphy {
+        width: 90%;
+        max-width: 800px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    table.b-about-polygraphy__services{
+        display: none;
+    }
+
+    table.b-about-polygraphy__adaptive-services{
+        margin: 25px 0;
+        display: table;
+    }
+
+    .b-about-polygraphy__summary {
+        width: 250px;
+    }
+
+    .b-about-polygraphy__details {
+        margin-left: 10px;
+        width: calc(100% - 260px);
+    }
+}

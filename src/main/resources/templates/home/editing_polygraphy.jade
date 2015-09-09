@@ -1,0 +1,134 @@
+extends ../layouts/layout
+
+block append head
+    link(rel='stylesheet', href='/stylesheets/editing-polygraphy.css')
+    script(type='application/javascript', src='/scripts/editing-polygraphy.js')
+    script(type='application/javascript', src='/scripts/display-errors.js')
+    script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
+
+block content
+
+    .edit-form(id='big-form')
+        .edit-form-headline
+            | РЕДАКТИРОВАНИЕ
+
+        if security.isUserInRole('ROLE_ADMIN')
+            - url = '/admin/polygraphy/' + editingForm.polygraphyId + '/update'
+        if security.isUserInRole('ROLE_POLYGRAPHY')
+            - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/update'
+
+        form(action=url)
+            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+            input.input-field(id = 'polygraphy-id', type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
+
+            if security.isUserInRole('ROLE_POLYGRAPHY')
+                .text-input-wrapper
+                    label.input-label
+                        | E-mail для регистрации *
+                    input.input-field(type='text', id='email-input', name = 'email', value='#{editingForm.email}')
+                    .for-error(id = 'email-for-error')
+                    .invalid(id = 'email-error')
+                .text-input-wrapper
+                    label.input-label
+                        | Пароль *
+                    input.input-field(type='text', id='password-input', name = 'password')
+                    .for-error(id = 'password-for-error')
+                    .invalid(id = 'password-error')
+            .text-input-wrapper
+                label.input-label
+                    | Название полиграфии *
+                input.input-field(type='text', id='name-input', name = 'name', value='#{editingForm.name}')
+                .for-error(id = 'name-for-error')
+                .invalid(id = 'name-error')
+            .text-input-wrapper
+                label.input-label
+                    | Адрес *
+                input.input-field(type='text', id='address-input', name = 'address', value='#{editingForm.address}')
+                .for-error(id = 'address-for-error')
+                .invalid(id = 'address-error')
+            .text-input-wrapper
+                label.input-label
+                    | Телефон *
+                input.input-field(type='text', id='phone-input', name = 'phone', value='#{editingForm.phone}')
+                .for-error(id = 'phone-for-error')
+                .invalid(id = 'phone-error')
+            .text-input-wrapper
+                label.input-label
+                    | Публичный e-mail
+                input.input-field(type='text', id='email-public-input', name = 'publicEmail', value='#{editingForm.publicEmail}')
+                .for-error(id='publicEmail-for-error')
+                .invalid(id = 'publicEmail-error')
+            .text-input-wrapper
+                label.input-label
+                    | Сайт
+                input.input-field(type='text', id='website-input', name = 'website', value='#{editingForm.website}')
+                .for-error(id = 'website-for-error')
+                .invalid(id = 'website-error')
+            .text-input-wrapper
+                label.input-label
+                    | Описание
+                textarea.input-field.textarea-field(name='textArea', id='text-area-field')
+                    != editingForm.info
+                script.
+                    CKEDITOR.replace('text-area-field')
+
+            input.js-obe.checkbox(id='order-by-email',
+                                name='orderByEmail',
+                                type='checkbox',
+                                checked='#{editingForm.orderByEmail}')
+            label(for='order-by-email')
+                | Принимаем заказ по e-mail
+
+            input.js-wtc.checkbox(id='writes-the-check',
+                                name='writesTheCheck',
+                                type='checkbox',
+                                checked='#{editingForm.writesTheCheck}')
+            label(for='writes-the-check')
+                | Выдаем чек
+
+            .checkbox-input-wrapper
+                label.input-label
+                    | Способы оплаты
+                for paymentMethod in paymentMethods
+                    - pm_checked = editingForm.paymentMethods.contains(paymentMethod.id)
+                    input.js-pm.checkbox(id='payment#{paymentMethod.id}',
+                                        name='paymentMethods',
+                                        value='#{paymentMethod.id}',
+                                        type='checkbox',
+                                        checked=pm_checked)
+                    label(for='payment'+paymentMethod.id)=paymentMethod.name
+                .for-error(id='paymentMethods-for-error')
+                .invalid(id='paymentMethods-error')
+
+            .checkbox-input-wrapper
+                label.input-label
+                    | Способы доставки
+                for deliveryMethod in deliveryMethods
+                    - dm_checked = editingForm.deliveryMethods.contains(deliveryMethod.id)
+                    input.js-dm.checkbox(id='delivery#{deliveryMethod.id}',
+                                        name='deliveryMethods',
+                                        value='#{deliveryMethod.id}',
+                                        type='checkbox',
+                                        checked=dm_checked)
+                    label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                .for-error(id='deliveryMethods-for-error')
+                .invalid(id='deliveryMethods-error')
+
+            .checkbox-input-service-wrapper
+                label.input-label
+                    | Предоставляемые услуги
+                for service in services
+                    - s_checked = editingForm.services.contains(service.id)
+                    input.js-s.checkbox(id='service#{service.id}',
+                                        name='services',
+                                        value='#{service.id}',
+                                        type='checkbox',
+                                        checked=s_checked)
+                    label(for='service'+service.id)=service.name
+                .for-error(id='services-for-error')
+                .invalid(id='services-error')
+
+            .base-error
+            .button-container
+                button.save(type='button')
+                    | Сохранить

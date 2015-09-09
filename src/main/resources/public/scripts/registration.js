@@ -6,10 +6,10 @@ var validateSecondStep = function(event){
     var headers = {};
     headers[header] = token;
 
-    $('.input-field').css('borderColor', 'white');
-    $('.invalid').css('display', 'none');
-    $(".for-error").css('display', 'none');
-    $('.invalid').text('');
+    $('.b-registration__input').css('borderColor', 'white');
+    $('.b-registration__invalid').css('display', 'none');
+    $(".b-registration__for-error").css('display', 'none');
+    $('.b-registration__invalid').text('');
 
     CKEDITOR.instances['text-area-field'].updateElement();
     var textArea = $('#text-area-field').val();
@@ -18,17 +18,17 @@ var validateSecondStep = function(event){
 
     /* Поля первого шага */
     var names = {}
-    $('.input-field').each(function(){
+    $('.b-registration__input').each(function(){
         names[$(this).attr('name')] = $(this).val();
     });
 
     /* Поля второго шага */
     var checkboxes = {}
-    $('.checkbox').each(function(){
+    $('.b-registration__checkbox').each(function(){
         checkboxes[$(this).attr('name')] = [];
     });
     $.each(checkboxes, function(key, value){
-        $('.checkbox[name='+key+']:checked').each(function(){
+        $('.b-registration__checkbox[name='+key+']:checked').each(function(){
             value.push($(this).attr('value'));
         });
     });
@@ -74,6 +74,6 @@ $(document).ready(function(){
 
     $('input').attr('autocomplete', 'off');
 
-    $('.registration-form').on('click', '.submit-registration-form', validateSecondStep);
+    $('.b-registration').on('click', '.submit-registration-form', validateSecondStep);
 
 });

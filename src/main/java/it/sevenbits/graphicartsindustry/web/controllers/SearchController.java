@@ -119,7 +119,7 @@ public class SearchController {
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.GET)
     public String infoForPolygraphy (RequestOnRegistrationForm form, final Model model) {
         model.addAttribute("request", form);
-        return "home/page_with_info_for_polygraphy";
+        return "home/info_for_polygraphy";
     }
 
     @RequestMapping(value = "/info-for-polygraphy-success", method = RequestMethod.GET)

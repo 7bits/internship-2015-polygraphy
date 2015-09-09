@@ -1,0 +1,54 @@
+extends ../layouts/layout
+
+block append head
+    link(rel="stylesheet", href="/stylesheets/about-polygraphy.css")
+    link(rel="stylesheet", href="/stylesheets/icons.css")
+
+block content
+
+    .b-comeback
+        a.b-comeback__button(href='/')
+            | Вернуться к поиску
+    main.b-about-polygraphy
+        .b-about-polygraphy__content
+            .b-about-polygraphy__summary
+                .b-about-polygraphy__name
+                    = polygraphy.name
+                table.b-about-polygraphy__services
+                    tr
+                        td.sticker
+                        td.card
+                        td.calendar
+                        td.magnit
+                    tr
+                        td.cup
+                        td.badge
+                        td.bunner
+                        td.note
+                table.b-about-polygraphy__adaptive-services
+                    tr
+                        td.bunner
+                        td.t-shirt
+                        td.cup
+                    tr
+                        td.note
+                        td.badge
+                        td.magnit
+                    tr
+                        td.sticker
+                        td.card
+                        td.calendar
+                .b-about-polygraphy__address
+                    = polygraphy.address
+                .b-about-polygraphy__phone
+                    = polygraphy.phone
+                .b-about-polygraphy__email
+                    = polygraphy.email
+                .b-about-polygraphy__site
+                    a(href='#{polygraphy.website}', target="_blank")= polygraphy.website
+            if(polygraphy.info != '')
+                .b-about-polygraphy__details
+                    .b-about-polygraphy__about-title
+                        | О ПОЛИГРАФИИ
+                    .b-about-polygraphy__about-text!= polygraphy.info
+        .b-about-polygraphy__helper

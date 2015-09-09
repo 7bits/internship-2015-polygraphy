@@ -33,8 +33,7 @@ public class ContentService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving all services: "
-                    + e.getMessage(), e);
+            throw new ServiceException("Not all content page was found");
         }
     }
 
@@ -47,8 +46,7 @@ public class ContentService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving frequent services: "
-                    + e.getMessage(), e);
+            throw new ServiceException("Not all content page was found");
         }
     }
 
@@ -61,8 +59,7 @@ public class ContentService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving payment methods: "
-                    + e.getMessage(), e);
+            throw new ServiceException("Not all content page was found");
         }
     }
 
@@ -75,8 +72,7 @@ public class ContentService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving delivery methods: "
-                    + e.getMessage(), e);
+            throw new ServiceException("Not all content page was found");
         }
     }
 
@@ -88,8 +84,7 @@ public class ContentService {
                     polygraphyContacts.getInfo());
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving full information " +
-                    "about polygraphy: " + e.getMessage(), e);
+            throw new ServiceException("Not all content page was found");
         }
     }
 }

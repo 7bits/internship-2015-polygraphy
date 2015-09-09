@@ -40,7 +40,7 @@ public class AdminService {
         try {
             requestOnRegistrationRepository.removeRequestOnRegistrationById(requestId);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while removing request on registration ");
+            throw new ServiceException("Failed to delete the request on registration ");
         }
     }
 
@@ -59,7 +59,7 @@ public class AdminService {
             if (userId != null)
                 userRepository.removeUser(userId);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while removing polygraphy ");
+            throw new ServiceException("Failed to delete the polygraphy ");
         }
     }
 
@@ -72,8 +72,7 @@ public class AdminService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while showing all polygraphies " +
-                    e.getMessage(),e);
+            throw new ServiceException("Polygraphies has not been found");
         }
     }
 
@@ -88,8 +87,7 @@ public class AdminService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while showing all requests on registration " +
-                    e.getMessage(),e);
+            throw new ServiceException("Requests on registration has not been found");
         }
     }
 
@@ -97,8 +95,7 @@ public class AdminService {
         try {
             polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
         } catch (Exception e) {
-            throw new  ServiceException("An error occurred while changing condition polygraphy " +
-                    e.getMessage(),e);
+            throw new  ServiceException("Failed to change the condition displayed of polygraphy");
         }
     }
 }

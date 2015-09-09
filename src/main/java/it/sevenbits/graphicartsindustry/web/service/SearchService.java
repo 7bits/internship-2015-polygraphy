@@ -16,7 +16,7 @@ public class SearchService {
     @Autowired
     private PolygraphyRepository polygraphyRepository;
 
-    public List<PolygraphyMinModel> findAllAllowedPolygraphy(int limit) throws ServiceException {
+    public List<PolygraphyMinModel> findAllPolygraphiesDisplayed(int limit) throws ServiceException {
         try {
             List<PolygraphyContacts> polygraphies = polygraphyRepository.findAllPolygraphiesDisplayed(limit);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
@@ -25,7 +25,7 @@ public class SearchService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving all polygraphies: " + e.getMessage(), e);
+            throw new ServiceException("Polygraphies has not been found");
         }
     }
 
@@ -38,8 +38,7 @@ public class SearchService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving polygraphies " +
-                    "satisfy the query: " + e.getMessage(), e);
+            throw new ServiceException("Polygraphies has not been found");
         }
     }
 }

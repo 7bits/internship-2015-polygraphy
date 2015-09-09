@@ -41,7 +41,7 @@ public class SearchController {
         // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
         model.addAttribute("polygraphyiesIsNull", "");
         // В модель добавим объект - рандомный список полиграфий
-        model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
+        model.addAttribute("polygraphies", searchService.findAllPolygraphiesDisplayed(limitPolygraphy));
         return "home/index";
     }
 
@@ -74,7 +74,7 @@ public class SearchController {
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.isOrderByEmail()==false)
             // В модель добавим объект - рандомный список полиграфий
-            model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
+            model.addAttribute("polygraphies", searchService.findAllPolygraphiesDisplayed(limitPolygraphy));
         else {
             PolygraphyResponse results = new PolygraphyResponse();
             results.setPolygraphies(searchService.findPolygraphies(form));
@@ -100,7 +100,7 @@ public class SearchController {
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
                 form.isOrderByEmail()==false) {
             // В модель добавим объект - рандомный список полиграфий
-            results.setPolygraphies(searchService.findAllAllowedPolygraphy(limitPolygraphy));
+            results.setPolygraphies(searchService.findAllPolygraphiesDisplayed(limitPolygraphy));
             results.setPolygraphiesListIsNull("");
         }
         else {

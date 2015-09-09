@@ -60,18 +60,18 @@
                 var headers = {};
                 headers[header] = token;
 
-                $('.input-field').css('borderColor', 'white');
-                $('.invalid').css('display', 'none');
-                $('.for-error').css('display', 'none');
-                $('.invalid').text('');
+                $('.b-registration__input').css('borderColor', 'white');
+                $('.b-registration__invalid').css('display', 'none');
+                $('.b-registration__for-error').css('display', 'none');
+                $('.b-registration__invalid').text('');
 
                 CKEDITOR.instances['text-area-field'].updateElement();
                 var textArea = $('#text-area-field').val();
-                $('.base-error').css('display', 'none');
-                $('.base-error').text('');
+                $('.b-registration__base-error').css('display', 'none');
+                $('.b-registration__base-error').text('');
 
                 var names = {}
-                $('.input-field').each(function(){
+                $('.b-registration__input').each(function(){
                     names[$(this).attr('name')] = $(this).val();
                 });
 

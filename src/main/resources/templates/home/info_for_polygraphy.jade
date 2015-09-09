@@ -6,26 +6,26 @@ block append head
 
 block content
 
-    .container-for-bid
-        .area-email-wrapper
-            .head-text
+    .b-bid
+        .b-bid__area-email-wrapper
+            .b-bid__head-text
                 |Если Вы хотите, чтобы Ваша полиграфия появилась в поиске, оставьте
                 br
                 |нам свой e-mail, мы свяжемся с Вами в ближайшее время.
 
-            .form-container
+            .b-bid__form-container
                 form(id = 'request-form')
                     input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                    .input-wrapper
-                        input.email-input(type='text', name='email')
-                        button.submit-email(type='button', id='submit-email', form = 'request-form')
+                    .b-bid__input-wrapper
+                        input.b-bid__email-input(type='text', name='email')
+                        button.b-bid__submit-email(type='button', id='submit-email', form = 'request-form')
                             | Отправить
-                    .for-error
-                    .error-container
+                    .b_bid__for-error
+                    .b-bid__error-container
         if security.isUserInRole("ROLE_ANONYMOUS")
-            .area-login-wrapper
-                .head-text
+            .b-bid__area-login-wrapper
+                .b-bid__head-text
                     |Если Ваша полиграфия уже есть в нашем поиске, можете
-                .button-login-container
-                    a.button-login(href='/login')
+                .b-bid__button-login-container
+                    a.b-bid__button-login(href='/login')
                         | Войти

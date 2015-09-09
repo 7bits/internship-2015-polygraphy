@@ -1,20 +1,20 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/page-about-polygraphy.css")
+    link(rel="stylesheet", href="/stylesheets/about-polygraphy.css")
     link(rel="stylesheet", href="/stylesheets/icons.css")
 
 block content
 
-    .comeback-button-container
-        a.comeback(href='/')
+    .b-comeback
+        a.b-comeback__button(href='/')
             | Вернуться к поиску
-    main
-        .info
-            .summary
-                .polygraphy-name
+    main.b-about-polygraphy
+        .b-about-polygraphy__content
+            .b-about-polygraphy__summary
+                .b-about-polygraphy__name
                     = polygraphy.name
-                table.services
+                table.b-about-polygraphy__services
                     tr
                         td.sticker
                         td.card
@@ -25,7 +25,7 @@ block content
                         td.badge
                         td.bunner
                         td.note
-                table.adaptive-services
+                table.b-about-polygraphy__adaptive-services
                     tr
                         td.bunner
                         td.t-shirt
@@ -38,14 +38,17 @@ block content
                         td.sticker
                         td.card
                         td.calendar
-                .address= polygraphy.address
-                .phone= polygraphy.phone
-                .email= polygraphy.email
-                .site
+                .b-about-polygraphy__address
+                    = polygraphy.address
+                .b-about-polygraphy__phone
+                    = polygraphy.phone
+                .b-about-polygraphy__email
+                    = polygraphy.email
+                .b-about-polygraphy__site
                     a(href='#{polygraphy.website}', target="_blank")= polygraphy.website
             if(polygraphy.info != '')
-                .details
-                    .about-title
+                .b-about-polygraphy__details
+                    .b-about-polygraphy__about-title
                         | О ПОЛИГРАФИИ
-                    .about-text!= polygraphy.info
-        .helper
+                    .b-about-polygraphy__about-text!= polygraphy.info
+        .b-about-polygraphy__helper

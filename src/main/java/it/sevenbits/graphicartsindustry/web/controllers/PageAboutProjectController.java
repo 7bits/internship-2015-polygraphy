@@ -10,6 +10,6 @@ public class PageAboutProjectController {
 
     @RequestMapping(value = "/about-project", method = RequestMethod.GET)
     public String pageAboutProject(final Model model) {
-        return "home/page_about_project";
+        return "home/about_project";
     }
 }

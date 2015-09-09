@@ -25,6 +25,6 @@ public class PagePolygraphyController {
     public String pageInfoAboutPolygraphy(@PathVariable(value = "id") int id, final Model model) throws
             ServiceException {
         model.addAttribute("polygraphy", contentService.findPolygraphy(id));
-        return "home/page_about_polygraphy";
+        return "home/about_polygraphy";
     }
 }

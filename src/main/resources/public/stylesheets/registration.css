@@ -11,7 +11,7 @@ body{
     outline: none;
 }
 
-.registration-form{
+.b-registration{
     width: 700px;
     height: auto;
     background-color: #64be5f;
@@ -24,34 +24,34 @@ body{
     color: white;
 }
 
-.registration-form-headline{
+.b-registration__headline{
     font-size: 30px;
 }
 
-.text-fields{
+.b-registration__text-fields{
     font-family: "OpenSansRegular";
 }
 
-.text-input-wrapper{
+.b-registration__text-input-wrapper{
     font-size: 16px;
     text-align: left;
     margin-bottom: 15px;
 }
 
-.input-label{
+.b-registration__input-label{
     display: block;
     text-align: left;
     margin-bottom: 5px;
 }
 
-.text-input-wrapper{
+.b-registration__text-input-wrapper{
     display: inline-block;
     height: auto;
     width: 100%;
     margin-bottom: 20px;
 }
 
-.input-field{
+.b-registration__input{
     border: 2px solid white;
     border-radius: 20px;
     box-sizing: border-box;
@@ -62,14 +62,14 @@ body{
     height: 40px;
 }
 
-.input-field:hover,
-.input-field:focus,
+.b-registration__input:hover,
+.b-registration__input:focus,
 .textarea-field:hover,
 .textarea-field:focus{
     border: 2px solid #efe553;
 }
 
-.input-field.textarea-field{
+.b-registration__input.textarea-field{
     border: 2px solid white;
     border-radius: 20px;
     box-sizing: border-box;
@@ -81,7 +81,7 @@ body{
     resize: none;
 }
 
-.field-checkbox{
+.b-registration__field-checkbox{
     height: 30px;
     line-height: 30px;
     text-align: left;
@@ -90,46 +90,44 @@ body{
     font-family: "OpenSansLightRegular";
 }
 
-.field-checkboxes{
+.b-registration__field-checkboxes{
     text-align: left;
     //margin: 20px 0;
     font-size: 18px;
     font-family: "OpenSansRegular";
 }
 
-input.checkbox[type="checkbox"]{
+input.b-registration__checkbox[type="checkbox"]{
     display: none;
 }
 
-input.checkbox[type="checkbox"]+label{
+input.b-registration__checkbox[type="checkbox"]+label{
     background: url("/images/check.png") 0px 0px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
-input.checkbox[type="checkbox"]:checked+label{
+input.b-registration__checkbox[type="checkbox"]:checked+label{
     background: url("/images/check.png") 0 -30px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
-input.checkbox[type="checkbox"]+label:hover{
+input.b-registration__checkbox[type="checkbox"]+label:hover{
     cursor: pointer;
 }
 
-.field-payment,
-.field-delivery,
-.field-services{
+.b-registration__checkboxes-wrapper{
     width: 50%;
     display: inline-block;
     text-align: left;
     margin-top: 20px;
 }
 
-.field-order-by-email,
-.field-issue-check{
+.b-registration_checkbox-order-by-email,
+.b-registration_checkbox-issue-check{
     width: 100%;
     float: left;
     margin: 0;
@@ -224,7 +222,7 @@ fieldset {
     opacity: 1;
 }
 
-.for-error{
+.b-registration__for-error{
     display: none;
     height: 7px;
     background-image: url("/images/for-error.png");
@@ -233,7 +231,7 @@ fieldset {
     background-position: calc(0% + 50px);
 }
 
-.invalid{
+.b-registration__invalid{
     display: none;
     background-color: #FD5D58;
     max-width: 80%;
@@ -244,7 +242,7 @@ fieldset {
     text-align: center;
 }
 
-.base-error{
+.b-registration__base-error{
     display: none;
     background-color: #FD5D58;
     max-width: 80%;

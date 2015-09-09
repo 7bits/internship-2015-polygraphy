@@ -14,7 +14,7 @@ header.header
                 a(href='/about-project')
                     | О проекте
             if security.isUserInRole("ROLE_ADMIN")
-                .header__menu-item.header__dropdown
+                .header__menu-item.header_dropdown
                     | More
                 ul.header__dropdown-menu
                     li.header__dropdown-menu-item
@@ -28,7 +28,7 @@ header.header
             br
             | Мы найдем полиграфии для ваших задач!
 
-header.header.small-header
+header.header.header_small-header
     .header__menu
         .header__menu-item
             a(href='/info-for-polygraphy', id='info-for-polygraphy')
@@ -37,7 +37,7 @@ header.header.small-header
             a(href='/about-project')
                 | О проекте
         if security.isUserInRole("ROLE_ADMIN")
-            .header__menu-item.header__dropdown
+            .header__menu-item.header_dropdown
                 | More
             ul.header__dropdown-menu
                 li.header__dropdown-menu-item

@@ -11,7 +11,7 @@
     padding: 0 50px;
 }
 
-.header.small-header{
+.header.header_small-header{
     display: none;
 }
 
@@ -81,9 +81,10 @@
     text-align: left;
     box-sizing: border-box;
     padding-right: 30px;
+    font-size: 18px;
 }
 
-.header__dropdown{
+.header_dropdown{
     cursor: pointer;
 }
 
@@ -128,7 +129,7 @@ li.header__dropdown-menu-item a{
         display: none;
     }
 
-    .header.small-header{
+    .header.header_small-header{
         display: block;
         width: 100%;
         margin: 0;

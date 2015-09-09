@@ -26,7 +26,7 @@ public class ServiceTest {
   @Before
    public void setUp() throws Exception {
     //driver = new FirefoxDriver();
-    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/ChromeDriver//chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/Drivers//chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

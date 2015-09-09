@@ -5,16 +5,16 @@ block append head
 
 block content
 
-    .login-form
-        .login-headline
+    .b-login-form
+        .b-login-form__headline
             | ВХОД НА САЙТ
         form(action='/login', method='post')
             input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-            .field-email
+            .b-login-form__input-field
                 | E-mail
-                input.form-control#name-input(name='username', type='text')
+                input.b-login-form__input#name-input(name='username', type='text')
                 | Пароль
-            .field-password
-                input.form-control#password-input(name='password', type='password')
-            button.submit-login-form(type='submit')
+            .b-login-form__input-field
+                input.b-login-form__input#password-input(name='password', type='password')
+            button.b-login-form__submit(type='submit')
                 | Войти

@@ -35,8 +35,8 @@ public void testRegistration() throws Exception {
         driver.findElement(By.id("name-input")).sendKeys("nastyaproh21@gmail.com");
         driver.findElement(By.id("password-input")).clear();
         driver.findElement(By.id("password-input")).sendKeys("polygraphy");
-        driver.findElement(By.cssSelector("button.submit-login-form")).click();
-        driver.findElement(By.cssSelector("div.navigate-button.icon-for-list")).click();
+        driver.findElement(By.cssSelector("button.b-login-form__submit")).click();
+        driver.findElement(By.cssSelector("div.header__menu-item.header_dropdown")).click();
         driver.findElement(By.linkText("Личный кабинет")).click();*/
 
 
@@ -75,7 +75,7 @@ public void testRegistration() throws Exception {
                 driver.findElement(By.id("name-input")).sendKeys("nastyaproh21@gmail.com");
                 driver.findElement(By.id("password-input")).clear();
                 driver.findElement(By.id("password-input")).sendKeys("polygraphy");
-                driver.findElement(By.cssSelector("button.submit-login-form")).click();
+                driver.findElement(By.cssSelector("button.b-login-form__submit")).click();
                 driver.findElement(By.cssSelector("div.header__menu-item.header__dropdown")).click();
                 driver.findElement(By.linkText("Личный кабинет")).click();
                 driver.findElement(By.cssSelector("div.tab.tab2")).click();
@@ -89,11 +89,11 @@ public void testRegistration() throws Exception {
                 driver.findElement(By.name("query")).sendKeys("проверка");
                 driver.findElement(By.linkText("Подробнее")).click();
                 try {
-                        assertEquals("Проверка регистрации", driver.findElement(By.cssSelector("div.polygraphy-name-pop-up")).getText());
+                        assertEquals("Проверка регистрации", driver.findElement(By.cssSelector("div.b-popup-window__name")).getText());
                 } catch (Error e) {
                         verificationErrors.append(e.toString());
                 }
-                driver.findElement(By.cssSelector("div.close")).click();
+                driver.findElement(By.cssSelector("div.b-popup-window__close")).click();
         }
 @After
 public void tearDown() throws Exception {

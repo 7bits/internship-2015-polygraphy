@@ -1,0 +1,214 @@
+.b-results-item__name a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+table.b-results-item__table-services{
+    margin: auto 20px;
+    float: left;
+    border-spacing: 0px;
+}
+
+.b-results-item__summary{
+    float: left;
+    color: black;
+    font-family: "OpenSansLightRegular";
+    font-size: 15px;
+    width: 355px;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+}
+
+.b-results-item__name{
+    text-align: left;
+    color: black;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.b-results-item__adaptive-name{
+    display: none;
+    text-align: left;
+    color: black;
+    font-size: 20px;
+    margin: 0 0 15px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.b-results-item__address,
+.b-results-item__phone{
+    text-align: left;
+    color: black;
+    font-size: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 20px;
+}
+
+.b-results-item__address{
+    background: url("/images/map-violet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.b-results-item__phone{
+    background: url("/images/phone-violet.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
+.b-results-item__detail{
+    width: 160px;
+    margin: auto 25px auto 0;
+    text-align: center;
+    float: right;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+.b-results-item__detail a:hover{
+    background-color: #736699;
+    border-color: #736699;
+    color: white;
+}
+
+.b-results-item__detail a{
+    text-decoration: none;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #736699;
+    border-radius: 20px;
+    color: #736699;
+    font-size: 16px;
+    display: block;
+    box-sizing: border-box;
+}
+
+.b-results-item__adaptive-detail-info{
+    width: 160px;
+    margin: auto 25px auto 0;
+    text-align: center;
+    float: right;
+    padding: 30px 0;
+    display: none;
+    box-sizing: border-box;
+    border: 1px solid #79689D;
+    background-color: rgb(232,232,232);
+    border-radius: 25px;
+    height: 35px;
+    color: #79689D;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.b-results-item__adaptive-detail-info:hover{
+    background-color: #736699;
+    color: white;
+}
+
+
+@media screen and (max-width: 700px){
+
+   .b-results-item__address{
+        display: none;
+    }
+
+    .b-results-item__phone{
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .b-results-item__name{
+        display: none;
+    }
+
+    .b-results-item__adaptive-name{
+        display: block;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .b-results-item__summary{
+        width: 160px;
+        height: auto;
+    }
+
+    .b-results-item__detail,
+    .b-results-item__detail a,
+    .b-results-item__detail a:hover{
+        display: none;
+    }
+
+    .b-results-item__adaptive-detail-info{
+        display: inline-block;
+        width: 120px;
+        margin: 15px 0px auto 0px;
+        float: right;
+        padding: 0px;
+    }
+
+    table.b-results-item__table-services{
+        margin: auto;
+    }
+
+}
+
+@media screen and (min-width: 701px) and (max-width: 1024px) {
+
+   .b-results-item__address {
+        display: none;
+    }
+
+    .b-results-item__phone {
+        margin-left: 20px;
+        margin-top: 5px;
+    }
+
+    .b-results-item__name {
+        display: none;
+    }
+
+    .b-results-item__adaptive-name {
+        display: block;
+        margin-bottom: 0px;
+        padding-left: 20px;
+        box-sizing: border-box;
+    }
+
+    .b-results-item__summary {
+        width: 160px;
+        height: auto;
+    }
+
+    .b-results-item__detail,
+    .b-results-item__detail a,
+    .b-results-item__detail a:hover {
+        display: none;
+    }
+
+    .b-results-item__adaptive-detail-info {
+        display: inline-block;
+        width: 120px;
+        margin: 15px 0px auto 0px;
+        float: right;
+        padding: 0px;
+    }
+
+    table.b-results-item__table-services {
+        margin: auto;
+    }
+}

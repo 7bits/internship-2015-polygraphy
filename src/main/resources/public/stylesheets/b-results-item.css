@@ -119,10 +119,9 @@ table.b-results-item__table-services{
     color: white;
 }
 
+@media screen and (max-width: 1024px) {
 
-@media screen and (max-width: 700px){
-
-   .b-results-item__address{
+    .b-results-item__address{
         display: none;
     }
 
@@ -162,53 +161,6 @@ table.b-results-item__table-services{
     }
 
     table.b-results-item__table-services{
-        margin: auto;
-    }
-
-}
-
-@media screen and (min-width: 701px) and (max-width: 1024px) {
-
-   .b-results-item__address {
-        display: none;
-    }
-
-    .b-results-item__phone {
-        margin-left: 20px;
-        margin-top: 5px;
-    }
-
-    .b-results-item__name {
-        display: none;
-    }
-
-    .b-results-item__adaptive-name {
-        display: block;
-        margin-bottom: 0px;
-        padding-left: 20px;
-        box-sizing: border-box;
-    }
-
-    .b-results-item__summary {
-        width: 160px;
-        height: auto;
-    }
-
-    .b-results-item__detail,
-    .b-results-item__detail a,
-    .b-results-item__detail a:hover {
-        display: none;
-    }
-
-    .b-results-item__adaptive-detail-info {
-        display: inline-block;
-        width: 120px;
-        margin: 15px 0px auto 0px;
-        float: right;
-        padding: 0px;
-    }
-
-    table.b-results-item__table-services {
         margin: auto;
     }
 }

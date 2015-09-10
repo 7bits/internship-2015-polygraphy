@@ -46,25 +46,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 700px){
-
-    .b-search-line{
-        width: 95%;
-        margin: 10px auto;
-    }
-
-    .b-search-line__submit{
-        display: none;
-    }
-
-    .b-search-line__input{
-        width: 100%;
-        font-size: 15px;
-    }
-
-}
-
-@media screen and (min-width: 701px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
 
     .b-search-line {
         width: 95%;
@@ -76,4 +58,16 @@
         width: 100%;
         font-size: 15px;
     }
+}
+
+@media screen and (max-width: 700px){
+
+    .b-search-line{
+        max-width: 95%;
+    }
+
+    .b-search-line__submit{
+        display: none;
+    }
+
 }

@@ -12,26 +12,26 @@ var validateEditForm = function(){
     var orderByEmail = $('.js-obe').prop('checked');
 
     var names = {}
-    $('.input-field').each(function(){
+    $('.b-edit__input').each(function(){
         names[$(this).attr('name')] = $(this).val();
         $(this).css('borderColor', 'white');
-        $('.invalid').css('display', 'none');
-        $('.for-error').css('display', 'none');
-        $('.invalid').text('');
+        $('.b-edit__invalid').css('display', 'none');
+        $('.b-edit__for-error').css('display', 'none');
+        $('.b-edit__invalid').text('');
     });
 
     var checkboxes = {}
-    $('.checkbox').each(function(){
+    $('.b-edit__checkbox').each(function(){
         checkboxes[$(this).attr('name')] = [];
     });
     $.each(checkboxes, function(key, value){
-        $('.checkbox[name='+key+']:checked').each(function(){
+        $('.b-edit__checkbox[name='+key+']:checked').each(function(){
             value.push($(this).attr('value'));
         });
     });
 
-    $('.base-error').css('display', 'none');
-    $('.base-error').text('');
+    $('.b-edit__base-error').css('display', 'none');
+    $('.b-edit__base-error').text('');
 
     $.ajax({
         type: 'PUT',
@@ -70,6 +70,6 @@ var validateEditForm = function(){
 
 $(document).ready(function(){
 
-    $('.save').on('click', validateEditForm);
+    $('.b-edit__save').on('click', validateEditForm);
 
 });

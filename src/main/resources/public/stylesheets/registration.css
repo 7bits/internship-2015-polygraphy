@@ -64,12 +64,12 @@ body{
 
 .b-registration__input:hover,
 .b-registration__input:focus,
-.textarea-field:hover,
-.textarea-field:focus{
+.b-registration__textarea-field:hover,
+.b-registration__textarea-field:focus{
     border: 2px solid #efe553;
 }
 
-.b-registration__input.textarea-field{
+.b-registration__input.b-registration__textarea-field{
     border: 2px solid white;
     border-radius: 20px;
     box-sizing: border-box;

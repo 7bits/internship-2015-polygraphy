@@ -8,8 +8,8 @@ block append head
 
 block content
 
-    .edit-form(id='big-form')
-        .edit-form-headline
+    .b-edit(id='big-form')
+        .b-edit__headline
             | РЕДАКТИРОВАНИЕ
 
         if security.isUserInRole('ROLE_ADMIN')
@@ -19,116 +19,139 @@ block content
 
         form(action=url)
             input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-            input.input-field(id = 'polygraphy-id', type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
+            input.b-edit__input(id = 'polygraphy-id',
+                            type='hidden',
+                            name='polygraphyId',
+                            value='#{editingForm.polygraphyId}')
 
             if security.isUserInRole('ROLE_POLYGRAPHY')
-                .text-input-wrapper
-                    label.input-label
+                .b-edit__text-input-wrapper
+                    label.b-edit__input-label
                         | E-mail для регистрации *
-                    input.input-field(type='text', id='email-input', name = 'email', value='#{editingForm.email}')
-                    .for-error(id = 'email-for-error')
-                    .invalid(id = 'email-error')
-                .text-input-wrapper
-                    label.input-label
+                    input.b-edit__input(type='text',
+                                    id='email-input',
+                                    name = 'email',
+                                    value='#{editingForm.email}')
+                    .b-edit__for-error(id = 'email-for-error')
+                    .b-edit__invalid(id = 'email-error')
+                .b-edit__text-input-wrapper
+                    label.b-edit__input-label
                         | Пароль *
-                    input.input-field(type='text', id='password-input', name = 'password')
-                    .for-error(id = 'password-for-error')
-                    .invalid(id = 'password-error')
-            .text-input-wrapper
-                label.input-label
+                    input.b-edit__input(type='text',
+                                    id='password-input',
+                                    name = 'password')
+                    .b-edit__for-error(id = 'password-for-error')
+                    .b-edit__invalid(id = 'password-error')
+            .b-edit__text-input-wrapper
+                label.b-edit__input-label
                     | Название полиграфии *
-                input.input-field(type='text', id='name-input', name = 'name', value='#{editingForm.name}')
-                .for-error(id = 'name-for-error')
-                .invalid(id = 'name-error')
-            .text-input-wrapper
-                label.input-label
+                input.b-edit__input(type='text',
+                                id='name-input',
+                                name = 'name',
+                                value='#{editingForm.name}')
+                .b-edit__for-error(id = 'name-for-error')
+                .b-edit__invalid(id = 'name-error')
+            .b-edit__text-input-wrapper
+                label.b-edit__input-label
                     | Адрес *
-                input.input-field(type='text', id='address-input', name = 'address', value='#{editingForm.address}')
-                .for-error(id = 'address-for-error')
-                .invalid(id = 'address-error')
-            .text-input-wrapper
-                label.input-label
+                input.b-edit__input(type='text',
+                                id='address-input',
+                                name = 'address',
+                                value='#{editingForm.address}')
+                .b-edit__for-error(id = 'address-for-error')
+                .b-edit__invalid(id = 'address-error')
+            .b-edit__text-input-wrapper
+                label.b-edit__input-label
                     | Телефон *
-                input.input-field(type='text', id='phone-input', name = 'phone', value='#{editingForm.phone}')
-                .for-error(id = 'phone-for-error')
-                .invalid(id = 'phone-error')
-            .text-input-wrapper
-                label.input-label
+                input.b-edit__input(type='text',
+                                id='phone-input',
+                                name = 'phone',
+                                value='#{editingForm.phone}')
+                .b-edit__for-error(id = 'phone-for-error')
+                .b-edit__invalid(id = 'phone-error')
+            .b-edit__text-input-wrapper
+                label.b-edit__input-label
                     | Публичный e-mail
-                input.input-field(type='text', id='email-public-input', name = 'publicEmail', value='#{editingForm.publicEmail}')
-                .for-error(id='publicEmail-for-error')
-                .invalid(id = 'publicEmail-error')
-            .text-input-wrapper
-                label.input-label
+                input.b-edit__input(type='text',
+                                id='email-public-input',
+                                name = 'publicEmail',
+                                value='#{editingForm.publicEmail}')
+                .b-edit__for-error(id='publicEmail-for-error')
+                .b-edit__invalid(id = 'publicEmail-error')
+            .b-edit__text-input-wrapper
+                label.b-edit__input-label
                     | Сайт
-                input.input-field(type='text', id='website-input', name = 'website', value='#{editingForm.website}')
-                .for-error(id = 'website-for-error')
-                .invalid(id = 'website-error')
-            .text-input-wrapper
-                label.input-label
+                input.b-edit__input(type='text',
+                                id='website-input',
+                                name = 'website',
+                                value='#{editingForm.website}')
+                .b-edit__for-error(id = 'website-for-error')
+                .b-edit__invalid(id = 'website-error')
+            .b-edit__text-input-wrapper
+                label.b-edit__input-label
                     | Описание
-                textarea.input-field.textarea-field(name='textArea', id='text-area-field')
+                textarea.b-edit__input.b-edit__textarea-field(name='textArea', id='text-area-field')
                     != editingForm.info
                 script.
                     CKEDITOR.replace('text-area-field')
 
-            input.js-obe.checkbox(id='order-by-email',
+            input.js-obe.b-edit__checkbox(id='order-by-email',
                                 name='orderByEmail',
                                 type='checkbox',
                                 checked='#{editingForm.orderByEmail}')
             label(for='order-by-email')
                 | Принимаем заказ по e-mail
 
-            input.js-wtc.checkbox(id='writes-the-check',
+            input.js-wtc.b-edit__checkbox(id='writes-the-check',
                                 name='writesTheCheck',
                                 type='checkbox',
                                 checked='#{editingForm.writesTheCheck}')
             label(for='writes-the-check')
                 | Выдаем чек
 
-            .checkbox-input-wrapper
-                label.input-label
+            .b-edit__checkboxes-wrapper
+                label.b-edit__input-label
                     | Способы оплаты
                 for paymentMethod in paymentMethods
                     - pm_checked = editingForm.paymentMethods.contains(paymentMethod.id)
-                    input.js-pm.checkbox(id='payment#{paymentMethod.id}',
+                    input.js-pm.b-edit__checkbox(id='payment#{paymentMethod.id}',
                                         name='paymentMethods',
                                         value='#{paymentMethod.id}',
                                         type='checkbox',
                                         checked=pm_checked)
                     label(for='payment'+paymentMethod.id)=paymentMethod.name
-                .for-error(id='paymentMethods-for-error')
-                .invalid(id='paymentMethods-error')
+                .b-edit__for-error(id='paymentMethods-for-error')
+                .b-edit__invalid(id='paymentMethods-error')
 
-            .checkbox-input-wrapper
-                label.input-label
+            .b-edit__checkboxes-wrapper
+                label.b-edit__input-label
                     | Способы доставки
                 for deliveryMethod in deliveryMethods
                     - dm_checked = editingForm.deliveryMethods.contains(deliveryMethod.id)
-                    input.js-dm.checkbox(id='delivery#{deliveryMethod.id}',
+                    input.js-dm.b-edit__checkbox(id='delivery#{deliveryMethod.id}',
                                         name='deliveryMethods',
                                         value='#{deliveryMethod.id}',
                                         type='checkbox',
                                         checked=dm_checked)
                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                .for-error(id='deliveryMethods-for-error')
-                .invalid(id='deliveryMethods-error')
+                .b-edit__for-error(id='deliveryMethods-for-error')
+                .b-edit__invalid(id='deliveryMethods-error')
 
-            .checkbox-input-service-wrapper
-                label.input-label
+            .b-edit__service-checkboxes-wrapper
+                label.b-edit__input-label
                     | Предоставляемые услуги
                 for service in services
                     - s_checked = editingForm.services.contains(service.id)
-                    input.js-s.checkbox(id='service#{service.id}',
+                    input.js-s.b-edit__checkbox(id='service#{service.id}',
                                         name='services',
                                         value='#{service.id}',
                                         type='checkbox',
                                         checked=s_checked)
                     label(for='service'+service.id)=service.name
-                .for-error(id='services-for-error')
-                .invalid(id='services-error')
+                .b-edit__for-error(id='services-for-error')
+                .b-edit__invalid(id='services-error')
 
-            .base-error
-            .button-container
-                button.save(type='button')
+            .b-edit__base-error
+            .b-edit__button-container
+                button.b-edit__save(type='button')
                     | Сохранить

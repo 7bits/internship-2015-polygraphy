@@ -1,36 +1,49 @@
 package it.sevenbits.graphicartsindustry.Search_Page;
 
-import java.sql.DriverManager;
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
-
-import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
+//
+//import it.sevenbits.graphicartsindustry.config.TestConfiguration;
+//import it.sevenbits.graphicartsindustry.config.TestOption;
+//import it.sevenbits.graphicartsindustry.utils.TestResolver;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+
+import org.junit.runner.RunWith;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ActiveProfiles("test-dev")
+//@SpringApplicationConfiguration(classes = TestConfiguration.class)
 public class CheckTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
+//  private TestOption testOption;
+
+//  @Autowired
+//  private TestResolver testResolver;
 
   @Before
    public void setUp() throws Exception {
-    //driver = new FirefoxDriver();
-    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/ChromeDriver//chromedriver.exe");
+   // driver = new FirefoxDriver();
+    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/Drivers//chromedriver.exe");
     driver = new ChromeDriver();
+    /*  System.setProperty("Opera.binary", "src/test/java/it/sevenbits/graphicartsindustry/Drivers//operadriver.exe");
+    WebDriver driver = new OperaDriver();*/
+
+//    baseUrl = "http://" + testResolver.getUsername() + testResolver.getPassword() + testOption.getDomain();
     baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
+
+
 //выдает чек
   @Test
   public void testCheck() throws Exception {

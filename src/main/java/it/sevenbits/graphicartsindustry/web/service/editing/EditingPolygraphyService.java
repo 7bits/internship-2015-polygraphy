@@ -70,7 +70,6 @@ public class EditingPolygraphyService {
 
     public void saveEditingPolygraphy(PolygraphyForm polygraphyForm) throws ServiceException {
         try {
-
             polygraphyRepository.editPolygraphyName(polygraphyForm.getPolygraphyId(), polygraphyForm.getName());
             polygraphyRepository.editPolygraphyInfo(polygraphyForm.getPolygraphyId(), polygraphyForm.getInfo());
             polygraphyRepository.editPolygraphyOrderByEmail(polygraphyForm.getPolygraphyId(),
@@ -107,7 +106,7 @@ public class EditingPolygraphyService {
             }
 
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving editing information about polygraphy ");
+            throw new ServiceException("Polygraphy has not been saved. ");
         }
 
     }
@@ -116,7 +115,7 @@ public class EditingPolygraphyService {
         try {
             this.saveEditingPolygraphy(polygraphyForm);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving editing information about polygraphy ");
+            e.getMessage();
         }
     }
 
@@ -125,8 +124,7 @@ public class EditingPolygraphyService {
         try {
             userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyForm.getPolygraphyId());
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving userId by polygraphyId "
-                    + e.getMessage(), e);
+            throw new ServiceException("An error occurred while retrieving userId by polygraphyId ");
         }
         if (userId == null) {
             throw new ServiceException("UserId is null");
@@ -138,8 +136,7 @@ public class EditingPolygraphyService {
                 userRepository.editPassword(userId, encoder.encode(polygraphyForm.getPassword()));
             }
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving editing information about user "
-                    + e.getMessage(), e);
+            throw new ServiceException("An error occurred while saving editing information about user ");
         }
         try {
             this.saveEditingPolygraphy(polygraphyForm);

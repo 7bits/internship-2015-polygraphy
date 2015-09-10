@@ -28,8 +28,7 @@ public class RequestOnRegistrationService {
         try {
             requestOnRegistrationRepository.createRequestOnRegistration(form.getEmail());
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving email request on registration " +
-                    e.getMessage(),e);
+            throw new ServiceException("An error occurred while saving email request on registration ");
         }
     }
 

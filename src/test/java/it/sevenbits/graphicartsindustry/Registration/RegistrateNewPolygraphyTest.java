@@ -78,7 +78,7 @@ public void testRegistration() throws Exception {
                 driver.findElement(By.cssSelector("button.b-login-form__submit")).click();
                 driver.findElement(By.cssSelector("div.header__menu-item.header__dropdown")).click();
                 driver.findElement(By.linkText("Личный кабинет")).click();
-                driver.findElement(By.cssSelector("div.tab.tab2")).click();
+                driver.findElement(By.cssSelector("div.b-tabs__tab.tab2")).click();
                 try {
                         assertEquals("Проверка регистрации", driver.findElement(By.xpath("//tr[38]/td")).getText());
                 } catch (Error e) {

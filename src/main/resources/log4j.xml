@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- Note that this file is refreshed by the server every 60seconds, as specified in web.xml -->
+
+<log4j:configuration debug="true" xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <appender name="ROLL" class="org.apache.log4j.rolling.RollingFileAppender">
+        <!-- The active file to log to -->
+        <param name="file" value="/home/bear/internship-2015-polygraphy/file.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <!-- The log message pattern -->
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- Loggers to filter out various class paths -->
+
+    <!--<logger name="org.hibernate.engine.loading.LoadContexts" additivity="false">-->
+        <!--<level value="error"/>-->
+        <!--<appender-ref ref="ROLL"/>-->
+    <!--</logger>-->
+
+    <!--<logger name="log4j.rootLogger" additivity="false">-->
+        <!--<level value="DEBUG"/>-->
+        <!--<appender-ref ref="FILE"/>-->
+    <!--</logger>-->
+
+    <root>
+        <priority value="info"/>
+        <appender-ref ref="ROLL"/>
+    </root>
+
+</log4j:configuration>

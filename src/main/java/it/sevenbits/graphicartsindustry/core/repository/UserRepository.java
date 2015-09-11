@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 @Qualifier(value = "userRepository")
 public class UserRepository implements UserDetailsService {
 
-    private static final Logger LOG = Logger.getLogger(UserRepository.class);
+    private static final Logger LOG = Logger.getLogger(UserRepository.class.getName());
 
     @Autowired
     private UserMapper userMapper;

@@ -1,17 +1,5 @@
 @import url("osans.css");
 
-body{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    font-family: "OpenSansRegular";
-    font-size: 16px;
-}
-
-:focus{
-    outline: none;
-}
-
 .b-edit{
     width: 700px;
     height: auto;

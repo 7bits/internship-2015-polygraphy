@@ -27,6 +27,7 @@ public class PolygraphyRepository {
             return polygraphyMapper.findPolygraphies(processedQuery.toLowerCase(), query.getServices(), query.getPaymentMethod(),
                     query.isWritesTheCheck(), query.getDeliveryMethod(), query.isOrderByEmail());
         } catch (Exception e) {
+            LOG.error("Can not load polygraphies by query due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving polygraphies " +
                     "satisfy the query " + e.getMessage(), e);
         }
@@ -36,18 +37,21 @@ public class PolygraphyRepository {
         try {
             return polygraphyMapper.findAllPolygraphies();
         } catch (Exception e) {
+            LOG.error("Can not load all polygraphies due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving all polygraphies " +
                     e.getMessage(), e);
         }
     }
 
-    public List<PolygraphyContacts> findAllPolygraphiesDisplayed(Integer limit) throws RepositoryException {
+    public List<PolygraphyContacts> findAllDisplayPolygraphies(Integer limit) throws RepositoryException {
         if (limit == null) {
+            LOG.error("Can not load all display polygraphies constrained 'limit' due to repository error: limit is null");
             throw new RepositoryException("Limit is null");
         }
         try {
-            return polygraphyMapper.findAllPolygraphiesDisplayed(limit);
+            return polygraphyMapper.findAllDisplayPolygraphies(limit);
         } catch (Exception e) {
+            LOG.error("Can not load all display polygraphies due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving all displayed polygraphies " +
                     e.getMessage(), e);
         }
@@ -55,23 +59,27 @@ public class PolygraphyRepository {
 
     public PolygraphyContacts findPolygraphy(Integer polygraphyId) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not load polygraphy due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             return polygraphyMapper.findPolygraphy(polygraphyId);
         } catch (Exception e) {
+            LOG.error("Can not load polygraphy due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving full information " +
                     "about polygraphy " + e.getMessage(), e);
         }
     }
 
-    public PolygraphyContacts findPolygraphyDisplayed(Integer polygraphyId) throws RepositoryException {
+    public PolygraphyContacts findDisplayPolygraphy(Integer polygraphyId) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not load display polygraphy due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
-            return polygraphyMapper.findPolygraphyDisplayed(polygraphyId);
+            return polygraphyMapper.findDisplayPolygraphy(polygraphyId);
         } catch (Exception e) {
+            LOG.error("Can not load display polygraphy due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving full information " +
                     "about displayed polygraphy " + e.getMessage(), e);
         }
@@ -79,11 +87,13 @@ public class PolygraphyRepository {
 
     public Integer getPolygraphyIdByUserId(Integer userId) throws RepositoryException {
         if (userId == null) {
+            LOG.error("Can not get polygraphy id by user id due to repository error: user id is null");
             throw new RepositoryException("User ID is null");
         }
         try {
             return polygraphyMapper.getPolygraphyIdByUserId(userId);
         } catch (Exception e) {
+            LOG.error("Can not get polygraphy id by user id due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while getting polygraphy id by user id " +
                     e.getMessage(), e);
         }
@@ -91,11 +101,13 @@ public class PolygraphyRepository {
 
     public Integer getUserIdByPolygraphyId(Integer polygraphyId) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not get user id by polygraphy id due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             return polygraphyMapper.getUserIdByPolygraphyId(polygraphyId);
         } catch (Exception e) {
+            LOG.error("Can not get user id by polygraphy id due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while getting user id by polygraphy id " +
                     e.getMessage(), e);
         }
@@ -103,11 +115,13 @@ public class PolygraphyRepository {
 
     public void createPolygraphy(Polygraphy polygraphy) throws RepositoryException {
         if (polygraphy == null) {
+            LOG.error("Can not create polygraphy due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy is null");
         }
         try {
             polygraphyMapper.createPolygraphy(polygraphy);
         } catch (Exception e) {
+            LOG.error("Can not create polygraphy due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while creating polygraphy " +
                     e.getMessage(), e);
         }
@@ -115,11 +129,13 @@ public class PolygraphyRepository {
 
     public Boolean isWritesTheCheck(Integer polygraphyId) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not get 'writes the check' due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             return polygraphyMapper.isWritesTheCheck(polygraphyId);
         } catch (Exception e) {
+            LOG.error("Can not get 'writes the check' due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving condition 'writes the check' of " +
                     "polygraphy " + e.getMessage(), e);
         }
@@ -127,11 +143,13 @@ public class PolygraphyRepository {
 
     public Boolean isOrderByEmail(Integer polygraphyId) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not get 'order by email' due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             return polygraphyMapper.isOrderByEmail(polygraphyId);
         } catch (Exception e) {
+            LOG.error("Can not get 'order by email' due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving condition 'order by email' of " +
                     "polygraphy " + e.getMessage(), e);
         }
@@ -139,11 +157,13 @@ public class PolygraphyRepository {
 
     public void editPolygraphyInfo(Integer polygraphyId, String info) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not edit polygraphy info due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             polygraphyMapper.updatePolygraphyInfo(polygraphyId, info);
         } catch (Exception e) {
+            LOG.error("Can not edit polygraphy info due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while editing polygraphy info " +
                     e.getMessage(), e);
         }
@@ -151,11 +171,13 @@ public class PolygraphyRepository {
 
     public void editPolygraphyWritesTheCheck(Integer polygraphyId, Boolean writesTheCheck) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not edit 'writes the check' due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             polygraphyMapper.updatePolygraphyWritesTheCheck(polygraphyId, writesTheCheck);
         } catch (Exception e) {
+            LOG.error("Can not edit 'writes the check' due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while editing condition 'writes the check' of polygraphy " +
                     e.getMessage(), e);
         }
@@ -163,11 +185,13 @@ public class PolygraphyRepository {
 
     public void editPolygraphyOrderByEmail(Integer polygraphyId, Boolean orderByEmail) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not edit 'order by email' due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             polygraphyMapper.updatePolygraphyOrderByEmail(polygraphyId, orderByEmail);
         } catch (Exception e) {
+            LOG.error("Can not edit 'order by email' due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while editing condition 'order by email' of polygraphy" +
                     e.getMessage(), e);
         }
@@ -175,11 +199,13 @@ public class PolygraphyRepository {
 
     public void editPolygraphyName(Integer polygraphyId, String name) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not edit polygraphy name due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             polygraphyMapper.updatePolygraphyName(polygraphyId, name);
         } catch (Exception e) {
+            LOG.error("Can not edit polygraphy name due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while editing polygraphy name " +
                     e.getMessage(), e);
         }
@@ -187,23 +213,27 @@ public class PolygraphyRepository {
 
     public void editConditionDisplayPolygraphy(Integer polygraphyId, Boolean condition) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not edit condition display polygraphy due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, condition);
         } catch (Exception e) {
+            LOG.error("Can not edit condition display polygraphy due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while editing condition polygraphy " +
                     e.getMessage(), e);
         }
     }
 
-    public void deletePolygraphy(Integer polygraphyId) throws RepositoryException {
+    public void removePolygraphy(Integer polygraphyId) throws RepositoryException {
         if (polygraphyId == null) {
+            LOG.error("Can not remove polygraphy due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
         try {
             polygraphyMapper.deletePolygraphy(polygraphyId);
         } catch (Exception e) {
+            LOG.error("Can not remove polygraphy due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while removing polygraphy " +
                     e.getMessage(), e);
         }

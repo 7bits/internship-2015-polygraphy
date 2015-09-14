@@ -74,6 +74,6 @@ $(document).ready(function(){
 
     $('input').attr('autocomplete', 'off');
 
-    $('.b-registration').on('click', '.submit-registration-form', validateSecondStep);
+    $('.b-registration').on('click', '.b-registration__submit', validateSecondStep);
 
 });

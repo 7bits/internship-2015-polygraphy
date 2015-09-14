@@ -115,77 +115,7 @@ li.header__dropdown-menu-item a{
     color: black;
 }
 
-
-@media screen and (max-width: 700px){
-
-    body{
-        margin: auto;
-        width: 100%;
-        max-width: 450px;
-        min-width: 320px;
-    }
-
-    .header{
-        display: none;
-    }
-
-    .header.header_small-header{
-        display: block;
-        width: 100%;
-        margin: 0;
-        min-height: 130px;
-        height: auto;
-        padding: 0;
-        text-align: center;
-        font-family: "OpenSansLightRegular";
-        position: relative;
-        box-sizing: border-box;
-    }
-
-    .header__logo-wrapper{
-        height: 80px;
-        width: 142px;
-        position: static;
-        transform: translateY(0%);
-    }
-
-    .header__menu{
-        float: none;
-        height: 25px;
-        margin: 5px 0;
-    }
-
-    .header__menu a{
-        line-height: 25px;
-        font-size: 14px;
-    }
-
-    .header__menu-item{
-        margin: 0 5px;
-        padding: 0 10px;
-        vertical-align: top;
-        line-height: 25px;
-        font-size: 14px;
-    }
-
-    .header__slogan{
-        position: static;
-        height: auto;
-        text-align: center;
-        padding: 0;
-    }
-
-    .header__content{
-        position: static;
-        transform: translateY(0%);
-        width: 100%;
-        margin: 0;
-    }
-
-}
-
-
-@media screen and (min-width: 701px) and (max-width: 1024px){
+@media screen and (max-width: 1024px){
 
     body{
         margin: auto;
@@ -241,4 +171,69 @@ li.header__dropdown-menu-item a{
         display: inline-block;
         padding-left: 20px;
     }
+}
+
+@media screen and (max-width: 700px){
+
+    body{
+        max-width: 450px;
+        min-width: 320px;
+    }
+
+    .header{
+        display: none;
+    }
+
+    .header.header_small-header{
+        display: block;
+        width: 100%;
+        margin: 0;
+        min-height: 130px;
+        height: auto;
+        padding: 0;
+        text-align: center;
+        font-family: "OpenSansLightRegular";
+        position: relative;
+        box-sizing: border-box;
+    }
+
+    .header__logo-wrapper{
+        height: 80px;
+        width: 142px;
+        position: static;
+        transform: translateY(0%);
+        float: none;
+    }
+
+    .header__menu{
+        float: none;
+        height: 25px;
+        margin: 5px 0;
+    }
+
+    .header__menu a{
+        line-height: 25px;
+        font-size: 14px;
+    }
+
+    .header__menu-item{
+        margin: 0 5px;
+        padding: 0 10px;
+        vertical-align: top;
+        line-height: 25px;
+        font-size: 14px;
+    }
+
+    .header__slogan{
+        text-align: center;
+        padding: 0;
+    }
+
+    .header__content{
+        position: static;
+        transform: translateY(0%);
+        width: 100%;
+        margin: 0;
+    }
+
 }

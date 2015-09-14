@@ -150,15 +150,45 @@ table.b-about-polygraphy__adaptive-services{
     height: 90%;
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 1024px) {
 
-    body{
+    body {
+        margin: auto;
         width: 100%;
     }
+
+    .b-about-polygraphy {
+        width: 90%;
+        max-width: 800px;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    table.b-about-polygraphy__services{
+        display: none;
+    }
+
+    table.b-about-polygraphy__adaptive-services{
+        margin: 25px auto;
+        display: table;
+    }
+
+    .b-about-polygraphy__summary {
+        width: 250px;
+    }
+
+    .b-about-polygraphy__details {
+        margin-left: 10px;
+        width: calc(100% - 260px);
+    }
+}
+
+@media screen and (max-width: 700px){
 
     .b-about-polygraphy{
         width: 100%;
         padding: 20px;
+        margin: 0 auto 50px auto;
     }
 
     .b-about-polygraphy__summary{
@@ -179,6 +209,7 @@ table.b-about-polygraphy__adaptive-services{
         width: 100%;
         display: block;
         float: none;
+        margin: 0;
     }
 
     .b-about-polygraphy__about-title{
@@ -196,37 +227,4 @@ table.b-about-polygraphy__adaptive-services{
         max-width: 330px;
     }
 
-}
-
-@media screen and (min-width: 701px) and (max-width: 1024px) {
-
-    body {
-        margin: auto;
-        width: 100%;
-    }
-
-    .b-about-polygraphy {
-        width: 90%;
-        max-width: 800px;
-        padding: 15px;
-        margin-top: 20px;
-    }
-
-    table.b-about-polygraphy__services{
-        display: none;
-    }
-
-    table.b-about-polygraphy__adaptive-services{
-        margin: 25px 0;
-        display: table;
-    }
-
-    .b-about-polygraphy__summary {
-        width: 250px;
-    }
-
-    .b-about-polygraphy__details {
-        margin-left: 10px;
-        width: calc(100% - 260px);
-    }
 }

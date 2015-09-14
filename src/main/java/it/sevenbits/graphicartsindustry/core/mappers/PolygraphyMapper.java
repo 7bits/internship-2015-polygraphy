@@ -49,7 +49,7 @@ public interface PolygraphyMapper {
             @Result(column = "phone", property = "phone"),
             @Result(column = "displayed", property = "displayed")
     })
-    List<PolygraphyContacts> findAllPolygraphiesDisplayed(@Param(value = "limit") final Integer limit);
+    List<PolygraphyContacts> findAllDisplayPolygraphies(@Param(value = "limit") final Integer limit);
 
     @Select("SELECT id, name, address, phone, email, website, info, displayed FROM polygraphy AS p " +
             "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
@@ -79,7 +79,7 @@ public interface PolygraphyMapper {
             @Result(column = "info", property = "info"),
             @Result(column = "displayed", property = "displayed")
     })
-    PolygraphyContacts findPolygraphyDisplayed(@Param(value = "polygraphyId") final Integer polygraphyId);
+    PolygraphyContacts findDisplayPolygraphy(@Param(value = "polygraphyId") final Integer polygraphyId);
 
 
     @Select("SELECT id FROM polygraphy " +

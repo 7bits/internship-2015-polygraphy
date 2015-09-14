@@ -24,6 +24,7 @@ public class ContentRepository {
         try {
             return mapper.findAllServices();
         } catch (Exception e) {
+            LOG.error("Can not load all services due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving all services "
                     + e.getMessage(), e);
         }
@@ -31,11 +32,13 @@ public class ContentRepository {
 
     public List<Service> findFrequentServices(Integer limit) throws RepositoryException {
         if (limit == null) {
+            LOG.error("Can not load frequent services constrained 'limit' due to repository error: limit is null");
             throw new RepositoryException("Limit is null");
         }
         try {
             return mapper.findFrequentServices(limit);
         } catch (Exception e) {
+            LOG.error("Can not load frequent services due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving frequent services "
                     + e.getMessage(), e);
         }
@@ -45,6 +48,7 @@ public class ContentRepository {
         try {
             return mapper.findAllPaymentMethods();
         } catch (Exception e) {
+            LOG.error("Can not load all payment methods due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving payment methods "
                     + e.getMessage(), e);
         }
@@ -54,6 +58,7 @@ public class ContentRepository {
         try {
             return mapper.findAllDeliveryMethods();
         } catch (Exception e) {
+            LOG.error("Can not load all delivery methods due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving delivery methods "
                     + e.getMessage(), e);
         }

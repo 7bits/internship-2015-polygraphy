@@ -1,0 +1,73 @@
+.b-search-line{
+    margin: auto;
+    height: 50px;
+    width: 1100px;
+    position: relative;
+}
+
+.b-search-line__input{
+    width: 1057px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 17px;
+    padding: 0px;
+    border: 2px solid #64be5f;
+    border-radius: 25px;
+    background: url("/images/loupe.png") no-repeat;
+    background-position: 15px center;
+    background-color: white;
+    outline: none;
+    padding-left: 40px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.b-search-line__submit > button{
+    width: 295px;
+    height: 50px;
+    line-height: 50px;
+    font-family: "OpenSansLightRegular";
+    font-size: 22px;
+    color: white;
+    padding: 0;
+    border-radius: 0 25px 25px 0;
+    border: 2px solid #64be5f;
+    background-color: #64be5f;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 0px;
+}
+
+.b-search-line__submit>button:hover{
+    background-color: #88d280;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .b-search-line {
+        width: 95%;
+        max-width: 900px;
+        margin: 10px auto;
+    }
+
+    .b-search-line__input {
+        width: 100%;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 700px){
+
+    .b-search-line{
+        max-width: 95%;
+    }
+
+    .b-search-line__submit{
+        display: none;
+    }
+
+}

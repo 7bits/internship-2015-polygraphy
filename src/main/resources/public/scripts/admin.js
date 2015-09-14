@@ -16,12 +16,12 @@ var requestId = function(event){
             data: {'requestId': id},
             success: function(responseData) {
                 var reqId = responseData.id;
-                $('.generate-link a[id='+reqId+']').parent().hide();
-                $('.link a[id='+reqId+']').attr('href', responseData.link);
-                $('.link a[id='+reqId+']').text(responseData.link);
+                $('.b-inside-tabs__generate-link a[id='+reqId+']').parent().hide();
+                $('.b-inside-tabs__link a[id='+reqId+']').attr('href', responseData.link);
+                $('.b-inside-tabs__link a[id='+reqId+']').text(responseData.link);
             }
     });
-}
+};
 
 var removeBid = function(event){
     event.preventDefault();
@@ -44,7 +44,7 @@ var removeBid = function(event){
             $(btn).parent().parent().remove();
         }
     });
-}
+};
 
 var removeFromSearch = function(id, btn){
     var token = $("meta[name='_csrf']").attr("content");
@@ -61,11 +61,11 @@ var removeFromSearch = function(id, btn){
         success: function(data) {
             var reqId = data.id;
             $(btn).parent().parent().parent().remove();
-            $('.pop-up-overlay').fadeOut("fast");
+            $('.b-popup-verification').fadeOut("fast");
             //$('body').css('overflow', 'auto');
         }
     });
-}
+};
 
 var availabilityInSearch = function(event){
     event.preventDefault();
@@ -77,8 +77,8 @@ var availabilityInSearch = function(event){
     var label = $(this);
     var id = $(this).attr('for');
     var name = $(this).attr('data-name');
-    var checkbox = $('.checkbox[id='+id+']');
-    var curCondition = $('.checkbox[id='+id+']').prop('checked');
+    var checkbox = $('.b-inside-tabs__checkbox[id='+id+']');
+    var curCondition = checkbox.prop('checked');
 
     $.ajax({
         type: 'POST',
@@ -108,57 +108,54 @@ var availabilityInSearch = function(event){
             }
         }
     });
-}
+};
 
 var hidePopupWindow = function(event) {
     event || window.event
     if (event.target == this) {
-        $('.pop-up-overlay').fadeOut("fast");
+        $('.b-popup-verification').fadeOut("fast");
         $('body').css('overflow', 'auto');
     }
-}
+};
+
+var switchTabs = function(){
+    $(this).removeClass('b-tabs__js-inactive-tab').addClass('b-tabs__js-active-tab');
+    $(this).siblings().removeClass('b-tabs__js-active-tab').addClass('b-tabs__js-inactive-tab');
+    var id = $(this).attr('id');
+    var insideActiveTab = $('.b-inside-tabs__content[id=inside-'+id+']');
+    insideActiveTab.siblings().removeClass('b-inside-tabs__js-inside-active-tab').addClass('b-inside-tabs__js-inside-inactive-tab');
+    insideActiveTab.removeClass('b-inside-tabs__js-inside-inactive-tab').addClass('b-inside-tabs__js-inside-active-tab');
+};
 
 $(document).ready(function(){
 
-    $('.tab1').on('click', function(){
-        $('.for-tab2').css('display', 'none');
-        $('.tab2').css('backgroundColor', 'rgb(240, 240, 240)');
-        $('.for-tab1').css('display', 'block');
-        $('.tab1').css('backgroundColor', 'rgb(232, 232, 232)');
-    });
+    $('.b-tabs__tab').on('click', switchTabs);
 
-    $('.tab2').on('click', function(){
-        $('.for-tab1').css('display', 'none');
-        $('.tab1').css('backgroundColor', 'rgb(240, 240, 240)');
-        $('.for-tab2').css('display', 'block');
-        $('.tab2').css('backgroundColor', 'rgb(232, 232, 232)');
-    });
+    $('.b-inside-tabs__table-row').on('click', '.b-inside-tabs__generate-link a', requestId);
 
-    $('.row').on('click', '.generate-link a', requestId);
+    $('.b-inside-tabs__label').on('click', availabilityInSearch);
 
-    $('.label-for-checkbox').on('click', availabilityInSearch);
+    $('.b-inside-tabs__js-remove-bid').on('click', removeBid);
 
-    $('.remove-bid').on('click', removeBid);
-
-    $('.remove-from-search').on('click', function(){
+    $('.b-inside-tabs__js-remove-from-search').on('click', function(){
 
         var id = $(this).attr('id');
         var btn = $(this);
+        var verification = $('.b-popup-verification');
+        var verificationClass = verification.attr('class');
 
-        //$('body').css('overflow', 'hidden');
-        $('.pop-up-overlay').css('overflow', 'auto');
-        $('.pop-up-overlay').fadeIn("fast");
+        verification.fadeIn("fast");
 
-        $('.main-pop-up').on('click', '.yes', function(){
-            $(this).data('clicked', true);
-            if ($('.yes').data('clicked', true)){
+        $('.'+verificationClass+'__main').on('click', '.'+verificationClass+'__answer', function(){
+            if ($(this).attr('answer')=='yes'){
                 removeFromSearch(id, btn);
             }
-        });
-
-        $('.main-pop-up').on('click', '.no', hidePopupWindow);
+            else{
+                verification.fadeOut("fast");
+            }
+        })
     });
 
-    $('.pop-up-overlay').click(hidePopupWindow);
+    $('.b-popup-verification').click(hidePopupWindow);
 
 });

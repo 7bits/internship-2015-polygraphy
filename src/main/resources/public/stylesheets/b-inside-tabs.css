@@ -1,0 +1,144 @@
+.b-inside-tabs{
+    width: 1000px;
+    height: auto;
+    background-color: rgb(232, 232, 232);
+    border-radius: 0 10px 10px 10px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 50px;
+    box-sizing: border-box;
+    padding: 40px 60px;
+    color: white;
+}
+
+.b-inside-tabs__js-inside-inactive-tab{
+    display: none;
+}
+
+.b-inside-tabs__js-inside-active-tab{
+    display: block;
+}
+
+.b-inside-tabs__generate-link{
+    height: 35px;
+    width: 230px;
+    line-height: 35px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    background-color: #efe553;
+    outline: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+a.b-inside-tabs__get-link{
+    text-decoration: none;
+    color: black;
+}
+
+.b-inside-tabs__generate-link:hover{
+    cursor: pointer;
+    background-color: #dad14c;
+}
+
+.b-inside-tabs__link a{
+    color: black;
+}
+
+.b-inside-tabs__table-container{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #64be5f;
+    overflow: hidden;
+}
+
+table.b-inside-tabs__table{
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+
+.b-inside-tabs__table td,
+.b-inside-tabs__table th{
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.b-inside-tabs__table-head{
+    box-sizing: border-box;
+    border-bottom: 1px solid #64be5f;
+    background-color: #64be5f;
+    color: white;
+}
+
+a.b-inside-tabs__take-link{
+
+    color: #25BB1D;
+}
+
+.b-inside-tabs__button-container{
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.b-inside-tabs_col-edit{
+    min-width: 310px;
+}
+
+.b-inside-tabs__option{
+    height: 35px;
+    width: auto;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-family: 'OpenSansLightRegular';
+    text-decoration: none;
+    background-color: #efe553;
+    outline: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.b-inside-tabs__option a{
+    text-decoration: none;
+    color: black;
+}
+
+.b-inside-tabs__option:hover{
+    cursor: pointer;
+    background-color: #dad14c;
+}
+
+.b-inside-tabs__table-col{
+    color: black;
+    border-top: 1px solid #64be5f;
+    border-right: 1px solid #64be5f;
+}
+
+
+input.b-inside-tabs__checkbox[type="checkbox"]{
+    display: none;
+}
+
+input.b-inside-tabs__checkbox[type="checkbox"]+label{
+    background: url("/images/check.png") 0px 0px no-repeat;
+    padding-left: 16px;
+    width: 15px;
+    height: 15px;
+}
+
+input.b-inside-tabs__checkbox[type="checkbox"]:checked+label{
+    background: url("/images/check.png") 0 -30px no-repeat;
+    padding-left: 16px;
+    width: 15px;
+    height: 15px;
+}
+
+input.b-inside-tabs__checkbox[type="checkbox"]+label:hover{
+    cursor: pointer;
+}

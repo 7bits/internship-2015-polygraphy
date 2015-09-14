@@ -1,16 +1,5 @@
 @import url("osans.css");
 
-body{
-    width: 1200px;
-    margin: 0 auto;
-    font-family: "OpenSansLightRegular";
-    text-align: center;
-}
-
-:focus{
-    outline: none;
-}
-
 .b-content-block{
     width: 70%;
     height: auto;
@@ -26,6 +15,7 @@ body{
 .b-content-block__headline{
     font-size: 22px;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .b-content-block__content{
@@ -39,11 +29,6 @@ body{
 }
 
 @media screen and (max-width: 1024px) {
-
-    body {
-        margin: auto;
-        width: 100%;
-    }
 
     .b-content-block{
         width: 95%;

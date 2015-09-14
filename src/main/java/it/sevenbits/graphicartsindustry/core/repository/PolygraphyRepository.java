@@ -115,7 +115,7 @@ public class PolygraphyRepository {
 
     public void createPolygraphy(Polygraphy polygraphy) throws RepositoryException {
         if (polygraphy == null) {
-            LOG.error("Can not create polygraphy due to repository error: polygraphy id is null");
+            LOG.error("Can not create polygraphy due to repository error: polygraphy is null");
             throw new RepositoryException("Polygraphy is null");
         }
         try {

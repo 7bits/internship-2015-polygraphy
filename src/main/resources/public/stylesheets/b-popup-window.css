@@ -1,6 +1,6 @@
 @import url("osans.css");
 
-.main-pop-up{
+.b-popup-window__main{
     width: 938px;
     height: 618px;
     text-align: center;
@@ -13,21 +13,21 @@
     box-sizing: border-box;
 }
 
-.info-pop-up{
+.b-popup-window__info{
     width: 800px;
     height: 490px;
     display: inline-block;
     vertical-align: middle;
 }
 
-.helper-pop-up{
+.b-popup-window__helper{
     display: inline-block;
     height: 100%;
     width: 0px;
     vertical-align: middle;
 }
 
-.summary-pop-up{
+.b-popup-window__summary{
     width: 265px;
     height: 100%;
     display: inline-block;
@@ -35,55 +35,55 @@
     text-align: left;
 }
 
-.polygraphy-name-pop-up{
+.b-popup-window__name{
     font-family: "OpenSansLightRegular";
     font-size: 25px;
     color: black;
 }
 
-table.services-pop-up{
+table.b-popup-window__services{
     margin: 25px auto;
 }
 
-.address-pop-up,
-.phone-pop-up,
-.email-pop-up,
-.site-pop-up{
+.b-popup-window__address,
+.b-popup-window__phone,
+.b-popup-window__email,
+.b-popup-window__site{
     margin-bottom: 5px;
     padding-left: 24px;
     font-size: 17px;
 }
 
-.address-pop-up{
+.b-popup-window__address{
     background: url("/images/map-violet.png");
     background-repeat: no-repeat;
     background-position: left calc(0% + 5px);
 }
 
-.phone-pop-up{
+.b-popup-window__phone{
     background: url("/images/phone-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
-.email-pop-up{
+.b-popup-window__email{
     background: url("/images/mail-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
-.site-pop-up{
+.b-popup-window__site{
     background: url("/images/link-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
-.site-pop-up > a{
+.b-popup-window__site > a{
     color: rgb(111, 194, 106);
 }
 
 
-.details-pop-up{
+.b-popup-window__details{
     width: 455px;
     height: 100%;
     display: inline-block;
@@ -91,13 +91,13 @@ table.services-pop-up{
     text-align: left;
 }
 
-.about-title-pop-up{
+.b-popup-window__title{
     font-family: "OpenSansLightRegular";
     font-size: 25px;
     color: black;
 }
 
-.about-text-pop-up{
+.b-popup-window__about{
     font-size: 17px;
     margin-top: 30px;
     padding-right: 5px;
@@ -107,26 +107,7 @@ table.services-pop-up{
     height: 90%;
 }
 
-.pop-up-overlay{
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    text-align: center;
-}
-
-.pop-up-overlay:after {
-    display: inline-block;
-    height: 100%;
-    width: 0;
-    vertical-align: middle;
-    content: ''
-}
-
-.pop-up-window{
+.b-popup-window{
     display: inline-block;
     position: relative;
     background: #fff;
@@ -137,7 +118,7 @@ table.services-pop-up{
     overflow: hidden;
 }
 
-.close{
+.b-popup-window__close{
     position: absolute;
     top: 30px;
     right: 30px;
@@ -148,58 +129,7 @@ table.services-pop-up{
     opacity: 0.6;
 }
 
-.close:hover{
+.b-popup-window__close:hover{
     opacity: 1;
     cursor: pointer;
-}
-
-
-@media screen and (max-width: 700px){
-
-    .pop-up-window{
-        width: 95%;
-        height: auto;
-        margin: 10px auto;
-    }
-
-    .main-pop-up{
-        width: 100%;
-        height: auto;
-        padding: 20px;
-        box-sizing: border-box;
-    }
-
-    .info-pop-up{
-        width: 100%;
-        height: auto;
-    }
-
-    .polygraphy-name-pop-up{
-        text-align: center;
-    }
-
-    .summary-pop-up{
-        width: 100%;
-        height: auto;
-        display: block;
-        float: none;
-    }
-
-    .details-pop-up{
-        width: 100%;
-        height: auto;
-        display: block;
-        float: none;
-    }
-
-    .about-text-pop-up{
-        font-size: 15px;
-        height: auto;
-        margin-top: 10px;
-    }
-
-    .about-title-pop-up{
-        text-align: center;
-        margin-top: 20px;
-    }
 }

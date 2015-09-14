@@ -2,8 +2,6 @@ extends ../layouts/layout
 
 block append head
     link(rel='stylesheet', href='/stylesheets/editing-polygraphy.css')
-    script(type='application/javascript', src='/scripts/editing-polygraphy.js')
-    script(type='application/javascript', src='/scripts/display-errors.js')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
@@ -155,3 +153,6 @@ block content
             .b-edit__button-container
                 button.b-edit__save(type='button')
                     | Сохранить
+
+    script(type='application/javascript', src='/scripts/editing-polygraphy.js')
+    script(type='application/javascript', src='/scripts/display-errors.js')

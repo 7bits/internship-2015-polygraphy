@@ -2,9 +2,6 @@ extends ../layouts/layout
 
 block append head
     link(rel='stylesheet', href='/stylesheets/registration.css')
-    script(type='application/javascript', src='/scripts/step-by-step-registration.js')
-    script(type='application/javascript', src='/scripts/registration.js')
-    script(type='application/javascript', src='/scripts/display-errors.js')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
@@ -103,3 +100,7 @@ block content
                         .b-registration__for-error(id='services-for-error')
                         .b-registration__invalid(id='services-error')
                 button.submit-registration-form(type='button', id='submit-registration-form') Сохранить данные
+
+    script(type='application/javascript', src='/scripts/step-by-step-registration.js')
+    script(type='application/javascript', src='/scripts/registration.js')
+    script(type='application/javascript', src='/scripts/display-errors.js')

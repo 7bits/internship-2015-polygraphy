@@ -1,17 +1,5 @@
 @import url("osans.css");
 
-body{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    font-family: "OpenSansRegular";
-    font-size: 16px;
-}
-
-:focus{
-    outline: none;
-}
-
 .b-edit{
     width: 700px;
     height: auto;
@@ -158,4 +146,25 @@ input.b-edit__checkbox[type="checkbox"]+label:hover{
 
 .b-edit__base-error{
     display: none;
+}
+
+@media screen and (max-width: 1024px){
+
+    .b-edit{
+        width: 95%;
+        max-width: 600px;
+        height: auto;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .b-edit__headline {
+        margin-bottom: 20px;
+    }
+
+    .b-edit__checkboxes-wrapper{
+        width: 100%;
+        display: inline-block;
+    }
+
 }

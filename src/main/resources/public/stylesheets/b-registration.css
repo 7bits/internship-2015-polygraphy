@@ -1,16 +1,5 @@
 @import url("osans.css");
 
-body{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    font-family: "OpenSansLightRegular";
-}
-
-:focus{
-    outline: none;
-}
-
 .b-registration{
     width: 700px;
     height: auto;
@@ -22,6 +11,7 @@ body{
     box-sizing: border-box;
     padding: 50px;
     color: white;
+    position: relative;
 }
 
 .b-registration__headline{
@@ -151,6 +141,10 @@ input.b-registration__checkbox[type="checkbox"]+label:hover{
     box-sizing: border-box;
     margin-top: 10px;
     float: right;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    cursor: pointer;
 }
 
 button.b-registration__submit[type="submit"]:hover{
@@ -162,64 +156,6 @@ fieldset {
     border: none;
     padding: 0;
     margin: 0;
-}
-
-.prev, .next {
-    height: 40px;
-    width: auto;
-    line-height: 40px;
-    border: 1px solid white;
-    border-radius: 20px;
-    font-family: "OpenSansRegular";
-    font-size: 16px;
-    text-decoration: none;
-    color: white;
-    background-color: #64be5f;
-    outline: none;
-    margin: auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-    margin-top: 10px;
-}
-
-.prev:hover, .next:hover {
-    cursor: pointer;
-    background-color: #88d280;
-}
-
-.prev {
-    float: left;
-}
-
-.next {
-    float: right;
-}
-
-#steps {
-    list-style: none;
-    width: 100%;
-    overflow: hidden;
-    margin: 20px 0px;
-    padding: 0px;
-}
-
-#steps li {
-    font-size: 30px;
-    float: left;
-    padding: 0;
-    margin-right: 10px;
-    color: white;
-    opacity: 0.5;
-}
-
-#steps li span {
-    font-size: 11px;
-    display: block;
-}
-
-#steps li.current {
-    color: #efe553;
-    opacity: 1;
 }
 
 .b-registration__for-error{
@@ -251,4 +187,37 @@ fieldset {
     border-radius: 25px;
     font-size: 14px;
     text-align: center;
+}
+
+@media screen and (max-width: 1024px){
+
+    .b-registration{
+        width: 95%;
+        max-width: 600px;
+        height: auto;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .b-registration__checkboxes-wrapper{
+        width: 100%;
+        display: inline-block;
+    }
+
+    .b-registration__field-checkbox {
+        font-size: 15px;
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .b-registration__submit{
+        float: none;
+        position: static;
+    }
+
+    .b-registration__text-fields{
+        width: 95%;
+        margin: auto;
+    }
+
 }

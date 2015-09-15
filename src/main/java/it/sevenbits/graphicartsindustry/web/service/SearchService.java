@@ -18,7 +18,7 @@ public class SearchService {
 
     public List<PolygraphyMinModel> findAllAllowedPolygraphy(int limit) throws ServiceException {
         try {
-            List<PolygraphyContacts> polygraphies = polygraphyRepository.findAllPolygraphiesDisplayed(limit);
+            List<PolygraphyContacts> polygraphies = polygraphyRepository.findAllDisplayPolygraphies(limit);
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (PolygraphyContacts p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));

@@ -6,24 +6,27 @@ var validateSecondStep = function(event){
     var headers = {};
     headers[header] = token;
 
-    $('.b-registration__input').css('borderColor', 'white');
-    $('.b-registration__invalid').css('display', 'none');
-    $(".b-registration__for-error").css('display', 'none');
-    $('.b-registration__invalid').text('');
+    var input = $('.b-registration__input');
+    var invalid = $('.b-registration__invalid');
+    var forError = $('.b-registration__for-error');
+
+    input.addClass('js-normal-input').removeClass('js-error-input');
+    invalid.addClass('js-none-display').removeClass('js-display-block');
+    forError.addClass('js-none-display').removeClass('js-display-block');
+    invalid.text('');
 
     CKEDITOR.instances['text-area-field'].updateElement();
-    var textArea = $('#text-area-field').val();
     var writesTheCheck = $('.js-wtc').prop('checked');
     var orderByEmail = $('.js-obe').prop('checked');
 
     /* Поля первого шага */
-    var names = {}
-    $('.b-registration__input').each(function(){
+    var names = {};
+    input.each(function(){
         names[$(this).attr('name')] = $(this).val();
     });
 
     /* Поля второго шага */
-    var checkboxes = {}
+    var checkboxes = {};
     $('.b-registration__checkbox').each(function(){
         checkboxes[$(this).attr('name')] = [];
     });
@@ -48,7 +51,7 @@ var validateSecondStep = function(event){
                 'phone': names.phone,
                 'publicEmail': names.publicEmail,
                 'website': names.website,
-                'info': textArea,
+                'info': names.textArea,
                 'hash': names.hash
             },
             secondForm: {
@@ -68,7 +71,7 @@ var validateSecondStep = function(event){
             }
         }
     });
-}
+};
 
 $(document).ready(function(){
 

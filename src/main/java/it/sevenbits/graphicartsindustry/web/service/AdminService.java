@@ -54,7 +54,7 @@ public class AdminService {
 
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
 
-            polygraphyRepository.deletePolygraphy(polygraphyId);
+            polygraphyRepository.removePolygraphy(polygraphyId);
 
             if (userId != null)
                 userRepository.removeUser(userId);

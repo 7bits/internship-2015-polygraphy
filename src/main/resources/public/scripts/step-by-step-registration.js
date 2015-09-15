@@ -39,9 +39,10 @@
 
         function createPrevButton(i) {
             var stepName = 'step' + i;
-            $('#' + stepName + 'commands').append("<a href='#' id='" + stepName + "Prev' class='prev'>< Предыдущий шаг</a>");
+            $('#' + stepName + 'commands').append("<a href='#' id='" + stepName + "Prev' class='js-prev'>< Предыдущий шаг</a>");
 
             $('#' + stepName + 'Prev').bind('click', function(e) {
+
                 $('#' + stepName).hide();
                 $('#step' + (i - 1)).show();
                 $(submitButtonName).hide();
@@ -51,7 +52,7 @@
 
         function createNextButton(i) {
             var stepName = 'step' + i;
-            $('#' + stepName + 'commands').append("<a href='#' id='" + stepName + "Next' class='next'>Следующий шаг ></a>");
+            $('#' + stepName + 'commands').append("<a href='#' id='" + stepName + "Next' class='js-next'>Следующий шаг ></a>");
 
             $('#' + stepName + 'Next').bind('click', function(event) {
                 event.preventDefault();
@@ -60,18 +61,22 @@
                 var headers = {};
                 headers[header] = token;
 
-                $('.b-registration__input').css('borderColor', 'white');
-                $('.b-registration__invalid').css('display', 'none');
-                $('.b-registration__for-error').css('display', 'none');
-                $('.b-registration__invalid').text('');
+                var input = $('.b-registration__input');
+                var invalid = $('.b-registration__invalid');
+                var forError = $('.b-registration__for-error');
+                var baseError = $('.b-registration__base-error');
+
+                input.addClass('js-normal-input').removeClass('js-error-input');
+                invalid.addClass('js-none-display').removeClass('js-display-block');
+                forError.addClass('js-none-display').removeClass('js-display-block');
+                invalid.text('');
 
                 CKEDITOR.instances['text-area-field'].updateElement();
-                var textArea = $('#text-area-field').val();
-                $('.b-registration__base-error').css('display', 'none');
-                $('.b-registration__base-error').text('');
+                baseError.addClass('js-none-display');
+                baseError.text('');
 
-                var names = {}
-                $('.b-registration__input').each(function(){
+                var names = {};
+                input.each(function(){
                     names[$(this).attr('name')] = $(this).val();
                 });
 
@@ -89,7 +94,7 @@
                             'phone': names.phone,
                             'publicEmail': names.publicEmail,
                             'website': names.website,
-                            'textArea': textArea,
+                            'textArea': names.textArea,
                             'hash': names.hash
                           }),
                     success: function(data) {
@@ -110,8 +115,8 @@
         }
 
         function selectStep(i) {
-            $("#steps li").removeClass('current');
-            $('#stepDesc' + i).addClass('current');
+            $("#steps li").removeClass('js-current');
+            $('#stepDesc' + i).addClass('js-current');
         }
 
     }

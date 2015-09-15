@@ -1,139 +1,171 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/index.css")
+    link(rel="stylesheet", href="/stylesheets/b-search.css")
+    link(rel="stylesheet", href="/stylesheets/b-search-line.css")
+    link(rel="stylesheet", href="/stylesheets/b-often-seek.css")
+    link(rel="stylesheet", href="/stylesheets/b-extend-search.css")
+    link(rel="stylesheet", href="/stylesheets/b-dropdown.css")
+    link(rel="stylesheet", href="/stylesheets/b-checkboxes.css")
+    link(rel="stylesheet", href="/stylesheets/b-results.css")
+    link(rel="stylesheet", href="/stylesheets/b-results-item.css")
+    link(rel="stylesheet", href="/stylesheets/b-popup-window.css")
     link(rel="stylesheet", href="/stylesheets/icons.css")
-    link(rel="stylesheet", href="/stylesheets/pop-up-window.css")
-    script(type='application/javascript', src='/scripts/app.js')
 
 block content
 
-    .search
+    .b-search
 
         form(id='search-form', method='post', action='/search')
-            .search-line
+            .b-search-line
                 if form != null
                     if form.query != ""
-                        input.search-field(name='query', type='text', value='#{form.query}')
+                        input.b-search-line__input(name='query',
+                                                type='text',
+                                                value='#{form.query}')
                     else
-                        input.search-field(name='query', type='text', placeholder='Что искать?')
+                        input.b-search-line__input(name='query',
+                                                type='text',
+                                                placeholder='Что искать?')
                 else
-                    input.search-field(name='query', type='text', placeholder='Что искать?')
-                .submit
+                    input.b-search-line__input(name='query',
+                                            type='text',
+                                            placeholder='Что искать?')
+                .b-search-line__submit
                     button(type='button') НАЙТИ ПОЛИГРАФИЮ
 
-            .checkboxes
+            .b-often-seek
                 | Часто ищут:
                 for service in services
-                    .checkbox-btn
-                        if form.services.contains(service.id)
-                            input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox', checked)
-                            label(for='btn'+service.id)=service.name
-                        else
-                            input.often-seek(id='btn#{service.id}', name='services', value='#{service.id}', type='checkbox')
-                            label(for='btn'+service.id)=service.name
-            .wrapper
-                .extended-search
-                    .extended-search-title
+                    .b-often-seek__checkbox
+                        - checked = form.services.contains(service.id)
+                        input.b-often-seek__input(id='btn#{service.id}',
+                                        name='services',
+                                        value='#{service.id}',
+                                        type='checkbox',
+                                        checked=checked)
+                        label(for='btn'+service.id)=service.name
+            .b-search__wrapper
+                .b-extend-search
+                    .b-extend-search__title
                         | РАСШИРЕННЫЙ ПОИСК
-                    .payment-method-headline
+                    .b-extend-search__label
                         | Способ оплаты
-                    .payment-method
-                        .payment-placeholder
-                        .payment-method-items
-                            .item
-                                input.item-selection-payment(id='item10', name='paymentMethod', type='radio', value=0, checked)
-                                label(for='item10') Любой
+                    .b-dropdown
+                        .b-dropdown__placeholder(id='paymentMethod')
+                        .b-dropdown__list(id='paymentMethod-list')
+                            .b-dropdown__list-item
+                                input.b-dropdown__input(id='paymentMethod-item-0',
+                                                        name='paymentMethod',
+                                                        type='radio',
+                                                        value=0,
+                                                        checked)
+                                label(for='paymentMethod-item-0') Любой
                             for _paymentMethod in paymentMethods
                                 if _paymentMethod.id == form.paymentMethod
-                                    .item
-                                        input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}', checked=true)
-                                        label(for='item1'+_paymentMethod.id)= _paymentMethod.name
+                                    - pm_checked = true
                                 else
-                                    .item
-                                        input.item-selection-payment(id='item1#{_paymentMethod.id}', name='paymentMethod', type='radio', value='#{_paymentMethod.id}')
-                                        label(for='item1'+_paymentMethod.id)= _paymentMethod.name
+                                    - pm_checked = false
+                                .b-dropdown__list-item
+                                    input.b-dropdown__input(id='paymentMethod-item-#{_paymentMethod.id}',
+                                                            name='paymentMethod',
+                                                            type='radio',
+                                                            value='#{_paymentMethod.id}',
+                                                            checked=pm_checked)
+                                    label(for='paymentMethod-item-'+_paymentMethod.id)= _paymentMethod.name
 
-                    .checkboxes-in-search-field
-                        .check
+                    .b-checkboxes
+                        .b-checkboxes__checkbox
                             if form.writesTheCheck == true
-                                input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox', checked)
-                                label(for='check1') Выдает чек
+                                - wtc_checked = true
                             else
-                                input.js-write-the-check.checkbox(id='check1', name='writesTheCheck', type='checkbox')
-                                label(for='check1') Выдает чек
+                                - wtc_checked = false
+                            input.js-write-the-check.b-checkboxes__input(id='check1',
+                                                                        name='writesTheCheck',
+                                                                        type='checkbox',
+                                                                        checked=wtc_checked)
+                            label(for='check1') Выдает чек
 
-                    .delivery-method-headline
+                    .b-extend-search__label
                         | Способ доставки
-                    .delivery-method
-                        .delivery-placeholder
-                        .delivery-method-items
-                            .item
-                                input.item-selection-delivery(id='item20', name='deliveryMethod', type='radio', value=0, checked)
-                                label(for='item20') Любой
+                    .b-dropdown
+                        .b-dropdown__placeholder(id='deliveryMethod')
+                        .b-dropdown__list(id='deliveryMethod-list')
+                            .b-dropdown__list-item
+                                input.b-dropdown__input(id='deliveryMethod-item-0',
+                                                        name='deliveryMethod',
+                                                        type='radio',
+                                                        value=0,
+                                                        checked)
+                                label(for='deliveryMethod-item-0') Любой
                             for _deliveryMethod in deliveryMethods
                                 if _deliveryMethod.id == form.deliveryMethod
-                                    .item
-                                        input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}', checked=true)
-                                        label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
+                                    - dm_checked = true
                                 else
-                                    .item
-                                        input.item-selection-delivery(id='item2#{_deliveryMethod.id}', name='deliveryMethod', type='radio', value='#{_deliveryMethod.id}')
-                                        label(for='item2'+_deliveryMethod.id)= _deliveryMethod.name
+                                    - dm_checked = false
+                                .b-dropdown__list-item
+                                    input.b-dropdown__input(id='deliveryMethod-item-#{_deliveryMethod.id}',
+                                                            name='deliveryMethod',
+                                                            type='radio',
+                                                            value='#{_deliveryMethod.id}',
+                                                            checked=dm_checked)
+                                    label(for='deliveryMethod-item-'+_deliveryMethod.id)= _deliveryMethod.name
 
-                    .checkboxes-in-search-field
-                        .check
+                    .b-checkboxes
+                        .b-checkboxes__checkbox
                             if form.orderByEmail == true
-                                input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox', checked)
-                                label(for='check2') Принимает заказ по e-mail
+                                - obe_checked = true
                             else
-                                input.js-order-by-email.checkbox(id='check2',name='orderByEmail', type='checkbox')
-                                label(for='check2') Принимает заказ по e-mail
+                                - obe_checked = false
+                            input.js-order-by-email.b-checkboxes__input(id='check2',
+                                                            name='orderByEmail',
+                                                            type='checkbox',
+                                                            checked=obe_checked)
+                            label(for='check2') Принимает заказ по e-mail
 
-                .help
-                    .polygraphies-list
-                    script(id='results', type='text/x-handlebars-template')
-                        .results-field
-                            ul.results
-                                | {{#if polygraphiesListIsNull}}
-                                p.no-results {{polygraphiesListIsNull}}
-                                | {{/if}}
-                                | {{#each polygraphies}}
-                                li
-                                    table.services
-                                        tr
-                                            td.small-bunner
-                                            td.small-t-shirt
-                                            td.small-cup
-                                        tr
-                                            td.small-note
-                                            td.small-badge
-                                            td.small-magnit
-                                        tr
-                                            td.small-sticker
-                                            td.small-card
-                                            td.small-calendar
-                                    .info
-                                        .polygraphy-name(id='{{id}}') {{name}}
-                                        .adaptive-polygraphy-name(id='{{id}}') {{name}}
-                                        .polygraphy-address {{address}}
-                                        .polygraphy-phone-number {{phone}}
-                                    .detail(id='polygraphy-page')
-                                        a(href='/polygraphy/{{id}}', id='{{id}}')
-                                            |Подробнее
-                                    button.small-detail(type='button', id='{{id}}')
+                .b-search__polygraphies-list
+                script(id='results', type='text/x-handlebars-template')
+                    .b-results
+                        ul.b-results__list
+                            | {{#if polygraphiesListIsNull}}
+                            p.b-results__no-results {{polygraphiesListIsNull}}
+                            | {{/if}}
+                            | {{#each polygraphies}}
+                            li.b-results-item
+                                table.b-results-item__table-services
+                                    tr
+                                        td.small-bunner
+                                        td.small-t-shirt
+                                        td.small-cup
+                                    tr
+                                        td.small-note
+                                        td.small-badge
+                                        td.small-magnit
+                                    tr
+                                        td.small-sticker
+                                        td.small-card
+                                        td.small-calendar
+                                .b-results-item__summary
+                                    .b-results-item__name(id='{{id}}') {{name}}
+                                    .b-results-item__adaptive-name(id='{{id}}') {{name}}
+                                    .b-results-item__address {{address}}
+                                    .b-results-item__phone {{phone}}
+                                .b-results-item__detail(id='polygraphy-page')
+                                    a(href='/polygraphy/{{id}}', id='{{id}}')
                                         |Подробнее
-                                | {{/each}}
-    .up
-    .pop-up-overlay
-        .pop-up-window
+                                button.b-results-item__adaptive-detail-info(type='button', id='{{id}}')
+                                    |Подробнее
+                            | {{/each}}
+    .b-search__button-up
+    .b-search__overlay
+        .b-popup-window
         script(id='pop-up-window-detail', type='text/x-handlebars-template')
-            .main-pop-up
-                .close
-                .info-pop-up
-                    .summary-pop-up
-                        .polygraphy-name-pop-up {{name}}
-                        table.services-pop-up
+            .b-popup-window__main
+                .b-popup-window__close
+                .b-popup-window__info
+                    .b-popup-window__summary
+                        .b-popup-window__name {{name}}
+                        table.b-popup-window__services
                             tr
                                 td.sticker
                                 td.A4
@@ -144,14 +176,16 @@ block content
                                 td.A1
                                 td.bunner
                                 td.A2
-                        .address-pop-up {{address}}
-                        .phone-pop-up {{phone}}
-                        .email-pop-up {{email}}
-                        .site-pop-up
+                        .b-popup-window__address {{address}}
+                        .b-popup-window__phone {{phone}}
+                        .b-popup-window__email {{email}}
+                        .b-popup-window__site
                             a(href='{{website}}', target="_blank") {{website}}
-                    .details-pop-up
-                        .about-title-pop-up
+                    .b-popup-window__details
+                        .b-popup-window__title
                             | О ПОЛИГРАФИИ
-                        .about-text-pop-up {{{info}}}
-                .helper-pop-up
-    .js-overlay
+                        .b-popup-window__about {{{info}}}
+                .b-popup-window__helper
+    .b-search__js-loader
+
+    script(type='application/javascript', src='/scripts/app.js')

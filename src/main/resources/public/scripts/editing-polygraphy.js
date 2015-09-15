@@ -11,27 +11,32 @@ var validateEditForm = function(){
     var writesTheCheck = $('.js-wtc').prop('checked');
     var orderByEmail = $('.js-obe').prop('checked');
 
-    var names = {}
-    $('.input-field').each(function(){
+    var input = $('.b-edit__input');
+    var invalid = $('.b-edit__invalid');
+    var forError = $('.b-edit__for-error');
+    var baseError = $('.b-edit__base-error');
+
+    var names = {};
+    input.each(function(){
         names[$(this).attr('name')] = $(this).val();
-        $(this).css('borderColor', 'white');
-        $('.invalid').css('display', 'none');
-        $('.for-error').css('display', 'none');
-        $('.invalid').text('');
+        $(this).addClass('js-normal-input').removeClass('js-error-input');
+        invalid.addClass('js-none-display').removeClass('js-display-block');
+        forError.addClass('js-none-display').removeClass('js-display-block');
+        invalid.text('');
     });
 
-    var checkboxes = {}
-    $('.checkbox').each(function(){
+    var checkboxes = {};
+    $('.b-edit__checkbox').each(function(){
         checkboxes[$(this).attr('name')] = [];
     });
     $.each(checkboxes, function(key, value){
-        $('.checkbox[name='+key+']:checked').each(function(){
+        $('.b-edit__checkbox[name='+key+']:checked').each(function(){
             value.push($(this).attr('value'));
         });
     });
 
-    $('.base-error').css('display', 'none');
-    $('.base-error').text('');
+    baseError.addClass('js-none-display');
+    baseError.text('');
 
     $.ajax({
         type: 'PUT',
@@ -70,6 +75,6 @@ var validateEditForm = function(){
 
 $(document).ready(function(){
 
-    $('.save').on('click', validateEditForm);
+    $('.b-edit__save').on('click', validateEditForm);
 
 });

@@ -1,88 +1,90 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/admin.css")
+    link(rel="stylesheet", href="/stylesheets/b-tabs.css")
+    link(rel="stylesheet", href="/stylesheets/b-inside-tabs.css")
+    link(rel="stylesheet", href="/stylesheets/b-popup-verification.css")
     link(rel="stylesheet", href="/stylesheets/jquery.gritter.css")
-    script(type='application/javascript', src='/vendor/scripts/jquery.gritter.min.js')
-    script(type='application/javascript', src='/vendor/scripts/jquery.gritter.js')
-    script(type='application/javascript', src='/scripts/admin.js')
 
 block content
 
-    .admin-headline
-        .tab.tab1
+    .b-tabs
+        .b-tabs__tab.b-tabs__js-active-tab(id='registration-bids')
             | ЗАЯВКИ НА РЕГИСТРАЦИЮ
-        .tab.tab2
+        .b-tabs__tab.b-tabs__js-inactive-tab(id='polygraphies-list')
             | СПИСОК ПОЛИГРАФИЙ
-    .admin
-        .content.for-tab1
-            .table-container
-                table.admin-table
+    .b-inside-tabs
+        .b-inside-tabs__content.b-inside-tabs__js-inside-active-tab(id='inside-registration-bids')
+            .b-inside-tabs__table-container
+                table.b-inside-tabs__table
                     tr
-                        th.head.head-e-mail
+                        th.b-inside-tabs__table-head
                             | E-mail
-                        th.head.head-link
+                        th.b-inside-tabs__table-head
                             | Ссылка для регистрации
-                        th.head.head-link
+                        th.b-inside-tabs__table-head
                             | Действия
                     for request in requests
-                        tr.row
-                            td.col.col-email
+                        tr.b-inside-tabs__table-row
+                            td.b-inside-tabs__table-col
                                 = request.email
-                            td.col.col-link
+                            td.b-inside-tabs__table-col
                                 if request.hash
-                                    a.take-link(href='#{request.link}', id='#{request.id}')= request.link
+                                    a.b-inside-tabs__take-link(href='#{request.link}', id='#{request.id}')= request.link
                                 else
-                                    .generate-link
-                                        a.get-link(href='/admin/registration-link', id='#{request.id}')
+                                    .b-inside-tabs__generate-link
+                                        a.b-inside-tabs__get-link(href='/admin/registration-link', id='#{request.id}')
                                             | Отправить приглашение
-                                    .link
+                                    .b-inside-tabs__link
                                         a(href='#{generate}', id='#{request.id}')= generate
-                            td.col.col-action
-                                button.option.remove-bid(type='button', id='#{request.id}')
+                            td.b-inside-tabs__table-col
+                                button.b-inside-tabs__option.b-inside-tabs__js-remove-bid(type='button', id='#{request.id}')
                                     | Удалить
-        .content.for-tab2
-            .table-container
-                table.admin-table
+        .b-inside-tabs__content.b-inside-tabs__js-inside-inactive-tab(id='inside-polygraphies-list')
+            .b-inside-tabs__table-container
+                table.b-inside-tabs__table
                     tr
-                        th.head
+                        th.b-inside-tabs__table-head
                             | Название
-                        th.head
+                        th.b-inside-tabs__table-head
                             | E-mail
-                        th.head
+                        th.b-inside-tabs__table-head
                             | Есть в поиске
-                        th.head
+                        th.b-inside-tabs__table-head
                             | Действия
 
                     for polygraphy in polygraphies
-                        tr.row
-                            td.col.col-name
+                        tr.b-inside-tabs__table-row
+                            td.b-inside-tabs__table-col
                                 = polygraphy.name
-                            td.col.col-mail
+                            td.b-inside-tabs__table-col
                                 = polygraphy.email
-                            td.col.col-search
+                            td.b-inside-tabs__table-col
                                 if polygraphy.displayed
-                                    input.checkbox(type='checkbox', id='#{polygraphy.id}', checked)
-                                    label.label-for-checkbox(for='#{polygraphy.id}', data-name='#{polygraphy.name}')
+                                    - checked  = true
                                 else
-                                    input.checkbox(type='checkbox', id='#{polygraphy.id}')
-                                    label.label-for-checkbox(for='#{polygraphy.id}')
-                            td.col.col-edit
-                                .button-container
-                                    button.option.edit(type='button', id='#{polygraphy.id}')
+                                    -checked = false
+                                input.b-inside-tabs__checkbox(type='checkbox', id='#{polygraphy.id}', checked=checked)
+                                label.b-inside-tabs__label(for='#{polygraphy.id}', data-name='#{polygraphy.name}')
+                            td.b-inside-tabs__table-col.b-inside-tabs_col-edit
+                                .b-inside-tabs__button-container
+                                    button.b-inside-tabs__option(type='button', id='#{polygraphy.id}')
                                         a(href='/admin/polygraphy/#{polygraphy.id}/edit')
                                             | Редактировать
-                                .button-container
-                                    button.option.remove-from-search(type='button', id='#{polygraphy.id}')
+                                .b-inside-tabs__button-container
+                                    button.b-inside-tabs__option.b-inside-tabs__js-remove-from-search(type='button', id='#{polygraphy.id}')
                                         | Удалить
-    .pop-up-overlay
-        .pop-up-window
-            .main-pop-up
-                .question
-                    | Вы уверены?
-                    br
-                    | Это действие уничтожит все данные об этой полиграфии.
-                button.verification.yes(type='button')
+    .b-popup-verification
+        .b-popup-verification__window
+            .b-popup-verification__main
+                | Вы уверены?
+                br
+                | Это действие уничтожит все данные об этой полиграфии.
+                button.b-popup-verification__answer.yes(type='button', answer='yes')
                     | Подтвердить
-                button.verification.no(type='button')
+                button.b-popup-verification__answer.no(type='button', answer='no')
                     | Отмена
+
+    script(type='application/javascript', src='/vendor/scripts/jquery.gritter.min.js')
+    script(type='application/javascript', src='/vendor/scripts/jquery.gritter.js')
+    script(type='application/javascript', src='/scripts/admin.js')

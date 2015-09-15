@@ -1,16 +1,5 @@
 @import url("osans.css");
 
-body{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    font-family: "OpenSansLightRegular";
-}
-
-:focus{
-    outline: none;
-}
-
 .b-bid{
     width: 895px;
     height: auto;
@@ -117,69 +106,7 @@ body{
     text-align: center;
 }
 
-@media screen and (max-width: 700px){
-
-    body{
-        width: 100%;
-    }
-
-    .b-bid{
-        width: 95%;
-        height: auto;
-        padding: 20px 10px;
-        margin-bottom: 50px;
-        margin-top: 20px;
-    }
-
-    .b-bid__area-email-wrapper{
-        height: 230px;
-    }
-
-    .b-bid__head-text{
-        font-size: 16px;
-    }
-
-    .b-bid__form-container{
-        width: 100%;
-        height: auto;
-        margin: auto;
-        margin-bottom: 10px;
-    }
-
-    .b-bid__email-input{
-        float: none;
-        height: 40px;
-        width: 95%;
-        padding: 0 20px;
-        font-size: 15px;
-        margin: 15px auto;
-    }
-
-    .b-bid__submit-email{
-        float: none;
-        width: auto;
-        height: 40px;
-        font-size: 16px;
-        padding: 0 20px;
-    }
-
-    .b-bid__button-login-container{
-        margin: 20px auto 20px auto;
-    }
-
-    .b-bid__button-login{
-        font-size: 16px;
-        padding: 9px 38px;
-    }
-
-}
-
-@media screen and (min-width: 701px) and (max-width: 1024px) {
-
-    body {
-        margin: auto;
-        width: 100%;
-    }
+@media screen and (max-width: 1024px) {
 
     .b-bid{
         width: 95%;
@@ -220,3 +147,44 @@ body{
     }
 }
 
+@media screen and (max-width: 700px){
+
+    .b-bid__area-email-wrapper{
+        height: 230px;
+    }
+
+    .b-bid__head-text{
+        font-size: 16px;
+    }
+
+    .b-bid__form-container{
+        width: 100%;
+        height: auto;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .b-bid__email-input{
+        float: none;
+        width: 95%;
+        font-size: 15px;
+        margin: 15px auto;
+    }
+
+    .b-bid__submit-email{
+        float: none;
+        width: auto;
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    .b-bid__button-login-container{
+        margin: 20px auto 20px auto;
+    }
+
+    .b-bid__button-login{
+        font-size: 16px;
+        padding: 9px 38px;
+    }
+
+}

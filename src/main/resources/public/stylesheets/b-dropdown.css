@@ -1,0 +1,60 @@
+.b-dropdown{
+    margin: 10px 0 20px 40px;
+    font-family: "OpenSansLightRegular";
+    font-size: 16px;
+    display: block;
+    line-height: 40px;
+    background-color: white;
+    width: 290px;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    box-sizing: border-box;
+    text-align: left;
+    text-indent: 22px;
+}
+
+.b-dropdown__placeholder{
+    background: url("/images/arrow.png");
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: 90%;
+}
+
+.b-dropdown__list{
+    display: none;
+}
+
+.b-dropdown__list-item > label{
+    width: auto;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: black;
+}
+
+input.b-dropdown__input[type="radio"]{
+    display: none;
+}
+
+input.b-dropdown__input[type="radio"]+label:hover{
+    cursor: pointer;
+    background-color: #f3e642;
+}
+
+input.b-dropdown__input[type="radio"]:checked+label{
+    background-color: #f3e642;
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .b-dropdown {
+        margin: 10px auto 10px auto;
+        width: 95%;
+        text-indent: 22px;
+    }
+}

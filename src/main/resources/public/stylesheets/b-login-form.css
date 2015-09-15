@@ -1,16 +1,5 @@
 @import url("osans.css");
 
-body{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    font-family: "OpenSansLightRegular";
-}
-
-:focus{
-    outline: none;
-}
-
 .b-login-form__headline{
     font-size: 22px;
     margin-bottom: 20px;
@@ -72,29 +61,7 @@ button.b-login-form__submit[type="submit"]:hover{
     background-color: #dad14c;
 }
 
-@media screen and (max-width: 700px){
-
-    body{
-        width: 100%;
-    }
-
-    .b-login-form{
-        width: 95%;
-        margin: 20px auto;
-        padding: 20px 10px;
-    }
-
-    .b-login-form__input{
-        width: 95%;
-    }
-}
-
-@media screen and (min-width: 701px) and (max-width: 1024px) {
-
-    body {
-        margin: auto;
-        width: 100%;
-    }
+@media screen and (max-width: 1024px) {
 
     .b-login-form{
         width: 90%;
@@ -107,4 +74,15 @@ button.b-login-form__submit[type="submit"]:hover{
         width: 90%;
     }
 
+}
+
+@media screen and (max-width: 700px){
+
+    .b-login-form{
+        width: 95%;
+    }
+
+    .b-login-form__input{
+        width: 95%;
+    }
 }

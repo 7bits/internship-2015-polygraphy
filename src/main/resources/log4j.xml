@@ -7,7 +7,7 @@
 
     <appender name="ROLL" class="org.apache.log4j.rolling.RollingFileAppender">
         <!-- The active file to log to -->
-        <param name="file" value="/home/bear/internship-2015-polygraphy/file.log"/>
+        <param name="file" value="/var/log/polygraphy/file.log"/>
         <param name="append" value="true"/>
         <param name="encoding" value="UTF-8"/>
 

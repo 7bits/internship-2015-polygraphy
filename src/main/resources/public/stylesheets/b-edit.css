@@ -147,3 +147,24 @@ input.b-edit__checkbox[type="checkbox"]+label:hover{
 .b-edit__base-error{
     display: none;
 }
+
+@media screen and (max-width: 1024px){
+
+    .b-edit{
+        width: 95%;
+        max-width: 600px;
+        height: auto;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .b-edit__headline {
+        margin-bottom: 20px;
+    }
+
+    .b-edit__checkboxes-wrapper{
+        width: 100%;
+        display: inline-block;
+    }
+
+}

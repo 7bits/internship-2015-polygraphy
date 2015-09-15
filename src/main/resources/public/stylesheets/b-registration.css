@@ -11,6 +11,7 @@
     box-sizing: border-box;
     padding: 50px;
     color: white;
+    position: relative;
 }
 
 .b-registration__headline{
@@ -140,6 +141,10 @@ input.b-registration__checkbox[type="checkbox"]+label:hover{
     box-sizing: border-box;
     margin-top: 10px;
     float: right;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    cursor: pointer;
 }
 
 button.b-registration__submit[type="submit"]:hover{
@@ -207,11 +212,7 @@ fieldset {
 
     .b-registration__submit{
         float: none;
-    }
-
-    .js-prev, .js-next{
-        float: none;
-        display: inline-block;
+        position: static;
     }
 
     .b-registration__text-fields{

@@ -10,9 +10,9 @@ var displayErrors = function(data){
         baseError.addClass('js-none-display');
 
         $.each(data.errors, function(key, value){
-            $('.'+className+'__input[name='+key+']').addClass('js-error-input');
-            $('.'+className+'__for-error#'+key+'-for-error').addClass('js-display-block');
-            $('.'+className+'__invalid#'+key+'-error').addClass('js-display-block');
+            $('.'+className+'__input[name='+key+']').removeClass('js-normal-input').addClass('js-error-input');
+            $('.'+className+'__for-error#'+key+'-for-error').removeClass('js-none-display').addClass('js-display-block');
+            $('.'+className+'__invalid#'+key+'-error').removeClass('js-none-display').addClass('js-display-block');
             $('.'+className+'__invalid#'+key+'-error').text(value);
         });
     }

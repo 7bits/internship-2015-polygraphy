@@ -42,6 +42,7 @@
             $('#' + stepName + 'commands').append("<a href='#' id='" + stepName + "Prev' class='js-prev'>< Предыдущий шаг</a>");
 
             $('#' + stepName + 'Prev').bind('click', function(e) {
+
                 $('#' + stepName).hide();
                 $('#step' + (i - 1)).show();
                 $(submitButtonName).hide();
@@ -65,9 +66,9 @@
                 var forError = $('.b-registration__for-error');
                 var baseError = $('.b-registration__base-error');
 
-                input.addClass('js-normal-input');
-                invalid.addClass('js-none-display');
-                forError.addClass('js-none-display');
+                input.addClass('js-normal-input').removeClass('js-error-input');
+                invalid.addClass('js-none-display').removeClass('js-display-block');
+                forError.addClass('js-none-display').removeClass('js-display-block');
                 invalid.text('');
 
                 CKEDITOR.instances['text-area-field'].updateElement();
@@ -114,8 +115,8 @@
         }
 
         function selectStep(i) {
-            $("#steps li").removeClass('current');
-            $('#stepDesc' + i).addClass('current');
+            $("#steps li").removeClass('js-current');
+            $('#stepDesc' + i).addClass('js-current');
         }
 
     }

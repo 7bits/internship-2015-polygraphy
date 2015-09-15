@@ -28,4 +28,4 @@ env:
   - SELENIUM_PLATFORM=Linux SELENIUM_BROWSER=chrome SELENIUM_VERSION=44 SELENIUM_BROWSER_URL="http://www.browserstack.com"
   - SELENIUM_PLATFORM=Linux SELENIUM_BROWSER=firefox SELENIUM_VERSION=38 SELENIUM_BROWSER_URL="http://www.browserstack.com"
 
-before_script: install selenium-webdriver
+##before_script: mvn install selenium-webdriver

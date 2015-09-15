@@ -1,13 +1,13 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
-import it.sevenbits.graphicartsindustry.web.domain.EditingPolygraphyErrors;
-import it.sevenbits.graphicartsindustry.web.domain.PolygraphyForm;
-import it.sevenbits.graphicartsindustry.web.service.ContentService;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.service.editing.EditingPolygraphyFormByAdminValidator;
-import it.sevenbits.graphicartsindustry.web.service.editing.EditingPolygraphyFormByPolygraphyValidator;
-import it.sevenbits.graphicartsindustry.web.service.editing.EditingPolygraphyService;
+import it.sevenbits.graphicartsindustry.service.ContentService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
+import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
+import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
+import it.sevenbits.graphicartsindustry.web.domain.response.EditingPolygraphyErrors;
+import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,7 +51,7 @@ public class PageEditingInfoAboutPolygraphyController {
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
     public EditingPolygraphyErrors editingInfoAboutPolygraphyByAdmin(@PathVariable(value = "id") int polygraphyId,
-                                                                @RequestBody PolygraphyForm form,
+                                                                @RequestBody EditingPolygraphyForm form,
                                                                 final Model model) throws ServiceException, RepositoryException {
         EditingPolygraphyErrors editingPolygraphyErrors = new EditingPolygraphyErrors();
 
@@ -84,7 +84,7 @@ public class PageEditingInfoAboutPolygraphyController {
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
     public EditingPolygraphyErrors editingInfoAboutPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                                     @RequestBody PolygraphyForm form,
+                                                                     @RequestBody EditingPolygraphyForm form,
                                                                      final Model model) throws ServiceException, RepositoryException {
         EditingPolygraphyErrors editingPolygraphyErrors = new EditingPolygraphyErrors();
         if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {

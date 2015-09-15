@@ -1,14 +1,14 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToChangingConditionDisplayPolygraphy;
-import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingPolygraphy;
-import it.sevenbits.graphicartsindustry.web.domain.admin.ResponseToRemovingRequestOnRegistration;
-import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.web.service.AdminService;
-import it.sevenbits.graphicartsindustry.web.service.SendingMessagesService;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.service.registration.RegistrationService;
-import it.sevenbits.graphicartsindustry.web.service.request.RequestOnRegistrationService;
+import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToChangingConditionDisplayPolygraphy;
+import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToRemovingPolygraphy;
+import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToRemovingRequestOnRegistration;
+import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.service.AdminService;
+import it.sevenbits.graphicartsindustry.service.SendingMessagesService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.RegistrationService;
+import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

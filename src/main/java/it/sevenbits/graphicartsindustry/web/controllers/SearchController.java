@@ -1,11 +1,11 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.search.PolygraphyResponse;
-import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationForm;
-import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
-import it.sevenbits.graphicartsindustry.web.service.ContentService;
-import it.sevenbits.graphicartsindustry.web.service.SearchService;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.domain.response.PolygraphyResponse;
+import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
+import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
+import it.sevenbits.graphicartsindustry.service.ContentService;
+import it.sevenbits.graphicartsindustry.service.SearchService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

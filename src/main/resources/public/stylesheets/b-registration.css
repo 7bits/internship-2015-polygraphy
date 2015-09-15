@@ -241,3 +241,40 @@ fieldset {
     font-size: 14px;
     text-align: center;
 }
+
+@media screen and (max-width: 1024px){
+
+    .b-registration{
+        width: 95%;
+        max-width: 600px;
+        height: auto;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .b-registration__checkboxes-wrapper{
+        width: 100%;
+        display: inline-block;
+    }
+
+    .b-registration__field-checkbox {
+        font-size: 15px;
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .b-registration__submit{
+        float: none;
+    }
+
+    .prev, .next{
+        float: none;
+        display: inline-block;
+    }
+
+    .b-registration__text-fields{
+        width: 95%;
+        margin: auto;
+    }
+
+}

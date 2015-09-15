@@ -59,14 +59,14 @@ block content
                             | Описание
                         textarea.b-registration__input.b-registration__textarea-field#text-area-field(name='textArea')
                         script.
-                            CKEDITOR.replace('textArea')
+                            CKEDITOR.replace('textArea');
                 .b-registration__base-error
             fieldset
                 .b-registration__field-checkboxes
-                    .b-registration__field-checkbox.b-registration_checkbox-order-by-email
+                    .b-registration__field-checkbox
                         input.js-obe.b-registration__checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
                         label(for='orderByEmail') Принимаем заказы по e-mail
-                    .b-registration__field-checkbox.b-registration_checkbox-issue-check
+                    .b-registration__field-checkbox
                         input.js-wtc.b-registration__checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
                         label(for='writesTheCheck') Выдаем чек
                     .b-registration__checkboxes-wrapper
@@ -99,7 +99,7 @@ block content
                                     label(for='service'+service.id)=service.name
                         .b-registration__for-error(id='services-for-error')
                         .b-registration__invalid(id='services-error')
-                button.b-registration__submit(type='button', id='submit-registration-form') Сохранить данные
+            button.b-registration__submit(type='button', id='submit-registration-form') Сохранить данные
 
     script(type='application/javascript', src='/scripts/step-by-step-registration.js')
     script(type='application/javascript', src='/scripts/registration.js')

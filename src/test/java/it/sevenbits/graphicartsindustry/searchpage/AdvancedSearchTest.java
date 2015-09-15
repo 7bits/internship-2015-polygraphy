@@ -24,7 +24,7 @@ public class AdvancedSearchTest {
 
   @Before
    public void setUp() throws Exception {
-    driver = new FirefoxDriver();
+   // driver = new FirefoxDriver();
     System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
@@ -83,7 +83,7 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
   }
-
+/*
 // Оплата по счету
 @Test
   public void testPayment() throws Exception {
@@ -1611,7 +1611,7 @@ public void testCashlessCourier() throws Exception {
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
    }
-
+*/
  @After
   public void tearDown() throws Exception {
     driver.quit();

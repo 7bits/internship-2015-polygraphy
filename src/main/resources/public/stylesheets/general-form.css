@@ -1,0 +1,31 @@
+@import url("osans.css");
+
+.general-form{
+    width: 600px;
+    height: auto;
+    background-color: #64be5f;
+    border-radius: 10px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    border: none;
+    padding: 50px;
+    color: white;
+}
+
+.general-form.general-form_login-form{
+    width: 475px;
+}
+
+@media screen and (max-width: 700px) {
+
+    .general-form{
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .general-form.general-form_login-form{
+        width: 90%;
+    }
+
+}

@@ -9,6 +9,10 @@ spring:
 server:
   port: 9000
 
+registration_link:
+  min_number: 100000000
+  max_number: 999999999
+
 mail:
   username:
   password:
@@ -45,6 +49,10 @@ spring:
 
 server:
   port: 9000
+
+registration_link:
+  min_number: 100000000
+  max_number: 999999999
 
 mail:
   username:

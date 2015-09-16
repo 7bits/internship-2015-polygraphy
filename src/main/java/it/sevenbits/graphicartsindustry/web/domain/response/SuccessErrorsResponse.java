@@ -22,3 +22,22 @@ public class SuccessErrorsResponse {
         this.success = success;
     }
 }
+
+//class SuccessResponse {
+//    private Map data;
+//    private boolean success;
+//    public SuccessResponse(Map data) {
+//        this.data = data;
+//        this.success = true;
+//    }
+//
+//}
+//
+//class ErrorResponse {
+//    private Map messages;
+//    private boolean success;
+//    public SuccessResponse(Map messages) {
+//        this.messages = messages;
+//        this.success = false;
+//    }
+//}

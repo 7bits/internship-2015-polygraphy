@@ -83,7 +83,7 @@ var availabilityInSearch = function(event){
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: '/admin/change-condition-display-polygraphy',
+        url: '/admin/edit-condition-display-polygraphy',
         headers: headers,
         data: {
                   'polygraphyId': id,

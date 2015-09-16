@@ -26,9 +26,9 @@ public class InfoForPolygraphyController {
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public SuccessErrorsResponse sendRequestOnRegistration(
+    public SuccessErrorsResponse saveRequestOnRegistration(
             @ModelAttribute RequestOnRegistrationForm requestOnRegistrationForm, Model model) throws ServiceException {
-        return requestOnRegistrationService.sendRequestOnRegistration(requestOnRegistrationForm);
+        return requestOnRegistrationService.saveRequestOnRegistration(requestOnRegistrationForm);
     }
 
     @RequestMapping(value = "/info-for-polygraphy-success", method = RequestMethod.GET)

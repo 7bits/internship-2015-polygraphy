@@ -194,7 +194,7 @@ public class EditingPolygraphyService {
         return successErrorsResponse;
     }
 
-    public void editConditionDisplayPolygraphy(int polygraphyId, boolean curCondition) throws ServiceException {
+    public void editConditionDisplayPolygraphy(Integer polygraphyId, boolean curCondition) throws ServiceException {
         try {
             polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
         } catch (Exception e) {

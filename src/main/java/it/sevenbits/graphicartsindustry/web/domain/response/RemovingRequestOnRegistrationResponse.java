@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.domain.response;
 
-public class ResponseToRemovingRequestOnRegistration {
+public class RemovingRequestOnRegistrationResponse {
     private boolean success;
     private int requestId;
 

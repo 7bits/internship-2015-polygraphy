@@ -1,6 +1,6 @@
 //package it.sevenbits.graphicartsindustry.web.domain.response;
 //
-//public class ResponseToChangingConditionDisplayPolygraphy {
+//public class RemovingPolygraphyResponse {
 //    private boolean success;
 //
 //    public boolean isSuccess() {

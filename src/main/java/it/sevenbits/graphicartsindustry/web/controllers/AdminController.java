@@ -2,9 +2,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.*;
 import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToChangingConditionDisplayPolygraphy;
-import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToRemovingPolygraphy;
-import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToRemovingRequestOnRegistration;
+import it.sevenbits.graphicartsindustry.web.domain.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.mail.MessagingException;
-
 @Controller
 public class AdminController {
+
+    @Autowired
+    private RequestOnRegistrationService requestOnRegistrationService;
 
     @Autowired
     private PolygraphyService polygraphyService;
@@ -24,17 +23,8 @@ public class AdminController {
     @Autowired
     private EditingPolygraphyService editingPolygraphyService;
 
-    @Autowired
-    private RequestOnRegistrationService requestOnRegistrationService;
-
-    @Autowired
-    private RegistrationService registrationService;
-
-    @Autowired
-    private SendingMessagesService sendingMessagesService;
-
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin(final Model model) throws ServiceException {
+    public String loadPageAdmin(final Model model) throws ServiceException {
         model.addAttribute("generate", "");
         model.addAttribute("requests", requestOnRegistrationService.findAllRequestsOnRegistration());
         model.addAttribute("polygraphies", polygraphyService.findAllPolygraphies());
@@ -43,51 +33,42 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/send-registration-link", method = RequestMethod.POST)
     @ResponseBody
-    public RequestOnRegistrationModel send(
-            @RequestParam(value="requestId", defaultValue = "0") Integer requestId,
-            final Model model) throws ServiceException, MessagingException {
-
-        String hash = requestOnRegistrationService.generateAndSaveHash(requestId);
-        RequestOnRegistrationModel requestOnRegistrationModel =
-                requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
-        sendingMessagesService.sendingRegistrationLink(requestId);
-        return requestOnRegistrationModel;
+    public RequestOnRegistrationModel sendRegistrationLink(@RequestParam(value = "requestId") Integer requestId,
+            final Model model) throws ServiceException {
+        return requestOnRegistrationService.sendRegistrationLink(requestId);
     }
 
     @RequestMapping(value = "/admin/remove-request-on-registration", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseToRemovingRequestOnRegistration removingRequestOnRegistration(
-            @RequestParam(value = "requestId", defaultValue = "0") Integer requestId,
-            final Model model) throws ServiceException {
-        ResponseToRemovingRequestOnRegistration responseToRemovingRequestOnRegistration =
-                new ResponseToRemovingRequestOnRegistration();
-        requestOnRegistrationService.removeRequestOnRegistration(requestId);
-        responseToRemovingRequestOnRegistration.setSuccess(true);
-        responseToRemovingRequestOnRegistration.setRequestId(requestId);
-        return responseToRemovingRequestOnRegistration;
+    public RemovingRequestOnRegistrationResponse removeRequestOnRegistration(
+            @RequestParam(value = "requestId") Integer requestId, final Model model) throws ServiceException {
+        RemovingRequestOnRegistrationResponse removingRequestOnRegistrationResponse =
+                new RemovingRequestOnRegistrationResponse();
+        requestOnRegistrationService.removeRequestOnRegistrationById(requestId);
+        removingRequestOnRegistrationResponse.setSuccess(true);
+        removingRequestOnRegistrationResponse.setRequestId(requestId);
+        return removingRequestOnRegistrationResponse;
     }
 
-    @RequestMapping(value = "/admin/change-condition-display-polygraphy", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/edit-condition-display-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseToChangingConditionDisplayPolygraphy changingConditionDisplayPolygraphy(
-            @RequestParam(value = "polygraphyId", defaultValue = "0") Integer polygraphyId,
+    public SuccessResponse editConditionDisplayPolygraphy(@RequestParam(value = "polygraphyId") Integer polygraphyId,
             @RequestParam(value = "curCondition", defaultValue = "false") Boolean curCondition,
             final Model model) throws ServiceException {
-        ResponseToChangingConditionDisplayPolygraphy responseToChangingConditionDisplayPolygraphy =
-                new ResponseToChangingConditionDisplayPolygraphy();
+        SuccessResponse successResponse = new SuccessResponse();
         editingPolygraphyService.editConditionDisplayPolygraphy(polygraphyId, curCondition);
-        responseToChangingConditionDisplayPolygraphy.setSuccess(true);
-        return responseToChangingConditionDisplayPolygraphy;
+        successResponse.setSuccess(true);
+        return successResponse;
     }
 
     @RequestMapping(value = "/admin/remove-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseToRemovingPolygraphy removingPolygraphy(
-            @RequestParam(value = "polygraphyId", defaultValue = "0") Integer polygraphyId,
+    public SuccessResponse removingPolygraphy(
+            @RequestParam(value = "polygraphyId") Integer polygraphyId,
             final Model model) throws ServiceException {
-        ResponseToRemovingPolygraphy responseToRemovingPolygraphy = new ResponseToRemovingPolygraphy();
+        SuccessResponse successResponse = new SuccessResponse();
         polygraphyService.removePolygraphy(polygraphyId);
-        responseToRemovingPolygraphy.setSuccess(true);
-        return responseToRemovingPolygraphy;
+        successResponse.setSuccess(true);
+        return successResponse;
     }
 }

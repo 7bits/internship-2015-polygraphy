@@ -109,7 +109,7 @@ public class RegistrationController {
                 return registrationErrors;
             }
             registrationErrors.setSuccess(true);
-            requestOnRegistrationService.removeRequestOnRegistration(registrationForm.getFirstForm().getHash());
+            requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
             registrationService.saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
         } else {
             HashMap<String, String> errors = new HashMap<>();

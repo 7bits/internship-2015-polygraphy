@@ -6,10 +6,11 @@ import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistration
 import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
-import it.sevenbits.graphicartsindustry.web.utils.UrlResolver;
+import it.sevenbits.graphicartsindustry.web.utils.RegistrationLinkResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.mail.MessagingException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -18,8 +19,9 @@ import java.util.List;
 
 @Service
 public class RequestOnRegistrationService {
-    private int min = 100000000;
-    private int max = 999999999;
+
+    @Autowired
+    private SendingMessagesService sendingMessagesService;
 
     @Autowired
     private RequestOnRegistrationValidator requestOnRegistrationValidator;
@@ -28,7 +30,7 @@ public class RequestOnRegistrationService {
     private RequestOnRegistrationRepository requestOnRegistrationRepository;
 
     @Autowired
-    private UrlResolver urlResolver;
+    private RegistrationLinkResolver registrationLinkResolver;
 
     public List<RequestOnRegistrationModel> findAllRequestsOnRegistration() throws ServiceException {
         try {
@@ -37,16 +39,41 @@ public class RequestOnRegistrationService {
             List<RequestOnRegistrationModel> models = new ArrayList<>(requestsOnRegistration.size());
             for (RequestOnRegistration r: requestsOnRegistration) {
                 models.add(new RequestOnRegistrationModel(r.getId(), r.getEmail(), r.getHash(),
-                        "http://" + urlResolver.getDomain() + "/registration?id=" + r.getHash()));
+                        "http://" + registrationLinkResolver.getDomain() + "/registration?id=" + r.getHash()));
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while showing all requests on registration " +
-                    e.getMessage(),e);
+            throw new ServiceException("Can not find request on registration. ");
         }
     }
 
-    public SuccessErrorsResponse sendRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
+    public RequestOnRegistrationModel findRequestOnRegistrationById(int requestId) throws ServiceException {
+        try {
+            RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestById(requestId);
+            RequestOnRegistrationModel requestOnRegistrationModel =
+                    new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
+                            requestOnRegistration.getHash(), "http://" + registrationLinkResolver.getDomain() + "/registration?id=" +
+                            requestOnRegistration.getHash());
+            return requestOnRegistrationModel;
+        } catch (Exception e) {
+            throw new ServiceException("Can not find request on registration. ");
+        }
+    }
+
+    public RequestOnRegistrationModel findRequestOnRegistrationByHash(String hash) throws ServiceException {
+        try {
+            RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByHash(hash);
+            RequestOnRegistrationModel requestOnRegistrationModel =
+                    new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
+                            requestOnRegistration.getHash(), "http://" + registrationLinkResolver.getDomain() + "/registration?id=" +
+                            requestOnRegistration.getHash());
+            return requestOnRegistrationModel;
+        } catch (Exception e) {
+            throw new ServiceException("Can not find request on registration. ");
+        }
+    }
+
+    public SuccessErrorsResponse saveRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
         try {
             SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
             successErrorsResponse.setErrors(requestOnRegistrationValidator.validate(form));
@@ -58,85 +85,48 @@ public class RequestOnRegistrationService {
             requestOnRegistrationRepository.createRequestOnRegistration(form.getEmail());
             return successErrorsResponse;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving email request on registration " +
-                    e.getMessage(),e);
+            throw new ServiceException("Can not save request on registration. ");
         }
     }
 
     public boolean isRequested (String email) throws ServiceException {
         try {
-            RequestOnRegistration requestOnRegistration =
-                    requestOnRegistrationRepository.findRequestByEmail(email);
+            RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByEmail(email);
             if (requestOnRegistration != null)
                 return true;
             else
                 return false;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving request on registration by email ");
+            throw new ServiceException("Can not verify the existence of email in the list of registration requests. ");
         }
     }
 
-    public RequestOnRegistrationModel findRequestOnRegistrationByHash(String hash) throws ServiceException {
+    public RequestOnRegistrationModel sendRegistrationLink(Integer requestId) throws ServiceException {
         try {
-            RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByHash(hash);
-            RequestOnRegistrationModel requestOnRegistrationModel =
-                    new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
-                            requestOnRegistration.getHash(), "http://" + urlResolver.getDomain() + "/registration?id=" +
-                            requestOnRegistration.getHash());
+            String hash = generateHashRegistrationLink();
+            saveHashRegistrationLink(requestId, hash);
+            RequestOnRegistrationModel requestOnRegistrationModel = this.findRequestOnRegistrationById(requestId);
+            sendingMessagesService.sendingRegistrationLink(requestOnRegistrationModel);
             return requestOnRegistrationModel;
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving request on registration by hash "
-                    + e.getMessage(), e);
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not generate or save registration link: " + e.getMessage());
+        } catch (MessagingException e) {
+            throw new ServiceException("Can not send registration link. ");
         }
     }
 
-    public RequestOnRegistrationModel findRequestOnRegistrationById(int requestId) throws ServiceException {
+    public String generateHashRegistrationLink() throws ServiceException {
         try {
-            RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestById(requestId);
-            RequestOnRegistrationModel requestOnRegistrationModel =
-                    new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
-                            requestOnRegistration.getHash(), "http://" + urlResolver.getDomain() + "/registration?id=" +
-                            requestOnRegistration.getHash());
-            return requestOnRegistrationModel;
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving  request on registration by id "
-                    + e.getMessage(), e);
-        }
-    }
-
-    public void removeRequestOnRegistration(String hash) throws ServiceException {
-        try {
-            requestOnRegistrationRepository.removeRequestOnRegistrationByHash(hash);
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while removing request on registration ");
-        }
-    }
-
-    public String generateAndSaveHash (int requestId) throws ServiceException {
-        String hash = this.generateHash();
-        this.saveHash(requestId, hash);
-        return hash;
-    }
-
-    private void saveHash(int requestId, String hash) throws ServiceException {
-        try {
-            requestOnRegistrationRepository.editHash(requestId, hash);
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving hash ");
-        }
-    }
-
-    private String generateHash() throws ServiceException {
-        try {
-            int number = min + (int) (Math.random() * ((max - min) + 1));
+            int number = registrationLinkResolver.getMinNumber() + (int) (Math.random() *
+                    ((registrationLinkResolver.getMaxNumber() - registrationLinkResolver.getMinNumber()) + 1));
             String hash = sha1(Integer.toString(number));
             return hash;
-        }catch (Exception e) {
-            throw new ServiceException("An error occurred while generating hash ");
+        } catch (Exception e) {
+            throw new ServiceException("can not generate registration link. ");
         }
     }
 
-    public static String sha1(String Param) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+    private static String sha1(String Param) throws NoSuchAlgorithmException, UnsupportedEncodingException {
         MessageDigest SHA = MessageDigest.getInstance("SHA-1");
         SHA.reset();
         SHA.update(Param.getBytes("UTF-8"), 0, Param.length());
@@ -144,7 +134,7 @@ public class RequestOnRegistrationService {
         return bytesToHexStr(sha1hash);
     }
 
-    public static String bytesToHexStr(byte[] raw) {
+    private static String bytesToHexStr(byte[] raw) {
         char[] kDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         int length = raw.length;
         char[] hex = new char[length * 2];
@@ -158,11 +148,27 @@ public class RequestOnRegistrationService {
         return new String(hex);
     }
 
-    public void removeRequestOnRegistration(int requestId) throws ServiceException {
+    public void saveHashRegistrationLink(Integer requestId, String hash) throws ServiceException {
+        try {
+            requestOnRegistrationRepository.editHash(requestId, hash);
+        } catch (Exception e) {
+            throw new ServiceException("can not save registration link. ");
+        }
+    }
+
+    public void removeRequestOnRegistrationById(Integer requestId) throws ServiceException {
         try {
             requestOnRegistrationRepository.removeRequestOnRegistrationById(requestId);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while removing request on registration ");
+            throw new ServiceException("Can not remove request on registration. ");
+        }
+    }
+
+    public void removeRequestOnRegistrationByHash(String hash) throws ServiceException {
+        try {
+            requestOnRegistrationRepository.removeRequestOnRegistrationByHash(hash);
+        } catch (Exception e) {
+            throw new ServiceException("Can not remove request on registration. ");
         }
     }
 }

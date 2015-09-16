@@ -24,16 +24,13 @@ public class SendingMessagesService {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    public void sendingRegistrationLink(int requestId) throws MessagingException, ServiceException {
+    public void sendingRegistrationLink(RequestOnRegistrationModel requestOnRegistrationModel) throws MessagingException, ServiceException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = null;
 
-        RequestOnRegistrationModel request =
-                requestOnRegistrationService.findRequestOnRegistrationById(requestId);
-
         helper = new MimeMessageHelper(message, true,"UTF-8");
         helper.setFrom("polygraphy.polygraphy@gmail.com");
-        helper.setTo(request.getEmail());
+        helper.setTo(requestOnRegistrationModel.getEmail());
         helper.setSubject("Message with link on registration ");
         helper.setText("<!DOCTYPE html>\n" +
                 "<html>\n" +
@@ -54,7 +51,7 @@ public class SendingMessagesService {
                 "            </a> , пожалуйста, заполните информацию о ней.\n" +
                 "        </div>\n" +
                 "        <div style=\"display: block; width: 100%; height: auto; margin-top: 30px;\" class=\"link\">\n" +
-                "            <a href=\"" + request.getLink() + "\" style=\" text-decoration: none; color: white; line-height: 40px; background-color: #64be5f; border: none; outline: none; border-radius: 25px; padding: 10px 30px;\">\n" +
+                "            <a href=\"" + requestOnRegistrationModel.getLink() + "\" style=\" text-decoration: none; color: white; line-height: 40px; background-color: #64be5f; border: none; outline: none; border-radius: 25px; padding: 10px 30px;\">\n" +
                 "                Заполнить информацию\n" +
                 "            </a>\n" +
                 "        </div>\n" +

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
-public class PageEditingInfoAboutPolygraphyController {
+public class EditingPolygraphyController {
 
     @Autowired
     private EditingPolygraphyService editingPolygraphyService;
@@ -42,7 +42,7 @@ public class PageEditingInfoAboutPolygraphyController {
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
         model.addAttribute("services", contentService.findAllServices());
-        model.addAttribute("editingForm", editingPolygraphyService.showFullInfoAboutPolygraphyByAdmin(polygraphyId));
+        model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByAdmin(polygraphyId));
         model.addAttribute("editingForm.polygraphyId", polygraphyId);
 
         return "home/editing_polygraphy";
@@ -74,7 +74,7 @@ public class PageEditingInfoAboutPolygraphyController {
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
             model.addAttribute("services", contentService.findAllServices());
-            model.addAttribute("editingForm", editingPolygraphyService.showFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
+            model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
             model.addAttribute("editingForm.polygraphyId", polygraphyId);
             return "home/editing_polygraphy";
         }

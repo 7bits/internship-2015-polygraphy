@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.web.domain;
+package it.sevenbits.graphicartsindustry.web.domain.polygraphy;
 
 public class PolygraphyAdminModel {
     private int id;

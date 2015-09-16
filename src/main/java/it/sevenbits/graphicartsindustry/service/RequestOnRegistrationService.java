@@ -25,9 +25,6 @@ public class RequestOnRegistrationService {
     private RequestOnRegistrationValidator requestOnRegistrationValidator;
 
     @Autowired
-    private SuccessErrorsResponse successErrorsResponse;
-
-    @Autowired
     private RequestOnRegistrationRepository requestOnRegistrationRepository;
 
     @Autowired

@@ -29,7 +29,7 @@ public class SearchController {
         model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-        model.addAttribute("form", new SearchForm());
+        model.addAttribute("form", null);
         model.addAttribute("polygraphyiesIsNull", "");
         model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
         return "home/index";
@@ -50,15 +50,10 @@ public class SearchController {
         SearchForm form = new SearchForm(query, services, paymentMethod, deliveryMethod, writesTheCheck,
                 orderByEmail);
 
-        // Добавим в модель объект - форма запроса
-        model.addAttribute("form", form);
-
-        // В модель добавим объект - список полиграфий
         model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
-        // Добавим в модель объект - список методов оплаты
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        // Добавим в модель объект - список методов доставки
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+        model.addAttribute("form", form);
 
         if (form.getQuery().isEmpty() && form.getServices().size() == 0 && form.getPaymentMethod()==0 &&
                 form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&

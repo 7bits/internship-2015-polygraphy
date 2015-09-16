@@ -2,7 +2,9 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
+import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
 import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.utils.UrlResolver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Service;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class RequestOnRegistrationService {
@@ -18,14 +22,44 @@ public class RequestOnRegistrationService {
     private int max = 999999999;
 
     @Autowired
+    private RequestOnRegistrationValidator requestOnRegistrationValidator;
+
+    @Autowired
+    private SuccessErrorsResponse successErrorsResponse;
+
+    @Autowired
     private RequestOnRegistrationRepository requestOnRegistrationRepository;
 
     @Autowired
     private UrlResolver urlResolver;
 
-    public void saveRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
+    public List<RequestOnRegistrationModel> findAllRequestsOnRegistration() throws ServiceException {
         try {
+            List<RequestOnRegistration> requestsOnRegistration =
+                    requestOnRegistrationRepository.findAllRequestsOnRegistration();
+            List<RequestOnRegistrationModel> models = new ArrayList<>(requestsOnRegistration.size());
+            for (RequestOnRegistration r: requestsOnRegistration) {
+                models.add(new RequestOnRegistrationModel(r.getId(), r.getEmail(), r.getHash(),
+                        "http://" + urlResolver.getDomain() + "/registration?id=" + r.getHash()));
+            }
+            return models;
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while showing all requests on registration " +
+                    e.getMessage(),e);
+        }
+    }
+
+    public SuccessErrorsResponse sendRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
+        try {
+            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
+            successErrorsResponse.setErrors(requestOnRegistrationValidator.validate(form));
+            if (successErrorsResponse.getErrors().size() != 0) {
+                form.setSuccess(false);
+                return successErrorsResponse;
+            }
+            form.setSuccess(true);
             requestOnRegistrationRepository.createRequestOnRegistration(form.getEmail());
+            return successErrorsResponse;
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving email request on registration " +
                     e.getMessage(),e);
@@ -125,5 +159,13 @@ public class RequestOnRegistrationService {
             hex[i * 2 + 1] = kDigits[lowIndex];
         }
         return new String(hex);
+    }
+
+    public void removeRequestOnRegistration(int requestId) throws ServiceException {
+        try {
+            requestOnRegistrationRepository.removeRequestOnRegistrationById(requestId);
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while removing request on registration ");
+        }
     }
 }

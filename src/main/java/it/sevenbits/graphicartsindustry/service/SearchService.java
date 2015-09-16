@@ -2,7 +2,8 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.web.domain.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyFullModel;
+import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
 import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,19 @@ public class SearchService {
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving polygraphies " +
                     "satisfy the query: " + e.getMessage(), e);
+        }
+    }
+
+    public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
+        try {
+            PolygraphyContacts polygraphyContacts = polygraphyRepository.findDisplayPolygraphy(id);
+            PolygraphyFullModel models = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
+                    polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
+                    polygraphyContacts.getInfo());
+            return models;
+        } catch (Exception e) {
+            throw new ServiceException("An error occurred while retrieving full information " +
+                    "about polygraphy: " + e.getMessage(), e);
         }
     }
 }

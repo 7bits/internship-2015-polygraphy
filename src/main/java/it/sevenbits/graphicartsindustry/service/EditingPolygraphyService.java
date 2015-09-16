@@ -2,18 +2,30 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
-import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
+import it.sevenbits.graphicartsindustry.core.repository.*;
+import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
+import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
+import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
+import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 @Service
 public class EditingPolygraphyService {
+
+    @Autowired
+    private EditingPolygraphyFormByAdminValidator editingPolygraphyFormByAdminValidator;
+
+    @Autowired
+    private EditingPolygraphyFormByPolygraphyValidator editingPolygraphyFormByPolygraphyValidator;
+
+    @Autowired
+    private UserResolver userResolver;
 
     @Autowired
     private UserRepository userRepository;
@@ -27,7 +39,7 @@ public class EditingPolygraphyService {
     @Autowired
     private PolygraphyServicesRepository polygraphyServicesRepository;
 
-    public EditingPolygraphyForm showFullInfoAboutPolygraphyByAdmin(int polygraphyId) throws ServiceException {
+    public EditingPolygraphyForm findFullInfoAboutPolygraphyByAdmin(int polygraphyId) throws ServiceException {
         try {
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
 
@@ -46,7 +58,7 @@ public class EditingPolygraphyService {
         }
     }
 
-    public EditingPolygraphyForm showFullInfoAboutPolygraphyByPolygraphy(int polygraphyId) throws ServiceException {
+    public EditingPolygraphyForm findFullInfoAboutPolygraphyByPolygraphy(int polygraphyId) throws ServiceException {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
             if (userId == null) {
@@ -122,6 +134,18 @@ public class EditingPolygraphyService {
         }
     }
 
+    public SuccessErrorsResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm) throws ServiceException, RepositoryException {
+        SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
+        successErrorsResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
+        if (successErrorsResponse.getErrors().size() != 0) {
+            successErrorsResponse.setSuccess(false);
+            return successErrorsResponse;
+        }
+        this.saveEditingPolygraphyByAdmin(editingPolygraphyForm);
+        successErrorsResponse.setSuccess(true);
+        return successErrorsResponse;
+    }
+
     public void saveEditingPolygraphyByPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
         Integer userId = null;
         try {
@@ -147,6 +171,35 @@ public class EditingPolygraphyService {
             this.saveEditingPolygraphy(polygraphyForm);
         } catch (Exception e) {
             throw new ServiceException("An error occurred while saving editing information about polygraphy ");
+        }
+    }
+
+    public SuccessErrorsResponse editPolygraphyByPolygraphy(int polygraphyId, EditingPolygraphyForm editingPolygraphyForm)
+            throws ServiceException, RepositoryException {
+        SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
+        if (userResolver.getUsername().equals(this.findUserEmailByPolygraphyId(polygraphyId))) {
+            successErrorsResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
+            if (successErrorsResponse.getErrors().size() != 0) {
+                successErrorsResponse.setSuccess(false);
+                return successErrorsResponse;
+            }
+            this.saveEditingPolygraphyByPolygraphy(editingPolygraphyForm);
+            successErrorsResponse.setSuccess(true);
+            return successErrorsResponse;
+        }
+        HashMap<String, String> errors = new HashMap<>();
+        errors.put("base", "Ссылка на изменение устарела");
+        successErrorsResponse.setErrors(errors);
+        successErrorsResponse.setSuccess(false);
+        return successErrorsResponse;
+    }
+
+    public void editConditionDisplayPolygraphy(int polygraphyId, boolean curCondition) throws ServiceException {
+        try {
+            polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
+        } catch (Exception e) {
+            throw new  ServiceException("An error occurred while changing condition polygraphy " +
+                    e.getMessage(),e);
         }
     }
 

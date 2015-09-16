@@ -43,8 +43,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .authorizeRequests()
                     .antMatchers("/", "/search", "/polygraphy/**", "/info-for-polygraphy",
                             "/info-for-polygraphy-success", "/about-project").permitAll()
-                    .antMatchers("/admin/**").hasRole("ADMIN")
-                    .antMatchers("/admin-polygraphy/**").hasRole("POLYGRAPHY")
+                    .antMatchers("/admin/**", "/editing-polygraphy-success").hasRole("ADMIN")
+                    .antMatchers("/admin-polygraphy/**", "/editing-polygraphy-success").hasRole("POLYGRAPHY")
                     .antMatchers("/registration**").anonymous()
 //                    .anyRequest().denyAll()
                 .and()

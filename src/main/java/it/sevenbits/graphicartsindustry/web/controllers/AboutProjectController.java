@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class AboutProjectController {
 
     @RequestMapping(value = "/about-project", method = RequestMethod.GET)
-    public String pageAboutProject(final Model model) {
+    public String loadPageAboutProject(final Model model) {
         return "home/about_project";
     }
 }

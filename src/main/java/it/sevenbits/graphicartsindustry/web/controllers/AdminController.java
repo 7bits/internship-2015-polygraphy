@@ -1,14 +1,10 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.service.*;
+import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToChangingConditionDisplayPolygraphy;
 import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToRemovingPolygraphy;
 import it.sevenbits.graphicartsindustry.web.domain.response.ResponseToRemovingRequestOnRegistration;
-import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.service.AdminService;
-import it.sevenbits.graphicartsindustry.service.SendingMessagesService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
-import it.sevenbits.graphicartsindustry.service.RegistrationService;
-import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +19,10 @@ import javax.mail.MessagingException;
 public class AdminController {
 
     @Autowired
-    private AdminService adminService;
+    private PolygraphyService polygraphyService;
+
+    @Autowired
+    private EditingPolygraphyService editingPolygraphyService;
 
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
@@ -37,8 +36,8 @@ public class AdminController {
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String admin(final Model model) throws ServiceException {
         model.addAttribute("generate", "");
-        model.addAttribute("requests", adminService.showAllRequests());
-        model.addAttribute("polygraphies", adminService.showAllPolygraphy());
+        model.addAttribute("requests", requestOnRegistrationService.findAllRequestsOnRegistration());
+        model.addAttribute("polygraphies", polygraphyService.findAllPolygraphies());
         return "home/admin";
     }
 
@@ -62,7 +61,7 @@ public class AdminController {
             final Model model) throws ServiceException {
         ResponseToRemovingRequestOnRegistration responseToRemovingRequestOnRegistration =
                 new ResponseToRemovingRequestOnRegistration();
-        adminService.removeRequestOnRegistration(requestId);
+        requestOnRegistrationService.removeRequestOnRegistration(requestId);
         responseToRemovingRequestOnRegistration.setSuccess(true);
         responseToRemovingRequestOnRegistration.setRequestId(requestId);
         return responseToRemovingRequestOnRegistration;
@@ -76,7 +75,7 @@ public class AdminController {
             final Model model) throws ServiceException {
         ResponseToChangingConditionDisplayPolygraphy responseToChangingConditionDisplayPolygraphy =
                 new ResponseToChangingConditionDisplayPolygraphy();
-        adminService.changeConditionDisplayPolygraphy(polygraphyId, curCondition);
+        editingPolygraphyService.editConditionDisplayPolygraphy(polygraphyId, curCondition);
         responseToChangingConditionDisplayPolygraphy.setSuccess(true);
         return responseToChangingConditionDisplayPolygraphy;
     }
@@ -87,7 +86,7 @@ public class AdminController {
             @RequestParam(value = "polygraphyId", defaultValue = "0") Integer polygraphyId,
             final Model model) throws ServiceException {
         ResponseToRemovingPolygraphy responseToRemovingPolygraphy = new ResponseToRemovingPolygraphy();
-        adminService.removePolygraphy(polygraphyId);
+        polygraphyService.removePolygraphy(polygraphyId);
         responseToRemovingPolygraphy.setSuccess(true);
         return responseToRemovingPolygraphy;
     }

@@ -1,11 +1,10 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.response.PolygraphyResponse;
-import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
-import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.SearchService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.domain.response.PolygraphyResponse;
+import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,20 +26,11 @@ public class SearchController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(final Model model) throws ServiceException {
-        // Добавим в модель объект - форма запроса
-        model.addAttribute("form", null);
-
-        // Добавим в модель объект - список сервисов
         model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
-        // Добавим в модель объект - список методов оплаты
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        // Добавим в модель объект - список методов доставки
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-
-
-        // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
+        model.addAttribute("form", new SearchForm());
         model.addAttribute("polygraphyiesIsNull", "");
-        // В модель добавим объект - рандомный список полиграфий
         model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
         return "home/index";
     }
@@ -113,17 +103,5 @@ public class SearchController {
         }
 
         return results;
-    }
-
-
-    @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.GET)
-    public String infoForPolygraphy (RequestOnRegistrationForm form, final Model model) {
-        model.addAttribute("request", form);
-        return "home/info_for_polygraphy";
-    }
-
-    @RequestMapping(value = "/info-for-polygraphy-success", method = RequestMethod.GET)
-    public String infoForPolygraphy (final Model model) {
-        return "home/success_request";
     }
 }

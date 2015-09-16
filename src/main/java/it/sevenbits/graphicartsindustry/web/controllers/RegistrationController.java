@@ -1,19 +1,18 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.service.ContentService;
+import it.sevenbits.graphicartsindustry.service.RegistrationService;
+import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
+import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
+import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
+import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.domain.response.RegistrationErrors;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
-import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
-import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.service.ContentService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
-import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
-import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
-import it.sevenbits.graphicartsindustry.service.RegistrationService;
-import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +44,6 @@ public class RegistrationController {
     @Autowired
     private ContentService contentService;
 
-    //@Secured({"ROLE_ADMIN", "ROLE_POLYGRAPHY"})
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(@RequestParam(value="id") String hash, final Model model) throws ServiceException {
 
@@ -128,17 +126,5 @@ public class RegistrationController {
     }
 
 
-    @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
-    @ResponseBody
-    public RequestOnRegistrationForm requestOnRegistration(@ModelAttribute RequestOnRegistrationForm form, Model model) throws ServiceException, RepositoryException {
-        final Map<String, String> errorsRequestForm = requestOnRegistrationValidator.validate(form);
-        if (errorsRequestForm.size() != 0) {
-            form.setErrors(errorsRequestForm);
-            form.setSuccess(false);
-            return form;
-        }
-        form.setSuccess(true);
-        requestOnRegistrationService.saveRequestOnRegistration(form);
-        return form;
-    }
+
 }

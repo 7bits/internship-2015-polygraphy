@@ -2,13 +2,10 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
 import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
-import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.ContentRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.web.domain.content.DeliveryMethodModel;
 import it.sevenbits.graphicartsindustry.web.domain.content.PaymentMethodModel;
 import it.sevenbits.graphicartsindustry.web.domain.content.ServiceModel;
-import it.sevenbits.graphicartsindustry.web.domain.PolygraphyFullModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +17,6 @@ public class ContentService {
 
     @Autowired
     private ContentRepository contentRepository;
-
-    @Autowired
-    private PolygraphyRepository polygraphyRepository;
 
     public List<ServiceModel> findAllServices() throws ServiceException {
         try {
@@ -77,19 +71,6 @@ public class ContentService {
         } catch (Exception e) {
             throw new ServiceException("An error occurred while retrieving delivery methods: "
                     + e.getMessage(), e);
-        }
-    }
-
-    public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
-        try {
-            PolygraphyContacts polygraphyContacts = polygraphyRepository.findDisplayPolygraphy(id);
-            PolygraphyFullModel models = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
-                    polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
-                    polygraphyContacts.getInfo());
-            return models;
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving full information " +
-                    "about polygraphy: " + e.getMessage(), e);
         }
     }
 }

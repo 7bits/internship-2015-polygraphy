@@ -74,17 +74,4 @@ public class RegistrationService {
                 + e.getMessage(), e);
         }
     }
-
-
-//    public boolean isRegistrated (String email) throws ServiceException {
-//        try {
-//            String returnedEmail = registrationRepository.findUserByEmail(email);
-//            if (returnedEmail!=null)
-//                return true;
-//            else
-//                return false;
-//        } catch (Exception e) {
-//            throw new ServiceException("An error occurred while finding email in users");
-//        }
-//    }
 }

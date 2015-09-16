@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.domain.response;
 
-import it.sevenbits.graphicartsindustry.web.domain.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
 
 import java.util.List;
 

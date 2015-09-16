@@ -29,3 +29,7 @@ env:
   - SELENIUM_PLATFORM=Linux SELENIUM_BROWSER=firefox SELENIUM_VERSION=38 SELENIUM_BROWSER_URL="http://www.browserstack.com"
 
 ##before_script: mvn install selenium-webdriver
+
+before_install:
+  - "export DISPLAY=:99.0"
+  - "Xvfb :99.0 -extension RANDR > /dev/null &"

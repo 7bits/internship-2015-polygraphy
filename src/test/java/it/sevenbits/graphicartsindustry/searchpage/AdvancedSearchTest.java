@@ -1,3 +1,4 @@
+/*
 package it.sevenbits.graphicartsindustry.searchpage;
 
 import java.net.URL;
@@ -45,107 +46,192 @@ public class AdvancedSearchTest {
   @Test
   public void testCash() throws Exception {
 
-    WebElement we = driver.findElement(By.id("paymentMethod-item-1"));
+*/
+/*     WebElement we = driver.findElement(By.id("paymentMethod-item-1"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
       //System.out.println(By.id("paymentMethod-item-1"));
 
-      System.out.println(By.xpath(".//*[text()='Оригинал']/.."));
-/*    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Медиаплюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));*/
-      //driver.quit();
-  }
+      System.out.println(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт Экспресс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Дизайн-Проект']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Медиаплюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/..")) ;
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));*//*
 
+//      driver.quit();
+  }
+*/
+/*
 // Оплата по счету
 @Test
   public void testCashcash() throws Exception {
     //driver.get(baseUrl + "/");
 
-   /* WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
+    WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
-    executor.executeScript("arguments[0].click();", we);*/
+    executor.executeScript("arguments[0].click();", we);
     System.out.println(By.id("paymentMethod-item-3"));
 
-    System.out.println(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-   /* driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));*/
+    System.out.println(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
   }
+*/
 /*
 // Расчет по карте
 @Test
@@ -156,14 +242,22 @@ public class AdvancedSearchTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
  }
 
 // Самовывоз
@@ -175,54 +269,102 @@ public class AdvancedSearchTest {
       JavascriptExecutor executor = (JavascriptExecutor)driver;
       executor.executeScript("arguments[0].click();", we);
 
-      driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-      driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-      driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-      driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
-      driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-      driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-      driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-      driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
-      driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-      driver.findElement(By.xpath(".//*[text()='Медиаплюс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-      driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-      driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-      driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-      driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-      driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-      driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
-      driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-      driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-      driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-      driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-      driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-      driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-      driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-      driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-      driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-      driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-      driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-      driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-      driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-      driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-//      driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-      driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт Экспресс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Дизайн-Проект']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Медиаплюс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Компаньон']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АрТ-РЕКЛАМА']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Отдел 55']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+//      driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Тритон Плюс']/.."));
   }
 
 // Доставка с курьером
@@ -234,15 +376,24 @@ public class AdvancedSearchTest {
    JavascriptExecutor executor = (JavascriptExecutor)driver;
    executor.executeScript("arguments[0].click();", we);
 
-   driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-   driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-   driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-   driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-   driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-   driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-   driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-   driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-   driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
   }
 
 // Наличный расчет + Самовывоз
@@ -257,50 +408,94 @@ public void testCashPickup() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Медиаплюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт Экспресс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Дизайн-Проект']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Медиаплюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
 }
 
 // Наличный расчет + Доставка с курьером
@@ -315,14 +510,22 @@ public void testCashCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
 }
 
 // Оплата по счету + Самовывоз
@@ -337,44 +540,82 @@ public void testPaymentPickup() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
 }
 
 // Оплата по счету + Доставка с курьером
@@ -389,15 +630,24 @@ public void testPaymentCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
  
 
 }
@@ -414,14 +664,22 @@ public void testCashlessPickup() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
 }
 
 // Расчет по карте + Доставка с курьером
@@ -436,8 +694,10 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
 }
 // выдает чек
   @Test
@@ -449,54 +709,102 @@ public void testCashlessCourier() throws Exception {
     executor.executeScript("arguments[0].click();", we);
   //  driver.findElement(By.cssSelector(".extend-submit")).click();
 
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Медиаплюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
-    driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт Экспресс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Медиаплюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/..")) ;
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Дизайн-Проект']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Филипп']/.."));
   }
 
 // выдает чек+пинимает заказы по почте
@@ -513,29 +821,52 @@ public void testCashlessCourier() throws Exception {
   //  driver.findElement(By.cssSelector(".extend-submit")).click();
 
 
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/..")) ;
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
    }
 //Приним. заказы
  @Test
@@ -547,31 +878,56 @@ public void testCashlessCourier() throws Exception {
     executor.executeScript("arguments[0].click();", we);
     //driver.findElement(By.cssSelector(".extend-submit")).click();
 
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
-    driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/..")) ;
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Филипп']/.."));
   }
 // Наличный расчет + Выдает чек
   @Test
@@ -585,49 +941,92 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Медиаплюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт Экспресс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Дизайн-Проект']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Медиаплюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/..")) ;
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 
 // Оплата по счету + Выдает чек
@@ -642,43 +1041,80 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
 }
 
 // Расчет по карте + Выдает чек
@@ -693,13 +1129,20 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
    
     }
 
@@ -715,52 +1158,98 @@ public void testCashlessCourier() throws Exception {
       JavascriptExecutor executore = (JavascriptExecutor)driver;
       executore.executeScript("arguments[0].click();", wee);
 
-      driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-      driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-      driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-      driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
-      driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-      driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-      driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-      driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-      driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-      driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-      driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-      driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-      driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-      driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
-      driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-      driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-      driver.findElement(By.xpath(".//*[text()='Медиаплюс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-      driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-      driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-      driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-      driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-      driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-      driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-      driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-      driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-      driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
-      driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-      driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-      driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-      driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт Экспресс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Компаньон']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АрТ-РЕКЛАМА']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Дизайн-Проект']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Медиаплюс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Отдел 55']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Тритон Плюс']/.."));
   }
 
 // Доставка с курьером + Выдает чек
@@ -775,15 +1264,24 @@ public void testCashlessCourier() throws Exception {
    JavascriptExecutor executore = (JavascriptExecutor)driver;
    executore.executeScript("arguments[0].click();", wee);
  
-   driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-   driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-   driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-   driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-   driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-   driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-   driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-   driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-   driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
  }
 
 // Наличный расчет + Принимает заказ по email
@@ -798,26 +1296,46 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
    
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/..")) ;
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 
 // Оплата по счету + Принимает заказ по email
@@ -832,27 +1350,48 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
    }
 
 // Расчет по карте + Принимает заказ по email
@@ -867,10 +1406,14 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
     }
 
 // Самовывоз + Принимает заказ по email
@@ -885,27 +1428,48 @@ public void testCashlessCourier() throws Exception {
       JavascriptExecutor executore = (JavascriptExecutor)driver;
       executore.executeScript("arguments[0].click();", wee);
 
-      driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-      driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-      driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-      driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-      driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-      driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-      driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-      driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-      driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-      driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-      driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-      driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-      driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-      driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 
 // Доставка с курьером + Принимает заказ по email
@@ -920,14 +1484,22 @@ public void testCashlessCourier() throws Exception {
    JavascriptExecutor executore = (JavascriptExecutor)driver;
    executore.executeScript("arguments[0].click();", wee);
  
-   driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-   driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-   driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-   driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-   driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-   driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-   driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-   driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
   }
 // наличный расчет + самовывоз + выдает чек
   @Test
@@ -944,49 +1516,92 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Дизайн-Проект']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Медиаплюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт Экспресс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Дизайн-Проект']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Медиаплюс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 
 // наличный расчет + доставка с курьером + выдает чек
@@ -1004,14 +1619,22 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
   }
 
 // оплата по счету + доставка с курьером + выдает чек
@@ -1029,15 +1652,24 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
   }
 
 // оплата по счету + самовывоз + выдает чек
@@ -1055,42 +1687,78 @@ public void testCashlessCourier() throws Exception {
       JavascriptExecutor doer = (JavascriptExecutor)driver;
       doer.executeScript("arguments[0].click();", che);
 
-      driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-      driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-      driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
-      driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-      driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-      driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-      driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-      driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-      driver.findElement(By.xpath(".//*[text()='Аванта']/.."));
-      driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-      driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-      driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='Глобал Принт']/.."));
-      driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-      driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-      driver.findElement(By.xpath(".//*[text()='Образование Информ']/.."));
-      driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-      driver.findElement(By.xpath(".//*[text()='Офисная полиграфия и комфорт']/.."));
-      driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-      driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-      driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-      driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-      driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-      driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
-      driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-      driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Изба-принт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Ретранс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Аванта']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Акула']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алвест']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Глобал Принт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Золотой тираж']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Мегаполис PRINT']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Образование Информ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Офисная полиграфия и комфорт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Пульсар-98']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Сибирь']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Советская Сибирь']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Тритон Плюс']/.."));
   }
 
 // расчет по карте + доставка с курьером + выдает чек
@@ -1108,8 +1776,10 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
  
   }
 
@@ -1128,13 +1798,20 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='А3+']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='СКАЙ ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
 
     }
 
@@ -1153,26 +1830,46 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 // наличный расчет + доставка с курьером + заказ по  email
 @Test
@@ -1189,13 +1886,20 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
      }
 // оплата по счету + доставка с курьером + заказ по  email
   @Test
@@ -1212,14 +1916,22 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
   }
 // оплата по счету + самовывоз + заказ по  email
  @Test
@@ -1236,25 +1948,44 @@ public void testCashlessCourier() throws Exception {
       JavascriptExecutor performer = (JavascriptExecutor)driver;
       performer.executeScript("arguments[0].click();", ch);
 
-      driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-      driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-      driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-      driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-      driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-      driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-      driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-      driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-      driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-      driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-      driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-      driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
      }
 
 // расчет по карте + доставка с курьером + заказ по  email
@@ -1272,7 +2003,8 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
 }
 
 // расчет по карте + самовывоз + заказ по  email
@@ -1290,10 +2022,14 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-      driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='IQ дизайн-бюро']/.."));
  }
 // оплата наличными + выдает чек + заказ по  email
   @Test
@@ -1310,25 +2046,44 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/..")) ;
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 // оплата по счету + выдает чек + заказ по  email
 @Test
@@ -1345,26 +2100,46 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
   }
 // расчет по карте + выдает чек + заказ по  email
 @Test
@@ -1381,9 +2156,12 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);    
  
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
  }
 // самовывоз + выдает чек + заказ по  email
 @Test
@@ -1400,27 +2178,48 @@ public void testCashlessCourier() throws Exception {
       JavascriptExecutor performer = (JavascriptExecutor)driver;
       performer.executeScript("arguments[0].click();", ch);    
  
-      driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-      driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-      driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-      driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-      driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-      driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-      driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-      driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-      driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-      driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-      driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-      driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-      driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 
 // доставка с курьером + выдает чек + заказ по  email
@@ -1439,14 +2238,22 @@ public void testCashlessCourier() throws Exception {
    JavascriptExecutor performer = (JavascriptExecutor)driver;
    performer.executeScript("arguments[0].click();", ch);     
 
-   driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-   driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-   driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-   driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-   driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-   driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-   driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-   driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+   driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
  }
 // наличный расчет + самовывоз + выдает чек + заказ по  email
 @Test
@@ -1466,25 +2273,44 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='Омская картографическая фабрика']/.."));
-    driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Омская картографическая фабрика']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Центр Рекламы']/.."));
   }
 
 // наличный расчет + доставка с курьером + выдает чек + заказ по  email
@@ -1505,13 +2331,20 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
    }
 
 // Оплата по счету + доставка с курьером + выдает чек + заказ по  email
@@ -1532,14 +2365,22 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
   }
 
 // оплата по счету + самовывоз + выдает чек + заказ по  email
@@ -1560,26 +2401,46 @@ public void testCashlessCourier() throws Exception {
       JavascriptExecutor performer = (JavascriptExecutor)driver;
       performer.executeScript("arguments[0].click();", ch);
 
-      driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-      driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-      driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-      driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-      driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-      driver.findElement(By.xpath(".//*[text()='АЛЬФА-ПРИНТ']/.."));
-      driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-      driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
-      driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
-      driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-      driver.findElement(By.xpath(".//*[text()='Марка']/.."));
-      driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-      driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-      driver.findElement(By.xpath(".//*[text()='Печатное дело']/.."));
-      driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
-      driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-      driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-      driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
-      driver.findElement(By.xpath(".//*[text()='55Print']/.."));
-      driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Селбс']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Стиль фирмы']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Алые паруса']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='АЛЬФА-ПРИНТ']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='КАЙРОС']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Крафтлайн']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Марка']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ОмПАК']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Оригинал']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Печатное дело']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='ПечатьPremier']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Полиграф']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Принт сервис']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='futbolkaprint']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='55Print']/.."));
+      driver.findElement(By.xpath("./*/
+/*[text()='Рекламщик']/.."));
    }
 
 // расчет по карте + доставка с курьером + выдает чек + заказ по  email
@@ -1600,7 +2461,8 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
   }
 
 // расчет по карте  + самовывоз + выдает чек + заказ по  email
@@ -1621,14 +2483,18 @@ public void testCashlessCourier() throws Exception {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='ТИСА']/.."));
+    driver.findElement(By.xpath("./*/
+/*[text()='Синяя Птица']/.."));
    }
-*/
+*//*
+
  @After
   public void tearDown() throws Exception {
-//    driver.quit();
+   // driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
@@ -1668,3 +2534,4 @@ public void testCashlessCourier() throws Exception {
     }
   }
 }
+*/

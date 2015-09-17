@@ -1,7 +1,7 @@
 @import url("osans.css");
 
 .general-form{
-    width: 600px;
+    width: 700px;
     height: auto;
     background-color: #64be5f;
     border-radius: 10px;
@@ -12,8 +12,20 @@
     color: white;
 }
 
+.general-form__explanatory-text{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px auto;
+}
+
 .general-form.general-form_login-form{
     width: 475px;
+}
+
+.general-form.general-form_bid-form{
+    padding: 30px 50px;
+    text-align: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -28,4 +40,11 @@
         width: 90%;
     }
 
+    .general-form.general-form_bid-form{
+        padding: 10px 20px 20px;
+    }
+
+    .general-form__explanatory-text{
+        margin: 10px auto;
+    }
 }

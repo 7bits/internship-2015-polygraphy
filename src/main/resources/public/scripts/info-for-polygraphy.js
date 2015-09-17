@@ -37,7 +37,7 @@ var validateForm = function(){
             }
         }
     });
-}
+};
 
 $(document).ready(function(){
 

@@ -1,32 +1,41 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/b-bid.css")
+    link(rel="stylesheet", href="/stylesheets/general-form.css")
+    link(rel="stylesheet", href="/stylesheets/general-form-headline.css")
+    link(rel="stylesheet", href="/stylesheets/general-text-input.css")
+    link(rel="stylesheet", href="/stylesheets/general-submit.css")
+    link(rel="stylesheet", href="/stylesheets/general-button-link.css")
 
 block content
 
-    .b-bid
-        .b-bid__area-email-wrapper
-            .b-bid__head-text
-                |Если Вы хотите, чтобы Ваша полиграфия появилась в поиске, оставьте
-                br
-                |нам свой e-mail, мы свяжемся с Вами в ближайшее время.
+    .general-form.general-form_bid-form
 
-            .b-bid__form-container
-                form(id = 'request-form')
-                    input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                    .b-bid__input-wrapper
-                        input.b-bid__email-input(type='text', name='email')
-                        button.b-bid__submit-email(type='button', id='submit-email', form = 'request-form')
-                            | Отправить
-                    .b_bid__for-error
-                    .b-bid__error-container
+        .general-form__explanatory-text
+            = 'Если Вы хотите, чтобы Ваша полиграфия появилась в поиске, оставьте нам свой e-mail, мы свяжемся с Вами в ближайшее время.'
+
+        form(id='request-form')
+            input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+
+            .general-text-input.general-text-input_bid-form
+                input.general-input__input(type='text', name='email')
+                .general-input__for-error(id='email-for-error')
+                .general-input__invalid(id='email-error')
+
+            - buttonType = 'button'
+            .general-submit.general-submit_bid-form-submit
+                button.general-submit__button.general-submit_bid-form-button(type=buttonType,
+                                                                    id='submit-email',
+                                                                    form='request-form')
+                    | Отправить
+
         if security.isUserInRole("ROLE_ANONYMOUS")
-            .b-bid__area-login-wrapper
-                .b-bid__head-text
-                    |Если Ваша полиграфия уже есть в нашем поиске, можете
-                .b-bid__button-login-container
-                    a.b-bid__button-login(href='/login')
-                        | Войти
+            .general-form__explanatory-text
+                |Если Ваша полиграфия уже есть в нашем поиске, можете
+
+            - href = '/login'
+            .general-button-link
+                a.general-button-link__link(href=href)
+                    | Войти
 
     script(type='application/javascript', src='/scripts/info-for-polygraphy.js')

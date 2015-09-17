@@ -11,7 +11,6 @@ branches:
   - feature/travis_CI
 
 env:
-  - DB=postgres
   global:
   - secure: "prokhorova"
   - secure: "7021577c-564a-424b-bc41-5535d9d8b1d8"

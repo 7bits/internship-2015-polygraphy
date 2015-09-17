@@ -1,8 +1,4 @@
 .general-submit{
-    text-align: center;
-}
-
-.general-submit__button{
     height: 40px;
     line-height: 40px;
     width: auto;
@@ -15,20 +11,12 @@
     background-color: #efe553;
     box-sizing: border-box;
     padding: 0 20px;
-    margin: 10px auto 0px;
     font-family: "OpenSansRegular";
+    display: inline-block;
+    color: black;
 }
 
-.general-submit__button:hover{
+.general-submit:hover{
     cursor: pointer;
     background-color: #dad14c;
-}
-
-.general-submit.general-submit_bid-form-submit{
-    display: inline-block;
-    padding: 0 20px;
-}
-
-.general-submit__button.general-submit_bid-form-button{
-    margin: auto;
 }

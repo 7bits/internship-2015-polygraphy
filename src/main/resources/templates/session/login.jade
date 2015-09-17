@@ -3,7 +3,7 @@ extends ../layouts/layout
 block append head
     link(rel="stylesheet", href="/stylesheets/general-form.css")
     link(rel="stylesheet", href="/stylesheets/general-form-headline.css")
-    link(rel="stylesheet", href="/stylesheets/general-text-input.css")
+    link(rel="stylesheet", href="/stylesheets/general-input.css")
     link(rel="stylesheet", href="/stylesheets/general-submit.css")
 
 block content
@@ -18,25 +18,28 @@ block content
         form(action=url, method=method)
 
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-            .general-text-input
-                label(for='name-input').general-input__label
-                    | E-mail
-                input.general-input__input(type='text',
-                                        name='username',
-                                        id='name-input')
-                .general-input__for-error(id='username-for-error')
-                .general-input__invalid(id='username-error')
 
-            .general-text-input
-                label(for='password-input').general-input__label
-                    | Пароль
-                input.general-input__input(type='password',
-                                        name='password',
-                                        id='password-input')
-                .general-input__for-error(id='password-for-error')
-                .general-input__invalid(id='password-error')
+            .general-form__input
+                .general-input
+                    label(for='name-input').general-input__label
+                        | E-mail
+                    input.general-input__input(type='text',
+                                            name='username',
+                                            id='name-input')
+                    .general-input__for-error(id='username-for-error')
+                    .general-input__invalid(id='username-error')
 
-            - buttonType = 'submit'
-            .general-submit
-                button.general-submit__button(type=buttonType)
+            .general-form__input
+                .general-input
+                    label.general-input__label(for='password-input')
+                        | Пароль
+                    input.general-input__input(type='password',
+                                            name='password',
+                                            id='password-input')
+                    .general-input__for-error(id='password-for-error')
+                    .general-input__invalid(id='password-error')
+
+            .general-form__button
+                - buttonType = 'submit'
+                button.general-submit(type=buttonType)
                     | Войти

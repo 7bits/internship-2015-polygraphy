@@ -1,7 +1,4 @@
 @import url("osans.css");
-.general-text-input{
-    margin-bottom: 15px;
-}
 
 .general-input__input{
     height: 40px;
@@ -11,7 +8,6 @@
     outline: none;
     box-sizing: border-box;
     padding: 0 30px;
-    margin: auto;
     font-family: "OpenSansRegular";
     font-size: 14px;
 }
@@ -27,23 +23,4 @@
     display: block;
     color: white;
     font-size: 16px;
-}
-
-.general-text-input.general-text-input_bid-form{
-    width: 400px;
-    box-sizing: border-box;
-    margin: 0;
-    display: inline-block;
-    padding-left: 20px;
-}
-
-@media screen and (max-width: 700px) {
-
-    .general-text-input.general-text-input_bid-form{
-        padding: 0;
-        display: block;
-        width: 100%;
-        margin: 20px auto 10px;
-    }
-
 }

@@ -3,9 +3,8 @@ extends ../layouts/layout
 block append head
     link(rel="stylesheet", href="/stylesheets/general-form.css")
     link(rel="stylesheet", href="/stylesheets/general-form-headline.css")
-    link(rel="stylesheet", href="/stylesheets/general-text-input.css")
+    link(rel="stylesheet", href="/stylesheets/general-input.css")
     link(rel="stylesheet", href="/stylesheets/general-submit.css")
-    link(rel="stylesheet", href="/stylesheets/general-button-link.css")
 
 block content
 
@@ -17,16 +16,17 @@ block content
         form(id='request-form')
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
 
-            .general-text-input.general-text-input_bid-form
-                input.general-input__input(type='text', name='email')
-                .general-input__for-error(id='email-for-error')
-                .general-input__invalid(id='email-error')
+            .general-form__input.general-form_inline-input
+                .general-input
+                    input.general-input__input(type='text', name='email')
+                    .general-input__for-error(id='email-for-error')
+                    .general-input__invalid(id='email-error')
 
-            - buttonType = 'button'
-            .general-submit.general-submit_bid-form-submit
-                button.general-submit__button.general-submit_bid-form-button(type=buttonType,
-                                                                    id='submit-email',
-                                                                    form='request-form')
+            .general-form__button.general-form_inline-button
+                - buttonType = 'button'
+                button.general-submit(type=buttonType,
+                                    id='submit-email',
+                                    form='request-form')
                     | Отправить
 
         if security.isUserInRole("ROLE_ANONYMOUS")
@@ -34,8 +34,8 @@ block content
                 |Если Ваша полиграфия уже есть в нашем поиске, можете
 
             - href = '/login'
-            .general-button-link
-                a.general-button-link__link(href=href)
+            .general-form__button
+                a.general-submit(href=href)
                     | Войти
 
     script(type='application/javascript', src='/scripts/info-for-polygraphy.js')

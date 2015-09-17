@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.searchpage;
 
+import java.net.URL;
 import java.sql.DriverManager;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -11,6 +12,8 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -22,25 +25,34 @@ public class AdvancedSearchTest {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
+    public static final String USERNAME = "prokhorova";
+    public static final String ACCESS_KEY = "7021577c-564a-424b-bc41-5535d9d8b1d8";
+    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+
   @Before
    public void setUp() throws Exception {
-   // driver = new FirefoxDriver();
-    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
-    driver = new ChromeDriver();
-    baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            DesiredCapabilities caps = DesiredCapabilities.chrome();
+            caps.setCapability("platform", "Linux");
+            caps.setCapability("version", "44.0");
+
+            WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+            driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+
+      //  baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
+      driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
   }
 // Наличный расчет
   @Test
   public void testCash() throws Exception {
-      driver.get(baseUrl + "/");
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-1"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
+      //System.out.println(By.id("paymentMethod-item-1"));
+
+      System.out.println(By.xpath(".//*[text()='Оригинал']/.."));
+/*    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт Экспресс']/.."));
@@ -81,20 +93,22 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));*/
+      //driver.quit();
   }
-/*
+
 // Оплата по счету
 @Test
-  public void testPayment() throws Exception {
-    driver.get(baseUrl + "/");
+  public void testCashcash() throws Exception {
+    //driver.get(baseUrl + "/");
 
-    WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
+   /* WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
-    executor.executeScript("arguments[0].click();", we);
+    executor.executeScript("arguments[0].click();", we);*/
+    System.out.println(By.id("paymentMethod-item-3"));
 
-    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
-    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
+    System.out.println(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
+   /* driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
     driver.findElement(By.xpath(".//*[text()='КАЙРОС']/.."));
@@ -130,9 +144,9 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
     driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
+    driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));*/
   }
-
+/*
 // Расчет по карте
 @Test
   public void testCashless() throws Exception {
@@ -1614,7 +1628,7 @@ public void testCashlessCourier() throws Exception {
 */
  @After
   public void tearDown() throws Exception {
-    driver.quit();
+//    driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);

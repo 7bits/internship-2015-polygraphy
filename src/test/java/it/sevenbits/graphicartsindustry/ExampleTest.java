@@ -15,8 +15,8 @@ public class ExampleTest {
     public static void main(String[] args) throws Exception {
 
         DesiredCapabilities caps = DesiredCapabilities.chrome();
-        caps.setCapability("platform", "Windows XP");
-        caps.setCapability("version", "43.0");
+        caps.setCapability("platform", "Linux");
+        caps.setCapability("version", "44.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
 

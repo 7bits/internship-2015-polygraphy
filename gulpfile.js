@@ -12,21 +12,21 @@ var gulp = require('gulp'),
 var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
         js: 'src/main/resources/public/build/scripts/',
-        css: '/build/stylesheets/',
-        img: '/build/images/',
-        fonts: '/build/fonts/'
+        css: 'src/main/resources/public/build/stylesheets/',
+        img: 'src/main/resources/public/build/images/',
+        fonts: 'src/main/resources/public/build/fonts/'
     },
     src: { //Пути откуда брать исходники
-        js: 'src/main/resources/public/scripts/main.js',//В стилях и скриптах нам понадобятся только main файлы
-        style: 'src/stylesheets/main.css',
-        img: 'src/images/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
-        fonts: 'src/fonts/**/*.*'
+        js: 'src/main/resources/public/scripts/main.js',
+        style: 'src/main/resources/public/stylesheets/main.css',
+        img: 'src/main/resources/public/images/**/*.*',
+        fonts: 'src/main/resources/public/fonts/**/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         js: 'src/main/resources/public/scripts/partials/*.js',
-        style: 'src/stylesheets/**/*.css',
-        img: 'src/images/**/*.*',
-        fonts: 'src/fonts/**/*.*'
+        style: 'src/main/resources/public/scripts/partials/*.css',
+        img: 'src/main/resources/public/images/**/*.*',
+        fonts: 'src/main/resources/public/fonts/**/*.*'
     },
     clean: './build'
 };

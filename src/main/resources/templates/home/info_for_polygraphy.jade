@@ -17,10 +17,10 @@ block content
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
 
             .general-form__input.general-form_inline-input
-                .general-input
-                    input.general-input__input(type='text', name='email')
-                    .general-input__for-error(id='email-for-error')
-                    .general-input__invalid(id='email-error')
+                .general-input(id='big-form')
+                    input.general-input__input.js-normal-input(type='text', name='email')
+                    .general-input__for-error.js-none-display(id='email-for-error')
+                    .general-input__invalid.js-none-display(id='email-error')
 
             .general-form__button.general-form_inline-button
                 - buttonType = 'button'
@@ -40,3 +40,4 @@ block content
 
 block append javascript
     script(type='application/javascript', src='/scripts/partials/info-for-polygraphy.js')
+    script(type='application/javascript', src='/scripts/partials/display-errors.js')

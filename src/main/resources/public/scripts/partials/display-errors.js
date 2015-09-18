@@ -1,5 +1,5 @@
 var displayErrors = function(data){
-    var className = $('#big-form').attr('class');
+    var className = $('#big-form').attr('class')/*.split(' ')[0]*/;
     var baseError = $('.'+className+'__base-error');
 
     if (data.errors['base']){

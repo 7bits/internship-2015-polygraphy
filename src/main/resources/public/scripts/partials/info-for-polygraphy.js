@@ -4,13 +4,17 @@ var validateForm = function(){
     var header = $("meta[name='_csrf_header']").attr("content");
     var headers = {};
     headers[header] = token;
-    var email = $('.b-bid__email-input').val();
-    var formId = $(this).attr('form');
 
-    $('.b-bid__email-input').css('borderColor', 'white');
-    $('.b-bid__error-container').css('display', 'none');
-    $('.b-bid__email-input').text('');
-    $('.b_bid__for-error').css('display', 'none');
+    var input = $('.general-input__input[type=text]');
+    var invalid = $('.general-input__invalid');
+    var forError = $('.general-input__for-error');
+
+    var email = input.val();
+
+    input.addClass('js-normal-input').removeClass('js-error-input');
+    invalid.addClass('js-none-display').removeClass('js-display-block');
+    forError.addClass('js-none-display').removeClass('js-display-block');
+    invalid.text('');
 
     $.ajax({
         type: 'POST',
@@ -23,17 +27,7 @@ var validateForm = function(){
                 window.location.href = '/info-for-polygraphy-success';
             }
             else{
-                            if (data.errors['email']){
-                                $('.b-bid__email-input').css('borderColor', '#ea5c59');
-                                $('.b_bid__for-error').css('display', 'block');
-                                $('.b-bid__error-container').css('display', 'block');
-                                $('.b-bid__error-container').text(data.errors['email']);
-                            }
-                            else {
-                                $('.b-bid__email-input').css('borderColor', 'white');
-                                $('.b_bid__for-error').css('display', 'none');
-                                $('.b-bid__error-container').css('display', 'none');
-                            }
+                displayErrors(data);
             }
         }
     });
@@ -42,7 +36,7 @@ var validateForm = function(){
 $(document).ready(function(){
 
     $('input').attr('autocomplete', 'off');
-    $('.b-bid__submit-email').click(validateForm);
+    $('.general-submit[id=submit-email]').click(validateForm);
 
     $('#request-form').bind("keypress", function(e) {
         if (e.keyCode == 13) {

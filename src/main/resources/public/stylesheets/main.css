@@ -11,6 +11,22 @@ body{
     outline: none;
 }
 
+.js-normal-input{
+    border-color: white;
+}
+
+.js-error-input{
+    border-color: #FD5D58;
+}
+
+.js-none-display{
+    display: none;
+}
+
+.js-display-block{
+    display: block;
+}
+
 @media screen and (max-width: 1024px){
 
     body{

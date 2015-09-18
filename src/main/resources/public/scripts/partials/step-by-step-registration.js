@@ -107,7 +107,7 @@
                             selectStep(i + 1);
                         }
                         else{
-                            displayErrors(data);
+                            window.App.displayErrors(data);
                         }
                     }
                 });

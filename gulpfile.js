@@ -23,7 +23,7 @@ var path = {
         fonts: 'src/fonts/**/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        js: 'src/scripts/**/*.js',
+        js: 'src/main/resources/public/scripts/partials/*.js',
         style: 'src/stylesheets/**/*.css',
         img: 'src/images/**/*.*',
         fonts: 'src/fonts/**/*.*'
@@ -33,12 +33,12 @@ var path = {
 
 var config = {
     server: {
-        baseDir: "./build"
+        baseDir: './build'
     },
     tunnel: true,
     host: 'localhost',
     port: 9000,
-    logPrefix: "Frontend_Devil"
+    logPrefix: 'Frontend_Devil'
 };
 
 gulp.task('js:build', function () {
@@ -49,4 +49,8 @@ gulp.task('js:build', function () {
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
         .pipe(reload({stream: true})); //И перезагрузим сервер
+});
+
+gulp.task('js:watch', function () {
+    gulp.watch(path.watch.js, ['js:build']);
 });

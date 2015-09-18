@@ -66,7 +66,7 @@ var validateEditForm = function(){
                 window.location.href = '/success-editing';
             }
             else{
-                displayErrors(data);
+                window.App.displayErrors(data);
             }
         }
     });

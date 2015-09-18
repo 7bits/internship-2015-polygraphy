@@ -67,7 +67,7 @@ var validateSecondStep = function(event){
                 window.location.href = '/registration-success';
             }
             else{
-                displayErrors(data);
+                window.App.displayErrors(data);
             }
         }
     });

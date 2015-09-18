@@ -2,8 +2,8 @@
     'use strict';
 
     function liveSearch() {
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
+        var token = $('meta[name=_csrf]').attr('content');
+        var header = $('meta[name=_csrf_header]').attr('content');
         var headers = {};
         headers[header] = token;
 
@@ -38,9 +38,9 @@
         event.preventDefault();
         $('body').css('overflow', 'hidden');
         $('.b-search__overlay').css('overflow', 'auto');
-        $('.b-search__overlay').fadeIn("fast");
-        var token = $("meta[name='_csrf']").attr("content");
-        var header = $("meta[name='_csrf_header']").attr("content");
+        $('.b-search__overlay').fadeIn('fast');
+        var token = $('meta[name=_csrf]').attr('content');
+        var header = $('meta[name=_csrf_header]').attr('content');
         var headers = {};
         headers[header] = token;
         var render = Handlebars.compile($('#pop-up-window-detail').html());
@@ -92,10 +92,10 @@
             liveSearch();
         }
 
-        $("#search-form").on('submit', liveSearch);
-        $("#search-form").change(liveSearch);
+        $('#search-form').on('submit', liveSearch);
+        $('#search-form').change(liveSearch);
 
-        $('#search-form').bind("keypress", function(e) {
+        $('#search-form').bind('keypress', function(e) {
             if (e.keyCode == 13) {
                 e.preventDefault();
                 liveSearch();
@@ -103,50 +103,50 @@
             }
         });
 
-        $(".b-search__polygraphies-list").on("click", ".b-results-item__detail a", popUpWindow);
-        $(".b-search__polygraphies-list").on("click", ".b-results-item__name", popUpWindow);
+        $('.b-search__polygraphies-list').on('click', '.b-results-item__detail a', popUpWindow);
+        $('.b-search__polygraphies-list').on('click', '.b-results-item__name', popUpWindow);
 
-        $(this).on("click", ".b-results-item__adaptive-name", jumpToPageOfPolygraphy);
+        $(this).on('click', '.b-results-item__adaptive-name', jumpToPageOfPolygraphy);
         $(this).on('click', '.b-results-item__adaptive-detail-info', jumpToPageOfPolygraphy);
 
         $('.b-search__overlay').click(function(event) {
             event || window.event
             if (event.target == this) {
-                $('.b-search__overlay').fadeOut("fast");
+                $('.b-search__overlay').fadeOut('fast');
                 $('body').css('overflow', 'auto');
             }
         });
 
         $(this).keydown(function(e) {
             if( e.keyCode === 27 ) {
-                $('.b-search__overlay').fadeOut("fast");
+                $('.b-search__overlay').fadeOut('fast');
                 return false;
             }
         });
 
 
-        $(this).on("click", ".b-popup-window__close", function(){
-            $('.b-search__overlay').fadeOut("fast");
+        $(this).on('click', '.b-popup-window__close', function(){
+            $('.b-search__overlay').fadeOut('fast');
             $('body').css('overflow', 'auto');
         });
 
-        $(".b-dropdown__placeholder").click(function(){
+        $('.b-dropdown__placeholder').click(function(){
             var id = $(this).attr('id');
-            $(".b-dropdown__list[id="+id+"-list]").slideToggle();
+            $('.b-dropdown__list[id='+id+'-list]').slideToggle();
         });
 
-        $(".b-dropdown__input").click(function(){
+        $('.b-dropdown__input').click(function(){
             var name = $(this).attr('name');
-            $(".b-dropdown__list[id="+name+"-list]").slideUp("slow");
+            $('.b-dropdown__list[id='+name+'-list]').slideUp('slow');
         });
 
-        $(".b-dropdown__input").change(function(){
+        $('.b-dropdown__input').change(function(){
             var name = $(this).attr('name');
             var label = $('label[for='+name+'-item-' + $(this).val() + ']').text()
-            $(".b-dropdown__placeholder[id="+name+"]").text(label);
+            $('.b-dropdown__placeholder[id='+name+']').text(label);
         });
 
-        $(".b-search__button-up").mouseover(function(){
+        $('.b-search__button-up').mouseover(function(){
             $(this).animate({opacity: 1}, 100);
         }).mouseout(function(){
             $(this).animate({opacity: 0.5}, 100);
@@ -167,12 +167,12 @@
 
         $('input').attr('autocomplete', 'off');
 
-        $(".b-dropdown__placeholder").text(
-            $('label[for=paymentMethod-item-' + $(".b-dropdown__input:checked").attr('value') + ']').text()
+        $('.b-dropdown__placeholder').text(
+            $('label[for=paymentMethod-item-' + $('.b-dropdown__input:checked').attr('value') + ']').text()
         );
 
-        $(".b-dropdown__placeholder").text(
-            $('label[for=deliveryMethod-item-' + $(".b-dropdown__input:checked").attr('value') + ']').text()
+        $('.b-dropdown__placeholder').text(
+            $('label[for=deliveryMethod-item-' + $('.b-dropdown__input:checked').attr('value') + ']').text()
         );
 
     });

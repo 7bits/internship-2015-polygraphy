@@ -1,8 +1,8 @@
 
 var requestId = function(event){
     event.preventDefault();
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
+    var token = $('meta[name=_csrf]').attr('content');
+    var header = $('meta[name=_csrf_header]').attr('content');
     var headers = {};
     headers[header] = token;
 
@@ -16,17 +16,18 @@ var requestId = function(event){
             data: {'requestId': id},
             success: function(responseData) {
                 var reqId = responseData.id;
+                var insideTab = $('.b-inside-tabs__link a[id='+reqId+']');
                 $('.b-inside-tabs__generate-link a[id='+reqId+']').parent().hide();
-                $('.b-inside-tabs__link a[id='+reqId+']').attr('href', responseData.link);
-                $('.b-inside-tabs__link a[id='+reqId+']').text(responseData.link);
+                insideTab.attr('href', responseData.link);
+                insideTab.text(responseData.link);
             }
     });
 };
 
 var removeBid = function(event){
     event.preventDefault();
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
+    var token = $('meta[name=_csrf]').attr('content');
+    var header = $('meta[name=_csrf_header]').attr('content');
     var headers = {};
     headers[header] = token;
 
@@ -39,16 +40,15 @@ var removeBid = function(event){
         url: '/admin/remove-request-on-registration',
         headers: headers,
         data: {'requestId': id},
-        success: function(data) {
-            var reqId = data.id;
+        success: function() {
             $(btn).parent().parent().remove();
         }
     });
 };
 
 var removeFromSearch = function(id, btn){
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
+    var token = $('meta[name=_csrf]').attr('content');
+    var header = $('meta[name=_csrf_header]').attr('content');
     var headers = {};
     headers[header] = token;
 
@@ -58,19 +58,17 @@ var removeFromSearch = function(id, btn){
         url: '/admin/remove-polygraphy',
         headers: headers,
         data: {'polygraphyId': id},
-        success: function(data) {
-            var reqId = data.id;
+        success: function() {
             $(btn).parent().parent().parent().remove();
-            $('.b-popup-verification').fadeOut("fast");
-            //$('body').css('overflow', 'auto');
+            $('.b-popup-verification').fadeOut('fast');
         }
     });
 };
 
 var availabilityInSearch = function(event){
     event.preventDefault();
-    var token = $("meta[name='_csrf']").attr("content");
-    var header = $("meta[name='_csrf_header']").attr("content");
+    var token = $('meta[name=_csrf]').attr('content');
+    var header = $('meta[name=_csrf_header]').attr('content');
     var headers = {};
     headers[header] = token;
 
@@ -113,7 +111,7 @@ var availabilityInSearch = function(event){
 var hidePopupWindow = function(event) {
     event || window.event
     if (event.target == this) {
-        $('.b-popup-verification').fadeOut("fast");
+        $('.b-popup-verification').fadeOut('fast');
         $('body').css('overflow', 'auto');
     }
 };
@@ -144,14 +142,14 @@ $(document).ready(function(){
         var verification = $('.b-popup-verification');
         var verificationClass = verification.attr('class');
 
-        verification.fadeIn("fast");
+        verification.fadeIn('fast');
 
         $('.'+verificationClass+'__main').on('click', '.'+verificationClass+'__answer', function(){
             if ($(this).attr('answer')=='yes'){
                 removeFromSearch(id, btn);
             }
             else{
-                verification.fadeOut("fast");
+                verification.fadeOut('fast');
             }
         })
     });

@@ -19,8 +19,8 @@
             $(this).append("<div id='step" + i + "commands'></div>");
 
             // 2
-            //var name = $(this).find("legend").html();
-            $("#steps").append("<li id='stepDesc" + i + "'>Шаг " + (i + 1) + /*"<span>" + name + "</span>*/"</li>");
+            //var name = $(this).find('legend').html();
+            $('#steps').append("<li id='stepDesc" + i + "'>Шаг " + (i + 1) + /*"<span>" + name + "</span>*/"</li>");
 
             if (i == 0) {
                 createNextButton(i);
@@ -56,8 +56,8 @@
 
             $('#' + stepName + 'Next').bind('click', function(event) {
                 event.preventDefault();
-                var token = $("meta[name='_csrf']").attr("content");
-                var header = $("meta[name='_csrf_header']").attr('content');
+                var token = $('meta[name=_csrf]').attr('content');
+                var header = $('meta[name=_csrf_header]').attr('content');
                 var headers = {};
                 headers[header] = token;
 
@@ -99,7 +99,7 @@
                           }),
                     success: function(data) {
                         if(data.success){
-                            //применяем действие по умолчанию для кнопки "Следующий шаг"
+                            //применяем действие по умолчанию для кнопки 'Следующий шаг'
                             $('#' + stepName).hide();
                             $('#step' + (i + 1)).show();
                             if (i + 2 == count)
@@ -115,7 +115,7 @@
         }
 
         function selectStep(i) {
-            $("#steps li").removeClass('js-current');
+            $('#steps li').removeClass('js-current');
             $('#stepDesc' + i).addClass('js-current');
         }
 

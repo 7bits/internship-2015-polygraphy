@@ -155,5 +155,6 @@ block content
                 button.b-edit__save(type='button')
                     | Сохранить
 
-    script(type='application/javascript', src='/scripts/editing-polygraphy.js')
-    script(type='application/javascript', src='/scripts/display-errors.js')
+block append javascript
+    script(type='application/javascript', src='/scripts/partials/editing-polygraphy.js')
+    script(type='application/javascript', src='/scripts/partials/display-errors.js')

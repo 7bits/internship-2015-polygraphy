@@ -102,6 +102,7 @@ block content
                         .b-registration__invalid(id='services-error')
             button.b-registration__submit(type='button', id='submit-registration-form') Сохранить данные
 
-    script(type='application/javascript', src='/scripts/step-by-step-registration.js')
-    script(type='application/javascript', src='/scripts/registration.js')
-    script(type='application/javascript', src='/scripts/display-errors.js')
+block append javascript
+    script(type='application/javascript', src='/scripts/partials/step-by-step-registration.js')
+    script(type='application/javascript', src='/scripts/partials/registration.js')
+    script(type='application/javascript', src='/scripts/partials/display-errors.js')

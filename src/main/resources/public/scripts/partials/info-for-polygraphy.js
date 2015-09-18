@@ -33,7 +33,7 @@ var validateForm = function(){
                                 $('.b-bid__email-input').css('borderColor', 'white');
                                 $('.b_bid__for-error').css('display', 'none');
                                 $('.b-bid__error-container').css('display', 'none');
-                            };
+                            }
             }
         }
     });

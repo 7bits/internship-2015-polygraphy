@@ -9,6 +9,10 @@ spring:
 server:
   port: 9000
 
+search_polygraphy:
+  limit_polygraphies: 10
+  limit_services: 5
+
 registration_link:
   min_number: 100000000
   max_number: 999999999
@@ -49,6 +53,10 @@ spring:
 
 server:
   port: 9000
+
+search_polygraphy:
+  limit_polygraphies: 10
+  limit_services: 5
 
 registration_link:
   min_number: 100000000

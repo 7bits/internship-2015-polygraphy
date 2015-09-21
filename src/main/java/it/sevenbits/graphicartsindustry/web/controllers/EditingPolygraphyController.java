@@ -1,6 +1,5 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
@@ -39,13 +38,13 @@ public class EditingPolygraphyController {
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
     public SuccessErrorsResponse editPolygraphyByAdmin(@RequestBody EditingPolygraphyForm editingPolygraphyForm,
-                                                       final Model model) throws ServiceException, RepositoryException {
+                                                       final Model model) throws ServiceException {
         return editingPolygraphyService.editPolygraphyByAdmin(editingPolygraphyForm);
     }
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
     public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                        final Model model) throws ServiceException, RepositoryException {
+                                                        final Model model) throws ServiceException {
         if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
@@ -61,7 +60,7 @@ public class EditingPolygraphyController {
     @ResponseBody
     public SuccessErrorsResponse editPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
                                                             @RequestBody EditingPolygraphyForm editingPolygraphyForm,
-                                                            final Model model) throws ServiceException, RepositoryException {
+                                                            final Model model) throws ServiceException {
         return editingPolygraphyService.editPolygraphyByPolygraphy(polygraphyId, editingPolygraphyForm);
     }
 

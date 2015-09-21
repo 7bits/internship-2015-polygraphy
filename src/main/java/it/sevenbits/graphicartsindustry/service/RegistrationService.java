@@ -68,4 +68,15 @@ public class RegistrationService {
         throw new ServiceException("Can not register polygraphy. ");
         }
     }
+
+    public boolean isRegistrated(String email) throws ServiceException {
+        try {
+            if (userRepository.findUserByUsername(email) != null)
+                return true;
+            else
+                return false;
+        } catch (Exception e) {
+            throw new ServiceException("Can not verify the existence of email in the list of registration requests. ");
+        }
+    }
 }

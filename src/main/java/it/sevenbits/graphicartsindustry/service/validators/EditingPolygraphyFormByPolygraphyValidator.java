@@ -1,7 +1,6 @@
 package it.sevenbits.graphicartsindustry.service.validators;
 
 
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import org.apache.log4j.Logger;
@@ -14,12 +13,15 @@ import java.util.Map;
 @Service
 public class EditingPolygraphyFormByPolygraphyValidator {
 
+    private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormByPolygraphyValidator.class);
+
     @Autowired
     private CommonFieldValidator validator;
 
-    private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormByPolygraphyValidator.class);
+    @Autowired
+    private ValidatorService validatorService;
 
-    public HashMap<String, String> validate(final EditingPolygraphyForm form) throws ServiceException, RepositoryException {
+    public HashMap<String, String> validate(final EditingPolygraphyForm form) throws ServiceException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 
@@ -47,8 +49,8 @@ public class EditingPolygraphyFormByPolygraphyValidator {
         }
         validator.longerThan(form.getPhone(), 5, errors, "phone", "Поле должно быть длинее, чем 5 символа");
 
-        validator.isRegistratedFindCompliance(form.getEmail(), form.getPolygraphyId(), errors, "email", "Такой email уже зарегистрирован");
-        validator.isRequested(form.getEmail(), errors, "email", "С этого email подана заявка на регистрацию");
+        validatorService.isRegistratedFindCompliance(form.getEmail(), form.getPolygraphyId(), errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRequested(form.getEmail(), errors, "email", "С этого email подана заявка на регистрацию");
 
 //        if (!form.getPassword().equals(form.getPasswordConfirmation())) {
 //            errors.put("password", "Пароли должны совпадать");

@@ -1,6 +1,5 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.RegistrationService;
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
@@ -64,7 +63,7 @@ public class RegistrationController {
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public Object firstStep(@RequestBody RegistrationFirstForm registrationFirstForm,
-                            final Model model) throws ServiceException, RepositoryException {
+                            final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash());
@@ -89,7 +88,7 @@ public class RegistrationController {
     @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public RegistrationErrors secondStep (@RequestBody RegistrationForm registrationForm,
-                                          final Model model) throws ServiceException, RepositoryException {
+                                          final Model model) throws ServiceException {
         RegistrationErrors registrationErrors = new RegistrationErrors();
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());

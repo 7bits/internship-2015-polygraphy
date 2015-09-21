@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.service.validators;
 
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,15 @@ import java.util.Map;
 @Service
 public class EditingPolygraphyFormByAdminValidator {
 
+    private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormByAdminValidator.class);
+
     @Autowired
     private CommonFieldValidator validator;
 
-    private static final Logger LOG = Logger.getLogger(EditingPolygraphyFormByAdminValidator.class);
+    @Autowired
+    private ValidatorService validatorService;
 
-    public HashMap<String, String> validate(final EditingPolygraphyForm form) throws RepositoryException {
+    public HashMap<String, String> validate(final EditingPolygraphyForm form) throws ServiceException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 
@@ -36,7 +39,7 @@ public class EditingPolygraphyFormByAdminValidator {
 
         validator.longerThan(form.getPhone(), 5, errors, "phone", "Поле должно быть длиннее, чем 5 символа");
 
-        validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 
         validator.isNotNullListId(form.getServices(), errors, "services", "Необходимо выбрать хотя бы одну услугу");
         validator.isNotNullListId(form.getDeliveryMethods(), errors, "deliveryMethods", "Необходимо выбрать хотя бы " +

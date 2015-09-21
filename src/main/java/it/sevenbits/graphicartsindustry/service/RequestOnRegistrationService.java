@@ -91,8 +91,7 @@ public class RequestOnRegistrationService {
 
     public boolean isRequested (String email) throws ServiceException {
         try {
-            RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByEmail(email);
-            if (requestOnRegistration != null)
+            if (requestOnRegistrationRepository.findRequestByEmail(email) != null)
                 return true;
             else
                 return false;

@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.service.validators;
 
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,12 +12,15 @@ import java.util.Map;
 @Service
 public class RegistrationFirstFormValidator {
 
+    private static final Logger LOG = Logger.getLogger(RegistrationFirstFormValidator.class);
+
     @Autowired
     private CommonFieldValidator validator;
 
-    private static final Logger LOG = Logger.getLogger(RegistrationFirstFormValidator.class);
+    @Autowired
+    private ValidatorService validatorService;
 
-    public HashMap<String, String> validate(final RegistrationFirstForm form) throws RepositoryException {
+    public HashMap<String, String> validate(final RegistrationFirstForm form) throws ServiceException {
         LOG.info("SubscriptionFormValidator started for: " + form.toString());
         HashMap<String, String> errors = new HashMap<>();
 
@@ -44,7 +47,7 @@ public class RegistrationFirstFormValidator {
         validator.longerThan(form.getPassword(), 6, errors, "password", "Поле должно быть длинее, чем 6 символов");
         validator.longerThan(form.getPhone(), 5, errors, "phone", "Поле должно быть длинее, чем 5 символа");
 
-        validator.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 
 //        if (!form.getPassword().equals(form.getPasswordConfirmation())) {
 //            errors.put("password", "Пароли должны совпадать");

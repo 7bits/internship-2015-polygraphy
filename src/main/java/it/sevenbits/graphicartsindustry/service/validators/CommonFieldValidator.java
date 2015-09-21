@@ -1,13 +1,5 @@
 package it.sevenbits.graphicartsindustry.service.validators;
 
-import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
-import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
-import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,19 +9,6 @@ import java.util.regex.Pattern;
 
 @Service
 public class CommonFieldValidator {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private PolygraphyRepository polygraphyRepository;
-
-    @Autowired
-    private PolygraphyContactRepository polygraphyContactRepository;
-
-    @Autowired
-    private RequestOnRegistrationService requestOnRegistrationService;
-
     /** Email exists pattern */
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(
             "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE
@@ -120,72 +99,6 @@ public class CommonFieldValidator {
     ) {
         if (value != null && !errors.containsKey(field)) {
             if (value.length() < minLength) {
-                errors.put(field, key);
-            }
-        }
-    }
-
-    /**
-     * Validate whether value is valid email, otherwise reject it
-     * @param value  Value of field
-     * @param valueId  Additional value
-     * @param errors Map for errors
-     * @param field  Rejected field name
-     * @param key    Rejected message key
-     */
-    public void isRegistratedFindCompliance(final String value,
-                              final int valueId,
-                              final Map<String, String> errors,
-                              final String field,
-                              final String key) throws ServiceException, RepositoryException {
-        if (value != null && !errors.containsKey(field)) {
-
-            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(valueId);
-            if (userId == null) {
-                throw new ServiceException("UserId is null");
-            }
-            User user = userRepository.findUserById(valueId);
-            if (!user.getUsername().equals(value) ||
-                    polygraphyRepository.findPolygraphy(valueId).getEmail().equals(value))
-                if (userRepository.findUserByUsername(value) != null ||
-                        polygraphyContactRepository.getPolygraphyIdByEmail(value) != null) {
-                    errors.put(field, key);
-            }
-        }
-    }
-
-    /**
-     * Validate whether value is valid email, otherwise reject it
-     * @param value  Value of field
-     * @param errors Map for errors
-     * @param field  Rejected field name
-     * @param key    Rejected message key
-     */
-    public void isRegistrated(final String value,
-                              final Map<String, String> errors,
-                              final String field,
-                              final String key) throws RepositoryException {
-        if (value != null && !errors.containsKey(field)) {
-            if (userRepository.findUserByUsername(value) != null ||
-                    polygraphyContactRepository.getPolygraphyIdByEmail(value) != null) {
-                errors.put(field, key);
-            }
-        }
-    }
-
-    /**
-     * Validate whether value is valid email, otherwise reject it
-     * @param value  Value of field
-     * @param errors Map for errors
-     * @param field  Rejected field name
-     * @param key    Rejected message key
-     */
-    public void isRequested(final String value,
-                              final Map<String, String> errors,
-                              final String field,
-                              final String key) throws ServiceException {
-        if (value != null && !errors.containsKey(field)) {
-            if (requestOnRegistrationService.isRequested(value)) {
                 errors.put(field, key);
             }
         }

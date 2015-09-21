@@ -53,8 +53,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving full information " +
-                    "about polygraphy " );
+            throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
 
@@ -77,8 +76,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving full information " +
-                    "about polygraphy ");
+            throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
 
@@ -121,85 +119,75 @@ public class EditingPolygraphyService {
             }
 
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving editing information about polygraphy ");
+            throw new ServiceException("Can not save editing polygraphy. ");
         }
 
     }
 
-    public void saveEditingPolygraphyByAdmin(EditingPolygraphyForm polygraphyForm) throws ServiceException {
+    public SuccessErrorsResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm)
+            throws ServiceException {
         try {
-            this.saveEditingPolygraphy(polygraphyForm);
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving editing information about polygraphy ");
-        }
-    }
-
-    public SuccessErrorsResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm) throws ServiceException, RepositoryException {
-        SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
-        successErrorsResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
-        if (successErrorsResponse.getErrors().size() != 0) {
-            successErrorsResponse.setSuccess(false);
+            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
+            successErrorsResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
+            if (successErrorsResponse.getErrors().size() != 0) {
+                successErrorsResponse.setSuccess(false);
+                return successErrorsResponse;
+            }
+            this.saveEditingPolygraphy(editingPolygraphyForm);
+            successErrorsResponse.setSuccess(true);
             return successErrorsResponse;
+        } catch (Exception e) {
+            throw new ServiceException("Can not validate or save editing polygraphy. ");
         }
-        this.saveEditingPolygraphyByAdmin(editingPolygraphyForm);
-        successErrorsResponse.setSuccess(true);
-        return successErrorsResponse;
     }
 
     public void saveEditingPolygraphyByPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
         Integer userId = null;
         try {
             userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyForm.getPolygraphyId());
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving userId by polygraphyId "
-                    + e.getMessage(), e);
-        }
-        if (userId == null) {
-            throw new ServiceException("UserId is null");
-        }
-        try {
+            if (userId == null) {
+                throw new ServiceException("UserId is null");
+            }
             userRepository.editEmail(userId, polygraphyForm.getEmail());
             if (polygraphyForm.getPassword() !=null && !polygraphyForm.getPassword().isEmpty()) {
                 PasswordEncoder encoder = new BCryptPasswordEncoder();
                 userRepository.editPassword(userId, encoder.encode(polygraphyForm.getPassword()));
             }
-        } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving editing information about user "
-                    + e.getMessage(), e);
-        }
-        try {
             this.saveEditingPolygraphy(polygraphyForm);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while saving editing information about polygraphy ");
+            throw new ServiceException("Can not save editing polygraphy. ");
         }
     }
 
     public SuccessErrorsResponse editPolygraphyByPolygraphy(int polygraphyId, EditingPolygraphyForm editingPolygraphyForm)
-            throws ServiceException, RepositoryException {
-        SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
-        if (userResolver.getUsername().equals(this.findUserEmailByPolygraphyId(polygraphyId))) {
-            successErrorsResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
-            if (successErrorsResponse.getErrors().size() != 0) {
-                successErrorsResponse.setSuccess(false);
+            throws ServiceException {
+        try {
+            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
+            if (userResolver.getUsername().equals(this.findUserEmailByPolygraphyId(polygraphyId))) {
+                successErrorsResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
+                if (successErrorsResponse.getErrors().size() != 0) {
+                    successErrorsResponse.setSuccess(false);
+                    return successErrorsResponse;
+                }
+                this.saveEditingPolygraphyByPolygraphy(editingPolygraphyForm);
+                successErrorsResponse.setSuccess(true);
                 return successErrorsResponse;
             }
-            this.saveEditingPolygraphyByPolygraphy(editingPolygraphyForm);
-            successErrorsResponse.setSuccess(true);
+            HashMap<String, String> errors = new HashMap<>();
+            errors.put("base", "Ссылка на изменение устарела");
+            successErrorsResponse.setErrors(errors);
+            successErrorsResponse.setSuccess(false);
             return successErrorsResponse;
+        } catch (Exception e) {
+            throw new ServiceException("Can not validate or save editing polygraphy. ");
         }
-        HashMap<String, String> errors = new HashMap<>();
-        errors.put("base", "Ссылка на изменение устарела");
-        successErrorsResponse.setErrors(errors);
-        successErrorsResponse.setSuccess(false);
-        return successErrorsResponse;
     }
 
     public void editConditionDisplayPolygraphy(Integer polygraphyId, boolean curCondition) throws ServiceException {
         try {
             polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
         } catch (Exception e) {
-            throw new  ServiceException("An error occurred while changing condition polygraphy " +
-                    e.getMessage(),e);
+            throw new  ServiceException("Can not edit condition display polygraphy in search. ");
         }
     }
 
@@ -212,7 +200,7 @@ public class EditingPolygraphyService {
             User user = userRepository.findUserById(polygraphyId);
             return user.getUsername();
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while retrieving user by polygraphyId ");
+            throw new ServiceException("Error. ");
         }
     }
 }

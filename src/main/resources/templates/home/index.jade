@@ -38,7 +38,10 @@ block content
                 | Часто ищут:
                 for service in services
                     .b-often-seek__checkbox
-                        - checked = form.services.contains(service.id)
+                        if form.services == null
+                            - checked = false
+                        else
+                            - checked = form.services.contains(service.id)
                         input.b-often-seek__input(id='btn#{service.id}',
                                         name='services',
                                         value='#{service.id}',

@@ -42,7 +42,9 @@
 }
 
 .b-registration__input{
-    border: 2px solid white;
+    //border: 2px solid white;
+    border-style: solid;
+    border-width: 2px;
     border-radius: 20px;
     box-sizing: border-box;
     outline: none;
@@ -60,7 +62,9 @@
 }
 
 .b-registration__input.b-registration__textarea-field{
-    border: 2px solid white;
+    //border: 2px solid white;
+    border-style: solid;
+    border-width: 2px;
     border-radius: 20px;
     box-sizing: border-box;
     outline: none;
@@ -159,7 +163,7 @@ fieldset {
 }
 
 .b-registration__for-error{
-    display: none;
+    //display: none;
     height: 7px;
     background-image: url("/images/for-error.png");
     background-size: 13px 7px;
@@ -168,7 +172,7 @@ fieldset {
 }
 
 .b-registration__invalid{
-    display: none;
+    //display: none;
     background-color: #FD5D58;
     max-width: 80%;
     float: left;

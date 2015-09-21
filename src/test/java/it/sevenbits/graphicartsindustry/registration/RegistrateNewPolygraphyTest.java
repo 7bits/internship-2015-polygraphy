@@ -19,7 +19,7 @@ private StringBuffer verificationErrors = new StringBuffer();
 
 @Before
 public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/Drivers//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
         driver = new ChromeDriver();
         baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -27,8 +27,8 @@ public void setUp() throws Exception {
 
 @Test
 public void testRegistration() throws Exception {
-      */
-/*  driver.get(baseUrl + "/info-for-polygraphy");
+  */
+/*driver.get(baseUrl + "/info-for-polygraphy");
         driver.findElement(By.name("email")).clear();
         driver.findElement(By.name("email")).sendKeys("polygraphy1@qwery.qu");
         driver.findElement(By.id("submit-email")).click();
@@ -43,19 +43,20 @@ public void testRegistration() throws Exception {
 
 
 
+
         // каждый раз генерится НОВАЯ ссылка, как прописывать ее в тестах
 
-        driver.get(baseUrl + "/registration?id=c4ac205b557869b7d17b0029023aa7ec78c73137");
+        driver.get(baseUrl + "/registration?id=3bedde0786b7d3fbaa4666d4659e7091cbb0c337");
         driver.findElement(By.id("email-input")).clear();
         driver.findElement(By.id("email-input")).sendKeys("poly1@poly.po");
         driver.findElement(By.id("password-input")).clear();
         driver.findElement(By.id("password-input")).sendKeys("123456");
         driver.findElement(By.id("name-input")).clear();
-        driver.findElement(By.id("name-input")).sendKeys("Проверка регистрации");
+        driver.findElement(By.id("name-input")).sendKeys("PolyMolyLy");
         driver.findElement(By.id("address-input")).clear();
-        driver.findElement(By.id("address-input")).sendKeys("Улица N дом 34");
+        driver.findElement(By.id("address-input")).sendKeys("Полимольная 1");
         driver.findElement(By.id("phone-input")).clear();
-        driver.findElement(By.id("phone-input")).sendKeys("234567");
+        driver.findElement(By.id("phone-input")).sendKeys("22-56-78");
         driver.findElement(By.id("step0Next")).click();
 //        driver.findElement(By.id("orderByEmail")).click();
         WebElement we = driver.findElement(By.id("service3"));
@@ -139,4 +140,5 @@ private String closeAlertAndGetItsText() {
         acceptNextAlert = true;
         }
         }
-        }*/
+        }
+*/

@@ -13,7 +13,6 @@ branches:
   - feature/refactoring_service
   - feature/BEM
   - develop
-
 env:
   global:
   - secure: "nastya_prohorova"

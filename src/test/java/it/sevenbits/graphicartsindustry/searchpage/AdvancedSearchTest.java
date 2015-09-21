@@ -36,6 +36,7 @@ public class AdvancedSearchTest {
 
       //  baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
      }*/
+    /*
 // Наличный расчет
   @Test
   public void testCash() throws Exception {
@@ -180,6 +181,7 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.quit();
 }
+
 // Самовывоз
 @Test
   public void testPickup() throws Exception {
@@ -1941,6 +1943,46 @@ public void testCashlessCourier() throws Exception {
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
    }
+*/
+    @Test
+    public void testRegistr() throws Exception {
+        DesiredCapabilities caps = DesiredCapabilities.chrome();
+        caps.setCapability("platform", "Linux");
+        caps.setCapability("version", "45.0");
+
+        WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/registration?id=6553711bf84fe1837094708062d62d81847e4470");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+//        driver.findElement(By.id("email-input")).clear();
+//        driver.findElement(By.id("email-input")).sendKeys("nastyaproh21@gmail.com");
+       // driver.findElement(By.id("password-input")).clear();
+      //  driver.findElement(By.id("password-input")).sendKeys("polygraphy");
+       // driver.findElement(By.id("email-input")).clear();
+        driver.findElement(By.id("email-input")).sendKeys("poly@moly.ly");
+       // driver.findElement(By.id("password-input")).clear();
+        driver.findElement(By.id("password-input")).sendKeys("123456");
+       // driver.findElement(By.id("name-input")).clear();
+        driver.findElement(By.id("name-input")).sendKeys("PolyMolyLy");
+      //  driver.findElement(By.id("address-input")).clear();
+        driver.findElement(By.id("address-input")).sendKeys("Полимольная 1");
+      //  driver.findElement(By.id("phone-input")).clear();
+        driver.findElement(By.id("phone-input")).sendKeys("22-56-78");
+       // driver.findElement(By.id("website-input")).clear();
+        driver.findElement(By.id("website-input")).sendKeys("http://polymolyly.com");
+        driver.findElement(By.id("step0Next")).click();
+//        driver.findElement(By.id("orderByEmail")).click();
+        driver.findElement(By.id("delivery1")).click();
+        driver.findElement(By.id("payment2")).click();
+        driver.findElement(By.id("service8")).click();
+        driver.findElement(By.id("service5")).click();
+        driver.findElement(By.id("service4")).click();
+        driver.findElement(By.id("service1")).click();
+        driver.findElement(By.id("service6")).click();
+        driver.findElement(By.id("submit-registration-form")).click();
+        driver.findElement(By.cssSelector("div.success-registration"));
+        driver.quit();
+    }
 
 /* @After
   public void tearDown() throws Exception {

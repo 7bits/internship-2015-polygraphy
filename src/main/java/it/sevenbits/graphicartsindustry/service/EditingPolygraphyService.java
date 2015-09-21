@@ -2,21 +2,30 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.repository.*;
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
+import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
+import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
 import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import java.util.HashMap;
 
 @Service
 public class EditingPolygraphyService {
+    private static final Logger LOG = Logger.getLogger(EditingPolygraphyService.class);
 
     @Autowired
     private EditingPolygraphyFormByAdminValidator editingPolygraphyFormByAdminValidator;
@@ -39,10 +48,26 @@ public class EditingPolygraphyService {
     @Autowired
     private PolygraphyServicesRepository polygraphyServicesRepository;
 
+    private static final String TX_NAME = "txService";
+    /**
+     * Spring Transaction Manager
+     */
+    @Autowired
+    private PlatformTransactionManager txManager;
+    /**
+     * Transaction settings object
+     */
+    private DefaultTransactionDefinition customTx;
+
+    public EditingPolygraphyService() {
+        this.customTx = new DefaultTransactionDefinition();
+        this.customTx.setName(TX_NAME);
+        this.customTx.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+    }
+
     public EditingPolygraphyForm findFullInfoAboutPolygraphyByAdmin(int polygraphyId) throws ServiceException {
         try {
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
-
             EditingPolygraphyForm polygraphyForm = new EditingPolygraphyForm(polygraphyId, null, null,
                     polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
                     polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
@@ -65,7 +90,6 @@ public class EditingPolygraphyService {
             }
             User user = userRepository.findUserById(polygraphyId);
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
-
             EditingPolygraphyForm polygraphyForm = new EditingPolygraphyForm(polygraphyId, user.getUsername(), null,
                     polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
                     polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
@@ -81,8 +105,9 @@ public class EditingPolygraphyService {
     }
 
     public void saveEditingPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
+        TransactionStatus status = null;
         try {
-
+            status = txManager.getTransaction(customTx);
             polygraphyRepository.editPolygraphyName(polygraphyForm.getPolygraphyId(), polygraphyForm.getName());
             polygraphyRepository.editPolygraphyInfo(polygraphyForm.getPolygraphyId(), polygraphyForm.getInfo());
             polygraphyRepository.editPolygraphyOrderByEmail(polygraphyForm.getPolygraphyId(),
@@ -117,8 +142,12 @@ public class EditingPolygraphyService {
                 if (s != null)
                     polygraphyServicesRepository.createPolygraphyService(polygraphyForm.getPolygraphyId(), s);
             }
-
+            txManager.commit(status);
         } catch (Exception e) {
+            if (status != null) {
+                txManager.rollback(status);
+                LOG.info("Rollback done.");
+            }
             throw new ServiceException("Can not save editing polygraphy. ");
         }
 
@@ -142,8 +171,10 @@ public class EditingPolygraphyService {
     }
 
     public void saveEditingPolygraphyByPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
+        TransactionStatus status = null;
         Integer userId = null;
         try {
+            status = txManager.getTransaction(customTx);
             userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyForm.getPolygraphyId());
             if (userId == null) {
                 throw new ServiceException("UserId is null");
@@ -154,7 +185,12 @@ public class EditingPolygraphyService {
                 userRepository.editPassword(userId, encoder.encode(polygraphyForm.getPassword()));
             }
             this.saveEditingPolygraphy(polygraphyForm);
+            txManager.rollback(status);
         } catch (Exception e) {
+            if (status != null) {
+                txManager.rollback(status);
+                LOG.info("Rollback done.");
+            }
             throw new ServiceException("Can not save editing polygraphy. ");
         }
     }

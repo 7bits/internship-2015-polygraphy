@@ -1946,6 +1946,7 @@ public void testCashlessCourier() throws Exception {
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
+
    }
 
 /* @After

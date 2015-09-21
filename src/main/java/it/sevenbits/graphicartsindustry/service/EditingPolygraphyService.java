@@ -88,7 +88,7 @@ public class EditingPolygraphyService {
             if (userId == null) {
                 throw new ServiceException("UserId is null");
             }
-            User user = userRepository.findUserById(polygraphyId);
+            User user = userRepository.findUserById(userId);
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
             EditingPolygraphyForm polygraphyForm = new EditingPolygraphyForm(polygraphyId, user.getUsername(), null,
                     polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
@@ -233,7 +233,7 @@ public class EditingPolygraphyService {
             if (userId == null) {
                 throw new ServiceException("UserId is null");
             }
-            User user = userRepository.findUserById(polygraphyId);
+            User user = userRepository.findUserById(userId);
             return user.getUsername();
         } catch (Exception e) {
             throw new ServiceException("Error. ");

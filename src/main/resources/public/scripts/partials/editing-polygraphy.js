@@ -65,7 +65,7 @@
             success: function(data) {
 
                 if(data.success){
-                    window.location.href = '/success-editing';
+                    window.location.href = '/editing-polygraphy-success';
                 }
                 else{
                     window.App.displayErrors(data);

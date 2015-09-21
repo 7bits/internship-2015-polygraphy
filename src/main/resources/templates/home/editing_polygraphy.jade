@@ -2,6 +2,7 @@ extends ../layouts/layout
 
 block append head
     link(rel='stylesheet', href='/stylesheets/b-edit.css')
+    link(rel='stylesheet', href='/stylesheets/registration.css')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
@@ -26,69 +27,70 @@ block content
                 .b-edit__text-input-wrapper
                     label.b-edit__input-label
                         | E-mail для регистрации *
-                    input.b-edit__input(type='text',
+                    input.b-edit__input.js-normal-input(type='text',
                                     id='email-input',
                                     name = 'email',
                                     value='#{editingForm.email}')
-                    .b-edit__for-error(id = 'email-for-error')
-                    .b-edit__invalid(id = 'email-error')
+                    .b-edit__for-error.js-none-display(id = 'email-for-error')
+                    .b-edit__invalid.js-none-display(id = 'email-error')
                 .b-edit__text-input-wrapper
                     label.b-edit__input-label
                         | Пароль *
-                    input.b-edit__input(type='text',
+                    input.b-edit__input.js-normal-input(type='text',
                                     id='password-input',
                                     name = 'password')
-                    .b-edit__for-error(id = 'password-for-error')
-                    .b-edit__invalid(id = 'password-error')
+                    .b-edit__for-error.js-none-display(id = 'password-for-error')
+                    .b-edit__invalid.js-none-display(id = 'password-error')
             .b-edit__text-input-wrapper
                 label.b-edit__input-label
                     | Название полиграфии *
-                input.b-edit__input(type='text',
+                input.b-edit__input.js-normal-input(type='text',
                                 id='name-input',
                                 name = 'name',
                                 value='#{editingForm.name}')
-                .b-edit__for-error(id = 'name-for-error')
-                .b-edit__invalid(id = 'name-error')
+                .b-edit__for-error.js-none-display(id = 'name-for-error')
+                .b-edit__invalid.js-none-display(id = 'name-error')
             .b-edit__text-input-wrapper
                 label.b-edit__input-label
                     | Адрес *
-                input.b-edit__input(type='text',
+                input.b-edit__input.js-normal-input(type='text',
                                 id='address-input',
                                 name = 'address',
                                 value='#{editingForm.address}')
-                .b-edit__for-error(id = 'address-for-error')
-                .b-edit__invalid(id = 'address-error')
+                .b-edit__for-error.js-none-display(id = 'address-for-error')
+                .b-edit__invalid.js-none-display(id = 'address-error')
             .b-edit__text-input-wrapper
                 label.b-edit__input-label
                     | Телефон *
-                input.b-edit__input(type='text',
+                input.b-edit__input.js-normal-input(type='text',
                                 id='phone-input',
                                 name = 'phone',
                                 value='#{editingForm.phone}')
-                .b-edit__for-error(id = 'phone-for-error')
-                .b-edit__invalid(id = 'phone-error')
+                .b-edit__for-error.js-none-display(id = 'phone-for-error')
+                .b-edit__invalid.js-none-display(id = 'phone-error')
             .b-edit__text-input-wrapper
                 label.b-edit__input-label
                     | Публичный e-mail
-                input.b-edit__input(type='text',
+                input.b-edit__input.js-normal-input(type='text',
                                 id='email-public-input',
                                 name = 'publicEmail',
                                 value='#{editingForm.publicEmail}')
-                .b-edit__for-error(id='publicEmail-for-error')
-                .b-edit__invalid(id = 'publicEmail-error')
+                .b-edit__for-error.js-none-display(id='publicEmail-for-error')
+                .b-edit__invalid.js-none-display(id = 'publicEmail-error')
             .b-edit__text-input-wrapper
                 label.b-edit__input-label
                     | Сайт
-                input.b-edit__input(type='text',
+                input.b-edit__input.js-normal-input(type='text',
                                 id='website-input',
                                 name = 'website',
                                 value='#{editingForm.website}')
-                .b-edit__for-error(id = 'website-for-error')
-                .b-edit__invalid(id = 'website-error')
+                .b-edit__for-error.js-none-display(id = 'website-for-error')
+                .b-edit__invalid.js-none-display(id = 'website-error')
             .b-edit__text-input-wrapper
                 label.b-edit__input-label
                     | Описание
-                textarea.b-edit__input.b-edit__textarea-field(name='textArea', id='text-area-field')
+                textarea.b-edit__input.js-normal-input.b-edit__textarea-field(name='textArea',
+                                                                            id='text-area-field')
                     != editingForm.info
                 script.
                     CKEDITOR.replace('text-area-field')
@@ -118,8 +120,8 @@ block content
                                         type='checkbox',
                                         checked=pm_checked)
                     label(for='payment'+paymentMethod.id)=paymentMethod.name
-                .b-edit__for-error(id='paymentMethods-for-error')
-                .b-edit__invalid(id='paymentMethods-error')
+                .b-edit__for-error.js-none-display(id='paymentMethods-for-error')
+                .b-edit__invalid.js-none-display(id='paymentMethods-error')
 
             .b-edit__checkboxes-wrapper
                 label.b-edit__input-label
@@ -132,8 +134,8 @@ block content
                                         type='checkbox',
                                         checked=dm_checked)
                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                .b-edit__for-error(id='deliveryMethods-for-error')
-                .b-edit__invalid(id='deliveryMethods-error')
+                .b-edit__for-error.js-none-display(id='deliveryMethods-for-error')
+                .b-edit__invalid.js-none-display(id='deliveryMethods-error')
 
             .b-edit__service-checkboxes-wrapper
                 label.b-edit__input-label
@@ -146,13 +148,14 @@ block content
                                         type='checkbox',
                                         checked=s_checked)
                     label(for='service'+service.id)=service.name
-                .b-edit__for-error(id='services-for-error')
-                .b-edit__invalid(id='services-error')
+                .b-edit__for-error.js-none-display(id='services-for-error')
+                .b-edit__invalid.js-none-display(id='services-error')
 
             .b-edit__base-error
             .b-edit__button-container
                 button.b-edit__save(type='button')
                     | Сохранить
 
-    script(type='application/javascript', src='/scripts/editing-polygraphy.js')
-    script(type='application/javascript', src='/scripts/display-errors.js')
+block append javascript
+    //script(type='application/javascript', src='/scripts/partials/editing-polygraphy.js')
+    //script(type='application/javascript', src='/scripts/partials/display-errors.js')

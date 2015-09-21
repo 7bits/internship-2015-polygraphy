@@ -120,6 +120,6 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration-success", method = RequestMethod.GET)
     public String loadSuccessPageRegistration(final Model model) {
-        return "home/success/registration";
+        return "home/success_registration";
     }
 }

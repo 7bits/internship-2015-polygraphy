@@ -66,6 +66,6 @@ public class EditingPolygraphyController {
 
     @RequestMapping(value = "/editing-polygraphy-success", method = RequestMethod.GET)
     public String loadSuccessPageEditingPolygraphy(final Model model) {
-        return "home/success/editing_polygraphy";
+        return "home/success_editing_polygraphy";
     }
 }

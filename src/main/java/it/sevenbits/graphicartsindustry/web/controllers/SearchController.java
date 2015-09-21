@@ -17,8 +17,6 @@ import java.util.List;
 
 @Controller
 public class SearchController {
-    private final int limitPolygraphy = 4;
-    private final int limitRadioButton = 4;
 
     @Autowired
     private SearchService searchService;
@@ -28,17 +26,17 @@ public class SearchController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(final Model model) throws ServiceException {
-        model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
+        model.addAttribute("services", contentService.findFrequentServices());
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
         model.addAttribute("form", null);
-        model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
+        model.addAttribute("polygraphies", searchService.findAllDisplayPolygraphies());
         return "home/index";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(@ModelAttribute SearchForm form, final Model model) throws ServiceException{
-        model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
+        model.addAttribute("services", contentService.findFrequentServices());
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
         model.addAttribute("form", form);

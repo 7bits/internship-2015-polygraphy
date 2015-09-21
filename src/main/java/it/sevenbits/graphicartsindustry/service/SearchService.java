@@ -5,6 +5,7 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyFullModel;
 import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
 import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
+import it.sevenbits.graphicartsindustry.web.utils.SearchPolygraphyResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,13 @@ public class SearchService {
     @Autowired
     private PolygraphyRepository polygraphyRepository;
 
-    public List<PolygraphyMinModel> findAllAllowedPolygraphy(int limit) throws ServiceException {
+    @Autowired
+    private SearchPolygraphyResolver searchPolygraphyResolver;
+
+    public List<PolygraphyMinModel> findAllDisplayPolygraphies() throws ServiceException {
         try {
-            List<PolygraphyContacts> polygraphies = polygraphyRepository.findAllDisplayPolygraphies(limit);
+            List<PolygraphyContacts> polygraphies =
+                    polygraphyRepository.findAllDisplayPolygraphies(searchPolygraphyResolver.getLimitPolygraphies());
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (PolygraphyContacts p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));

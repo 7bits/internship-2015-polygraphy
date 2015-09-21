@@ -3,9 +3,8 @@ package it.sevenbits.graphicartsindustry.service.validators;
 import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
+import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
-import it.sevenbits.graphicartsindustry.service.RegistrationService;
-import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,10 +22,13 @@ public class ValidatorService {
     private PolygraphyContactRepository polygraphyContactRepository;
 
     @Autowired
-    private RequestOnRegistrationService requestOnRegistrationService;
+    private RequestOnRegistrationRepository requestOnRegistrationRepository;
 
-    @Autowired
-    private RegistrationService registrationService;
+//    @Autowired
+//    private RequestOnRegistrationService requestOnRegistrationService;
+//
+//    @Autowired
+//    private RegistrationService registrationService;
 
     public void isRegistratedFindCompliance(final String value,
                                             final int valueId,
@@ -42,7 +44,7 @@ public class ValidatorService {
                 User user = userRepository.findUserById(valueId);
                 if (!user.getUsername().equals(value) ||
                         polygraphyRepository.findPolygraphy(valueId).getEmail().equals(value)) {
-                    if (registrationService.isRegistrated(value) ||
+                    if (userRepository.findUserByUsername(value) != null ||
                             polygraphyContactRepository.getPolygraphyIdByEmail(value) != null) {
                         errors.put(field, key);
                     }
@@ -59,7 +61,7 @@ public class ValidatorService {
                               final String key) throws ServiceException {
         try {
             if (value != null && !errors.containsKey(field)) {
-                if (registrationService.isRegistrated(value) ||
+                if (userRepository.findUserByUsername(value) != null ||
                         polygraphyContactRepository.getPolygraphyIdByEmail(value) != null) {
                     errors.put(field, key);
                 }
@@ -75,7 +77,7 @@ public class ValidatorService {
                             final String key) throws ServiceException {
         try {
             if (value != null && !errors.containsKey(field)) {
-                if (requestOnRegistrationService.isRequested(value)) {
+                if (requestOnRegistrationRepository.findRequestByEmail(value) != null) {
                     errors.put(field, key);
                 }
             }

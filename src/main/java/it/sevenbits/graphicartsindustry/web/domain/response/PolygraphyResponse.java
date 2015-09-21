@@ -6,7 +6,15 @@ import java.util.List;
 
 public class PolygraphyResponse {
     private List<PolygraphyMinModel> polygraphies;
-    private String polygraphiesListIsNull;
+//    private String polygraphiesListIsNull;
+
+    public PolygraphyResponse() {
+    }
+
+    public PolygraphyResponse(List<PolygraphyMinModel> polygraphies) {//, String polygraphiesListIsNull) {
+        this.polygraphies = polygraphies;
+//        this.polygraphiesListIsNull = polygraphiesListIsNull;
+    }
 
     public List<PolygraphyMinModel> getPolygraphies() {
         return polygraphies;
@@ -16,11 +24,11 @@ public class PolygraphyResponse {
         this.polygraphies = polygraphies;
     }
 
-    public String getPolygraphiesListIsNull() {
-        return polygraphiesListIsNull;
-    }
-
-    public void setPolygraphiesListIsNull(String polygraphiesListIsNull) {
-        this.polygraphiesListIsNull = polygraphiesListIsNull;
-    }
+//    public String getPolygraphiesListIsNull() {
+//        return polygraphiesListIsNull;
+//    }
+//
+//    public void setPolygraphiesListIsNull(String polygraphiesListIsNull) {
+//        this.polygraphiesListIsNull = polygraphiesListIsNull;
+//    }
 }

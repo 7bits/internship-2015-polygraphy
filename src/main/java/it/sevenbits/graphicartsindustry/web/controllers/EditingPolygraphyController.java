@@ -60,8 +60,8 @@ public class EditingPolygraphyController {
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
     public SuccessErrorsResponse editPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                              @RequestBody EditingPolygraphyForm editingPolygraphyForm,
-                                                              final Model model) throws ServiceException, RepositoryException {
+                                                            @RequestBody EditingPolygraphyForm editingPolygraphyForm,
+                                                            final Model model) throws ServiceException, RepositoryException {
         return editingPolygraphyService.editPolygraphyByPolygraphy(polygraphyId, editingPolygraphyForm);
     }
 

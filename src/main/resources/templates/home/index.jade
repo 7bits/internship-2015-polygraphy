@@ -127,9 +127,6 @@ block content
                 script(id='results', type='text/x-handlebars-template')
                     .b-results
                         ul.b-results__list
-                            | {{#if polygraphiesListIsNull}}
-                            p.b-results__no-results {{polygraphiesListIsNull}}
-                            | {{/if}}
                             | {{#each polygraphies}}
                             li.b-results-item
                                 table.b-results-item__table-services

@@ -53,8 +53,8 @@ public class AdminController {
     @RequestMapping(value = "/admin/edit-condition-display-polygraphy", method = RequestMethod.POST)
     @ResponseBody
     public SuccessResponse editConditionDisplayPolygraphy(@RequestParam(value = "polygraphyId") Integer polygraphyId,
-            @RequestParam(value = "curCondition", defaultValue = "false") Boolean curCondition,
-            final Model model) throws ServiceException {
+            @RequestParam(value = "curCondition", defaultValue = "false") Boolean curCondition, final Model model)
+            throws ServiceException {
         SuccessResponse successResponse = new SuccessResponse();
         editingPolygraphyService.editConditionDisplayPolygraphy(polygraphyId, curCondition);
         successResponse.setSuccess(true);
@@ -63,8 +63,7 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/remove-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public SuccessResponse removingPolygraphy(
-            @RequestParam(value = "polygraphyId") Integer polygraphyId,
+    public SuccessResponse removingPolygraphy(@RequestParam(value = "polygraphyId") Integer polygraphyId,
             final Model model) throws ServiceException {
         SuccessResponse successResponse = new SuccessResponse();
         polygraphyService.removePolygraphy(polygraphyId);

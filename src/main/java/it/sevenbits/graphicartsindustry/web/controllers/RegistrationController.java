@@ -45,8 +45,7 @@ public class RegistrationController {
     private ContentService contentService;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registration(@RequestParam(value="id") String hash, final Model model) throws ServiceException {
-
+    public String loadPageRegistration(@RequestParam(value = "id") String hash, final Model model) throws ServiceException {
         RequestOnRegistrationModel requestOnRegistrationModel =
                 requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
         if (requestOnRegistrationModel != null) {
@@ -121,10 +120,7 @@ public class RegistrationController {
     }
 
     @RequestMapping(value = "/registration-success", method = RequestMethod.GET)
-    public String registrationSuccess (final Model model) {
-        return "home/success_registration";
+    public String loadSuccessPageRegistration(final Model model) {
+        return "home/success/registration";
     }
-
-
-
 }

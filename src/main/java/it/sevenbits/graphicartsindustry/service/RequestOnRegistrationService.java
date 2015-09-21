@@ -78,10 +78,10 @@ public class RequestOnRegistrationService {
             SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
             successErrorsResponse.setErrors(requestOnRegistrationValidator.validate(form));
             if (successErrorsResponse.getErrors().size() != 0) {
-                form.setSuccess(false);
+                successErrorsResponse.setSuccess(false);
                 return successErrorsResponse;
             }
-            form.setSuccess(true);
+            successErrorsResponse.setSuccess(true);
             requestOnRegistrationRepository.createRequestOnRegistration(form.getEmail());
             return successErrorsResponse;
         } catch (Exception e) {

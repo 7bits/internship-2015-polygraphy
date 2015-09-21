@@ -9,11 +9,13 @@ html
             meta(name="_csrf_header", content="#{_csrf.headerName}")
             link(rel="stylesheet", href="/stylesheets/osans.css")
             link(rel="stylesheet", href="/stylesheets/header.css")
-            link(rel="stylesheet", href="/stylesheets/main.css")
+            link(rel="stylesheet", href="/stylesheets/global.css")
             link(rel="shortcut icon", href="/images/favicon.ico")
-            script(type='application/javascript', src='/vendor/scripts/jquery-2.1.4.min.js')
-            script(type='application/javascript', src='/vendor/scripts/handlebars-v3.0.3.js')
-            script(type='application/javascript', src='/scripts/header.js')
+
     body
         include ../home/header
         block content
+        block javascript
+            script(type='application/javascript', src='/vendor/scripts/jquery-2.1.4.min.js')
+            //script(type='application/javascript', src='/scripts/partials/header.js')
+            script(type='application/javascript', src='/build/scripts/main.js')

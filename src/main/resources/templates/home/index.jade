@@ -38,7 +38,10 @@ block content
                 | Часто ищут:
                 for service in services
                     .b-often-seek__checkbox
-                        - checked = form.services.contains(service.id)
+                        if form.services == null
+                            - checked = false
+                        else
+                            - checked = form.services.contains(service.id)
                         input.b-often-seek__input(id='btn#{service.id}',
                                         name='services',
                                         value='#{service.id}',
@@ -185,4 +188,6 @@ block content
                 .b-popup-window__helper
     .b-search__js-loader
 
-    script(type='application/javascript', src='/scripts/app.js')
+block append javascript
+    script(type='application/javascript', src='/vendor/scripts/handlebars-v3.0.3.js')
+    //script(type='application/javascript', src='/scripts/partials/app.js')

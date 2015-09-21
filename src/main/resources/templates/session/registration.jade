@@ -2,6 +2,7 @@ extends ../layouts/layout
 
 block append head
     link(rel='stylesheet', href='/stylesheets/b-registration.css')
+    link(rel='stylesheet', href='/stylesheets/registration.css')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
@@ -17,47 +18,47 @@ block content
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             |E-mail для регистрации *
-                        input.b-registration__input#email-input(name='email', type='text')
-                        .b-registration__for-error(id = 'email-for-error')
-                        .b-registration__invalid(id = 'email-error')
+                        input.b-registration__input.js-normal-input#email-input(name='email', type='text')
+                        .b-registration__for-error.js-none-display(id = 'email-for-error')
+                        .b-registration__invalid.js-none-display(id = 'email-error')
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             |Пароль *
-                        input.b-registration__input#password-input(name='password', type='password')
-                        .b-registration__for-error(id = 'password-for-error')
-                        .b-registration__invalid(id='password-error')
+                        input.b-registration__input.js-normal-input#password-input(name='password', type='password')
+                        .b-registration__for-error.js-none-display(id = 'password-for-error')
+                        .b-registration__invalid.js-none-display(id='password-error')
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             | Название полиграфии *
-                        input.b-registration__input#name-input(name='name', type='text')
-                        .b-registration__for-error(id='name-for-error')
-                        .b-registration__invalid(id='name-error')
+                        input.b-registration__input.js-normal-input#name-input(name='name', type='text')
+                        .b-registration__for-error.js-none-display(id='name-for-error')
+                        .b-registration__invalid.js-none-display(id='name-error')
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             | Адрес *
-                        input.b-registration__input#address-input(name='address', type='text')
-                        .b-registration__for-error(id='address-for-error')
-                        .b-registration__invalid(id='address-error')
+                        input.b-registration__input.js-normal-input#address-input(name='address', type='text')
+                        .b-registration__for-error.js-none-display(id='address-for-error')
+                        .b-registration__invalid.js-none-display(id='address-error')
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             | Телефон *
-                        input.b-registration__input#phone-input(name='phone', type='text')
-                        .b-registration__for-error(id='phone-for-error')
-                        .b-registration__invalid(id='phone-error')
+                        input.b-registration__input.js-normal-input#phone-input(name='phone', type='text')
+                        .b-registration__for-error.js-none-display(id='phone-for-error')
+                        .b-registration__invalid.js-none-display(id='phone-error')
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             | Публичный e-mail
-                        input.b-registration__input#email-public-input(name='publicEmail', type='text')
-                        .b-registration__for-error(id='publicEmail-for-error')
-                        .b-registration__invalid(id='publicEmail-error')
+                        input.b-registration__input.js-normal-input#email-public-input(name='publicEmail', type='text')
+                        .b-registration__for-error.js-none-display(id='publicEmail-for-error')
+                        .b-registration__invalid.js-none-display(id='publicEmail-error')
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             | Сайт
-                        input.b-registration__input#website-input(name='website', type='text')
+                        input.b-registration__input.js-normal-input#website-input(name='website', type='text')
                     .b-registration__text-input-wrapper
                         label.b-registration__input-label
                             | Описание
-                        textarea.b-registration__input.b-registration__textarea-field#text-area-field(name='textArea')
+                        textarea.b-registration__input.js-normal-input.b-registration__textarea-field#text-area-field(name='textArea')
                         script.
                             CKEDITOR.replace('textArea');
                 .b-registration__base-error
@@ -77,8 +78,8 @@ block content
                                 .b-registration__field-checkbox
                                     input.js-pm.b-registration__checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
                                     label(for='payment'+paymentMethod.id)=paymentMethod.name
-                        .b-registration__for-error(id='paymentMethods-for-error')
-                        .b-registration__invalid(id='paymentMethods-error')
+                        .b-registration__for-error.js-none-display(id='paymentMethods-for-error')
+                        .b-registration__invalid.js-none-display(id='paymentMethods-error')
                     .b-registration__checkboxes-wrapper
                         label.b-registration__input-label
                             | Доставка готового заказа: *
@@ -87,8 +88,8 @@ block content
                                 .b-registration__field-checkbox
                                     input.js-dm.b-registration__checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
                                     label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                        .b-registration__for-error(id='deliveryMethods-for-error')
-                        .b-registration__invalid(id='deliveryMethods-error')
+                        .b-registration__for-error.js-none-display(id='deliveryMethods-for-error')
+                        .b-registration__invalid.js-none-display(id='deliveryMethods-error')
                     .b-registration__checkboxes-wrapper
                         label.b-registration__input-label
                             | Предоставляемые услуги: *
@@ -97,10 +98,11 @@ block content
                                 .b-registration__field-checkbox
                                     input.js-s.b-registration__checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
                                     label(for='service'+service.id)=service.name
-                        .b-registration__for-error(id='services-for-error')
-                        .b-registration__invalid(id='services-error')
+                        .b-registration__for-error.js-none-display(id='services-for-error')
+                        .b-registration__invalid.js-none-display(id='services-error')
             button.b-registration__submit(type='button', id='submit-registration-form') Сохранить данные
 
-    script(type='application/javascript', src='/scripts/step-by-step-registration.js')
-    script(type='application/javascript', src='/scripts/registration.js')
-    script(type='application/javascript', src='/scripts/display-errors.js')
+block append javascript
+    //script(type='application/javascript', src='/scripts/partials/step-by-step-registration.js')
+    //script(type='application/javascript', src='/scripts/partials/registration.js')
+    //script(type='application/javascript', src='/scripts/partials/display-errors.js')

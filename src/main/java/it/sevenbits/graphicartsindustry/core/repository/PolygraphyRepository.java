@@ -3,7 +3,7 @@ package it.sevenbits.graphicartsindustry.core.repository;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
-import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
+import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

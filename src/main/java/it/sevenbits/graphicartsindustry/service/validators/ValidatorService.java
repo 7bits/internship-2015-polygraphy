@@ -7,9 +7,11 @@ import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRep
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Map;
 
+@Service
 public class ValidatorService {
 
     @Autowired

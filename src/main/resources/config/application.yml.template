@@ -11,7 +11,7 @@ server:
 
 search_polygraphy:
   limit_polygraphies: 10
-  limit_services: 5
+  limit_services: 4
 
 registration_link:
   min_number: 100000000
@@ -56,7 +56,7 @@ server:
 
 search_polygraphy:
   limit_polygraphies: 10
-  limit_services: 5
+  limit_services: 4
 
 registration_link:
   min_number: 100000000

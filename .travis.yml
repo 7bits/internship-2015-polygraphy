@@ -9,6 +9,10 @@ sudo: false
 branches:
   only:
   - feature/travis_CI
+  except:
+  - feature/refactoring_service
+  - feature/BEM
+  - develop
 
 env:
   global:

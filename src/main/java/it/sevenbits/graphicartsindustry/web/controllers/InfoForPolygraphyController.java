@@ -33,6 +33,6 @@ public class InfoForPolygraphyController {
 
     @RequestMapping(value = "/info-for-polygraphy-success", method = RequestMethod.GET)
     public String loadSuccessPageSendingRequestOnRegistration(final Model model) {
-        return "home/success/request_on_registration";
+        return "home/success_request_on_registration";
     }
 }

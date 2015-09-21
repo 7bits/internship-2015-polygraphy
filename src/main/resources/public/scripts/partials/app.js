@@ -19,8 +19,8 @@
             success: function(data) {
                 console.log(data);
                 var html = template({
-                    polygraphies: data.polygraphies,
-                    polygraphiesListIsNull: data.polygraphiesListIsNull
+                    polygraphies: data//,
+                    //polygraphiesListIsNull: data.polygraphiesListIsNull
                 });
                 $('.b-search__polygraphies-list').html(html);
                 $('.b-search__js-loader').css('visibility', 'hidden');

@@ -26,8 +26,8 @@ public class AdvancedSearchTest {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
-    public static final String USERNAME = "prokhorova";
-    public static final String ACCESS_KEY = "7021577c-564a-424b-bc41-5535d9d8b1d8";
+    public static final String USERNAME = "nastya_prohorova";
+    public static final String ACCESS_KEY = "475fc805-6e70-46a5-adb4-938288051155";
     public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
 
   /*@Before
@@ -1946,7 +1946,6 @@ public void testCashlessCourier() throws Exception {
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
-
    }
 
 /* @After

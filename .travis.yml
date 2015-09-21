@@ -12,8 +12,8 @@ branches:
 
 env:
   global:
-  - secure: "prokhorova"
-  - secure: "7021577c-564a-424b-bc41-5535d9d8b1d8"
+  - secure: "nastya_prohorova"
+  - secure: "475fc805-6e70-46a5-adb4-938288051155"
 notifications:
   email:
     recipients:

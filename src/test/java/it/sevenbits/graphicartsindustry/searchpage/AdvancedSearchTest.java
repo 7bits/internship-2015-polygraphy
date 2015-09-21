@@ -39,8 +39,6 @@ public class AdvancedSearchTest {
 // Наличный расчет
   @Test
   public void testCash() throws Exception {
-
-
       DesiredCapabilities caps = DesiredCapabilities.chrome();
       caps.setCapability("platform", "Linux");
       caps.setCapability("version", "45.0");
@@ -49,15 +47,12 @@ public class AdvancedSearchTest {
       driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-
       driver.findElement(By.id("paymentMethod")).click();
       WebElement we = driver.findElement(By.id("paymentMethod-item-1"));
       JavascriptExecutor executor = (JavascriptExecutor)driver;
       executor.executeScript("arguments[0].click();", we);
 
-      //System.out.println(By.id("paymentMethod-item-1"));
-
-    //  System.out.println(By.xpath(".//*[text()='Оригинал']/.."));
+    driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
@@ -161,7 +156,7 @@ public class AdvancedSearchTest {
   }
 
 // Расчет по карте
-@Test
+  @Test
   public void testCashless() throws Exception {
     DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
@@ -185,7 +180,6 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.quit();
 }
-
 // Самовывоз
 @Test
   public void testPickup() throws Exception {

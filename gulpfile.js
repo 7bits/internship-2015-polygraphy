@@ -23,7 +23,7 @@ var path = {
         fonts: 'src/main/resources/public/fonts/**/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        js: 'src/main/resources/public/scripts/partials/*.js',
+        js: 'src/main/resources/public/scripts/**/*.js',
         style: 'src/main/resources/public/scripts/partials/*.css',
         img: 'src/main/resources/public/images/**/*.*',
         fonts: 'src/main/resources/public/fonts/**/*.*'

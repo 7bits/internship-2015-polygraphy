@@ -96,7 +96,7 @@
         $('#search-form').change(liveSearch);
 
         $('#search-form').bind('keypress', function(e) {
-            if (e.keyCode == 13) {
+            if (e.keyCode === 13) {
                 e.preventDefault();
                 liveSearch();
                 return false;
@@ -110,8 +110,7 @@
         $(this).on('click', '.b-results-item__adaptive-detail-info', jumpToPageOfPolygraphy);
 
         $('.b-search__overlay').click(function(event) {
-            event || window.event
-            if (event.target == this) {
+            if (event.target === this) {
                 $('.b-search__overlay').fadeOut('fast');
                 $('body').css('overflow', 'auto');
             }

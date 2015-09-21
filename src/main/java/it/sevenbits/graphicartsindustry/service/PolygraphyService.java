@@ -6,6 +6,10 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyAdminModel;
+import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyFullModel;
+import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
+import it.sevenbits.graphicartsindustry.web.utils.SearchPolygraphyResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +31,8 @@ public class PolygraphyService {
     @Autowired
     private PolygraphyServicesRepository polygraphyServicesRepository;
 
+    @Autowired
+    private SearchPolygraphyResolver searchPolygraphyResolver;
 
     public List<PolygraphyAdminModel> findAllPolygraphies() throws ServiceException {
         try {
@@ -37,8 +43,46 @@ public class PolygraphyService {
             }
             return models;
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while showing all polygraphies " +
-                    e.getMessage(),e);
+            throw new ServiceException("Can not find all polygraphies. ");
+        }
+    }
+
+    public List<PolygraphyMinModel> findAllDisplayPolygraphies() throws ServiceException {
+        try {
+            List<PolygraphyContacts> polygraphies =
+                    polygraphyRepository.findAllDisplayPolygraphies(searchPolygraphyResolver.getLimitPolygraphies());
+            List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
+            for (PolygraphyContacts p: polygraphies) {
+                models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
+            }
+            return models;
+        } catch (Exception e) {
+            throw new ServiceException("Can not find all display polygraphies. ");
+        }
+    }
+
+    public List<PolygraphyMinModel> findPolygraphies(SearchForm query) throws ServiceException {
+        try {
+            List<PolygraphyContacts> polygraphies = polygraphyRepository.findPolygraphies(query);
+            List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
+            for (PolygraphyContacts p: polygraphies) {
+                models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
+            }
+            return models;
+        } catch (Exception e) {
+            throw new ServiceException("Can not find polygraphies. ");
+        }
+    }
+
+    public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
+        try {
+            PolygraphyContacts polygraphyContacts = polygraphyRepository.findDisplayPolygraphy(id);
+            PolygraphyFullModel models = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
+                    polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
+                    polygraphyContacts.getInfo());
+            return models;
+        } catch (Exception e) {
+            throw new ServiceException("Can not find all polygraphy. ");
         }
     }
 
@@ -57,9 +101,7 @@ public class PolygraphyService {
             if (userId != null)
                 userRepository.removeUser(userId);
         } catch (Exception e) {
-            throw new ServiceException("An error occurred while removing polygraphy ");
+            throw new ServiceException("Can not remove all polygraphies. ");
         }
     }
-
-
 }

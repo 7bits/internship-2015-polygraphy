@@ -1,7 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
-import it.sevenbits.graphicartsindustry.service.SearchService;
+import it.sevenbits.graphicartsindustry.service.PolygraphyService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
 import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
@@ -19,7 +19,7 @@ import java.util.List;
 public class SearchController {
 
     @Autowired
-    private SearchService searchService;
+    private PolygraphyService polygraphyService;
 
     @Autowired
     private ContentService contentService;
@@ -30,7 +30,7 @@ public class SearchController {
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
         model.addAttribute("form", null);
-        model.addAttribute("polygraphies", searchService.findAllDisplayPolygraphies());
+        model.addAttribute("polygraphies", polygraphyService.findAllDisplayPolygraphies());
         return "home/index";
     }
 
@@ -40,13 +40,13 @@ public class SearchController {
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
         model.addAttribute("form", form);
-        model.addAttribute("polygraphies", searchService.findPolygraphies(form));
+        model.addAttribute("polygraphies", polygraphyService.findPolygraphies(form));
         return "home/index";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
     public List<PolygraphyMinModel> results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
-        return searchService.findPolygraphies(form);
+        return polygraphyService.findPolygraphies(form);
     }
 }

@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.service.SearchService;
+import it.sevenbits.graphicartsindustry.service.PolygraphyService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyFullModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class AboutPolygraphyController {
 
     @Autowired
-    private SearchService searchService;
+    private PolygraphyService polygraphyService;
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET)
     public String loadPageAboutPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model)
             throws ServiceException {
-        model.addAttribute("polygraphy", searchService.findPolygraphy(polygraphyId));
+        model.addAttribute("polygraphy", polygraphyService.findPolygraphy(polygraphyId));
         return "home/about_polygraphy";
     }
 
@@ -28,6 +28,6 @@ public class AboutPolygraphyController {
     @ResponseBody
     public PolygraphyFullModel loadPageAboutPolygraphyJson(@PathVariable(value = "id") int polygraphyId,
                                                            final Model model) throws ServiceException {
-        return searchService.findPolygraphy(polygraphyId);
+        return polygraphyService.findPolygraphy(polygraphyId);
     }
 }

@@ -30,19 +30,14 @@ public class RegistrationService {
 
     public void saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
             throws ServiceException {
-
-        User user = new User();
-        user.setEmail(firstForm.getEmail());
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        user.setPassword(encoder.encode(firstForm.getPassword()));
-        user.setRole(Role.ROLE_POLYGRAPHY);
-        user.setEnabled(true);
-
         try {
+            User user = new User();
+            user.setEmail(firstForm.getEmail());
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            user.setPassword(encoder.encode(firstForm.getPassword()));
+            user.setRole(Role.ROLE_POLYGRAPHY);
+            user.setEnabled(true);
             userRepository.createUser(user);
-
-//            User user = userRepository.createUser(firstForm.getEmail(), firstForm.getPassword(),
-//                    Role.ROLE_POLYGRAPHY);
 
             Polygraphy polygraphy = new Polygraphy(null, firstForm.getName(), secondForm.getWritesTheCheck(),
                     secondForm.getOrderByEmail(), firstForm.getInfo(), user.getId());
@@ -70,8 +65,7 @@ public class RegistrationService {
             }
 
         } catch (Exception e) {
-        throw new ServiceException("An error occurred while saving registration form polygraphy "
-                + e.getMessage(), e);
+        throw new ServiceException("Can not register polygraphy. ");
         }
     }
 }

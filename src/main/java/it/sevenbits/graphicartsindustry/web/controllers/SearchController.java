@@ -1,129 +1,52 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.web.domain.search.PolygraphyResponse;
-import it.sevenbits.graphicartsindustry.web.domain.request.RequestOnRegistrationForm;
-import it.sevenbits.graphicartsindustry.web.domain.search.SearchForm;
-import it.sevenbits.graphicartsindustry.web.service.ContentService;
-import it.sevenbits.graphicartsindustry.web.service.SearchService;
-import it.sevenbits.graphicartsindustry.web.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.ContentService;
+import it.sevenbits.graphicartsindustry.service.PolygraphyService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class SearchController {
-    private final int limitPolygraphy = 4;
-    private final int limitRadioButton = 4;
 
     @Autowired
-    private SearchService searchService;
+    private PolygraphyService polygraphyService;
 
     @Autowired
     private ContentService contentService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(final Model model) throws ServiceException {
-        // Добавим в модель объект - форма запроса
-        model.addAttribute("form", null);
-
-        // Добавим в модель объект - список сервисов
-        model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
-        // Добавим в модель объект - список методов оплаты
+        model.addAttribute("services", contentService.findFrequentServices());
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        // Добавим в модель объект - список методов доставки
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-
-
-        // Добавим в модель объект - строка, которая говорит о том, была ли найдена хоть одна полиграфия
-        model.addAttribute("polygraphyiesIsNull", "");
-        // В модель добавим объект - рандомный список полиграфий
-        model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
+        model.addAttribute("form", null);
+        model.addAttribute("polygraphies", polygraphyService.findAllDisplayPolygraphies());
         return "home/index";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(@RequestParam(value="query", required = false) String query,
-                         @RequestParam(value="services", required = false) List<Integer> services,
-                         @RequestParam(value="paymentMethod", required = false, defaultValue = "0") Integer paymentMethod,
-                         @RequestParam(value="deliveryMethod", required = false, defaultValue = "0") Integer deliveryMethod,
-                         @RequestParam(value="writesTheCheck", required = false, defaultValue = "false") Boolean writesTheCheck,
-                         @RequestParam(value="orderByEmail", required = false, defaultValue = "false") Boolean orderByEmail,
-                         final Model model) throws ServiceException{
-        if (services==null) {
-            services = new ArrayList<Integer>();
-            services.add(0);
-        }
-        SearchForm form = new SearchForm(query, services, paymentMethod, deliveryMethod, writesTheCheck,
-                orderByEmail);
-
-        // Добавим в модель объект - форма запроса
-        model.addAttribute("form", form);
-
-        // В модель добавим объект - список полиграфий
-        model.addAttribute("services", contentService.findFrequentServices(limitRadioButton));
-        // Добавим в модель объект - список методов оплаты
+    public String search(@ModelAttribute SearchForm form, final Model model) throws ServiceException{
+        model.addAttribute("services", contentService.findFrequentServices());
         model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        // Добавим в модель объект - список методов доставки
         model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-
-        if (form.getQuery().isEmpty() && form.getServices().size() == 0 && form.getPaymentMethod()==0 &&
-                form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
-                form.isOrderByEmail()==false)
-            // В модель добавим объект - рандомный список полиграфий
-            model.addAttribute("polygraphies", searchService.findAllAllowedPolygraphy(limitPolygraphy));
-        else {
-            PolygraphyResponse results = new PolygraphyResponse();
-            results.setPolygraphies(searchService.findPolygraphies(form));
-            if (results.getPolygraphies().size()==0)
-                results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
-                        "требованиям запроса");
-            else
-                results.setPolygraphiesListIsNull("");
-            model.addAttribute("results", results);
-        }
+        model.addAttribute("form", form);
+        model.addAttribute("polygraphies", polygraphyService.findPolygraphies(form));
         return "home/index";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public PolygraphyResponse results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
-
-        if (form.getServices()==null) {
-            form.setServices(new ArrayList<Integer>(0));
-        }
-        PolygraphyResponse results = new PolygraphyResponse();
-        if (form.getQuery().isEmpty() && form.getServices().size()==0 && form.getPaymentMethod()==0 &&
-                form.isWritesTheCheck()==false && form.getDeliveryMethod()==0 &&
-                form.isOrderByEmail()==false) {
-            // В модель добавим объект - рандомный список полиграфий
-            results.setPolygraphies(searchService.findAllAllowedPolygraphy(limitPolygraphy));
-            results.setPolygraphiesListIsNull("");
-        }
-        else {
-            results.setPolygraphies(searchService.findPolygraphies(form));
-            if (results.getPolygraphies().size() == 0)
-                results.setPolygraphiesListIsNull("Ни одна из полиграфий не удовлетворяет " +
-                        "требованиям запроса");
-            else
-                results.setPolygraphiesListIsNull("");
-        }
-
-        return results;
-    }
-
-
-    @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.GET)
-    public String infoForPolygraphy (RequestOnRegistrationForm form, final Model model) {
-        model.addAttribute("request", form);
-        return "home/info_for_polygraphy";
-    }
-
-    @RequestMapping(value = "/info-for-polygraphy-success", method = RequestMethod.GET)
-    public String infoForPolygraphy (final Model model) {
-        return "home/success_request";
+    public List<PolygraphyMinModel> results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
+        return polygraphyService.findPolygraphies(form);
     }
 }

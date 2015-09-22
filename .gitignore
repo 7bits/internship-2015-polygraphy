@@ -79,3 +79,7 @@ application.yml
 
 # Logging #
 *.log
+
+# Node Modules #
+/node_modules
+npm-debug.log

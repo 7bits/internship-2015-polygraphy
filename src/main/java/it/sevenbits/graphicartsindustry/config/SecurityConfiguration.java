@@ -29,6 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
         webSecurity.ignoring().antMatchers(
+                "/build.scripts/**",
                 "/fonts/**",
                 "/images/**",
                 "/scripts/**",
@@ -45,6 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                             "/info-for-polygraphy-success", "/about-project").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .antMatchers("/admin-polygraphy/**").hasRole("POLYGRAPHY")
+                    .antMatchers("/editing-polygraphy-success").hasAnyRole("ADMIN", "POLYGRAPHY")
                     .antMatchers("/registration**").anonymous()
 //                    .anyRequest().denyAll()
                 .and()

@@ -33,7 +33,9 @@
 }
 
 .b-edit__input{
-    border: 2px solid white;
+    //border: 2px solid white;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 20px;
     box-sizing: border-box;
     outline: none;
@@ -51,7 +53,9 @@
 }
 
 .b-edit__input.b-edit__textarea-field{
-    border: 2px solid white;
+    //border: 2px solid white;
+    border-width: 2px;
+    border-style: solid;
     border-radius: 20px;
     box-sizing: border-box;
     outline: none;
@@ -125,7 +129,7 @@ input.b-edit__checkbox[type="checkbox"]+label:hover{
 }
 
 .b-edit__for-error{
-    display: none;
+    //display: none;
     height: 7px;
     background-image: url("/images/for-error.png");
     background-size: 13px 7px;
@@ -134,7 +138,7 @@ input.b-edit__checkbox[type="checkbox"]+label:hover{
 }
 
 .b-edit__invalid{
-    display: none;
+    //display: none;
     background-color: #FD5D58;
     max-width: 80%;
     float: left;

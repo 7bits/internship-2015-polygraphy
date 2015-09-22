@@ -19,8 +19,8 @@
             success: function(data) {
                 console.log(data);
                 var html = template({
-                    polygraphies: data.polygraphies,
-                    polygraphiesListIsNull: data.polygraphiesListIsNull
+                    polygraphies: data//,
+                    //polygraphiesListIsNull: data.polygraphiesListIsNull
                 });
                 $('.b-search__polygraphies-list').html(html);
                 $('.b-search__js-loader').css('visibility', 'hidden');
@@ -130,20 +130,22 @@
         });
 
         $('.b-dropdown__placeholder').click(function(){
-            var id = $(this).attr('id');
-            $('.b-dropdown__list[id='+id+'-list]').slideToggle();
-        });
-
-        $('.b-dropdown__input').click(function(){
-            var name = $(this).attr('name');
-            $('.b-dropdown__list[id='+name+'-list]').slideUp('slow');
+            var placeholderId = $(this).attr('id');
+            $('.b-dropdown__list[id='+placeholderId+'-list]').slideToggle();
         });
 
         $('.b-dropdown__input').change(function(){
             var name = $(this).attr('name');
             var label = $('label[for='+name+'-item-' + $(this).val() + ']').text()
             $('.b-dropdown__placeholder[id='+name+']').text(label);
+            $('.b-dropdown__list[id='+name+'-list]').slideUp('slow');
         });
+
+            var paymentMethodPlaceholder = $('label[for=paymentMethod-item-' + $('.b-dropdown__input[name=paymentMethod]:checked').attr('value') + ']').text();
+            $('.b-dropdown__placeholder[id=paymentMethod]').text(paymentMethodPlaceholder);
+
+            var deliveryMethodPlaceholder = $('label[for=deliveryMethod-item-' + $('.b-dropdown__input[name=deliveryMethod]:checked').attr('value') + ']').text();
+            $('.b-dropdown__placeholder[id=deliveryMethod]').text(deliveryMethodPlaceholder);
 
         $('.b-search__button-up').mouseover(function(){
             $(this).animate({opacity: 1}, 100);
@@ -165,14 +167,6 @@
         });
 
         $('input').attr('autocomplete', 'off');
-
-        $('.b-dropdown__placeholder').text(
-            $('label[for=paymentMethod-item-' + $('.b-dropdown__input:checked').attr('value') + ']').text()
-        );
-
-        $('.b-dropdown__placeholder').text(
-            $('label[for=deliveryMethod-item-' + $('.b-dropdown__input:checked').attr('value') + ']').text()
-        );
 
     });
 })();

@@ -24,7 +24,7 @@ var path = {
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         js: 'src/main/resources/public/scripts/**/*.js',
-        style: 'src/main/resources/public/scripts/partials/*.css',
+        style: 'src/main/resources/public/stylesheets/**/*.css',
         img: 'src/main/resources/public/images/**/*.*',
         fonts: 'src/main/resources/public/fonts/**/*.*'
     },
@@ -51,6 +51,18 @@ gulp.task('js:build', function () {
         .pipe(reload({stream: true})); //И перезагрузим сервер
 });
 
-gulp.task('js:watch', function () {
+gulp.task('css:build', function () {
+    gulp.src(path.src.style) //Выберем наш main.css
+        .pipe(rigger())
+        .pipe(sourcemaps.init()) //То же самое что и с js
+        //.pipe(autoprefixer()) //Добавим вендорные префиксы
+        .pipe(minifyCss({processImport: false})) //Сожмем
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.css)) //И в build
+        .pipe(reload({stream: true}));
+});
+
+gulp.task('static:watch', function () {
     gulp.watch(path.watch.js, ['js:build']);
+    gulp.watch(path.watch.style, ['css:build']);
 });

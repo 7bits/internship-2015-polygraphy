@@ -1,16 +1,16 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/b-search.css")
-    link(rel="stylesheet", href="/stylesheets/b-search-line.css")
-    link(rel="stylesheet", href="/stylesheets/b-often-seek.css")
-    link(rel="stylesheet", href="/stylesheets/b-extend-search.css")
-    link(rel="stylesheet", href="/stylesheets/b-dropdown.css")
-    link(rel="stylesheet", href="/stylesheets/b-checkboxes.css")
-    link(rel="stylesheet", href="/stylesheets/b-results.css")
-    link(rel="stylesheet", href="/stylesheets/b-results-item.css")
-    link(rel="stylesheet", href="/stylesheets/b-popup-window.css")
-    link(rel="stylesheet", href="/stylesheets/icons.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-search.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-search-line.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-often-seek.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-extend-search.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-dropdown.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-checkboxes.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-results.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-results-item.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-popup-window.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/icons.css")
 
 block content
 
@@ -38,7 +38,10 @@ block content
                 | Часто ищут:
                 for service in services
                     .b-often-seek__checkbox
-                        - checked = form.services.contains(service.id)
+                        if form.services == null
+                            - checked = false
+                        else
+                            - checked = form.services.contains(service.id)
                         input.b-often-seek__input(id='btn#{service.id}',
                                         name='services',
                                         value='#{service.id}',
@@ -127,9 +130,6 @@ block content
                 script(id='results', type='text/x-handlebars-template')
                     .b-results
                         ul.b-results__list
-                            | {{#if polygraphiesListIsNull}}
-                            p.b-results__no-results {{polygraphiesListIsNull}}
-                            | {{/if}}
                             | {{#each polygraphies}}
                             li.b-results-item
                                 table.b-results-item__table-services

@@ -1,0 +1,174 @@
+/*@import url("osans.css");*/
+
+.b-edit{
+    width: 700px;
+    height: auto;
+    background-color: #64be5f;
+    border-radius: 20px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    padding: 50px;
+    color: white;
+}
+
+.b-edit__headline{
+    font-size: 30px;
+    font-family: "OpenSansLightRegular";
+    margin-bottom: 50px;
+}
+
+.b-edit__text-input-wrapper{
+    display: inline-block;
+    height: auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.b-edit__input-label{
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.b-edit__input{
+    //border: 2px solid white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    box-sizing: border-box;
+    outline: none;
+    padding: 0 30px;
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+}
+
+.b-edit__input:hover,
+.b-edit__input:focus,
+.b-edit__textarea-field:hover,
+.b-edit__textarea-field:focus{
+    border: 2px solid #efe553;
+}
+
+.b-edit__input.b-edit__textarea-field{
+    //border: 2px solid white;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    height: 300px;
+    padding: 25px;
+    resize: none;
+}
+
+.b-edit__checkboxes-wrapper{
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+    margin-top: 20px;
+}
+
+input.b-edit__checkbox[type="checkbox"]{
+    display: none;
+}
+
+input.b-edit__checkbox[type="checkbox"]+label{
+    background: url("/images/check.png") 0px 0px no-repeat;
+    padding-left: 23px;
+    width: auto;
+    height: 20px;
+    margin-top: 15px;
+    display: block;
+    text-align: left;
+}
+
+input.b-edit__checkbox[type="checkbox"]:checked+label{
+    background: url("/images/check.png") 0 -30px no-repeat;
+    padding-left: 23px;
+    width: auto;
+    height: 20px;
+    margin-top: 15px;
+    display: block;
+    text-align: left;
+}
+
+input.b-edit__checkbox[type="checkbox"]+label:hover{
+    cursor: pointer;
+}
+
+.b-edit__service-checkboxes-wrapper{
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.b-edit__button-container{
+    margin-top: 30px;
+}
+
+.b-edit__save{
+    font-size: 18px;
+    font-family: "OpenSansLightRegular";
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    width: 140px;
+    height: 50px;
+    background-color: #f3e642;
+    cursor: pointer;
+}
+
+.b-edit__save:hover{
+    background-color: #dad14c;
+}
+
+.b-edit__for-error{
+    //display: none;
+    height: 7px;
+    background-image: url("/images/for-error.png");
+    background-size: 13px 7px;
+    background-repeat: no-repeat;
+    background-position: calc(0% + 50px);
+}
+
+.b-edit__invalid{
+    //display: none;
+    background-color: #FD5D58;
+    max-width: 80%;
+    float: left;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.b-edit__base-error{
+    display: none;
+}
+
+@media screen and (max-width: 1024px){
+
+    .b-edit{
+        width: 95%;
+        max-width: 600px;
+        height: auto;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+
+    .b-edit__headline {
+        margin-bottom: 20px;
+    }
+
+    .b-edit__checkboxes-wrapper{
+        width: 100%;
+        display: inline-block;
+    }
+
+}

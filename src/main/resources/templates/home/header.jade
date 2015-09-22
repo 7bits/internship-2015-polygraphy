@@ -13,16 +13,21 @@ header.header
             .header__menu-item
                 a(href='/about-project')
                     | О проекте
-            if security.isUserInRole("ROLE_ADMIN")
+            if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
                 .header__menu-item.header_dropdown
                     | More
                 ul.header__dropdown-menu
                     li.header__dropdown-menu-item
-                        a(href="/admin")
-                            | Личный кабинет
+                        if security.isUserInRole("ROLE_ADMIN")
+                            a(href="/admin")
+                                | Личный кабинет
+                        if security.isUserInRole('ROLE_POLYGRAPHY')
+                            a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
+                                | Личный кабинет
                     li.header__dropdown-menu-item
                         a(href="/logout")
                             | Выход
+
         .header__slogan
             | Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
             br
@@ -36,16 +41,21 @@ header.header.header_small-header
         .header__menu-item
             a(href='/about-project')
                 | О проекте
-        if security.isUserInRole("ROLE_ADMIN")
+        if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
             .header__menu-item.header_dropdown
                 | More
             ul.header__dropdown-menu
                 li.header__dropdown-menu-item
-                    a(href="/admin")
-                        | Личный кабинет
+                    if security.isUserInRole("ROLE_ADMIN")
+                        a(href="/admin")
+                            | Личный кабинет
+                    if security.isUserInRole('ROLE_POLYGRAPHY')
+                        a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
+                            | Личный кабинет
                 li.header__dropdown-menu-item
                     a(href="/logout")
                         | Выход
+
     .header__logo-wrapper
         a(href='/')
             img(src ='/images/logo.png', alt='Полиграфия', height='80px', width='142px')

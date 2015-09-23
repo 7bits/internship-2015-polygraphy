@@ -85,25 +85,25 @@ table.b-about-polygraphy__adaptive-services{
 }
 
 .b-about-polygraphy__address{
-    background: url("/images/map-violet.png");
+    background: inline("map-violet.png");
     background-repeat: no-repeat;
     background-position: left calc(0% + 5px);
 }
 
 .b-about-polygraphy__phone{
-    background: url("/images/phone-violet.png");
+    background: inline("phone-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .b-about-polygraphy__email{
-    background: url("/images/mail-violet.png");
+    background: inline("mail-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .b-about-polygraphy__site{
-    background: url("/images/link-violet.png");
+    background: inline("link-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
     overflow: hidden;

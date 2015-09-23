@@ -58,13 +58,13 @@ table.b-results-item__table-services{
 }
 
 .b-results-item__address{
-    background: url("/images/map-violet.png");
+    background: inline("map-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .b-results-item__phone{
-    background: url("/images/phone-violet.png");
+    background: inline("phone-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }

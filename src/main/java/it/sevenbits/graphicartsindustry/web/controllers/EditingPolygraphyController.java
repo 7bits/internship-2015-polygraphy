@@ -44,17 +44,22 @@ public class EditingPolygraphyController {
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
     public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                        final Model model) throws ServiceException {
-        if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
-            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-            model.addAttribute("services", contentService.findAllServices());
-            model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
-            model.addAttribute("editingForm.polygraphyId", polygraphyId);
-            return "home/editing_polygraphy";
+                                                        final Model model) throws ServiceException, ResourceNotFoundException {
+        try {
+            if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
+                model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+                model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+                model.addAttribute("services", contentService.findAllServices());
+                model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
+                model.addAttribute("editingForm.polygraphyId", polygraphyId);
+                return "home/editing_polygraphy";
+            }
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption("" + e.getMessage(), e);
         }
-        return "/fffff";
+        throw new ResourceNotFoundException();
     }
+
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody

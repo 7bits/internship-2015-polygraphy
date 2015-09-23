@@ -228,11 +228,9 @@ public class EditingPolygraphyService {
     }
 
     public String findUserEmailByPolygraphyId(int polygraphyId) throws ServiceException {
+        Integer userId = null;
         try {
-            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            if (userId == null) {
-                throw new ServiceException("UserId is null");
-            }
+            userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
             User user = userRepository.findUserById(userId);
             return user.getUsername();
         } catch (Exception e) {

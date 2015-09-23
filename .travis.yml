@@ -20,7 +20,6 @@ env:
 notifications:
   email:
     recipients:
-  ##    - nastyaproh21@gmail.com3
-    - nastya-021@mail.ru
+      - nastyaproh21@gmail.com3
     on_success: always # default: change
     on_failure: always # default: always

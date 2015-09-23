@@ -24,6 +24,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CutawayTest {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
+
   public static final String USERNAME = "nastya_prohorova";
   public static final String ACCESS_KEY = "475fc805-6e70-46a5-adb4-938288051155";
   public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
@@ -79,6 +80,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+    driver.quit();
   }
 
 // + расчет по карте
@@ -106,6 +108,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath("./[text()='А3+']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+    driver.quit();
   }
 
 // + оплата по счету
@@ -155,6 +158,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+    driver.quit();
   }
 
 // + Самовывоз 
@@ -213,6 +217,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+    driver.quit();
   }
 
 // + Доставка с курьером
@@ -239,6 +244,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+    driver.quit();
  }
 
 // выдает чек
@@ -296,6 +302,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+    driver.quit();
   }
 
 // + Принимает заказ по email
@@ -335,6 +342,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+    driver.quit();
    }
 
 // + выдает чек + принимает заказ по email
@@ -376,6 +384,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + Наличный расчет + Самовывоз
 @Test
@@ -432,6 +441,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+    driver.quit();
   }
 
 // + Наличный расчет + Доставка с курьером
@@ -457,8 +467,9 @@ public class CutawayTest {
 
     driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
     driver.findElement(By.xpath("./[text()='55Print']/.."));
-    driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
+      driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 
 // + Оплата по счету + Самовывоз
@@ -511,6 +522,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + Оплата по счету + Доставка с курьером
   @Test
@@ -539,6 +551,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + Расчет по карте + Самовывоз
   @Test
@@ -560,14 +573,15 @@ public class CutawayTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-1"));          //Самовывоз
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
-    driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
+
+      driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
     driver.findElement(By.xpath("./[text()='Фото-М']/.."));
     driver.findElement(By.xpath("./[text()='IQ дизайн-бюро']/.."));
     driver.findElement(By.xpath("./[text()='ТИСА']/.."));
     driver.findElement(By.xpath("./[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath("./[text()='А3+']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + Расчет по карте + Доставка с курьером
   @Test
@@ -593,6 +607,7 @@ public class CutawayTest {
    executore.executeScript("arguments[0].click();", wee);
  
     driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
+      driver.quit();
   }
 // + Наличный расчет + Выдает чек
   @Test
@@ -648,6 +663,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + Оплата по счету + Выдает чек
   @Test
@@ -698,6 +714,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + Расчет по карте + Выдает чек
   @Test
@@ -726,6 +743,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath("./[text()='А3+']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + Самовывоз + Выдает чек
   @Test
@@ -785,6 +803,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + Доставка с курьером + Выдает чек
   @Test
@@ -813,6 +832,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + Наличный расчет + Принимает заказ по email
   @Test
@@ -853,6 +873,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + Оплата по счету + Принимает заказ по email
   @Test
@@ -891,6 +912,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + Расчет по карте + Принимает заказ по email
   @Test
@@ -918,6 +940,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='IQ дизайн-бюро']/.."));
     driver.findElement(By.xpath("./[text()='ТИСА']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
    }
 // + Самовывоз + Принимает заказ по email
   @Test
@@ -952,13 +975,14 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='55Print']/.."));
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./[text()='ТИСА']/.."));
+      driver.findElement(By.xpath("./[text()='ТИСА']/.."));
     driver.findElement(By.xpath("./[text()='Центр Рекламы']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + Доставка с курьером + Принимает заказ по email
   @Test
@@ -986,6 +1010,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + наличный расчет + самовывоз + выдает чек
   @Test
@@ -1044,6 +1069,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + наличный расчет + доставка с курьером + выдает чек
   @Test
@@ -1067,12 +1093,13 @@ public class CutawayTest {
     executore.executeScript("arguments[0].click();", wee);
     WebElement che = driver.findElement(By.id("check1"));       //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
-    doer.executeScript("arguments[0].click();", che);
+      doer.executeScript("arguments[0].click();", che);
  
     driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
     driver.findElement(By.xpath("./[text()='55Print']/.."));
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + оплата по счету + доставка с курьером + выдает чек
   @Test
@@ -1096,7 +1123,7 @@ public class CutawayTest {
     executore.executeScript("arguments[0].click();", wee);
      WebElement che = driver.findElement(By.id("check1"));       //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
-    doer.executeScript("arguments[0].click();", che);
+      doer.executeScript("arguments[0].click();", che);
 
     driver.findElement(By.xpath("./[text()='ПечатьPremier']/.."));
     driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
@@ -1104,6 +1131,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + оплата по счету + самовывоз + выдает чек
   @Test
@@ -1157,6 +1185,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Мегаполис PRINT']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + расчет по карте + доставка с курьером + выдает чек
   @Test
@@ -1180,9 +1209,10 @@ public class CutawayTest {
     executore.executeScript("arguments[0].click();", wee);
     WebElement che = driver.findElement(By.id("check1"));       //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
-    doer.executeScript("arguments[0].click();", che);
+      doer.executeScript("arguments[0].click();", che);
  
     driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
+      driver.quit();
   }
 // + расчет по карте + самовывоз + выдает чек
   @Test
@@ -1206,7 +1236,7 @@ public class CutawayTest {
     executore.executeScript("arguments[0].click();", wee);
     WebElement che = driver.findElement(By.id("check1"));       //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
-    doer.executeScript("arguments[0].click();", che);
+      doer.executeScript("arguments[0].click();", che);
  
     driver.findElement(By.xpath("./[text()='СКАЙ ПРИНТ']/.."));
     driver.findElement(By.xpath("./[text()='Фото-М']/.."));
@@ -1214,6 +1244,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath("./[text()='А3+']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + наличный расчет + самовывоз + заказ по  email
   @Test
@@ -1255,6 +1286,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + наличный расчет + доставка с курьером + заказ по  email
   @Test
@@ -1279,11 +1311,12 @@ public class CutawayTest {
     WebElement ch = driver.findElement(By.id("check2"));        //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
-    driver.findElement(By.xpath("./[text()='ПечатьPremier']/.."));
+
+      driver.findElement(By.xpath("./[text()='ПечатьPremier']/.."));
     driver.findElement(By.xpath("./[text()='55Print']/.."));
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + оплата по счету + доставка с курьером + заказ по  email
   @Test
@@ -1314,6 +1347,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + оплата по счету + самовывоз + заказ по  email
   @Test
@@ -1338,8 +1372,8 @@ public class CutawayTest {
     WebElement ch = driver.findElement(By.id("check2"));        //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
-    driver.findElement(By.xpath("./[text()='IQ дизайн-бюро']/.."));
+
+      driver.findElement(By.xpath("./[text()='IQ дизайн-бюро']/.."));
     driver.findElement(By.xpath("./[text()='КАЙРОС']/.."));
     driver.findElement(By.xpath("./[text()='Печатное дело']/.."));
     driver.findElement(By.xpath("./[text()='ПечатьPremier']/.."));
@@ -1355,6 +1389,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + расчет по карте + доставка с курьером + заказ по  email
   @Test
@@ -1382,6 +1417,7 @@ public class CutawayTest {
     performer.executeScript("arguments[0].click();", ch); 
  
     driver.findElement(By.xpath("./[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
+      driver.quit();
   }
 // + расчет по карте + самовывоз + заказ по  email
   @Test
@@ -1412,6 +1448,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='IQ дизайн-бюро']/.."));
     driver.findElement(By.xpath("./[text()='ТИСА']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + оплата наличными + выдает чек + заказ по  email
   @Test
@@ -1447,12 +1484,13 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Марка']/.."));
     driver.findElement(By.xpath("./[text()='55Print']/.."));
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
-    driver.findElement(By.xpath("./[text()='ТИСА']/.."));
+      driver.findElement(By.xpath("./[text()='ТИСА']/.."));
     driver.findElement(By.xpath("./[text()='Центр Рекламы']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
   // + оплата по счету + выдает чек + заказ по  email
   @Test
@@ -1494,6 +1532,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + расчет по карте + выдает чек + заказ по  email
   @Test
@@ -1522,6 +1561,7 @@ public class CutawayTest {
  
     driver.findElement(By.xpath("./[text()='ТИСА']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1560,12 +1600,13 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='ТИСА']/.."));
-    driver.findElement(By.xpath("./[text()='Центр Рекламы']/.."));
+      driver.findElement(By.xpath("./[text()='Центр Рекламы']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1597,6 +1638,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + наличный расчет + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1641,6 +1683,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath("./[text()='Филипп']/.."));
+      driver.quit();
   }
 // + наличный расчет + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1671,9 +1714,10 @@ public class CutawayTest {
     performer.executeScript("arguments[0].click();", ch);
  
     driver.findElement(By.xpath("./[text()='ПечатьPremier']/.."));
-    driver.findElement(By.xpath("./[text()='55Print']/.."));
+      driver.findElement(By.xpath("./[text()='55Print']/.."));
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // + Оплата по счету + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1708,6 +1752,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='ДимАрт']/.."));
     driver.findElement(By.xpath("./[text()='ОмПАК']/.."));
     driver.findElement(By.xpath("./[text()='Селбс']/.."));
+      driver.quit();
   }
 // оплата по счету + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1752,6 +1797,7 @@ public class CutawayTest {
     driver.findElement(By.xpath("./[text()='Принт сервис']/.."));
     driver.findElement(By.xpath("./[text()='Рекламщик']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 // + расчет по карте + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1782,6 +1828,7 @@ public class CutawayTest {
     performer.executeScript("arguments[0].click();", ch);
  
     driver.findElement(By.xpath("./[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
+      driver.quit();
   }
 // + расчет по карте  + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1812,5 +1859,6 @@ public class CutawayTest {
  
     driver.findElement(By.xpath("./[text()='ТИСА']/.."));
     driver.findElement(By.xpath("./[text()='Синяя Птица']/.."));
+      driver.quit();
   }
 }

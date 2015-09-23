@@ -6,4 +6,8 @@ public class InternalServerErrorExeption extends RuntimeException {
     public InternalServerErrorExeption(String message, Exception e) {
         super(message, e);
     }
+
+    public InternalServerErrorExeption(Exception e) {
+        super(e);
+    }
 }

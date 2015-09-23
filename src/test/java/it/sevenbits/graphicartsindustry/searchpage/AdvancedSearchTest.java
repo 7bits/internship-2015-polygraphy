@@ -91,7 +91,7 @@ public class AdvancedSearchTest {
   }
 // Оплата по счету
 @Test
-  public void testCashcash() throws Exception {
+  public void testPayment() throws Exception {
     DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
     caps.setCapability("version", "45.0");

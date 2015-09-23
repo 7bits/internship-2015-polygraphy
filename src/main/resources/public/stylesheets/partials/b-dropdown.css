@@ -15,7 +15,7 @@
 }
 
 .b-dropdown__placeholder{
-    background: url("/images/arrow.png");
+    background: inline("arrow.png");
     background-repeat: no-repeat;
     background-position-y: center;
     background-position-x: 90%;

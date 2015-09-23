@@ -1,12 +1,14 @@
 'use strict';
 
 var gulp = require('gulp'),
-    autoprefixer = require('gulp-autoprefixer'),
+    autoprefixer = require('autoprefixer'),
     browsersync = require('browser-sync'),
     minifyCss = require('gulp-minify-css'),
     rigger = require('gulp-rigger'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
+    assets = require('postcss-assets'),
+    postcss = require('gulp-postcss'),
     reload = browsersync.reload;
 
 var path = {
@@ -19,7 +21,7 @@ var path = {
     src: { //Пути откуда брать исходники
         js: 'src/main/resources/public/scripts/main.js',
         style: 'src/main/resources/public/stylesheets/main.css',
-        img: 'src/main/resources/public/images/**/*.*',
+        img: 'src/main/resources/public/images',
         fonts: 'src/main/resources/public/fonts/**/*.*'
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
@@ -55,7 +57,9 @@ gulp.task('css:build', function () {
     gulp.src(path.src.style) //Выберем наш main.css
         .pipe(rigger())
         .pipe(sourcemaps.init()) //То же самое что и с js
-        //.pipe(autoprefixer()) //Добавим вендорные префиксы
+        .pipe(postcss([assets({
+            loadPaths: [path.src.img]
+        }), autoprefixer()]))
         .pipe(minifyCss({processImport: false})) //Сожмем
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)) //И в build
@@ -66,3 +70,8 @@ gulp.task('static:watch', function () {
     gulp.watch(path.watch.js, ['js:build']);
     gulp.watch(path.watch.style, ['css:build']);
 });
+
+gulp.task('build', [
+    'js:build',
+    'css:build'
+]);

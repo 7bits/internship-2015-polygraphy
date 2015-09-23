@@ -1,4 +1,3 @@
 #!/bin/bash
 
-gulp js:build
-ssh polygraphy@192.168.200.109 -A "cd public/; git pull origin develop"
+scp -rf src/main/resources/public polygraphy@192.168.200.109:/home/polygraphy

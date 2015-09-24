@@ -21,8 +21,7 @@ public class AboutPolygraphyController {
     public String loadPageAboutPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model)
             throws ResourceNotFoundException {
         try {
-            PolygraphyFullModel polygraphyFullModel = polygraphyService.findPolygraphy(polygraphyId);
-            model.addAttribute("polygraphy", polygraphyFullModel);
+            model.addAttribute("polygraphy", polygraphyService.findPolygraphy(polygraphyId));
             return "home/about_polygraphy";
         } catch (Exception e) {
             throw new InternalServerErrorExeption(e);
@@ -34,13 +33,13 @@ public class AboutPolygraphyController {
     public JsonResponse loadPageAboutPolygraphyJson(@PathVariable(value = "id") int polygraphyId, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
-            PolygraphyFullModel polygraphyFullModel =  polygraphyService.findPolygraphy(polygraphyId);
+            PolygraphyFullModel polygraphyFullModel = polygraphyService.findPolygraphy(polygraphyId);
             response.setSuccess(true);
             response.setData("polygraphy", polygraphyFullModel);
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setError("base", "Не удалось загрузить данные о полиграфии");
+            response.setError("base", "Не удалось загрузить данные о полиграфии. ");
             return response;
         }
     }

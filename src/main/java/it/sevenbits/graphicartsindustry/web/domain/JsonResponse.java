@@ -9,9 +9,7 @@ public class JsonResponse {
 
     public JsonResponse() {
         data = new HashMap<String, Object>();
-        data = null;
         error = new HashMap<String, String>();
-        error = null;
     }
 
     public Boolean getSuccess() {

@@ -1,7 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.domain.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.domain.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,15 +20,34 @@ public class InfoForPolygraphyController {
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.GET)
     public String loadPageInfoForPolygraphy(final Model model) {
-        model.addAttribute("request", new RequestOnRegistrationForm());
-        return "home/info_for_polygraphy";
+        try {
+            model.addAttribute("request", new RequestOnRegistrationForm());
+            return "home/info_for_polygraphy";
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption(e);
+        }
     }
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public ValidatorResponse saveRequestOnRegistration(
-            @ModelAttribute RequestOnRegistrationForm requestOnRegistrationForm, Model model) throws ServiceException {
-        return requestOnRegistrationService.saveRequestOnRegistration(requestOnRegistrationForm);
+    public JsonResponse saveRequestOnRegistration(@ModelAttribute RequestOnRegistrationForm requestOnRegistrationForm,
+                                                  final Model model) {
+        JsonResponse response = new JsonResponse();
+        try {
+            ValidatorResponse validatorResponse =
+                    requestOnRegistrationService.saveRequestOnRegistration(requestOnRegistrationForm);
+            if (validatorResponse.isSuccess()) {
+                response.setSuccess(true);
+                return response;
+            }
+            response.setSuccess(false);
+            response.setErrors("validation", validatorResponse.getErrors());
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setErrors("base", "Не удалось сохранить запрос на регистрацию. ");
+            return response;
+        }
     }
 
     @RequestMapping(value = "/info-for-polygraphy-success", method = RequestMethod.GET)

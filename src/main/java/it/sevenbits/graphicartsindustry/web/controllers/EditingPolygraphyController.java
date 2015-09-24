@@ -48,7 +48,7 @@ public class EditingPolygraphyController {
                 return response;
             }
             response.setSuccess(false);
-            response.setErrors("validate", validatorResponse.getErrors());
+            response.setErrors("validation", validatorResponse.getErrors());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
@@ -88,7 +88,7 @@ public class EditingPolygraphyController {
                 return response;
             }
             response.setSuccess(false);
-            response.setErrors("validate", validatorResponse.getErrors());
+            response.setErrors("validation", validatorResponse.getErrors());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);

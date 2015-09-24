@@ -2,7 +2,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.domain.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
 import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,28 +25,46 @@ public class SearchController {
     private ContentService contentService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(final Model model) throws ServiceException {
-        model.addAttribute("services", contentService.findFrequentServices());
-        model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-        model.addAttribute("form", null);
-        model.addAttribute("polygraphies", polygraphyService.findAllDisplayPolygraphies());
-        return "home/index";
+    public String index(final Model model) {
+        try {
+            model.addAttribute("services", contentService.findFrequentServices());
+            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            model.addAttribute("form", null);
+            model.addAttribute("polygraphies", polygraphyService.findAllDisplayPolygraphies());
+            return "home/index";
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption(e);
+        }
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(@ModelAttribute SearchForm form, final Model model) throws ServiceException{
-        model.addAttribute("services", contentService.findFrequentServices());
-        model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-        model.addAttribute("form", form);
-        model.addAttribute("polygraphies", polygraphyService.findPolygraphies(form));
-        return "home/index";
+    public String loadPageSearch(@ModelAttribute SearchForm form, final Model model) {
+        try {
+            model.addAttribute("services", contentService.findFrequentServices());
+            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            model.addAttribute("form", form);
+            model.addAttribute("polygraphies", polygraphyService.findPolygraphies(form));
+            return "home/index";
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption(e);
+        }
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @ResponseBody
-    public List<PolygraphyMinModel> results (@ModelAttribute SearchForm form, final Model model) throws ServiceException {
-        return polygraphyService.findPolygraphies(form);
+    public JsonResponse getResultsSearch(@ModelAttribute SearchForm form, final Model model) {
+        JsonResponse response = new JsonResponse();
+        try {
+            List<PolygraphyMinModel> polygraphies = polygraphyService.findPolygraphies(form);
+            response.setSuccess(true);
+            response.setData("polygraphies", polygraphies);
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setErrors("base", "Не удалось осуществить поиск по полиграфиям. ");
+            return response;
+        }
     }
 }

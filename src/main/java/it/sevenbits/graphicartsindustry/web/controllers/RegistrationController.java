@@ -7,11 +7,11 @@ import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
 import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
-import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.web.domain.response.RegistrationErrors;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
+import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.view.response.RegistrationErrors;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,45 +44,55 @@ public class RegistrationController {
     private ContentService contentService;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String loadPageRegistration(@RequestParam(value = "id") String hash, final Model model) throws ServiceException {
-        RequestOnRegistrationModel requestOnRegistrationModel =
-                requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
-        if (requestOnRegistrationModel != null) {
-            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-            model.addAttribute("services", contentService.findAllServices());
-            model.addAttribute("firstForm", new RegistrationFirstForm());
-            model.addAttribute("secondForm", new RegistrationSecondForm());
-            model.addAttribute("hash", hash);
-            return "session/registration";
+    public String loadPageRegistration(@RequestParam(value = "id") String hash, final Model model) {
+        try {
+            RequestOnRegistrationModel requestOnRegistrationModel =
+                    requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
+
+            if (requestOnRegistrationModel != null) {
+                model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+                model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+                model.addAttribute("services", contentService.findAllServices());
+                model.addAttribute("firstForm", new RegistrationFirstForm());
+                model.addAttribute("secondForm", new RegistrationSecondForm());
+                model.addAttribute("hash", hash);
+                return "session/registration";
+            }
+            throw new ResourceNotFoundException();
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption(e);
         }
-        else
-            return "/fffff";
     }
 
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public Object firstStep(@RequestBody RegistrationFirstForm registrationFirstForm,
-                            final Model model) throws ServiceException {
-        RegistrationErrors registrationErrors = new RegistrationErrors();
-        RequestOnRegistrationModel requestOnRegistrationModel =
-                requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash());
-        if (requestOnRegistrationModel != null) {
-            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
-            if (errorsFirstForm.size() != 0) {
-                registrationErrors.setErrors(errorsFirstForm);
+    public Object firstStep(@RequestBody RegistrationFirstForm registrationFirstForm, final Model model) throws ServiceException {
+        //JsonResponse response = new JsonResponse();
+        //try {
+            RegistrationErrors registrationErrors = new RegistrationErrors();
+            RequestOnRegistrationModel requestOnRegistrationModel =
+                    requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash());
+            if (requestOnRegistrationModel != null) {
+                final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+                if (errorsFirstForm.size() != 0) {
+                    registrationErrors.setErrors(errorsFirstForm);
+                    registrationErrors.setSuccess(false);
+                    return registrationErrors;
+                }
+                registrationErrors.setSuccess(true);
+            } else {
+                HashMap<String, String> errors = new HashMap<>();
+                errors.put("base", "Ссылка на регистрацию устарела");
+                registrationErrors.setErrors(errors);
                 registrationErrors.setSuccess(false);
-                return registrationErrors;
             }
-            registrationErrors.setSuccess(true);
-        }else {
-            HashMap<String, String> errors = new HashMap<>();
-            errors.put("base", "Ссылка на регистрацию устарела");
-            registrationErrors.setErrors(errors);
-            registrationErrors.setSuccess(false);
-        }
 
-        return registrationErrors;
+            return registrationErrors;
+//        } catch (Exception e) {
+//            response.setSuccess(false);
+//            response.setErrors("base", "Не удалось осуществить валидацию данных. ");
+//            return response;
+//        }
     }
 
     @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST, produces = "application/json")

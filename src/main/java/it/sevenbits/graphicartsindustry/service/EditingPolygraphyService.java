@@ -8,7 +8,7 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesReposi
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
-import it.sevenbits.graphicartsindustry.web.domain.response.ValidatorResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.apache.log4j.Logger;

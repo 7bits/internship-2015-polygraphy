@@ -5,9 +5,9 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactReposit
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
-import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyAdminModel;
-import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyFullModel;
-import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyAdminModel;
+import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyFullModel;
+import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyMinModel;
 import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import it.sevenbits.graphicartsindustry.web.utils.SearchPolygraphyResolver;
 import org.apache.log4j.Logger;

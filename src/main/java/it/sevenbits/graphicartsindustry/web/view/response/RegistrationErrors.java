@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.web.domain.response;
+package it.sevenbits.graphicartsindustry.web.view.response;
 
 import java.util.Map;
 

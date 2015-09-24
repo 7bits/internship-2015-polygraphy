@@ -2,8 +2,8 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
-import it.sevenbits.graphicartsindustry.web.domain.JsonResponse;
-import it.sevenbits.graphicartsindustry.web.domain.response.ValidatorResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.springframework.beans.factory.annotation.Autowired;

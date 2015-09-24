@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
-import it.sevenbits.graphicartsindustry.web.domain.JsonResponse;
-import it.sevenbits.graphicartsindustry.web.domain.polygraphy.PolygraphyFullModel;
+import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
+import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyFullModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

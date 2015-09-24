@@ -1,8 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import it.sevenbits.graphicartsindustry.web.domain.JsonResponse;
-import it.sevenbits.graphicartsindustry.web.domain.response.ValidatorResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

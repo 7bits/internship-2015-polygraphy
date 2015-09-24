@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.web.domain;
+package it.sevenbits.graphicartsindustry.web.view.response;
 
 import java.util.HashMap;
 

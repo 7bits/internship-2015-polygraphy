@@ -91,10 +91,7 @@ public class RequestOnRegistrationService {
 
     public boolean isRequested (String email) throws ServiceException {
         try {
-            if (requestOnRegistrationRepository.findRequestByEmail(email) != null)
-                return true;
-            else
-                return false;
+            return requestOnRegistrationRepository.findRequestByEmail(email) != null;
         } catch (Exception e) {
             throw new ServiceException("Can not verify the existence of email in the list of registration requests. ");
         }

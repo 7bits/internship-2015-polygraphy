@@ -12,8 +12,7 @@ public class CustomExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ModelAndView handleResourceNotFoundException() {
-        ModelAndView mav = new ModelAndView("home/404");
-        return mav;
+        return new ModelAndView("home/404");
     }
 
     @ExceptionHandler(InternalServerErrorExeption.class)

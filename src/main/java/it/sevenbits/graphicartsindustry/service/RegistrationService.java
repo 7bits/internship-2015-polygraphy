@@ -101,10 +101,7 @@ public class RegistrationService {
 
     public boolean isRegistrated(String email) throws ServiceException {
         try {
-            if (userRepository.findUserByUsername(email) != null)
-                return true;
-            else
-                return false;
+            return userRepository.findUserByUsername(email) != null;
         } catch (Exception e) {
             throw new ServiceException("Can not verify the existence of email in the list of registration requests. ");
         }

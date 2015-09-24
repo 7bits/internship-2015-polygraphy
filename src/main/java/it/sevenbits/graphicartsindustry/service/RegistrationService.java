@@ -7,8 +7,11 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactReposit
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
+import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
+import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,9 +21,17 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import java.util.Map;
+
 @Service
 public class RegistrationService {
     private static final Logger LOG = Logger.getLogger(RegistrationService.class);
+
+    @Autowired
+    private RegistrationFirstFormValidator firstFormValidator;
+
+    @Autowired
+    private RegistrationSecondFormValidator secondFormValidator;
 
     @Autowired
     private UserRepository userRepository;
@@ -49,6 +60,38 @@ public class RegistrationService {
         this.customTx = new DefaultTransactionDefinition();
         this.customTx.setName(TX_NAME);
         this.customTx.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+    }
+
+    public ValidatorResponse validateFirstRegistrationForm(RegistrationFirstForm registrationFirstForm) throws ServiceException {
+        ValidatorResponse validatorResponse = new ValidatorResponse();
+        try {
+            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+            if (errorsFirstForm.size() != 0) {
+                validatorResponse.setErrors(errorsFirstForm);
+                validatorResponse.setSuccess(false);
+                return validatorResponse;
+            }
+            validatorResponse.setSuccess(true);
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
+    }
+
+    public ValidatorResponse validateSecondRegistrationForm(RegistrationSecondForm registrationSecondForm) throws ServiceException {
+        ValidatorResponse validatorResponse = new ValidatorResponse();
+        try {
+            final Map<String, String> errorsFirstForm = secondFormValidator.validate(registrationSecondForm);
+            if (errorsFirstForm.size() != 0) {
+                validatorResponse.setErrors(errorsFirstForm);
+                validatorResponse.setSuccess(false);
+                return validatorResponse;
+            }
+            validatorResponse.setSuccess(true);
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
     }
 
     public void saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)

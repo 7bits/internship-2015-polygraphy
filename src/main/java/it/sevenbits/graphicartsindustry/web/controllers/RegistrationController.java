@@ -4,35 +4,20 @@ import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.RegistrationService;
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
-import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
-import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
-import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
-import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.web.view.response.RegistrationErrors;
+import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @Controller
 public class RegistrationController {
     private static Logger LOG = Logger.getLogger(RegistrationController.class);
-
-    @Autowired
-    private RegistrationFirstFormValidator firstFormValidator;
-
-    @Autowired
-    private RegistrationSecondFormValidator secondFormValidator;
-
-    @Autowired
-    private RequestOnRegistrationValidator requestOnRegistrationValidator;
 
     @Autowired
     private RegistrationService registrationService;
@@ -46,10 +31,7 @@ public class RegistrationController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String loadPageRegistration(@RequestParam(value = "id") String hash, final Model model) {
         try {
-            RequestOnRegistrationModel requestOnRegistrationModel =
-                    requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
-
-            if (requestOnRegistrationModel != null) {
+            if (requestOnRegistrationService.findRequestOnRegistrationByHash(hash) != null) {
                 model.addAttribute("paymentMethods", contentService.findPaymentMethods());
                 model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
                 model.addAttribute("services", contentService.findAllServices());
@@ -66,66 +48,62 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public Object firstStep(@RequestBody RegistrationFirstForm registrationFirstForm, final Model model) throws ServiceException {
-        //JsonResponse response = new JsonResponse();
-        //try {
-            RegistrationErrors registrationErrors = new RegistrationErrors();
-            RequestOnRegistrationModel requestOnRegistrationModel =
-                    requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash());
-            if (requestOnRegistrationModel != null) {
-                final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
-                if (errorsFirstForm.size() != 0) {
-                    registrationErrors.setErrors(errorsFirstForm);
-                    registrationErrors.setSuccess(false);
-                    return registrationErrors;
+    public JsonResponse firstStep(@RequestBody RegistrationFirstForm registrationFirstForm, final Model model) throws ServiceException {
+        JsonResponse response = new JsonResponse();
+        try {
+            if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash()) != null) {
+                ValidatorResponse validatorResponse =
+                        registrationService.validateFirstRegistrationForm(registrationFirstForm);
+                if (validatorResponse.isSuccess()) {
+                    response.setSuccess(true);
+                    return response;
                 }
-                registrationErrors.setSuccess(true);
-            } else {
-                HashMap<String, String> errors = new HashMap<>();
-                errors.put("base", "Ссылка на регистрацию устарела");
-                registrationErrors.setErrors(errors);
-                registrationErrors.setSuccess(false);
+                response.setSuccess(false);
+                response.getErrors("validation", validatorResponse);
+                return response;
             }
-
-            return registrationErrors;
-//        } catch (Exception e) {
-//            response.setSuccess(false);
-//            response.setErrors("base", "Не удалось осуществить валидацию данных. ");
-//            return response;
-//        }
+            response.setSuccess(false);
+            response.setErrors("base", "Ссылка на регистрацию устарела");
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setErrors("base", "Не удалось осуществить валидацию данных. ");
+            return response;
+        }
     }
 
     @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public RegistrationErrors secondStep (@RequestBody RegistrationForm registrationForm,
+    public JsonResponse secondStep (@RequestBody RegistrationForm registrationForm,
                                           final Model model) throws ServiceException {
-        RegistrationErrors registrationErrors = new RegistrationErrors();
-        RequestOnRegistrationModel requestOnRegistrationModel =
-                requestOnRegistrationService.findRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
-        if (requestOnRegistrationModel != null) {
-            final Map<String, String> errorsSecondForm = secondFormValidator.validate(registrationForm.getSecondForm());
-            if (errorsSecondForm.size() != 0) {
-                registrationErrors.setErrors(errorsSecondForm);
-                registrationErrors.setSuccess(false);
-                return registrationErrors;
+        JsonResponse response = new JsonResponse();
+        try {
+            if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash()) != null) {
+                ValidatorResponse validatorResponse =
+                        registrationService.validateSecondRegistrationForm(registrationForm.getSecondForm());
+                if (validatorResponse.isSuccess()) {
+                    validatorResponse = registrationService.validateFirstRegistrationForm(registrationForm.getFirstForm());
+                    if (validatorResponse.isSuccess()) {
+                        requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
+                        registrationService.saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
+                        response.setSuccess(true);
+                        return response;
+                    }
+                    response.setSuccess(false);
+                    response.setErrors("validationFirstForm", validatorResponse);
+                }
+                response.setSuccess(false);
+                response.getErrors("validationSecondForm", validatorResponse);
+                return response;
             }
-
-            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationForm.getFirstForm());
-            if (errorsFirstForm.size() != 0) {
-                registrationErrors.setErrors(errorsFirstForm);
-                registrationErrors.setSuccess(false);
-                return registrationErrors;
-            }
-            registrationErrors.setSuccess(true);
-            requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
-            registrationService.saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
-        } else {
-            HashMap<String, String> errors = new HashMap<>();
-            errors.put("base", "Ссылка на регистрацию устарела");
-            registrationErrors.setErrors(errors);
-            registrationErrors.setSuccess(false);
+            response.setSuccess(false);
+            response.setErrors("base", "Ссылка на регистрацию устарела");
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setErrors("base", "Не удалось осуществить валидацию данных. ");
+            return response;
         }
-        return registrationErrors;
     }
 
     @RequestMapping(value = "/registration-success", method = RequestMethod.GET)

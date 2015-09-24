@@ -20,7 +20,7 @@ public class JsonResponse {
         this.success = success;
     }
 
-    public HashMap<String, Object> getErrors() {
+    public HashMap<String, Object> getErrors(String validation, ValidatorResponse validatorResponse) {
         return errors;
     }
 

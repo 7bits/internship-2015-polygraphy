@@ -3,6 +3,7 @@ package it.sevenbits.graphicartsindustry.service;
 import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
 import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.repository.ContentRepository;
+import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.web.view.content.DeliveryMethodModel;
 import it.sevenbits.graphicartsindustry.web.view.content.PaymentMethodModel;
 import it.sevenbits.graphicartsindustry.web.view.content.ServiceModel;
@@ -30,7 +31,7 @@ public class ContentService {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy services. ");
         }
     }
@@ -44,7 +45,7 @@ public class ContentService {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy services. ");
         }
     }
@@ -57,7 +58,7 @@ public class ContentService {
                 models.add(new PaymentMethodModel(p.getId(), p.getName()));
             }
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy payment method. ");
         }
     }
@@ -70,7 +71,7 @@ public class ContentService {
                 models.add(new DeliveryMethodModel(d.getId(), d.getName()));
             }
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy delivery method. ");
         }
     }

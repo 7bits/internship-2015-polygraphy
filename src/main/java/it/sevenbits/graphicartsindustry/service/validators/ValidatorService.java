@@ -24,13 +24,7 @@ public class ValidatorService {
     private PolygraphyContactRepository polygraphyContactRepository;
 
     @Autowired
-    private RequestOnRegistrationRepository requestOnRegistrationRepository;
-
-//    @Autowired
-//    private RequestOnRegistrationService requestOnRegistrationService;
-//
-//    @Autowired
-//    private RegistrationService registrationService;
+    private RequestOnRegistrationRepository requestOnRegistrationRepository;;
 
     public void isRegistratedFindCompliance(final String value,
                                             final int valueId,

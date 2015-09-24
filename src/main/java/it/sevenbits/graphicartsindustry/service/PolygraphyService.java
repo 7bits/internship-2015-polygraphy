@@ -1,10 +1,7 @@
 package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
-import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
+import it.sevenbits.graphicartsindustry.core.repository.*;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyAdminModel;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyFullModel;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyMinModel;
@@ -65,7 +62,7 @@ public class PolygraphyService {
                 models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail(), p.isDisplayed()));
             }
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find all polygraphies. ");
         }
     }
@@ -79,7 +76,7 @@ public class PolygraphyService {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find all display polygraphies. ");
         }
     }
@@ -92,7 +89,7 @@ public class PolygraphyService {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphies. ");
         }
     }
@@ -104,7 +101,7 @@ public class PolygraphyService {
                     polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
                     polygraphyContacts.getInfo());
             return models;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find all polygraphy. ");
         }
     }
@@ -126,7 +123,7 @@ public class PolygraphyService {
             if (userId != null)
                 userRepository.removeUser(userId);
             txManager.commit(status);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");

@@ -2,13 +2,14 @@
 
 var gulp = require('gulp'),
     autoprefixer = require('autoprefixer'),
-    browsersync = require('browser-sync'),
+    browsersync = require('browser-sync').create(),
     minifyCss = require('gulp-minify-css'),
     rigger = require('gulp-rigger'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
     assets = require('postcss-assets'),
     postcss = require('gulp-postcss'),
+    $ = require('jquery'),
     reload = browsersync.reload;
 
 var path = {
@@ -35,13 +36,14 @@ var path = {
 
 var config = {
     server: {
-        baseDir: './build'
+        baseDir: 'src/main/resources/public/build'
     },
-    tunnel: true,
-    host: 'localhost',
-    port: 9000,
-    logPrefix: 'Frontend_Devil'
+    port: 9000
 };
+
+gulp.task('webserver', function () {
+    browsersync.init(config);
+});
 
 gulp.task('js:build', function () {
     gulp.src(path.src.js) //Найдем наш main файл

@@ -60,9 +60,11 @@
             url: '/admin/remove-polygraphy',
             headers: headers,
             data: {'polygraphyId': id},
-            success: function() {
-                $(btn).parent().parent().parent().remove();
-                $('.b-popup-verification').fadeOut('fast');
+            success: function(data) {
+                if (data.success === true){
+                    $(btn).parent().parent().parent().remove();
+                    $('.b-popup-verification').fadeOut('fast');
+                }
             }
         });
     };
@@ -137,7 +139,6 @@
         $('.b-inside-tabs__js-remove-bid').on('click', removeBid);
 
         $('.b-inside-tabs__js-remove-from-search').on('click', function(){
-
             var id = $(this).attr('id');
             var btn = $(this);
             var verification = $('.b-popup-verification');
@@ -151,6 +152,7 @@
                 }
                 else{
                     verification.fadeOut('fast');
+                    id = null;
                 }
             });
         });

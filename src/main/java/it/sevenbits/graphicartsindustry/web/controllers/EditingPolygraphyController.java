@@ -2,8 +2,8 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
+import it.sevenbits.graphicartsindustry.web.domain.JsonResponse;
+import it.sevenbits.graphicartsindustry.web.domain.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,28 +23,42 @@ public class EditingPolygraphyController {
     @Autowired
     private UserResolver userResolver;
 
-
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
-    public String loadPageEditingPolygraphyByAdmin(@PathVariable(value = "id") int polygraphyId,
-                                                   final Model model) throws ServiceException {
-        model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-        model.addAttribute("services", contentService.findAllServices());
-        model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByAdmin(polygraphyId));
-        model.addAttribute("editingForm.polygraphyId", polygraphyId);
-        return "home/editing_polygraphy";
+    public String loadPageEditingPolygraphyByAdmin(@PathVariable(value = "id") int polygraphyId, final Model model) {
+        try {
+            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            model.addAttribute("services", contentService.findAllServices());
+            model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByAdmin(polygraphyId));
+            model.addAttribute("editingForm.polygraphyId", polygraphyId);
+            return "home/editing_polygraphy";
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption(e);
+        }
     }
 
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
-    public SuccessErrorsResponse editPolygraphyByAdmin(@RequestBody EditingPolygraphyForm editingPolygraphyForm,
-                                                       final Model model) throws ServiceException {
-        return editingPolygraphyService.editPolygraphyByAdmin(editingPolygraphyForm);
+    public JsonResponse editPolygraphyByAdmin(@RequestBody EditingPolygraphyForm editingPolygraphyForm, final Model model) {
+        JsonResponse response = new JsonResponse();
+        try {
+            ValidatorResponse validatorResponse = editingPolygraphyService.editPolygraphyByAdmin(editingPolygraphyForm);
+            if (validatorResponse.isSuccess()) {
+                response.setSuccess(true);
+                return response;
+            }
+            response.setSuccess(false);
+            response.setErrors("validate", validatorResponse.getErrors());
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setErrors("base", "Не удалось сохранить изменения полиграфии. ");
+            return response;
+        }
     }
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
-    public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                        final Model model) throws ServiceException, ResourceNotFoundException {
+    public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
         try {
             if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
                 model.addAttribute("paymentMethods", contentService.findPaymentMethods());
@@ -54,19 +68,33 @@ public class EditingPolygraphyController {
                 model.addAttribute("editingForm.polygraphyId", polygraphyId);
                 return "home/editing_polygraphy";
             }
+            throw new ResourceNotFoundException();
         } catch (Exception e) {
-            throw new InternalServerErrorExeption("" + e.getMessage(), e);
+            throw new InternalServerErrorExeption(e);
         }
-        throw new ResourceNotFoundException();
     }
-
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
-    public SuccessErrorsResponse editPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                            @RequestBody EditingPolygraphyForm editingPolygraphyForm,
-                                                            final Model model) throws ServiceException {
-        return editingPolygraphyService.editPolygraphyByPolygraphy(polygraphyId, editingPolygraphyForm);
+    public JsonResponse editPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
+                                                   @RequestBody EditingPolygraphyForm editingPolygraphyForm,
+                                                   final Model model) {
+        JsonResponse response = new JsonResponse();
+        try {
+            ValidatorResponse validatorResponse =
+                    editingPolygraphyService.editPolygraphyByPolygraphy(polygraphyId, editingPolygraphyForm);
+            if (validatorResponse.isSuccess()) {
+                response.setSuccess(true);
+                return response;
+            }
+            response.setSuccess(false);
+            response.setErrors("validate", validatorResponse.getErrors());
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.setErrors("base", "Не удалось сохранить изменения полиграфии. ");
+            return response;
+        }
     }
 
     @RequestMapping(value = "/editing-polygraphy-success", method = RequestMethod.GET)

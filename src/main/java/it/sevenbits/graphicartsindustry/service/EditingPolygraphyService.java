@@ -8,7 +8,7 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesReposi
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
-import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
+import it.sevenbits.graphicartsindustry.web.domain.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.apache.log4j.Logger;
@@ -153,18 +153,18 @@ public class EditingPolygraphyService {
 
     }
 
-    public SuccessErrorsResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm)
+    public ValidatorResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm)
             throws ServiceException {
         try {
-            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
-            successErrorsResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
-            if (successErrorsResponse.getErrors().size() != 0) {
-                successErrorsResponse.setSuccess(false);
-                return successErrorsResponse;
+            ValidatorResponse validatorResponse = new ValidatorResponse();
+            validatorResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
+            if (validatorResponse.getErrors().size() != 0) {
+                validatorResponse.setSuccess(false);
+                return validatorResponse;
             }
             this.saveEditingPolygraphy(editingPolygraphyForm);
-            successErrorsResponse.setSuccess(true);
-            return successErrorsResponse;
+            validatorResponse.setSuccess(true);
+            return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("Can not validate or save editing polygraphy. ");
         }
@@ -195,25 +195,25 @@ public class EditingPolygraphyService {
         }
     }
 
-    public SuccessErrorsResponse editPolygraphyByPolygraphy(int polygraphyId, EditingPolygraphyForm editingPolygraphyForm)
+    public ValidatorResponse editPolygraphyByPolygraphy(int polygraphyId, EditingPolygraphyForm editingPolygraphyForm)
             throws ServiceException {
         try {
-            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
+            ValidatorResponse validatorResponse = new ValidatorResponse();
             if (userResolver.getUsername().equals(this.findUserEmailByPolygraphyId(polygraphyId))) {
-                successErrorsResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
-                if (successErrorsResponse.getErrors().size() != 0) {
-                    successErrorsResponse.setSuccess(false);
-                    return successErrorsResponse;
+                validatorResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
+                if (validatorResponse.getErrors().size() != 0) {
+                    validatorResponse.setSuccess(false);
+                    return validatorResponse;
                 }
                 this.saveEditingPolygraphyByPolygraphy(editingPolygraphyForm);
-                successErrorsResponse.setSuccess(true);
-                return successErrorsResponse;
+                validatorResponse.setSuccess(true);
+                return validatorResponse;
             }
             HashMap<String, String> errors = new HashMap<>();
             errors.put("base", "Ссылка на изменение устарела");
-            successErrorsResponse.setErrors(errors);
-            successErrorsResponse.setSuccess(false);
-            return successErrorsResponse;
+            validatorResponse.setErrors(errors);
+            validatorResponse.setSuccess(false);
+            return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("Can not validate or save editing polygraphy. ");
         }

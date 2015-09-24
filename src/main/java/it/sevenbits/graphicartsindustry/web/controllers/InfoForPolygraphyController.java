@@ -2,7 +2,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
+import it.sevenbits.graphicartsindustry.web.domain.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class InfoForPolygraphyController {
 
     @RequestMapping(value = "/info-for-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public SuccessErrorsResponse saveRequestOnRegistration(
+    public ValidatorResponse saveRequestOnRegistration(
             @ModelAttribute RequestOnRegistrationForm requestOnRegistrationForm, Model model) throws ServiceException {
         return requestOnRegistrationService.saveRequestOnRegistration(requestOnRegistrationForm);
     }

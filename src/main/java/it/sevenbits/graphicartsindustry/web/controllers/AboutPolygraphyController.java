@@ -39,7 +39,7 @@ public class AboutPolygraphyController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setError("base", "Не удалось загрузить данные о полиграфии. ");
+            response.setErrors("base", "Не удалось загрузить данные о полиграфии. ");
             return response;
         }
     }

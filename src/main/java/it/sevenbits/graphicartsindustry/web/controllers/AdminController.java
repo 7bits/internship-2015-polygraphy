@@ -49,7 +49,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setError("base", "Не удалось сгенерировать и отправить ссылку на регистрацию. ");
+            response.setErrors("base", "Не удалось сгенерировать и отправить ссылку на регистрацию. ");
             return response;
         }
     }
@@ -66,7 +66,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setError("base", "Не удалось удалить запрос на регистрацию. ");
+            response.setErrors("base", "Не удалось удалить запрос на регистрацию. ");
             return response;
         }
     }
@@ -82,7 +82,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setError("base", "Не удалось изменить состояние отображения полиграфии в списке. ");
+            response.setErrors("base", "Не удалось изменить состояние отображения полиграфии в списке. ");
             return response;
         }
     }
@@ -98,7 +98,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setError("base", "Не удалось удалить полиграфию. ");
+            response.setErrors("base", "Не удалось удалить полиграфию. ");
             return response;
         }
     }

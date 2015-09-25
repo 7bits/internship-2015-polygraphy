@@ -110,7 +110,8 @@
                                 selectStep(i + 1);
                             }
                             else{
-                                window.App.displayErrors(data);
+                                //window.App.displayErrors(data);
+                                $('#big-form').trigger('showErrors', data);
                             }
                         }
                     });

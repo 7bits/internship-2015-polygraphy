@@ -1,6 +1,6 @@
 var displayErrors = flight.component(
     function() {
-        this.showError = function(e, data){
+        this.showErrors = function(e, data){
             var className = $('#big-form').attr('class')/*.split(' ')[0]*/;
             var baseError = $('.'+className+'__base-error');
 
@@ -21,7 +21,7 @@ var displayErrors = flight.component(
         };
 
         this.after('initialize', function(){
-            this.on('callErrorsHandler', this.showError)
-        })
+            this.on('showErrors', this.showErrors);
+        });
     }
 );

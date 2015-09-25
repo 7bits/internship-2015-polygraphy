@@ -69,7 +69,8 @@
                     window.location.href = '/registration-success';
                 }
                 else{
-                    window.App.displayErrors(data);
+                    //window.App.displayErrors(data);
+                    $('#big-form').trigger('showErrors', data);
                 }
             }
         });

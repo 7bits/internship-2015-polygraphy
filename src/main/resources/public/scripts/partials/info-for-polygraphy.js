@@ -31,7 +31,7 @@
                 }
                 else{
                     //window.App.displayErrors(data);
-                    $('#big-form').trigger('callErrorsHandler', data);
+                    $('#big-form').trigger('showErrors', data);
                 }
             }
         });

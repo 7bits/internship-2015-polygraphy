@@ -10,6 +10,7 @@ import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
+import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import org.apache.log4j.Logger;
@@ -26,6 +27,9 @@ import java.util.Map;
 @Service
 public class RegistrationService {
     private static final Logger LOG = Logger.getLogger(RegistrationService.class);
+
+    @Autowired
+    private RequestOnRegistrationService requestOnRegistrationService;
 
     @Autowired
     private RegistrationFirstFormValidator firstFormValidator;
@@ -88,6 +92,31 @@ public class RegistrationService {
                 return validatorResponse;
             }
             validatorResponse.setSuccess(true);
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
+    }
+
+    public ValidatorResponse validateFirstAndSecondRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = validateSecondRegistrationForm(registrationForm.getSecondForm());
+            if (validatorResponse.isSuccess()) {
+                validatorResponse = validateFirstRegistrationForm(registrationForm.getFirstForm());
+            }
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
+    }
+
+    public ValidatorResponse validateAndSaveRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = validateFirstAndSecondRegistrationForm(registrationForm);
+            if (validatorResponse.isSuccess()) {
+                requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
+                saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
+            }
             return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("");

@@ -3,7 +3,6 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.RegistrationService;
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
@@ -48,7 +47,7 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration/first-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResponse firstStep(@RequestBody RegistrationFirstForm registrationFirstForm, final Model model) throws ServiceException {
+    public JsonResponse firstStep(@RequestBody RegistrationFirstForm registrationFirstForm, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
             if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash()) != null) {
@@ -59,7 +58,7 @@ public class RegistrationController {
                     return response;
                 }
                 response.setSuccess(false);
-                response.addErrors("validation", validatorResponse);
+                response.addErrors("validation", validatorResponse.getErrors());
                 return response;
             }
             response.setSuccess(false);
@@ -74,26 +73,17 @@ public class RegistrationController {
 
     @RequestMapping(value = "/registration/second-step", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
-    public JsonResponse secondStep (@RequestBody RegistrationForm registrationForm,
-                                          final Model model) throws ServiceException {
+    public JsonResponse secondStep (@RequestBody RegistrationForm registrationForm, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
             if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash()) != null) {
-                ValidatorResponse validatorResponse =
-                        registrationService.validateSecondRegistrationForm(registrationForm.getSecondForm());
+                ValidatorResponse validatorResponse = registrationService.validateAndSaveRegistrationForm(registrationForm);
                 if (validatorResponse.isSuccess()) {
-                    validatorResponse = registrationService.validateFirstRegistrationForm(registrationForm.getFirstForm());
-                    if (validatorResponse.isSuccess()) {
-                        requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
-                        registrationService.saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
-                        response.setSuccess(true);
-                        return response;
-                    }
-                    response.setSuccess(false);
-                    response.addErrors("validationFirstForm", validatorResponse);
+                    response.setSuccess(true);
+                    return response;
                 }
                 response.setSuccess(false);
-                response.addErrors("validationSecondForm", validatorResponse);
+                response.addErrors("validation", validatorResponse.getErrors());
                 return response;
             }
             response.setSuccess(false);

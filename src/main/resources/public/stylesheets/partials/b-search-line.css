@@ -13,7 +13,7 @@
     padding: 0px;
     border: 2px solid #64be5f;
     border-radius: 25px;
-    background: url("/images/loupe.png") no-repeat;
+    background: inline("loupe.png") no-repeat;
     background-position: 15px center;
     background-color: white;
     outline: none;

@@ -25,3 +25,6 @@ notifications:
       - nastyaproh21@gmail.com
     on_success: always # default: change
     on_failure: always # default: always
+  slack:
+    rooms:
+      - 7bits-internship:LLsyP7ljfi9ptHPQaq8DPHcz#general

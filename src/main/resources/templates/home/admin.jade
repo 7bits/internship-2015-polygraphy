@@ -1,12 +1,14 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/b-tabs.css")
-    link(rel="stylesheet", href="/stylesheets/b-inside-tabs.css")
-    link(rel="stylesheet", href="/stylesheets/b-popup-verification.css")
-    link(rel="stylesheet", href="/stylesheets/jquery.gritter.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-tabs.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-inside-tabs.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/b-popup-verification.css")
+    link(rel="stylesheet", href="/stylesheets/partials/jquery.gritter.css")
 
 block content
+
+    =message
 
     .b-tabs
         .b-tabs__tab.b-tabs__js-active-tab(id='registration-bids')
@@ -85,6 +87,7 @@ block content
                 button.b-popup-verification__answer.no(type='button', answer='no')
                     | Отмена
 
+block append javascript
     script(type='application/javascript', src='/vendor/scripts/jquery.gritter.min.js')
     script(type='application/javascript', src='/vendor/scripts/jquery.gritter.js')
-    script(type='application/javascript', src='/scripts/admin.js')
+    //script(type='application/javascript', src='/scripts/partials/admin.js')

@@ -1,0 +1,87 @@
+/*@import url("osans.css");*/
+
+.general-form{
+    width: 700px;
+    height: auto;
+    background-color: #64be5f;
+    border-radius: 10px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    border: none;
+    padding: 50px;
+    color: white;
+}
+
+.general-form__explanatory-text{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.general-form__input{
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 15px;
+    display: inline-block;
+}
+
+.general-form__button{
+    text-align: center;
+    margin: 10px auto 0;
+}
+
+.general-form__button.general-form_inline-button{
+    display: inline-block;
+    padding: 0 20px;
+    margin: auto;
+}
+
+.general-form__input.general-form_inline-input{
+    width: 400px;
+    padding-left: 20px;
+}
+
+.general-form.general-form_login-form{
+    width: 475px;
+}
+
+.general-form.general-form_bid-form{
+    padding: 30px 50px 50px;
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+
+    .general-form{
+        width: 90%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    .general-form.general-form_login-form{
+        width: 90%;
+    }
+
+    .general-form.general-form_bid-form{
+        padding: 10px 20px 20px;
+    }
+
+    .general-form__explanatory-text{
+        margin: 10px auto;
+    }
+
+    .general-form__input{
+        padding: 0;
+        display: block;
+        width: 100%;
+        margin: 20px auto 10px;
+    }
+
+    .general-form__input.general-form_inline-input{
+        width: 100%;
+        padding-left: 0;
+    }
+
+
+}

@@ -1,10 +1,10 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/general-form.css")
-    link(rel="stylesheet", href="/stylesheets/general-form-headline.css")
-    link(rel="stylesheet", href="/stylesheets/general-input.css")
-    link(rel="stylesheet", href="/stylesheets/general-submit.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-form.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-form-headline.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-input.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-submit.css")
 
 block content
 
@@ -23,21 +23,21 @@ block content
                 .general-input
                     label(for='name-input').general-input__label
                         | E-mail
-                    input.general-input__input(type='text',
+                    input.general-input__input.js-normal-input(type='text',
                                             name='username',
                                             id='name-input')
-                    .general-input__for-error(id='username-for-error')
-                    .general-input__invalid(id='username-error')
+                    .general-input__for-error.js-none-display(id='username-for-error')
+                    .general-input__invalid.js-none-display(id='username-error')
 
             .general-form__input
                 .general-input
                     label.general-input__label(for='password-input')
                         | Пароль
-                    input.general-input__input(type='password',
+                    input.general-input__input.js-normal-input(type='password',
                                             name='password',
                                             id='password-input')
-                    .general-input__for-error(id='password-for-error')
-                    .general-input__invalid(id='password-error')
+                    .general-input__for-error.js-none-display(id='password-for-error')
+                    .general-input__invalid.js-none-display(id='password-error')
 
             .general-form__button
                 - buttonType = 'submit'

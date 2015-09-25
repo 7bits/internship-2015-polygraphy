@@ -1,0 +1,295 @@
+/**********************************/
+/* Эти стили нужны для иконок в результатах поиска */
+
+.small-a0{
+    background-image: inline('A0.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-a1{
+    background-image: inline('A1.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-a2{
+    background-image: inline('A2.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-a3{
+    background-image: inline('A3.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-a4{
+    background-image: inline('A4.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-bunner{
+    /*background-image: url("/images/bunner.png");*/
+    background: inline('bunner.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-calendar{
+    background-image: inline('calendar.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-cup{
+    background-image: inline('cup.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-magnit{
+    background-image: inline('magnit.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-sticker{
+    background-image: inline('sticker.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-badge{
+    background-image: inline('badge.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-card{
+    background-image: inline('card.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-note{
+    background-image: inline('note.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-t-shirt{
+    background-image: inline('t-shirt.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+.small-defolt{
+    background-image: inline('defolt.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px 30px;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+/***********************************************************/
+/* Эти стили нужны для иконок во всплывающем окне*/
+
+.A0{
+    background-image: inline('A0.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.A1{
+    background-image: inline('A1.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.A2{
+    background-image: inline('A2.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.A3{
+    background-image: inline('A3.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.A4{
+    background-image: inline('A4.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.bunner{
+    background-image: inline('bunner.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.calendar{
+    background-image: inline('calendar.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.cup{
+    background-image: inline('cup.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.magnit{
+    background-image: inline('magnit.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.sticker{
+    background-image: inline('sticker.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+
+.badge{
+    background-image: inline('badge.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.card{
+    background-image: inline('card.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.note{
+    background-image: inline('note.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.t-shirt{
+    background-image: inline('t-shirt.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+.defolt{
+    background-image: inline('defolt.png');
+    background-repeat: no-repeat;
+    background-size: 58px 59px;
+    padding: 0 5px 5px 0;
+    height: 58px;
+    width: 59px;
+}
+
+
+/**********************************************************/

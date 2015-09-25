@@ -1,0 +1,11 @@
+//= ../../../../../node_modules/flightjs/build/flight.js
+//= partials/global.js
+//= partials/header.js
+//= partials/app.js
+//= partials/admin.js
+//= partials/step-by-step-registration.js
+//= partials/registration.js
+//= partials/editing-polygraphy.js
+//= components/display-errors.js
+//= components/info-for-polygraphy.js
+//= init/init.js

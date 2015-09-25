@@ -1,0 +1,48 @@
+/*@import url("osans.css");*/
+
+.general-input__input{
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+    //border: 2px solid white;
+    border-width: 2px;
+    border-style: solid;
+    outline: none;
+    box-sizing: border-box;
+    padding: 0 30px;
+    font-family: "OpenSansRegular";
+    font-size: 14px;
+}
+
+.general-input__input:hover,
+.general-input__input:focus{
+    border: 2px solid #efe553;
+}
+
+.general-input__label{
+    cursor: pointer;
+    margin: 5px auto;
+    display: block;
+    color: white;
+    font-size: 16px;
+}
+
+.general-input__for-error{
+    //display: none;
+    height: 7px;
+    background-image: inline("for-error.png");
+    background-size: 13px 7px;
+    background-repeat: no-repeat;
+    background-position: calc(0% + 50px);
+}
+
+.general-input__invalid{
+    //display: none;
+    background-color: #FD5D58;
+    max-width: 80%;
+    float: left;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-size: 14px;
+    text-align: center;
+}

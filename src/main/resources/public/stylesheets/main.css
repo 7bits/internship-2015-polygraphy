@@ -1,46 +1,26 @@
-@import url("osans.css");
-
-body{
-    width: 1200px;
-    margin: 0 auto;
-    background-color: white;
-    font-family: "OpenSansLightRegular";
-}
-
-:focus{
-    outline: none;
-}
-
-.js-normal-input{
-    border-color: white;
-}
-
-.js-error-input{
-    border-color: #FD5D58;
-}
-
-.js-none-display{
-    display: none;
-}
-
-.js-display-block{
-    display: block;
-}
-
-@media screen and (max-width: 1024px){
-
-    body{
-        margin: auto;
-        width: 95%;
-    }
-
-}
-
-@media screen and (max-width: 700px){
-
-    body{
-        max-width: 450px;
-        min-width: 320px;
-    }
-
-}
+/*= partials/osans.css */
+/*= partials/header.css */
+/*= partials/global.css */
+/*= partials/icons.css */
+/*= partials/b-search.css*/
+/*= partials/b-search-line.css */
+/*= partials/b-often-seek.css */
+/*= partials/b-extend-search.css */
+/*= partials/b-dropdown.css */
+/*= partials/b-checkboxes.css */
+/*= partials/b-results.css */
+/*= partials/b-results-item.css */
+/*= partials/b-popup-window.css */
+/*= partials/general-form.css */
+/*= partials/general-form-headline.css */
+/*= partials/general-input.css */
+/*= partials/general-submit.css */
+/*= partials/about-project.css */
+/*= partials/about-polygraphy.css */
+/*= partials/b-tabs.css */
+/*= partials/b-inside-tabs.css */
+/*= partials/b-popup-verification.css */
+/*= partials/b-edit.css */
+/*= partials/registration.css */
+/*= partials/b-registration.css */
+/*= partials/success-action.css */

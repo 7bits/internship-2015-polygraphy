@@ -1,12 +1,14 @@
 extends ../layouts/layout
 
 block append head
-    link(rel="stylesheet", href="/stylesheets/general-form.css")
-    link(rel="stylesheet", href="/stylesheets/general-form-headline.css")
-    link(rel="stylesheet", href="/stylesheets/general-input.css")
-    link(rel="stylesheet", href="/stylesheets/general-submit.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-form.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-form-headline.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-input.css")
+    //link(rel="stylesheet", href="/stylesheets/partials/general-submit.css")
 
 block content
+
+    =message
 
     .general-form.general-form_bid-form
 
@@ -38,5 +40,6 @@ block content
                 a.general-submit(href=href)
                     | Войти
 
-    script(type='application/javascript', src='/scripts/info-for-polygraphy.js')
-    script(type='application/javascript', src='/scripts/partials/display-errors.js')
+block append javascript
+    //script(type='application/javascript', src='/scripts/partials/info-for-polygraphy.js')
+    //script(type='application/javascript', src='/scripts/partials/display-errors.js')

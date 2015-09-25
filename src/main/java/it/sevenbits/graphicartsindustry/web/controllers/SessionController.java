@@ -15,9 +15,14 @@ public class SessionController {
     private UserResolver userResolver;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String getLogin(HttpServletRequest request) {
-        if (userResolver.isUserInRole("ROLE_ANONYMOUS"))
-            return "session/login";
-        return "/fffff";
+    public String getLogin(HttpServletRequest request) throws ResourceNotFoundException {
+        try {
+            if (userResolver.isUserInRole("ROLE_ANONYMOUS"))
+                return "session/login";
+            else
+                throw new ResourceNotFoundException();
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption();
+        }
     }
 }

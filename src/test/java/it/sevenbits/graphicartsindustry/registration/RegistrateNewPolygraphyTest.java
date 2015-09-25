@@ -1,4 +1,3 @@
-/*
 package it.sevenbits.graphicartsindustry.registration;
 
 import java.util.regex.Pattern;
@@ -27,8 +26,7 @@ public void setUp() throws Exception {
 
 @Test
 public void testRegistration() throws Exception {
-  */
-/*driver.get(baseUrl + "/info-for-polygraphy");
+driver.get(baseUrl + "/info-for-polygraphy");
         driver.findElement(By.name("email")).clear();
         driver.findElement(By.name("email")).sendKeys("polygraphy1@qwery.qu");
         driver.findElement(By.id("submit-email")).click();
@@ -39,7 +37,7 @@ public void testRegistration() throws Exception {
         driver.findElement(By.id("password-input")).sendKeys("polygraphy");
         driver.findElement(By.cssSelector("button.submit-login-form")).click();
         driver.findElement(By.cssSelector("div.navigate-button.icon-for-list")).click();
-        driver.findElement(By.linkText("Личный кабинет")).click();*//*
+        driver.findElement(By.linkText("Личный кабинет")).click();
 
 
 
@@ -141,4 +139,3 @@ private String closeAlertAndGetItsText() {
         }
         }
         }
-*/

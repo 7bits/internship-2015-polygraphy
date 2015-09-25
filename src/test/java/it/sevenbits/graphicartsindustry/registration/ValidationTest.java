@@ -1,4 +1,3 @@
-/*
 package it.sevenbits.graphicartsindustry.registration;
 
 import java.util.regex.Pattern;
@@ -169,4 +168,3 @@ public class ValidationTest {
     }
   }
 }
-*/

@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyFullModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,11 @@ public class AboutPolygraphyController {
         try {
             model.addAttribute("polygraphy", polygraphyService.findPolygraphy(polygraphyId));
             return "home/about_polygraphy";
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
+            return "home/about_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -37,9 +41,13 @@ public class AboutPolygraphyController {
             response.setSuccess(true);
             response.addData("polygraphy", polygraphyFullModel);
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось загрузить данные о полиграфии. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }

@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
@@ -32,8 +33,11 @@ public class EditingPolygraphyController {
             model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByAdmin(polygraphyId));
             model.addAttribute("editingForm.polygraphyId", polygraphyId);
             return "home/editing_polygraphy";
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
+            return "home/editing_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -50,9 +54,13 @@ public class EditingPolygraphyController {
             response.setSuccess(false);
             response.setErrors(validatorResponse.getErrors());
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось сохранить изменения полиграфии. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }
@@ -69,8 +77,11 @@ public class EditingPolygraphyController {
                 return "home/editing_polygraphy";
             }
             throw new ResourceNotFoundException();
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
+            return "home/editing_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -90,9 +101,13 @@ public class EditingPolygraphyController {
             response.setSuccess(false);
             response.setErrors(validatorResponse.getErrors());
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось сохранить изменения полиграфии. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }

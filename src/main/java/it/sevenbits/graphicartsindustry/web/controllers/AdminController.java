@@ -3,6 +3,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,8 +33,11 @@ public class AdminController {
             model.addAttribute("requests", requestOnRegistrationService.findAllRequestsOnRegistration());
             model.addAttribute("polygraphies", polygraphyService.findAllPolygraphies());
             return "home/admin";
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
+            return "home/about_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -47,9 +51,13 @@ public class AdminController {
             response.setSuccess(true);
             response.addData("request", requestOnRegistrationModel);
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось сгенерировать и отправить ссылку на регистрацию. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }
@@ -64,9 +72,13 @@ public class AdminController {
             response.setSuccess(true);
             response.addData("requestId", requestId);
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось удалить запрос на регистрацию. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }
@@ -80,9 +92,13 @@ public class AdminController {
             editingPolygraphyService.editConditionDisplayPolygraphy(polygraphyId, curCondition);
             response.setSuccess(true);
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось изменить состояние отображения полиграфии в списке. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }
@@ -96,9 +112,13 @@ public class AdminController {
             polygraphyService.removePolygraphy(polygraphyId);
             response.setSuccess(true);
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось удалить полиграфию. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }

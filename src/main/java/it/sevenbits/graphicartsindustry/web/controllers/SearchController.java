@@ -34,12 +34,11 @@ public class SearchController {
             model.addAttribute("form", null);
             model.addAttribute("polygraphies", polygraphyService.findAllDisplayPolygraphies());
             return "home/index";
-        } catch (ServiceException e) {
-            model.addAttribute("message", "Не удалось загрузить контент. ");
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
             return "home/index";
-        }
-        catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -52,8 +51,11 @@ public class SearchController {
             model.addAttribute("form", form);
             model.addAttribute("polygraphies", polygraphyService.findPolygraphies(form));
             return "home/index";
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
+            return "home/index";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -66,9 +68,13 @@ public class SearchController {
             response.setSuccess(true);
             response.addData("polygraphies", polygraphies);
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось осуществить поиск по полиграфиям. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }

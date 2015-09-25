@@ -1,9 +1,10 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
-import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +25,7 @@ public class InfoForPolygraphyController {
             model.addAttribute("request", new RequestOnRegistrationForm());
             return "home/info_for_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -43,9 +44,13 @@ public class InfoForPolygraphyController {
             response.setSuccess(false);
             response.setErrors(validatorResponse.getErrors());
             return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось сохранить запрос на регистрацию. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }

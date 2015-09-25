@@ -3,6 +3,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.RegistrationService;
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
@@ -40,8 +41,11 @@ public class RegistrationController {
                 return "session/registration";
             }
             throw new ResourceNotFoundException();
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
+            return "session/registration";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption(e);
+            throw new InternalServerErrorExeption();
         }
     }
 
@@ -59,9 +63,13 @@ public class RegistrationController {
              response.setSuccess(false);
              response.setErrors(validatorResponse.getErrors());
              return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось осуществить валидацию данных. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }
@@ -79,9 +87,13 @@ public class RegistrationController {
              response.setSuccess(false);
              response.setErrors(validatorResponse.getErrors());
              return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Не удалось осуществить валидацию данных. ");
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
             return response;
         }
     }

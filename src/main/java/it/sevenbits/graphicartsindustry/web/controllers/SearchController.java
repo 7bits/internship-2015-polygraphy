@@ -2,9 +2,10 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
-import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
-import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
+import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyMinModel;
+import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,11 @@ public class SearchController {
             model.addAttribute("form", null);
             model.addAttribute("polygraphies", polygraphyService.findAllDisplayPolygraphies());
             return "home/index";
-        } catch (Exception e) {
+        } catch (ServiceException e) {
+            model.addAttribute("message", "Не удалось загрузить контент. ");
+            return "home/index";
+        }
+        catch (Exception e) {
             throw new InternalServerErrorExeption(e);
         }
     }

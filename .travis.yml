@@ -1,8 +1,5 @@
 language: java
-before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"    
-  - sleep 3 # give xvfb some time to start
+
 install: mvn install -DskipTests=true
 ## do the tests
 script: mvn clean test
@@ -11,21 +8,18 @@ jdk:
 sudo: false
 branches:
   only:
+  - feature/travis_CI
+  except:
+  - feature/refactoring_service
+  - feature/BEM
   - develop
+env:
+  global:
+  - secure: "nastya_prohorova"
+  - secure: "475fc805-6e70-46a5-adb4-938288051155"
 notifications:
   email:
     recipients:
       - nastyaproh21@gmail.com
     on_success: always # default: change
     on_failure: always # default: always
-env:
-  global:
-  - SELENIUM_HOST=hub.browserstack.com
-  - SELENIUM_PORT=80
-  - BS_AUTOMATE_PROJECT="$TRAVIS_REPO_SLUG"
-  - BS_AUTOMATE_BUILD="Travis build No. $TRAVIS_BUILD_NUMBER for $TRAVIS_REPO_SLUG"
-  matrix:
-  - SELENIUM_PLATFORM=Linux SELENIUM_BROWSER=chrome SELENIUM_VERSION=44 SELENIUM_BROWSER_URL="http://www.browserstack.com"
- ## - SELENIUM_PLATFORM=Linux SELENIUM_BROWSER=firefox SELENIUM_VERSION=38 SELENIUM_BROWSER_URL="http://www.browserstack.com"
-
-##before_script: mvn install selenium-webdriver

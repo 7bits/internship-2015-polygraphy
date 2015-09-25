@@ -172,7 +172,7 @@ fieldset {
 }
 
 .b-registration__invalid{
-    //display: none;
+/*    display: none;*/
     background-color: #FD5D58;
     max-width: 80%;
     float: left;
@@ -183,10 +183,11 @@ fieldset {
 }
 
 .b-registration__base-error{
-    display: none;
+    /*display: none;*/
     background-color: #FD5D58;
     max-width: 80%;
-    float: right;
+    /*float: right;*/
+    margin: auto;
     padding: 5px 15px;
     border-radius: 25px;
     font-size: 14px;

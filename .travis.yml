@@ -1,18 +1,18 @@
 language: java
 
+branches:
+  only:
+   - develop
+ # except:
+ # - feature/refactoring_service
+  #- feature/BEM
+  #- feature/travis_CI
 install: mvn install -DskipTests=true
 ## do the tests
 script: mvn clean test
 jdk:
 - openjdk7
 sudo: false
-branches:
-  only:
-  - feature/travis_CI
-  except:
-  - feature/refactoring_service
-  - feature/BEM
-  - develop
 env:
   global:
   - secure: "nastya_prohorova"

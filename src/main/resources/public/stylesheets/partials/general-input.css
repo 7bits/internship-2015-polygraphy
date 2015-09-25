@@ -1,4 +1,4 @@
-@import url("osans.css");
+/*@import url("osans.css");*/
 
 .general-input__input{
     height: 40px;
@@ -30,7 +30,7 @@
 .general-input__for-error{
     //display: none;
     height: 7px;
-    background-image: url("/images/for-error.png");
+    background-image: inline("for-error.png");
     background-size: 13px 7px;
     background-repeat: no-repeat;
     background-position: calc(0% + 50px);

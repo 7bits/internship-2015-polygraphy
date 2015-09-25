@@ -30,7 +30,8 @@
                     window.location.href = '/info-for-polygraphy-success';
                 }
                 else{
-                    window.App.displayErrors(data);
+                    //window.App.displayErrors(data);
+                    $('#big-form').trigger('callErrorsHandler', data);
                 }
             }
         });

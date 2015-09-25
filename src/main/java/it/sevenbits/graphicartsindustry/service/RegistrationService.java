@@ -7,8 +7,12 @@ import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactReposit
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
 import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
+import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
+import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
+import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,9 +22,20 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import java.util.Map;
+
 @Service
 public class RegistrationService {
     private static final Logger LOG = Logger.getLogger(RegistrationService.class);
+
+    @Autowired
+    private RequestOnRegistrationService requestOnRegistrationService;
+
+    @Autowired
+    private RegistrationFirstFormValidator firstFormValidator;
+
+    @Autowired
+    private RegistrationSecondFormValidator secondFormValidator;
 
     @Autowired
     private UserRepository userRepository;
@@ -49,6 +64,75 @@ public class RegistrationService {
         this.customTx = new DefaultTransactionDefinition();
         this.customTx.setName(TX_NAME);
         this.customTx.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+    }
+
+    public ValidatorResponse validateFirstRegistrationForm(RegistrationFirstForm registrationFirstForm) throws ServiceException {
+        ValidatorResponse validatorResponse = new ValidatorResponse();
+        try {
+            if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash()) != null) {
+                final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+                if (errorsFirstForm.size() != 0) {
+                    validatorResponse.setErrors(errorsFirstForm);
+                    validatorResponse.setSuccess(false);
+                    return validatorResponse;
+                }
+                validatorResponse.setSuccess(true);
+                return validatorResponse;
+            }
+            validatorResponse.setSuccess(false);
+            validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
+    }
+
+    public ValidatorResponse validateSecondRegistrationForm(RegistrationSecondForm registrationSecondForm,
+                                                            String hashRegistrationLink) throws ServiceException {
+        ValidatorResponse validatorResponse = new ValidatorResponse();
+        try {
+            if (requestOnRegistrationService.findRequestOnRegistrationByHash(hashRegistrationLink) != null) {
+                final Map<String, String> errorsFirstForm = secondFormValidator.validate(registrationSecondForm);
+                if (errorsFirstForm.size() != 0) {
+                    validatorResponse.setErrors(errorsFirstForm);
+                    validatorResponse.setSuccess(false);
+                    return validatorResponse;
+                }
+                validatorResponse.setSuccess(true);
+                return validatorResponse;
+            }
+            validatorResponse.setSuccess(false);
+            validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
+    }
+
+    public ValidatorResponse validateFirstAndSecondRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = validateSecondRegistrationForm(registrationForm.getSecondForm(),
+                    registrationForm.getFirstForm().getHash());
+            if (validatorResponse.isSuccess()) {
+                validatorResponse = validateFirstRegistrationForm(registrationForm.getFirstForm());
+            }
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
+    }
+
+    public ValidatorResponse validateAndSaveRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = validateFirstAndSecondRegistrationForm(registrationForm);
+            if (validatorResponse.isSuccess()) {
+                requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
+                saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
+            }
+            return validatorResponse;
+        } catch (Exception e) {
+            throw new ServiceException("");
+        }
     }
 
     public void saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
@@ -101,10 +185,7 @@ public class RegistrationService {
 
     public boolean isRegistrated(String email) throws ServiceException {
         try {
-            if (userRepository.findUserByUsername(email) != null)
-                return true;
-            else
-                return false;
+            return userRepository.findUserByUsername(email) != null;
         } catch (Exception e) {
             throw new ServiceException("Can not verify the existence of email in the list of registration requests. ");
         }

@@ -6,7 +6,7 @@
         var baseError = $('.'+className+'__base-error');
 
         if (data.errors['base']){
-            baseError.addClass('js-display-block');
+            baseError.removeClass('js-none-display').addClass('js-display-block');
             baseError.text(data.errors['base']);
         }
         else {

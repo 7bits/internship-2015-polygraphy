@@ -42,7 +42,7 @@ public class PolygraphyProvider {
 
         sqlQuery.append(" WHERE p.displayed=true");
         if (query != null && !query.isEmpty()) {
-            sqlQuery.append(" AND LOWER(p.name) ILIKE '%" + query + "%'");
+            sqlQuery.append(" AND LOWER(p.name) ILIKE '%").append(query).append("%'");
         }
 
         if (services.size() != 0) {
@@ -53,11 +53,11 @@ public class PolygraphyProvider {
                 if (index < services.size() - 1)
                     sqlQuery.append(",");
             }
-            sqlQuery.append("))=" + services.size());
+            sqlQuery.append("))=").append(services.size());
         }
 
         if (paymentMethod != null && paymentMethod != 0) {
-            sqlQuery.append(" AND ppm.payment_method_id=" + paymentMethod);
+            sqlQuery.append(" AND ppm.payment_method_id=").append(paymentMethod);
         }
 
         if (writesTheCheck != null && writesTheCheck.equals(true)) {
@@ -65,7 +65,7 @@ public class PolygraphyProvider {
         }
 
         if (deliveryMethod != null && deliveryMethod != 0) {
-            sqlQuery.append(" AND pdm.delivery_method_id=" + deliveryMethod);
+            sqlQuery.append(" AND pdm.delivery_method_id=").append(deliveryMethod);
         }
 
         if (orderByEmail != null && orderByEmail.equals(true)) {

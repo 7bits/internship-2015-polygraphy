@@ -3,7 +3,8 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
-import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,45 +24,92 @@ public class EditingPolygraphyController {
     @Autowired
     private UserResolver userResolver;
 
-
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
-    public String loadPageEditingPolygraphyByAdmin(@PathVariable(value = "id") int polygraphyId,
-                                                   final Model model) throws ServiceException {
-        model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-        model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-        model.addAttribute("services", contentService.findAllServices());
-        model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByAdmin(polygraphyId));
-        model.addAttribute("editingForm.polygraphyId", polygraphyId);
-        return "home/editing_polygraphy";
+    public String loadPageEditingPolygraphyByAdmin(@PathVariable(value = "id") int polygraphyId, final Model model) {
+        try {
+            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            model.addAttribute("services", contentService.findAllServices());
+            model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByAdmin(polygraphyId));
+            model.addAttribute("editingForm.polygraphyId", polygraphyId);
+            return "home/editing_polygraphy";
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
+            return "home/editing_polygraphy";
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption();
+        }
     }
 
     @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
-    public SuccessErrorsResponse editPolygraphyByAdmin(@RequestBody EditingPolygraphyForm editingPolygraphyForm,
-                                                       final Model model) throws ServiceException {
-        return editingPolygraphyService.editPolygraphyByAdmin(editingPolygraphyForm);
+    public JsonResponse editPolygraphyByAdmin(@RequestBody EditingPolygraphyForm editingPolygraphyForm, final Model model) {
+        JsonResponse response = new JsonResponse();
+        try {
+            ValidatorResponse validatorResponse = editingPolygraphyService.editPolygraphyByAdmin(editingPolygraphyForm);
+            if (validatorResponse.isSuccess()) {
+                response.setSuccess(true);
+                return response;
+            }
+            response.setSuccess(false);
+            response.setErrors(validatorResponse.getErrors());
+            return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            return response;
+        }
     }
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
-    public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                        final Model model) throws ServiceException {
-        if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
-            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-            model.addAttribute("services", contentService.findAllServices());
-            model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
-            model.addAttribute("editingForm.polygraphyId", polygraphyId);
+    public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
+        try {
+            if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
+                model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+                model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+                model.addAttribute("services", contentService.findAllServices());
+                model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
+                model.addAttribute("editingForm.polygraphyId", polygraphyId);
+                return "home/editing_polygraphy";
+            }
+            throw new ResourceNotFoundException();
+        } catch (ServiceException serviceExeption) {
+            model.addAttribute("message", serviceExeption.getMessage());
             return "home/editing_polygraphy";
+        } catch (Exception e) {
+            throw new InternalServerErrorExeption();
         }
-        return "/fffff";
     }
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
     @ResponseBody
-    public SuccessErrorsResponse editPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
-                                                            @RequestBody EditingPolygraphyForm editingPolygraphyForm,
-                                                            final Model model) throws ServiceException {
-        return editingPolygraphyService.editPolygraphyByPolygraphy(polygraphyId, editingPolygraphyForm);
+    public JsonResponse editPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
+                                                   @RequestBody EditingPolygraphyForm editingPolygraphyForm,
+                                                   final Model model) {
+        JsonResponse response = new JsonResponse();
+        try {
+            ValidatorResponse validatorResponse =
+                    editingPolygraphyService.editPolygraphyByPolygraphy(polygraphyId, editingPolygraphyForm);
+            if (validatorResponse.isSuccess()) {
+                response.setSuccess(true);
+                return response;
+            }
+            response.setSuccess(false);
+            response.setErrors(validatorResponse.getErrors());
+            return response;
+        } catch (ServiceException serviceExeption) {
+            response.setSuccess(false);
+            response.addErrors("base", serviceExeption.getMessage());
+            return response;
+        } catch (Exception e) {
+            response.setSuccess(false);
+            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            return response;
+        }
     }
 
     @RequestMapping(value = "/editing-polygraphy-success", method = RequestMethod.GET)

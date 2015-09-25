@@ -1,6 +1,6 @@
 package it.sevenbits.graphicartsindustry.service;
 
-import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.mail.javamail.JavaMailSender;

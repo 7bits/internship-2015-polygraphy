@@ -17,11 +17,11 @@
             headers: headers,
             data: {'requestId': id},
             success: function(responseData) {
-                var reqId = responseData.id;
+                var reqId = responseData.data.request.id;
                 var insideTab = $('.b-inside-tabs__link a[id='+reqId+']');
                 $('.b-inside-tabs__generate-link a[id='+reqId+']').parent().hide();
-                insideTab.attr('href', responseData.link);
-                insideTab.text(responseData.link);
+                insideTab.attr('href', responseData.data.request.link);
+                insideTab.text(responseData.data.request.link);
             }
         });
     };

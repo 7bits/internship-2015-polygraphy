@@ -101,7 +101,7 @@ public class RequestOnRegistrationService {
         try {
             String hash = generateHashRegistrationLink();
             saveHashRegistrationLink(requestId, hash);
-            RequestOnRegistrationModel requestOnRegistrationModel = this.findRequestOnRegistrationById(requestId);
+            RequestOnRegistrationModel requestOnRegistrationModel = findRequestOnRegistrationById(requestId);
             sendingMessagesService.sendingRegistrationLink(requestOnRegistrationModel);
             return requestOnRegistrationModel;
         } catch (ServiceException e) {

@@ -50,20 +50,15 @@ public class RegistrationController {
     public JsonResponse firstStep(@RequestBody RegistrationFirstForm registrationFirstForm, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
-            if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash()) != null) {
-                ValidatorResponse validatorResponse =
-                        registrationService.validateFirstRegistrationForm(registrationFirstForm);
-                if (validatorResponse.isSuccess()) {
-                    response.setSuccess(true);
-                    return response;
-                }
-                response.setSuccess(false);
-                response.addErrors("validation", validatorResponse.getErrors());
-                return response;
-            }
-            response.setSuccess(false);
-            response.addErrors("base", "Ссылка на регистрацию устарела");
-            return response;
+             ValidatorResponse validatorResponse =
+                     registrationService.validateFirstRegistrationForm(registrationFirstForm);
+             if (validatorResponse.isSuccess()) {
+                 response.setSuccess(true);
+                 return response;
+             }
+             response.setSuccess(false);
+             response.setErrors(validatorResponse.getErrors());
+             return response;
         } catch (Exception e) {
             response.setSuccess(false);
             response.addErrors("base", "Не удалось осуществить валидацию данных. ");
@@ -76,19 +71,14 @@ public class RegistrationController {
     public JsonResponse secondStep (@RequestBody RegistrationForm registrationForm, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
-            if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash()) != null) {
-                ValidatorResponse validatorResponse = registrationService.validateAndSaveRegistrationForm(registrationForm);
-                if (validatorResponse.isSuccess()) {
-                    response.setSuccess(true);
-                    return response;
-                }
-                response.setSuccess(false);
-                response.addErrors("validation", validatorResponse.getErrors());
-                return response;
-            }
-            response.setSuccess(false);
-            response.addErrors("base", "Ссылка на регистрацию устарела");
-            return response;
+             ValidatorResponse validatorResponse = registrationService.validateAndSaveRegistrationForm(registrationForm);
+             if (validatorResponse.isSuccess()) {
+                 response.setSuccess(true);
+                 return response;
+             }
+             response.setSuccess(false);
+             response.setErrors(validatorResponse.getErrors());
+             return response;
         } catch (Exception e) {
             response.setSuccess(false);
             response.addErrors("base", "Не удалось осуществить валидацию данных. ");

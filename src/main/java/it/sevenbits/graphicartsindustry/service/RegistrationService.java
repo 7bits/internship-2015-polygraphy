@@ -69,29 +69,40 @@ public class RegistrationService {
     public ValidatorResponse validateFirstRegistrationForm(RegistrationFirstForm registrationFirstForm) throws ServiceException {
         ValidatorResponse validatorResponse = new ValidatorResponse();
         try {
-            final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
-            if (errorsFirstForm.size() != 0) {
-                validatorResponse.setErrors(errorsFirstForm);
-                validatorResponse.setSuccess(false);
+            if (requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash()) != null) {
+                final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
+                if (errorsFirstForm.size() != 0) {
+                    validatorResponse.setErrors(errorsFirstForm);
+                    validatorResponse.setSuccess(false);
+                    return validatorResponse;
+                }
+                validatorResponse.setSuccess(true);
                 return validatorResponse;
             }
-            validatorResponse.setSuccess(true);
+            validatorResponse.setSuccess(false);
+            validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
             return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("");
         }
     }
 
-    public ValidatorResponse validateSecondRegistrationForm(RegistrationSecondForm registrationSecondForm) throws ServiceException {
+    public ValidatorResponse validateSecondRegistrationForm(RegistrationSecondForm registrationSecondForm,
+                                                            String hashRegistrationLink) throws ServiceException {
         ValidatorResponse validatorResponse = new ValidatorResponse();
         try {
-            final Map<String, String> errorsFirstForm = secondFormValidator.validate(registrationSecondForm);
-            if (errorsFirstForm.size() != 0) {
-                validatorResponse.setErrors(errorsFirstForm);
-                validatorResponse.setSuccess(false);
+            if (requestOnRegistrationService.findRequestOnRegistrationByHash(hashRegistrationLink) != null) {
+                final Map<String, String> errorsFirstForm = secondFormValidator.validate(registrationSecondForm);
+                if (errorsFirstForm.size() != 0) {
+                    validatorResponse.setErrors(errorsFirstForm);
+                    validatorResponse.setSuccess(false);
+                    return validatorResponse;
+                }
+                validatorResponse.setSuccess(true);
                 return validatorResponse;
             }
-            validatorResponse.setSuccess(true);
+            validatorResponse.setSuccess(false);
+            validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
             return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("");
@@ -100,7 +111,8 @@ public class RegistrationService {
 
     public ValidatorResponse validateFirstAndSecondRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
         try {
-            ValidatorResponse validatorResponse = validateSecondRegistrationForm(registrationForm.getSecondForm());
+            ValidatorResponse validatorResponse = validateSecondRegistrationForm(registrationForm.getSecondForm(),
+                    registrationForm.getFirstForm().getHash());
             if (validatorResponse.isSuccess()) {
                 validatorResponse = validateFirstRegistrationForm(registrationForm.getFirstForm());
             }

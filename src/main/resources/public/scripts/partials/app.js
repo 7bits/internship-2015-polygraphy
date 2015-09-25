@@ -19,7 +19,7 @@
             success: function(data) {
                 console.log(data);
                 var html = template({
-                    polygraphies: data//,
+                    polygraphies: data.data.polygraphies//,
                     //polygraphiesListIsNull: data.polygraphiesListIsNull
                 });
                 $('.b-search__polygraphies-list').html(html);
@@ -54,7 +54,7 @@
             url: url,
             headers: headers,
             success: function(data) {
-                $('.b-popup-window').html(render(data));
+                $('.b-popup-window').html(render(data.data.polygraphy));
             },
             error:  function(xhr, str){
                 //console.log(arguments);

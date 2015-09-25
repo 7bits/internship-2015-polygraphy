@@ -35,11 +35,11 @@ public class AboutPolygraphyController {
         try {
             PolygraphyFullModel polygraphyFullModel = polygraphyService.findPolygraphy(polygraphyId);
             response.setSuccess(true);
-            response.setData("polygraphy", polygraphyFullModel);
+            response.addData("polygraphy", polygraphyFullModel);
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось загрузить данные о полиграфии. ");
+            response.addErrors("base", "Не удалось загрузить данные о полиграфии. ");
             return response;
         }
     }

@@ -59,11 +59,11 @@ public class SearchController {
         try {
             List<PolygraphyMinModel> polygraphies = polygraphyService.findPolygraphies(form);
             response.setSuccess(true);
-            response.setData("polygraphies", polygraphies);
+            response.addData("polygraphies", polygraphies);
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось осуществить поиск по полиграфиям. ");
+            response.addErrors("base", "Не удалось осуществить поиск по полиграфиям. ");
             return response;
         }
     }

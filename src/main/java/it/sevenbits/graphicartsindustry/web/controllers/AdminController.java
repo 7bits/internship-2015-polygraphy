@@ -45,11 +45,11 @@ public class AdminController {
             RequestOnRegistrationModel requestOnRegistrationModel =
                     requestOnRegistrationService.sendRegistrationLink(requestId);
             response.setSuccess(true);
-            response.setData("request", requestOnRegistrationModel);
+            response.addData("request", requestOnRegistrationModel);
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось сгенерировать и отправить ссылку на регистрацию. ");
+            response.addErrors("base", "Не удалось сгенерировать и отправить ссылку на регистрацию. ");
             return response;
         }
     }
@@ -62,11 +62,11 @@ public class AdminController {
         try {
             requestOnRegistrationService.removeRequestOnRegistrationById(requestId);
             response.setSuccess(true);
-            response.setData("requestId", requestId);
+            response.addData("requestId", requestId);
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось удалить запрос на регистрацию. ");
+            response.addErrors("base", "Не удалось удалить запрос на регистрацию. ");
             return response;
         }
     }
@@ -82,7 +82,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось изменить состояние отображения полиграфии в списке. ");
+            response.addErrors("base", "Не удалось изменить состояние отображения полиграфии в списке. ");
             return response;
         }
     }
@@ -98,7 +98,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось удалить полиграфию. ");
+            response.addErrors("base", "Не удалось удалить полиграфию. ");
             return response;
         }
     }

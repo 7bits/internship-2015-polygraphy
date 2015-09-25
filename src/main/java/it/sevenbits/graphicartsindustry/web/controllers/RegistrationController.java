@@ -59,15 +59,15 @@ public class RegistrationController {
                     return response;
                 }
                 response.setSuccess(false);
-                response.getErrors("validation", validatorResponse);
+                response.addErrors("validation", validatorResponse);
                 return response;
             }
             response.setSuccess(false);
-            response.setErrors("base", "Ссылка на регистрацию устарела");
+            response.addErrors("base", "Ссылка на регистрацию устарела");
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось осуществить валидацию данных. ");
+            response.addErrors("base", "Не удалось осуществить валидацию данных. ");
             return response;
         }
     }
@@ -90,18 +90,18 @@ public class RegistrationController {
                         return response;
                     }
                     response.setSuccess(false);
-                    response.setErrors("validationFirstForm", validatorResponse);
+                    response.addErrors("validationFirstForm", validatorResponse);
                 }
                 response.setSuccess(false);
-                response.getErrors("validationSecondForm", validatorResponse);
+                response.addErrors("validationSecondForm", validatorResponse);
                 return response;
             }
             response.setSuccess(false);
-            response.setErrors("base", "Ссылка на регистрацию устарела");
+            response.addErrors("base", "Ссылка на регистрацию устарела");
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось осуществить валидацию данных. ");
+            response.addErrors("base", "Не удалось осуществить валидацию данных. ");
             return response;
         }
     }

@@ -20,11 +20,15 @@ public class JsonResponse {
         this.success = success;
     }
 
-    public HashMap<String, Object> getErrors(String validation, ValidatorResponse validatorResponse) {
+    public HashMap<String, Object> getErrors() {
         return errors;
     }
 
-    public void setErrors(String key, Object value) {
+    public void setErrors(HashMap<String, Object> errors) {
+        this.errors = errors;
+    }
+
+    public void addErrors(String key, Object value) {
         this.errors.put(key, value);
     }
 
@@ -32,7 +36,11 @@ public class JsonResponse {
         return data;
     }
 
-    public void setData(String key, Object value) {
+    public void setData(HashMap<String, Object> data) {
+        this.data = data;
+    }
+
+    public void addData(String key, Object value) {
         this.data.put(key, value);
     }
 }

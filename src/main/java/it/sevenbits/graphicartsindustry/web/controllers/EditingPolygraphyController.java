@@ -48,11 +48,11 @@ public class EditingPolygraphyController {
                 return response;
             }
             response.setSuccess(false);
-            response.setErrors("validation", validatorResponse.getErrors());
+            response.addErrors("validation", validatorResponse.getErrors());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось сохранить изменения полиграфии. ");
+            response.addErrors("base", "Не удалось сохранить изменения полиграфии. ");
             return response;
         }
     }
@@ -88,11 +88,11 @@ public class EditingPolygraphyController {
                 return response;
             }
             response.setSuccess(false);
-            response.setErrors("validation", validatorResponse.getErrors());
+            response.addErrors("validation", validatorResponse.getErrors());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось сохранить изменения полиграфии. ");
+            response.addErrors("base", "Не удалось сохранить изменения полиграфии. ");
             return response;
         }
     }

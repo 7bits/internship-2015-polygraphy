@@ -41,11 +41,11 @@ public class InfoForPolygraphyController {
                 return response;
             }
             response.setSuccess(false);
-            response.setErrors("validation", validatorResponse.getErrors());
+            response.addErrors("validation", validatorResponse.getErrors());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.setErrors("base", "Не удалось сохранить запрос на регистрацию. ");
+            response.addErrors("base", "Не удалось сохранить запрос на регистрацию. ");
             return response;
         }
     }

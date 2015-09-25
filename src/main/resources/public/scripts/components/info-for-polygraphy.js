@@ -36,8 +36,16 @@ var validateFormForBid = flight.component(
             });
         };
 
+        this.pressEnter = function(event){
+            if (event.keyCode === 13){
+                event.preventDefault();
+            }
+        };
+
         this.after('initialize', function(){
+            this.$node.find('input').attr('autocomplete', 'off');
             this.$node.find('.general-submit[id=submit-email]').on('click', this.validateForm);
+            this.$node.bind('keypress', this.pressEnter);
         });
 
     }

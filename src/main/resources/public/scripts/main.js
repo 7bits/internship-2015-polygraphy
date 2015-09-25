@@ -2,11 +2,10 @@
 //= partials/global.js
 //= partials/header.js
 //= partials/app.js
-//= partials/info-for-polygraphy.js
 //= partials/admin.js
 //= partials/step-by-step-registration.js
 //= partials/registration.js
 //= partials/editing-polygraphy.js
 //= components/display-errors.js
-//= components/validate-form-for-bid.js
+//= components/info-for-polygraphy.js
 //= init/init.js

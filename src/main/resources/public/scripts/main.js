@@ -7,3 +7,4 @@
 //= partials/step-by-step-registration.js
 //= partials/registration.js
 //= partials/editing-polygraphy.js
+//= partials/error-page.js

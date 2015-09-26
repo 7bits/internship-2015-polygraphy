@@ -18,10 +18,12 @@
         var forError = $('.general-input__for-error');
         var baseError = $('.general-form__base-error');
 
-        $(this).addClass('js-normal-input').removeClass('js-error-input');
+        input.addClass('js-normal-input').removeClass('js-error-input');
         invalid.addClass('js-none-display').removeClass('js-display-block');
         forError.addClass('js-none-display').removeClass('js-display-block');
         invalid.text('');
+        baseError.addClass('js-none-display').removeClass('js-display-block');
+        baseError.text('');
 
         var names = {};
         input.each(function(){
@@ -38,8 +40,6 @@
             });
         });
 
-        baseError.addClass('js-none-display');
-        baseError.text('');
 
         $.ajax({
             type: 'PUT',
@@ -70,7 +70,7 @@
                 }
                 else{
                     //window.App.displayErrors(data);
-                    $('#big-form').trigger('showErrors', data);
+                    $('#editing-form').trigger('showErrors', data);
                 }
             }
         });
@@ -79,7 +79,7 @@
 
     $(document).ready(function(){
 
-        $('.general-submit').on('click', validateEditForm);
+        $('.general-submit[id=save-editing-data]').on('click', validateEditForm);
 
     });
 })();

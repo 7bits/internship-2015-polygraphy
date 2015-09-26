@@ -73,10 +73,10 @@
                     invalid.addClass('js-none-display').removeClass('js-display-block');
                     forError.addClass('js-none-display').removeClass('js-display-block');
                     invalid.text('');
+                    baseError.addClass('js-none-display').removeClass('js-display-block');
+                    baseError.text('');
 
                     CKEDITOR.instances['text-area-field'].updateElement();
-                    baseError.addClass('js-none-display');
-                    baseError.text('');
 
                     var names = {};
                     input.each(function(){
@@ -111,7 +111,7 @@
                             }
                             else{
                                 //window.App.displayErrors(data);
-                                $('#big-form').trigger('showErrors', data);
+                                $('#registration-form').trigger('showErrors', data);
                             }
                         }
                     });
@@ -122,7 +122,7 @@
                 $('#steps li').removeClass('js-current');
                 $('#stepDesc' + i).addClass('js-current');
             }
-        }
+        };
     })(jQuery);
 
     $(document).ready(function(){

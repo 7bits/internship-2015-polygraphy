@@ -70,7 +70,7 @@
                 }
                 else{
                     //window.App.displayErrors(data);
-                    $('#big-form').trigger('showErrors', data);
+                    $('#registration-form').trigger('showErrors', data);
                 }
             }
         });
@@ -80,7 +80,7 @@
 
         $('input').attr('autocomplete', 'off');
 
-        $('.general-form').on('click', '.general-submit', validateSecondStep);
+        $('.general-form').on('click', '.general-submit[id=submit-registration-form]', validateSecondStep);
 
     });
 

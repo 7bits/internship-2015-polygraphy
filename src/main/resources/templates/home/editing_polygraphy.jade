@@ -16,7 +16,7 @@ block content
         if security.isUserInRole('ROLE_POLYGRAPHY')
             - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/update'
 
-        form(action=url)
+        form(action=url, id='editing-form')
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
 
             if security.isUserInRole('ROLE_POLYGRAPHY')
@@ -172,5 +172,5 @@ block content
 
             .general-form__button
                 - buttonType = 'button'
-                button.general-submit(type=buttonType)
+                button.general-submit(type=buttonType, id='save-editing-data')
                     | Сохранить

@@ -18,13 +18,14 @@
         var forError = $('.general-input__for-error');
         var baseError = $('.general-form__base-error');
 
+        $(this).addClass('js-normal-input').removeClass('js-error-input');
+        invalid.addClass('js-none-display').removeClass('js-display-block');
+        forError.addClass('js-none-display').removeClass('js-display-block');
+        invalid.text('');
+
         var names = {};
         input.each(function(){
             names[$(this).attr('name')] = $(this).val();
-            $(this).addClass('js-normal-input').removeClass('js-error-input');
-            invalid.addClass('js-none-display').removeClass('js-display-block');
-            forError.addClass('js-none-display').removeClass('js-display-block');
-            invalid.text('');
         });
 
         var checkboxes = {};

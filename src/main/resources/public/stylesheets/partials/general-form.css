@@ -10,6 +10,10 @@
     color: white;
 }
 
+.general-form.general-form_registration{
+    position: relative;
+}
+
 .general-form__explanatory-text{
     color: white;
     font-size: 20px;

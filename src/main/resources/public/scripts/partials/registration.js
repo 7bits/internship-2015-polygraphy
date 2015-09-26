@@ -8,9 +8,9 @@
         var headers = {};
         headers[header] = token;
 
-        var input = $('.b-registration__input');
-        var invalid = $('.b-registration__invalid');
-        var forError = $('.b-registration__for-error');
+        var input = $('.general-input__input');
+        var invalid = $('.general-input__invalid');
+        var forError = $('.general-input__for-error');
 
         input.addClass('js-normal-input').removeClass('js-error-input');
         invalid.addClass('js-none-display').removeClass('js-display-block');
@@ -29,11 +29,11 @@
 
         /* Поля второго шага */
         var checkboxes = {};
-        $('.b-registration__checkbox').each(function(){
+        $('.general-checkbox__checkbox').each(function(){
             checkboxes[$(this).attr('name')] = [];
         });
         $.each(checkboxes, function(key, value){
-            $('.b-registration__checkbox[name='+key+']:checked').each(function(){
+            $('.general-checkbox__checkbox[name='+key+']:checked').each(function(){
                 value.push($(this).attr('value'));
             });
         });
@@ -80,7 +80,7 @@
 
         $('input').attr('autocomplete', 'off');
 
-        $('.b-registration').on('click', '.b-registration__submit', validateSecondStep);
+        $('.general-form').on('click', '.general-submit', validateSecondStep);
 
     });
 

@@ -1,0 +1,31 @@
+.general-checkbox{
+    margin: 10px 0;
+}
+
+input.general-checkbox__checkbox[type="checkbox"]{
+    display: none;
+}
+
+input.general-checkbox__checkbox[type="checkbox"]+label{
+    background: inline("check.png") 0px 0px no-repeat;
+    padding-left: 23px;
+    width: auto;
+    height: 20px;
+    /*margin-top: 15px;*/
+    display: block;
+    text-align: left;
+}
+
+input.general-checkbox__checkbox[type="checkbox"]:checked+label{
+    background: inline("check.png") 0 -30px no-repeat;
+    /*padding-left: 23px;
+    width: auto;
+    height: 20px;
+    /!*margin-top: 15px;*!/
+    display: block;
+    text-align: left;*/
+}
+
+input.general-checkbox__checkbox[type="checkbox"]+label:hover{
+    cursor: pointer;
+}

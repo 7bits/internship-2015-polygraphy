@@ -13,10 +13,10 @@
         var writesTheCheck = $('.js-wtc').prop('checked');
         var orderByEmail = $('.js-obe').prop('checked');
 
-        var input = $('.b-edit__input');
-        var invalid = $('.b-edit__invalid');
-        var forError = $('.b-edit__for-error');
-        var baseError = $('.b-edit__base-error');
+        var input = $('.general-input__input');
+        var invalid = $('.general-input__invalid');
+        var forError = $('.general-input__for-error');
+        var baseError = $('.general-form__base-error');
 
         var names = {};
         input.each(function(){
@@ -28,11 +28,11 @@
         });
 
         var checkboxes = {};
-        $('.b-edit__checkbox').each(function(){
+        $('.general-checkbox__checkbox').each(function(){
             checkboxes[$(this).attr('name')] = [];
         });
         $.each(checkboxes, function(key, value){
-            $('.b-edit__checkbox[name='+key+']:checked').each(function(){
+            $('.general-checkbox__checkbox[name='+key+']:checked').each(function(){
                 value.push($(this).attr('value'));
             });
         });
@@ -78,7 +78,7 @@
 
     $(document).ready(function(){
 
-        $('.b-edit__save').on('click', validateEditForm);
+        $('.general-submit').on('click', validateEditForm);
 
     });
 })();

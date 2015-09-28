@@ -38,6 +38,20 @@ var path = {
     clean: './build'
 };
 
+function readAssetsVersion() {
+    var version = '';
+
+    try {
+        var doc = yaml.safeLoad(fs.readFileSync('target/classes/config/application-staging.yml'));
+        version = doc.assets.version;
+    } catch (e) {
+        console.error('Fatal error. Before running scripts packaging package spring application');
+        version = '';
+    }
+
+    return version;
+}
+
 var config = {
     server: {
         baseDir: 'src/main/resources/public/build'

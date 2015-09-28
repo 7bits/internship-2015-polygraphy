@@ -174,7 +174,8 @@
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
         <includes>
-          <include>config/application.yml</include>
+          <include>config/application-staging.yml</include>
+          <include>config/application-development.yml</include>
         </includes>
       </resource>
       <resource>

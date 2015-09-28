@@ -22,9 +22,7 @@ public class PolygraphyRepository {
 
     public List<PolygraphyContacts> findPolygraphies(SearchForm query) throws RepositoryException {
         try {
-            String symbolIsBanned = "'";
-            String processedQuery = query.getQuery().replaceAll(symbolIsBanned,"");
-            return polygraphyMapper.findPolygraphies(processedQuery.toLowerCase(), query.getServices(), query.getPaymentMethod(),
+            return polygraphyMapper.findPolygraphies(query.getQuery().toLowerCase(), query.getServices(), query.getPaymentMethod(),
                     query.isWritesTheCheck(), query.getDeliveryMethod(), query.isOrderByEmail());
         } catch (Exception e) {
             LOG.error("Can not load polygraphies by query due to repository error: " + e.getMessage(), e);

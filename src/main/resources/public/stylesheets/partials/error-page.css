@@ -1,0 +1,22 @@
+.error-page{
+    position: relative;
+}
+
+.error-page__content{
+    width: 100%;
+    position: absolute;
+    bottom: 45%;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    font-size: 30px;
+    font-family: 'OpenSansLightRegular';
+}
+
+.error-page__explanatory-text{
+    display: block;
+}
+
+.error-page__submit{
+    margin-top: 20px;
+}

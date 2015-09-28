@@ -8,6 +8,8 @@ block append head
 
 block content
 
+    =message
+
     .general-form.general-form_bid-form
 
         .general-form__explanatory-text
@@ -17,7 +19,7 @@ block content
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
 
             .general-form__input.general-form_inline-input
-                .general-input(id='big-form')
+                .general-input
                     input.general-input__input.js-normal-input(type='text', name='email')
                     .general-input__for-error.js-none-display(id='email-for-error')
                     .general-input__invalid.js-none-display(id='email-error')
@@ -35,7 +37,7 @@ block content
 
             - href = '/login'
             .general-form__button
-                a.general-submit(href=href)
+                a.general-submit(href=href, id='button-on-login-page')
                     | Войти
 
 block append javascript

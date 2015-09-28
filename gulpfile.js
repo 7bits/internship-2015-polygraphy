@@ -10,6 +10,7 @@ var gulp = require('gulp'),
     assets = require('postcss-assets'),
     postcss = require('gulp-postcss'),
     $ = require('jquery'),
+    flight = require('flightjs'),
     reload = browsersync.reload;
 
 var path = {

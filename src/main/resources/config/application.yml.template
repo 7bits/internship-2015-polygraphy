@@ -35,12 +35,6 @@ test:
   username:
   password:
   domain:
-  driver:
-    chrome:
-    opera:
-    safari:
-    ie8:
-
 ---
 
 spring:

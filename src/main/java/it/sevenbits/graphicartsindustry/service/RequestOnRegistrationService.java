@@ -3,14 +3,16 @@ package it.sevenbits.graphicartsindustry.service;
 import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
 import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
-import it.sevenbits.graphicartsindustry.web.domain.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.utils.RegistrationLinkResolver;
+import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,6 +33,9 @@ public class RequestOnRegistrationService {
 
     @Autowired
     private RegistrationLinkResolver registrationLinkResolver;
+
+    @Autowired
+    private MessageSource messageSource;
 
     public List<RequestOnRegistrationModel> findAllRequestsOnRegistration() throws ServiceException {
         try {
@@ -73,17 +78,17 @@ public class RequestOnRegistrationService {
         }
     }
 
-    public SuccessErrorsResponse saveRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
+    public ValidatorResponse saveRequestOnRegistration(RequestOnRegistrationForm form) throws ServiceException {
         try {
-            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
-            successErrorsResponse.setErrors(requestOnRegistrationValidator.validate(form));
-            if (successErrorsResponse.getErrors().size() != 0) {
-                successErrorsResponse.setSuccess(false);
-                return successErrorsResponse;
+            ValidatorResponse validatorResponse = new ValidatorResponse();
+            validatorResponse.setErrors(requestOnRegistrationValidator.validate(form));
+            if (validatorResponse.getErrors().size() != 0) {
+                validatorResponse.setSuccess(false);
+                return validatorResponse;
             }
-            successErrorsResponse.setSuccess(true);
+            validatorResponse.setSuccess(true);
             requestOnRegistrationRepository.createRequestOnRegistration(form.getEmail());
-            return successErrorsResponse;
+            return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("Can not save request on registration. ");
         }
@@ -91,10 +96,7 @@ public class RequestOnRegistrationService {
 
     public boolean isRequested (String email) throws ServiceException {
         try {
-            if (requestOnRegistrationRepository.findRequestByEmail(email) != null)
-                return true;
-            else
-                return false;
+            return requestOnRegistrationRepository.findRequestByEmail(email) != null;
         } catch (Exception e) {
             throw new ServiceException("Can not verify the existence of email in the list of registration requests. ");
         }
@@ -104,13 +106,15 @@ public class RequestOnRegistrationService {
         try {
             String hash = generateHashRegistrationLink();
             saveHashRegistrationLink(requestId, hash);
-            RequestOnRegistrationModel requestOnRegistrationModel = this.findRequestOnRegistrationById(requestId);
+            RequestOnRegistrationModel requestOnRegistrationModel = findRequestOnRegistrationById(requestId);
             sendingMessagesService.sendingRegistrationLink(requestOnRegistrationModel);
             return requestOnRegistrationModel;
         } catch (ServiceException e) {
             throw new ServiceException("Can not generate or save registration link: " + e.getMessage());
         } catch (MessagingException e) {
             throw new ServiceException("Can not send registration link. ");
+        } catch (IOException e) {
+            throw new ServiceException("Can not generate or save registration link: " + e.getMessage());
         }
     }
 

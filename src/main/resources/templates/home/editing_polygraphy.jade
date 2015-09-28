@@ -1,14 +1,14 @@
 extends ../layouts/layout
 
 block append head
-    link(rel='stylesheet', href='/stylesheets/b-edit.css')
-    link(rel='stylesheet', href='/stylesheets/registration.css')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
 
-    .b-edit(id='big-form')
-        .b-edit__headline
+    =message
+
+    .general-form(id='big-form')
+        .general-form-headline
             | РЕДАКТИРОВАНИЕ
 
         if security.isUserInRole('ROLE_ADMIN')
@@ -16,146 +16,162 @@ block content
         if security.isUserInRole('ROLE_POLYGRAPHY')
             - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/update'
 
-        form(action=url)
-            input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-            input.b-edit__input(id = 'polygraphy-id',
-                            type='hidden',
-                            name='polygraphyId',
-                            value='#{editingForm.polygraphyId}')
+        form(action=url, id='editing-form')
+            input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+            input.general-input__input(id='polygraphy-id', type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
 
             if security.isUserInRole('ROLE_POLYGRAPHY')
-                .b-edit__text-input-wrapper
-                    label.b-edit__input-label
-                        | E-mail для регистрации *
-                    input.b-edit__input.js-normal-input(type='text',
-                                    id='email-input',
-                                    name = 'email',
-                                    value='#{editingForm.email}')
-                    .b-edit__for-error.js-none-display(id = 'email-for-error')
-                    .b-edit__invalid.js-none-display(id = 'email-error')
-                .b-edit__text-input-wrapper
-                    label.b-edit__input-label
-                        | Пароль *
-                    input.b-edit__input.js-normal-input(type='text',
-                                    id='password-input',
-                                    name = 'password')
-                    .b-edit__for-error.js-none-display(id = 'password-for-error')
-                    .b-edit__invalid.js-none-display(id = 'password-error')
-            .b-edit__text-input-wrapper
-                label.b-edit__input-label
-                    | Название полиграфии *
-                input.b-edit__input.js-normal-input(type='text',
-                                id='name-input',
-                                name = 'name',
-                                value='#{editingForm.name}')
-                .b-edit__for-error.js-none-display(id = 'name-for-error')
-                .b-edit__invalid.js-none-display(id = 'name-error')
-            .b-edit__text-input-wrapper
-                label.b-edit__input-label
-                    | Адрес *
-                input.b-edit__input.js-normal-input(type='text',
-                                id='address-input',
-                                name = 'address',
-                                value='#{editingForm.address}')
-                .b-edit__for-error.js-none-display(id = 'address-for-error')
-                .b-edit__invalid.js-none-display(id = 'address-error')
-            .b-edit__text-input-wrapper
-                label.b-edit__input-label
-                    | Телефон *
-                input.b-edit__input.js-normal-input(type='text',
-                                id='phone-input',
-                                name = 'phone',
-                                value='#{editingForm.phone}')
-                .b-edit__for-error.js-none-display(id = 'phone-for-error')
-                .b-edit__invalid.js-none-display(id = 'phone-error')
-            .b-edit__text-input-wrapper
-                label.b-edit__input-label
-                    | Публичный e-mail
-                input.b-edit__input.js-normal-input(type='text',
-                                id='email-public-input',
-                                name = 'publicEmail',
-                                value='#{editingForm.publicEmail}')
-                .b-edit__for-error.js-none-display(id='publicEmail-for-error')
-                .b-edit__invalid.js-none-display(id = 'publicEmail-error')
-            .b-edit__text-input-wrapper
-                label.b-edit__input-label
-                    | Сайт
-                input.b-edit__input.js-normal-input(type='text',
-                                id='website-input',
-                                name = 'website',
-                                value='#{editingForm.website}')
-                .b-edit__for-error.js-none-display(id = 'website-for-error')
-                .b-edit__invalid.js-none-display(id = 'website-error')
-            .b-edit__text-input-wrapper
-                label.b-edit__input-label
-                    | Описание
-                textarea.b-edit__input.js-normal-input.b-edit__textarea-field(name='textArea',
-                                                                            id='text-area-field')
-                    != editingForm.info
-                script.
-                    CKEDITOR.replace('text-area-field')
 
-            input.js-obe.b-edit__checkbox(id='order-by-email',
-                                name='orderByEmail',
-                                type='checkbox',
-                                checked='#{editingForm.orderByEmail}')
-            label(for='order-by-email')
-                | Принимаем заказ по e-mail
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | E-mail для регистрации *
+                        input.general-input__input.js-normal-input(type='text',
+                        id='email-input',
+                        name = 'email',
+                        value='#{editingForm.email}')
+                        .general-input__for-error.js-none-display(id = 'email-for-error')
+                        .general-input__invalid.js-none-display(id = 'email-error')
 
-            input.js-wtc.b-edit__checkbox(id='writes-the-check',
-                                name='writesTheCheck',
-                                type='checkbox',
-                                checked='#{editingForm.writesTheCheck}')
-            label(for='writes-the-check')
-                | Выдаем чек
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | Пароль *
+                        input.general-input__input.js-normal-input(type='text',
+                        id='password-input',
+                        name = 'password')
+                        .general-input__for-error.js-none-display(id = 'password-for-error')
+                        .general-input__invalid.js-none-display(id = 'password-error')
 
-            .b-edit__checkboxes-wrapper
-                label.b-edit__input-label
+            .general-form__input
+                .general-input
+                    label.general-input__label
+                        | Название полиграфии *
+                    input.general-input__input.js-normal-input(type='text',
+                    id='name-input',
+                    name = 'name',
+                    value='#{editingForm.name}')
+                    .general-input__for-error.js-none-display(id = 'name-for-error')
+                    .general-input__invalid.js-none-display(id = 'name-error')
+
+            .general-form__input
+                .general-input
+                    label.general-input__label
+                        | Адрес *
+                    input.general-input__input.js-normal-input(type='text',
+                    id='address-input',
+                    name = 'address',
+                    value='#{editingForm.address}')
+                    .general-input__for-error.js-none-display(id = 'address-for-error')
+                    .general-input__invalid.js-none-display(id = 'address-error')
+
+            .general-form__input
+                .general-input
+                    label.general-input__label
+                        | Телефон *
+                    input.general-input__input.js-normal-input(type='text',
+                    id='phone-input',
+                    name = 'phone',
+                    value='#{editingForm.phone}')
+                    .general-input__for-error.js-none-display(id = 'phone-for-error')
+                    .general-input__invalid.js-none-display(id = 'phone-error')
+
+            .general-form__input
+                .general-input
+                    label.general-input__label
+                        | Публичный e-mail
+                    input.general-input__input.js-normal-input(type='text',
+                    id='email-public-input',
+                    name = 'publicEmail',
+                    value='#{editingForm.publicEmail}')
+                    .general-input__for-error.js-none-display(id='publicEmail-for-error')
+                    .general-input__invalid.js-none-display(id='publicEmail-error')
+
+            .general-form__input
+                .general-input
+                    label.general-input__label
+                        | Сайт
+                    input.general-input__input.js-normal-input(type='text',
+                    id='website-input',
+                    name = 'website',
+                    value='#{editingForm.website}')
+                    .general-input__for-error.js-none-display(id = 'website-for-error')
+                    .general-input__invalid.js-none-display(id = 'website-error')
+
+            .general-form__input
+                .general-input
+                    label.general-input__label
+                        | Описание
+                    textarea.general-input__input.js-normal-input.general-form_textarea-field(name='textArea',
+                    id='text-area-field')
+                        != editingForm.info
+                    script.
+                        CKEDITOR.replace('text-area-field');
+
+            .general-checkbox
+                input.general-checkbox__checkbox.js-obe(id='order-by-email',
+                    name='orderByEmail',
+                    type='checkbox',
+                    checked='#{editingForm.orderByEmail}')
+                label(for='order-by-email')
+                    | Принимаем заказ по e-mail
+
+            .general-checkbox
+                input.general-checkbox__checkbox.js-wtc(id='writes-the-check',
+                    name='writesTheCheck',
+                    type='checkbox',
+                    checked='#{editingForm.writesTheCheck}')
+                label(for='writes-the-check')
+                    | Выдаем чек
+
+            .general-form__checkboxes
+                label.general-input__label.general-input__label_headline
                     | Способы оплаты
                 for paymentMethod in paymentMethods
                     - pm_checked = editingForm.paymentMethods.contains(paymentMethod.id)
-                    input.js-pm.b-edit__checkbox(id='payment#{paymentMethod.id}',
-                                        name='paymentMethods',
-                                        value='#{paymentMethod.id}',
-                                        type='checkbox',
-                                        checked=pm_checked)
-                    label(for='payment'+paymentMethod.id)=paymentMethod.name
-                .b-edit__for-error.js-none-display(id='paymentMethods-for-error')
-                .b-edit__invalid.js-none-display(id='paymentMethods-error')
+                    .general-checkbox
+                        input.general-checkbox__checkbox.js-pm(id='payment#{paymentMethod.id}',
+                            name='paymentMethods',
+                            value='#{paymentMethod.id}',
+                            type='checkbox',
+                            checked=pm_checked)
+                        label(for='payment' + paymentMethod.id)=paymentMethod.name
+                .general-input__for-error.js-none-display(id='paymentMethods-for-error')
+                .general-input__invalid.js-none-display(id='paymentMethods-error')
 
-            .b-edit__checkboxes-wrapper
-                label.b-edit__input-label
+            .general-form__checkboxes
+                label.general-input__label.general-input__label_headline
                     | Способы доставки
                 for deliveryMethod in deliveryMethods
                     - dm_checked = editingForm.deliveryMethods.contains(deliveryMethod.id)
-                    input.js-dm.b-edit__checkbox(id='delivery#{deliveryMethod.id}',
-                                        name='deliveryMethods',
-                                        value='#{deliveryMethod.id}',
-                                        type='checkbox',
-                                        checked=dm_checked)
-                    label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                .b-edit__for-error.js-none-display(id='deliveryMethods-for-error')
-                .b-edit__invalid.js-none-display(id='deliveryMethods-error')
+                    .general-checkbox
+                        input.general-checkbox__checkbox.js-dm(id='delivery#{deliveryMethod.id}',
+                            name='deliveryMethods',
+                            value='#{deliveryMethod.id}',
+                            type='checkbox',
+                            checked=dm_checked)
+                        label(for='delivery' + deliveryMethod.id)=deliveryMethod.name
+                .general-input__for-error.js-none-display(id='deliveryMethods-for-error')
+                .general-input__invalid.js-none-display(id='deliveryMethods-error')
 
-            .b-edit__service-checkboxes-wrapper
-                label.b-edit__input-label
+            .general-form__checkboxes.general-form__checkboxes_services
+                label.general-input__label.general-input__label_headline
                     | Предоставляемые услуги
                 for service in services
                     - s_checked = editingForm.services.contains(service.id)
-                    input.js-s.b-edit__checkbox(id='service#{service.id}',
-                                        name='services',
-                                        value='#{service.id}',
-                                        type='checkbox',
-                                        checked=s_checked)
-                    label(for='service'+service.id)=service.name
-                .b-edit__for-error.js-none-display(id='services-for-error')
-                .b-edit__invalid.js-none-display(id='services-error')
+                    .general-checkbox
+                        input.general-checkbox__checkbox.js-s(id='service#{service.id}',
+                            name='services',
+                            value='#{service.id}',
+                            type='checkbox',
+                            checked=s_checked)
+                        label(for='service' + service.id)=service.name
+                .general-input__for-error.js-none-display(id='services-for-error')
+                .general-input__invalid.js-none-display(id='services-error')
 
-            .b-edit__base-error
-            .b-edit__button-container
-                button.b-edit__save(type='button')
+            .general-form__base-error.js-none-display
+
+            .general-form__button
+                - buttonType = 'button'
+                button.general-submit(type=buttonType, id='save-editing-data')
                     | Сохранить
-
-block append javascript
-    //script(type='application/javascript', src='/scripts/partials/editing-polygraphy.js')
-    //script(type='application/javascript', src='/scripts/partials/display-errors.js')

@@ -1,108 +1,123 @@
 extends ../layouts/layout
 
 block append head
-    link(rel='stylesheet', href='/stylesheets/b-registration.css')
-    link(rel='stylesheet', href='/stylesheets/registration.css')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
 
-    .b-registration(id='big-form')
-        .b-registration__headline
+    .general-form.general-form_registration(id='big-form')
+        .general-form-headline
             | РЕГИСТРАЦИЯ ПОЛИГРАФИИ
         form(id='registration-form')
             fieldset
-                input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-                input.b-registration__input#hash(type='hidden', name='hash', value='#{hash}')
-                .b-registration__text-fields
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            |E-mail для регистрации *
-                        input.b-registration__input.js-normal-input#email-input(name='email', type='text')
-                        .b-registration__for-error.js-none-display(id = 'email-for-error')
-                        .b-registration__invalid.js-none-display(id = 'email-error')
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            |Пароль *
-                        input.b-registration__input.js-normal-input#password-input(name='password', type='password')
-                        .b-registration__for-error.js-none-display(id = 'password-for-error')
-                        .b-registration__invalid.js-none-display(id='password-error')
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            | Название полиграфии *
-                        input.b-registration__input.js-normal-input#name-input(name='name', type='text')
-                        .b-registration__for-error.js-none-display(id='name-for-error')
-                        .b-registration__invalid.js-none-display(id='name-error')
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            | Адрес *
-                        input.b-registration__input.js-normal-input#address-input(name='address', type='text')
-                        .b-registration__for-error.js-none-display(id='address-for-error')
-                        .b-registration__invalid.js-none-display(id='address-error')
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            | Телефон *
-                        input.b-registration__input.js-normal-input#phone-input(name='phone', type='text')
-                        .b-registration__for-error.js-none-display(id='phone-for-error')
-                        .b-registration__invalid.js-none-display(id='phone-error')
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            | Публичный e-mail
-                        input.b-registration__input.js-normal-input#email-public-input(name='publicEmail', type='text')
-                        .b-registration__for-error.js-none-display(id='publicEmail-for-error')
-                        .b-registration__invalid.js-none-display(id='publicEmail-error')
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            | Сайт
-                        input.b-registration__input.js-normal-input#website-input(name='website', type='text')
-                    .b-registration__text-input-wrapper
-                        label.b-registration__input-label
-                            | Описание
-                        textarea.b-registration__input.js-normal-input.b-registration__textarea-field#text-area-field(name='textArea')
-                        script.
-                            CKEDITOR.replace('textArea');
-                .b-registration__base-error
-            fieldset
-                .b-registration__field-checkboxes
-                    .b-registration__field-checkbox
-                        input.js-obe.b-registration__checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
-                        label(for='orderByEmail') Принимаем заказы по e-mail
-                    .b-registration__field-checkbox
-                        input.js-wtc.b-registration__checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
-                        label(for='writesTheCheck') Выдаем чек
-                    .b-registration__checkboxes-wrapper
-                        label.b-registration__input-label
-                            | Принимаем оплату: *
-                        .b-registration__input-wrapper
-                            for paymentMethod in paymentMethods
-                                .b-registration__field-checkbox
-                                    input.js-pm.b-registration__checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
-                                    label(for='payment'+paymentMethod.id)=paymentMethod.name
-                        .b-registration__for-error.js-none-display(id='paymentMethods-for-error')
-                        .b-registration__invalid.js-none-display(id='paymentMethods-error')
-                    .b-registration__checkboxes-wrapper
-                        label.b-registration__input-label
-                            | Доставка готового заказа: *
-                        .b-registration__input-wrapper
-                            for deliveryMethod in deliveryMethods
-                                .b-registration__field-checkbox
-                                    input.js-dm.b-registration__checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
-                                    label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
-                        .b-registration__for-error.js-none-display(id='deliveryMethods-for-error')
-                        .b-registration__invalid.js-none-display(id='deliveryMethods-error')
-                    .b-registration__checkboxes-wrapper
-                        label.b-registration__input-label
-                            | Предоставляемые услуги: *
-                        .b-registration__input-wrapper
-                            for service in services
-                                .b-registration__field-checkbox
-                                    input.js-s.b-registration__checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
-                                    label(for='service'+service.id)=service.name
-                        .b-registration__for-error.js-none-display(id='services-for-error')
-                        .b-registration__invalid.js-none-display(id='services-error')
-            button.b-registration__submit(type='button', id='submit-registration-form') Сохранить данные
+                input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+                input.general-input__input#hash(type='hidden', name='hash', value='#{hash}')
 
-block append javascript
-    //script(type='application/javascript', src='/scripts/partials/step-by-step-registration.js')
-    //script(type='application/javascript', src='/scripts/partials/registration.js')
-    //script(type='application/javascript', src='/scripts/partials/display-errors.js')
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            |E-mail для регистрации *
+                        input.general-input__input.js-normal-input#email-input(name='email', type='text')
+                        .general-input__for-error.js-none-display(id = 'email-for-error')
+                        .general-input__invalid.js-none-display(id = 'email-error')
+
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            |Пароль *
+                        input.general-input__input.js-normal-input#password-input(name='password', type='password')
+                        .general-input__for-error.js-none-display(id = 'password-for-error')
+                        .general-input__invalid.js-none-display(id='password-error')
+
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | Название полиграфии *
+                        input.general-input__input.js-normal-input#name-input(name='name', type='text')
+                        .general-input__for-error.js-none-display(id='name-for-error')
+                        .general-input__invalid.js-none-display(id='name-error')
+
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | Адрес *
+                        input.general-input__input.js-normal-input#address-input(name='address', type='text')
+                        .general-input__for-error.js-none-display(id='address-for-error')
+                        .general-input__invalid.js-none-display(id='address-error')
+
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | Телефон *
+                        input.general-input__input.js-normal-input#phone-input(name='phone', type='text')
+                        .general-input__for-error.js-none-display(id='phone-for-error')
+                        .general-input__invalid.js-none-display(id='phone-error')
+
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | Публичный e-mail
+                        input.general-input__input.js-normal-input#email-public-input(name='publicEmail', type='text')
+                        .general-input__for-error.js-none-display(id='publicEmail-for-error')
+                        .general-input__invalid.js-none-display(id='publicEmail-error')
+
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | Сайт
+                        input.general-input__input.js-normal-input#website-input(name='website', type='text')
+
+                .general-form__input
+                    .general-input
+                        label.general-input__label
+                            | Описание
+                        textarea.general-input__input.js-normal-input.b-registration__textarea-field#text-area-field(name='textArea')
+                    script.
+                        CKEDITOR.replace('textArea');
+
+                .general-form__base-error.js-none-display
+
+            fieldset
+
+                .general-checkbox
+                    input.js-obe.general-checkbox__checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
+                    label(for='orderByEmail') Принимаем заказы по e-mail
+
+                .general-checkbox
+                    input.js-wtc.general-checkbox__checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
+                    label(for='writesTheCheck') Выдаем чек
+
+                .general-form__checkboxes
+                    label.general-input__label.general-input__label_headline
+                        | Принимаем оплату: *
+                    for paymentMethod in paymentMethods
+                        .general-checkbox
+                            input.js-pm.general-checkbox__checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
+                            label(for='payment'+paymentMethod.id)=paymentMethod.name
+                    .general-input__for-error.js-none-display(id='paymentMethods-for-error')
+                    .general-input__invalid.js-none-display(id='paymentMethods-error')
+
+                .general-form__checkboxes
+                    label.general-input__label.general-input__label_headline
+                        | Доставка готового заказа: *
+                    for deliveryMethod in deliveryMethods
+                        .general-checkbox
+                            input.js-dm.general-checkbox__checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
+                            label(for='delivery'+deliveryMethod.id)=deliveryMethod.name
+                    .general-input__for-error.js-none-display(id='deliveryMethods-for-error')
+                    .general-input__invalid.js-none-display(id='deliveryMethods-error')
+
+                .general-form__checkboxes.general-form__checkboxes_services
+                    label.general-input__label.general-input__label_headline
+                        | Предоставляемые услуги:
+                    for service in services
+                        .general-checkbox
+                            input.js-s.general-checkbox__checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
+                            label(for='service'+service.id)=service.name
+                    .general-input__for-error.js-none-display(id='services-for-error')
+                    .general-input__invalid.js-none-display(id='services-error')
+
+            .general-form__button
+                - buttonType = 'button'
+                button.general-submit.general-submit_save-data(type=buttonType, id='submit-registration-form')
+                    | Сохранить данные

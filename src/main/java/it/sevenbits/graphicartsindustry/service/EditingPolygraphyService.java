@@ -2,13 +2,10 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
-import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
+import it.sevenbits.graphicartsindustry.core.repository.*;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
-import it.sevenbits.graphicartsindustry.web.domain.response.SuccessErrorsResponse;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.apache.log4j.Logger;
@@ -77,7 +74,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
@@ -99,7 +96,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
@@ -143,7 +140,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.createPolygraphyService(polygraphyForm.getPolygraphyId(), s);
             }
             txManager.commit(status);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
@@ -153,18 +150,18 @@ public class EditingPolygraphyService {
 
     }
 
-    public SuccessErrorsResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm)
+    public ValidatorResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm)
             throws ServiceException {
         try {
-            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
-            successErrorsResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
-            if (successErrorsResponse.getErrors().size() != 0) {
-                successErrorsResponse.setSuccess(false);
-                return successErrorsResponse;
+            ValidatorResponse validatorResponse = new ValidatorResponse();
+            validatorResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
+            if (validatorResponse.getErrors().size() != 0) {
+                validatorResponse.setSuccess(false);
+                return validatorResponse;
             }
             this.saveEditingPolygraphy(editingPolygraphyForm);
-            successErrorsResponse.setSuccess(true);
-            return successErrorsResponse;
+            validatorResponse.setSuccess(true);
+            return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("Can not validate or save editing polygraphy. ");
         }
@@ -186,7 +183,7 @@ public class EditingPolygraphyService {
             }
             this.saveEditingPolygraphy(polygraphyForm);
             txManager.rollback(status);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
@@ -195,25 +192,25 @@ public class EditingPolygraphyService {
         }
     }
 
-    public SuccessErrorsResponse editPolygraphyByPolygraphy(int polygraphyId, EditingPolygraphyForm editingPolygraphyForm)
+    public ValidatorResponse editPolygraphyByPolygraphy(int polygraphyId, EditingPolygraphyForm editingPolygraphyForm)
             throws ServiceException {
         try {
-            SuccessErrorsResponse successErrorsResponse = new SuccessErrorsResponse();
+            ValidatorResponse validatorResponse = new ValidatorResponse();
             if (userResolver.getUsername().equals(this.findUserEmailByPolygraphyId(polygraphyId))) {
-                successErrorsResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
-                if (successErrorsResponse.getErrors().size() != 0) {
-                    successErrorsResponse.setSuccess(false);
-                    return successErrorsResponse;
+                validatorResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
+                if (validatorResponse.getErrors().size() != 0) {
+                    validatorResponse.setSuccess(false);
+                    return validatorResponse;
                 }
                 this.saveEditingPolygraphyByPolygraphy(editingPolygraphyForm);
-                successErrorsResponse.setSuccess(true);
-                return successErrorsResponse;
+                validatorResponse.setSuccess(true);
+                return validatorResponse;
             }
             HashMap<String, String> errors = new HashMap<>();
             errors.put("base", "Ссылка на изменение устарела");
-            successErrorsResponse.setErrors(errors);
-            successErrorsResponse.setSuccess(false);
-            return successErrorsResponse;
+            validatorResponse.setErrors(errors);
+            validatorResponse.setSuccess(false);
+            return validatorResponse;
         } catch (Exception e) {
             throw new ServiceException("Can not validate or save editing polygraphy. ");
         }
@@ -222,20 +219,18 @@ public class EditingPolygraphyService {
     public void editConditionDisplayPolygraphy(Integer polygraphyId, boolean curCondition) throws ServiceException {
         try {
             polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new  ServiceException("Can not edit condition display polygraphy in search. ");
         }
     }
 
     public String findUserEmailByPolygraphyId(int polygraphyId) throws ServiceException {
+        Integer userId = null;
         try {
-            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            if (userId == null) {
-                throw new ServiceException("UserId is null");
-            }
+            userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
             User user = userRepository.findUserById(userId);
             return user.getUsername();
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Error. ");
         }
     }

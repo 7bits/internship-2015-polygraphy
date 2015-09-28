@@ -3,14 +3,16 @@ package it.sevenbits.graphicartsindustry.service;
 import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
 import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
-import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
-import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.utils.RegistrationLinkResolver;
+import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -31,6 +33,9 @@ public class RequestOnRegistrationService {
 
     @Autowired
     private RegistrationLinkResolver registrationLinkResolver;
+
+    @Autowired
+    private MessageSource messageSource;
 
     public List<RequestOnRegistrationModel> findAllRequestsOnRegistration() throws ServiceException {
         try {
@@ -108,6 +113,8 @@ public class RequestOnRegistrationService {
             throw new ServiceException("Can not generate or save registration link: " + e.getMessage());
         } catch (MessagingException e) {
             throw new ServiceException("Can not send registration link. ");
+        } catch (IOException e) {
+            throw new ServiceException("Can not generate or save registration link: " + e.getMessage());
         }
     }
 

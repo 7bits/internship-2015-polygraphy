@@ -1,5 +1,7 @@
 package it.sevenbits.graphicartsindustry.service;
 
+import de.neuland.jade4j.JadeConfiguration;
+import de.neuland.jade4j.template.JadeTemplate;
 import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,10 +12,17 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.util.HashMap;
 
 @Service
 public class SendingMessagesService {
-    private final JavaMailSender javaMailSender;
+
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    @Autowired
+    private JadeConfiguration jade;
 
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
@@ -24,41 +33,20 @@ public class SendingMessagesService {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    public void sendingRegistrationLink(RequestOnRegistrationModel requestOnRegistrationModel) throws MessagingException, ServiceException {
+    public void sendingRegistrationLink(RequestOnRegistrationModel requestOnRegistrationModel) throws MessagingException, ServiceException, IOException {
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = null;
+
+        JadeTemplate template = jade.getTemplate("home/letter");
+        HashMap<String, Object> model = new HashMap<String, Object>();
+        model.put("link", requestOnRegistrationModel.getLink());
+        String html = jade.renderTemplate(template, model);
 
         helper = new MimeMessageHelper(message, true,"UTF-8");
         helper.setFrom("polygraphy.polygraphy@gmail.com");
         helper.setTo(requestOnRegistrationModel.getEmail());
         helper.setSubject("Message with link on registration ");
-        helper.setText("<!DOCTYPE html>\n" +
-                "<html>\n" +
-                "  <head>\n" +
-                "    <meta charset=\"UTF-8\">\n" +
-                "  </head>\n" +
-                "  <body>\n" +
-                "    <div style=\"width: 800px; height: 600px; background-color: white; box-sizing: border-box; padding: 0px 50px;\" class=\"wrapper\">\n" +
-                "      <div style=\"height: 170px; width: 100%; background: white url('http://polygraphy.7bits.it/images/logo.png') no-repeat center;\" class=\"logo-box\"></div>\n" +
-                "      <div style=\"width: 700px; font-family: 'Arial'; background-color: rgb(232,232,232); border-radius: 10px; border: none; outline: none; margin: auto; padding: 50px; box-sizing: border-box; text-align: center; line-height: 30px; font-size: 20px;\" class=\"content-box\">\n" +
-                "        <div style=\"display: block; width: 100%;\" class=\"text\">\n" +
-                "            <p style=\"margin: 0px;\"> Здравствуйте!</p> \n" +
-                "            <br> Вы оставили свою заявку на регистрацию полиграфии. Для того, \n" +
-                "            <br>чтобы Ваша полиграфия появилась в поиске на сайте \n" +
-                "            <br> \n" +
-                "            <a href=\"http://polygraphy.7bits.it/\" style=\"color: #64be5f;\"> \n" +
-                "                 polygraphy.7bits.it\n" +
-                "            </a> , пожалуйста, заполните информацию о ней.\n" +
-                "        </div>\n" +
-                "        <div style=\"display: block; width: 100%; height: auto; margin-top: 30px;\" class=\"link\">\n" +
-                "            <a href=\"" + requestOnRegistrationModel.getLink() + "\" style=\" text-decoration: none; color: white; line-height: 40px; background-color: #64be5f; border: none; outline: none; border-radius: 25px; padding: 10px 30px;\">\n" +
-                "                Заполнить информацию\n" +
-                "            </a>\n" +
-                "        </div>\n" +
-                "      </div>\n" +
-                "    </div>\n" +
-                "  </body>\n" +
-                "</html>", true);
+        helper.setText(html, true);
 
         javaMailSender.send(message);
     }

@@ -25,6 +25,7 @@
 
 .js-prev {
     float: left;
+    margin-bottom: -10px;
 }
 
 .js-next {
@@ -56,6 +57,12 @@
 #steps li.js-current {
     color: #efe553;
     opacity: 1;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 @media screen and (max-width: 1024px){

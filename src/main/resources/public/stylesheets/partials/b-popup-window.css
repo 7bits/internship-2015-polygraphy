@@ -1,4 +1,4 @@
-@import url("osans.css");
+/*@import url("osans.css");*/
 
 .b-popup-window__main{
     width: 938px;
@@ -55,25 +55,25 @@ table.b-popup-window__services{
 }
 
 .b-popup-window__address{
-    background: url("/images/map-violet.png");
+    background: inline("map-violet.png");
     background-repeat: no-repeat;
     background-position: left calc(0% + 5px);
 }
 
 .b-popup-window__phone{
-    background: url("/images/phone-violet.png");
+    background: inline("phone-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .b-popup-window__email{
-    background: url("/images/mail-violet.png");
+    background: inline("mail-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
 
 .b-popup-window__site{
-    background: url("/images/link-violet.png");
+    background: inline("link-violet.png");
     background-repeat: no-repeat;
     background-position: left center;
 }
@@ -122,7 +122,7 @@ table.b-popup-window__services{
     position: absolute;
     top: 30px;
     right: 30px;
-    background: url("/images/close.png");
+    background: inline("close.png");
     height: 17px;
     width: 17px;
     background-repeat: no-repeat;

@@ -16,8 +16,16 @@ public class SessionController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLogin(HttpServletRequest request) {
-        if (userResolver.isUserInRole("ROLE_ANONYMOUS"))
-            return "session/login";
-        return "/fffff";
+        try {
+            if (userResolver.isUserInRole("ROLE_ANONYMOUS"))
+                return "session/login";
+            else
+                throw new NotFoundException();
+        } catch (NotFoundException e) {
+            throw new NotFoundException();
+        }
+        catch (Exception e) {
+            throw new InternalServerErrorExeption();
+        }
     }
 }

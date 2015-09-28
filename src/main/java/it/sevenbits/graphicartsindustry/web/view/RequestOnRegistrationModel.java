@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.web.domain;
+package it.sevenbits.graphicartsindustry.web.view;
 
 public class RequestOnRegistrationModel {
     private int id;

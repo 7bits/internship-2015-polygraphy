@@ -1,11 +1,13 @@
 extends ../layouts/layout
 
 block append head
-    link(rel='stylesheet', href='/stylesheets/partials/b-edit.css')
-    link(rel='stylesheet', href='/stylesheets/partials/registration.css')
+    //link(rel='stylesheet', href='/stylesheets/partials/b-edit.css')
+    //link(rel='stylesheet', href='/stylesheets/partials/registration.css')
     script(type='text/javascript', src='/vendor/ckeditor/ckeditor.js')
 
 block content
+
+    =message
 
     .b-edit(id='big-form')
         .b-edit__headline

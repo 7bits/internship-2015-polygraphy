@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.web.domain.polygraphy;
+package it.sevenbits.graphicartsindustry.web.view.polygraphy;
 
 public class PolygraphyMinModel {
     private int id;

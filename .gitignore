@@ -82,4 +82,5 @@ application.yml
 
 # Node Modules #
 /node_modules
+/src/main/resources/public/build
 npm-debug.log

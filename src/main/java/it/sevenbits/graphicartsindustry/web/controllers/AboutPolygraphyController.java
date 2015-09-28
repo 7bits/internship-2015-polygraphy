@@ -20,7 +20,7 @@ public class AboutPolygraphyController {
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET)
     public String loadPageAboutPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model)
-            throws ResourceNotFoundException {
+            throws NotFoundException {
         try {
             model.addAttribute("polygraphy", polygraphyService.findPolygraphy(polygraphyId));
             return "home/about_polygraphy";

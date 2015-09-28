@@ -76,7 +76,7 @@ public class EditingPolygraphyController {
                 model.addAttribute("editingForm.polygraphyId", polygraphyId);
                 return "home/editing_polygraphy";
             }
-            throw new ResourceNotFoundException();
+            throw new NotFoundException();
         } catch (ServiceException serviceExeption) {
             model.addAttribute("message", serviceExeption.getMessage());
             return "home/editing_polygraphy";

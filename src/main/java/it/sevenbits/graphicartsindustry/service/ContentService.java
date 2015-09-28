@@ -36,7 +36,7 @@ public class ContentService {
         }
     }
 
-    public List<ServiceModel> findFrequentServices() throws ServiceException {
+    public List<ServiceModel> findFrequentServices() throws ServiceException, Exception {
         try {
             List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services =
                     contentRepository.findFrequentServices(searchPolygraphyResolver.getLimitServices());

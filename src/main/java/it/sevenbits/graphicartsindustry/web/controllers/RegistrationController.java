@@ -40,7 +40,7 @@ public class RegistrationController {
                 model.addAttribute("hash", hash);
                 return "session/registration";
             }
-            throw new ResourceNotFoundException();
+            throw new NotFoundException();
         } catch (ServiceException serviceExeption) {
             model.addAttribute("message", serviceExeption.getMessage());
             return "session/registration";

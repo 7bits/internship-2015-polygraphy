@@ -11,6 +11,9 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     $ = require('jquery'),
     flight = require('flightjs'),
+    fs = require('fs'),
+    yaml = require('js-yaml'),
+    rename = require('gulp-rename'),
     reload = browsersync.reload;
 
 var path = {
@@ -56,6 +59,13 @@ gulp.task('js:build', function () {
         .pipe(reload({stream: true})); //И перезагрузим сервер
 });
 
+gulp.task('js:addVersion', function () {
+    var version = readAssetsVersion();
+    gulp.src(path.build.js + '/main.js')
+        .pipe(rename('main' + version + '.js'))
+        .pipe(gulp.dest(path.build.js));
+});
+
 gulp.task('css:build', function () {
     gulp.src(path.src.style) //Выберем наш main.css
         .pipe(rigger())
@@ -76,5 +86,6 @@ gulp.task('static:watch', function () {
 
 gulp.task('build', [
     'js:build',
+    'js:addVersion',
     'css:build'
 ]);

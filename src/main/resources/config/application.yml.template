@@ -9,6 +9,9 @@ spring:
 server:
   port: 9000
 
+assets:
+  version:
+
 search_polygraphy:
   limit_polygraphies: 10
   limit_services: 4
@@ -47,6 +50,9 @@ spring:
 
 server:
   port: 9000
+
+assets:
+  version: ${timestamp}
 
 search_polygraphy:
   limit_polygraphies: 10

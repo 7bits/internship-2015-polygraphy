@@ -3,10 +3,6 @@ language: java
 branches:
   only:
    - develop
- # except:
- # - feature/refactoring_service
-  #- feature/BEM
-  #- feature/travis_CI
 install: mvn install -DskipTests=true
 ## do the tests
 script: mvn clean test
@@ -14,11 +10,11 @@ jdk:
 - openjdk7
 sudo: false
 env:
-env:
   global:
     - secure: q6wmL0VLQ0qN56cGGc5/n7OkBebUywpQbGaBqHZxNgqQLptlhm43oThyNqdrsA7fD37ny5dAD8dgvUOgFw10GKsvACYuaEt4RvHqd95Ft7pBaPS8/5dQhYT1bEi/+lU+RR+HkSoXWyt4uoale8xrCDj7YqFZwbXaxkGt8eqKLj+rmycINPFua/E0cGtykhvmeFMtG3l15GU5abFslxEQUo/A9WYq1hvsYxicvdwi4ejlh/MNfPI9iFQNQbJyT2MkcnE2LKOdVKvGLjCBivyndJQk3hpprfK7hkDNjerJW3T8MwEoKkVcQxfG2BOmLK8saGbG5Hr2k9nl9AT6VPmf+FwhOj9a9UKHrmHCdioNnX/U/mg56KkU5by0/ZOXScMlf0eOstJWY2fIeYLsY/T/sH6mQmEgBGf5fURgTYTbbVkRMfh9mNePU4bV1Jqxx5auB5dhg4DgdBUA2IDYdA3FHKYzUxOVIpGLM7Eu7SVKG2Wl9MI6ShlcKvqX+haSeS4/SAJHnRmbcV7u0FubOx5P9bvpxir3so1tLVWpmJpuGwfQu2Br3YDM60CyawdL5VdCL4mmAU762SrlZMqbpU0ev+25CcxUU2PxFLrVZOvNhH+BuMcRO7C0pCZ4WZ4kenXpaHcVZi3AKDm+T2chXbOIfHS6DMSmxpM/8n4wJfdh/8A=
     - secure: N/nM1siOvBADrNYyG9JyNxoQnZnXgmAogZGNNcIWE93PaI/j549QIeHen5N08aA7sLbZTPy0pDx00f5cqfRx6mvtD/PxuFGi2u7sXrucwtrXUVQj5GrW/Q/JL/ouYmeD3eGzZwY5MZsdk16LIQM/rZmHAJEx1Cdvxwh3vBUwvxn3+h2U1wNdwdStir5+wXp0NeHOp/cd2Lz7qRBDs7NtZi6hQbJo9lRd+4/8MLmkwuniqb1B5p9Kwt4VL6eibMX/Z9s2scvCzBd7+Ukhn7NaFK6E7UN2mgfj2vGGnMYxxQ+Uwo6+Big2NnyHpW6/HyXwPNA1rybu09GBm9ePIPtHXChisPs4QWMgeiabVN7jckXcnGBASCuK2m8QQHkhQN3ZlXidSzKUzblrV892ooBw8mewlphS51GryHsdoQDaVu2nSxS7n+trlzdcVDjx49dJj3nqIqvjJz/oEbc7u+f1kxrCBcAVosQUxPZm0m/SpXMkoM3jigV+Dl5+6OM7WzoVA5tyzSPqMxAjy0cYtmojporpx8THUDVMV8El2EckScG7++lpE+iS0PclWao57rfkf5VuRmQ2jVxFoU/ipLFACB3CtQggBxwBuvRCtgz58CDWWk8j4QK0jx/YDYn5HPbLlULsqLLE+JescshrEDpfKdMbotpPHrCS9YW8xJ8KCL8=
-
+  matrix:
+    - POLYGRAPHY_TESTUSERNAME=true
 notifications:
   email:
     recipients:

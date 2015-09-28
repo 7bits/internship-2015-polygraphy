@@ -1,4 +1,24 @@
-doctype html
+!!! 5
 html
-    | Ошибка 500
-    =message
+    head
+        meta(charset='UTF-8')
+        title Page Not Found
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(name="_csrf", content="#{_csrf.token}")
+        meta(name="_csrf_header", content="#{_csrf.headerName}")
+        link(rel="stylesheet", href="/build/stylesheets/main.css")
+        link(rel="shortcut icon", href="/images/favicon.ico")
+    body
+        =message
+        .error-page
+            .error-page__content
+                .error-page__explanatory-text
+                    | 500
+                    br
+                    | Произошло что-то непредвиденное
+                .error-page__submit
+                    a.general-submit(href='/')
+                        | На главную
+
+        script(type='application/javascript', src='/vendor/scripts/jquery-2.1.4.min.js')
+        script(type='application/javascript', src='/build/scripts/main.js')

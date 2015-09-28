@@ -2,10 +2,7 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
-import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
+import it.sevenbits.graphicartsindustry.core.repository.*;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
@@ -77,7 +74,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
@@ -99,7 +96,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return polygraphyForm;
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
@@ -143,7 +140,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.createPolygraphyService(polygraphyForm.getPolygraphyId(), s);
             }
             txManager.commit(status);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
@@ -186,7 +183,7 @@ public class EditingPolygraphyService {
             }
             this.saveEditingPolygraphy(polygraphyForm);
             txManager.rollback(status);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
@@ -222,7 +219,7 @@ public class EditingPolygraphyService {
     public void editConditionDisplayPolygraphy(Integer polygraphyId, boolean curCondition) throws ServiceException {
         try {
             polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new  ServiceException("Can not edit condition display polygraphy in search. ");
         }
     }
@@ -233,7 +230,7 @@ public class EditingPolygraphyService {
             userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
             User user = userRepository.findUserById(userId);
             return user.getUsername();
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Error. ");
         }
     }

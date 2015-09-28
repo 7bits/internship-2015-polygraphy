@@ -42,7 +42,7 @@ public class PolygraphyProvider {
 
         sqlQuery.append(" WHERE p.displayed=true");
         if (query != null && !query.isEmpty()) {
-            sqlQuery.append(" AND LOWER(p.name) ILIKE '%").append(query).append("%'");
+            sqlQuery.append(" AND LOWER(p.name) ILIKE CONCAT('%', #{query}, '%')");
         }
 
         if (services.size() != 0) {

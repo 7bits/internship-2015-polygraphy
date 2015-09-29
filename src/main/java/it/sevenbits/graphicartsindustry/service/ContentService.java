@@ -8,6 +8,7 @@ import it.sevenbits.graphicartsindustry.web.view.content.DeliveryMethodModel;
 import it.sevenbits.graphicartsindustry.web.view.content.PaymentMethodModel;
 import it.sevenbits.graphicartsindustry.web.view.content.ServiceModel;
 import it.sevenbits.graphicartsindustry.web.utils.SearchPolygraphyResolver;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,8 @@ import java.util.List;
 @Service
 public class ContentService {
 
+    private static Logger LOG = Logger.getLogger(ContentService.class);
+
     @Autowired
     private ContentRepository contentRepository;
 
@@ -25,18 +28,19 @@ public class ContentService {
 
     public List<ServiceModel> findAllServices() throws ServiceException {
         try {
-            List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services = contentRepository.findAllServices();
+            List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services =
+                    contentRepository.findAllServices();
             List<ServiceModel> models = new ArrayList<>(services.size());
             for (it.sevenbits.graphicartsindustry.core.domain.content.Service s: services) {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;
-        } catch (RepositoryException e) {
+        } catch (RepositoryException repositoryExeption) {
             throw new ServiceException("Can not find polygraphy services. ");
         }
     }
 
-    public List<ServiceModel> findFrequentServices() throws ServiceException, Exception {
+    public List<ServiceModel> findFrequentServices() throws ServiceException {
         try {
             List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services =
                     contentRepository.findFrequentServices(searchPolygraphyResolver.getLimitServices());
@@ -45,7 +49,7 @@ public class ContentService {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;
-        } catch (RepositoryException e) {
+        } catch (RepositoryException repositoryExeption) {
             throw new ServiceException("Can not find polygraphy services. ");
         }
     }
@@ -58,8 +62,8 @@ public class ContentService {
                 models.add(new PaymentMethodModel(p.getId(), p.getName()));
             }
             return models;
-        } catch (RepositoryException e) {
-            throw new ServiceException("Can not find polygraphy payment method. ");
+        } catch (RepositoryException repositoryExeption) {
+            throw new ServiceException("Can not find polygraphy payment methods. ");
         }
     }
 
@@ -71,8 +75,8 @@ public class ContentService {
                 models.add(new DeliveryMethodModel(d.getId(), d.getName()));
             }
             return models;
-        } catch (RepositoryException e) {
-            throw new ServiceException("Can not find polygraphy delivery method. ");
+        } catch (RepositoryException repositoryExeption) {
+            throw new ServiceException("Can not find polygraphy delivery methods. ");
         }
     }
 }

@@ -209,13 +209,17 @@ public class PolygraphyRepository {
         }
     }
 
-    public void editConditionDisplayPolygraphy(Integer polygraphyId, Boolean condition) throws RepositoryException {
+    public void editConditionDisplayPolygraphy(Integer polygraphyId, Boolean curCondition) throws RepositoryException {
         if (polygraphyId == null) {
             LOG.error("Can not edit condition display polygraphy due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
+        if (curCondition == null) {
+            LOG.error("Can not edit condition display polygraphy due to repository error: current condition is null");
+            throw new RepositoryException("Current condition is null");
+        }
         try {
-            polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, condition);
+            polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, curCondition);
         } catch (Exception e) {
             LOG.error("Can not edit condition display polygraphy due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while editing condition polygraphy " +

@@ -65,6 +65,20 @@ public class UserRepository implements UserDetailsService {
         }
     }
 
+    public String findEmailById(Integer userId) throws RepositoryException {
+        if (userId == null) {
+            LOG.error("Can not load user by id due to repository error: user id is null");
+            throw new RepositoryException("User ID is null");
+        }
+        try {
+            return userMapper.findEmailById(userId);
+        } catch (Exception e) {
+            LOG.error("Can not load user email by id due to repository error: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving user email by id "
+                    + e.getMessage(), e);
+        }
+    }
+
     public void createUser(User user) throws RepositoryException {
         if (user == null) {
             LOG.error("Can not create user due to repository error: user is null");

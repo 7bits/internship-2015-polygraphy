@@ -30,6 +30,12 @@ public interface UserMapper {
     })
     User findUserByEmail(@Param(value = "email") final String email);
 
+    @Select("SELECT id, email " +
+            "FROM users " +
+            "WHERE id=#{userId}")
+    @Result(column = "email")
+    String findEmailById(@Param(value = "userId") final Integer userId);
+
 
     @Insert("INSERT INTO users (email, password_hash, role, enabled) " +
             "VALUES (#{email}, #{password}, #{role}, #{enabled})")

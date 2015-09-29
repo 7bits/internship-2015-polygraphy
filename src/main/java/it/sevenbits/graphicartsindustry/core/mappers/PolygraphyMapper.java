@@ -138,7 +138,7 @@ public interface PolygraphyMapper {
             "SET displayed=#{condition} " +
             "WHERE id=#{polygraphyId}")
     void updateConditionDisplayPolygraphy(@Param(value = "polygraphyId") Integer polygraphyId,
-                                          @Param(value = "condition") Boolean condition);
+                                          @Param(value = "condition") Boolean curCondition);
 
 
     @Delete("DELETE FROM polygraphy " +

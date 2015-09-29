@@ -39,6 +39,10 @@ p.b-results__no-results{
     padding: 0;
 }
 
+.b-results__empty-results{
+    font-size: 20px;
+}
+
 @media screen and (max-width: 1024px) {
 
     .b-results {

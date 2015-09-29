@@ -76,6 +76,8 @@ buildNumber.properties
 
 # Configuration #
 application.yml
+application-development.yml
+application-staging.yml
 
 # Logging #
 *.log

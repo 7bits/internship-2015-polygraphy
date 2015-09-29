@@ -42,7 +42,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("paymentMethod-item-1"));// наличный расчет
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
@@ -81,7 +81,7 @@ public class TShirtsTest {
     WebElement we = driver.findElement(By.id("paymentMethod-item-2"));// расчет по карте
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -106,7 +106,7 @@ public class TShirtsTest {
     WebElement we = driver.findElement(By.id("paymentMethod-item-3"));// оплата по счету
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -184,7 +184,7 @@ public class TShirtsTest {
     WebElement we = driver.findElement(By.id("deliveryMethod-item-2"));// Доставка с курьером
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -207,7 +207,7 @@ public class TShirtsTest {
     WebElement we = driver.findElement(By.id("check1"));          // выдает чек
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-   
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
@@ -249,7 +249,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check2"));          // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -282,7 +282,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check2"));          // принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -383,7 +383,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-1"));          // Самовывоз
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -422,7 +422,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-2"));// Доставка с курьером
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -448,7 +448,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-1"));//Самовывоз
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -476,7 +476,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-2")); // Доставка с курьером
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.quit();
   }
@@ -500,7 +500,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check1"));             // Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
@@ -542,7 +542,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check1"));             //Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -581,7 +581,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check1"));             // Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -609,7 +609,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check1"));             //Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
@@ -654,7 +654,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check1"));              // Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -681,7 +681,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check2"));             // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -712,7 +712,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check2"));             // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -743,7 +743,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check2"));             // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
@@ -768,7 +768,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check2"));              // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -801,7 +801,7 @@ public class TShirtsTest {
     WebElement wee = driver.findElement(By.id("check2"));              // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -830,7 +830,7 @@ public class TShirtsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
@@ -875,7 +875,7 @@ public class TShirtsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -933,7 +933,7 @@ public class TShirtsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -975,7 +975,7 @@ public class TShirtsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.quit();
   }
@@ -1002,7 +1002,7 @@ public class TShirtsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -1033,7 +1033,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -1067,7 +1067,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -1083,7 +1083,7 @@ public class TShirtsTest {
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
- 
+
     WebElement shirt = driver.findElement(By.id("btn1"));               // печать на футболках
     JavascriptExecutor t_shirt = (JavascriptExecutor)driver;
     t_shirt.executeScript("arguments[0].click();", shirt);
@@ -1096,7 +1096,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -1125,7 +1125,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -1158,8 +1158,8 @@ public class TShirtsTest {
     executore.executeScript("arguments[0].click();", wee);
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
-    performer.executeScript("arguments[0].click();", ch); 
- 
+    performer.executeScript("arguments[0].click();", ch);
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.quit();
   }
@@ -1186,7 +1186,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
@@ -1214,7 +1214,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));              //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -1248,7 +1248,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));              //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -1282,7 +1282,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));              //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
@@ -1310,7 +1310,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));               //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -1346,7 +1346,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));               //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -1378,7 +1378,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -1415,7 +1415,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -1447,7 +1447,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
@@ -1480,7 +1480,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
@@ -1517,7 +1517,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.quit();
   }
@@ -1547,7 +1547,7 @@ public class TShirtsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();

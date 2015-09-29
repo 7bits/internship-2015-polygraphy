@@ -19,7 +19,7 @@ public class AdvancedSearchTest {
   public static final String username = System.getenv("POLYGRAPHY_USERNAME");
   public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
 // Наличный расчет
-  @Test
+@Test
   public void testCash() throws Exception {
     DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
@@ -84,7 +84,7 @@ public class AdvancedSearchTest {
       System.out.println("number of polygraphy on request: " + equalTo(list.size()));
     driver.quit();
   }
-/*// Оплата по счету
+// Оплата по счету
 @Test
   public void testPayment() throws Exception {
     DesiredCapabilities caps = DesiredCapabilities.chrome();
@@ -92,7 +92,7 @@ public class AdvancedSearchTest {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
@@ -147,7 +147,7 @@ public class AdvancedSearchTest {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-2"));
@@ -172,7 +172,7 @@ public class AdvancedSearchTest {
       caps.setCapability("version", "45.0");
 
       WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-      driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+      driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
       WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));
@@ -237,7 +237,7 @@ public class AdvancedSearchTest {
    caps.setCapability("version", "45.0");
 
    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-   driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+   driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
    WebElement we = driver.findElement(By.id("deliveryMethod-item-2"));
@@ -263,7 +263,7 @@ public void testCashPickup() throws Exception {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-1"));        // Наличный расчет
@@ -327,7 +327,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));          // Наличный расчет
@@ -355,7 +355,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));            // Оплата по счету
@@ -413,7 +413,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));           // Оплата по счету
@@ -442,7 +442,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));           // Расчет по карте
@@ -470,7 +470,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));            // Расчет по карте
@@ -492,7 +492,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check1"));
@@ -557,7 +557,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check1"));
@@ -600,7 +600,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check2"));
@@ -642,7 +642,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));         // Наличный расчет
@@ -705,7 +705,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));          // Оплата по счету
@@ -762,7 +762,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));           // Расчет по карте
@@ -789,7 +789,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-1")); // Самовывоз
@@ -855,7 +855,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-2")); // Доставка с курьером
@@ -884,7 +884,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1")); // Наличный расчет
@@ -924,7 +924,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3")); // Оплата по счету
@@ -965,7 +965,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2")); // Расчет по карте
@@ -989,7 +989,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));         // Самовывоз
@@ -1030,7 +1030,7 @@ public void testCashPickup() throws Exception {
        caps.setCapability("version", "45.0");
 
        WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-       driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+       driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
        WebElement we = driver.findElement(By.id("deliveryMethod-item-2")); //Доставка с курьером
@@ -1058,7 +1058,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));        // наличный расчет
@@ -1124,7 +1124,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));       //наличный расчет
@@ -1155,7 +1155,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));   // оплата по счету
@@ -1187,7 +1187,7 @@ public void testCashPickup() throws Exception {
          caps.setCapability("version", "45.0");
 
          WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-         driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+         driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
          WebElement we = driver.findElement(By.id("paymentMethod-item-3"));   // оплата по счету
@@ -1246,7 +1246,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  // расчет по карте
@@ -1271,7 +1271,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  // расчет по карте
@@ -1301,7 +1301,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));        // наличный расчет
@@ -1344,7 +1344,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));  //наличный расчет
@@ -1374,7 +1374,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));         // оплата по счету
@@ -1405,7 +1405,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));   //оплата по счету
@@ -1447,7 +1447,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  // расчет по карте
@@ -1471,7 +1471,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  //расчет по карте
@@ -1498,7 +1498,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1")); //оплата наличными
@@ -1540,7 +1540,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3")); //оплата по счету
@@ -1583,7 +1583,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2")); //расчет по карте
@@ -1609,7 +1609,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));//самовывоз
@@ -1653,7 +1653,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-2"));//доставка с курьером
@@ -1684,7 +1684,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));         // наличный расчет
@@ -1729,7 +1729,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));  //наличный расчет
@@ -1763,7 +1763,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));  //оплата по счету
@@ -1797,7 +1797,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));  //оплата по счету
@@ -1843,7 +1843,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));   //расчет по карте
@@ -1870,7 +1870,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  //расчет по карте
@@ -1890,5 +1890,5 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.quit();
-    }*/
+    }
 }

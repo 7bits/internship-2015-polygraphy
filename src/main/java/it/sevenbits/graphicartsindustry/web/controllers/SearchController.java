@@ -34,8 +34,8 @@ public class SearchController {
             model.addAttribute("form", null);
             model.addAttribute("polygraphies", polygraphyService.findAllDisplayPolygraphies());
             return "home/index";
-        } catch (ServiceException serviceExeption) {
-            model.addAttribute("message", serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            model.addAttribute("message", e.getMessage());
             return "home/index";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
@@ -51,8 +51,8 @@ public class SearchController {
             model.addAttribute("form", form);
             model.addAttribute("polygraphies", polygraphyService.findPolygraphies(form));
             return "home/index";
-        } catch (ServiceException serviceExeption) {
-            model.addAttribute("message", serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            model.addAttribute("message", e.getMessage());
             return "home/index";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
@@ -68,9 +68,9 @@ public class SearchController {
             response.setSuccess(true);
             response.addData("polygraphies", polygraphies);
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);

@@ -44,9 +44,9 @@ public class InfoForPolygraphyController {
             response.setSuccess(false);
             response.setErrors(validatorResponse.getErrors());
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);

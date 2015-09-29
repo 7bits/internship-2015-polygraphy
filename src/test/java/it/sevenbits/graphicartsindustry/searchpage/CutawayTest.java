@@ -1,4 +1,4 @@
-// все тесты, связанные с чекбоксом "изготовление визиток"
+/*// все тесты, связанные с чекбоксом "изготовление визиток"
 package it.sevenbits.graphicartsindustry.searchpage;
 
 import java.net.URL;
@@ -1836,3 +1836,4 @@ public class CutawayTest {
     driver.quit();
   }
 }
+*/

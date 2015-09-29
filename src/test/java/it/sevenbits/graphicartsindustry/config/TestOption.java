@@ -1,3 +1,4 @@
+/*
 package it.sevenbits.graphicartsindustry.config;
 
 import org.slf4j.Logger;
@@ -25,4 +26,4 @@ public class TestOption {
         }
         return result;
     }
-}
+}*/

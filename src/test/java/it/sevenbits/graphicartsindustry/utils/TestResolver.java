@@ -1,3 +1,4 @@
+/*
 package it.sevenbits.graphicartsindustry.utils;
 
 public class TestResolver {
@@ -29,3 +30,4 @@ public class TestResolver {
         this.domain = domain;
     }
 }
+*/

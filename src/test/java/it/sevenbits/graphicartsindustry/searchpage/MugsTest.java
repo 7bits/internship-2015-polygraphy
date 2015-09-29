@@ -1,4 +1,4 @@
-// все тесты, связанные с чекбоксом "печать на кружках"
+/*// все тесты, связанные с чекбоксом "печать на кружках"
 package it.sevenbits.graphicartsindustry.searchpage;
 
 import java.net.URL;
@@ -1553,4 +1553,4 @@ public class MugsTest {
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
   }
-}
+}*/

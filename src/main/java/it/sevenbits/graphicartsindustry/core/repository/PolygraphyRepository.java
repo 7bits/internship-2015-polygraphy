@@ -3,7 +3,6 @@ package it.sevenbits.graphicartsindustry.core.repository;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
-import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,10 +19,12 @@ public class PolygraphyRepository {
     @Autowired
     private PolygraphyMapper polygraphyMapper;
 
-    public List<PolygraphyContacts> findPolygraphies(SearchForm query) throws RepositoryException {
+    public List<PolygraphyContacts> findPolygraphies(String query, List<Integer> servicesId, Integer paymentMethodId,
+                                                     Boolean writesTheCheck, Integer deliveryMethodId,
+                                                     Boolean orderByEmail) throws RepositoryException {
         try {
-            return polygraphyMapper.findPolygraphies(query.getQuery().toLowerCase(), query.getServices(), query.getPaymentMethod(),
-                    query.isWritesTheCheck(), query.getDeliveryMethod(), query.isOrderByEmail());
+            return polygraphyMapper.findPolygraphies(query.toLowerCase(), servicesId, paymentMethodId,writesTheCheck,
+                    deliveryMethodId, orderByEmail);
         } catch (Exception e) {
             LOG.error("Can not load polygraphies by query due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving polygraphies " +

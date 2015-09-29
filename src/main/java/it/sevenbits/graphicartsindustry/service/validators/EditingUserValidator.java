@@ -21,7 +21,9 @@ public class EditingUserValidator {
     private ValidatorService validatorService;
 
     public HashMap<String, String> validate(final EditingPolygraphyForm polygraphyForm) throws ServiceException {
+
         LOG.info("SubscriptionFormValidator started for: " + polygraphyForm.toString());
+
         HashMap<String, String> errors = new HashMap<>();
 
         validator.isNotNullOrEmpty(polygraphyForm.getEmail(), errors, "email", "Поле не должно быть пустым");

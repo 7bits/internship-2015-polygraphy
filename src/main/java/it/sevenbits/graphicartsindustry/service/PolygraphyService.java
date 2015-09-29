@@ -20,7 +20,26 @@ import java.util.List;
 
 @Service
 public class PolygraphyService {
+
     private static final Logger LOG = Logger.getLogger(PolygraphyService.class);
+
+    private static final String TX_NAME = "txService";
+
+    /**
+     * Spring Transaction Manager
+     */
+    @Autowired
+    private PlatformTransactionManager txManager;
+
+    /**
+     * Transaction settings object
+     */
+    private DefaultTransactionDefinition customTx;
+
+
+    @Autowired
+    private SearchPolygraphyResolver searchPolygraphyResolver;
+
 
     @Autowired
     private UserRepository userRepository;
@@ -33,20 +52,6 @@ public class PolygraphyService {
 
     @Autowired
     private PolygraphyServicesRepository polygraphyServicesRepository;
-
-    @Autowired
-    private SearchPolygraphyResolver searchPolygraphyResolver;
-
-    private static final String TX_NAME = "txService";
-    /**
-     * Spring Transaction Manager
-     */
-    @Autowired
-    private PlatformTransactionManager txManager;
-    /**
-     * Transaction settings object
-     */
-    private DefaultTransactionDefinition customTx;
 
     public PolygraphyService() {
         this.customTx = new DefaultTransactionDefinition();
@@ -62,7 +67,7 @@ public class PolygraphyService {
                 models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail(), p.isDisplayed()));
             }
             return models;
-        } catch (RepositoryException e) {
+        } catch (RepositoryException repositoryExeption) {
             throw new ServiceException("Can not find all polygraphies. ");
         }
     }
@@ -76,40 +81,43 @@ public class PolygraphyService {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;
-        } catch (RepositoryException e) {
-            throw new ServiceException("Can not find all display polygraphies. ");
+        } catch (RepositoryException repositoryExeption) {
+            throw new ServiceException("Can not find all polygraphies. ");
         }
     }
 
     public List<PolygraphyMinModel> findPolygraphies(SearchForm query) throws ServiceException {
         try {
-            List<PolygraphyContacts> polygraphies = polygraphyRepository.findPolygraphies(query);
+            List<PolygraphyContacts> polygraphies = polygraphyRepository.findPolygraphies(query.getQuery(),
+                    query.getServices(), query.getPaymentMethod(), query.isWritesTheCheck(), query.getDeliveryMethod(),
+                    query.isOrderByEmail());
             List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
             for (PolygraphyContacts p: polygraphies) {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;
-        } catch (RepositoryException e) {
+        } catch (RepositoryException repositoryExeption) {
             throw new ServiceException("Can not find polygraphies. ");
         }
     }
 
-    public PolygraphyFullModel findPolygraphy(int id) throws ServiceException {
+    public PolygraphyFullModel findPolygraphy(Integer polygraphyId) throws ServiceException {
         try {
-            PolygraphyContacts polygraphyContacts = polygraphyRepository.findDisplayPolygraphy(id);
+            PolygraphyContacts polygraphyContacts = polygraphyRepository.findDisplayPolygraphy(polygraphyId);
             PolygraphyFullModel models = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
                     polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
                     polygraphyContacts.getInfo());
             return models;
-        } catch (RepositoryException e) {
-            throw new ServiceException("Can not find all polygraphy. ");
+        } catch (RepositoryException repositoryExeption) {
+            throw new ServiceException("Can not find full info about polygraphy. ");
         }
     }
 
-    public void removePolygraphy(int polygraphyId) throws ServiceException {
+    public void removePolygraphy(Integer polygraphyId) throws ServiceException {
         TransactionStatus status = null;
         try {
             status = txManager.getTransaction(customTx);
+
             polygraphyServicesRepository.removePolygraphyPaymentMethods(polygraphyId);
             polygraphyServicesRepository.removePolygraphyDeliveryMethods(polygraphyId);
             polygraphyServicesRepository.removePolygraphyServices(polygraphyId);
@@ -122,8 +130,9 @@ public class PolygraphyService {
 
             if (userId != null)
                 userRepository.removeUser(userId);
+
             txManager.commit(status);
-        } catch (RepositoryException e) {
+        } catch (RepositoryException repositoryExeption) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");

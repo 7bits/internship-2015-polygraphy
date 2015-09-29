@@ -98,7 +98,7 @@ public class AdvancedSearchTest {
       System.out.println("number of polygraphy on request: " + equalTo(list.size()));
     driver.quit();
   }
-/*// Оплата по счету
+// Оплата по счету
 @Test
   public void testPayment() throws Exception {
     DesiredCapabilities caps = DesiredCapabilities.chrome();
@@ -1904,5 +1904,5 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.quit();
-    }*/
+    }
 }

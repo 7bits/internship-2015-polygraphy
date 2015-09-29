@@ -4,6 +4,14 @@ public class Service {
     private Integer id;
     private String name;
 
+    public Service() {
+    }
+
+    public Service(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

@@ -21,26 +21,26 @@ public interface PolygraphyContactMapper {
 
     @Update("UPDATE contact " +
             "SET address=#{address} " +
-            "WHERE polygraphy_id=#{id}")
-    void updateAddress(@Param(value = "id") final Integer polygraphyId,
+            "WHERE polygraphy_id=#{polygraphyId}")
+    void updateAddress(@Param(value = "polygraphyId") final Integer polygraphyId,
                        @Param(value = "address") final String address);
 
     @Update("UPDATE contact " +
             "SET phone=#{phone} " +
-            "WHERE polygraphy_id=#{id}")
-    void updatePhone(@Param(value = "id") final Integer polygraphyId,
+            "WHERE polygraphy_id=#{polygraphyId}")
+    void updatePhone(@Param(value = "polygraphyId") final Integer polygraphyId,
                      @Param(value = "phone") final String phone);
 
     @Update("UPDATE contact " +
             "SET email=#{email} " +
-            "WHERE polygraphy_id=#{id}")
-    void updateEmail(@Param(value = "id") final Integer polygraphyId,
+            "WHERE polygraphy_id=#{polygraphyId}")
+    void updateEmail(@Param(value = "polygraphyId") final Integer polygraphyId,
                      @Param(value = "email") final String email);
 
     @Update("UPDATE contact " +
             "SET website=#{website} " +
-            "WHERE polygraphy_id=#{id}")
-    void updateWebsite(@Param(value = "id") final Integer polygraphyId,
+            "WHERE polygraphy_id=#{polygraphyId}")
+    void updateWebsite(@Param(value = "polygraphyId") final Integer polygraphyId,
                        @Param(value = "website") final String website);
 
 

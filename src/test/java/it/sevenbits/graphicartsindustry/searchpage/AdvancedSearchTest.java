@@ -25,20 +25,22 @@ public class AdvancedSearchTest {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
-  public static final String USERNAME = "nastya_prohorova";
-  public static final String ACCESS_KEY = "475fc805-6e70-46a5-adb4-938288051155";
+  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
   public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
 
 // Наличный расчет
   @Test
   public void testCash() throws Exception {
-    final String username = System.getenv("POLYGRAPHY_TESTUSERNAME");
+    final String username = System.getenv("POLYGRAPHY_USERNAME");
+    final String password = System.getenv("POLYGRAPHY_PASSWORD");
+
     DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://" + username + ":gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     driver.findElement(By.id("paymentMethod")).click();

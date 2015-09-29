@@ -69,3 +69,8 @@ mail:
         enable: true
         required: true
     debug: true
+
+test:
+  username:
+  password:
+  domain:

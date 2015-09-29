@@ -27,8 +27,9 @@ public class EditingUserValidator {
         validator.isNotNullOrEmpty(polygraphyForm.getEmail(), errors, "email", "Поле не должно быть пустым");
         validator.shorterThan(polygraphyForm.getEmail(), 255, errors, "email",
                 "Поле должно быть короче, чем 255 символов");
-        validatorService.isRegistratedFindCompliance(polygraphyForm.getEmail(), polygraphyForm.getPolygraphyId(),
-                errors, "email", "Такой email уже зарегистрирован");
+//        validatorService.isRegistratedFindCompliance(polygraphyForm.getEmail(), polygraphyForm.getPolygraphyId(),
+//                errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRegistrated(polygraphyForm.getEmail(), errors, "email", "Такой email уже зарегистрирован");
         validatorService.isRequested(polygraphyForm.getEmail(), errors, "email",
                 "С этого email подана заявка на регистрацию");
 

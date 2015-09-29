@@ -150,7 +150,7 @@ public class EditingPolygraphyService {
             validatorResponse.setSuccess(true);
             return validatorResponse;
         } catch (ServiceException serviceExeption) {
-            throw new ServiceException("Can not validate editing user. ");
+            throw new ServiceException("Can not validate editing user. " + serviceExeption.getMessage());
         }
     }
 
@@ -166,7 +166,7 @@ public class EditingPolygraphyService {
             validatorResponse.setSuccess(true);
             return validatorResponse;
         } catch (ServiceException serviceExeption) {
-            throw new ServiceException("Can not validate editing polygraphy. ");
+            throw new ServiceException("Can not validate editing polygraphy. " + serviceExeption.getMessage());
         }
     }
 

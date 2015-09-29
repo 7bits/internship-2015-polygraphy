@@ -20,7 +20,7 @@ public interface UserMapper {
 
     @Select("SELECT id, email, password_hash, enabled, role " +
             "FROM users " +
-            "WHERE email=#{username}")
+            "WHERE email=#{email}")
     @Results({
             @Result(column = "id", property = "id"),
             @Result(column = "email", property = "email"),
@@ -28,13 +28,13 @@ public interface UserMapper {
             @Result(column = "enabled", property = "enabled"),
             @Result(column = "role", property = "role", javaType = Role.class)
     })
-    User findUserByUsername(@Param(value = "username") final String username);
+    User findUserByEmail(@Param(value = "email") final String email);
 
 
     @Insert("INSERT INTO users (email, password_hash, role, enabled) " +
             "VALUES (#{email}, #{password}, #{role}, #{enabled})")
     @Options(useGeneratedKeys = true, keyColumn = "id", keyProperty = "id")
-    void insertUser(final User user);
+    void createUser(final User user);
 
 
     @Update("UPDATE users " +

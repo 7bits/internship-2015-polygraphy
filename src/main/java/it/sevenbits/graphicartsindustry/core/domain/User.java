@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class User implements UserDetails {
-    private int id;
+    private Integer id;
     private String email;
     private String password;
     private Role role;
@@ -58,11 +58,11 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

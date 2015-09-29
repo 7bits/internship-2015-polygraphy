@@ -12,8 +12,6 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.mail.MessagingException;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -108,10 +106,6 @@ public class RequestOnRegistrationService {
             return requestOnRegistrationModel;
         } catch (ServiceException e) {
             throw new ServiceException(e.getMessage());
-        } catch (MessagingException e) {
-            throw new ServiceException("Can not send registration link. ");
-        } catch (IOException e) {
-            throw new ServiceException("Can not send registration link. ");
         }
     }
 

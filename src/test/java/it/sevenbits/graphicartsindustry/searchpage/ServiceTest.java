@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.searchpage;
+/*package it.sevenbits.graphicartsindustry.searchpage;
 
 import java.net.URL;
 import java.sql.DriverManager;
@@ -616,3 +616,4 @@ public class ServiceTest {
     driver.quit();
   }
 }
+*/

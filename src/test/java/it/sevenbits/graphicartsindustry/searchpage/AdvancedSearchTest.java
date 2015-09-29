@@ -5,6 +5,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.sql.DriverManager;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -24,19 +25,22 @@ public class AdvancedSearchTest {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
-  public static final String USERNAME = "nastya_prohorova";
-  public static final String ACCESS_KEY = "475fc805-6e70-46a5-adb4-938288051155";
+  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
   public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
 
 // Наличный расчет
   @Test
   public void testCash() throws Exception {
+    final String username = System.getenv("POLYGRAPHY_USERNAME");
+    final String password = System.getenv("POLYGRAPHY_PASSWORD");
+
     DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     driver.findElement(By.id("paymentMethod")).click();
@@ -44,6 +48,7 @@ public class AdvancedSearchTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
+    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
     driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
@@ -87,9 +92,13 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+      List<WebElement> list = driver.findElements(By.className("b-results-item"));
+      assertThat(45, equalTo(list.size()));
+      System.out.println("number of polygraphy on request: " + equalTo(list.size()));
     driver.quit();
   }
-// Оплата по счету
+/*// Оплата по счету
 @Test
   public void testPayment() throws Exception {
     DesiredCapabilities caps = DesiredCapabilities.chrome();
@@ -1895,5 +1904,5 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.quit();
-    }
+    }*/
 }

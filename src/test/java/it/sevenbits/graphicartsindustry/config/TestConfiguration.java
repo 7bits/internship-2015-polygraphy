@@ -1,3 +1,4 @@
+/*
 package it.sevenbits.graphicartsindustry.config;
 
 import it.sevenbits.graphicartsindustry.utils.TestResolver;
@@ -7,12 +8,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class TestConfiguration {
-
-    @Value("${spring.username}")
+    @Value("${test.username}")
     private String username;
-    @Value("${spring.password}")
+    @Value("${test.password}")
     private String password;
-    @Value("${spring.domain}")
+    @Value("${test.domain}")
     private String domain;
 
     @Bean
@@ -24,3 +24,4 @@ public class TestConfiguration {
         return testResolver;
     }
 }
+*/

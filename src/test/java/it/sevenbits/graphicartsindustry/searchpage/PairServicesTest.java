@@ -1,4 +1,4 @@
-/*// тесты сервисов (в разделе "часто ищут") комбинированных попарно между собой
+// тесты сервисов (в разделе "часто ищут") комбинированных попарно между собой
 package it.sevenbits.graphicartsindustry.searchpage;
 
 import java.sql.DriverManager;
@@ -4901,8 +4901,6 @@ public class PairServicesTest {
  driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
   }
 
-
-
 // кружки + визитки + наличный расчет
   @Test
   public void testKVCash() throws Exception {
@@ -7810,4 +7808,3 @@ public class PairServicesTest {
     }
   }
 }
-*/

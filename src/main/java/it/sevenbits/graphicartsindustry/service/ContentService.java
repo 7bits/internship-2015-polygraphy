@@ -35,7 +35,7 @@ public class ContentService {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy services. ");
         }
     }
@@ -49,7 +49,7 @@ public class ContentService {
                 models.add(new ServiceModel(s.getId(), s.getName()));
             }
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy services. ");
         }
     }
@@ -62,7 +62,7 @@ public class ContentService {
                 models.add(new PaymentMethodModel(p.getId(), p.getName()));
             }
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy payment methods. ");
         }
     }
@@ -75,7 +75,7 @@ public class ContentService {
                 models.add(new DeliveryMethodModel(d.getId(), d.getName()));
             }
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphy delivery methods. ");
         }
     }

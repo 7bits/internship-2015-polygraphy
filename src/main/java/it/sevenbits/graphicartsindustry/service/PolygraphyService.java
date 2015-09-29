@@ -67,7 +67,7 @@ public class PolygraphyService {
                 models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail(), p.isDisplayed()));
             }
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find all polygraphies. ");
         }
     }
@@ -81,7 +81,7 @@ public class PolygraphyService {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find all polygraphies. ");
         }
     }
@@ -96,7 +96,7 @@ public class PolygraphyService {
                 models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
             }
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find polygraphies. ");
         }
     }
@@ -108,7 +108,7 @@ public class PolygraphyService {
                     polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
                     polygraphyContacts.getInfo());
             return models;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find full info about polygraphy. ");
         }
     }
@@ -132,7 +132,7 @@ public class PolygraphyService {
                 userRepository.removeUser(userId);
 
             txManager.commit(status);
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");

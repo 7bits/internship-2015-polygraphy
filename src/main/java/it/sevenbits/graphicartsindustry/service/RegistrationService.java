@@ -77,8 +77,8 @@ public class RegistrationService {
                 saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
             }
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException(serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -91,8 +91,8 @@ public class RegistrationService {
                 validatorResponse = validateFirstRegistrationForm(registrationForm.getFirstForm());
             }
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException(serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -112,8 +112,8 @@ public class RegistrationService {
             validatorResponse.setSuccess(false);
             validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException("Can not validate registration form: first step." + serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate registration form: first step." + e.getMessage());
         }
     }
 
@@ -134,8 +134,8 @@ public class RegistrationService {
             validatorResponse.setSuccess(false);
             validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException("Can not validate registration form: second step." + serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate registration form: second step." + e.getMessage());
         }
     }
 
@@ -178,7 +178,7 @@ public class RegistrationService {
             }
 
             txManager.commit(status);
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");

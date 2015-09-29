@@ -39,7 +39,7 @@ public class ValidatorService {
 //                    }
 //                }
 //            }
-//        } catch (RepositoryException repositoryExeption) {
+//        } catch (RepositoryException e) {
 //            throw new ServiceException("Can not validate email. ");
 //        }
 //    }
@@ -53,7 +53,7 @@ public class ValidatorService {
                     errors.put(field, key);
                 }
             }
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not validate email. ");
         }
     }
@@ -66,7 +66,7 @@ public class ValidatorService {
                     errors.put(field, key);
                 }
             }
-        }  catch (RepositoryException repositoryExeption) {
+        }  catch (RepositoryException e) {
             throw new ServiceException("Can not validate email. ");
         }
     }

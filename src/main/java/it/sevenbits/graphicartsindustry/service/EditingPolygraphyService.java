@@ -79,7 +79,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return model;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
@@ -97,7 +97,7 @@ public class EditingPolygraphyService {
                     polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
                     polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
             return model;
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
@@ -110,8 +110,8 @@ public class EditingPolygraphyService {
                 saveEditingPolygraphy(polygraphyForm);
             }
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException(serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -134,8 +134,8 @@ public class EditingPolygraphyService {
             validatorResponse.setSuccess(false);
             validatorResponse.addErrors("base", "Ссылка на изменение недоступна. ");
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException(serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -149,8 +149,8 @@ public class EditingPolygraphyService {
             }
             validatorResponse.setSuccess(true);
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException("Can not validate editing user. " + serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate editing user. " + e.getMessage());
         }
     }
 
@@ -165,8 +165,8 @@ public class EditingPolygraphyService {
             }
             validatorResponse.setSuccess(true);
             return validatorResponse;
-        } catch (ServiceException serviceExeption) {
-            throw new ServiceException("Can not validate editing polygraphy. " + serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate editing polygraphy. " + e.getMessage());
         }
     }
 
@@ -179,12 +179,12 @@ public class EditingPolygraphyService {
             saveEditingPolygraphy(polygraphyForm);
 
             txManager.rollback(status);
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
             }
-            throw new ServiceException(serviceExeption.getMessage());
+            throw new ServiceException(e.getMessage());
         }
     }
 
@@ -201,7 +201,7 @@ public class EditingPolygraphyService {
             }
 
             txManager.rollback(status);
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
@@ -251,7 +251,7 @@ public class EditingPolygraphyService {
             }
 
             txManager.commit(status);
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
@@ -267,7 +267,7 @@ public class EditingPolygraphyService {
                 curCondition = !lastCondition;
             }
             polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, curCondition);
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new  ServiceException("Can not edit condition display polygraphy in search. ");
         }
     }
@@ -276,7 +276,7 @@ public class EditingPolygraphyService {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
             return userRepository.findEmailById(userId);
-        } catch (RepositoryException repositoryExeption) {
+        } catch (RepositoryException e) {
             throw new ServiceException("Can not find user polygraphy. ");
         }
     }

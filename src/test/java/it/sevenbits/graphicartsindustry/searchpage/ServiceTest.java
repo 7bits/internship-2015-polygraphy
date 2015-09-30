@@ -1,29 +1,24 @@
 package it.sevenbits.graphicartsindustry.searchpage;
 
-import java.net.URL;
-import java.sql.DriverManager;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-
-import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 
 public class ServiceTest {
-    public static final String USERNAME = "nastya_prohorova";
-    public static final String ACCESS_KEY = "475fc805-6e70-46a5-adb4-938288051155";
-    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
+  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+  public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+  public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 
     // Печать на футболках
 @Test
@@ -33,7 +28,7 @@ public class ServiceTest {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));
@@ -64,7 +59,7 @@ public class ServiceTest {
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
     driver.quit();
-}  
+}
 // Печать на кружках
 @Test
   public void testCap() throws Exception {
@@ -104,7 +99,7 @@ public class ServiceTest {
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
     driver.quit();
-  }  
+  }
 // Изготовление визиток
 @Test
   public void testCards() throws Exception {
@@ -115,7 +110,7 @@ public class ServiceTest {
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    
+
     WebElement we = driver.findElement(By.id("btn9"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
@@ -169,8 +164,8 @@ public class ServiceTest {
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    
-    WebElement we = driver.findElement(By.id("btn4"));          
+
+    WebElement we = driver.findElement(By.id("btn4"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
@@ -207,7 +202,7 @@ public class ServiceTest {
     driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
     driver.quit();
-}  
+}
 // футболки + кружки
 @Test
   public void testFK() throws Exception {
@@ -298,7 +293,7 @@ public class ServiceTest {
     WebElement we = driver.findElement(By.id("btn1"));                // футболки
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-    WebElement btn = driver.findElement(By.id("btn4"));                // ш\п   
+    WebElement btn = driver.findElement(By.id("btn4"));                // ш\п
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", btn);
 
@@ -367,11 +362,11 @@ public class ServiceTest {
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    
+
     WebElement we = driver.findElement(By.id("btn2"));                // кружки
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-    WebElement btn = driver.findElement(By.id("btn4"));                // ш\п   
+    WebElement btn = driver.findElement(By.id("btn4"));                // ш\п
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", btn);
 
@@ -405,7 +400,7 @@ public class ServiceTest {
     WebElement we = driver.findElement(By.id("btn9"));                // визитки
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-    WebElement btn = driver.findElement(By.id("btn4"));                // ш\п   
+    WebElement btn = driver.findElement(By.id("btn4"));                // ш\п
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", btn);
 
@@ -491,7 +486,7 @@ public class ServiceTest {
     WebElement btn = driver.findElement(By.id("btn2"));                // кружки
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", btn);
-    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п   
+    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", pr);
 
@@ -526,7 +521,7 @@ public class ServiceTest {
     WebElement btn = driver.findElement(By.id("btn9"));                // визитки
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", btn);
-    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п   
+    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", pr);
 
@@ -561,7 +556,7 @@ public class ServiceTest {
     WebElement btn = driver.findElement(By.id("btn9"));                // визитки
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", btn);
-    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п   
+    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", pr);
 
@@ -599,7 +594,7 @@ public class ServiceTest {
     WebElement cal = driver.findElement(By.id("btn9"));                // визитки
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", cal);
-    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п   
+    WebElement pr = driver.findElement(By.id("btn4"));                // ш\п
     JavascriptExecutor executant = (JavascriptExecutor)driver;
     executant.executeScript("arguments[0].click();", pr);
 

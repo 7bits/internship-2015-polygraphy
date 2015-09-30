@@ -1,9 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
-import it.sevenbits.graphicartsindustry.service.PolygraphyService;
-import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.*;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AdminController {
+
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
 
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
@@ -57,7 +58,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }
@@ -78,7 +79,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }
@@ -98,7 +99,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }
@@ -118,7 +119,7 @@ public class AdminController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }

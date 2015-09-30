@@ -1,6 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
+import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
@@ -18,6 +19,9 @@ import java.util.List;
 
 @Controller
 public class SearchController {
+
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
 
     @Autowired
     private PolygraphyService polygraphyService;
@@ -74,8 +78,7 @@ public class SearchController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
-            return response;
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));            return response;
         }
     }
 }

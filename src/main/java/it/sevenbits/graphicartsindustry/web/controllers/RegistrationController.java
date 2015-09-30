@@ -1,15 +1,11 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
-import it.sevenbits.graphicartsindustry.service.ContentService;
-import it.sevenbits.graphicartsindustry.service.RegistrationService;
-import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.*;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +13,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class RegistrationController {
-    private static Logger LOG = Logger.getLogger(RegistrationController.class);
+
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
 
     @Autowired
     private RegistrationService registrationService;
@@ -71,7 +70,7 @@ public class RegistrationController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }
@@ -95,7 +94,7 @@ public class RegistrationController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }

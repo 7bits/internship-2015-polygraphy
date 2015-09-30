@@ -22,14 +22,14 @@ public class RegistrationFirstFormValidator {
 
     public HashMap<String, String> validate(final RegistrationFirstForm form) throws ServiceException {
 
-        LOG.info("SubscriptionFormValidator started for: " + form.toString());
+        LOG.info("RegistrationFirstFormValidator started for: " + form.toString());
 
         HashMap<String, String> errors = new HashMap<>();
 
         validator.isNotNullOrEmpty(form.getEmail(), errors, "email", "Поле не должно быть пустым");
         validator.isEmail(form.getEmail(), errors, "email", "Введите правильный email");
         validator.shorterThan(form.getEmail(), 255, errors, "email", "Поле должно быть короче, чем 255 символов");
-        validatorService.isRegistratedEmail(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
 
         validator.isNotNullOrEmpty(form.getPassword(), errors, "password", "Поле не должно быть пустым");
 //        validator.isNotNullOrEmpty(form.getPasswordConfirmation(), errors, "password confirmation", "Поле не должно быть пустым");

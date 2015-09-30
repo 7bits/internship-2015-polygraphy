@@ -22,7 +22,7 @@ public class EditingPolygraphyValidator {
 
     public HashMap<String, String> validate(final EditingPolygraphyForm polygraphyForm) throws ServiceException {
 
-        LOG.info("SubscriptionFormValidator started for: " + polygraphyForm.toString());
+        LOG.info("EditingPolygraphyValidator started for: " + polygraphyForm.toString());
 
         HashMap<String, String> errors = new HashMap<>();
 

@@ -81,6 +81,8 @@ public class EditingPolygraphyController {
                 return "home/editing_polygraphy";
             }
             throw new NotFoundException();
+        } catch (NotFoundException e) {
+            throw new NotFoundException();
         } catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
             return "home/editing_polygraphy";

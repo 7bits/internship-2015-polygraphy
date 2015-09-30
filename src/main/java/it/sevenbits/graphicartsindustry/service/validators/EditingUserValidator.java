@@ -22,7 +22,7 @@ public class EditingUserValidator {
 
     public HashMap<String, String> validate(final EditingPolygraphyForm polygraphyForm) throws ServiceException {
 
-        LOG.info("SubscriptionFormValidator started for: " + polygraphyForm.toString());
+        LOG.info("EditingUserValidator started for: " + polygraphyForm.toString());
 
         HashMap<String, String> errors = new HashMap<>();
 
@@ -31,8 +31,8 @@ public class EditingUserValidator {
                 "Поле должно быть короче, чем 255 символов");
 //        validatorService.isRegistratedFindCompliance(polygraphyForm.getEmail(), polygraphyForm.getPolygraphyId(),
 //                errors, "email", "Такой email уже зарегистрирован");
-        validatorService.isRegistratedEmail(polygraphyForm.getEmail(), errors, "email", "Такой email уже зарегистрирован");
-        validatorService.isRequestedEmail(polygraphyForm.getEmail(), errors, "email",
+        validatorService.isRegistrated(polygraphyForm.getEmail(), errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRequested(polygraphyForm.getEmail(), errors, "email",
                 "С этого email подана заявка на регистрацию");
 
         validator.shorterThan(polygraphyForm.getPassword(), 255, errors, "password",

@@ -42,10 +42,13 @@ public class RequestOnRegistrationService {
         try {
             List<RequestOnRegistration> requestsOnRegistration =
                     requestOnRegistrationRepository.findAllRequestsOnRegistration();
-            List<RequestOnRegistrationModel> models = new ArrayList<>(requestsOnRegistration.size());
-            for (RequestOnRegistration r: requestsOnRegistration) {
-                models.add(new RequestOnRegistrationModel(r.getId(), r.getEmail(), r.getHash(),
-                        "http://" + registrationLinkResolver.getDomain() + "/registration?id=" + r.getHash()));
+            List<RequestOnRegistrationModel> models = null;
+            if (requestsOnRegistration != null) {
+                models = new ArrayList<>(requestsOnRegistration.size());
+                for (RequestOnRegistration r : requestsOnRegistration) {
+                    models.add(new RequestOnRegistrationModel(r.getId(), r.getEmail(), r.getHash(),
+                            "http://" + registrationLinkResolver.getDomain() + "/registration?id=" + r.getHash()));
+                }
             }
             return models;
         } catch (RepositoryException e) {
@@ -56,11 +59,13 @@ public class RequestOnRegistrationService {
     public RequestOnRegistrationModel findRequestOnRegistrationById(int requestId) throws ServiceException {
         try {
             RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestById(requestId);
-            RequestOnRegistrationModel requestOnRegistrationModel =
-                    new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
-                            requestOnRegistration.getHash(), "http://" + registrationLinkResolver.getDomain() + "/registration?id=" +
-                            requestOnRegistration.getHash());
-            return requestOnRegistrationModel;
+            RequestOnRegistrationModel model = null;
+            if (requestOnRegistration != null) {
+                model = new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
+                        requestOnRegistration.getHash(), "http://" + registrationLinkResolver.getDomain() +
+                        "/registration?id=" + requestOnRegistration.getHash());
+            }
+            return model;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find request on registration. ");
         }
@@ -69,14 +74,14 @@ public class RequestOnRegistrationService {
     public RequestOnRegistrationModel findRequestOnRegistrationByHash(String hash) throws ServiceException {
         try {
             RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByHash(hash);
-            RequestOnRegistrationModel requestOnRegistrationModel = null;
+            RequestOnRegistrationModel model = null;
             if (requestOnRegistration != null) {
-                requestOnRegistrationModel = new RequestOnRegistrationModel(requestOnRegistration.getId(),
+                model = new RequestOnRegistrationModel(requestOnRegistration.getId(),
                         requestOnRegistration.getEmail(), requestOnRegistration.getHash(),
                         "http://" + registrationLinkResolver.getDomain() + "/registration?id=" +
                                 requestOnRegistration.getHash());
             }
-            return requestOnRegistrationModel;
+            return model;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find request on registration. ");
         }

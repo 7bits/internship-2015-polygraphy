@@ -18,7 +18,7 @@ public class RegistrationSecondFormValidator {
 
     public HashMap<String, String> validate(final RegistrationSecondForm form) {
 
-        LOG.info("SubscriptionFormValidator started for: " + form.toString());
+        LOG.info("RegistrationSecondFormValidator started for: " + form.toString());
 
         HashMap<String, String> errors = new HashMap<>();
 

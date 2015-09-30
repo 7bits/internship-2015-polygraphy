@@ -22,15 +22,15 @@ public class RequestOnRegistrationValidator {
 
     public HashMap<String, String> validate(final RequestOnRegistrationForm form) throws ServiceException {
 
-        LOG.info("SubscriptionFormValidator started for: " + form.toString());
+        LOG.info("RequestOnRegistrationValidator started for: " + form.toString());
 
         HashMap<String, String> errors = new HashMap<>();
 
         validator.isNotNullOrEmpty(form.getEmail(), errors, "email", "Поле не должно быть пустым");
         validator.isEmail(form.getEmail(), errors, "email", "Введите правильный email");
         validator.shorterThan(form.getEmail(), 255, errors, "email", "Поле должно быть кроче чем 255 символов");
-        validatorService.isRegistratedEmail(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
-        validatorService.isRequestedEmail(form.getEmail(), errors, "email", "С этого email уже подана заявка. " +
+        validatorService.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRequested(form.getEmail(), errors, "email", "С этого email уже подана заявка. " +
                 "Введите другой email или свяжитесь с администратором polygraphy.polygraphy@gmail.com");
         
         for (Map.Entry<String, String> entry : errors.entrySet()) {

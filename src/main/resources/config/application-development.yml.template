@@ -37,4 +37,46 @@ mail:
 test:
   username:
   password:
+<<<<<<< HEAD:src/main/resources/config/application-development.yml.template
+=======
+  domain:
+---
+
+spring:
+  profiles: staging
+  datasource:
+    url: jdbc:postgresql://localhost:5432/polygraphy
+    username:
+    password:
+  domain: polygraphy.7bits.it
+
+server:
+  port: 9000
+
+search_polygraphy:
+  limit_polygraphies: 10
+  limit_services: 4
+
+registration_link:
+  min_number: 100000000
+  max_number: 999999999
+
+mail:
+  username:
+  password:
+  protocol: smtp
+  host: smtp.gmail.com
+  port: 587
+  charset: UTF-8
+  smtp:
+    auth: true
+    starttls:
+        enable: true
+        required: true
+    debug: true
+
+test:
+  username:
+  password:
+>>>>>>> feature/travis_CI:src/main/resources/config/application.yml.template
   domain:

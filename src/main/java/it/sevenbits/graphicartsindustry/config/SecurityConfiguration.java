@@ -48,7 +48,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/admin-polygraphy/**").hasRole("POLYGRAPHY")
                     .antMatchers("/editing-polygraphy-success").hasAnyRole("ADMIN", "POLYGRAPHY")
                     .antMatchers("/registration**").anonymous()
-//                    .anyRequest().denyAll()
                 .and()
                     .formLogin()
                     .defaultSuccessUrl("/")

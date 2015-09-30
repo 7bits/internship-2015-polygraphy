@@ -36,6 +36,8 @@ public class EditingPolygraphyService {
      */
     private DefaultTransactionDefinition customTx;
 
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
 
     @Autowired
     private EditingUserValidator editingUserValidator;
@@ -281,13 +283,15 @@ public class EditingPolygraphyService {
     public String findUserEmailByPolygraphyId(Integer polygraphyId) throws ServiceException {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            String userEmail = null;
-            if (userId != null) {
-                userEmail = userRepository.findEmailById(userId);
-            }
-            return userEmail;
+//            String userEmail = null;
+//            if (userId != null) {
+//                userEmail = userRepository.findEmailById(userId);
+//            }
+//            return userEmail;
+            return userRepository.findEmailById(userId);
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find user polygraphy. ");
+//            throw new ServiceException("Can not find user polygraphy. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error"));
         }
     }
 }

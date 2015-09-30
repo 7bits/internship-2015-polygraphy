@@ -61,6 +61,7 @@ public class ValidationTest {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
 
   @Test
@@ -83,6 +84,7 @@ public class ValidationTest {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
   @Test
   public void testMinPasswordLength() throws Exception {
@@ -105,6 +107,7 @@ public class ValidationTest {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
   //изменена длина ввода допустимых символов. Зачем 255 на пароль???
   @Test
@@ -127,6 +130,7 @@ public class ValidationTest {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
   @Test
   public void testEmptyFieldsStepTwo() throws Exception {
@@ -169,5 +173,6 @@ public class ValidationTest {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
 }

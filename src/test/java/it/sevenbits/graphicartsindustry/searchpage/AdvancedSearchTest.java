@@ -18,6 +18,7 @@ public class AdvancedSearchTest {
   public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
   public static final String username = System.getenv("POLYGRAPHY_USERNAME");
   public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 // Наличный расчет
 @Test
   public void testCash() throws Exception {
@@ -26,7 +27,7 @@ public class AdvancedSearchTest {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     driver.findElement(By.id("paymentMethod")).click();

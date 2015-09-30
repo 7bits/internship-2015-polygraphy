@@ -7,11 +7,22 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class User implements UserDetails {
-    private int id;
+    private Integer id;
     private String email;
     private String password;
     private Role role;
     private Boolean enabled;
+
+    public User() {
+    }
+
+    public User(Integer id, String email, String password, Role role, Boolean enabled) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.enabled = enabled;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -58,11 +69,11 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

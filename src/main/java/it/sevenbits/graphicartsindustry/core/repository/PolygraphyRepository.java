@@ -3,7 +3,6 @@ package it.sevenbits.graphicartsindustry.core.repository;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.mappers.PolygraphyMapper;
-import it.sevenbits.graphicartsindustry.web.forms.SearchForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,12 +19,12 @@ public class PolygraphyRepository {
     @Autowired
     private PolygraphyMapper polygraphyMapper;
 
-    public List<PolygraphyContacts> findPolygraphies(SearchForm query) throws RepositoryException {
+    public List<PolygraphyContacts> findPolygraphies(String query, List<Integer> servicesId, Integer paymentMethodId,
+                                                     Boolean writesTheCheck, Integer deliveryMethodId,
+                                                     Boolean orderByEmail) throws RepositoryException {
         try {
-            String symbolIsBanned = "'";
-            String processedQuery = query.getQuery().replaceAll(symbolIsBanned,"");
-            return polygraphyMapper.findPolygraphies(processedQuery.toLowerCase(), query.getServices(), query.getPaymentMethod(),
-                    query.isWritesTheCheck(), query.getDeliveryMethod(), query.isOrderByEmail());
+            return polygraphyMapper.findPolygraphies(query.toLowerCase(), servicesId, paymentMethodId,writesTheCheck,
+                    deliveryMethodId, orderByEmail);
         } catch (Exception e) {
             LOG.error("Can not load polygraphies by query due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving polygraphies " +
@@ -211,13 +210,17 @@ public class PolygraphyRepository {
         }
     }
 
-    public void editConditionDisplayPolygraphy(Integer polygraphyId, Boolean condition) throws RepositoryException {
+    public void editConditionDisplayPolygraphy(Integer polygraphyId, Boolean curCondition) throws RepositoryException {
         if (polygraphyId == null) {
             LOG.error("Can not edit condition display polygraphy due to repository error: polygraphy id is null");
             throw new RepositoryException("Polygraphy ID is null");
         }
+        if (curCondition == null) {
+            LOG.error("Can not edit condition display polygraphy due to repository error: current condition is null");
+            throw new RepositoryException("Current condition is null");
+        }
         try {
-            polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, condition);
+            polygraphyMapper.updateConditionDisplayPolygraphy(polygraphyId, curCondition);
         } catch (Exception e) {
             LOG.error("Can not edit condition display polygraphy due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while editing condition polygraphy " +

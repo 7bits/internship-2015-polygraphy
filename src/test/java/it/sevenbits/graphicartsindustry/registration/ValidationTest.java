@@ -1,34 +1,41 @@
-/*
 package it.sevenbits.graphicartsindustry.registration;
 
-import java.util.regex.Pattern;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
+
+import static org.junit.Assert.assertEquals;
 
 public class ValidationTest {
-  private WebDriver driver;
-  private String baseUrl;
-  private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
-
-  @Before
-  public void setUp() throws Exception {
-    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
-    driver = new ChromeDriver();
-    baseUrl = "http://polygraphy:gjkbuhfabz@polygraphy.7bits.it";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
+  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
+  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+  public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+  public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+  public static final String domain = System.getenv("POLYGRAPHY_REGISTR_DOMAIN");
 
   @Test
   public void testEmptyFieldsStepOne() throws Exception {
-    driver.get(baseUrl + "/registration?id=37d622aa649c5985efe548c5c133e8a75c307715");
-    driver.findElement(By.id("step0Next")).click();
+    DesiredCapabilities caps = DesiredCapabilities.chrome();
+    caps.setCapability("platform", "Linux");
+    caps.setCapability("version", "45.0");
+
+    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+    driver.get("http://" + username + ":" + password + "@" + domain);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+    WebElement we = driver.findElement(By.id("step0Next"));
+    JavascriptExecutor executor = (JavascriptExecutor)driver;
+    executor.executeScript("arguments[0].click();", we);
+
     try {
       assertEquals("Поле не должно быть пустым", driver.findElement(By.id("email-error")).getText());
     } catch (Error e) {
@@ -54,49 +61,87 @@ public class ValidationTest {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
 
   @Test
   public void testInvalidEmail() throws Exception {
-    driver.get(baseUrl + "/registration?id=37d622aa649c5985efe548c5c133e8a75c307715");
+    DesiredCapabilities caps = DesiredCapabilities.chrome();
+    caps.setCapability("platform", "Linux");
+    caps.setCapability("version", "45.0");
+
+    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+    driver.get("http://" + username + ":" + password + "@" + domain);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
     driver.findElement(By.id("email-input")).clear();
     driver.findElement(By.id("email-input")).sendKeys("wdfgtyhjk,l;p");
-    driver.findElement(By.id("step0Next")).click();
+    WebElement we = driver.findElement(By.id("step0Next"));
+    JavascriptExecutor executor = (JavascriptExecutor)driver;
+    executor.executeScript("arguments[0].click();", we);
     try {
       assertEquals("Введите правильный email", driver.findElement(By.id("email-error")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
   @Test
   public void testMinPasswordLength() throws Exception {
-    driver.get(baseUrl + "/registration?id=37d622aa649c5985efe548c5c133e8a75c307715");
+    DesiredCapabilities caps = DesiredCapabilities.chrome();
+    caps.setCapability("platform", "Linux");
+    caps.setCapability("version", "45.0");
+
+    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+    driver.get("http://" + username + ":" + password + "@" + domain);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
     driver.findElement(By.id("password-input")).clear();
     driver.findElement(By.id("password-input")).sendKeys("1234");
-    driver.findElement(By.id("step0Next")).click();
+    WebElement we = driver.findElement(By.id("step0Next"));
+    JavascriptExecutor executor = (JavascriptExecutor)driver;
+    executor.executeScript("arguments[0].click();", we);
+
     try {
       assertEquals("Поле должно быть длинее, чем 6 символов", driver.findElement(By.id("password-error")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
   //изменена длина ввода допустимых символов. Зачем 255 на пароль???
   @Test
   public void testMaxPasswordLength() throws Exception {
-    driver.get(baseUrl + "/registration?id=37d622aa649c5985efe548c5c133e8a75c307715");
+    DesiredCapabilities caps = DesiredCapabilities.chrome();
+    caps.setCapability("platform", "Linux");
+    caps.setCapability("version", "45.0");
+
+    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+    driver.get("http://" + username + ":" + password + "@" + domain);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
     driver.findElement(By.id("password-input")).clear();
-    driver.findElement(By.id("password-input")).sendKeys("123456789012345678901234567890123456789012345678901234567890123");
-    driver.findElement(By.id("step0Next")).click();
+    driver.findElement(By.id("password-input")).sendKeys("5s6LUpmX7qWlWzMrsgK586XCvmEaH5rPSLh4kPv8eipkv1JAeV8SYhAEtq5fhi4dWHAk9TxjkXreQT3lArgI6KCc7HWtTdjhgqsNLoTX3GWwpaKUyGmzHftbgp48VpTQ2WOWR65VbOjCllyWYrnDpAPizB4Pxaw1rZyIwZy0kvAaZnPkqFqP6Y7GIm7qDffA9C6eFKccHDnscioAAWPDCo6oUfGybmAnV0RA5rkuxK8pq62jqR42B2kXFSxgfKxl");
+    WebElement we = driver.findElement(By.id("step0Next"));
+    JavascriptExecutor executor = (JavascriptExecutor)driver;
+    executor.executeScript("arguments[0].click();", we);
     try {
-      assertEquals("Поле должно быть короче, чем 60 символов", driver.findElement(By.id("password-error")).getText());
+      assertEquals("Поле должно быть короче, чем 255 символов", driver.findElement(By.id("password-error")).getText());
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
+    driver.quit();
   }
-
   @Test
   public void testEmptyFieldsStepTwo() throws Exception {
-    driver.get(baseUrl + "/registration?id=37d622aa649c5985efe548c5c133e8a75c307715");
+    DesiredCapabilities caps = DesiredCapabilities.chrome();
+    caps.setCapability("platform", "Linux");
+    caps.setCapability("version", "45.0");
+
+    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+    driver.get("http://" + username + ":" + password + "@" + domain);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
     driver.findElement(By.id("email-input")).clear();
     driver.findElement(By.id("email-input")).sendKeys("qwe@qw.qw");
     driver.findElement(By.id("password-input")).clear();
@@ -107,7 +152,9 @@ public class ValidationTest {
     driver.findElement(By.id("address-input")).sendKeys("адрес");
     driver.findElement(By.id("phone-input")).clear();
     driver.findElement(By.id("phone-input")).sendKeys("123456");
-    driver.findElement(By.id("step0Next")).click();
+    WebElement wee = driver.findElement(By.id("step0Next"));
+    JavascriptExecutor executore = (JavascriptExecutor)driver;
+    executore.executeScript("arguments[0].click();", wee);
     WebElement we = driver.findElement(By.id("submit-registration-form"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
@@ -126,47 +173,6 @@ public class ValidationTest {
     } catch (Error e) {
       verificationErrors.append(e.toString());
     }
-  }
-  @After
-  public void tearDown() throws Exception {
-    //driver.quit();
-    String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
-      fail(verificationErrorString);
-    }
-  }
-
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
+    driver.quit();
   }
 }
-*/

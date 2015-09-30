@@ -51,44 +51,46 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+ */
+/*   driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
+*//*
  }
 
 // футболки + кружки + ш/п + расчет по карте
@@ -109,16 +111,16 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
    
 }
 
@@ -140,38 +142,38 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
  }
 
 // футболки + кружки + ш/п + Самовывоз 
@@ -192,50 +194,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // футболки + кружки + ш/п + Доставка с курьером
@@ -256,12 +258,12 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 
 // футболки + кружки + ш/п + выдает чек
@@ -282,50 +284,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
    
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
    }
 
 // футболки + кружки + ш/п + Принимает заказ по email
@@ -346,26 +348,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // футболки + кружки + ш/п + выдает чек + принимает заказ по email
@@ -389,26 +391,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + Наличный расчет + Самовывоз
 @Test
@@ -431,44 +433,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
     }
 
 // футболки + кружки + ш/п + Наличный расчет + Доставка с курьером
@@ -492,12 +494,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
     }
 
 // футболки + кружки + ш/п + Оплата по счету + Самовывоз
@@ -521,38 +523,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + кружки + ш/п + Оплата по счету + Доставка с курьером
   @Test
@@ -575,12 +577,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + ш/п + Расчет по карте + Самовывоз
   @Test
@@ -604,16 +606,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + кружки + ш/п + Расчет по карте + Доставка с курьером
   @Test
@@ -636,8 +638,8 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + ш/п + Наличный расчет + Выдает чек
   @Test
@@ -660,44 +662,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + Оплата по счету + Выдает чек
   @Test
@@ -720,38 +722,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + кружки + ш/п + Расчет по карте + Выдает чек
   @Test
@@ -774,16 +776,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + кружки + ш/п + Самовывоз + Выдает чек
   @Test
@@ -806,50 +808,50 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + Доставка с курьером + Выдает чек
   @Test
@@ -872,12 +874,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + Наличный расчет + Принимает заказ по email
   @Test
@@ -900,22 +902,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + Оплата по счету + Принимает заказ по email
   @Test
@@ -938,22 +940,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + ш/п + Расчет по карте + Принимает заказ по email
   @Test
@@ -976,10 +978,10 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
    }
 // футболки + кружки + ш/п + Самовывоз + Принимает заказ по email
   @Test
@@ -1002,26 +1004,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + Доставка с курьером + Принимает заказ по email
   @Test
@@ -1044,12 +1046,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // футболки + кружки + ш/п + наличный расчет + самовывоз + выдает чек
   @Test
@@ -1075,44 +1077,44 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + наличный расчет + доставка с курьером + выдает чек
   @Test
@@ -1138,12 +1140,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + оплата по счету + доставка с курьером + выдает чек
   @Test
@@ -1169,12 +1171,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + оплата по счету + самовывоз + выдает чек
   @Test
@@ -1200,38 +1202,38 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + кружки + ш/п + расчет по карте + доставка с курьером + выдает чек
   @Test
@@ -1257,8 +1259,8 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + расчет по карте + самовывоз + выдает чек
   @Test
@@ -1284,16 +1286,16 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + кружки + ш/п + наличный расчет + самовывоз + заказ по  email
   @Test
@@ -1319,22 +1321,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + наличный расчет + доставка с курьером + заказ по  email
   @Test
@@ -1360,12 +1362,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + ш/п + оплата по счету + доставка с курьером + заказ по  email
   @Test
@@ -1391,12 +1393,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // футболки + кружки + ш/п + оплата по счету + самовывоз + заказ по  email
   @Test
@@ -1422,22 +1424,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + ш/п + расчет по карте + доставка с курьером + заказ по  email
   @Test
@@ -1463,8 +1465,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch); 
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + ш/п + расчет по карте + самовывоз + заказ по  email
   @Test
@@ -1490,10 +1492,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // футболки + кружки + ш/п + оплата наличными + выдает чек + заказ по  email
   @Test
@@ -1519,22 +1521,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + оплата по счету + выдает чек + заказ по  email
   @Test
@@ -1560,22 +1562,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + ш/п + расчет по карте + выдает чек + заказ по  email
   @Test
@@ -1601,10 +1603,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // футболки + кружки + ш/п + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1630,26 +1632,26 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1675,12 +1677,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + наличный расчет + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1709,22 +1711,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + ш/п + наличный расчет + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1754,12 +1756,12 @@ public class TripleServicesTest {
     performer.executeScript("arguments[0].click();", ch);
  
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + Оплата по счету + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1788,12 +1790,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + оплата по счету + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1822,22 +1824,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + ш/п + расчет по карте + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -1866,8 +1868,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + ш/п + расчет по карте  + самовывоз + выдает чек + заказ по  email
   @Test
@@ -1896,10 +1898,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 
 
@@ -1924,44 +1926,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
  }
 
 // футболки + кружки + визитки + расчет по карте
@@ -1982,16 +1984,16 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
    
 }
 
@@ -2013,38 +2015,38 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
  }
 
 // футболки + кружки + визитки + Самовывоз 
@@ -2065,50 +2067,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // футболки + кружки + визитки + Доставка с курьером
@@ -2129,12 +2131,12 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 
 // футболки + кружки + визитки + выдает чек
@@ -2155,50 +2157,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
    
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
    }
 
 // футболки + кружки + визитки + Принимает заказ по email
@@ -2219,26 +2221,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // футболки + кружки + визитки + выдает чек + принимает заказ по email
@@ -2262,26 +2264,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + Наличный расчет + Самовывоз
 @Test
@@ -2304,44 +2306,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
     }
 
 // футболки + кружки + визитки + Наличный расчет + Доставка с курьером
@@ -2365,12 +2367,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
     }
 
 // футболки + кружки + визитки + Оплата по счету + Самовывоз
@@ -2394,38 +2396,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + кружки + визитки + Оплата по счету + Доставка с курьером
   @Test
@@ -2448,12 +2450,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + визитки + Расчет по карте + Самовывоз
   @Test
@@ -2477,16 +2479,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + кружки + визитки + Расчет по карте + Доставка с курьером
   @Test
@@ -2509,8 +2511,8 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + визитки + Наличный расчет + Выдает чек
   @Test
@@ -2533,44 +2535,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + Оплата по счету + Выдает чек
   @Test
@@ -2593,38 +2595,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + кружки + визитки + Расчет по карте + Выдает чек
   @Test
@@ -2647,16 +2649,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + кружки + визитки + Самовывоз + Выдает чек
   @Test
@@ -2679,50 +2681,50 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + Доставка с курьером + Выдает чек
   @Test
@@ -2745,12 +2747,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + Наличный расчет + Принимает заказ по email
   @Test
@@ -2773,22 +2775,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + Оплата по счету + Принимает заказ по email
   @Test
@@ -2811,22 +2813,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + визитки + Расчет по карте + Принимает заказ по email
   @Test
@@ -2849,10 +2851,10 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
    }
 // футболки + кружки + визитки + Самовывоз + Принимает заказ по email
   @Test
@@ -2875,26 +2877,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + Доставка с курьером + Принимает заказ по email
   @Test
@@ -2917,12 +2919,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // футболки + кружки + визитки + наличный расчет + самовывоз + выдает чек
   @Test
@@ -2948,44 +2950,44 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + наличный расчет + доставка с курьером + выдает чек
   @Test
@@ -3011,12 +3013,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + оплата по счету + доставка с курьером + выдает чек
   @Test
@@ -3042,12 +3044,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + оплата по счету + самовывоз + выдает чек
   @Test
@@ -3073,38 +3075,38 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + кружки + визитки + расчет по карте + доставка с курьером + выдает чек
   @Test
@@ -3130,8 +3132,8 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + расчет по карте + самовывоз + выдает чек
   @Test
@@ -3157,16 +3159,16 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + кружки + визитки + наличный расчет + самовывоз + заказ по  email
   @Test
@@ -3192,22 +3194,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + наличный расчет + доставка с курьером + заказ по  email
   @Test
@@ -3233,12 +3235,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + визитки + оплата по счету + доставка с курьером + заказ по  email
   @Test
@@ -3264,12 +3266,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // футболки + кружки + визитки + оплата по счету + самовывоз + заказ по  email
   @Test
@@ -3295,22 +3297,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + визитки + расчет по карте + доставка с курьером + заказ по  email
   @Test
@@ -3336,8 +3338,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch); 
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + кружки + визитки + расчет по карте + самовывоз + заказ по  email
   @Test
@@ -3363,10 +3365,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // футболки + кружки + визитки + оплата наличными + выдает чек + заказ по  email
   @Test
@@ -3392,22 +3394,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + оплата по счету + выдает чек + заказ по  email
   @Test
@@ -3433,22 +3435,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + визитки + расчет по карте + выдает чек + заказ по  email
   @Test
@@ -3474,10 +3476,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // футболки + кружки + визитки + самовывоз + выдает чек + заказ по  email
   @Test
@@ -3503,26 +3505,26 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -3548,12 +3550,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + наличный расчет + самовывоз + выдает чек + заказ по  email
   @Test
@@ -3582,22 +3584,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + кружки + визитки + наличный расчет + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -3627,12 +3629,12 @@ public class TripleServicesTest {
     performer.executeScript("arguments[0].click();", ch);
  
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + Оплата по счету + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -3661,12 +3663,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + оплата по счету + самовывоз + выдает чек + заказ по  email
   @Test
@@ -3695,22 +3697,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + кружки + визитки + расчет по карте + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -3739,8 +3741,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + кружки + визитки + расчет по карте  + самовывоз + выдает чек + заказ по  email
   @Test
@@ -3769,10 +3771,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 
 
@@ -3796,44 +3798,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
  }
 
 // футболки + визитки + ш/п + расчет по карте
@@ -3854,16 +3856,16 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
    
 }
 
@@ -3885,38 +3887,38 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
  }
 
 // футболки + визитки + ш/п + Самовывоз 
@@ -3937,50 +3939,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // футболки + визитки + ш/п + Доставка с курьером
@@ -4001,12 +4003,12 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 
 // футболки + визитки + ш/п + выдает чек
@@ -4027,50 +4029,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
    
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
    }
 
 // футболки + визитки + ш/п + Принимает заказ по email
@@ -4091,26 +4093,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // футболки + визитки + ш/п + выдает чек + принимает заказ по email
@@ -4134,26 +4136,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + Наличный расчет + Самовывоз
 @Test
@@ -4176,44 +4178,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
     }
 
 // футболки + визитки + ш/п + Наличный расчет + Доставка с курьером
@@ -4237,12 +4239,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
     }
 
 // футболки + визитки + ш/п + Оплата по счету + Самовывоз
@@ -4266,38 +4268,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + визитки + ш/п + Оплата по счету + Доставка с курьером
   @Test
@@ -4320,12 +4322,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + визитки + ш/п + Расчет по карте + Самовывоз
   @Test
@@ -4349,16 +4351,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + визитки + ш/п + Расчет по карте + Доставка с курьером
   @Test
@@ -4381,8 +4383,8 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + визитки + ш/п + Наличный расчет + Выдает чек
   @Test
@@ -4405,44 +4407,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + Оплата по счету + Выдает чек
   @Test
@@ -4465,38 +4467,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + визитки + ш/п + Расчет по карте + Выдает чек
   @Test
@@ -4519,16 +4521,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + визитки + ш/п + Самовывоз + Выдает чек
   @Test
@@ -4551,50 +4553,50 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + Доставка с курьером + Выдает чек
   @Test
@@ -4617,12 +4619,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + Наличный расчет + Принимает заказ по email
   @Test
@@ -4645,22 +4647,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + Оплата по счету + Принимает заказ по email
   @Test
@@ -4683,22 +4685,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + визитки + ш/п + Расчет по карте + Принимает заказ по email
   @Test
@@ -4721,10 +4723,10 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
    }
 // футболки + визитки + ш/п + Самовывоз + Принимает заказ по email
   @Test
@@ -4747,26 +4749,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + Доставка с курьером + Принимает заказ по email
   @Test
@@ -4789,12 +4791,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // футболки + визитки + ш/п + наличный расчет + самовывоз + выдает чек
   @Test
@@ -4820,44 +4822,44 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + наличный расчет + доставка с курьером + выдает чек
   @Test
@@ -4883,12 +4885,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + оплата по счету + доставка с курьером + выдает чек
   @Test
@@ -4914,12 +4916,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + оплата по счету + самовывоз + выдает чек
   @Test
@@ -4945,38 +4947,38 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // футболки + визитки + ш/п + расчет по карте + доставка с курьером + выдает чек
   @Test
@@ -5002,8 +5004,8 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + расчет по карте + самовывоз + выдает чек
   @Test
@@ -5029,16 +5031,16 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // футболки + визитки + ш/п + наличный расчет + самовывоз + заказ по  email
   @Test
@@ -5064,22 +5066,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + наличный расчет + доставка с курьером + заказ по  email
   @Test
@@ -5105,12 +5107,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + визитки + ш/п + оплата по счету + доставка с курьером + заказ по  email
   @Test
@@ -5136,12 +5138,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // футболки + визитки + ш/п + оплата по счету + самовывоз + заказ по  email
   @Test
@@ -5167,22 +5169,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + визитки + ш/п + расчет по карте + доставка с курьером + заказ по  email
   @Test
@@ -5208,8 +5210,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch); 
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // футболки + визитки + ш/п + расчет по карте + самовывоз + заказ по  email
   @Test
@@ -5235,10 +5237,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // футболки + визитки + ш/п + оплата наличными + выдает чек + заказ по  email
   @Test
@@ -5264,22 +5266,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + оплата по счету + выдает чек + заказ по  email
   @Test
@@ -5305,22 +5307,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + визитки + ш/п + расчет по карте + выдает чек + заказ по  email
   @Test
@@ -5346,10 +5348,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // футболки + визитки + ш/п + самовывоз + выдает чек + заказ по  email
   @Test
@@ -5375,26 +5377,26 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -5420,12 +5422,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + наличный расчет + самовывоз + выдает чек + заказ по  email
   @Test
@@ -5454,22 +5456,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // футболки + визитки + ш/п + наличный расчет + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -5499,12 +5501,12 @@ public class TripleServicesTest {
     performer.executeScript("arguments[0].click();", ch);
  
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + Оплата по счету + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -5533,12 +5535,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + оплата по счету + самовывоз + выдает чек + заказ по  email
   @Test
@@ -5567,22 +5569,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // футболки + визитки + ш/п + расчет по карте + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -5611,8 +5613,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // футболки + визитки + ш/п + расчет по карте  + самовывоз + выдает чек + заказ по  email
   @Test
@@ -5640,10 +5642,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 
 
@@ -5666,46 +5668,46 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // кружки + ш/п + визитки + расчет по карте
@@ -5726,14 +5728,14 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 
 // кружки + ш/п + визитки + оплата по счету
@@ -5754,40 +5756,40 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
  }
 
 // кружки + ш/п + визитки + Самовывоз 
@@ -5808,52 +5810,52 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // кружки + ш/п + визитки + Доставка с курьером
@@ -5874,12 +5876,12 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
  }
 
 // кружки + ш/п + визитки + выдает чек
@@ -5900,52 +5902,52 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
    
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
  }
 
 // кружки + ш/п + визитки + Принимает заказ по email
@@ -5966,26 +5968,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
 }
 
 // кружки + ш/п + визитки + выдает чек + принимает заказ по email
@@ -6009,26 +6011,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
 }
 // кружки + ш/п + визитки + Наличный расчет + Самовывоз
 @Test
@@ -6051,46 +6053,46 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
     }
 
 // кружки + ш/п + визитки + Наличный расчет + Доставка с курьером
@@ -6114,10 +6116,10 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
   }
 
 // кружки + ш/п + визитки + Оплата по счету + Самовывоз
@@ -6141,40 +6143,40 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // кружки + ш/п + визитки + Оплата по счету + Доставка с курьером
   @Test
@@ -6197,12 +6199,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + Расчет по карте + Самовывоз
   @Test
@@ -6225,14 +6227,14 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // кружки + ш/п + визитки + Расчет по карте + Доставка с курьером
   @Test
@@ -6255,8 +6257,8 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
   }
 // кружки + ш/п + визитки + Наличный расчет + Выдает чек
   @Test
@@ -6279,46 +6281,46 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + Оплата по счету + Выдает чек
   @Test
@@ -6341,40 +6343,40 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // кружки + ш/п + визитки + Расчет по карте + Выдает чек
   @Test
@@ -6397,14 +6399,14 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // кружки + ш/п + визитки + Самовывоз + Выдает чек
   @Test
@@ -6427,52 +6429,52 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + Доставка с курьером + Выдает чек
   @Test
@@ -6495,12 +6497,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + Наличный расчет + Принимает заказ по email
   @Test
@@ -6524,22 +6526,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + Оплата по счету + Принимает заказ по email
   @Test
@@ -6562,22 +6564,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // кружки + ш/п + визитки + Расчет по карте + Принимает заказ по email
   @Test
@@ -6601,8 +6603,8 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // кружки + ш/п + визитки + Самовывоз + Принимает заказ по email
   @Test
@@ -6625,26 +6627,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + Доставка с курьером + Принимает заказ по email
   @Test
@@ -6667,12 +6669,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + наличный расчет + самовывоз + выдает чек
   @Test
@@ -6698,46 +6700,46 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + наличный расчет + доставка с курьером + выдает чек
   @Test
@@ -6763,10 +6765,10 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
   }
 // кружки + ш/п + визитки + оплата по счету + доставка с курьером + выдает чек
   @Test
@@ -6792,12 +6794,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-   driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+   driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + оплата по счету + самовывоз + выдает чек
   @Test
@@ -6823,40 +6825,40 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Золотой тираж']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Сибирь']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // кружки + ш/п + визитки + расчет по карте + доставка с курьером + выдает чек
   @Test
@@ -6882,8 +6884,8 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
  }
 // кружки + ш/п + визитки + расчет по карте + самовывоз + выдает чек
   @Test
@@ -6909,14 +6911,14 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // кружки + ш/п + визитки + наличный расчет + самовывоз + заказ по  email
   @Test
@@ -6942,22 +6944,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + наличный расчет + доставка с курьером + заказ по  email
   @Test
@@ -6983,10 +6985,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + оплата по счету + доставка с курьером + заказ по  email
   @Test
@@ -7012,12 +7014,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + оплата по счету + самовывоз + заказ по  email
   @Test
@@ -7043,22 +7045,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // кружки + ш/п + визитки + расчет по карте + доставка с курьером + заказ по  email
   @Test
@@ -7084,8 +7086,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch); 
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
   }
 // кружки + ш/п + визитки + расчет по карте + самовывоз + заказ по  email
   @Test
@@ -7111,8 +7113,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-  driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+  driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // кружки + ш/п + визитки + оплата наличными + выдает чек + заказ по  email
   @Test
@@ -7138,22 +7140,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + оплата по счету + выдает чек + заказ по  email
   @Test
@@ -7180,22 +7182,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // кружки + ш/п + визитки + расчет по карте + выдает чек + заказ по  email
   @Test
@@ -7221,8 +7223,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // кружки + ш/п + визитки + самовывоз + выдает чек + заказ по  email
   @Test
@@ -7248,26 +7250,26 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -7293,12 +7295,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + наличный расчет + самовывоз + выдает чек + заказ по  email
   @Test
@@ -7327,22 +7329,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // кружки + ш/п + визитки + наличный расчет + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -7372,10 +7374,10 @@ public class TripleServicesTest {
     performer.executeScript("arguments[0].click();", ch);
  
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + Оплата по счету + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -7404,12 +7406,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
   }
 // кружки + ш/п + визитки + оплата по счету + самовывоз + выдает чек + заказ по  email
   @Test
@@ -7439,22 +7441,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Крафтлайн']/.."));
+    driver.findElement(By.xpath("./
+[text()='ОмПАК']/.."));
+    driver.findElement(By.xpath("./
+[text()='Полиграф']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // кружки + ш/п + визитки + расчет по карте + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -7483,8 +7485,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-  driver.findElement(By.xpath("./*/
-/*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
+  driver.findElement(By.xpath("./
+[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
   }
 // кружки + ш/п + визитки + расчет по карте  + самовывоз + выдает чек + заказ по  email
   @Test
@@ -7513,8 +7515,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
- driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+ driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 
 
@@ -7540,44 +7542,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
  }
 
 // 4 сервиса + расчет по карте
@@ -7601,16 +7603,16 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
    
 }
 
@@ -7635,38 +7637,38 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
  }
 
 // 4 сервиса + Самовывоз 
@@ -7690,50 +7692,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // 4 сервиса + Доставка с курьером
@@ -7757,12 +7759,12 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 
 // 4 сервиса + выдает чек
@@ -7786,50 +7788,50 @@ public class TripleServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
    
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
    }
 
 // 4 сервиса + Принимает заказ по email
@@ -7853,26 +7855,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 
 // 4 сервиса + выдает чек + принимает заказ по email
@@ -7899,26 +7901,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + Наличный расчет + Самовывоз
 @Test
@@ -7944,44 +7946,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
     }
 
 // 4 сервиса + Наличный расчет + Доставка с курьером
@@ -8008,12 +8010,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
     }
 
 // 4 сервиса + Оплата по счету + Самовывоз
@@ -8040,38 +8042,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // 4 сервиса + Оплата по счету + Доставка с курьером
   @Test
@@ -8097,12 +8099,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // 4 сервиса + Расчет по карте + Самовывоз
   @Test
@@ -8129,16 +8131,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // 4 сервиса + Расчет по карте + Доставка с курьером
   @Test
@@ -8164,8 +8166,8 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // 4 сервиса + Наличный расчет + Выдает чек
   @Test
@@ -8191,44 +8193,44 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + Оплата по счету + Выдает чек
   @Test
@@ -8254,38 +8256,38 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // 4 сервиса + Расчет по карте + Выдает чек
   @Test
@@ -8311,16 +8313,16 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // 4 сервиса + Самовывоз + Выдает чек
   @Test
@@ -8346,50 +8348,50 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + Доставка с курьером + Выдает чек
   @Test
@@ -8415,12 +8417,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + Наличный расчет + Принимает заказ по email
   @Test
@@ -8446,22 +8448,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + Оплата по счету + Принимает заказ по email
   @Test
@@ -8487,22 +8489,22 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // 4 сервиса + Расчет по карте + Принимает заказ по email
   @Test
@@ -8528,10 +8530,10 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
    }
 // 4 сервиса + Самовывоз + Принимает заказ по email
   @Test
@@ -8557,26 +8559,26 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + Доставка с курьером + Принимает заказ по email
   @Test
@@ -8602,12 +8604,12 @@ public class TripleServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // 4 сервиса + наличный расчет + самовывоз + выдает чек
   @Test
@@ -8636,44 +8638,44 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Компаньон']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='АрТ-РЕКЛАМА']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Отдел 55']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + наличный расчет + доставка с курьером + выдает чек
   @Test
@@ -8702,12 +8704,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + оплата по счету + доставка с курьером + выдает чек
   @Test
@@ -8736,12 +8738,12 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + оплата по счету + самовывоз + выдает чек
   @Test
@@ -8770,38 +8772,38 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Аванта']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Акула']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алвест']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Тритон Плюс']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Аванта']/.."));
+    driver.findElement(By.xpath("./
+[text()='Акула']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алвест']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Мегаполис PRINT']/.."));
+    driver.findElement(By.xpath("./
+[text()='Пульсар-98']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Тритон Плюс']/.."));
   }
 // 4 сервиса + расчет по карте + доставка с курьером + выдает чек
   @Test
@@ -8830,8 +8832,8 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + расчет по карте + самовывоз + выдает чек
   @Test
@@ -8860,16 +8862,16 @@ public class TripleServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='А3+']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Фото-М']/.."));
+    driver.findElement(By.xpath("./
+[text()='АНТАРЕС']/.."));
+    driver.findElement(By.xpath("./
+[text()='А3+']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Фото-М']/.."));
   }
 // 4 сервиса + наличный расчет + самовывоз + заказ по  email
   @Test
@@ -8898,22 +8900,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + наличный расчет + доставка с курьером + заказ по  email
   @Test
@@ -8942,12 +8944,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // 4 сервиса + оплата по счету + доставка с курьером + заказ по  email
   @Test
@@ -8976,12 +8978,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
    }
 // 4 сервиса + оплата по счету + самовывоз + заказ по  email
   @Test
@@ -9010,22 +9012,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // 4 сервиса + расчет по карте + доставка с курьером + заказ по  email
   @Test
@@ -9054,8 +9056,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch); 
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
  }
 // 4 сервиса + расчет по карте + самовывоз + заказ по  email
   @Test
@@ -9084,10 +9086,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // 4 сервиса + оплата наличными + выдает чек + заказ по  email
   @Test
@@ -9116,22 +9118,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + оплата по счету + выдает чек + заказ по  email
   @Test
@@ -9160,22 +9162,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // 4 сервиса + расчет по карте + выдает чек + заказ по  email
   @Test
@@ -9204,10 +9206,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 // 4 сервиса + самовывоз + выдает чек + заказ по  email
   @Test
@@ -9236,26 +9238,26 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -9284,12 +9286,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + наличный расчет + самовывоз + выдает чек + заказ по  email
   @Test
@@ -9321,22 +9323,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Филипп']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Бумеранг']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Филипп']/.."));
   }
 // 4 сервиса + наличный расчет + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -9369,12 +9371,12 @@ public class TripleServicesTest {
     performer.executeScript("arguments[0].click();", ch);
  
 
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + Оплата по счету + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -9406,12 +9408,12 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + оплата по счету + самовывоз + выдает чек + заказ по  email
   @Test
@@ -9443,22 +9445,22 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='futbolkaprint']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Селбс']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Рекламщик']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Стиль фирмы']/.."));
+    driver.findElement(By.xpath("./
+[text()='futbolkaprint']/.."));
+    driver.findElement(By.xpath("./
+[text()='Селбс']/.."));
+    driver.findElement(By.xpath("./
+[text()='Принт сервис']/.."));
+    driver.findElement(By.xpath("./
+[text()='Алые паруса']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Рекламщик']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Стиль фирмы']/.."));
   }
 // 4 сервиса + расчет по карте + доставка с курьером + выдает чек + заказ по  email
   @Test
@@ -9490,8 +9492,8 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
   }
 // 4 сервиса + расчет по карте  + самовывоз + выдает чек + заказ по  email
   @Test
@@ -9523,10 +9525,10 @@ public class TripleServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
  
-    driver.findElement(By.xpath("./*/
-/*[text()='Всемайки.ру']/.."));
-    driver.findElement(By.xpath("./*/
-/*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath("./
+[text()='Всемайки.ру']/.."));
+    driver.findElement(By.xpath("./
+[text()='Синяя Птица']/.."));
   }
 
  @After

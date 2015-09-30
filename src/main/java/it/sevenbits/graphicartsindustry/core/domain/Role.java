@@ -4,7 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 
 public enum Role implements GrantedAuthority {
     ROLE_ADMIN (0, "Admin"),
-    ROLE_POLYGRAPHY (1, "PolygraphyContacts"),
+    ROLE_POLYGRAPHY (1, "Polygraphy"),
     ROLE_ANONIMOUS (2, "Anonymous");
 
     private Integer order;
@@ -19,10 +19,6 @@ public enum Role implements GrantedAuthority {
         this.description = description;
     }
 
-//    public static Role createRole(final String role) {
-//        return Role.valueOf(role);
-//    }
-
     @Override
     public String getAuthority() {
         return this.name();
@@ -31,7 +27,6 @@ public enum Role implements GrantedAuthority {
     public String getName() {
         return this.name();
     }
-
 
     public Integer getOrder() {
         return order;

@@ -1,15 +1,15 @@
 var displayErrors = flight.component(
     function() {
         this.showErrors = function(e, data){
-            var className = $('#big-form').attr('class')/*.split(' ')[0]*/;
-            var baseError = $('.'+className+'__base-error');
+            var className = $('.general-input').attr('class').split(' ')[0];
+            var baseError = $('.general-form__base-error');
 
             if (data.errors['base']){
-                baseError.addClass('js-display-block');
+                baseError.removeClass('js-none-display').addClass('js-display-block');
                 baseError.text(data.errors['base']);
             }
             else {
-                baseError.addClass('js-none-display');
+                baseError.removeClass('js-display-block').addClass('js-none-display');
 
                 $.each(data.errors, function(key, value){
                     $('.'+className+'__input[name='+key+']').removeClass('js-normal-input').addClass('js-error-input');

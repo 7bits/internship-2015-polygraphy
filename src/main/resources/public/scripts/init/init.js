@@ -1,4 +1,6 @@
 $(function(){
-    displayErrors.attachTo('#big-form');
+    displayErrors.attachTo('#request-form');
+    displayErrors.attachTo('#editing-form');
+    displayErrors.attachTo('#registration-form');
     validateFormForBid.attachTo('#request-form');
 });

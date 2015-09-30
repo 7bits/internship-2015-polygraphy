@@ -6,10 +6,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+
 @ControllerAdvice
 public class CustomExceptionHandler {
 
-    @ExceptionHandler(ResourceNotFoundException.class)
+    @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ModelAndView handleResourceNotFoundException() {
         return new ModelAndView("home/404");
@@ -17,9 +19,8 @@ public class CustomExceptionHandler {
 
     @ExceptionHandler(InternalServerErrorExeption.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ModelAndView handleInternalServerErrorExeption(InternalServerErrorExeption e) {
-        ModelAndView mav = new ModelAndView("home/500");
-        mav.addObject("message", e.getMessage());
-        return mav;
+    public ModelAndView handleInternalServerErrorExeption(HttpServletRequest request) {
+        Integer status = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        return new ModelAndView("home/500");
     }
 }

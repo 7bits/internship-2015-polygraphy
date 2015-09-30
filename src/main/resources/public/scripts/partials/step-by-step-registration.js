@@ -64,19 +64,19 @@
                     var headers = {};
                     headers[header] = token;
 
-                    var input = $('.b-registration__input');
-                    var invalid = $('.b-registration__invalid');
-                    var forError = $('.b-registration__for-error');
-                    var baseError = $('.b-registration__base-error');
+                    var input = $('.general-input__input');
+                    var invalid = $('.general-input__invalid');
+                    var forError = $('.general-input__for-error');
+                    var baseError = $('.general-form__base-error');
 
                     input.addClass('js-normal-input').removeClass('js-error-input');
                     invalid.addClass('js-none-display').removeClass('js-display-block');
                     forError.addClass('js-none-display').removeClass('js-display-block');
                     invalid.text('');
+                    baseError.addClass('js-none-display').removeClass('js-display-block');
+                    baseError.text('');
 
                     CKEDITOR.instances['text-area-field'].updateElement();
-                    baseError.addClass('js-none-display');
-                    baseError.text('');
 
                     var names = {};
                     input.each(function(){
@@ -111,7 +111,7 @@
                             }
                             else{
                                 //window.App.displayErrors(data);
-                                $('#big-form').trigger('showErrors', data);
+                                $('#registration-form').trigger('showErrors', data);
                             }
                         }
                     });
@@ -122,7 +122,7 @@
                 $('#steps li').removeClass('js-current');
                 $('#stepDesc' + i).addClass('js-current');
             }
-        }
+        };
     })(jQuery);
 
     $(document).ready(function(){

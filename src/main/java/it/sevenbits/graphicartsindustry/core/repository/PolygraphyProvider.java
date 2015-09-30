@@ -8,17 +8,17 @@ public class PolygraphyProvider {
 
     public static String findPolygraphies(final Map params) {
         String query = params.get("query").toString();
-        List<Object> servicesObject = (List<Object>) params.get("services");
+        List<Object> servicesObject = (List<Object>) params.get("servicesId");
         List<Integer> services = new ArrayList<Integer>();
         if (servicesObject != null) {
             for (Object object : servicesObject) {
                 services.add(Integer.valueOf(object.toString()));
             }
         }
-        Integer paymentMethod = Integer.valueOf(params.get("payment").toString());
-        Boolean writesTheCheck = Boolean.valueOf(params.get("check").toString());
-        Integer deliveryMethod = Integer.valueOf(params.get("delivery").toString());
-        Boolean orderByEmail = Boolean.valueOf(params.get("order").toString());
+        Integer paymentMethod = Integer.valueOf(params.get("paymentMethodId").toString());
+        Boolean writesTheCheck = Boolean.valueOf(params.get("writesTheCheck").toString());
+        Integer deliveryMethod = Integer.valueOf(params.get("deliveryMethodId").toString());
+        Boolean orderByEmail = Boolean.valueOf(params.get("orderByEmail").toString());
 
         StringBuilder sqlQuery = new StringBuilder();
         sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, p.displayed, c.address, c.phone");
@@ -42,7 +42,7 @@ public class PolygraphyProvider {
 
         sqlQuery.append(" WHERE p.displayed=true");
         if (query != null && !query.isEmpty()) {
-            sqlQuery.append(" AND LOWER(p.name) ILIKE '%").append(query).append("%'");
+            sqlQuery.append(" AND LOWER(p.name) ILIKE CONCAT('%', #{query}, '%')");
         }
 
         if (services.size() != 0) {

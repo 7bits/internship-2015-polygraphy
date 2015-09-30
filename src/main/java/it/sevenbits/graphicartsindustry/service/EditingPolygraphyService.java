@@ -281,7 +281,11 @@ public class EditingPolygraphyService {
     public String findUserEmailByPolygraphyId(Integer polygraphyId) throws ServiceException {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            return userRepository.findEmailById(userId);
+            String userEmail = null;
+            if (userId != null) {
+                userEmail = userRepository.findEmailById(userId);
+            }
+            return userEmail;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find user polygraphy. ");
         }

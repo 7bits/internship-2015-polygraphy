@@ -1,13 +1,13 @@
 package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
-import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.*;
-import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByAdminValidator;
-import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyFormByPolygraphyValidator;
-import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
+import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyValidator;
+import it.sevenbits.graphicartsindustry.service.validators.EditingUserValidator;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
+import it.sevenbits.graphicartsindustry.web.view.EditingPolygraphyModel;
+import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,20 +18,35 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
-import java.util.HashMap;
-
 @Service
 public class EditingPolygraphyService {
+
     private static final Logger LOG = Logger.getLogger(EditingPolygraphyService.class);
 
+    private static final String TX_NAME = "txService";
+
+    /**
+     * Spring Transaction Manager
+     */
     @Autowired
-    private EditingPolygraphyFormByAdminValidator editingPolygraphyFormByAdminValidator;
+    private PlatformTransactionManager txManager;
+
+    /**
+     * Transaction settings object
+     */
+    private DefaultTransactionDefinition customTx;
+
 
     @Autowired
-    private EditingPolygraphyFormByPolygraphyValidator editingPolygraphyFormByPolygraphyValidator;
+    private EditingUserValidator editingUserValidator;
+
+    @Autowired
+    private EditingPolygraphyValidator editingPolygraphyValidator;
+
 
     @Autowired
     private UserResolver userResolver;
+
 
     @Autowired
     private UserRepository userRepository;
@@ -45,16 +60,6 @@ public class EditingPolygraphyService {
     @Autowired
     private PolygraphyServicesRepository polygraphyServicesRepository;
 
-    private static final String TX_NAME = "txService";
-    /**
-     * Spring Transaction Manager
-     */
-    @Autowired
-    private PlatformTransactionManager txManager;
-    /**
-     * Transaction settings object
-     */
-    private DefaultTransactionDefinition customTx;
 
     public EditingPolygraphyService() {
         this.customTx = new DefaultTransactionDefinition();
@@ -62,49 +67,160 @@ public class EditingPolygraphyService {
         this.customTx.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
     }
 
-    public EditingPolygraphyForm findFullInfoAboutPolygraphyByAdmin(int polygraphyId) throws ServiceException {
+    public EditingPolygraphyModel findFullInfoAboutPolygraphyByAdmin(Integer polygraphyId) throws ServiceException {
         try {
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
-            EditingPolygraphyForm polygraphyForm = new EditingPolygraphyForm(polygraphyId, null, null,
-                    polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
-                    polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
-                    polygraphyRepository.isOrderByEmail(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
-                    polygraphyRepository.isWritesTheCheck(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
-            return polygraphyForm;
+            EditingPolygraphyModel model = null;
+            if (polygraphyContacts != null) {
+                model = new EditingPolygraphyModel(polygraphyId, null, null,
+                        polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
+                        polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
+                        polygraphyRepository.isOrderByEmail(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
+                        polygraphyRepository.isWritesTheCheck(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+            }
+            return model;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
 
-    public EditingPolygraphyForm findFullInfoAboutPolygraphyByPolygraphy(int polygraphyId) throws ServiceException {
+    public EditingPolygraphyModel findFullInfoAboutPolygraphyByPolygraphy(Integer polygraphyId) throws ServiceException {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            if (userId == null) {
-                throw new ServiceException("UserId is null");
-            }
-            User user = userRepository.findUserById(userId);
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
-            EditingPolygraphyForm polygraphyForm = new EditingPolygraphyForm(polygraphyId, user.getUsername(), null,
-                    polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
-                    polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
-                    polygraphyRepository.isOrderByEmail(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
-                    polygraphyRepository.isWritesTheCheck(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
-            return polygraphyForm;
+            EditingPolygraphyModel model = null;
+            if (polygraphyContacts != null) {
+                model = new EditingPolygraphyModel(polygraphyId, userRepository.findEmailById(userId), null,
+                        polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
+                        polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
+                        polygraphyRepository.isOrderByEmail(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
+                        polygraphyRepository.isWritesTheCheck(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+            }
+            return model;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
         }
     }
 
-    public void saveEditingPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
+    public ValidatorResponse editPolygraphyByAdmin(EditingPolygraphyForm polygraphyForm)
+            throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = validateEditingPolygraphy(polygraphyForm);
+            if (validatorResponse.isSuccess()) {
+                saveEditingPolygraphy(polygraphyForm);
+            }
+            return validatorResponse;
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
+        }
+    }
+
+    public ValidatorResponse editPolygraphyByPolygraphy(Integer polygraphyId, EditingPolygraphyForm polygraphyForm)
+            throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = null;
+            if (userResolver.getUsername().equals(findUserEmailByPolygraphyId(polygraphyId))) {
+                validatorResponse = validateEditingUser(polygraphyForm);
+                if (validatorResponse.isSuccess()) {
+                    validatorResponse = validateEditingPolygraphy(polygraphyForm);
+                    if (validatorResponse.isSuccess()) {
+                        saveEditingPolygraphyByPolygraphy(polygraphyForm);
+                        return validatorResponse;
+                    }
+                    return validatorResponse;
+                }
+                return validatorResponse;
+            }
+            validatorResponse.setSuccess(false);
+            validatorResponse.addErrors("base", "Ссылка на изменение недоступна. ");
+            return validatorResponse;
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
+        }
+    }
+
+    private ValidatorResponse validateEditingUser(EditingPolygraphyForm polygraphyForm) throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = new ValidatorResponse();
+            validatorResponse.setErrors(editingUserValidator.validate(polygraphyForm));
+            if (validatorResponse.getErrors().size() != 0) {
+                validatorResponse.setSuccess(false);
+                return validatorResponse;
+            }
+            validatorResponse.setSuccess(true);
+            return validatorResponse;
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate editing user. " + e.getMessage());
+        }
+    }
+
+    private ValidatorResponse validateEditingPolygraphy(EditingPolygraphyForm polygraphyForm)
+            throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = new ValidatorResponse();
+            validatorResponse.setErrors(editingPolygraphyValidator.validate(polygraphyForm));
+            if (validatorResponse.getErrors().size() != 0) {
+                validatorResponse.setSuccess(false);
+                return validatorResponse;
+            }
+            validatorResponse.setSuccess(true);
+            return validatorResponse;
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate editing polygraphy. " + e.getMessage());
+        }
+    }
+
+    private void saveEditingPolygraphyByPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
         TransactionStatus status = null;
         try {
             status = txManager.getTransaction(customTx);
+
+            saveEditingUser(polygraphyForm);
+            saveEditingPolygraphy(polygraphyForm);
+
+            txManager.rollback(status);
+        } catch (ServiceException e) {
+            if (status != null) {
+                txManager.rollback(status);
+                LOG.info("Rollback done.");
+            }
+            throw new ServiceException(e.getMessage());
+        }
+    }
+
+    private void saveEditingUser(EditingPolygraphyForm polygraphyForm) throws ServiceException {
+        TransactionStatus status = null;
+        try {
+            status = txManager.getTransaction(customTx);
+
+            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyForm.getPolygraphyId());
+            userRepository.editEmail(userId, polygraphyForm.getEmail());
+            if (polygraphyForm.getPassword() != null && !polygraphyForm.getPassword().isEmpty()) {
+                PasswordEncoder encoder = new BCryptPasswordEncoder();
+                userRepository.editPassword(userId, encoder.encode(polygraphyForm.getPassword()));
+            }
+
+            txManager.rollback(status);
+        } catch (RepositoryException e) {
+            if (status != null) {
+                txManager.rollback(status);
+                LOG.info("Rollback done.");
+            }
+            throw new ServiceException("Can not save editing user path. ");
+        }
+    }
+
+    private void saveEditingPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
+        TransactionStatus status = null;
+        try {
+            status = txManager.getTransaction(customTx);
+
             polygraphyRepository.editPolygraphyName(polygraphyForm.getPolygraphyId(), polygraphyForm.getName());
             polygraphyRepository.editPolygraphyInfo(polygraphyForm.getPolygraphyId(), polygraphyForm.getInfo());
             polygraphyRepository.editPolygraphyOrderByEmail(polygraphyForm.getPolygraphyId(),
@@ -117,7 +233,7 @@ public class EditingPolygraphyService {
             polygraphyContactRepository.editPolygraphyPhone(polygraphyForm.getPolygraphyId(),
                     polygraphyForm.getPhone());
             polygraphyContactRepository.editPolygraphyEmail(polygraphyForm.getPolygraphyId(),
-                    polygraphyForm.getEmail());
+                    polygraphyForm.getPublicEmail());
             polygraphyContactRepository.editPolygraphyWebsite(polygraphyForm.getPolygraphyId(),
                     polygraphyForm.getWebsite());
 
@@ -139,99 +255,39 @@ public class EditingPolygraphyService {
                 if (s != null)
                     polygraphyServicesRepository.createPolygraphyService(polygraphyForm.getPolygraphyId(), s);
             }
+
             txManager.commit(status);
         } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
             }
-            throw new ServiceException("Can not save editing polygraphy. ");
-        }
-
-    }
-
-    public ValidatorResponse editPolygraphyByAdmin(EditingPolygraphyForm editingPolygraphyForm)
-            throws ServiceException {
-        try {
-            ValidatorResponse validatorResponse = new ValidatorResponse();
-            validatorResponse.setErrors(editingPolygraphyFormByAdminValidator.validate(editingPolygraphyForm));
-            if (validatorResponse.getErrors().size() != 0) {
-                validatorResponse.setSuccess(false);
-                return validatorResponse;
-            }
-            this.saveEditingPolygraphy(editingPolygraphyForm);
-            validatorResponse.setSuccess(true);
-            return validatorResponse;
-        } catch (Exception e) {
-            throw new ServiceException("Can not validate or save editing polygraphy. ");
+            throw new ServiceException("Can not save editing polygraphy path. ");
         }
     }
 
-    public void saveEditingPolygraphyByPolygraphy(EditingPolygraphyForm polygraphyForm) throws ServiceException {
-        TransactionStatus status = null;
-        Integer userId = null;
+    public void editConditionDisplayPolygraphy(Integer polygraphyId, Boolean lastCondition) throws ServiceException {
         try {
-            status = txManager.getTransaction(customTx);
-            userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyForm.getPolygraphyId());
-            if (userId == null) {
-                throw new ServiceException("UserId is null");
+            Boolean curCondition = null;
+            if (lastCondition != null) {
+                curCondition = !lastCondition;
             }
-            userRepository.editEmail(userId, polygraphyForm.getEmail());
-            if (polygraphyForm.getPassword() !=null && !polygraphyForm.getPassword().isEmpty()) {
-                PasswordEncoder encoder = new BCryptPasswordEncoder();
-                userRepository.editPassword(userId, encoder.encode(polygraphyForm.getPassword()));
-            }
-            this.saveEditingPolygraphy(polygraphyForm);
-            txManager.rollback(status);
-        } catch (RepositoryException e) {
-            if (status != null) {
-                txManager.rollback(status);
-                LOG.info("Rollback done.");
-            }
-            throw new ServiceException("Can not save editing polygraphy. ");
-        }
-    }
-
-    public ValidatorResponse editPolygraphyByPolygraphy(int polygraphyId, EditingPolygraphyForm editingPolygraphyForm)
-            throws ServiceException {
-        try {
-            ValidatorResponse validatorResponse = new ValidatorResponse();
-            if (userResolver.getUsername().equals(this.findUserEmailByPolygraphyId(polygraphyId))) {
-                validatorResponse.setErrors(editingPolygraphyFormByPolygraphyValidator.validate(editingPolygraphyForm));
-                if (validatorResponse.getErrors().size() != 0) {
-                    validatorResponse.setSuccess(false);
-                    return validatorResponse;
-                }
-                this.saveEditingPolygraphyByPolygraphy(editingPolygraphyForm);
-                validatorResponse.setSuccess(true);
-                return validatorResponse;
-            }
-            HashMap<String, String> errors = new HashMap<>();
-            errors.put("base", "Ссылка на изменение устарела");
-            validatorResponse.setErrors(errors);
-            validatorResponse.setSuccess(false);
-            return validatorResponse;
-        } catch (Exception e) {
-            throw new ServiceException("Can not validate or save editing polygraphy. ");
-        }
-    }
-
-    public void editConditionDisplayPolygraphy(Integer polygraphyId, boolean curCondition) throws ServiceException {
-        try {
-            polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, !curCondition);
+            polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, curCondition);
         } catch (RepositoryException e) {
             throw new  ServiceException("Can not edit condition display polygraphy in search. ");
         }
     }
 
-    public String findUserEmailByPolygraphyId(int polygraphyId) throws ServiceException {
-        Integer userId = null;
+    public String findUserEmailByPolygraphyId(Integer polygraphyId) throws ServiceException {
         try {
-            userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            User user = userRepository.findUserById(userId);
-            return user.getUsername();
+            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
+            String userEmail = null;
+            if (userId != null) {
+                userEmail = userRepository.findEmailById(userId);
+            }
+            return userEmail;
         } catch (RepositoryException e) {
-            throw new ServiceException("Error. ");
+            throw new ServiceException("Can not find user polygraphy. ");
         }
     }
 }

@@ -19,13 +19,12 @@ public class AboutPolygraphyController {
     private PolygraphyService polygraphyService;
 
     @RequestMapping(value = "/polygraphy/{id:\\d+}", method = RequestMethod.GET)
-    public String loadPageAboutPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model)
-            throws NotFoundException {
+    public String loadPageAboutPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
         try {
             model.addAttribute("polygraphy", polygraphyService.findPolygraphy(polygraphyId));
             return "home/about_polygraphy";
-        } catch (ServiceException serviceExeption) {
-            model.addAttribute("message", serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            model.addAttribute("message", e.getMessage());
             return "home/about_polygraphy";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
@@ -41,9 +40,9 @@ public class AboutPolygraphyController {
             response.setSuccess(true);
             response.addData("polygraphy", polygraphyFullModel);
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);

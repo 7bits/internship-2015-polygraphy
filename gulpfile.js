@@ -11,6 +11,9 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     $ = require('jquery'),
     flight = require('flightjs'),
+    fs = require('fs'),
+    yaml = require('js-yaml'),
+    rename = require('gulp-rename'),
     reload = browsersync.reload;
 
 var path = {
@@ -35,6 +38,20 @@ var path = {
     clean: './build'
 };
 
+function readAssetsVersion() {
+    var version = '';
+
+    try {
+        var doc = yaml.safeLoad(fs.readFileSync('target/classes/config/application-staging.yml'));
+        version = doc.assets.version;
+    } catch (e) {
+        console.error('Fatal error. Before running scripts packaging package spring application');
+        version = '';
+    }
+
+    return version;
+}
+
 var config = {
     server: {
         baseDir: 'src/main/resources/public/build'
@@ -54,6 +71,13 @@ gulp.task('js:build', function () {
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
         .pipe(reload({stream: true})); //И перезагрузим сервер
+});
+
+gulp.task('js:addVersion', function () {
+    var version = readAssetsVersion();
+    gulp.src(path.build.js + '/main.js')
+        .pipe(rename('main' + version + '.js'))
+        .pipe(gulp.dest(path.build.js));
 });
 
 gulp.task('css:build', function () {
@@ -76,5 +100,6 @@ gulp.task('static:watch', function () {
 
 gulp.task('build', [
     'js:build',
+    'js:addVersion',
     'css:build'
 ]);

@@ -9,6 +9,9 @@ spring:
 server:
   port: 9000
 
+assets:
+  version:
+
 search_polygraphy:
   limit_polygraphies: 10
   limit_services: 4
@@ -34,6 +37,8 @@ mail:
 test:
   username:
   password:
+<<<<<<< HEAD:src/main/resources/config/application-development.yml.template
+=======
   domain:
 ---
 
@@ -69,3 +74,9 @@ mail:
         enable: true
         required: true
     debug: true
+
+test:
+  username:
+  password:
+>>>>>>> feature/travis_CI:src/main/resources/config/application.yml.template
+  domain:

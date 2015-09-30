@@ -33,8 +33,8 @@ public class EditingPolygraphyController {
             model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByAdmin(polygraphyId));
             model.addAttribute("editingForm.polygraphyId", polygraphyId);
             return "home/editing_polygraphy";
-        } catch (ServiceException serviceExeption) {
-            model.addAttribute("message", serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            model.addAttribute("message", e.getMessage());
             return "home/editing_polygraphy";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
@@ -54,9 +54,9 @@ public class EditingPolygraphyController {
             response.setSuccess(false);
             response.setErrors(validatorResponse.getErrors());
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
@@ -68,6 +68,10 @@ public class EditingPolygraphyController {
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
     public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
         try {
+//            TODO:
+//            userId from userResolver
+//            polygraphyService.findByUserEmailPolygraphyId()
+//
             if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
                 model.addAttribute("paymentMethods", contentService.findPaymentMethods());
                 model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
@@ -77,8 +81,10 @@ public class EditingPolygraphyController {
                 return "home/editing_polygraphy";
             }
             throw new NotFoundException();
-        } catch (ServiceException serviceExeption) {
-            model.addAttribute("message", serviceExeption.getMessage());
+        } catch (NotFoundException e) {
+            throw new NotFoundException();
+        } catch (ServiceException e) {
+            model.addAttribute("message", e.getMessage());
             return "home/editing_polygraphy";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
@@ -101,9 +107,9 @@ public class EditingPolygraphyController {
             response.setSuccess(false);
             response.setErrors(validatorResponse.getErrors());
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);

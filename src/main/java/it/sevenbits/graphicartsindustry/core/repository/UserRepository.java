@@ -57,10 +57,24 @@ public class UserRepository implements UserDetailsService {
             throw new RepositoryException("Username is null");
         }
         try {
-            return userMapper.findUserByUsername(username);
+            return userMapper.findUserByEmail(username);
         } catch (Exception e) {
             LOG.error("Can not load user by username due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while retrieving user by username "
+                    + e.getMessage(), e);
+        }
+    }
+
+    public String findEmailById(Integer userId) throws RepositoryException {
+        if (userId == null) {
+            LOG.error("Can not load user by id due to repository error: user id is null");
+            throw new RepositoryException("User ID is null");
+        }
+        try {
+            return userMapper.findEmailById(userId);
+        } catch (Exception e) {
+            LOG.error("Can not load user email by id due to repository error: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving user email by id "
                     + e.getMessage(), e);
         }
     }
@@ -71,7 +85,7 @@ public class UserRepository implements UserDetailsService {
             throw new RepositoryException("User is null");
         }
         try {
-            userMapper.insertUser(user);
+            userMapper.createUser(user);
         } catch (Exception e) {
             LOG.error("Can not create user due to repository error: " + e.getMessage(), e);
             throw new RepositoryException("An error occurred while creating user " + e.getMessage(), e);

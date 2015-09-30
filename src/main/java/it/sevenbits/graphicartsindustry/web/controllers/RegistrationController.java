@@ -41,8 +41,10 @@ public class RegistrationController {
                 return "session/registration";
             }
             throw new NotFoundException();
-        } catch (ServiceException serviceExeption) {
-            model.addAttribute("message", serviceExeption.getMessage());
+        } catch (NotFoundException e) {
+            throw new NotFoundException();
+        }catch (ServiceException e) {
+            model.addAttribute("message", e.getMessage());
             return "session/registration";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
@@ -63,9 +65,9 @@ public class RegistrationController {
              response.setSuccess(false);
              response.setErrors(validatorResponse.getErrors());
              return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
@@ -87,9 +89,9 @@ public class RegistrationController {
              response.setSuccess(false);
              response.setErrors(validatorResponse.getErrors());
              return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);

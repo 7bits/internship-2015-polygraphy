@@ -1,32 +1,24 @@
 // все тесты, связанные с чекбоксом "печать на кружках"
 package it.sevenbits.graphicartsindustry.searchpage;
 
-import java.net.URL;
-import java.sql.DriverManager;
-import java.util.regex.Pattern;
-import java.util.concurrent.TimeUnit;
-
-import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class MugsTest {
-  public static final String USERNAME = "nastya_prohorova";
-  public static final String ACCESS_KEY = "475fc805-6e70-46a5-adb4-938288051155";
+  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
   public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
-
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
+  public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+  public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 // + наличный расчет
 @Test
   public void testCash() throws Exception {
@@ -35,7 +27,7 @@ public class MugsTest {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement mug = driver.findElement(By.id("btn2"));                // печать на кружках
@@ -44,7 +36,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("paymentMethod-item-1"));// наличный расчет
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -84,7 +76,7 @@ public class MugsTest {
     WebElement we = driver.findElement(By.id("paymentMethod-item-2"));// расчет по карте
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
@@ -108,7 +100,7 @@ public class MugsTest {
     WebElement we = driver.findElement(By.id("paymentMethod-item-3"));// оплата по счету
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
@@ -128,7 +120,7 @@ public class MugsTest {
     driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
     driver.quit();
   }
-// + Самовывоз 
+// + Самовывоз
 @Test
   public void testPickup() throws Exception {
     DesiredCapabilities caps = DesiredCapabilities.chrome();
@@ -188,7 +180,7 @@ public class MugsTest {
     WebElement we = driver.findElement(By.id("deliveryMethod-item-2"));// Доставка с курьером
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -211,7 +203,7 @@ public class MugsTest {
     WebElement we = driver.findElement(By.id("check1"));        // выдает чек
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-   
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
@@ -254,7 +246,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check2"));          // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -287,7 +279,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check2"));       // принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -388,7 +380,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-1"));// Самовывоз
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
@@ -428,7 +420,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-2"));// Доставка с курьером
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -454,7 +446,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-1"));//Самовывоз
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
@@ -481,7 +473,7 @@ public class MugsTest {
    WebElement wee = driver.findElement(By.id("deliveryMethod-item-2"));// Доставка с курьером
    JavascriptExecutor executore = (JavascriptExecutor)driver;
    executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
     driver.quit();
   }
@@ -505,7 +497,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check1"));             // Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -548,7 +540,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check1"));             //Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
@@ -588,7 +580,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check1"));             // Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
@@ -615,7 +607,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check1"));              //Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
@@ -661,7 +653,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check1"));              // Выдает чек
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -687,7 +679,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check2"));              // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -718,7 +710,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check2"));             // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -750,7 +742,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check2"));             // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
   }
@@ -774,7 +766,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check2"));              // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -807,7 +799,7 @@ public class MugsTest {
     WebElement wee = driver.findElement(By.id("check2"));              // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -836,7 +828,7 @@ public class MugsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -939,7 +931,7 @@ public class MugsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
@@ -982,7 +974,7 @@ public class MugsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
     driver.quit();
  }
@@ -1009,7 +1001,7 @@ public class MugsTest {
     WebElement che = driver.findElement(By.id("check1"));               //выдает чек
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
- 
+
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
@@ -1030,7 +1022,7 @@ public class MugsTest {
     WebElement mug = driver.findElement(By.id("btn2"));         // печать на кружках
     JavascriptExecutor mugs = (JavascriptExecutor)driver;
     mugs.executeScript("arguments[0].click();", mug);
-    WebElement we = driver.findElement(By.id("paymentMethod-item-1"));           // наличный расчет 
+    WebElement we = driver.findElement(By.id("paymentMethod-item-1"));           // наличный расчет
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
     WebElement wee = driver.findElement(By.id("deliveryMethod-item-1"));          //самовывоз
@@ -1039,7 +1031,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));        //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -1073,7 +1065,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));               //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.quit();
@@ -1088,7 +1080,7 @@ public class MugsTest {
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
- 
+
     WebElement mug = driver.findElement(By.id("btn2"));                  // печать на кружках
     JavascriptExecutor mugs = (JavascriptExecutor)driver;
     mugs.executeScript("arguments[0].click();", mug);
@@ -1101,7 +1093,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -1130,7 +1122,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));               //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -1163,8 +1155,8 @@ public class MugsTest {
     executore.executeScript("arguments[0].click();", wee);
     WebElement ch = driver.findElement(By.id("check2"));                 //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
-    performer.executeScript("arguments[0].click();", ch); 
- 
+    performer.executeScript("arguments[0].click();", ch);
+
     driver.findElement(By.xpath(".//*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
     driver.quit();
   }
@@ -1191,7 +1183,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
   }
@@ -1218,7 +1210,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));              //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -1252,7 +1244,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));              //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -1286,7 +1278,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));              //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
   }
@@ -1313,7 +1305,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));               //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -1349,7 +1341,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));               //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -1381,7 +1373,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -1449,7 +1441,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
@@ -1482,7 +1474,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
@@ -1519,7 +1511,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
     driver.quit();
   }
@@ -1549,7 +1541,7 @@ public class MugsTest {
     WebElement ch = driver.findElement(By.id("check2"));                //заказ по  email
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
- 
+
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.quit();
   }

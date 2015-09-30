@@ -4,39 +4,34 @@ import java.net.URL;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.sql.DriverManager;
-import java.util.regex.Pattern;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import com.thoughtworks.selenium.webdriven.commands.WaitForCondition;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdvancedSearchTest {
-  private boolean acceptNextAlert = true;
-  private StringBuffer verificationErrors = new StringBuffer();
-
-  public static final String USERNAME = "nastya_prohorova";
-  public static final String ACCESS_KEY = "475fc805-6e70-46a5-adb4-938288051155";
+  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
   public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
-
+  public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+  public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 // Наличный расчет
-  @Test
+@Test
   public void testCash() throws Exception {
+    final String username = System.getenv("POLYGRAPHY_USERNAME");
+    final String password = System.getenv("POLYGRAPHY_PASSWORD");
+
     DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     driver.findElement(By.id("paymentMethod")).click();
@@ -44,6 +39,7 @@ public class AdvancedSearchTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
+    driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
     driver.findElement(By.xpath(".//*[text()='Оригинал']/.."));
     driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Изба-принт']/.."));
@@ -87,6 +83,11 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+    driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+
+    List<WebElement> list = driver.findElements(By.className("b-results-item"));
+    assertThat(45, equalTo(list.size()));
+    System.out.println("number of polygraphy on request Cash AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
   }
 // Оплата по счету
@@ -97,7 +98,7 @@ public class AdvancedSearchTest {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
@@ -142,6 +143,10 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
     driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
     driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
+
+    List<WebElement> list = driver.findElements(By.className("b-results-item"));
+    assertThat(38, equalTo(list.size()));
+    System.out.println("number of polygraphy on request Payment AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
   }
 // Расчет по карте
@@ -152,7 +157,7 @@ public class AdvancedSearchTest {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-2"));
@@ -167,6 +172,10 @@ public class AdvancedSearchTest {
     driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+
+    List<WebElement> list = driver.findElements(By.className("b-results-item"));
+    assertThat(8, equalTo(list.size()));
+    System.out.println("number of polygraphy on request Cashless AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
   }
 // Самовывоз
@@ -177,7 +186,7 @@ public class AdvancedSearchTest {
       caps.setCapability("version", "45.0");
 
       WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-      driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+      driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
       WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));
@@ -230,8 +239,12 @@ public class AdvancedSearchTest {
       driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
       driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
       driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
-//      driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
+      driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
       driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
+
+      List<WebElement> list = driver.findElements(By.className("b-results-item"));
+      assertThat(49, equalTo(list.size()));
+      System.out.println("number of polygraphy on request Pickup AdvancedSearchTest: " + equalTo(list.size()));
       driver.quit();
   }
 // Доставка с курьером
@@ -242,7 +255,7 @@ public class AdvancedSearchTest {
    caps.setCapability("version", "45.0");
 
    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-   driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+   driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
    WebElement we = driver.findElement(By.id("deliveryMethod-item-2"));
@@ -258,6 +271,10 @@ public class AdvancedSearchTest {
    driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
    driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+
+   List<WebElement> list = driver.findElements(By.className("b-results-item"));
+   assertThat(9, equalTo(list.size()));
+   System.out.println("number of polygraphy on request Courier AdvancedSearchTest: " + equalTo(list.size()));
    driver.quit();
   }
 // Наличный расчет + Самовывоз
@@ -268,7 +285,7 @@ public void testCashPickup() throws Exception {
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-1"));        // Наличный расчет
@@ -322,6 +339,10 @@ public void testCashPickup() throws Exception {
     driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+    List<WebElement> list = driver.findElements(By.className("b-results-item"));
+    assertThat(45, equalTo(list.size()));
+    System.out.println("number of polygraphy on request CashPickup AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
    }
 // Наличный расчет + Доставка с курьером
@@ -332,7 +353,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));          // Наличный расчет
@@ -350,6 +371,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(8, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CashCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Оплата по счету + Самовывоз
@@ -360,7 +385,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));            // Оплата по счету
@@ -408,6 +433,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
         driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
         driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(38, equalTo(list.size()));
+        System.out.println("number of polygraphy on request PaymentPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Оплата по счету + Доставка с курьером
@@ -418,7 +447,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));           // Оплата по счету
@@ -437,6 +466,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
         driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(9, equalTo(list.size()));
+        System.out.println("number of polygraphy on request Cash AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Расчет по карте + Самовывоз
@@ -447,7 +480,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));           // Расчет по карте
@@ -465,6 +498,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(8, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CashlessPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Расчет по карте + Доставка с курьером
@@ -475,7 +512,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));            // Расчет по карте
@@ -487,6 +524,10 @@ public void testCashPickup() throws Exception {
 
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+//        assertThat(2, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CashlessCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // выдает чек
@@ -497,7 +538,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check1"));
@@ -552,9 +593,13 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
         driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
         driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(48, equalTo(list.size()));
+        System.out.println("number of polygraphy on request Check AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
-// выдает чек+пинимает заказы по почте
+// выдает чек + принимает заказы по почте
 @Test
     public void testDoubleCheck() throws Exception {
         DesiredCapabilities caps = DesiredCapabilities.chrome();
@@ -562,7 +607,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check1"));
@@ -595,6 +640,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(25, equalTo(list.size()));
+        System.out.println("number of polygraphy on request DoubleCheck AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 //Приним. заказы
@@ -605,7 +654,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check2"));
@@ -637,6 +686,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
         driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(26, equalTo(list.size()));
+        System.out.println("number of polygraphy on request Email AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Наличный расчет + Выдает чек
@@ -647,7 +700,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));         // Наличный расчет
@@ -700,6 +753,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(44, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CheckCash AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Оплата по счету + Выдает чек
@@ -710,7 +767,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));          // Оплата по счету
@@ -757,6 +814,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
         driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
         driver.findElement(By.xpath(".//*[text()='Ретранс']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(37, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CheckCashless AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Расчет по карте + Выдает чек
@@ -767,7 +828,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));           // Расчет по карте
@@ -784,6 +845,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(7, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CheckPayment AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Самовывоз + Выдает чек
@@ -794,7 +859,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-1")); // Самовывоз
@@ -850,6 +915,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
         driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
         driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(48, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CheckPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Доставка с курьером + Выдает чек
@@ -860,7 +929,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-2")); // Доставка с курьером
@@ -879,6 +948,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(9, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CheckCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Наличный расчет + Принимает заказ по email
@@ -889,7 +962,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1")); // Наличный расчет
@@ -919,6 +992,11 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+        driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(23, equalTo(list.size()));
+        System.out.println("number of polygraphy on request EmailCash AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Оплата по счету + Принимает заказ по email
@@ -929,7 +1007,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3")); // Оплата по счету
@@ -960,6 +1038,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(22, equalTo(list.size()));
+        System.out.println("number of polygraphy on request EmailCashless AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Расчет по карте + Принимает заказ по email
@@ -970,7 +1052,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2")); // Расчет по карте
@@ -984,6 +1066,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(4, equalTo(list.size()));
+        System.out.println("number of polygraphy on request EmailPayment AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // Самовывоз + Принимает заказ по email
@@ -994,7 +1080,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));         // Самовывоз
@@ -1025,6 +1111,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(26, equalTo(list.size()));
+        System.out.println("number of polygraphy on request EmailPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
   }
 // Доставка с курьером + Принимает заказ по email
@@ -1035,7 +1125,7 @@ public void testCashPickup() throws Exception {
        caps.setCapability("version", "45.0");
 
        WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-       driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+       driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
        WebElement we = driver.findElement(By.id("deliveryMethod-item-2")); //Доставка с курьером
@@ -1053,6 +1143,10 @@ public void testCashPickup() throws Exception {
        driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
        driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
        driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+
+       List<WebElement> list = driver.findElements(By.className("b-results-item"));
+       assertThat(8, equalTo(list.size()));
+       System.out.println("number of polygraphy on request EmailCourier AdvancedSearchTest: " + equalTo(list.size()));
        driver.quit();
     }
 // наличный расчет + самовывоз + выдает чек
@@ -1063,7 +1157,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));        // наличный расчет
@@ -1119,6 +1213,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(44, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CCashPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // наличный расчет + доставка с курьером + выдает чек
@@ -1129,7 +1227,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));       //наличный расчет
@@ -1150,6 +1248,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(8, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CCashCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // оплата по счету + доставка с курьером + выдает чек
@@ -1160,7 +1262,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));   // оплата по счету
@@ -1182,6 +1284,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(9, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CCashlessCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // оплата по счету + самовывоз + выдает чек
@@ -1192,7 +1298,7 @@ public void testCashPickup() throws Exception {
          caps.setCapability("version", "45.0");
 
          WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-         driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+         driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
          driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
          WebElement we = driver.findElement(By.id("paymentMethod-item-3"));   // оплата по счету
@@ -1241,6 +1347,10 @@ public void testCashPickup() throws Exception {
          driver.findElement(By.xpath(".//*[text()='Советская Сибирь']/.."));
          driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
          driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
+
+         List<WebElement> list = driver.findElements(By.className("b-results-item"));
+         assertThat(37, equalTo(list.size()));
+         System.out.println("number of polygraphy on request CChashlessPickup AdvancedSearchTest: " + equalTo(list.size()));
          driver.quit();
     }
 // расчет по карте + доставка с курьером + выдает чек
@@ -1251,7 +1361,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  // расчет по карте
@@ -1266,6 +1376,10 @@ public void testCashPickup() throws Exception {
 
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(2, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CPaymentCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // расчет по карте + самовывоз + выдает чек
@@ -1276,7 +1390,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  // расчет по карте
@@ -1296,6 +1410,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='СКАЙ ПРИНТ']/.."));
         driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(7, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CPaymentPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // наличный расчет + самовывоз + заказ по  email
@@ -1306,7 +1424,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));        // наличный расчет
@@ -1339,6 +1457,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(23, equalTo(list.size()));
+        System.out.println("number of polygraphy on request ECashPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // наличный расчет + доставка с курьером + заказ по  email
@@ -1349,7 +1471,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));  //наличный расчет
@@ -1369,6 +1491,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
         driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(7, equalTo(list.size()));
+        System.out.println("number of polygraphy on request ECashCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // оплата по счету + доставка с курьером + заказ по  email
@@ -1379,7 +1505,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));         // оплата по счету
@@ -1400,6 +1526,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
         driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(8, equalTo(list.size()));
+        System.out.println("number of polygraphy on request ECashlessCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // оплата по счету + самовывоз + заказ по  email
@@ -1410,7 +1540,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));   //оплата по счету
@@ -1442,6 +1572,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
         driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(22, equalTo(list.size()));
+        System.out.println("number of polygraphy on request EChashlessPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // расчет по карте + доставка с курьером + заказ по  email
@@ -1452,7 +1586,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  // расчет по карте
@@ -1466,6 +1600,10 @@ public void testCashPickup() throws Exception {
         performer.executeScript("arguments[0].click();", ch);
 
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+ //       assertThat(1, equalTo(list.size()));
+        System.out.println("number of polygraphy on request EPaymentCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // расчет по карте + самовывоз + заказ по  email
@@ -1476,7 +1614,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  //расчет по карте
@@ -1493,6 +1631,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='IQ дизайн-бюро']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(4, equalTo(list.size()));
+        System.out.println("number of polygraphy on request EPaymentPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
  }
 // оплата наличными + выдает чек + заказ по  email
@@ -1503,7 +1645,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1")); //оплата наличными
@@ -1535,6 +1677,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Полиграф']/..")) ;
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(22, equalTo(list.size()));
+        System.out.println("number of polygraphy on request TwoCheckCash AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // оплата по счету + выдает чек + заказ по  email
@@ -1545,7 +1691,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3")); //оплата по счету
@@ -1578,6 +1724,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
         driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
         driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(21, equalTo(list.size()));
+        System.out.println("number of polygraphy on request TwoCheckCashless AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // расчет по карте + выдает чек + заказ по  email
@@ -1588,7 +1738,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2")); //расчет по карте
@@ -1604,6 +1754,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(3, equalTo(list.size()));
+        System.out.println("number of polygraphy on request TwoCheckPayment AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // самовывоз + выдает чек + заказ по  email
@@ -1614,7 +1768,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));//самовывоз
@@ -1648,6 +1802,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(25, equalTo(list.size()));
+        System.out.println("number of polygraphy on request TwoCheckPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // доставка с курьером + выдает чек + заказ по  email
@@ -1658,7 +1816,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("deliveryMethod-item-2"));//доставка с курьером
@@ -1679,6 +1837,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
         driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(8, equalTo(list.size()));
+        System.out.println("number of polygraphy on request TwoCheckCourier AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // наличный расчет + самовывоз + выдает чек + заказ по  email
@@ -1689,7 +1851,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));         // наличный расчет
@@ -1724,6 +1886,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
         driver.findElement(By.xpath(".//*[text()='Центр Рекламы']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(22, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CashPickupCheckEmail AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // наличный расчет + доставка с курьером + выдает чек + заказ по  email
@@ -1734,7 +1900,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));  //наличный расчет
@@ -1757,9 +1923,12 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
         driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(7, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CashCourierCheckEmail AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
-
 // Оплата по счету + доставка с курьером + выдает чек + заказ по  email
 @Test
     public void testCashlessCourierCheckEmail() throws Exception {
@@ -1768,7 +1937,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));  //оплата по счету
@@ -1792,6 +1961,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='ДимАрт']/.."));
         driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
         driver.findElement(By.xpath(".//*[text()='ПечатьPremier']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(8, equalTo(list.size()));
+        System.out.println("number of polygraphy on request CashlessCourierCheckEmail AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // оплата по счету + самовывоз + выдает чек + заказ по  email
@@ -1802,7 +1975,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));  //оплата по счету
@@ -1838,6 +2011,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='futbolkaprint']/.."));
         driver.findElement(By.xpath(".//*[text()='55Print']/.."));
         driver.findElement(By.xpath(".//*[text()='Рекламщик']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(21, equalTo(list.size()));
+        System.out.println("number of polygraphy on request ChashlessPickup AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // расчет по карте + доставка с курьером + выдает чек + заказ по  email
@@ -1848,7 +2025,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));   //расчет по карте
@@ -1865,6 +2042,10 @@ public void testCashPickup() throws Exception {
         performer.executeScript("arguments[0].click();", ch);
 
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+//        assertThat(1, equalTo(list.size()));
+        System.out.println("number of polygraphy on request PaymentCourierCheckEmail AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 // расчет по карте  + самовывоз + выдает чек + заказ по  email
@@ -1875,7 +2056,7 @@ public void testCashPickup() throws Exception {
         caps.setCapability("version", "45.0");
 
         WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+        driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));  //расчет по карте
@@ -1894,6 +2075,10 @@ public void testCashPickup() throws Exception {
         driver.findElement(By.xpath(".//*[text()='Всемайки.ру']/.."));
         driver.findElement(By.xpath(".//*[text()='ТИСА']/.."));
         driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+
+        List<WebElement> list = driver.findElements(By.className("b-results-item"));
+        assertThat(3, equalTo(list.size()));
+        System.out.println("number of polygraphy on request PaymentPickupCheckEmail AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
     }
 }

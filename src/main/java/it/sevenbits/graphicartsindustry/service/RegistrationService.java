@@ -3,10 +3,7 @@ package it.sevenbits.graphicartsindustry.service;
 import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyContactRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
-import it.sevenbits.graphicartsindustry.core.repository.PolygraphyServicesRepository;
-import it.sevenbits.graphicartsindustry.core.repository.UserRepository;
+import it.sevenbits.graphicartsindustry.core.repository.*;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
@@ -26,16 +23,33 @@ import java.util.Map;
 
 @Service
 public class RegistrationService {
+
     private static final Logger LOG = Logger.getLogger(RegistrationService.class);
+
+    private static final String TX_NAME = "txService";
+
+    /**
+     * Spring Transaction Manager
+     */
+    @Autowired
+    private PlatformTransactionManager txManager;
+
+    /**
+     * Transaction settings object
+     */
+    private DefaultTransactionDefinition customTx;
+
 
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
+
 
     @Autowired
     private RegistrationFirstFormValidator firstFormValidator;
 
     @Autowired
     private RegistrationSecondFormValidator secondFormValidator;
+
 
     @Autowired
     private UserRepository userRepository;
@@ -49,21 +63,37 @@ public class RegistrationService {
     @Autowired
     private PolygraphyServicesRepository polygraphyServicesRepository;
 
-    private static final String TX_NAME = "txService";
-    /**
-     * Spring Transaction Manager
-     */
-    @Autowired
-    private PlatformTransactionManager txManager;
-    /**
-     * Transaction settings object
-     */
-    private DefaultTransactionDefinition customTx;
-
     public RegistrationService() {
         this.customTx = new DefaultTransactionDefinition();
         this.customTx.setName(TX_NAME);
         this.customTx.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+    }
+
+    public ValidatorResponse validateAndSaveRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = validateFirstAndSecondRegistrationForm(registrationForm);
+            if (validatorResponse.isSuccess()) {
+                requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
+                saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
+            }
+            return validatorResponse;
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
+        }
+    }
+
+    public ValidatorResponse validateFirstAndSecondRegistrationForm(RegistrationForm registrationForm)
+            throws ServiceException {
+        try {
+            ValidatorResponse validatorResponse = validateSecondRegistrationForm(registrationForm.getSecondForm(),
+                    registrationForm.getFirstForm().getHash());
+            if (validatorResponse.isSuccess()) {
+                validatorResponse = validateFirstRegistrationForm(registrationForm.getFirstForm());
+            }
+            return validatorResponse;
+        } catch (ServiceException e) {
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     public ValidatorResponse validateFirstRegistrationForm(RegistrationFirstForm registrationFirstForm) throws ServiceException {
@@ -82,8 +112,8 @@ public class RegistrationService {
             validatorResponse.setSuccess(false);
             validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
             return validatorResponse;
-        } catch (Exception e) {
-            throw new ServiceException("");
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate registration form: first step." + e.getMessage());
         }
     }
 
@@ -104,38 +134,12 @@ public class RegistrationService {
             validatorResponse.setSuccess(false);
             validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
             return validatorResponse;
-        } catch (Exception e) {
-            throw new ServiceException("");
+        } catch (ServiceException e) {
+            throw new ServiceException("Can not validate registration form: second step." + e.getMessage());
         }
     }
 
-    public ValidatorResponse validateFirstAndSecondRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
-        try {
-            ValidatorResponse validatorResponse = validateSecondRegistrationForm(registrationForm.getSecondForm(),
-                    registrationForm.getFirstForm().getHash());
-            if (validatorResponse.isSuccess()) {
-                validatorResponse = validateFirstRegistrationForm(registrationForm.getFirstForm());
-            }
-            return validatorResponse;
-        } catch (Exception e) {
-            throw new ServiceException("");
-        }
-    }
-
-    public ValidatorResponse validateAndSaveRegistrationForm(RegistrationForm registrationForm) throws ServiceException {
-        try {
-            ValidatorResponse validatorResponse = validateFirstAndSecondRegistrationForm(registrationForm);
-            if (validatorResponse.isSuccess()) {
-                requestOnRegistrationService.removeRequestOnRegistrationByHash(registrationForm.getFirstForm().getHash());
-                saveRegistrationForm(registrationForm.getFirstForm(), registrationForm.getSecondForm());
-            }
-            return validatorResponse;
-        } catch (Exception e) {
-            throw new ServiceException("");
-        }
-    }
-
-    public void saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
+    private void saveRegistrationForm(RegistrationFirstForm firstForm, RegistrationSecondForm secondForm)
             throws ServiceException {
         TransactionStatus status = null;
         try {
@@ -147,17 +151,16 @@ public class RegistrationService {
             user.setEnabled(true);
 
             status = txManager.getTransaction(customTx);
+
             userRepository.createUser(user);
 
             Polygraphy polygraphy = new Polygraphy(null, firstForm.getName(), secondForm.getWritesTheCheck(),
                     secondForm.getOrderByEmail(), firstForm.getInfo(), user.getId());
             polygraphyRepository.createPolygraphy(polygraphy);
-
             int polygraphyId = polygraphy.getId();
 
             polygraphyContactRepository.createPolygraphyContacts(polygraphyId, firstForm.getAddress(), firstForm.getPhone(),
                     firstForm.getPublicEmail(), firstForm.getWebsite());
-
 
             for (Integer p : secondForm.getPaymentMethods()) {
                 if (p != null)
@@ -173,21 +176,14 @@ public class RegistrationService {
                 if (s != null)
                     polygraphyServicesRepository.createPolygraphyService(polygraphyId, s);
             }
+
             txManager.commit(status);
-        } catch (Exception e) {
+        } catch (RepositoryException e) {
             if (status != null) {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
             }
             throw new ServiceException("Can not register polygraphy. ");
-        }
-    }
-
-    public boolean isRegistrated(String email) throws ServiceException {
-        try {
-            return userRepository.findUserByUsername(email) != null;
-        } catch (Exception e) {
-            throw new ServiceException("Can not verify the existence of email in the list of registration requests. ");
         }
     }
 }

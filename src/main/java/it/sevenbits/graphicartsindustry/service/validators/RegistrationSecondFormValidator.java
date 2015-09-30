@@ -17,12 +17,16 @@ public class RegistrationSecondFormValidator {
     private static final Logger LOG = Logger.getLogger(RegistrationSecondFormValidator.class);
 
     public HashMap<String, String> validate(final RegistrationSecondForm form) {
-        LOG.info("SubscriptionFormValidator started for: " + form.toString());
+
+        LOG.info("RegistrationSecondFormValidator started for: " + form.toString());
+
         HashMap<String, String> errors = new HashMap<>();
 
         validator.isNotNullListId(form.getServices(), errors, "services", "Необходимо выбрать хотя бы одну услугу");
+
         validator.isNotNullListId(form.getDeliveryMethods(), errors, "deliveryMethods", "Необходимо выбрать хотя бы " +
                 "один метод доставки");
+
         validator.isNotNullListId(form.getPaymentMethods(), errors, "paymentMethods", "Необходимо выбрать хотя бы " +
                 "один метод оплаты");
 

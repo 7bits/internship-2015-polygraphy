@@ -9,10 +9,11 @@ import java.util.regex.Pattern;
 
 @Service
 public class CommonFieldValidator {
+
     /** Email exists pattern */
     private static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(
-            "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE
-    );
+            "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
     /** Pattern for whitespaces */
     private static final String WHITESPACE_PATTERN = "\\s+";
 
@@ -28,8 +29,7 @@ public class CommonFieldValidator {
             final String value,
             final Map<String, String> errors,
             final String field,
-            final String key
-    ) {
+            final String key) {
         if (!errors.containsKey(field)) {
             if (value == null) {
                 errors.put(field, key);
@@ -72,8 +72,7 @@ public class CommonFieldValidator {
             final Integer maxLength,
             final Map<String, String> errors,
             final String field,
-            final String key
-    ) {
+            final String key) {
         if (value != null && !errors.containsKey(field)) {
             if (value.length() > maxLength) {
                 errors.put(field, key);
@@ -95,8 +94,7 @@ public class CommonFieldValidator {
             final Integer minLength,
             final Map<String, String> errors,
             final String field,
-            final String key
-    ) {
+            final String key) {
         if (value != null && !errors.containsKey(field)) {
             if (value.length() < minLength) {
                 errors.put(field, key);

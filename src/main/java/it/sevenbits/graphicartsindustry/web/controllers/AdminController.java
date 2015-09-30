@@ -33,8 +33,8 @@ public class AdminController {
             model.addAttribute("requests", requestOnRegistrationService.findAllRequestsOnRegistration());
             model.addAttribute("polygraphies", polygraphyService.findAllPolygraphies());
             return "home/admin";
-        } catch (ServiceException serviceExeption) {
-            model.addAttribute("message", serviceExeption.getMessage());
+        } catch (ServiceException e) {
+            model.addAttribute("message", e.getMessage());
             return "home/about_polygraphy";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
@@ -51,9 +51,9 @@ public class AdminController {
             response.setSuccess(true);
             response.addData("request", requestOnRegistrationModel);
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
@@ -72,9 +72,9 @@ public class AdminController {
             response.setSuccess(true);
             response.addData("requestId", requestId);
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
@@ -92,9 +92,9 @@ public class AdminController {
             editingPolygraphyService.editConditionDisplayPolygraphy(polygraphyId, curCondition);
             response.setSuccess(true);
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
@@ -112,9 +112,9 @@ public class AdminController {
             polygraphyService.removePolygraphy(polygraphyId);
             response.setSuccess(true);
             return response;
-        } catch (ServiceException serviceExeption) {
+        } catch (ServiceException e) {
             response.setSuccess(false);
-            response.addErrors("base", serviceExeption.getMessage());
+            response.addErrors("base", e.getMessage());
             return response;
         } catch (Exception e) {
             response.setSuccess(false);

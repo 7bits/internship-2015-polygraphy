@@ -21,11 +21,11 @@ public interface PolygraphyMapper {
             @Result(column = "displayed", property = "displayed")
     })
     List<PolygraphyContacts> findPolygraphies(@Param(value = "query") final String query,
-                                              @Param(value = "services") final List<Integer> services,
-                                              @Param(value = "payment") final Integer paymentMethodId,
-                                              @Param(value = "check") final Boolean check,
-                                              @Param(value = "delivery") final Integer deliveryMethodId,
-                                              @Param(value = "order") final Boolean order);
+                                              @Param(value = "servicesId") final List<Integer> servicesId,
+                                              @Param(value = "paymentMethodId") final Integer paymentMethodId,
+                                              @Param(value = "writesTheCheck") final Boolean writesTheCheck,
+                                              @Param(value = "deliveryMethodId") final Integer deliveryMethodId,
+                                              @Param(value = "orderByEmail") final Boolean orderByEmail);
 
     @Select("SELECT id, name, email, displayed FROM polygraphy AS p " +
             "LEFT JOIN contact AS c ON p.id=c.polygraphy_id " +
@@ -117,16 +117,16 @@ public interface PolygraphyMapper {
                               @Param(value = "name") final String name);
 
     @Update("UPDATE polygraphy " +
-            "SET writes_the_check=#{check} " +
+            "SET writes_the_check=#{writesTheCheck} " +
             "WHERE id=#{polygraphyId}")
     void updatePolygraphyWritesTheCheck(@Param(value = "polygraphyId") final Integer polygraphyId,
-                                        @Param(value = "check") final Boolean check);
+                                        @Param(value = "writesTheCheck") final Boolean writesTheCheck);
 
     @Update("UPDATE polygraphy " +
-            "SET order_by_email=#{order} " +
+            "SET order_by_email=#{orderByEmail} " +
             "WHERE id=#{polygraphyId}")
     void updatePolygraphyOrderByEmail(@Param(value = "polygraphyId") final Integer polygraphyId,
-                                      @Param(value = "order") final Boolean order);
+                                      @Param(value = "orderByEmail") final Boolean orderByEmail);
 
     @Update("UPDATE polygraphy " +
             "SET info=#{info} " +
@@ -138,7 +138,7 @@ public interface PolygraphyMapper {
             "SET displayed=#{condition} " +
             "WHERE id=#{polygraphyId}")
     void updateConditionDisplayPolygraphy(@Param(value = "polygraphyId") Integer polygraphyId,
-                                          @Param(value = "condition") Boolean condition);
+                                          @Param(value = "condition") Boolean curCondition);
 
 
     @Delete("DELETE FROM polygraphy " +

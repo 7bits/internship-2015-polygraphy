@@ -10,6 +10,21 @@ public class PolygraphyContacts {
     private String info;
     private Boolean displayed;
 
+    public PolygraphyContacts() {
+    }
+
+    public PolygraphyContacts(Integer id, String name, String address, String phone, String email, String website,
+                              String info, Boolean displayed) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.website = website;
+        this.info = info;
+        this.displayed = displayed;
+    }
+
     public Integer getId() {
         return id;
     }

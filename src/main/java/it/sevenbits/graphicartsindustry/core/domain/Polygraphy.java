@@ -8,6 +8,9 @@ public class Polygraphy {
     private String info;
     private Integer userId;
 
+    public Polygraphy() {
+    }
+
     public Polygraphy(Integer id, String name, Boolean check, Boolean order, String info, Integer userId) {
         this.id = id;
         this.name = name;

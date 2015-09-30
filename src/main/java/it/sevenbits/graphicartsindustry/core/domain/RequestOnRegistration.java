@@ -5,6 +5,15 @@ public class RequestOnRegistration {
     private String email;
     private String hash;
 
+    public RequestOnRegistration() {
+    }
+
+    public RequestOnRegistration(Integer id, String email, String hash) {
+        this.id = id;
+        this.email = email;
+        this.hash = hash;
+    }
+
     public Integer getId() {
         return id;
     }

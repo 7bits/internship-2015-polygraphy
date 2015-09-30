@@ -131,6 +131,7 @@ block content
                 .b-search__polygraphies-list
                 script(id='results', type='text/x-handlebars-template')
                     .b-results
+                        | {{#if polygraphies.length}}
                         ul.b-results__list
                             | {{#each polygraphies}}
                             li.b-results-item
@@ -158,6 +159,10 @@ block content
                                 button.b-results-item__adaptive-detail-info(type='button', id='{{id}}')
                                     |Подробнее
                             | {{/each}}
+                        | {{else}}
+                        .b-results__empty-results
+                            | Ни одна из полиграфий не удовлетворяет требованиям запроса
+                        | {{/if}}
     .b-search__button-up
     .b-search__overlay
         .b-popup-window

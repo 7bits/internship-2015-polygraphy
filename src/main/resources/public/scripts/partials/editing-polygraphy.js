@@ -70,7 +70,7 @@
                 }
                 else{
                     //window.App.displayErrors(data);
-                    $('#editing-form').trigger('showErrors', data);
+                    $('#general-form').trigger('showErrors', data);
                 }
             }
         });

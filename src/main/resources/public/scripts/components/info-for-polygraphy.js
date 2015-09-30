@@ -30,7 +30,7 @@ var validateFormForBid = flight.component(
                     }
                     else{
                         //window.App.displayErrors(data);
-                        $('#request-form').trigger('showErrors', data);
+                        $('#general-form').trigger('showErrors', data);
                     }
                 }
             });

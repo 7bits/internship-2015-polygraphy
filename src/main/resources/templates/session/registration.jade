@@ -8,7 +8,7 @@ block content
     .general-form.general-form_registration(id='big-form')
         .general-form-headline
             | РЕГИСТРАЦИЯ ПОЛИГРАФИИ
-        form(id='registration-form')
+        form(id='general-form')
             fieldset
                 input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 input.general-input__input#hash(type='hidden', name='hash', value='#{hash}')

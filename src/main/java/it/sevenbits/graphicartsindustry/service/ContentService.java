@@ -4,10 +4,10 @@ import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
 import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.repository.ContentRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.web.utils.SearchPolygraphyResolver;
 import it.sevenbits.graphicartsindustry.web.view.content.DeliveryMethodModel;
 import it.sevenbits.graphicartsindustry.web.view.content.PaymentMethodModel;
 import it.sevenbits.graphicartsindustry.web.view.content.ServiceModel;
-import it.sevenbits.graphicartsindustry.web.utils.SearchPolygraphyResolver;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +19,10 @@ import java.util.List;
 public class ContentService {
 
     private static Logger LOG = Logger.getLogger(ContentService.class);
+
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
 
     @Autowired
     private ContentRepository contentRepository;
@@ -39,7 +43,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find polygraphy services. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.content.services"));
         }
     }
 
@@ -56,7 +60,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find polygraphy services. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.content.services"));
         }
     }
 
@@ -72,7 +76,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find polygraphy payment methods. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.content.payment_methods"));
         }
     }
 
@@ -88,7 +92,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find polygraphy delivery methods. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.content.delivery_methods"));
         }
     }
 }

@@ -29,8 +29,8 @@ public class RequestOnRegistrationValidator {
         validator.isNotNullOrEmpty(form.getEmail(), errors, "email", "Поле не должно быть пустым");
         validator.isEmail(form.getEmail(), errors, "email", "Введите правильный email");
         validator.shorterThan(form.getEmail(), 255, errors, "email", "Поле должно быть кроче чем 255 символов");
-        validatorService.isRegistrated(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
-        validatorService.isRequested(form.getEmail(), errors, "email", "С этого email уже подана заявка. " +
+        validatorService.isRegistratedEmail(form.getEmail(), errors, "email", "Такой email уже зарегистрирован");
+        validatorService.isRequestedEmail(form.getEmail(), errors, "email", "С этого email уже подана заявка. " +
                 "Введите другой email или свяжитесь с администратором polygraphy.polygraphy@gmail.com");
         
         for (Map.Entry<String, String> entry : errors.entrySet()) {

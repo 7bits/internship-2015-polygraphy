@@ -69,10 +69,13 @@ public class RequestOnRegistrationService {
     public RequestOnRegistrationModel findRequestOnRegistrationByHash(String hash) throws ServiceException {
         try {
             RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByHash(hash);
-            RequestOnRegistrationModel requestOnRegistrationModel =
-                    new RequestOnRegistrationModel(requestOnRegistration.getId(), requestOnRegistration.getEmail(),
-                            requestOnRegistration.getHash(), "http://" + registrationLinkResolver.getDomain() + "/registration?id=" +
-                            requestOnRegistration.getHash());
+            RequestOnRegistrationModel requestOnRegistrationModel = null;
+            if (requestOnRegistration != null) {
+                requestOnRegistrationModel = new RequestOnRegistrationModel(requestOnRegistration.getId(),
+                        requestOnRegistration.getEmail(), requestOnRegistration.getHash(),
+                        "http://" + registrationLinkResolver.getDomain() + "/registration?id=" +
+                                requestOnRegistration.getHash());
+            }
             return requestOnRegistrationModel;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find request on registration. ");

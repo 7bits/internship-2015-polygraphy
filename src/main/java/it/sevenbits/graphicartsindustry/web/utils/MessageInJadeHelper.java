@@ -7,7 +7,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 
 import java.util.Locale;
 
-@JadeHelper("message")
+@JadeHelper("jadeMessage")
 public class MessageInJadeHelper {
 
     @Autowired

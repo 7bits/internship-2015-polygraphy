@@ -13,12 +13,12 @@ html
         .error-page
             .error-page__content
                 .error-page__explanatory-text
-                    #{message.getMessage('jade.error.number.500')}
+                    #{jadeMessage.getMessage('template.error.500.number')}
                     br
-                    #{message.getMessage('jade.error.message.500')}
+                    #{jadeMessage.getMessage('template.error.500.message')}
                 .error-page__submit
                     a.general-submit(href='/')
-                        #{message.getMessage('jade.on_the_main')}
+                        #{jadeMessage.getMessage('template.error.500.on_the_main')}
 
         script(type='application/javascript', src='/vendor/scripts/jquery-2.1.4.min.js')
         script(type='application/javascript', src='/build/scripts/main.js')

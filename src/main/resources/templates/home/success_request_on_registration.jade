@@ -8,6 +8,4 @@ block append content
     =message
 
     .success-registration
-        | Это успех!
-        br
-        | Ваша заявка принята и будет рассмотрена в ближайшее время!
+        #{jadeMessage.getMessage('template.success.request_on_registration.message')}

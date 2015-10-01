@@ -39,6 +39,7 @@ public class EditingPolygraphyService {
     @Autowired
     private MessageByLocaleService messageByLocaleService;
 
+
     @Autowired
     private EditingUserValidator editingUserValidator;
 
@@ -85,7 +86,7 @@ public class EditingPolygraphyService {
             }
             return model;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find full information about polygraphy. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy.full_info_about_polygraphy"));
         }
     }
 
@@ -106,7 +107,7 @@ public class EditingPolygraphyService {
             }
             return model;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find full information about polygraphy. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy.full_info_about_polygraphy"));
         }
     }
 
@@ -283,14 +284,12 @@ public class EditingPolygraphyService {
     public String findUserEmailByPolygraphyId(Integer polygraphyId) throws ServiceException {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-//            String userEmail = null;
-//            if (userId != null) {
-//                userEmail = userRepository.findEmailById(userId);
-//            }
-//            return userEmail;
-            return userRepository.findEmailById(userId);
+            String userEmail = null;
+            if (userId != null) {
+                userEmail = userRepository.findEmailById(userId);
+            }
+            return userEmail;
         } catch (RepositoryException e) {
-//            throw new ServiceException("Can not find user polygraphy. ");
             throw new ServiceException(messageByLocaleService.getMessage("error"));
         }
     }

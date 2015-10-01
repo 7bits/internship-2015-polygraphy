@@ -22,7 +22,7 @@ block content
             .general-form__input
                 .general-input
                     label(for='name-input').general-input__label
-                        | E-mail
+                        #{message.getMessage('error.default')}
                     input.general-input__input.js-normal-input(type='text',
                                             name='username',
                                             id='name-input')

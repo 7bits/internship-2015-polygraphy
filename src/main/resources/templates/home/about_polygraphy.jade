@@ -10,7 +10,7 @@ block content
 
     .b-comeback
         a.b-comeback__button(href='/')
-            | Вернуться к поиску
+            #{jadeMessage.getMessage('template.about_polygraphy.back_to_search')}
     main.b-about-polygraphy
         .b-about-polygraphy__content
             .b-about-polygraphy__summary
@@ -51,6 +51,6 @@ block content
             if(polygraphy.info != '')
                 .b-about-polygraphy__details
                     .b-about-polygraphy__about-title
-                        | О ПОЛИГРАФИИ
+                        #{jadeMessage.getMessage('template.about_polygraphy.about_polygraphy')}
                     .b-about-polygraphy__about-text!= polygraphy.info
         .b-about-polygraphy__helper

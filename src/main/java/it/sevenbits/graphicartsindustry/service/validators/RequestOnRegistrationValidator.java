@@ -22,7 +22,7 @@ public class RequestOnRegistrationValidator {
 
     public HashMap<String, String> validate(final RequestOnRegistrationForm form) throws ServiceException {
 
-        LOG.info("SubscriptionFormValidator started for: " + form.toString());
+        LOG.info("RequestOnRegistrationValidator started for: " + form.toString());
 
         HashMap<String, String> errors = new HashMap<>();
 

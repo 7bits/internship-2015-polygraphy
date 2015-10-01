@@ -30,9 +30,12 @@ public class ContentService {
         try {
             List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services =
                     contentRepository.findAllServices();
-            List<ServiceModel> models = new ArrayList<>(services.size());
-            for (it.sevenbits.graphicartsindustry.core.domain.content.Service s: services) {
-                models.add(new ServiceModel(s.getId(), s.getName()));
+            List<ServiceModel> models = null;
+            if (services != null) {
+                models = new ArrayList<>(services.size());
+                for (it.sevenbits.graphicartsindustry.core.domain.content.Service s : services) {
+                    models.add(new ServiceModel(s.getId(), s.getName()));
+                }
             }
             return models;
         } catch (RepositoryException e) {
@@ -44,9 +47,12 @@ public class ContentService {
         try {
             List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services =
                     contentRepository.findFrequentServices(searchPolygraphyResolver.getLimitServices());
-            List<ServiceModel> models = new ArrayList<>(services.size());
-            for (it.sevenbits.graphicartsindustry.core.domain.content.Service s: services) {
-                models.add(new ServiceModel(s.getId(), s.getName()));
+            List<ServiceModel> models = null;
+            if (services != null) {
+                models = new ArrayList<>(services.size());
+                for (it.sevenbits.graphicartsindustry.core.domain.content.Service s : services) {
+                    models.add(new ServiceModel(s.getId(), s.getName()));
+                }
             }
             return models;
         } catch (RepositoryException e) {
@@ -57,9 +63,12 @@ public class ContentService {
     public List<PaymentMethodModel> findPaymentMethods() throws ServiceException {
         try {
             List<PaymentMethod> paymentMethods = contentRepository.findAllPaymentMethods();
-            List<PaymentMethodModel> models = new ArrayList<>(paymentMethods.size());
-            for (PaymentMethod p: paymentMethods) {
-                models.add(new PaymentMethodModel(p.getId(), p.getName()));
+            List<PaymentMethodModel> models = null;
+            if (paymentMethods != null) {
+                models = new ArrayList<>(paymentMethods.size());
+                for (PaymentMethod p : paymentMethods) {
+                    models.add(new PaymentMethodModel(p.getId(), p.getName()));
+                }
             }
             return models;
         } catch (RepositoryException e) {
@@ -70,9 +79,12 @@ public class ContentService {
     public List<DeliveryMethodModel> findDeliveryMethods() throws ServiceException {
         try {
             List<DeliveryMethod> deliveryMethods = contentRepository.findAllDeliveryMethods();
-            List<DeliveryMethodModel> models = new ArrayList<>(deliveryMethods.size());
-            for (DeliveryMethod d: deliveryMethods) {
-                models.add(new DeliveryMethodModel(d.getId(), d.getName()));
+            List<DeliveryMethodModel> models = null;
+            if (deliveryMethods != null) {
+                models = new ArrayList<>(deliveryMethods.size());
+                for (DeliveryMethod d : deliveryMethods) {
+                    models.add(new DeliveryMethodModel(d.getId(), d.getName()));
+                }
             }
             return models;
         } catch (RepositoryException e) {

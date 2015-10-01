@@ -68,6 +68,10 @@ public class EditingPolygraphyController {
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
     public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
         try {
+//            TODO:
+//            userId from userResolver
+//            polygraphyService.findByUserEmailPolygraphyId()
+//
             if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
                 model.addAttribute("paymentMethods", contentService.findPaymentMethods());
                 model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
@@ -76,6 +80,8 @@ public class EditingPolygraphyController {
                 model.addAttribute("editingForm.polygraphyId", polygraphyId);
                 return "home/editing_polygraphy";
             }
+            throw new NotFoundException();
+        } catch (NotFoundException e) {
             throw new NotFoundException();
         } catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());

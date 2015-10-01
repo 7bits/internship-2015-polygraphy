@@ -62,9 +62,12 @@ public class PolygraphyService {
     public List<PolygraphyAdminModel> findAllPolygraphies() throws ServiceException {
         try {
             List<PolygraphyContacts> polygraphies = polygraphyRepository.findAllPolygraphies();
-            List<PolygraphyAdminModel> models = new ArrayList<>(polygraphies.size());
-            for (PolygraphyContacts p: polygraphies) {
-                models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail(), p.isDisplayed()));
+            List<PolygraphyAdminModel> models = null;
+            if (polygraphies != null) {
+                models = new ArrayList<>(polygraphies.size());
+                for (PolygraphyContacts p : polygraphies) {
+                    models.add(new PolygraphyAdminModel(p.getId(), p.getName(), p.getEmail(), p.isDisplayed()));
+                }
             }
             return models;
         } catch (RepositoryException e) {
@@ -76,9 +79,12 @@ public class PolygraphyService {
         try {
             List<PolygraphyContacts> polygraphies =
                     polygraphyRepository.findAllDisplayPolygraphies(searchPolygraphyResolver.getLimitPolygraphies());
-            List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
-            for (PolygraphyContacts p: polygraphies) {
-                models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
+            List<PolygraphyMinModel> models = null;
+            if (polygraphies != null) {
+                models = new ArrayList<>(polygraphies.size());
+                for (PolygraphyContacts p : polygraphies) {
+                    models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
+                }
             }
             return models;
         } catch (RepositoryException e) {
@@ -91,9 +97,12 @@ public class PolygraphyService {
             List<PolygraphyContacts> polygraphies = polygraphyRepository.findPolygraphies(query.getQuery(),
                     query.getServices(), query.getPaymentMethod(), query.isWritesTheCheck(), query.getDeliveryMethod(),
                     query.isOrderByEmail());
-            List<PolygraphyMinModel> models = new ArrayList<>(polygraphies.size());
-            for (PolygraphyContacts p: polygraphies) {
-                models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
+            List<PolygraphyMinModel> models = null;
+            if (polygraphies != null) {
+                models = new ArrayList<>(polygraphies.size());
+                for (PolygraphyContacts p : polygraphies) {
+                    models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
+                }
             }
             return models;
         } catch (RepositoryException e) {
@@ -104,10 +113,13 @@ public class PolygraphyService {
     public PolygraphyFullModel findPolygraphy(Integer polygraphyId) throws ServiceException {
         try {
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findDisplayPolygraphy(polygraphyId);
-            PolygraphyFullModel models = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
-                    polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
-                    polygraphyContacts.getInfo());
-            return models;
+            PolygraphyFullModel model = null;
+            if (polygraphyContacts != null) {
+                model = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
+                        polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
+                        polygraphyContacts.getInfo());
+            }
+            return model;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find full info about polygraphy. ");
         }

@@ -1,5 +1,4 @@
 //= ../../../../../node_modules/flightjs/build/flight.js
-//= partials/header.js
 //= partials/app.js
 //= partials/admin.js
 //= partials/step-by-step-registration.js
@@ -8,4 +7,5 @@
 //= components/display-errors.js
 //= components/info-for-polygraphy.js
 //= components/error-page.js
+//= components/header.js
 //= init/init.js

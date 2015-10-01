@@ -6,7 +6,7 @@
 //= partials/step-by-step-registration.js
 //= partials/registration.js
 //= partials/editing-polygraphy.js
-//= partials/error-page.js
 //= components/display-errors.js
 //= components/info-for-polygraphy.js
+//= components/error-page.js
 //= init/init.js

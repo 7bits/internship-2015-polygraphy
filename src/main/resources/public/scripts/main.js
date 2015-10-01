@@ -8,4 +8,5 @@
 //= components/info-for-polygraphy.js
 //= components/error-page.js
 //= components/header.js
+//= components/csrf.js
 //= init/init.js

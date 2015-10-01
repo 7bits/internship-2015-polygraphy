@@ -4,5 +4,6 @@ $(function(){
     errorPage.attachTo(window);
     $(document).ready(function() {
         dropdownMenu.attachTo('.header__menu');
+        csrfComponent.attachTo('#general-form');
     });
 });

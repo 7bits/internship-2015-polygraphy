@@ -1,5 +1,4 @@
 //= ../../../../../node_modules/flightjs/build/flight.js
-//= partials/global.js
 //= partials/header.js
 //= partials/app.js
 //= partials/admin.js

@@ -9,7 +9,6 @@ html
             meta(name="_csrf_header", content="#{_csrf.headerName}")
             //link(rel="stylesheet", href="/stylesheets/partials/osans.css")
             //link(rel="stylesheet", href="/stylesheets/partials/header.css")
-            //link(rel="stylesheet", href="/stylesheets/partials/global.css")
             link(rel="stylesheet", href="/build/stylesheets/main.css")
             link(rel="shortcut icon", href="/images/favicon.ico")
 
@@ -18,5 +17,4 @@ html
         block content
         block javascript
             script(type='application/javascript', src='/vendor/scripts/jquery-2.1.4.min.js')
-            //script(type='application/javascript', src='/scripts/partials/header.js')
             script(type='application/javascript', src=assets.getVersionedResourceUrl('/build/scripts/main#version.js'))

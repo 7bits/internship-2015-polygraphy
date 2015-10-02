@@ -2,10 +2,9 @@ var validateFormForBid = flight.component(
     function(){
         this.validateForm = function(event){
             event.preventDefault();
-            var token = $('meta[name=_csrf]').attr('content');
-            var header = $('meta[name=_csrf_header]').attr('content');
-            var headers = {};
-            headers[header] = token;
+
+            var headers = {'X-CSRF-TOKEN': null};
+            $('#general-form').trigger('csrfFunction', [headers]);
 
             var input = $('.general-input__input[type=text]');
             var invalid = $('.general-input__invalid');
@@ -30,7 +29,7 @@ var validateFormForBid = flight.component(
                     }
                     else{
                         //window.App.displayErrors(data);
-                        $('#request-form').trigger('showErrors', data);
+                        $('#general-form').trigger('showErrors', data);
                     }
                 }
             });

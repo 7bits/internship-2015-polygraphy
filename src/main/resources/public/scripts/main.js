@@ -9,4 +9,5 @@
 //= components/error-page.js
 //= components/header.js
 //= components/csrf.js
+//= components/search.js
 //= init/init.js

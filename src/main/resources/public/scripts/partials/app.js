@@ -1,39 +1,6 @@
 (function() {
     'use strict';
 
-    function liveSearch() {
-        var token = $('meta[name=_csrf]').attr('content');
-        var header = $('meta[name=_csrf_header]').attr('content');
-        var headers = {};
-        headers[header] = token;
-
-        var template = Handlebars.compile($('#results').html());
-        var msg = $('#search-form').serialize();
-        window.history.pushState('','', 'search?' + msg);
-        $('.b-search__js-loader').css('visibility', 'visible');
-        $.ajax({
-            type: 'POST',
-            url: '/search',
-            data: msg,
-            headers: headers,
-            success: function(data) {
-                console.log(data);
-                var html = template({
-                    polygraphies: data.data.polygraphies//,
-                    //polygraphiesListIsNull: data.polygraphiesListIsNull
-                });
-                $('.b-search__polygraphies-list').html(html);
-                $('.b-search__js-loader').css('visibility', 'hidden');
-            },
-            error:  function(xhr, str){
-                console.log(arguments);
-                alert('Возникла ошибка: ' + xhr.responseCode);
-                $('.b-search__js-loader').css('visibility', 'visible');
-            }
-        });
-    }
-
-
     var popUpWindow = function (event){
         event.preventDefault();
         $('body').css('overflow', 'hidden');
@@ -57,7 +24,6 @@
                 $('.b-popup-window').html(render(data.data.polygraphy));
             },
             error:  function(xhr, str){
-                //console.log(arguments);
                 alert('Ошибка: ' + xhr.responseCode);
             }
         });
@@ -71,13 +37,6 @@
         }
     };
 
-    var delay = (function(){
-        var timer = 0;
-        return function(callback, ms){
-            clearTimeout (timer);
-            timer = setTimeout(callback, ms);
-        };
-    })();
 
     var jumpToPageOfPolygraphy = function(){
         var id = $(this).attr('id');
@@ -87,21 +46,6 @@
 
 
     $(document).ready(function(){
-
-        if ($('.b-search__polygraphies-list').length) {
-            liveSearch();
-        }
-
-        $('#search-form').on('submit', liveSearch);
-        $('#search-form').change(liveSearch);
-
-        $('#search-form').bind('keypress', function(e) {
-            if (e.keyCode === 13) {
-                e.preventDefault();
-                liveSearch();
-                return false;
-            }
-        });
 
         $('.b-search__polygraphies-list').on('click', '.b-results-item__detail a', popUpWindow);
         $('.b-search__polygraphies-list').on('click', '.b-results-item__name', popUpWindow);
@@ -161,10 +105,6 @@
         if ($(document).width() > 1024){
             $(window).scroll(scrollUpWindow);
         }
-
-        $('.b-search-line__input').keyup(function() {
-            delay(liveSearch, 1500);
-        });
 
         $('input').attr('autocomplete', 'off');
 

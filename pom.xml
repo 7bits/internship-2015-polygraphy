@@ -214,7 +214,9 @@
       </plugin>
 
       <plugin>
-        <artifactId>MojoHaus Maven Plugins</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>mojo-parent</artifactId>
+        <version>38</version>
         <executions>
         <execution>
           <id>xvfb</id>

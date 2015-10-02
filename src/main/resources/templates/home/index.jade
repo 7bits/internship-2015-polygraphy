@@ -34,10 +34,10 @@ block content
                                             type='text',
                                             placeholder='Что искать?')
                 .b-search-line__submit
-                    button(type='button') НАЙТИ ПОЛИГРАФИЮ
+                    button(type='button') #{jadeMessage.getMessage('template.index.button.find_polygraphy')}
 
             .b-often-seek
-                | Часто ищут:
+                #{jadeMessage.getMessage('template.index.input.often_seek')}
                 for service in services
                     .b-often-seek__checkbox
                         if form.services == null
@@ -53,9 +53,9 @@ block content
             .b-search__wrapper
                 .b-extend-search
                     .b-extend-search__title
-                        | РАСШИРЕННЫЙ ПОИСК
+                        #{jadeMessage.getMessage('template.index.advanced_search.content')}
                     .b-extend-search__label
-                        | Способ оплаты
+                        #{jadeMessage.getMessage('template.index.advanced_search.input.payment_method')}
                     .b-dropdown
                         .b-dropdown__placeholder(id='paymentMethod')
                         .b-dropdown__list(id='paymentMethod-list')
@@ -65,7 +65,7 @@ block content
                                                         type='radio',
                                                         value=0,
                                                         checked)
-                                label(for='paymentMethod-item-0') Любой
+                                label(for='paymentMethod-item-0') #{jadeMessage.getMessage('template.index.advanced_search.input.payment_method.some')}
                             for _paymentMethod in paymentMethods
                                 if _paymentMethod.id == form.paymentMethod
                                     - pm_checked = true
@@ -89,10 +89,10 @@ block content
                                                                         name='writesTheCheck',
                                                                         type='checkbox',
                                                                         checked=wtc_checked)
-                            label(for='check1') Выдает чек
+                            label(for='check1') #{jadeMessage.getMessage('template.index.advanced_search.input.writes_the_check')}
 
                     .b-extend-search__label
-                        | Способ доставки
+                        #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method')}
                     .b-dropdown
                         .b-dropdown__placeholder(id='deliveryMethod')
                         .b-dropdown__list(id='deliveryMethod-list')
@@ -102,7 +102,7 @@ block content
                                                         type='radio',
                                                         value=0,
                                                         checked)
-                                label(for='deliveryMethod-item-0') Любой
+                                label(for='deliveryMethod-item-0') #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method.some')}
                             for _deliveryMethod in deliveryMethods
                                 if _deliveryMethod.id == form.deliveryMethod
                                     - dm_checked = true
@@ -126,7 +126,7 @@ block content
                                                             name='orderByEmail',
                                                             type='checkbox',
                                                             checked=obe_checked)
-                            label(for='check2') Принимает заказ по e-mail
+                            label(for='check2') #{jadeMessage.getMessage('template.index.advanced_search.input.order_by_email')}
 
                 .b-search__polygraphies-list
                 script(id='results', type='text/x-handlebars-template')
@@ -155,13 +155,13 @@ block content
                                     .b-results-item__phone {{phone}}
                                 .b-results-item__detail(id='polygraphy-page')
                                     a(href='/polygraphy/{{id}}', id='{{id}}')
-                                        |Подробнее
+                                        #{jadeMessage.getMessage('template.index.list_polygraphies.button.detailed')}
                                 button.b-results-item__adaptive-detail-info(type='button', id='{{id}}')
-                                    |Подробнее
+                                    #{jadeMessage.getMessage('template.index.list_polygraphies.button_small.detailed')}
                             | {{/each}}
                         | {{else}}
                         .b-results__empty-results
-                            | Ни одна из полиграфий не удовлетворяет требованиям запроса
+                            #{jadeMessage.getMessage('template.index.list_polygraphies.empty_result')}
                         | {{/if}}
     .b-search__button-up
     .b-search__overlay
@@ -190,7 +190,7 @@ block content
                             a(href='{{website}}', target="_blank") {{website}}
                     .b-popup-window__details
                         .b-popup-window__title
-                            | О ПОЛИГРАФИИ
+                            #{jadeMessage.getMessage('template.index.popup.headline')}
                         .b-popup-window__about {{{info}}}
                 .b-popup-window__helper
     .b-search__js-loader

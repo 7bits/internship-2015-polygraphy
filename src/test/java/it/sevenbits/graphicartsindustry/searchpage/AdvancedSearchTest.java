@@ -1,6 +1,8 @@
 package it.sevenbits.graphicartsindustry.searchpage;
 
 import java.net.URL;
+
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -13,7 +15,7 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 
 public class AdvancedSearchTest {
-    WebDriver driver;
+    private WebDriver driver;
  // public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
   //public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
  // public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
@@ -26,9 +28,10 @@ public class AdvancedSearchTest {
     //DesiredCapabilities caps = DesiredCapabilities.chrome();
     //caps.setCapability("platform", "Linux");
    // caps.setCapability("version", "45.0");
-
+    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
+    driver = new ChromeDriver();
    // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
     //driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 

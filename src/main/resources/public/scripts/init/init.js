@@ -1,5 +1,6 @@
 $(function(){
     displayErrors.attachTo('#general-form');
+    displayErrors.attachTo('#registration-form');
     validateFormForBid.attachTo('#general-form');
     errorPage.attachTo(window);
     $(document).ready(function() {

@@ -13,20 +13,21 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 
 public class AdvancedSearchTest {
-  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
-  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
-  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+    WebDriver driver;
+ // public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  //public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
+ // public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
   public static final String username = System.getenv("POLYGRAPHY_USERNAME");
   public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
   public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 // Наличный расчет
 @Test
   public void testCash() throws Exception {
-    DesiredCapabilities caps = DesiredCapabilities.chrome();
-    caps.setCapability("platform", "Linux");
-    caps.setCapability("version", "45.0");
+    //DesiredCapabilities caps = DesiredCapabilities.chrome();
+    //caps.setCapability("platform", "Linux");
+   // caps.setCapability("version", "45.0");
 
-    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+   // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
 
     driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -87,6 +88,7 @@ public class AdvancedSearchTest {
     System.out.println("number of polygraphy on request Cash AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
   }
+/*
 // Оплата по счету
 @Test
   public void testPayment() throws Exception {
@@ -2077,5 +2079,5 @@ public void testCashPickup() throws Exception {
         assertThat(3, equalTo(list.size()));
         System.out.println("number of polygraphy on request PaymentPickupCheckEmail AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
-    }
+    }*/
 }

@@ -41,7 +41,9 @@ public class RegistrationController {
                 return "session/registration";
             }
             throw new NotFoundException();
-        } catch (ServiceException e) {
+        } catch (NotFoundException e) {
+            throw new NotFoundException();
+        }catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
             return "session/registration";
         } catch (Exception e) {

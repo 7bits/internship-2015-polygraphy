@@ -16,7 +16,7 @@ block content
         if security.isUserInRole('ROLE_POLYGRAPHY')
             - url = '/admin-polygraphy/polygraphy/' + editingForm.polygraphyId + '/update'
 
-        form(action=url, id='editing-form')
+        form(action=url, id='general-form')
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
             input.general-input__input(id='polygraphy-id', type='hidden', name='polygraphyId', value='#{editingForm.polygraphyId}')
 

@@ -70,14 +70,17 @@ public class EditingPolygraphyService {
     public EditingPolygraphyModel findFullInfoAboutPolygraphyByAdmin(Integer polygraphyId) throws ServiceException {
         try {
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
-            EditingPolygraphyModel model = new EditingPolygraphyModel(polygraphyId, null, null,
-                    polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
-                    polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
-                    polygraphyRepository.isOrderByEmail(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
-                    polygraphyRepository.isWritesTheCheck(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+            EditingPolygraphyModel model = null;
+            if (polygraphyContacts != null) {
+                model = new EditingPolygraphyModel(polygraphyId, null, null,
+                        polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
+                        polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
+                        polygraphyRepository.isOrderByEmail(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
+                        polygraphyRepository.isWritesTheCheck(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+            }
             return model;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
@@ -88,14 +91,17 @@ public class EditingPolygraphyService {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
             PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
-            EditingPolygraphyModel model = new EditingPolygraphyModel(polygraphyId, userRepository.findEmailById(userId),
-                    null, polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
-                    polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
-                    polygraphyRepository.isOrderByEmail(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
-                    polygraphyRepository.isWritesTheCheck(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
-                    polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+            EditingPolygraphyModel model = null;
+            if (polygraphyContacts != null) {
+                model = new EditingPolygraphyModel(polygraphyId, userRepository.findEmailById(userId), null,
+                        polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
+                        polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
+                        polygraphyRepository.isOrderByEmail(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
+                        polygraphyRepository.isWritesTheCheck(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                        polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+            }
             return model;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find full information about polygraphy. ");
@@ -275,7 +281,11 @@ public class EditingPolygraphyService {
     public String findUserEmailByPolygraphyId(Integer polygraphyId) throws ServiceException {
         try {
             Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            return userRepository.findEmailById(userId);
+            String userEmail = null;
+            if (userId != null) {
+                userEmail = userRepository.findEmailById(userId);
+            }
+            return userEmail;
         } catch (RepositoryException e) {
             throw new ServiceException("Can not find user polygraphy. ");
         }

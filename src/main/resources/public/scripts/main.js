@@ -1,12 +1,13 @@
 //= ../../../../../node_modules/flightjs/build/flight.js
-//= partials/global.js
-//= partials/header.js
 //= partials/app.js
 //= partials/admin.js
 //= partials/step-by-step-registration.js
 //= partials/registration.js
 //= partials/editing-polygraphy.js
-//= partials/error-page.js
 //= components/display-errors.js
 //= components/info-for-polygraphy.js
+//= components/error-page.js
+//= components/header.js
+//= components/csrf.js
+//= components/search.js
 //= init/init.js

@@ -30,7 +30,7 @@ public interface UserMapper {
     })
     User findUserByEmail(@Param(value = "email") final String email);
 
-    @Select("SELECT id, email " +
+    @Select("SELECT email " +
             "FROM users " +
             "WHERE id=#{userId}")
     @Result(column = "email")

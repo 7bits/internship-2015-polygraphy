@@ -13,12 +13,12 @@ html
         .error-page
             .error-page__content
                 .error-page__explanatory-text
-                    #{jadeMessage.getMessage('template.error.404.number')}
+                    #{jadeMessage.getMessage('template.error.404.content.number')}
                     br
-                    #{jadeMessage.getMessage('template.error.404.message')}
+                    #{jadeMessage.getMessage('template.error.404.content.message')}
                 .error-page__submit
                     a.general-submit(href='/')
-                        #{jadeMessage.getMessage('template.error.404.on_the_main')}
+                        #{jadeMessage.getMessage('template.error.404.button.on_the_main')}
 
         script(type='application/javascript', src='/vendor/scripts/jquery-2.1.4.min.js')
         script(type='application/javascript', src='/build/scripts/main.js')

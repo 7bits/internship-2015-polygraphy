@@ -37,14 +37,14 @@ public class RegistrationController {
                 model.addAttribute("firstForm", new RegistrationFirstForm());
                 model.addAttribute("secondForm", new RegistrationSecondForm());
                 model.addAttribute("hash", hash);
-                return "session/registration";
+                return "home/registration";
             }
             throw new NotFoundException();
         } catch (NotFoundException e) {
             throw new NotFoundException();
         }catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
-            return "session/registration";
+            return "home/registration";
         } catch (Exception e) {
             throw new InternalServerErrorExeption();
         }

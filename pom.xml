@@ -212,6 +212,29 @@
           <path>/</path>
         </configuration>
       </plugin>
+
+      <plugin>
+        <artifactId>MojoHaus Maven Plugins</artifactId>
+        <executions>
+        <execution>
+          <id>xvfb</id>
+          <phase>pre-integration-test</phase>
+          <goals>
+            <goal>xvfb</goal>
+          </goals>
+          <configuration>
+            <!-- display>:20</display -->
+            <options>
+              <option>:20</option>
+              <option>-ac</option>
+              <option>-screen</option>
+              <option>0</option>
+              <option>1024x768x16</option>
+            </options>
+          </configuration>
+        </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 

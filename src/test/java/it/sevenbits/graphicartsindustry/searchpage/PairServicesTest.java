@@ -4828,7 +4828,6 @@ public class PairServicesTest {
   public void testKShPaymentPickupCheckEmail() throws Exception {
     driver.get(baseUrl + "/");
 
-
     WebElement mug = driver.findElement(By.id("btn2"));         // печать на кружках
     JavascriptExecutor mugs = (JavascriptExecutor)driver;
     mugs.executeScript("arguments[0].click();", mug);
@@ -4877,7 +4876,7 @@ public class PairServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-  driver.findElement(By.xpath(".//*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
+    driver.findElement(By.xpath(".//*[text()='Ни одна из полиграфий не удовлетворяет требованиям запроса']/.."));
   }
 // кружки + ш/п + расчет по карте  + самовывоз + выдает чек + заказ по  email
   @Test
@@ -4903,9 +4902,8 @@ public class PairServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
- driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
   }
-
 // кружки + визитки + наличный расчет
   @Test
   public void testKVCash() throws Exception {
@@ -4921,14 +4919,11 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -4936,13 +4931,11 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
   }
-
 // кружки + визитки + расчет по карте
 @Test
   public void testKVCashless() throws Exception {
@@ -4963,7 +4956,6 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
   }
-
 // кружки + визитки + оплата по счету
 @Test
   public void testKVPayment() throws Exception {
@@ -4979,14 +4971,11 @@ public class PairServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -4997,7 +4986,6 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
     driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
  }
-
 // кружки + визитки + Самовывоз
 @Test
   public void testKVPickup() throws Exception {
@@ -5013,15 +5001,12 @@ public class PairServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5029,7 +5014,6 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
@@ -5037,7 +5021,6 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
   }
-
 // кружки + визитки + Доставка с курьером
 @Test
   public void testKVCourier() throws Exception {
@@ -5053,11 +5036,9 @@ public class PairServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath(".//*text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
- }
-
+  }
 // кружки + визитки + выдает чек
 @Test
   public void testKVCheck() throws Exception {
@@ -5073,49 +5054,42 @@ public class PairServicesTest {
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
-    driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
-    driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
-    driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
-    driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
-    driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
-    driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
-    driver.findElement(By.xpath(".//*[text()='А3+']/.."));
-    driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
-    driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
-    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
-    driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
-    driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
-    driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
+     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
+     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
+     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
+     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
+     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
+     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
+     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
+     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
+     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
+     driver.findElement(By.xpath(".//*[text()='АрТ-РЕКЛАМА']/.."));
+     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
+     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
+     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
+     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
+     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
+     driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
+     driver.findElement(By.xpath(".//*[text()='Тритон Плюс']/.."));
+     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
+     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
  }
-
 // кружки + визитки + Принимает заказ по email
 @Test
   public void testKVEmail() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement mug = driver.findElement(By.id("btn2"));         // печать на кружках
+    WebElement mug = driver.findElement(By.id("btn2"));          // печать на кружках
     JavascriptExecutor mugs = (JavascriptExecutor)driver;
     mugs.executeScript("arguments[0].click();", mug);
     WebElement card = driver.findElement(By.id("btn9"));         // изготовление визиток
     JavascriptExecutor cutaway = (JavascriptExecutor)driver;
     cutaway.executeScript("arguments[0].click();", card);
-    WebElement wee = driver.findElement(By.id("check2"));          // Принимает заказ по email
+    WebElement wee = driver.findElement(By.id("check2"));        // Принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
@@ -5124,28 +5098,25 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
 }
-
 // кружки + визитки + выдает чек + принимает заказ по email
   @Test
   public void testKVCheckEmail() throws Exception {
     driver.get(baseUrl + "/");
 
-    WebElement mug = driver.findElement(By.id("btn2"));         // печать на кружках
+    WebElement mug = driver.findElement(By.id("btn2"));          // печать на кружках
     JavascriptExecutor mugs = (JavascriptExecutor)driver;
     mugs.executeScript("arguments[0].click();", mug);
     WebElement card = driver.findElement(By.id("btn9"));         // изготовление визиток
     JavascriptExecutor cutaway = (JavascriptExecutor)driver;
     cutaway.executeScript("arguments[0].click();", card);
-    WebElement we = driver.findElement(By.id("check1"));           // выдает чек
+    WebElement we = driver.findElement(By.id("check1"));         // выдает чек
     JavascriptExecutor executor = (JavascriptExecutor)driver;
     executor.executeScript("arguments[0].click();", we);
-    WebElement wee = driver.findElement(By.id("check2"));          // принимает заказ по email
+    WebElement wee = driver.findElement(By.id("check2"));        // принимает заказ по email
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
@@ -5172,14 +5143,11 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5187,13 +5155,11 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
-    }
-
+  }
 // кружки + визитки + Наличный расчет + Доставка с курьером
   @Test
   public void testKVCachCourier() throws Exception {
@@ -5213,9 +5179,7 @@ public class PairServicesTest {
     executore.executeScript("arguments[0].click();", wee);
 
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
   }
-
 // кружки + визитки + Оплата по счету + Самовывоз
   @Test
   public void testKVPaymentPickup() throws Exception {
@@ -5234,14 +5198,11 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5270,7 +5231,6 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
   }
@@ -5335,14 +5295,11 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5350,7 +5307,6 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
@@ -5374,14 +5330,11 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5433,15 +5386,12 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5449,7 +5399,6 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Стиль фирмы']/.."));
@@ -5475,7 +5424,6 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
   }
@@ -5483,7 +5431,6 @@ public class PairServicesTest {
   @Test
   public void testKVCashEmail() throws Exception {
     driver.get(baseUrl + "/");
-
 
     WebElement mug = driver.findElement(By.id("btn2"));         // печать на кружках
     JavascriptExecutor mugs = (JavascriptExecutor)driver;
@@ -5498,8 +5445,6 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
@@ -5525,9 +5470,7 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
@@ -5538,7 +5481,6 @@ public class PairServicesTest {
   @Test
   public void testKVCashlessEmail() throws Exception {
     driver.get(baseUrl + "/");
-
 
     WebElement mug = driver.findElement(By.id("btn2"));         // печать на кружках
     JavascriptExecutor mugs = (JavascriptExecutor)driver;
@@ -5573,9 +5515,7 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
@@ -5602,7 +5542,6 @@ public class PairServicesTest {
     JavascriptExecutor executore = (JavascriptExecutor)driver;
     executore.executeScript("arguments[0].click();", wee);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
   }
@@ -5627,14 +5566,11 @@ public class PairServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Компаньон']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5642,7 +5578,6 @@ public class PairServicesTest {
     driver.findElement(By.xpath(".//*[text()='А3+']/.."));
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
     driver.findElement(By.xpath(".//*[text()='Мегаполис PRINT']/.."));
-    driver.findElement(By.xpath(".//*[text()='Отдел 55']/.."));
     driver.findElement(By.xpath(".//*[text()='Пульсар-98']/.."));
     driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Фото-М']/.."));
@@ -5670,7 +5605,6 @@ public class PairServicesTest {
     doer.executeScript("arguments[0].click();", che);
 
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
   }
 // кружки + визитки + оплата по счету + доставка с курьером + выдает чек
   @Test
@@ -5693,7 +5627,6 @@ public class PairServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
   }
@@ -5718,14 +5651,11 @@ public class PairServicesTest {
     JavascriptExecutor doer = (JavascriptExecutor)driver;
     doer.executeScript("arguments[0].click();", che);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
     driver.findElement(By.xpath(".//*[text()='Золотой тираж']/.."));
     driver.findElement(By.xpath(".//*[text()='ОмПАК']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Сибирь']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
-    driver.findElement(By.xpath(".//*[text()='Акула']/.."));
     driver.findElement(By.xpath(".//*[text()='Алвест']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='АНТАРЕС']/.."));
@@ -5806,15 +5736,17 @@ public class PairServicesTest {
     JavascriptExecutor performer = (JavascriptExecutor)driver;
     performer.executeScript("arguments[0].click();", ch);
 
-    driver.findElement(By.xpath(".//*[text()='Крафтлайн']/.."));
-    driver.findElement(By.xpath(".//*[text()='Полиграф']/.."));
     driver.findElement(By.xpath(".//*[text()='Селбс']/.."));
     driver.findElement(By.xpath(".//*[text()='Принт сервис']/.."));
     driver.findElement(By.xpath(".//*[text()='Алые паруса']/.."));
     driver.findElement(By.xpath(".//*[text()='Бумеранг']/.."));
-    driver.findElement(By.xpath(".//*text()='Синяя Птица']/.."));
+    driver.findElement(By.xpath(".//*[text()='Синяя Птица']/.."));
     driver.findElement(By.xpath(".//*[text()='Филипп']/.."));
   }
+
+
+
+
 // кружки + визитки + наличный расчет + доставка с курьером + заказ по  email
   @Test
   public void testKVCashCourierEmail() throws Exception {

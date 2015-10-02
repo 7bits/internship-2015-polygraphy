@@ -22,9 +22,6 @@ public class AdvancedSearchTest {
 // Наличный расчет
 @Test
   public void testCash() throws Exception {
-    final String username = System.getenv("POLYGRAPHY_USERNAME");
-    final String password = System.getenv("POLYGRAPHY_PASSWORD");
-
     DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
     caps.setCapability("version", "45.0");

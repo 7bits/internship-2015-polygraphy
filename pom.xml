@@ -212,7 +212,7 @@
           <path>/</path>
         </configuration>
       </plugin>
-
+<!--
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>mojo-parent</artifactId>
@@ -225,7 +225,7 @@
             <goal>xvfb</goal>
           </goals>
           <configuration>
-            <!-- display>:20</display -->
+            <!- display>:20</display ->
             <options>
               <option>:20</option>
               <option>-ac</option>
@@ -236,7 +236,7 @@
           </configuration>
         </execution>
         </executions>
-      </plugin>
+      </plugin> -->
     </plugins>
   </build>
 

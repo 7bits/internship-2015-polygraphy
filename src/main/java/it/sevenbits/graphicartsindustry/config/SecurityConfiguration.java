@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         httpSecurity
                     .authorizeRequests()
                     .antMatchers("/", "/search", "/polygraphy/**", "/info-for-polygraphy",
-                            "/info-for-polygraphy-success", "/about-project").permitAll()
+                            "/info-for-polygraphy-success", "/about-project", "/language").permitAll()
                     .antMatchers("/admin/**").hasRole("ADMIN")
                     .antMatchers("/admin-polygraphy/**").hasRole("POLYGRAPHY")
                     .antMatchers("/editing-polygraphy-success").hasAnyRole("ADMIN", "POLYGRAPHY")

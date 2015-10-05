@@ -10,4 +10,5 @@
 //= components/header.js
 //= components/csrf.js
 //= components/search.js
+//= components/scroll-up-window.js
 //= init/init.js

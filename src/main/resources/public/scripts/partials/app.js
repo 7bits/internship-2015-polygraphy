@@ -29,15 +29,6 @@
         });
     };
 
-    var scrollUpWindow = function(){
-        if ( $(document).scrollTop() > 0 ) {
-            $('.b-search__button-up').fadeIn('fast');
-        } else {
-            $('.b-search__button-up').fadeOut('fast');
-        }
-    };
-
-
     var jumpToPageOfPolygraphy = function(){
         var id = $(this).attr('id');
         console.log(id);
@@ -90,21 +81,6 @@
 
             var deliveryMethodPlaceholder = $('label[for=deliveryMethod-item-' + $('.b-dropdown__input[name=deliveryMethod]:checked').attr('value') + ']').text();
             $('.b-dropdown__placeholder[id=deliveryMethod]').text(deliveryMethodPlaceholder);
-
-        $('.b-search__button-up').mouseover(function(){
-            $(this).animate({opacity: 1}, 100);
-        }).mouseout(function(){
-            $(this).animate({opacity: 0.5}, 100);
-        });
-
-        $('.b-search__button-up').click(function(){
-            $('body,html').animate({scrollTop: 0}, 400);
-            return false;
-        });
-
-        if ($(document).width() > 1024){
-            $(window).scroll(scrollUpWindow);
-        }
 
         $('input').attr('autocomplete', 'off');
 

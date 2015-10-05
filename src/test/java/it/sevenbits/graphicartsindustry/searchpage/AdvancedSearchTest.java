@@ -28,8 +28,8 @@ public class AdvancedSearchTest {
     //DesiredCapabilities caps = DesiredCapabilities.chrome();
     //caps.setCapability("platform", "Linux");
    // caps.setCapability("version", "45.0");
-    System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
-    driver = new ChromeDriver();
+  //  System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
+    //driver = new ChromeDriver();
    // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
      driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
     //driver.get("http://" + username + ":" + password + "@" + domain);

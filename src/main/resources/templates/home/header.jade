@@ -1,7 +1,7 @@
 header.header
     .header__logo-wrapper
         a(href='/')
-            img(src ='/images/logo.png', alt='Полиграфия')
+            img(src ='/images/logo.png', alt=jadeMessage.getMessage('template.header.logo_wrapper'))
     .header__content
         .header__menu
             .header__menu-item.header_menu-item-full
@@ -58,6 +58,6 @@ header.header.header_small-header
 
     .header__logo-wrapper
         a(href='/')
-            img(src ='/images/logo.png', alt='Полиграфия', height='80px', width='142px')
+            img(src ='/images/logo.png', alt=jadeMessage.getMessage('template.header_small.logo_wrapper'), height='80px', width='142px')
     .header__slogan
         #{jadeMessage.getMessage('template.header_small.slogan')}

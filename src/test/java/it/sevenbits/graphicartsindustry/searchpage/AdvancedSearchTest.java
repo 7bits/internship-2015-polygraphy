@@ -1,37 +1,36 @@
 package it.sevenbits.graphicartsindustry.searchpage;
 
-import java.net.URL;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.*;
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.*;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 public class AdvancedSearchTest {
-  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
-  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
-  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
-  public static final String username = System.getenv("POLYGRAPHY_USERNAME");
-  public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
-  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
+    private WebDriver driver;
+ // public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
+  //public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
+ // public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
+ // public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+ // public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+ // public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 // Наличный расчет
 @Test
   public void testCash() throws Exception {
-    final String username = System.getenv("POLYGRAPHY_USERNAME");
-    final String password = System.getenv("POLYGRAPHY_PASSWORD");
-
-    DesiredCapabilities caps = DesiredCapabilities.chrome();
-    caps.setCapability("platform", "Linux");
-    caps.setCapability("version", "45.0");
-
-    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-
-    driver.get("http://" + username + ":" + password + "@" + domain);
+    //DesiredCapabilities caps = DesiredCapabilities.chrome();
+    //caps.setCapability("platform", "Linux");
+   // caps.setCapability("version", "45.0");
+  //  System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
+    //driver = new ChromeDriver();
+   // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    //driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     driver.findElement(By.id("paymentMethod")).click();
@@ -90,6 +89,7 @@ public class AdvancedSearchTest {
     System.out.println("number of polygraphy on request Cash AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
   }
+/*
 // Оплата по счету
 @Test
   public void testPayment() throws Exception {
@@ -2080,5 +2080,5 @@ public void testCashPickup() throws Exception {
         assertThat(3, equalTo(list.size()));
         System.out.println("number of polygraphy on request PaymentPickupCheckEmail AdvancedSearchTest: " + equalTo(list.size()));
         driver.quit();
-    }
+    }*/
 }

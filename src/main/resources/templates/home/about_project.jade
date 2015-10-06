@@ -7,14 +7,6 @@ block content
 
     =message
 
-    form(id='language', method='post', action='/language')
-        input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
-        select.language(name='language')
-            option(value='ru', selected=true) RU
-            option(value='en') EN
-        button.submit(type='submit') Выбрать
-
-
     .b-content-block
         .b-content-block__headline
             #{jadeMessage.getMessage('template.about_project.headline')}

@@ -15,7 +15,7 @@ block content
         .general-form__explanatory-text
             #{jadeMessage.getMessage('template.info_for_polygraphy.content.first_string')}
 
-        form(id='request-form')
+        form(id='general-form')
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
 
             .general-form__input.general-form_inline-input

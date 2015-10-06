@@ -19,6 +19,7 @@ block content
     .b-search
 
         form(id='search-form', method='post', action='/search')
+            input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
             .b-search-line
                 if form != null
                     if form.query != ""

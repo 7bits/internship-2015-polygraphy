@@ -43,7 +43,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.content.services"));
+            throw new ServiceException(messageByLocaleService.getMessage("error.content_service.services"));
         }
     }
 
@@ -60,7 +60,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.content.services"));
+            throw new ServiceException(messageByLocaleService.getMessage("error.content_service.services"));
         }
     }
 
@@ -76,7 +76,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.content.payment_methods"));
+            throw new ServiceException(messageByLocaleService.getMessage("error.content_service.payment_methods"));
         }
     }
 
@@ -92,7 +92,7 @@ public class ContentService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.content.delivery_methods"));
+            throw new ServiceException(messageByLocaleService.getMessage("error.content_service.delivery_methods"));
         }
     }
 }

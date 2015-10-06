@@ -86,7 +86,7 @@ public class EditingPolygraphyService {
             }
             return model;
         } catch (RepositoryException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy.full_info_about_polygraphy"));
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.full_info_about_polygraphy"));
         }
     }
 
@@ -107,7 +107,7 @@ public class EditingPolygraphyService {
             }
             return model;
         } catch (RepositoryException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy.full_info_about_polygraphy"));
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.full_info_about_polygraphy"));
         }
     }
 
@@ -141,7 +141,7 @@ public class EditingPolygraphyService {
                 return validatorResponse;
             }
             validatorResponse.setSuccess(false);
-            validatorResponse.addErrors("base", "Ссылка на изменение недоступна. ");
+            validatorResponse.addErrors("base", messageByLocaleService.getMessage("error.editing_polygraphy_service.validate_link_to_edit_polygraphy"));
             return validatorResponse;
         } catch (ServiceException e) {
             throw new ServiceException(e.getMessage());
@@ -159,7 +159,8 @@ public class EditingPolygraphyService {
             validatorResponse.setSuccess(true);
             return validatorResponse;
         } catch (ServiceException e) {
-            throw new ServiceException("Can not validate editing user. " + e.getMessage());
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.validate_editing_user") +
+                    e.getMessage());
         }
     }
 
@@ -175,7 +176,8 @@ public class EditingPolygraphyService {
             validatorResponse.setSuccess(true);
             return validatorResponse;
         } catch (ServiceException e) {
-            throw new ServiceException("Can not validate editing polygraphy. " + e.getMessage());
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.validate_editing_polygraphy") +
+                    e.getMessage());
         }
     }
 
@@ -215,7 +217,7 @@ public class EditingPolygraphyService {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
             }
-            throw new ServiceException("Can not save editing user path. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.save_editing_user"));
         }
     }
 
@@ -265,7 +267,7 @@ public class EditingPolygraphyService {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
             }
-            throw new ServiceException("Can not save editing polygraphy path. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.save_editing_polygraphy"));
         }
     }
 
@@ -277,7 +279,7 @@ public class EditingPolygraphyService {
             }
             polygraphyRepository.editConditionDisplayPolygraphy(polygraphyId, curCondition);
         } catch (RepositoryException e) {
-            throw new  ServiceException("Can not edit condition display polygraphy in search. ");
+            throw new  ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.edit_condition_display_polygraphy"));
         }
     }
 
@@ -290,7 +292,7 @@ public class EditingPolygraphyService {
             }
             return userEmail;
         } catch (RepositoryException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error"));
+            throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.find_user_email_by_polygraphy_id"));
         }
     }
 }

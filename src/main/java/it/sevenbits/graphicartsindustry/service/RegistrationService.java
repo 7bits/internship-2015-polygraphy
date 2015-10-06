@@ -39,6 +39,9 @@ public class RegistrationService {
      */
     private DefaultTransactionDefinition customTx;
 
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
 
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
@@ -110,10 +113,11 @@ public class RegistrationService {
                 return validatorResponse;
             }
             validatorResponse.setSuccess(false);
-            validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
+            validatorResponse.addErrors("base", messageByLocaleService.getMessage("error.registration_service.validate_link_to_registrate"));
             return validatorResponse;
         } catch (ServiceException e) {
-            throw new ServiceException("Can not validate registration form: first step." + e.getMessage());
+            throw new ServiceException(messageByLocaleService.getMessage("error.registration_service.validate_first_step_registration") +
+                    e.getMessage());
         }
     }
 
@@ -132,10 +136,11 @@ public class RegistrationService {
                 return validatorResponse;
             }
             validatorResponse.setSuccess(false);
-            validatorResponse.addErrors("base", "Ссылка на регистрацию устарела");
+            validatorResponse.addErrors("base", messageByLocaleService.getMessage("error.registration_service.validate_link_to_registrate"));
             return validatorResponse;
         } catch (ServiceException e) {
-            throw new ServiceException("Can not validate registration form: second step." + e.getMessage());
+            throw new ServiceException(messageByLocaleService.getMessage("error.registration_service.validate_second_step_registration") +
+                    e.getMessage());
         }
     }
 
@@ -183,7 +188,7 @@ public class RegistrationService {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
             }
-            throw new ServiceException("Can not register polygraphy. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.registration_service.save_registration_form"));
         }
     }
 }

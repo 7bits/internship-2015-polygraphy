@@ -28,11 +28,11 @@ block content
                     else
                         input.b-search-line__input(name='query',
                                                 type='text',
-                                                placeholder='Что искать?')
+                                                placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
                 else
                     input.b-search-line__input(name='query',
                                             type='text',
-                                            placeholder='Что искать?')
+                                            placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
                 .b-search-line__submit
                     button(type='button') #{jadeMessage.getMessage('template.index.button.find_polygraphy')}
 

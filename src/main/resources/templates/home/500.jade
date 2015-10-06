@@ -13,12 +13,12 @@ html
         .error-page
             .error-page__content
                 .error-page__explanatory-text
-                    | 500
+                    #{jadeMessage.getMessage('template.error.500.content.number')}
                     br
-                    | Произошло что-то непредвиденное
+                    #{jadeMessage.getMessage('template.error.500.content.message')}
                 .error-page__submit
                     a.general-submit(href='/')
-                        | На главную
+                        #{jadeMessage.getMessage('template.error.500.button.on_the_main')}
 
         script(type='application/javascript', src='/vendor/scripts/jquery-2.1.4.min.js')
         script(type='application/javascript', src='/build/scripts/main.js')

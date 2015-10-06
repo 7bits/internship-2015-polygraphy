@@ -24,6 +24,10 @@ public class RequestOnRegistrationService {
     private static final Logger LOG = Logger.getLogger(RequestOnRegistrationService.class);
 
     @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
+
+    @Autowired
     private SendingMessagesService sendingMessagesService;
 
 
@@ -52,7 +56,7 @@ public class RequestOnRegistrationService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find request on registration. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.find_all_requests_on_registration"));
         }
     }
 
@@ -67,7 +71,7 @@ public class RequestOnRegistrationService {
             }
             return model;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find request on registration. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.find_request_on_registration_by_id"));
         }
     }
 
@@ -83,7 +87,7 @@ public class RequestOnRegistrationService {
             }
             return model;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find request on registration. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.find_request_on_registration_by_hash"));
         }
     }
 
@@ -99,7 +103,7 @@ public class RequestOnRegistrationService {
             requestOnRegistrationRepository.createRequestOnRegistration(form.getEmail());
             return validatorResponse;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not save request on registration. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.save_request_on_registration"));
         }
     }
 
@@ -109,7 +113,7 @@ public class RequestOnRegistrationService {
             saveHashRegistrationLink(requestId, hash);
 
             RequestOnRegistrationModel requestOnRegistrationModel = findRequestOnRegistrationById(requestId);
-            sendingMessagesService.sendingRegistrationLink(requestOnRegistrationModel);
+            sendingMessagesService.sendRegistrationLink(requestOnRegistrationModel);
 
             return requestOnRegistrationModel;
         } catch (ServiceException e) {
@@ -128,7 +132,7 @@ public class RequestOnRegistrationService {
         }
     }
 
-    private static String sha1(String Param) throws ServiceException {
+    private String sha1(String Param) throws ServiceException {
         try {
             MessageDigest SHA = MessageDigest.getInstance("SHA-1");
             SHA.reset();
@@ -136,9 +140,9 @@ public class RequestOnRegistrationService {
             byte[] sha1hash = SHA.digest();
             return bytesToHexStr(sha1hash);
         } catch (NoSuchAlgorithmException e) {
-            throw new ServiceException("Can not generate registration link. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.generate_request_on_registration"));
         } catch (UnsupportedEncodingException e) {
-            throw new ServiceException("Can not generate registration link. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.generate_request_on_registration"));
         }
     }
 
@@ -160,7 +164,7 @@ public class RequestOnRegistrationService {
         try {
             requestOnRegistrationRepository.editHash(requestId, hash);
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not save registration link. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.save_registration_link"));
         }
     }
 
@@ -168,7 +172,7 @@ public class RequestOnRegistrationService {
         try {
             requestOnRegistrationRepository.removeRequestOnRegistrationById(requestId);
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not remove request on registration. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.remove_request_on_registration_by_id"));
         }
     }
 
@@ -176,7 +180,7 @@ public class RequestOnRegistrationService {
         try {
             requestOnRegistrationRepository.removeRequestOnRegistrationByHash(hash);
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not remove request on registration. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.remove_request_on_registration_by_hash"));
         }
     }
 }

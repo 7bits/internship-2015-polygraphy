@@ -13,7 +13,7 @@ block content
     .general-form.general-form_bid-form
 
         .general-form__explanatory-text
-            = 'Если Вы хотите, чтобы Ваша полиграфия появилась в поиске, оставьте нам свой e-mail, мы свяжемся с Вами в ближайшее время.'
+            #{jadeMessage.getMessage('template.info_for_polygraphy.content.first_string')}
 
         form(id='request-form')
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
@@ -29,16 +29,16 @@ block content
                 button.general-submit(type=buttonType,
                                     id='submit-email',
                                     form='request-form')
-                    | Отправить
+                    #{jadeMessage.getMessage('template.info_for_polygraphy.button.send')}
 
         if security.isUserInRole("ROLE_ANONYMOUS")
             .general-form__explanatory-text
-                |Если Ваша полиграфия уже есть в нашем поиске, можете
+                #{jadeMessage.getMessage('template.info_for_polygraphy.content.second_string')}
 
             - href = '/login'
             .general-form__button
                 a.general-submit(href=href, id='button-on-login-page')
-                    | Войти
+                    #{jadeMessage.getMessage('template.info_for_polygraphy.button.enter')}
 
 block append javascript
     //script(type='application/javascript', src='/scripts/partials/info-for-polygraphy.js')

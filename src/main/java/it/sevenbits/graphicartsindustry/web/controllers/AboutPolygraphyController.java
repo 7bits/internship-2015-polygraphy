@@ -1,5 +1,6 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AboutPolygraphyController {
+
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
 
     @Autowired
     private PolygraphyService polygraphyService;
@@ -46,7 +50,7 @@ public class AboutPolygraphyController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }

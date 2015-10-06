@@ -23,7 +23,6 @@ public class ContentService {
     @Autowired
     private MessageByLocaleService messageByLocaleService;
 
-
     @Autowired
     private ContentRepository contentRepository;
 

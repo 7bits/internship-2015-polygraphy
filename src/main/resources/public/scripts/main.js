@@ -12,4 +12,5 @@
 //= components/search.js
 //= components/scroll-up-window.js
 //= components/popup-window.js
+//= components/jump-to-page.js
 //= init/init.js

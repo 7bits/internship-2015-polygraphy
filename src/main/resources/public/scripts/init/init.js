@@ -10,4 +10,5 @@ $(function(){
     csrfComponent.attachTo('#search-form');
     searchComponent.attachTo('#search-form');
     popupWindowComponent.attachTo('body');
+    jumpToPageOnIdComponent.attachTo('body');
 });

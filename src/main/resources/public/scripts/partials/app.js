@@ -1,17 +1,7 @@
 (function() {
     'use strict';
 
-    var jumpToPageOfPolygraphy = function(){
-        var id = $(this).attr('id');
-        console.log(id);
-        window.location.href = '/polygraphy/'+id;
-    };
-
-
     $(document).ready(function(){
-
-        $(this).on('click', '.b-results-item__adaptive-name', jumpToPageOfPolygraphy);
-        $(this).on('click', '.b-results-item__adaptive-detail-info', jumpToPageOfPolygraphy);
 
         $('.b-dropdown__placeholder').click(function(){
             var placeholderId = $(this).attr('id');

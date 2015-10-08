@@ -39,6 +39,8 @@ block content
                     .general-input__for-error.js-none-display(id='password-for-error')
                     .general-input__invalid.js-none-display(id='password-error')
 
+            if error
+                = error
             .general-form__button
                 - buttonType = 'submit'
                 button.general-submit(type=buttonType, id='submit-login-data')

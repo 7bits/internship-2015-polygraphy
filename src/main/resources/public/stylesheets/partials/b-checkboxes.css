@@ -17,25 +17,25 @@
     white-space: nowrap;
 }
 
-input.b-checkboxes__input[type="checkbox"]{
+.b-checkboxes__input{
     display: none;
 }
 
-input.b-checkboxes__input[type="checkbox"]+label{
+.b-checkboxes__input+label{
     background: inline("check.png") 0px 0px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
-input.b-checkboxes__input[type="checkbox"]:checked+label{
+.b-checkboxes__input:checked+label{
     background: inline("check.png") 0 -30px no-repeat;
     padding-left: 23px;
     width: 15px;
     height: 15px;
 }
 
-input.b-checkboxes__input[type="checkbox"]+label:hover{
+.b-checkboxes__input+label:hover{
     cursor: pointer;
 }
 

@@ -36,7 +36,6 @@ var popupWindowComponent = flight.component(
         };
 
         this.closePopupWindowOnPressEsc = function(event){
-            event.preventDefault();
             if( event.keyCode === 27 ) {
                 $('.b-search__overlay').fadeOut('fast');
                 return false;

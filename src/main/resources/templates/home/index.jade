@@ -9,19 +9,16 @@ block content
         form(id='search-form', method='post', action='/search')
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
             .b-search-line
-                if form != null
-                    if form.query != ""
-                        input.b-search-line__input(name='query',
-                                                type='text',
-                                                value='#{form.query}')
-                    else
-                        input.b-search-line__input(name='query',
-                                                type='text',
-                                                placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
+
+                if (form != null && form.query != '')
+                    - val = form.query
                 else
-                    input.b-search-line__input(name='query',
-                                            type='text',
-                                            placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
+                    - val = ''
+                input.b-search-line__input(name='query',
+                                        type='text',
+                                        value=val,
+                                        placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
+
                 .b-search-line__submit
                     button(type='button') #{jadeMessage.getMessage('template.index.button.find_polygraphy')}
 

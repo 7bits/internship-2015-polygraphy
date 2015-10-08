@@ -20,7 +20,8 @@ block content
                                         placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
 
                 .b-search-line__submit
-                    button(type='button') #{jadeMessage.getMessage('template.index.button.find_polygraphy')}
+                    button.b-search-line__submit-button(type='button')
+                        #{jadeMessage.getMessage('template.index.button.find_polygraphy')}
 
             .b-often-seek
                 #{jadeMessage.getMessage('template.index.input.often_seek')}
@@ -51,7 +52,8 @@ block content
                                                         type='radio',
                                                         value=0,
                                                         checked)
-                                label(for='paymentMethod-item-0') #{jadeMessage.getMessage('template.index.advanced_search.input.payment_method.some')}
+                                label.b-dropdown__label(for='paymentMethod-item-0')
+                                    #{jadeMessage.getMessage('template.index.advanced_search.input.payment_method.some')}
                             for _paymentMethod in paymentMethods
                                 if _paymentMethod.id == form.paymentMethod
                                     - pm_checked = true
@@ -63,7 +65,8 @@ block content
                                                             type='radio',
                                                             value='#{_paymentMethod.id}',
                                                             checked=pm_checked)
-                                    label(for='paymentMethod-item-'+_paymentMethod.id)= _paymentMethod.name
+                                    label.b-dropdown__label(for='paymentMethod-item-'+_paymentMethod.id)
+                                        = _paymentMethod.name
 
                     .b-checkboxes
                         .b-checkboxes__checkbox
@@ -75,7 +78,8 @@ block content
                                                                         name='writesTheCheck',
                                                                         type='checkbox',
                                                                         checked=wtc_checked)
-                            label(for='check1') #{jadeMessage.getMessage('template.index.advanced_search.input.writes_the_check')}
+                            label(for='check1')
+                                #{jadeMessage.getMessage('template.index.advanced_search.input.writes_the_check')}
 
                     .b-extend-search__label
                         #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method')}
@@ -88,7 +92,8 @@ block content
                                                         type='radio',
                                                         value=0,
                                                         checked)
-                                label(for='deliveryMethod-item-0') #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method.some')}
+                                label.b-dropdown__label(for='deliveryMethod-item-0')
+                                    #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method.some')}
                             for _deliveryMethod in deliveryMethods
                                 if _deliveryMethod.id == form.deliveryMethod
                                     - dm_checked = true
@@ -100,7 +105,8 @@ block content
                                                             type='radio',
                                                             value='#{_deliveryMethod.id}',
                                                             checked=dm_checked)
-                                    label(for='deliveryMethod-item-'+_deliveryMethod.id)= _deliveryMethod.name
+                                    label.b-dropdown__label(for='deliveryMethod-item-'+_deliveryMethod.id)
+                                        = _deliveryMethod.name
 
                     .b-checkboxes
                         .b-checkboxes__checkbox
@@ -112,7 +118,8 @@ block content
                                                             name='orderByEmail',
                                                             type='checkbox',
                                                             checked=obe_checked)
-                            label(for='check2') #{jadeMessage.getMessage('template.index.advanced_search.input.order_by_email')}
+                            label(for='check2')
+                                #{jadeMessage.getMessage('template.index.advanced_search.input.order_by_email')}
 
                 .b-search__polygraphies-list
                 script(id='results', type='text/x-handlebars-template')
@@ -140,8 +147,7 @@ block content
                                     .b-results-item__address {{address}}
                                     .b-results-item__phone {{phone}}
                                 .b-results-item__detail(id='polygraphy-page')
-
-                                    a(href='', id='{{id}}')
+                                    a.b-results-item__detail-link(href='', id='{{id}}')
                                         #{jadeMessage.getMessage('template.index.list_polygraphies.button.detailed')}
 
                                 button.b-results-item__adaptive-detail-info(type='button', id='{{id}}')
@@ -175,7 +181,7 @@ block content
                         .b-popup-window__phone {{phone}}
                         .b-popup-window__email {{email}}
                         .b-popup-window__site
-                            a(href='{{website}}', target="_blank") {{website}}
+                            a.b-popup-window__site-link(href='{{website}}', target="_blank") {{website}}
                     .b-popup-window__details
                         .b-popup-window__title
                             #{jadeMessage.getMessage('template.index.popup.headline')}

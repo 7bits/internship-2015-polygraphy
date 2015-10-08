@@ -2,30 +2,23 @@
     margin: 15px 0;
 }
 
-input.general-checkbox__checkbox[type="checkbox"]{
+.general-checkbox__checkbox{
     display: none;
 }
 
-input.general-checkbox__checkbox[type="checkbox"]+label{
-    background: inline("check.png") 0px 0px no-repeat;
+.general-checkbox__checkbox+label{
+    background: inline("check.png") 0 0 no-repeat;
     padding-left: 23px;
     width: auto;
     height: 20px;
-    /*margin-top: 15px;*/
     display: block;
     text-align: left;
 }
 
-input.general-checkbox__checkbox[type="checkbox"]:checked+label{
+.general-checkbox__checkbox:checked+label{
     background: inline("check.png") 0 -30px no-repeat;
-    /*padding-left: 23px;
-    width: auto;
-    height: 20px;
-    /!*margin-top: 15px;*!/
-    display: block;
-    text-align: left;*/
 }
 
-input.general-checkbox__checkbox[type="checkbox"]+label:hover{
+.general-checkbox__checkbox+label:hover{
     cursor: pointer;
 }

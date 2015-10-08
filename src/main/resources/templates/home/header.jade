@@ -19,11 +19,12 @@ header.header
                     ul.header__dropdown-menu
                         li.header__dropdown-menu-item
                             if security.isUserInRole("ROLE_ADMIN")
-                                a(href="/admin")
-                                    #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
+                                - url = '/admin'
                             if security.isUserInRole('ROLE_POLYGRAPHY')
-                                a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
-                                    #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
+                                - url = '/admin-polygraphy/polygraphy/' + security.getUserId() + '/edit'
+                            a(href=url)
+                                #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
+
                         li.header__dropdown-menu-item
                             a(href="/logout")
                                 #{jadeMessage.getMessage('template.header.menu.additionally.output')}
@@ -47,11 +48,11 @@ header.header.header_small-header
             ul.header__dropdown-menu
                 li.header__dropdown-menu-item
                     if security.isUserInRole("ROLE_ADMIN")
-                        a(href="/admin")
-                            #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
+                        - url = '/admin'
                     if security.isUserInRole('ROLE_POLYGRAPHY')
-                        a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
-                            #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
+                        - url = '/admin-polygraphy/polygraphy/' + security.getUserId() + '/edit'
+                    a(href=url)
+                        #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
                 li.header__dropdown-menu-item
                     a(href="/logout")
                         #{jadeMessage.getMessage('template.header_small.menu.additionally.output')}

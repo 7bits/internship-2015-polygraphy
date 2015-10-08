@@ -1,4 +1,3 @@
-
 .b-often-seek{
     margin: 20px auto;
     color: black;
@@ -38,15 +37,15 @@
     background-color: #f3e642;
 }
 
-input.b-often-seek__input[type="checkbox"]{
+.b-often-seek__input[type="checkbox"]{
     display: none;
 }
 
-input.b-often-seek__input[type="checkbox"]+label:hover{
+.b-often-seek__input[type="checkbox"]+label:hover{
     cursor: pointer;
 }
 
-input.b-often-seek__input[type="checkbox"]:checked+label{
+.b-often-seek__input[type="checkbox"]:checked+label{
     background-color: #f3e642;
 }
 

@@ -155,8 +155,10 @@ block content
                                     .b-results-item__address {{address}}
                                     .b-results-item__phone {{phone}}
                                 .b-results-item__detail(id='polygraphy-page')
-                                    a(href='/polygraphy/{{id}}', id='{{id}}')
+
+                                    a(href='', id='{{id}}')
                                         #{jadeMessage.getMessage('template.index.list_polygraphies.button.detailed')}
+
                                 button.b-results-item__adaptive-detail-info(type='button', id='{{id}}')
                                     #{jadeMessage.getMessage('template.index.list_polygraphies.button_small.detailed')}
                             | {{/each}}

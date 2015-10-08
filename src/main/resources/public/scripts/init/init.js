@@ -6,7 +6,10 @@ $(function(){
     $(document).ready(function() {
         dropdownMenu.attachTo('.header__menu');
         csrfComponent.attachTo('#general-form');
+        scrollUpWindowComponent.attachTo(window);
     });
     csrfComponent.attachTo('#search-form');
     searchComponent.attachTo('#search-form');
+    popupWindowComponent.attachTo('body');
+    jumpToPageOnIdComponent.attachTo('body');
 });

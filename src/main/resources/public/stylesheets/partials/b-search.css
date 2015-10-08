@@ -15,7 +15,7 @@
     cursor: pointer;
 }
 
-.b-search__js-loader{
+.b-search__loader{
     visibility: hidden;
     position: fixed;
     left: 0;

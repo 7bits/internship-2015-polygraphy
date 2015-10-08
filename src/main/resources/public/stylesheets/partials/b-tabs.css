@@ -20,10 +20,10 @@
     background-color: rgb(232, 232, 232);
 }
 
-.b-tabs__js-active-tab{
+.b-tabs__active-tab{
     background-color: rgb(232, 232, 232);
 }
 
-.b-tabs__js-inactive-tab{
+.b-tabs__inactive-tab{
     background-color: rgb(240, 240, 240);
 }

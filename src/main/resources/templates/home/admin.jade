@@ -8,9 +8,9 @@ block content
     =message
 
     .b-tabs
-        .b-tabs__tab.b-tabs__js-active-tab(id='registration-bids')
+        .b-tabs__tab.b-tabs__active-tab(id='registration-bids')
             #{jadeMessage.getMessage('template.admin.tab.requests_on_registration')}
-        .b-tabs__tab.b-tabs__js-inactive-tab(id='polygraphies-list')
+        .b-tabs__tab.b-tabs__inactive-tab(id='polygraphies-list')
             #{jadeMessage.getMessage('template.admin.tab.list_polygraphies')}
     .b-inside-tabs
         .b-inside-tabs__content.b-inside-tabs__js-inside-active-tab(id='inside-registration-bids')

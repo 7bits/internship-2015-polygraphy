@@ -18,7 +18,7 @@ var searchComponent = flight.component(
             var template = Handlebars.compile($('#results').html());
             var msg = $(form).serialize();
             window.history.pushState('','', 'search?' + msg);
-            $('.b-search__js-loader').css('visibility', 'visible');
+            $('.b-search__loader').css('visibility', 'visible');
 
             $.ajax({
                 type: 'POST',
@@ -31,12 +31,12 @@ var searchComponent = flight.component(
                         polygraphies: data.data.polygraphies
                     });
                     $('.b-search__polygraphies-list').html(html);
-                    $('.b-search__js-loader').css('visibility', 'hidden');
+                    $('.b-search__loader').css('visibility', 'hidden');
                 },
                 error:  function(xhr, str){
                     console.log(arguments);
                     alert('Возникла ошибка: ' + xhr.responseCode);
-                    $('.b-search__js-loader').css('visibility', 'visible');
+                    $('.b-search__loader').css('visibility', 'visible');
                 }
             });
         };

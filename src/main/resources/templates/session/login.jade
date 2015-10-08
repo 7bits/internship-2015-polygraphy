@@ -40,7 +40,8 @@ block content
                     .general-input__invalid.js-none-display(id='password-error')
 
             if error
-                = error
+                .general-input__invalid.general-input__invalid_login
+                    = error
             .general-form__button
                 - buttonType = 'submit'
                 button.general-submit(type=buttonType, id='submit-login-data')

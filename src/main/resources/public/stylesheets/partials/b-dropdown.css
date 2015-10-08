@@ -25,7 +25,7 @@
     display: none;
 }
 
-.b-dropdown__list-item > label{
+.b-dropdown__label{
     width: auto;
     height: 40px;
     display: block;
@@ -36,16 +36,16 @@
     color: black;
 }
 
-input.b-dropdown__input[type="radio"]{
+.b-dropdown__input[type="radio"]{
     display: none;
 }
 
-input.b-dropdown__input[type="radio"]+label:hover{
+.b-dropdown__input[type="radio"]+label:hover{
     cursor: pointer;
     background-color: #f3e642;
 }
 
-input.b-dropdown__input[type="radio"]:checked+label{
+.b-dropdown__input[type="radio"]:checked+label{
     background-color: #f3e642;
 }
 

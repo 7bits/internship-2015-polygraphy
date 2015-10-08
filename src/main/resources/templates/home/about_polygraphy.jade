@@ -1,9 +1,5 @@
 extends ../layouts/layout
 
-block append head
-    //link(rel="stylesheet", href="/stylesheets/partials/about-polygraphy.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/icons.css")
-
 block content
 
     =message
@@ -47,7 +43,7 @@ block content
                 .b-about-polygraphy__email
                     = polygraphy.email
                 .b-about-polygraphy__site
-                    a(href='#{polygraphy.website}', target="_blank")= polygraphy.website
+                    a.b-about-polygraphy__site-link(href='#{polygraphy.website}', target="_blank")= polygraphy.website
             if(polygraphy.info != '')
                 .b-about-polygraphy__details
                     .b-about-polygraphy__about-title

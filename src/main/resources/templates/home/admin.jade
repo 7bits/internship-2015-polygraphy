@@ -1,9 +1,6 @@
 extends ../layouts/layout
 
 block append head
-    //link(rel="stylesheet", href="/stylesheets/partials/b-tabs.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-inside-tabs.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-popup-verification.css")
     link(rel="stylesheet", href="/stylesheets/partials/jquery.gritter.css")
 
 block content
@@ -11,9 +8,9 @@ block content
     =message
 
     .b-tabs
-        .b-tabs__tab.b-tabs__js-active-tab(id='registration-bids')
+        .b-tabs__tab.b-tabs__active-tab(id='registration-bids')
             #{jadeMessage.getMessage('template.admin.tab.requests_on_registration')}
-        .b-tabs__tab.b-tabs__js-inactive-tab(id='polygraphies-list')
+        .b-tabs__tab.b-tabs__inactive-tab(id='polygraphies-list')
             #{jadeMessage.getMessage('template.admin.tab.list_polygraphies')}
     .b-inside-tabs
         .b-inside-tabs__content.b-inside-tabs__js-inside-active-tab(id='inside-registration-bids')
@@ -32,13 +29,15 @@ block content
                                 = request.email
                             td.b-inside-tabs__table-col
                                 if request.hash
-                                    a.b-inside-tabs__take-link(href='#{request.link}', id='#{request.id}')= request.link
+                                    a.b-inside-tabs__take-link(href='#{request.link}', id='#{request.id}')
+                                        = request.link
                                 else
                                     .b-inside-tabs__generate-link
                                         a.b-inside-tabs__get-link(href='/admin/registration-link', id='#{request.id}')
                                             #{jadeMessage.getMessage('template.admin.tab.requests_on_registration.button.send_invitation')}
                                     .b-inside-tabs__link
-                                        a(href='#{generate}', id='#{request.id}')= generate
+                                        a.b-inside-tabs__take-link(href='#{generate}', id='#{request.id}')
+                                            = generate
                             td.b-inside-tabs__table-col
                                 button.b-inside-tabs__option.b-inside-tabs__js-remove-bid(type='button', id='#{request.id}')
                                     #{jadeMessage.getMessage('template.admin.tab.requests_on_registration.button.delete_request_on_registration')}
@@ -71,7 +70,7 @@ block content
                             td.b-inside-tabs__table-col.b-inside-tabs_col-edit
                                 .b-inside-tabs__button-container
                                     button.b-inside-tabs__option(type='button', id='#{polygraphy.id}')
-                                        a(href='/admin/polygraphy/#{polygraphy.id}/edit')
+                                        a.b-inside-tabs__option-link(href='/admin/polygraphy/#{polygraphy.id}/edit')
                                             #{jadeMessage.getMessage('template.admin.tab.list_polygraphies.button.edit_polygraphy')}
                                 .b-inside-tabs__button-container
                                     button.b-inside-tabs__option.b-inside-tabs__js-remove-from-search(type='button', id='#{polygraphy.id}')
@@ -90,4 +89,3 @@ block content
 block append javascript
     script(type='application/javascript', src='/vendor/scripts/jquery.gritter.min.js')
     script(type='application/javascript', src='/vendor/scripts/jquery.gritter.js')
-    //script(type='application/javascript', src='/scripts/partials/admin.js')

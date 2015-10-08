@@ -1,17 +1,5 @@
 extends ../layouts/layout
 
-block append head
-    //link(rel="stylesheet", href="/stylesheets/partials/b-search.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-search-line.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-often-seek.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-extend-search.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-dropdown.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-checkboxes.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-results.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-results-item.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/b-popup-window.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/icons.css")
-
 block content
 
     =message
@@ -21,21 +9,19 @@ block content
         form(id='search-form', method='post', action='/search')
             input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
             .b-search-line
-                if form != null
-                    if form.query != ""
-                        input.b-search-line__input(name='query',
-                                                type='text',
-                                                value='#{form.query}')
-                    else
-                        input.b-search-line__input(name='query',
-                                                type='text',
-                                                placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
+
+                if (form != null && form.query != '')
+                    - val = form.query
                 else
-                    input.b-search-line__input(name='query',
-                                            type='text',
-                                            placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
+                    - val = ''
+                input.b-search-line__input(name='query',
+                                        type='text',
+                                        value=val,
+                                        placeholder=jadeMessage.getMessage('template.index.search_line.placeholder'))
+
                 .b-search-line__submit
-                    button(type='button') #{jadeMessage.getMessage('template.index.button.find_polygraphy')}
+                    button.b-search-line__submit-button(type='button')
+                        #{jadeMessage.getMessage('template.index.button.find_polygraphy')}
 
             .b-often-seek
                 #{jadeMessage.getMessage('template.index.input.often_seek')}
@@ -66,7 +52,8 @@ block content
                                                         type='radio',
                                                         value=0,
                                                         checked)
-                                label(for='paymentMethod-item-0') #{jadeMessage.getMessage('template.index.advanced_search.input.payment_method.some')}
+                                label.b-dropdown__label(for='paymentMethod-item-0')
+                                    #{jadeMessage.getMessage('template.index.advanced_search.input.payment_method.some')}
                             for _paymentMethod in paymentMethods
                                 if _paymentMethod.id == form.paymentMethod
                                     - pm_checked = true
@@ -78,7 +65,8 @@ block content
                                                             type='radio',
                                                             value='#{_paymentMethod.id}',
                                                             checked=pm_checked)
-                                    label(for='paymentMethod-item-'+_paymentMethod.id)= _paymentMethod.name
+                                    label.b-dropdown__label(for='paymentMethod-item-'+_paymentMethod.id)
+                                        = _paymentMethod.name
 
                     .b-checkboxes
                         .b-checkboxes__checkbox
@@ -90,7 +78,8 @@ block content
                                                                         name='writesTheCheck',
                                                                         type='checkbox',
                                                                         checked=wtc_checked)
-                            label(for='check1') #{jadeMessage.getMessage('template.index.advanced_search.input.writes_the_check')}
+                            label(for='check1')
+                                #{jadeMessage.getMessage('template.index.advanced_search.input.writes_the_check')}
 
                     .b-extend-search__label
                         #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method')}
@@ -103,7 +92,8 @@ block content
                                                         type='radio',
                                                         value=0,
                                                         checked)
-                                label(for='deliveryMethod-item-0') #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method.some')}
+                                label.b-dropdown__label(for='deliveryMethod-item-0')
+                                    #{jadeMessage.getMessage('template.index.advanced_search.input.delivery_method.some')}
                             for _deliveryMethod in deliveryMethods
                                 if _deliveryMethod.id == form.deliveryMethod
                                     - dm_checked = true
@@ -115,7 +105,8 @@ block content
                                                             type='radio',
                                                             value='#{_deliveryMethod.id}',
                                                             checked=dm_checked)
-                                    label(for='deliveryMethod-item-'+_deliveryMethod.id)= _deliveryMethod.name
+                                    label.b-dropdown__label(for='deliveryMethod-item-'+_deliveryMethod.id)
+                                        = _deliveryMethod.name
 
                     .b-checkboxes
                         .b-checkboxes__checkbox
@@ -127,7 +118,8 @@ block content
                                                             name='orderByEmail',
                                                             type='checkbox',
                                                             checked=obe_checked)
-                            label(for='check2') #{jadeMessage.getMessage('template.index.advanced_search.input.order_by_email')}
+                            label(for='check2')
+                                #{jadeMessage.getMessage('template.index.advanced_search.input.order_by_email')}
 
                 .b-search__polygraphies-list
                 script(id='results', type='text/x-handlebars-template')
@@ -155,8 +147,7 @@ block content
                                     .b-results-item__address {{address}}
                                     .b-results-item__phone {{phone}}
                                 .b-results-item__detail(id='polygraphy-page')
-
-                                    a(href='', id='{{id}}')
+                                    a.b-results-item__detail-link(href='', id='{{id}}')
                                         #{jadeMessage.getMessage('template.index.list_polygraphies.button.detailed')}
 
                                 button.b-results-item__adaptive-detail-info(type='button', id='{{id}}')
@@ -190,14 +181,13 @@ block content
                         .b-popup-window__phone {{phone}}
                         .b-popup-window__email {{email}}
                         .b-popup-window__site
-                            a(href='{{website}}', target="_blank") {{website}}
+                            a.b-popup-window__site-link(href='{{website}}', target="_blank") {{website}}
                     .b-popup-window__details
                         .b-popup-window__title
                             #{jadeMessage.getMessage('template.index.popup.headline')}
                         .b-popup-window__about {{{info}}}
                 .b-popup-window__helper
-    .b-search__js-loader
+    .b-search__loader
 
 block append javascript
     script(type='application/javascript', src='/vendor/scripts/handlebars-v3.0.3.js')
-    //script(type='application/javascript', src='/scripts/partials/app.js')

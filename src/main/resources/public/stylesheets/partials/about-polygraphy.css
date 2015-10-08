@@ -1,29 +1,3 @@
-/*@import url("osans.css");*/
-
-.b-comeback{
-    margin: 10px auto 0px auto;
-    text-align: center;
-}
-
-.b-comeback__button{
-    outline: none;
-    box-sizing: border-box;
-    border-radius: 25px;
-    border: 1px solid rgb(120, 103, 156);
-    color: rgb(120, 103, 156);
-    background-color: white;
-    height: 30px;
-    width: auto;
-    padding: 5px 10px;
-    font-size: 13px;
-    text-decoration: none;
-}
-
-.b-comeback__button:hover{
-    background-color: rgb(120, 103, 156);
-    color: white;
-}
-
 .b-about-polygraphy{
     width: 938px;
     height: auto;
@@ -112,7 +86,7 @@ table.b-about-polygraphy__adaptive-services{
     color: rgb(111, 194, 106);
 }
 
-.b-about-polygraphy__site > a{
+.b-about-polygraphy__site-link{
     color: rgb(111, 194, 106);
 }
 

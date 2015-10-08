@@ -14,16 +14,17 @@ header.header
                 a(href='/about-project')
                     #{jadeMessage.getMessage('template.header.menu.about_project')}
             if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
-                .header__menu-item.header_dropdown
+                .header__menu-item.header__menu-item_dropdown
                     #{jadeMessage.getMessage('template.header.menu.additionally')}
                     ul.header__dropdown-menu
                         li.header__dropdown-menu-item
                             if security.isUserInRole("ROLE_ADMIN")
-                                a(href="/admin")
-                                    #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
+                                - url = '/admin'
                             if security.isUserInRole('ROLE_POLYGRAPHY')
-                                a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
-                                    #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
+                                - url = '/admin-polygraphy/polygraphy/' + security.getUserId() + '/edit'
+                            a(href=url)
+                                #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
+
                         li.header__dropdown-menu-item
                             a(href="/logout")
                                 #{jadeMessage.getMessage('template.header.menu.additionally.output')}
@@ -42,16 +43,16 @@ header.header.header_small-header
             a(href='/about-project')
                 #{jadeMessage.getMessage('template.header_small.menu.about_project')}
         if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
-            .header__menu-item.header_dropdown
+            .header__menu-item.header__menu-item_dropdown
                 #{jadeMessage.getMessage('template.header_small.menu.additionally')}
             ul.header__dropdown-menu
                 li.header__dropdown-menu-item
                     if security.isUserInRole("ROLE_ADMIN")
-                        a(href="/admin")
-                            #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
+                        - url = '/admin'
                     if security.isUserInRole('ROLE_POLYGRAPHY')
-                        a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
-                            #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
+                        - url = '/admin-polygraphy/polygraphy/' + security.getUserId() + '/edit'
+                    a(href=url)
+                        #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
                 li.header__dropdown-menu-item
                     a(href="/logout")
                         #{jadeMessage.getMessage('template.header_small.menu.additionally.output')}

@@ -1,5 +1,3 @@
-/*@import url("osans.css");*/
-
 .b-popup-window__main{
     width: 938px;
     height: 618px;
@@ -78,7 +76,7 @@ table.b-popup-window__services{
     background-position: left center;
 }
 
-.b-popup-window__site > a{
+.b-popup-window__site-link{
     color: rgb(111, 194, 106);
 }
 

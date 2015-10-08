@@ -1,11 +1,5 @@
 extends ../layouts/layout
 
-block append head
-    //link(rel="stylesheet", href="/stylesheets/partials/general-form.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/general-form-headline.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/general-input.css")
-    //link(rel="stylesheet", href="/stylesheets/partials/general-submit.css")
-
 block content
 
     =message
@@ -39,7 +33,3 @@ block content
             .general-form__button
                 a.general-submit(href=href, id='button-on-login-page')
                     #{jadeMessage.getMessage('template.info_for_polygraphy.button.enter')}
-
-block append javascript
-    //script(type='application/javascript', src='/scripts/partials/info-for-polygraphy.js')
-    //script(type='application/javascript', src='/scripts/partials/display-errors.js')

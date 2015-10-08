@@ -1,7 +1,7 @@
 var dropdownMenu = flight.component(
     function() {
         this.defaultAttrs({
-            button: '.header__menu-item.header_dropdown',
+            button: '.header__menu-item.header__menu-item_dropdown',
             list: 'ul.header__dropdown-menu'
         });
         this.hideDropdownMenu = function(){

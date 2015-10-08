@@ -14,7 +14,7 @@ header.header
                 a(href='/about-project')
                     #{jadeMessage.getMessage('template.header.menu.about_project')}
             if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
-                .header__menu-item.header_dropdown
+                .header__menu-item.header__menu-item_dropdown
                     #{jadeMessage.getMessage('template.header.menu.additionally')}
                     ul.header__dropdown-menu
                         li.header__dropdown-menu-item
@@ -42,7 +42,7 @@ header.header.header_small-header
             a(href='/about-project')
                 #{jadeMessage.getMessage('template.header_small.menu.about_project')}
         if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
-            .header__menu-item.header_dropdown
+            .header__menu-item.header__menu-item_dropdown
                 #{jadeMessage.getMessage('template.header_small.menu.additionally')}
             ul.header__dropdown-menu
                 li.header__dropdown-menu-item

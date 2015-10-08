@@ -7,8 +7,8 @@ block content
 
     .general-form.general-form_registration(id='big-form')
         .general-form-headline
-            | РЕГИСТРАЦИЯ ПОЛИГРАФИИ
-        form(id='general-form')
+            #{jadeMessage.getMessage('template.registration.headline')}
+        form(id='registration-form')
             fieldset
                 input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
                 input.general-input__input#hash(type='hidden', name='hash', value='#{hash}')
@@ -16,7 +16,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            |E-mail для регистрации *
+                            #{jadeMessage.getMessage('template.registration.input.email')}
                         input.general-input__input.js-normal-input#email-input(name='email', type='text')
                         .general-input__for-error.js-none-display(id = 'email-for-error')
                         .general-input__invalid.js-none-display(id = 'email-error')
@@ -24,7 +24,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            |Пароль *
+                            #{jadeMessage.getMessage('template.registration.input.password')}
                         input.general-input__input.js-normal-input#password-input(name='password', type='password')
                         .general-input__for-error.js-none-display(id = 'password-for-error')
                         .general-input__invalid.js-none-display(id='password-error')
@@ -32,7 +32,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | Название полиграфии *
+                            #{jadeMessage.getMessage('template.registration.input.name_polygraphy')}
                         input.general-input__input.js-normal-input#name-input(name='name', type='text')
                         .general-input__for-error.js-none-display(id='name-for-error')
                         .general-input__invalid.js-none-display(id='name-error')
@@ -40,7 +40,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | Адрес *
+                            #{jadeMessage.getMessage('template.registration.input.address')}
                         input.general-input__input.js-normal-input#address-input(name='address', type='text')
                         .general-input__for-error.js-none-display(id='address-for-error')
                         .general-input__invalid.js-none-display(id='address-error')
@@ -48,7 +48,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | Телефон *
+                            #{jadeMessage.getMessage('template.registration.input.phone')}
                         input.general-input__input.js-normal-input#phone-input(name='phone', type='text')
                         .general-input__for-error.js-none-display(id='phone-for-error')
                         .general-input__invalid.js-none-display(id='phone-error')
@@ -56,7 +56,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | Публичный e-mail
+                            #{jadeMessage.getMessage('template.registration.input.public_email')}
                         input.general-input__input.js-normal-input#email-public-input(name='publicEmail', type='text')
                         .general-input__for-error.js-none-display(id='publicEmail-for-error')
                         .general-input__invalid.js-none-display(id='publicEmail-error')
@@ -64,13 +64,13 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | Сайт
+                            #{jadeMessage.getMessage('template.registration.input.website')}
                         input.general-input__input.js-normal-input#website-input(name='website', type='text')
 
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | Описание
+                            #{jadeMessage.getMessage('template.registration.input.description')}
                         textarea.general-input__input.js-normal-input.b-registration__textarea-field#text-area-field(name='textArea')
                     script.
                         CKEDITOR.replace('textArea');
@@ -81,15 +81,15 @@ block content
 
                 .general-checkbox
                     input.js-obe.general-checkbox__checkbox(id='orderByEmail', name='orderByEmail', type='checkbox')
-                    label(for='orderByEmail') Принимаем заказы по e-mail
+                    label(for='orderByEmail') #{jadeMessage.getMessage('template.registration.input.order_by_email')}
 
                 .general-checkbox
                     input.js-wtc.general-checkbox__checkbox(id='writesTheCheck', name='writesTheCheck', type='checkbox')
-                    label(for='writesTheCheck') Выдаем чек
+                    label(for='writesTheCheck') #{jadeMessage.getMessage('template.registration.input.writes_the_check')}
 
                 .general-form__checkboxes
                     label.general-input__label.general-input__label_headline
-                        | Принимаем оплату: *
+                        #{jadeMessage.getMessage('template.registration.input.payment_methods')}
                     for paymentMethod in paymentMethods
                         .general-checkbox
                             input.js-pm.general-checkbox__checkbox(id='payment#{paymentMethod.id}', name='paymentMethods', value='#{paymentMethod.id}', type='checkbox')
@@ -99,7 +99,7 @@ block content
 
                 .general-form__checkboxes
                     label.general-input__label.general-input__label_headline
-                        | Доставка готового заказа: *
+                        #{jadeMessage.getMessage('template.registration.input.delivery_methods')}
                     for deliveryMethod in deliveryMethods
                         .general-checkbox
                             input.js-dm.general-checkbox__checkbox(id='delivery#{deliveryMethod.id}', name='deliveryMethods', value='#{deliveryMethod.id}', type='checkbox')
@@ -109,7 +109,7 @@ block content
 
                 .general-form__checkboxes.general-form__checkboxes_services
                     label.general-input__label.general-input__label_headline
-                        | Предоставляемые услуги:
+                        #{jadeMessage.getMessage('template.registration.input.services')}
                     for service in services
                         .general-checkbox
                             input.js-s.general-checkbox__checkbox(id='service#{service.id}', name='services', value='#{service.id}', type='checkbox')
@@ -120,4 +120,4 @@ block content
             .general-form__button
                 - buttonType = 'button'
                 button.general-submit.general-submit_save-data(type=buttonType, id='submit-registration-form')
-                    | Сохранить данные
+                    #{jadeMessage.getMessage('template.registration.button.save')}

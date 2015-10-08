@@ -36,6 +36,9 @@ public class PolygraphyService {
      */
     private DefaultTransactionDefinition customTx;
 
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
 
     @Autowired
     private SearchPolygraphyResolver searchPolygraphyResolver;
@@ -71,7 +74,7 @@ public class PolygraphyService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find all polygraphies. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.polygraphy_service.find_all_polygraphies"));
         }
     }
 
@@ -88,7 +91,7 @@ public class PolygraphyService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find all polygraphies. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.polygraphy_service.find_all_display_polygraphies"));
         }
     }
 
@@ -106,7 +109,7 @@ public class PolygraphyService {
             }
             return models;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find polygraphies. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.polygraphy_service.find_polygraphies"));
         }
     }
 
@@ -121,7 +124,7 @@ public class PolygraphyService {
             }
             return model;
         } catch (RepositoryException e) {
-            throw new ServiceException("Can not find full info about polygraphy. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.polygraphy_service.find_polygraphy"));
         }
     }
 
@@ -149,7 +152,7 @@ public class PolygraphyService {
                 txManager.rollback(status);
                 LOG.info("Rollback done.");
             }
-            throw new ServiceException("Can not remove all polygraphies. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.polygraphy_service.remove_polygraphy"));
         }
     }
 }

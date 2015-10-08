@@ -164,6 +164,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
     </dependency>
+    <dependency>
+      <groupId>javax.inject</groupId>
+      <artifactId>javax.inject</artifactId>
+      <version>1</version>
+    </dependency>
 
   </dependencies>
 
@@ -212,6 +217,31 @@
           <path>/</path>
         </configuration>
       </plugin>
+<!--
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>mojo-parent</artifactId>
+        <version>38</version>
+        <executions>
+        <execution>
+          <id>xvfb</id>
+          <phase>pre-integration-test</phase>
+          <goals>
+            <goal>xvfb</goal>
+          </goals>
+          <configuration>
+            <!- display>:20</display ->
+            <options>
+              <option>:20</option>
+              <option>-ac</option>
+              <option>-screen</option>
+              <option>0</option>
+              <option>1024x768x16</option>
+            </options>
+          </configuration>
+        </execution>
+        </executions>
+      </plugin> -->
     </plugins>
   </build>
 

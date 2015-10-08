@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
+import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
 import it.sevenbits.graphicartsindustry.service.ServiceException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
@@ -14,6 +15,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class EditingPolygraphyController {
+
+    @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
 
     @Autowired
     private EditingPolygraphyService editingPolygraphyService;
@@ -60,7 +65,7 @@ public class EditingPolygraphyController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }
@@ -113,7 +118,7 @@ public class EditingPolygraphyController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", "Произошла ошибка. Мы уже работаем над ней. ");
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
             return response;
         }
     }

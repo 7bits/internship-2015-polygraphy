@@ -22,6 +22,10 @@ public class SendingMessagesService {
     private static final Logger LOG = Logger.getLogger(SendingMessagesService.class);
 
     @Autowired
+    private MessageByLocaleService messageByLocaleService;
+
+
+    @Autowired
     private JavaMailSender javaMailSender;
 
     @Autowired
@@ -36,7 +40,7 @@ public class SendingMessagesService {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    public void sendingRegistrationLink(RequestOnRegistrationModel requestOnRegistrationModel) throws ServiceException {
+    public void sendRegistrationLink(RequestOnRegistrationModel requestOnRegistrationModel) throws ServiceException {
         try {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = null;
@@ -54,9 +58,9 @@ public class SendingMessagesService {
 
             javaMailSender.send(message);
         } catch (MessagingException e) {
-            throw new ServiceException("Can not send registration link. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.sending_messages_service.send_registration_link"));
         } catch (IOException e) {
-            throw new ServiceException("Can not send registration link. ");
+            throw new ServiceException(messageByLocaleService.getMessage("error.sending_messages_service.send_registration_link"));
         }
     }
 }

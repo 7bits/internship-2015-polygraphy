@@ -1,63 +1,63 @@
 header.header
     .header__logo-wrapper
         a(href='/')
-            img(src ='/images/logo.png', alt='Полиграфия')
+            img(src ='/images/logo.png', alt=jadeMessage.getMessage('template.header.logo_wrapper'))
     .header__content
         .header__menu
             .header__menu-item.header_menu-item-full
                 a(href='/info-for-polygraphy', id='info-for-polygraphy')
-                    | Информация для полиграфий
+                    #{jadeMessage.getMessage('template.header.menu.info_for_polygraphy_item_full')}
             .header__menu-item.header_menu-item-mini
                 a(href='/info-for-polygraphy', id='info-for-polygraphy')
-                    | Полиграфиям
+                    #{jadeMessage.getMessage('template.header.menu.info_for_polygraphy_item_mini')}
             .header__menu-item
                 a(href='/about-project')
-                    | О проекте
+                    #{jadeMessage.getMessage('template.header.menu.about_project')}
             if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
                 .header__menu-item.header_dropdown
-                    | More
+                    #{jadeMessage.getMessage('template.header.menu.additionally')}
                     ul.header__dropdown-menu
                         li.header__dropdown-menu-item
                             if security.isUserInRole("ROLE_ADMIN")
                                 a(href="/admin")
-                                    | Личный кабинет
+                                    #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
                             if security.isUserInRole('ROLE_POLYGRAPHY')
                                 a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
-                                    | Личный кабинет
+                                    #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
                         li.header__dropdown-menu-item
                             a(href="/logout")
-                                | Выход
+                                #{jadeMessage.getMessage('template.header.menu.additionally.output')}
 
         .header__slogan
-            | Не знаете, где сделать принт на футболку? Или напечатать быстро 1000 визиток?
+            #{jadeMessage.getMessage('template.header.slogan.first_string')}
             br
-            | Мы найдем полиграфии для ваших задач!
+            #{jadeMessage.getMessage('template.header.slogan.second_string')}
 
 header.header.header_small-header
     .header__menu
         .header__menu-item
             a(href='/info-for-polygraphy', id='info-for-polygraphy')
-                | Полиграфиям
+                #{jadeMessage.getMessage('template.header_small.menu.info_for_polygraphy')}
         .header__menu-item
             a(href='/about-project')
-                | О проекте
+                #{jadeMessage.getMessage('template.header_small.menu.about_project')}
         if security.isUserInRole("ROLE_ADMIN") || security.isUserInRole('ROLE_POLYGRAPHY')
             .header__menu-item.header_dropdown
-                | More
+                #{jadeMessage.getMessage('template.header_small.menu.additionally')}
             ul.header__dropdown-menu
                 li.header__dropdown-menu-item
                     if security.isUserInRole("ROLE_ADMIN")
                         a(href="/admin")
-                            | Личный кабинет
+                            #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
                     if security.isUserInRole('ROLE_POLYGRAPHY')
                         a(href="/admin-polygraphy/polygraphy/"+security.getUserId()+"/edit")
-                            | Личный кабинет
+                            #{jadeMessage.getMessage('template.header_small.menu.additionally.personal_account')}
                 li.header__dropdown-menu-item
                     a(href="/logout")
-                        | Выход
+                        #{jadeMessage.getMessage('template.header_small.menu.additionally.output')}
 
     .header__logo-wrapper
         a(href='/')
-            img(src ='/images/logo.png', alt='Полиграфия', height='80px', width='142px')
+            img(src ='/images/logo.png', alt=jadeMessage.getMessage('template.header_small.logo_wrapper'), height='80px', width='142px')
     .header__slogan
-        | Быстрый поиск по полиграфиям
+        #{jadeMessage.getMessage('template.header_small.slogan')}

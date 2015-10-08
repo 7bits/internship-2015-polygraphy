@@ -9,7 +9,7 @@ block content
 
     .general-form(id='big-form')
         .general-form-headline
-            | РЕДАКТИРОВАНИЕ
+            #{jadeMessage.getMessage('template.editing_polygraphy.headline')}
 
         if security.isUserInRole('ROLE_ADMIN')
             - url = '/admin/polygraphy/' + editingForm.polygraphyId + '/update'
@@ -25,7 +25,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | E-mail для регистрации *
+                            #{jadeMessage.getMessage('template.editing_polygraphy.input.email')}
                         input.general-input__input.js-normal-input(type='text',
                         id='email-input',
                         name = 'email',
@@ -36,7 +36,7 @@ block content
                 .general-form__input
                     .general-input
                         label.general-input__label
-                            | Пароль *
+                            #{jadeMessage.getMessage('template.editing_polygraphy.input.password')}
                         input.general-input__input.js-normal-input(type='text',
                         id='password-input',
                         name = 'password')
@@ -46,7 +46,7 @@ block content
             .general-form__input
                 .general-input
                     label.general-input__label
-                        | Название полиграфии *
+                        #{jadeMessage.getMessage('template.editing_polygraphy.input.name_polygraphy')}
                     input.general-input__input.js-normal-input(type='text',
                     id='name-input',
                     name = 'name',
@@ -57,7 +57,7 @@ block content
             .general-form__input
                 .general-input
                     label.general-input__label
-                        | Адрес *
+                        #{jadeMessage.getMessage('template.editing_polygraphy.input.address')}
                     input.general-input__input.js-normal-input(type='text',
                     id='address-input',
                     name = 'address',
@@ -68,7 +68,7 @@ block content
             .general-form__input
                 .general-input
                     label.general-input__label
-                        | Телефон *
+                        #{jadeMessage.getMessage('template.editing_polygraphy.input.phone')}
                     input.general-input__input.js-normal-input(type='text',
                     id='phone-input',
                     name = 'phone',
@@ -79,7 +79,7 @@ block content
             .general-form__input
                 .general-input
                     label.general-input__label
-                        | Публичный e-mail
+                        #{jadeMessage.getMessage('template.editing_polygraphy.input.public_email')}
                     input.general-input__input.js-normal-input(type='text',
                     id='email-public-input',
                     name = 'publicEmail',
@@ -90,7 +90,7 @@ block content
             .general-form__input
                 .general-input
                     label.general-input__label
-                        | Сайт
+                        #{jadeMessage.getMessage('template.editing_polygraphy.input.website')}
                     input.general-input__input.js-normal-input(type='text',
                     id='website-input',
                     name = 'website',
@@ -101,7 +101,7 @@ block content
             .general-form__input
                 .general-input
                     label.general-input__label
-                        | Описание
+                        #{jadeMessage.getMessage('template.editing_polygraphy.input.description')}
                     textarea.general-input__input.js-normal-input.general-form_textarea-field(name='textArea',
                     id='text-area-field')
                         != editingForm.info
@@ -114,7 +114,7 @@ block content
                     type='checkbox',
                     checked='#{editingForm.orderByEmail}')
                 label(for='order-by-email')
-                    | Принимаем заказ по e-mail
+                    #{jadeMessage.getMessage('template.editing_polygraphy.input.order_by_email')}
 
             .general-checkbox
                 input.general-checkbox__checkbox.js-wtc(id='writes-the-check',
@@ -122,11 +122,11 @@ block content
                     type='checkbox',
                     checked='#{editingForm.writesTheCheck}')
                 label(for='writes-the-check')
-                    | Выдаем чек
+                    #{jadeMessage.getMessage('template.editing_polygraphy.input.writes_the_check')}
 
             .general-form__checkboxes
                 label.general-input__label.general-input__label_headline
-                    | Способы оплаты
+                    #{jadeMessage.getMessage('template.editing_polygraphy.input.payment_methods')}
                 for paymentMethod in paymentMethods
                     - pm_checked = editingForm.paymentMethods.contains(paymentMethod.id)
                     .general-checkbox
@@ -141,7 +141,7 @@ block content
 
             .general-form__checkboxes
                 label.general-input__label.general-input__label_headline
-                    | Способы доставки
+                    #{jadeMessage.getMessage('template.editing_polygraphy.input.delivery_methods')}
                 for deliveryMethod in deliveryMethods
                     - dm_checked = editingForm.deliveryMethods.contains(deliveryMethod.id)
                     .general-checkbox
@@ -156,7 +156,7 @@ block content
 
             .general-form__checkboxes.general-form__checkboxes_services
                 label.general-input__label.general-input__label_headline
-                    | Предоставляемые услуги
+                    #{jadeMessage.getMessage('template.editing_polygraphy.input.services')}
                 for service in services
                     - s_checked = editingForm.services.contains(service.id)
                     .general-checkbox
@@ -174,4 +174,4 @@ block content
             .general-form__button
                 - buttonType = 'button'
                 button.general-submit(type=buttonType, id='save-editing-data')
-                    | Сохранить
+                    #{jadeMessage.getMessage('template.editing_polygraphy.button.save')}

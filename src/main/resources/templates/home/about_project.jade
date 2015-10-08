@@ -9,18 +9,24 @@ block content
 
     .b-content-block
         .b-content-block__headline
-            | О ПРОЕКТЕ
+            #{jadeMessage.getMessage('template.about_project.headline')}
         .b-content-block__content
             p
-                = 'Нередко встает вопрос, как найти полиграфию, которая выполнит ваш заказ, и не тратить на поиски много времени.'
+                #{jadeMessage.getMessage('template.about_project.content.first_string')}
             p
-                = 'Наш проект предоставляет вам быстрый поиск нужной полиграфии в соответствии с выбранными вами требованиями.'
+                #{jadeMessage.getMessage('template.about_project.content.second_string')}
             p
-                = 'Просто введите, что хотите напечатать или изготовить,'+' '
-                = 'отметьте дополнительные параметры поиска,'+' '
-                = 'и сервис покажет, какая полиграфия справится с вашим заказом.'+' '
-                = 'А еще и подскажет, как ее найти, принимает ли заказы по e-mail,'+' '
-                = 'можно ли рассчитаться по счету, и многое другое.'
+                #{jadeMessage.getMessage('template.about_project.content.third_string')}
+                = ' '
+                #{jadeMessage.getMessage('template.about_project.content.fourth_string')}
+                = ' '
+                #{jadeMessage.getMessage('template.about_project.content.fiveth_string')}
+                = ' '
+                #{jadeMessage.getMessage('template.about_project.content.sixth_string')}
+                = ' '
+                #{jadeMessage.getMessage('template.about_project.content.seventh_string')}
+                = ' '
             p
-                = 'Проект разработан в ходе Стажировки-2015 в компании'+' '
+                #{jadeMessage.getMessage('template.about_project.content.eighth_string')}
+                = ' '
                 a.link(href='http://7bits.ru/internship.html', target="_blank")= '7bits.'

@@ -30,7 +30,7 @@ public class InfoForPolygraphyController {
             model.addAttribute("request", new RequestOnRegistrationForm());
             return "home/info_for_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 

@@ -42,7 +42,7 @@ public class EditingPolygraphyController {
             model.addAttribute("message", e.getMessage());
             return "home/editing_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 
@@ -92,7 +92,7 @@ public class EditingPolygraphyController {
             model.addAttribute("message", e.getMessage());
             return "home/editing_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 

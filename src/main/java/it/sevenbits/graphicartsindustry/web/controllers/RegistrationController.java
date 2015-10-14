@@ -46,7 +46,7 @@ public class RegistrationController {
             model.addAttribute("message", e.getMessage());
             return "home/registration";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 

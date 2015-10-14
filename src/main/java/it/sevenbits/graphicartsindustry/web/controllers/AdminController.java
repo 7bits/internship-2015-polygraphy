@@ -38,7 +38,7 @@ public class AdminController {
             model.addAttribute("message", e.getMessage());
             return "home/about_polygraphy";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 

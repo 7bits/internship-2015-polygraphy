@@ -33,7 +33,7 @@ public class SessionController {
             throw new NotFoundException();
         }
         catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 }

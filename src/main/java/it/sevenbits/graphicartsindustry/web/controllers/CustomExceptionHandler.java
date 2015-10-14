@@ -17,10 +17,18 @@ public class CustomExceptionHandler {
         return new ModelAndView("home/404");
     }
 
-    @ExceptionHandler(InternalServerErrorExeption.class)
+    @ExceptionHandler(InternalServerErrorException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ModelAndView handleInternalServerErrorExeption(HttpServletRequest request) {
+        return new ModelAndView("home/500");
+    }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ModelAndView handleExeption(HttpServletRequest request) {
         Integer status = (Integer) request.getAttribute("javax.servlet.error.status_code");
+        if (status == null)
+            return new ModelAndView("home/404");
         return new ModelAndView("home/500");
     }
 }

@@ -42,7 +42,7 @@ public class SearchController {
             model.addAttribute("message", e.getMessage());
             return "home/index";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 
@@ -59,7 +59,7 @@ public class SearchController {
             model.addAttribute("message", e.getMessage());
             return "home/index";
         } catch (Exception e) {
-            throw new InternalServerErrorExeption();
+            throw new InternalServerErrorException();
         }
     }
 

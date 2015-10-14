@@ -8,7 +8,7 @@
     <appender name="ROLL" class="org.apache.log4j.DailyRollingFileAppender">
         <!-- The active file to log to -->
         <param name="file" value="/var/log/polygraphy/app.log"/>
-        <param name="DatePattern" value="'.'yyyy-MM-dd" />
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
         <param name="append" value="true"/>
         <param name="encoding" value="UTF-8"/>
 

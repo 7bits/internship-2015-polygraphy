@@ -26,8 +26,7 @@ public class UserResolver {
 
         public Integer getUserId() throws RepositoryException {
             if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof User) {
-                int userId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
-                return polygraphyRepository.getPolygraphyIdByUserId(userId);
+                return ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
             }
             return null;
         }
@@ -36,9 +35,12 @@ public class UserResolver {
             return getUserRole().equals(roleName);
         }
 
+        public Boolean isUserInRoleAnonymous() {
+            return getUserRole().equals("ROLE_ANONYMOUS");
+        }
+
         public String getUsername() {
             if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof User) {
-
                 return ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
             }
             return null;

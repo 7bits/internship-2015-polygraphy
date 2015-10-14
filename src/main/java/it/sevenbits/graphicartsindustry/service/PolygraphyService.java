@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.*;
+import it.sevenbits.graphicartsindustry.web.controllers.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyAdminModel;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyFullModel;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyMinModel;
@@ -121,8 +122,9 @@ public class PolygraphyService {
                 model = new PolygraphyFullModel(polygraphyContacts.getId(), polygraphyContacts.getName(),
                         polygraphyContacts.getAddress(), polygraphyContacts.getPhone(), polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(),
                         polygraphyContacts.getInfo());
+                return model;
             }
-            return model;
+            throw new NotFoundException();
         } catch (RepositoryException e) {
             throw new ServiceException(messageByLocaleService.getMessage("error.polygraphy_service.find_polygraphy"));
         }

@@ -73,19 +73,18 @@ public class EditingPolygraphyController {
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
     public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
         try {
+
 //            TODO:
-//            userId from userResolver
-//            polygraphyService.findByUserEmailPolygraphyId()
-//
-            if (userResolver.getUsername().equals(editingPolygraphyService.findUserEmailByPolygraphyId(polygraphyId))) {
-                model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-                model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-                model.addAttribute("services", contentService.findAllServices());
-                model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId));
-                model.addAttribute("editingForm.polygraphyId", polygraphyId);
-                return "home/editing_polygraphy";
-            }
-            throw new NotFoundException();
+//            порядок
+
+            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            model.addAttribute("services", contentService.findAllServices());
+            model.addAttribute("editingForm",
+                    editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId,
+                            userResolver.getUserId()));
+            model.addAttribute("editingForm.polygraphyId", polygraphyId);
+            return "home/editing_polygraphy";
         } catch (NotFoundException e) {
             throw new NotFoundException();
         } catch (ServiceException e) {

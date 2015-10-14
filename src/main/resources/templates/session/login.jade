@@ -3,40 +3,52 @@ extends ../layouts/layout
 block content
 
     .general-form.general-form_login-form
-        .general-form-headline
-            #{jadeMessage.getMessage('template.login.input.headline')}
+        if security.isUserInRole('ROLE_ANONYMOUS')
+            .general-form-headline
+                #{jadeMessage.getMessage('template.login.input.headline')}
 
-        - url = '/login'
-        - method = 'post'
+            - url = '/login'
+            - method = 'post'
 
-        form(action=url, method=method)
+            form(action=url, method=method)
 
-            input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
+                input.general-input__input(type='hidden', name='#{_csrf.parameterName}', value='#{_csrf.token}')
 
-            .general-form__input
-                .general-input
-                    label(for='name-input').general-input__label
-                        #{jadeMessage.getMessage('template.login.input.email')}
-                    input.general-input__input.js-normal-input(type='text',
-                                            name='username',
-                                            id='name-input')
-                    .general-input__for-error.js-none-display(id='username-for-error')
-                    .general-input__invalid.js-none-display(id='username-error')
+                .general-form__input
+                    .general-input
+                        label(for='name-input').general-input__label
+                            #{jadeMessage.getMessage('template.login.input.email')}
+                        input.general-input__input.js-normal-input(type='text',
+                                                name='username',
+                                                id='name-input')
+                        .general-input__for-error.js-none-display(id='username-for-error')
+                        .general-input__invalid.js-none-display(id='username-error')
 
-            .general-form__input
-                .general-input
-                    label.general-input__label(for='password-input')
-                        #{jadeMessage.getMessage('template.login.input.password')}
-                    input.general-input__input.js-normal-input(type='password',
-                                            name='password',
-                                            id='password-input')
-                    .general-input__for-error.js-none-display(id='password-for-error')
-                    .general-input__invalid.js-none-display(id='password-error')
+                .general-form__input
+                    .general-input
+                        label.general-input__label(for='password-input')
+                            #{jadeMessage.getMessage('template.login.input.password')}
+                        input.general-input__input.js-normal-input(type='password',
+                                                name='password',
+                                                id='password-input')
+                        .general-input__for-error.js-none-display(id='password-for-error')
+                        .general-input__invalid.js-none-display(id='password-error')
 
-            if error
-                .general-input__invalid.general-input__invalid_login
-                    = error
+                if error
+                    .general-input__invalid.general-input__invalid_login
+                        = error
+                .general-form__button
+                    - buttonType = 'submit'
+                    button.general-submit(type=buttonType, id='submit-login-data')
+                        #{jadeMessage.getMessage('template.login.button.enter')}
+        else
+            p
+                Вы уже зашли под своим аккаунтом. Хотите выйти?
+
+            - url = '/logout'
+            - method = 'post'
+
             .general-form__button
                 - buttonType = 'submit'
-                button.general-submit(type=buttonType, id='submit-login-data')
-                    #{jadeMessage.getMessage('template.login.button.enter')}
+                button.general-submit(type=buttonType, id='submit-logout-data')
+                    Выйти

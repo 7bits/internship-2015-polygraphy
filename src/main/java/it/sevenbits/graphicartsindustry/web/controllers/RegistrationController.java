@@ -30,21 +30,23 @@ public class RegistrationController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String loadPageRegistration(@RequestParam(value = "id") String hash, final Model model) {
         try {
-            if (requestOnRegistrationService.findRequestOnRegistrationByHash(hash) != null) {
-                model.addAttribute("paymentMethods", contentService.findPaymentMethods());
-                model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
-                model.addAttribute("services", contentService.findAllServices());
-                model.addAttribute("firstForm", new RegistrationFirstForm());
-                model.addAttribute("secondForm", new RegistrationSecondForm());
-                model.addAttribute("hash", hash);
-                return "home/registration";
-            }
-            throw new NotFoundException();
-        } catch (NotFoundException e) {
-            throw new NotFoundException();
-        }catch (ServiceException e) {
+
+//            TODO:
+//            If or throw?
+
+            requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
+            model.addAttribute("paymentMethods", contentService.findPaymentMethods());
+            model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
+            model.addAttribute("services", contentService.findAllServices());
+            model.addAttribute("firstForm", new RegistrationFirstForm());
+            model.addAttribute("secondForm", new RegistrationSecondForm());
+            model.addAttribute("hash", hash);
+            return "home/registration";
+        } catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
             return "home/registration";
+        } catch (NotFoundException e) {
+            throw new NotFoundException();
         } catch (Exception e) {
             throw new InternalServerErrorException();
         }

@@ -4,6 +4,7 @@ import it.sevenbits.graphicartsindustry.core.domain.RequestOnRegistration;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
 import it.sevenbits.graphicartsindustry.core.repository.RequestOnRegistrationRepository;
 import it.sevenbits.graphicartsindustry.service.validators.RequestOnRegistrationValidator;
+import it.sevenbits.graphicartsindustry.web.controllers.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.utils.RegistrationLinkResolver;
 import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
@@ -77,6 +78,10 @@ public class RequestOnRegistrationService {
 
     public RequestOnRegistrationModel findRequestOnRegistrationByHash(String hash) throws ServiceException {
         try {
+
+//            TODO:
+//            If or throw?
+
             RequestOnRegistration requestOnRegistration = requestOnRegistrationRepository.findRequestByHash(hash);
             RequestOnRegistrationModel model = null;
             if (requestOnRegistration != null) {
@@ -84,8 +89,9 @@ public class RequestOnRegistrationService {
                         requestOnRegistration.getEmail(), requestOnRegistration.getHash(),
                         "http://" + registrationLinkResolver.getDomain() + "/registration?id=" +
                                 requestOnRegistration.getHash());
+                return model;
             }
-            return model;
+            throw new NotFoundException();
         } catch (RepositoryException e) {
             throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.find_request_on_registration_by_hash"));
         }

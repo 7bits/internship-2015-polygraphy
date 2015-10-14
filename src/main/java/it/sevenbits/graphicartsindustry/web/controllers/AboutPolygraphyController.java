@@ -30,6 +30,8 @@ public class AboutPolygraphyController {
         } catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
             return "home/about_polygraphy";
+        } catch (NotFoundException e) {
+            throw new NotFoundException();
         } catch (Exception e) {
             throw new InternalServerErrorException();
         }

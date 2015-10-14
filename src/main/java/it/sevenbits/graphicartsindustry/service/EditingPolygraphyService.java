@@ -4,6 +4,7 @@ import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.*;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyValidator;
 import it.sevenbits.graphicartsindustry.service.validators.EditingUserValidator;
+import it.sevenbits.graphicartsindustry.web.controllers.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import it.sevenbits.graphicartsindustry.web.view.EditingPolygraphyModel;
@@ -90,22 +91,25 @@ public class EditingPolygraphyService {
         }
     }
 
-    public EditingPolygraphyModel findFullInfoAboutPolygraphyByPolygraphy(Integer polygraphyId) throws ServiceException {
+    public EditingPolygraphyModel findFullInfoAboutPolygraphyByPolygraphy(Integer polygraphyId, Integer userId) throws ServiceException {
         try {
-            Integer userId = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
-            PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
-            EditingPolygraphyModel model = null;
-            if (polygraphyContacts != null) {
-                model = new EditingPolygraphyModel(polygraphyId, userRepository.findEmailById(userId), null,
-                        polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
-                        polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
-                        polygraphyRepository.isOrderByEmail(polygraphyId),
-                        polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
-                        polygraphyRepository.isWritesTheCheck(polygraphyId),
-                        polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
-                        polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+            Integer userIdPolygraphy = polygraphyRepository.getUserIdByPolygraphyId(polygraphyId);
+            if (userId == userIdPolygraphy) {
+                PolygraphyContacts polygraphyContacts = polygraphyRepository.findPolygraphy(polygraphyId);
+                EditingPolygraphyModel model = null;
+                if (polygraphyContacts != null) {
+                    model = new EditingPolygraphyModel(polygraphyId, userRepository.findEmailById(userId), null,
+                            polygraphyContacts.getName(), polygraphyContacts.getAddress(), polygraphyContacts.getPhone(),
+                            polygraphyContacts.getEmail(), polygraphyContacts.getWebsite(), polygraphyContacts.getInfo(),
+                            polygraphyRepository.isOrderByEmail(polygraphyId),
+                            polygraphyServicesRepository.findPolygraphyPaymentMethods(polygraphyId),
+                            polygraphyRepository.isWritesTheCheck(polygraphyId),
+                            polygraphyServicesRepository.findPolygraphyDeliveryMethods(polygraphyId),
+                            polygraphyServicesRepository.findPolygraphyServices(polygraphyId));
+                }
+                return model;
             }
-            return model;
+            throw new NotFoundException();
         } catch (RepositoryException e) {
             throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.full_info_about_polygraphy"));
         }

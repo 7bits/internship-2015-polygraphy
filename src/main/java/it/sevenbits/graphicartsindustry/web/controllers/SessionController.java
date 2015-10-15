@@ -23,10 +23,13 @@ public class SessionController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String getLogin(@RequestParam(value = "error", required = false) final String error, final Model model) {
         try {
-             if (error != null) {
-                 model.addAttribute("error", messageByLocaleService.getMessage("error.login.validate"));
-             }
-            return "session/login";
+            if (userResolver.isUserInRoleAnonymous()) {
+                if (error != null) {
+                    model.addAttribute("error", messageByLocaleService.getMessage("error.login.validate"));
+                }
+                return "session/login";
+            }
+            throw new NotFoundException();
         } catch (NotFoundException e) {
             throw new NotFoundException();
         }

@@ -2,9 +2,10 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.*;
+import it.sevenbits.graphicartsindustry.service.exception.ForbidenException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
 import it.sevenbits.graphicartsindustry.service.validators.EditingPolygraphyValidator;
 import it.sevenbits.graphicartsindustry.service.validators.EditingUserValidator;
-import it.sevenbits.graphicartsindustry.web.controllers.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import it.sevenbits.graphicartsindustry.web.view.EditingPolygraphyModel;
@@ -109,7 +110,7 @@ public class EditingPolygraphyService {
                 }
                 return model;
             }
-            throw new NotFoundException();
+            throw new ForbidenException();
         } catch (RepositoryException e) {
             throw new ServiceException(messageByLocaleService.getMessage("error.editing_polygraphy_service.full_info_about_polygraphy"));
         }

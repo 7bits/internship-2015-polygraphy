@@ -3,7 +3,11 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 import it.sevenbits.graphicartsindustry.service.ContentService;
 import it.sevenbits.graphicartsindustry.service.EditingPolygraphyService;
 import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.exception.ForbidenException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
+import it.sevenbits.graphicartsindustry.web.view.EditingPolygraphyModel;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
@@ -73,23 +77,21 @@ public class EditingPolygraphyController {
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
     public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
         try {
-
-//            TODO:
-//            порядок
-
+            // Method includes checking access
+            EditingPolygraphyModel editingPolygraphyModel =
+                    editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId,
+                            userResolver.getUserId());
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
             model.addAttribute("services", contentService.findAllServices());
-            model.addAttribute("editingForm",
-                    editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId,
-                            userResolver.getUserId()));
+            model.addAttribute("editingForm", editingPolygraphyModel);
             model.addAttribute("editingForm.polygraphyId", polygraphyId);
             return "home/editing_polygraphy";
-        } catch (NotFoundException e) {
-            throw new NotFoundException();
         } catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
             return "home/editing_polygraphy";
+        } catch (ForbidenException e) {
+            throw new NotFoundException();
         } catch (Exception e) {
             throw new InternalServerErrorException();
         }

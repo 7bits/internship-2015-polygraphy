@@ -1,6 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.utils.UserResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

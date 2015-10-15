@@ -4,6 +4,8 @@ import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.PolygraphyRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,11 +26,23 @@ public class UserResolver {
             return ((GrantedAuthority)(auth.getAuthorities().toArray()[0])).getAuthority();
         }
 
-        public Integer getUserId() throws RepositoryException {
+        public Integer getUserId() {
             if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof User) {
                 return ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
             }
             return null;
+        }
+
+        public Integer getPolygraphyIdByUserId() {
+            try {
+                if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof User) {
+                    Integer userId = ((User) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+                    return polygraphyRepository.getPolygraphyIdByUserId(userId);
+                }
+                return null;
+            } catch (RepositoryException e) {
+                return null;
+            }
         }
 
         public Boolean isUserInRole(String roleName) {

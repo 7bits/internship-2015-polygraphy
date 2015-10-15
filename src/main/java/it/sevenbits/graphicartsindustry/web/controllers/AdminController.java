@@ -1,6 +1,8 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.*;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;

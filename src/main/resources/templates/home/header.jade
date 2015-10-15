@@ -21,7 +21,7 @@ header.header
                             if security.isUserInRole("ROLE_ADMIN")
                                 - url = '/admin'
                             if security.isUserInRole('ROLE_POLYGRAPHY')
-                                - url = '/admin-polygraphy/polygraphy/' + security.getUserId() + '/edit'
+                                - url = '/admin-polygraphy/polygraphy/' + security.getPolygraphyIdByUserId() + '/edit'
                             a(href=url)
                                 #{jadeMessage.getMessage('template.header.menu.additionally.personal_account')}
 

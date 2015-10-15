@@ -1,4 +1,4 @@
-package it.sevenbits.graphicartsindustry.service;
+package it.sevenbits.graphicartsindustry.service.exception;
 
 public class ServiceException extends Exception {
     public ServiceException(String message) {

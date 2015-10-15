@@ -1,7 +1,7 @@
 package it.sevenbits.graphicartsindustry.service.validators;
 
 import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
 import it.sevenbits.graphicartsindustry.web.forms.EditingPolygraphyForm;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

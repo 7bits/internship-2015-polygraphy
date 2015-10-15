@@ -4,9 +4,11 @@ import it.sevenbits.graphicartsindustry.core.domain.Polygraphy;
 import it.sevenbits.graphicartsindustry.core.domain.Role;
 import it.sevenbits.graphicartsindustry.core.domain.User;
 import it.sevenbits.graphicartsindustry.core.repository.*;
+import it.sevenbits.graphicartsindustry.service.exception.ForbidenException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationFirstFormValidator;
 import it.sevenbits.graphicartsindustry.service.validators.RegistrationSecondFormValidator;
-import it.sevenbits.graphicartsindustry.web.controllers.NotFoundException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
@@ -103,11 +105,7 @@ public class RegistrationService {
     public ValidatorResponse validateFirstRegistrationForm(RegistrationFirstForm registrationFirstForm) throws ServiceException {
         ValidatorResponse validatorResponse = new ValidatorResponse();
         try {
-
-//            TODO:
-//            If or throw?
-
-            requestOnRegistrationService.findRequestOnRegistrationByHash(registrationFirstForm.getHash());
+            requestOnRegistrationService.checkRequestOnRegistrationByHash(registrationFirstForm.getHash());
             final Map<String, String> errorsFirstForm = firstFormValidator.validate(registrationFirstForm);
             if (errorsFirstForm.size() != 0) {
                 validatorResponse.setErrors(errorsFirstForm);
@@ -116,7 +114,7 @@ public class RegistrationService {
             }
             validatorResponse.setSuccess(true);
             return validatorResponse;
-        } catch (NotFoundException e) {
+        } catch (ForbidenException e) {
             validatorResponse.setSuccess(false);
             validatorResponse.addErrors("base", messageByLocaleService.getMessage("error.registration_service.validate_link_to_registrate"));
             return validatorResponse;
@@ -130,11 +128,7 @@ public class RegistrationService {
                                                             String hashRegistrationLink) throws ServiceException {
         ValidatorResponse validatorResponse = new ValidatorResponse();
         try {
-
-//            TODO:
-//            If or throw?
-
-            requestOnRegistrationService.findRequestOnRegistrationByHash(hashRegistrationLink);
+            requestOnRegistrationService.checkRequestOnRegistrationByHash(hashRegistrationLink);
             final Map<String, String> errorsFirstForm = secondFormValidator.validate(registrationSecondForm);
             if (errorsFirstForm.size() != 0) {
                 validatorResponse.setErrors(errorsFirstForm);
@@ -143,7 +137,7 @@ public class RegistrationService {
             }
             validatorResponse.setSuccess(true);
             return validatorResponse;
-        } catch (NotFoundException e) {
+        } catch (ForbidenException e) {
             validatorResponse.setSuccess(false);
             validatorResponse.addErrors("base", messageByLocaleService.getMessage("error.registration_service.validate_link_to_registrate"));
             return validatorResponse;

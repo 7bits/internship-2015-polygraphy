@@ -2,7 +2,8 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
 import it.sevenbits.graphicartsindustry.service.RequestOnRegistrationService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
 import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;

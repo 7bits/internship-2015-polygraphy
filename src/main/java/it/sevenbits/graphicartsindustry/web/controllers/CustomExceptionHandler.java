@@ -1,5 +1,7 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

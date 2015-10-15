@@ -1,6 +1,10 @@
 package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.*;
+import it.sevenbits.graphicartsindustry.service.exception.ForbidenException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationFirstForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationForm;
 import it.sevenbits.graphicartsindustry.web.forms.registration.RegistrationSecondForm;
@@ -30,11 +34,7 @@ public class RegistrationController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String loadPageRegistration(@RequestParam(value = "id") String hash, final Model model) {
         try {
-
-//            TODO:
-//            If or throw?
-
-            requestOnRegistrationService.findRequestOnRegistrationByHash(hash);
+            requestOnRegistrationService.checkRequestOnRegistrationByHash(hash);
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
             model.addAttribute("services", contentService.findAllServices());
@@ -45,7 +45,7 @@ public class RegistrationController {
         } catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
             return "home/registration";
-        } catch (NotFoundException e) {
+        } catch (ForbidenException e) {
             throw new NotFoundException();
         } catch (Exception e) {
             throw new InternalServerErrorException();

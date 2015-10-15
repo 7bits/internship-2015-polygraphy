@@ -2,7 +2,9 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
-import it.sevenbits.graphicartsindustry.service.ServiceException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
+import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyFullModel;
 import org.springframework.beans.factory.annotation.Autowired;

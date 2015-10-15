@@ -4,6 +4,7 @@ import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
 import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.repository.ContentRepository;
 import it.sevenbits.graphicartsindustry.core.repository.RepositoryException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
 import it.sevenbits.graphicartsindustry.web.utils.SearchPolygraphyResolver;
 import it.sevenbits.graphicartsindustry.web.view.content.DeliveryMethodModel;
 import it.sevenbits.graphicartsindustry.web.view.content.PaymentMethodModel;

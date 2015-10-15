@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.service;
 
 import de.neuland.jade4j.JadeConfiguration;
 import de.neuland.jade4j.template.JadeTemplate;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
 import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

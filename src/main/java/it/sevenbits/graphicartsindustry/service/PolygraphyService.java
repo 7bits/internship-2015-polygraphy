@@ -2,7 +2,8 @@ package it.sevenbits.graphicartsindustry.service;
 
 import it.sevenbits.graphicartsindustry.core.domain.PolygraphyContacts;
 import it.sevenbits.graphicartsindustry.core.repository.*;
-import it.sevenbits.graphicartsindustry.web.controllers.NotFoundException;
+import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
+import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyAdminModel;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyFullModel;
 import it.sevenbits.graphicartsindustry.web.view.polygraphy.PolygraphyMinModel;

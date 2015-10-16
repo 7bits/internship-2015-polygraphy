@@ -28,8 +28,8 @@ public class AdvancedSearchTest {
     //caps.setCapability("platform", "Linux");
    // caps.setCapability("version", "45.0");
   //  System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
-    driver = new ChromeDriver();
-   // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+    // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+     driver = new ChromeDriver();
      driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
     //driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -90,16 +90,18 @@ public class AdvancedSearchTest {
     System.out.println("number of polygraphy on request Cash AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
   }
-/*
+
 // Оплата по счету
 @Test
   public void testPayment() throws Exception {
-    DesiredCapabilities caps = DesiredCapabilities.chrome();
+   /* DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");*/
+    driver = new ChromeDriver();
+    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
@@ -153,13 +155,16 @@ public class AdvancedSearchTest {
 // Расчет по карте
   @Test
   public void testCashless() throws Exception {
-    DesiredCapabilities caps = DesiredCapabilities.chrome();
+   /* DesiredCapabilities caps = DesiredCapabilities.chrome();
     caps.setCapability("platform", "Linux");
     caps.setCapability("version", "45.0");
 
     WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
     driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);*/
+
+      driver = new ChromeDriver();
+      driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-2"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -182,12 +187,14 @@ public class AdvancedSearchTest {
 // Самовывоз
 @Test
   public void testPickup() throws Exception {
-      DesiredCapabilities caps = DesiredCapabilities.chrome();
+      /*DesiredCapabilities caps = DesiredCapabilities.chrome();
       caps.setCapability("platform", "Linux");
       caps.setCapability("version", "45.0");
 
       WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-      driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
+      driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");*/
+    driver = new ChromeDriver();
+    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
       WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));
@@ -248,6 +255,7 @@ public class AdvancedSearchTest {
       System.out.println("number of polygraphy on request Pickup AdvancedSearchTest: " + equalTo(list.size()));
       driver.quit();
   }
+/*
 // Доставка с курьером
 @Test
   public void testCourier() throws Exception {

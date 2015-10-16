@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -27,7 +28,7 @@ public class AdvancedSearchTest {
     //caps.setCapability("platform", "Linux");
    // caps.setCapability("version", "45.0");
   //  System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
-    //driver = new ChromeDriver();
+    driver = new ChromeDriver();
    // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
      driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
     //driver.get("http://" + username + ":" + password + "@" + domain);

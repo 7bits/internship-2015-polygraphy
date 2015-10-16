@@ -2,8 +2,8 @@ package it.sevenbits.graphicartsindustry.web.utils;
 
 public class RegistrationLinkResolver {
     private String domain;
-    private Integer minNumber;
-    private Integer maxNumber;
+    private Integer length;
+    private String basisForHash;
 
     public String getDomain() {
         return domain;
@@ -13,19 +13,19 @@ public class RegistrationLinkResolver {
         this.domain = domain;
     }
 
-    public Integer getMinNumber() {
-        return minNumber;
+    public Integer getLength() {
+        return length;
     }
 
-    public void setMinNumber(Integer minNumber) {
-        this.minNumber = minNumber;
+    public void setLength(Integer length) {
+        this.length = length;
     }
 
-    public Integer getMaxNumber() {
-        return maxNumber;
+    public String getBasisForHash() {
+        return basisForHash;
     }
 
-    public void setMaxNumber(Integer maxNumber) {
-        this.maxNumber = maxNumber;
+    public void setBasisForHash(String basisForHash) {
+        this.basisForHash = basisForHash;
     }
 }

@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Configuration;
 public class EnviromentConfiguration {
     @Value("${spring.domain}")
     private String domain;
-    @Value("${registration_link.min_number}")
-    private Integer minNumber;
-    @Value("${registration_link.max_number}")
-    private Integer maxNumber;
+    @Value("${registration_link.length}")
+    private Integer length;
+    @Value("${registration_link.basis_for_hash}")
+    private String basisForHash;
 
     @Value("${search_polygraphy.limit_polygraphies}")
     private Integer limitPolygraphies;
@@ -24,8 +24,8 @@ public class EnviromentConfiguration {
     public RegistrationLinkResolver registrationLinkResolver() {
         RegistrationLinkResolver registrationLinkResolver = new RegistrationLinkResolver();
         registrationLinkResolver.setDomain(domain);
-        registrationLinkResolver.setMinNumber(minNumber);
-        registrationLinkResolver.setMaxNumber(maxNumber);
+        registrationLinkResolver.setLength(length);
+        registrationLinkResolver.setBasisForHash(basisForHash);
         return registrationLinkResolver;
     }
 

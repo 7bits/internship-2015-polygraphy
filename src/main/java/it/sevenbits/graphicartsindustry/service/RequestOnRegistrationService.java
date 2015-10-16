@@ -11,6 +11,7 @@ import it.sevenbits.graphicartsindustry.web.forms.RequestOnRegistrationForm;
 import it.sevenbits.graphicartsindustry.web.utils.RegistrationLinkResolver;
 import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import it.sevenbits.graphicartsindustry.web.view.response.ValidatorResponse;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -136,42 +137,7 @@ public class RequestOnRegistrationService {
     }
 
     private String generateHashRegistrationLink() throws ServiceException {
-        try {
-            int number = registrationLinkResolver.getMinNumber() + (int) (Math.random() *
-                    ((registrationLinkResolver.getMaxNumber() - registrationLinkResolver.getMinNumber()) + 1));
-            String hash = sha1(Integer.toString(number));
-            return hash;
-        } catch (ServiceException e) {
-            throw new ServiceException(e.getMessage());
-        }
-    }
-
-    private String sha1(String Param) throws ServiceException {
-        try {
-            MessageDigest SHA = MessageDigest.getInstance("SHA-1");
-            SHA.reset();
-            SHA.update(Param.getBytes("UTF-8"), 0, Param.length());
-            byte[] sha1hash = SHA.digest();
-            return bytesToHexStr(sha1hash);
-        } catch (NoSuchAlgorithmException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.generate_request_on_registration"));
-        } catch (UnsupportedEncodingException e) {
-            throw new ServiceException(messageByLocaleService.getMessage("error.request_on_registration_service.generate_request_on_registration"));
-        }
-    }
-
-    private static String bytesToHexStr(byte[] raw) {
-        char[] kDigits = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        int length = raw.length;
-        char[] hex = new char[length * 2];
-        for (int i = 0; i < length; i++) {
-            int value = (raw[i] + 256) % 256;
-            int highIndex = value >> 4;
-            int lowIndex = value & 0x0f;
-            hex[i * 2 + 0] = kDigits[highIndex];
-            hex[i * 2 + 1] = kDigits[lowIndex];
-        }
-        return new String(hex);
+        return RandomStringUtils.random(registrationLinkResolver.getLength(), registrationLinkResolver.getBasisForHash());
     }
 
     private void saveHashRegistrationLink(Integer requestId, String hash) throws ServiceException {

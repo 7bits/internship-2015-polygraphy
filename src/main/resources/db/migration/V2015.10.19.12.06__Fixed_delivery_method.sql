@@ -1,0 +1,1 @@
+ALTER TABLE delivery_method ADD CONSTRAINT delivery_method_name UNIQUE (name);

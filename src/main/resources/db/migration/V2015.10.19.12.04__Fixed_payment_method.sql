@@ -1,0 +1,1 @@
+ALTER TABLE payment_method ADD CONSTRAINT payment_method_name UNIQUE (name);

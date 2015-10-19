@@ -1,0 +1,1 @@
+ALTER TABLE polygraphy ADD CONSTRAINT user_id_in_polygraphy UNIQUE (user_id);

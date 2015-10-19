@@ -13,17 +13,14 @@ import java.util.concurrent.TimeUnit;
 
 public class CutawayTest {
     private WebDriver driver;
-    /*public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
-    public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
-    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
     public static final String username = System.getenv("POLYGRAPHY_USERNAME");
     public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
-    public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");*/
+    public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 // + наличный расчет
 @Test
   public void testCash() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -74,8 +71,7 @@ public class CutawayTest {
 @Test
   public void testCashless() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -99,8 +95,7 @@ public class CutawayTest {
 @Test
   public void testPayment() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -145,8 +140,7 @@ public class CutawayTest {
 @Test
   public void testPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -200,8 +194,7 @@ public class CutawayTest {
 @Test
   public void testCourier() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -223,7 +216,7 @@ public class CutawayTest {
 @Test
   public void testCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
 
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -277,7 +270,7 @@ public class CutawayTest {
 @Test
   public void testEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
 
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -313,7 +306,7 @@ public class CutawayTest {
 @Test
   public void testCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
 
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -351,9 +344,7 @@ public class CutawayTest {
 @Test
   public void testCashPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                 // изготовление визиток
@@ -406,8 +397,7 @@ public class CutawayTest {
 @Test
   public void testCachCourier() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -430,8 +420,7 @@ public class CutawayTest {
 @Test
   public void testPaymentPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -479,8 +468,7 @@ public class CutawayTest {
 @Test
   public void testPaymentCourier() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -505,8 +493,7 @@ public class CutawayTest {
   @Test
   public void testCashlessPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -532,7 +519,7 @@ public class CutawayTest {
 @Test
   public void testCashlessCourier() throws Exception {
    driver = new ChromeDriver();
-   driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+   driver.get("http://" + username + ":" + password + "@" + domain);
    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
    WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -552,7 +539,7 @@ public class CutawayTest {
 @Test
   public void testCashCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -602,9 +589,9 @@ public class CutawayTest {
   }
 // + Оплата по счету + Выдает чек
 @Test
-  public void testPaymentCheck() throws Exception {DesiredCapabilities caps = DesiredCapabilities.chrome();
+  public void testPaymentCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -651,7 +638,7 @@ public class CutawayTest {
 @Test
   public void testCashlessCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -676,7 +663,7 @@ public class CutawayTest {
 @Test
   public void testPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -732,7 +719,7 @@ public class CutawayTest {
 @Test
   public void testCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -757,7 +744,7 @@ public class CutawayTest {
 @Test
   public void testCashEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -792,7 +779,7 @@ public class CutawayTest {
 @Test
   public void testPaymentEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -827,7 +814,7 @@ public class CutawayTest {
 @Test
   public void testCashlessEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -849,7 +836,7 @@ public class CutawayTest {
 @Test
   public void testPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -887,7 +874,7 @@ public class CutawayTest {
 @Test
   public void testCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -911,7 +898,7 @@ public class CutawayTest {
 @Test
   public void testCashPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -966,7 +953,7 @@ public class CutawayTest {
 @Test
   public void testCashCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -992,7 +979,7 @@ public class CutawayTest {
 @Test
   public void testCashlessPaymentCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1020,7 +1007,7 @@ public class CutawayTest {
 @Test
   public void testPaymentPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1070,7 +1057,7 @@ public class CutawayTest {
 @Test
   public void testCashlessCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1093,7 +1080,7 @@ public class CutawayTest {
 @Test
   public void testCashlessPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1121,7 +1108,7 @@ public class CutawayTest {
 @Test
   public void testCashPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1159,7 +1146,7 @@ public class CutawayTest {
 @Test
   public void testCashCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1185,7 +1172,7 @@ public class CutawayTest {
 @Test
   public void testPaymentCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1212,7 +1199,7 @@ public class CutawayTest {
 @Test
   public void testPaymentPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1250,7 +1237,7 @@ public class CutawayTest {
 @Test
   public void testCashlessCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1273,7 +1260,7 @@ public class CutawayTest {
 @Test
   public void testCashlessPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -1298,7 +1285,7 @@ public class CutawayTest {
 @Test
   public void testCashCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -1335,7 +1322,7 @@ public class CutawayTest {
 @Test
   public void testPaymentCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -1372,7 +1359,7 @@ public class CutawayTest {
 @Test
   public void testCashlessCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));              // изготовление визиток
@@ -1396,7 +1383,7 @@ public class CutawayTest {
 @Test
   public void testPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -1436,7 +1423,7 @@ public class CutawayTest {
 @Test
   public void testCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));               // изготовление визиток
@@ -1463,7 +1450,7 @@ public class CutawayTest {
 @Test
   public void testCashPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1503,7 +1490,7 @@ public class CutawayTest {
   @Test
   public void testCashCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1532,7 +1519,7 @@ public class CutawayTest {
 @Test
   public void testPaymentCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1562,7 +1549,7 @@ public class CutawayTest {
 @Test
   public void testPaymentPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1602,7 +1589,7 @@ public class CutawayTest {
 @Test
   public void testCashlessCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток
@@ -1628,7 +1615,7 @@ public class CutawayTest {
 @Test
   public void testCashlessPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement card = driver.findElement(By.id("btn9"));                // изготовление визиток

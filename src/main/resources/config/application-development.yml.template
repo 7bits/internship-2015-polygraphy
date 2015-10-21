@@ -17,8 +17,8 @@ search_polygraphy:
   limit_services: 4
 
 registration_link:
-  min_number: 100000000
-  max_number: 999999999
+  length: 40
+  basis_for_hash: ABCDEFGHIJKLMNOPQRSTUVWXY0123456789Zabcdefghijklmnopqrstuvwxyz0123456789
 
 mail:
   username:

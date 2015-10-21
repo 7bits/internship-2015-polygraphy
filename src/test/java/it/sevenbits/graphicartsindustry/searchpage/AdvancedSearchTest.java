@@ -15,23 +15,14 @@ import static org.junit.Assert.assertThat;
 
 public class AdvancedSearchTest {
     private WebDriver driver;
- // public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
-  //public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
- // public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
- // public static final String username = System.getenv("POLYGRAPHY_USERNAME");
- // public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
- // public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
+    public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+    public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+    public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 // Наличный расчет
 @Test
   public void testCash() throws Exception {
-    //DesiredCapabilities caps = DesiredCapabilities.chrome();
-    //caps.setCapability("platform", "Linux");
-   // caps.setCapability("version", "45.0");
-  //  System.setProperty("webdriver.chrome.driver", "src/test/java/it/sevenbits/graphicartsindustry/drivers//chromedriver.exe");
-    // WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-     driver = new ChromeDriver();
-     driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
-    //driver.get("http://" + username + ":" + password + "@" + domain);
+    driver = new ChromeDriver();
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     driver.findElement(By.id("paymentMethod")).click();
@@ -90,18 +81,11 @@ public class AdvancedSearchTest {
     System.out.println("number of polygraphy on request Cash AdvancedSearchTest: " + equalTo(list.size()));
     driver.quit();
   }
-
 // Оплата по счету
 @Test
   public void testPayment() throws Exception {
-   /* DesiredCapabilities caps = DesiredCapabilities.chrome();
-    caps.setCapability("platform", "Linux");
-    caps.setCapability("version", "45.0");
-
-    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");*/
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-3"));
@@ -155,16 +139,9 @@ public class AdvancedSearchTest {
 // Расчет по карте
   @Test
   public void testCashless() throws Exception {
-   /* DesiredCapabilities caps = DesiredCapabilities.chrome();
-    caps.setCapability("platform", "Linux");
-    caps.setCapability("version", "45.0");
-
-    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);*/
-
-      driver = new ChromeDriver();
-      driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver = new ChromeDriver();
+    driver.get("http://" + username + ":" + password + "@" + domain);
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-2"));
     JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -187,14 +164,8 @@ public class AdvancedSearchTest {
 // Самовывоз
 @Test
   public void testPickup() throws Exception {
-      /*DesiredCapabilities caps = DesiredCapabilities.chrome();
-      caps.setCapability("platform", "Linux");
-      caps.setCapability("version", "45.0");
-
-      WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-      driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");*/
-    driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+      driver = new ChromeDriver();
+      driver.get("http://" + username + ":" + password + "@" + domain);
       driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
       WebElement we = driver.findElement(By.id("deliveryMethod-item-1"));
@@ -259,14 +230,8 @@ public class AdvancedSearchTest {
 // Доставка с курьером
 @Test
   public void testCourier() throws Exception {
-  /* DesiredCapabilities caps = DesiredCapabilities.chrome();
-   caps.setCapability("platform", "Linux");
-   caps.setCapability("version", "45.0");
-
-   WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-   driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");*/
-    driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+   driver = new ChromeDriver();
+   driver.get("http://" + username + ":" + password + "@" + domain);
    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
    WebElement we = driver.findElement(By.id("deliveryMethod-item-2"));
@@ -291,14 +256,8 @@ public class AdvancedSearchTest {
 // Наличный расчет + Самовывоз
 @Test
 public void testCashPickup() throws Exception {
-   /* DesiredCapabilities caps = DesiredCapabilities.chrome();
-    caps.setCapability("platform", "Linux");
-    caps.setCapability("version", "45.0");
-
-    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-    driver.get("http://" + username + ":" + password + "@polygraphy.7bits.it");*/
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("paymentMethod-item-1"));        // Наличный расчет
@@ -362,7 +321,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCashCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-1"));          // Наличный расчет
@@ -390,7 +349,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testPaymentPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));            // Оплата по счету
@@ -448,7 +407,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testPaymentCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-3"));           // Оплата по счету
@@ -477,7 +436,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCashlessPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));           // Расчет по карте
@@ -505,7 +464,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCashlessCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("paymentMethod-item-2"));            // Расчет по карте
@@ -527,7 +486,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCheck() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check1"));
@@ -592,7 +551,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testDoubleCheck() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check1"));
@@ -635,7 +594,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEmail() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
         WebElement we = driver.findElement(By.id("check2"));
@@ -677,7 +636,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCheckCash() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -741,7 +700,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCheckCashless() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -799,7 +758,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCheckPayment() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -827,7 +786,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCheckPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -894,7 +853,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCheckCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -924,7 +883,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEmailCash() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -966,7 +925,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEmailCashless() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1008,7 +967,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEmailPayment() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1033,7 +992,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEmailPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1075,7 +1034,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEmailCourier() throws Exception {
        driver = new ChromeDriver();
-       driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+       driver.get("http://" + username + ":" + password + "@" + domain);
 
        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1104,7 +1063,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCCashPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1171,7 +1130,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCCashCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1203,7 +1162,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCCashlessCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1236,7 +1195,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCChashlessPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1296,7 +1255,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCPaymentCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1322,7 +1281,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCPaymentPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1353,7 +1312,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testECashPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1397,7 +1356,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testECashCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1428,7 +1387,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testECashlessCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1460,7 +1419,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEChashlessPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1503,7 +1462,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEPaymentCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1528,7 +1487,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testEPaymentPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1556,7 +1515,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testTwoCheckCash() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1599,7 +1558,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testTwoCheckCashless() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1643,7 +1602,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testTwoCheckPayment() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1670,7 +1629,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testTwoCheckPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1715,7 +1674,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testTwoCheckCourier() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1747,7 +1706,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCashPickupCheckEmail() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1793,7 +1752,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCashCourierCheckEmail() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1827,7 +1786,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testCashlessCourierCheckEmail() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1862,7 +1821,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testChashlessPickup() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1909,7 +1868,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testPaymentCourierCheckEmail() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -1937,7 +1896,7 @@ public void testCashPickup() throws Exception {
 @Test
     public void testPaymentPickupCheckEmail() throws Exception {
         driver = new ChromeDriver();
-        driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+        driver.get("http://" + username + ":" + password + "@" + domain);
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 

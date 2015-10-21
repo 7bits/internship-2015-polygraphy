@@ -12,15 +12,15 @@ import java.util.concurrent.TimeUnit;
 
 public class WidescreenTest {
   private WebDriver driver;
-  /*public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+  public static final String username = System.getenv("POLYGRAPHY_USERNAME");
   public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
-  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");*/
+  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 
 // + наличный расчет
 @Test
   public void testCash() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -66,7 +66,7 @@ public class WidescreenTest {
 @Test
   public void testCashless() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -87,7 +87,7 @@ public class WidescreenTest {
 @Test
   public void testPayment() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -127,7 +127,7 @@ public class WidescreenTest {
 @Test
   public void testPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -175,7 +175,7 @@ public class WidescreenTest {
 @Test
   public void testCourier() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -195,7 +195,7 @@ public class WidescreenTest {
 @Test
   public void testCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));         // широкоформатная печать
@@ -242,7 +242,7 @@ public class WidescreenTest {
 @Test
   public void testEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));         // широкоформатная печать
@@ -272,7 +272,7 @@ public class WidescreenTest {
 @Test
   public void testCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));         // широкоформатная печать
@@ -304,7 +304,7 @@ public class WidescreenTest {
 @Test
   public void testCashPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -353,7 +353,7 @@ public class WidescreenTest {
   @Test
   public void testCachCourier() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -375,7 +375,7 @@ public class WidescreenTest {
   @Test
   public void testPaymentPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -418,7 +418,7 @@ public class WidescreenTest {
 @Test
   public void testPaymentCourier() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -441,7 +441,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessPickup() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -465,7 +465,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessCourier() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -485,7 +485,7 @@ public class WidescreenTest {
 @Test
   public void testCashCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -533,7 +533,7 @@ public class WidescreenTest {
 @Test
   public void testPaymentCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -575,7 +575,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -598,7 +598,7 @@ public class WidescreenTest {
   @Test
   public void testPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -648,7 +648,7 @@ public class WidescreenTest {
   @Test
   public void testCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -671,7 +671,7 @@ public class WidescreenTest {
 @Test
   public void testCashEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -704,7 +704,7 @@ public class WidescreenTest {
 @Test
   public void testPaymentEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -735,7 +735,7 @@ public class WidescreenTest {
   @Test
   public void testCashlessEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -758,7 +758,7 @@ public class WidescreenTest {
   @Test
   public void testPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -791,7 +791,7 @@ public class WidescreenTest {
   @Test
   public void testCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -814,7 +814,7 @@ public class WidescreenTest {
 @Test
   public void testCashPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -865,7 +865,7 @@ public class WidescreenTest {
   @Test
   public void testCashCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -890,7 +890,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessPaymentCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -916,7 +916,7 @@ public class WidescreenTest {
   @Test
   public void testPaymentPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -961,7 +961,7 @@ public class WidescreenTest {
   @Test
   public void testCashlessCourierCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -984,7 +984,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessPickupCheck() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1010,7 +1010,7 @@ public class WidescreenTest {
   @Test
   public void testCashPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1045,7 +1045,7 @@ public class WidescreenTest {
 @Test
   public void testCashCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1070,7 +1070,7 @@ public class WidescreenTest {
 @Test
   public void testPaymentCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1096,7 +1096,7 @@ public class WidescreenTest {
   @Test
   public void testPaymentPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1130,7 +1130,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessCourierEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1153,7 +1153,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessPickupEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1178,7 +1178,7 @@ public class WidescreenTest {
   @Test
   public void testCashCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -1212,7 +1212,7 @@ public class WidescreenTest {
 @Test
   public void testPaymentCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));         // широкоформатная печать
@@ -1245,7 +1245,7 @@ public class WidescreenTest {
   @Test
   public void testCashlessCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));            // широкоформатная печать
@@ -1269,7 +1269,7 @@ public class WidescreenTest {
   @Test
   public void testPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -1304,7 +1304,7 @@ public class WidescreenTest {
   @Test
   public void testCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));             // широкоформатная печать
@@ -1330,7 +1330,7 @@ public class WidescreenTest {
   @Test
   public void testCashPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1367,7 +1367,7 @@ public class WidescreenTest {
 @Test
   public void testCashCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1395,7 +1395,7 @@ public class WidescreenTest {
 @Test
   public void testPaymentCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1424,7 +1424,7 @@ public class WidescreenTest {
 @Test
   public void testPaymentPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1460,7 +1460,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessCourierCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать
@@ -1486,7 +1486,7 @@ public class WidescreenTest {
 @Test
   public void testCashlessPickupCheckEmail() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement screen = driver.findElement(By.id("btn4"));              // широкоформатная печать

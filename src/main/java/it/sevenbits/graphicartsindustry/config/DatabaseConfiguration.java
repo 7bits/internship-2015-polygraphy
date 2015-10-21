@@ -1,3 +1,4 @@
+
 package it.sevenbits.graphicartsindustry.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;

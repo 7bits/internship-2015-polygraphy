@@ -12,18 +12,15 @@ import java.util.concurrent.TimeUnit;
 
 public class ServiceTest {
   private WebDriver driver;
-  /*public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
-  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
-  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
   public static final String username = System.getenv("POLYGRAPHY_USERNAME");
   public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
-  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");*/
+  public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 
     // Печать на футболках
 @Test
   public void testTShirt() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));
@@ -59,7 +56,7 @@ public class ServiceTest {
 @Test
   public void testCap() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn2"));
@@ -95,7 +92,7 @@ public class ServiceTest {
 @Test
   public void testCards() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn9"));
@@ -145,7 +142,7 @@ public class ServiceTest {
 @Test
   public void testPrint() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn4"));
@@ -190,7 +187,7 @@ public class ServiceTest {
 @Test
   public void testFK() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));                // футболки
@@ -224,7 +221,7 @@ public class ServiceTest {
 @Test
   public void testFV() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));                // футболки
@@ -258,7 +255,7 @@ public class ServiceTest {
 @Test
   public void testFSh() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));                // футболки
@@ -288,7 +285,7 @@ public class ServiceTest {
 @Test
   public void testKV() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn2"));                // кружки
@@ -323,7 +320,7 @@ public class ServiceTest {
 @Test
   public void testKSh() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn2"));                // кружки
@@ -353,7 +350,7 @@ public class ServiceTest {
 @Test
   public void testVSh() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn9"));                // визитки
@@ -393,7 +390,7 @@ public class ServiceTest {
 @Test
   public void testFKV() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));                 // футболки
@@ -428,7 +425,7 @@ public class ServiceTest {
 @Test
   public void testFKSh() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));                 // футболки
@@ -459,7 +456,7 @@ public class ServiceTest {
 @Test
   public void testKVSh() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn2"));                // кружки
@@ -490,7 +487,7 @@ public class ServiceTest {
 @Test
   public void testFVSh() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));                 // футболки
@@ -521,7 +518,7 @@ public class ServiceTest {
 @Test
   public void testFourService() throws Exception {
     driver = new ChromeDriver();
-    driver.get("http://polygraphy:gjkbuhfabz@polygraphy.7bits.it/");
+    driver.get("http://" + username + ":" + password + "@" + domain);
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     WebElement we = driver.findElement(By.id("btn1"));                 // футболки

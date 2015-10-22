@@ -1,34 +1,27 @@
 //package it.sevenbits.graphicartsindustry.registration;
 //
+//
 //import org.junit.Test;
 //import org.openqa.selenium.By;
 //import org.openqa.selenium.JavascriptExecutor;
 //import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.remote.DesiredCapabilities;
-//import org.openqa.selenium.remote.RemoteWebDriver;
 //
-//import java.net.URL;
 //import java.util.concurrent.TimeUnit;
 //
-//import static org.junit.Assert.assertEquals;
+//import static com.thoughtworks.selenium.SeleneseTestNgHelper.assertEquals;
 //
 //public class ValidationTest {
-//  private StringBuffer verificationErrors = new StringBuffer();
-//  public static final String USERNAME = System.getenv("SAUCE_LABS_USERNAME");
-//  public static final String ACCESS_KEY = System.getenv("SAUCE_LABS_PASSWORD");
-//  public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
-//  public static final String username = System.getenv("POLYGRAPHY_USERNAME");
-//  public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
-//  public static final String domain = System.getenv("POLYGRAPHY_REGISTR_DOMAIN");
+//    private WebDriver driver;
+//    public static final String username = System.getenv("POLYGRAPHY_USERNAME");
+//    public static final String password = System.getenv("POLYGRAPHY_PASSWORD");
+//    public static final String domain = System.getenv("POLYGRAPHY_DOMAIN");
 //
 //  @Test
 //  public void testEmptyFieldsStepOne() throws Exception {
-//    DesiredCapabilities caps = DesiredCapabilities.chrome();
-//    caps.setCapability("platform", "Linux");
-//    caps.setCapability("version", "45.0");
-//
-//    WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+//    driver = new ChromeDriver();
 //    driver.get("http://" + username + ":" + password + "@" + domain);
 //    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 //
@@ -36,7 +29,8 @@
 //    JavascriptExecutor executor = (JavascriptExecutor)driver;
 //    executor.executeScript("arguments[0].click();", we);
 //
-//    try {
+//
+//      try {
 //      assertEquals("Поле не должно быть пустым", driver.findElement(By.id("email-error")).getText());
 //    } catch (Error e) {
 //      verificationErrors.append(e.toString());

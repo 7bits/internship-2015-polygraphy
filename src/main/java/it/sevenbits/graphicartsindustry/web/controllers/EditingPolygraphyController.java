@@ -23,7 +23,6 @@ public class EditingPolygraphyController {
     @Autowired
     private MessageByLocaleService messageByLocaleService;
 
-
     @Autowired
     private EditingPolygraphyService editingPolygraphyService;
 
@@ -50,9 +49,11 @@ public class EditingPolygraphyController {
         }
     }
 
-    @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(value = "/admin/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT,
+            produces = "application/json")
     @ResponseBody
-    public JsonResponse editPolygraphyByAdmin(@RequestBody EditingPolygraphyForm editingPolygraphyForm, final Model model) {
+    public JsonResponse editPolygraphyByAdmin(@RequestBody EditingPolygraphyForm editingPolygraphyForm,
+                                              final Model model) {
         JsonResponse response = new JsonResponse();
         try {
             ValidatorResponse validatorResponse = editingPolygraphyService.editPolygraphyByAdmin(editingPolygraphyForm);
@@ -75,16 +76,14 @@ public class EditingPolygraphyController {
     }
 
     @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/edit", method = RequestMethod.GET)
-    public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId, final Model model) {
+    public String loadPageEditingPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
+                                                        final Model model) {
         try {
-            // Method includes checking access
-            EditingPolygraphyModel editingPolygraphyModel =
-                    editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(polygraphyId,
-                            userResolver.getUserId());
             model.addAttribute("paymentMethods", contentService.findPaymentMethods());
             model.addAttribute("deliveryMethods", contentService.findDeliveryMethods());
             model.addAttribute("services", contentService.findAllServices());
-            model.addAttribute("editingForm", editingPolygraphyModel);
+            model.addAttribute("editingForm", editingPolygraphyService.findFullInfoAboutPolygraphyByPolygraphy(
+                    polygraphyId, userResolver.getUserId()));
             model.addAttribute("editingForm.polygraphyId", polygraphyId);
             return "home/editing_polygraphy";
         } catch (ServiceException e) {
@@ -97,7 +96,8 @@ public class EditingPolygraphyController {
         }
     }
 
-    @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(value = "/admin-polygraphy/polygraphy/{id:\\d+}/update", method = RequestMethod.PUT,
+            produces = "application/json")
     @ResponseBody
     public JsonResponse editPolygraphyByPolygraphy(@PathVariable(value = "id") int polygraphyId,
                                                    @RequestBody EditingPolygraphyForm editingPolygraphyForm,

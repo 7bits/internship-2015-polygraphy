@@ -21,7 +21,6 @@ public class RegistrationController {
     @Autowired
     private MessageByLocaleService messageByLocaleService;
 
-
     @Autowired
     private RegistrationService registrationService;
 

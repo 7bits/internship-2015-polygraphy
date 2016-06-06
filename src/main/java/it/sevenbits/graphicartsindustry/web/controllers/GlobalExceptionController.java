@@ -11,22 +11,19 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
-public class CustomExceptionHandler {
+public class GlobalExceptionController {
 
     @ExceptionHandler(NotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
     public ModelAndView handleResourceNotFoundException() {
         return new ModelAndView("home/404");
     }
 
     @ExceptionHandler(InternalServerErrorException.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public ModelAndView handleInternalServerErrorExeption(HttpServletRequest request) {
+    public ModelAndView handleInternalServerErrorExeption() {
         return new ModelAndView("home/500");
     }
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ModelAndView handleExeption(HttpServletRequest request) {
         Integer status = (Integer) request.getAttribute("javax.servlet.error.status_code");
         if (status == null)

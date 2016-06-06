@@ -4,7 +4,6 @@ import it.sevenbits.graphicartsindustry.service.*;
 import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
 import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
 import it.sevenbits.graphicartsindustry.web.view.response.JsonResponse;
-import it.sevenbits.graphicartsindustry.web.view.RequestOnRegistrationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,6 @@ public class AdminController {
 
     @Autowired
     private MessageByLocaleService messageByLocaleService;
-
 
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
@@ -49,10 +47,8 @@ public class AdminController {
     public JsonResponse sendRegistrationLink(@RequestParam(value = "requestId") Integer requestId, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
-            RequestOnRegistrationModel requestOnRegistrationModel =
-                    requestOnRegistrationService.sendRegistrationLink(requestId);
+            response.addData("request", requestOnRegistrationService.sendRegistrationLink(requestId));
             response.setSuccess(true);
-            response.addData("request", requestOnRegistrationModel);
             return response;
         } catch (ServiceException e) {
             response.setSuccess(false);
@@ -72,8 +68,8 @@ public class AdminController {
         JsonResponse response = new JsonResponse();
         try {
             requestOnRegistrationService.removeRequestOnRegistrationById(requestId);
-            response.setSuccess(true);
             response.addData("requestId", requestId);
+            response.setSuccess(true);
             return response;
         } catch (ServiceException e) {
             response.setSuccess(false);
@@ -108,8 +104,8 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/remove-polygraphy", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResponse removingPolygraphy(@RequestParam(value = "polygraphyId") Integer polygraphyId,
-                                           final Model model) {
+    public JsonResponse removePolygraphy(@RequestParam(value = "polygraphyId") Integer polygraphyId,
+                                         final Model model) {
         JsonResponse response = new JsonResponse();
         try {
             polygraphyService.removePolygraphy(polygraphyId);

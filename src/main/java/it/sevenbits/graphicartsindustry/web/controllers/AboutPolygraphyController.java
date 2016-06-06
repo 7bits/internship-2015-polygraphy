@@ -2,6 +2,7 @@ package it.sevenbits.graphicartsindustry.web.controllers;
 
 import it.sevenbits.graphicartsindustry.service.MessageByLocaleService;
 import it.sevenbits.graphicartsindustry.service.PolygraphyService;
+import it.sevenbits.graphicartsindustry.service.exception.ForbidenException;
 import it.sevenbits.graphicartsindustry.service.exception.ServiceException;
 import it.sevenbits.graphicartsindustry.web.exception.InternalServerErrorException;
 import it.sevenbits.graphicartsindustry.web.exception.NotFoundException;
@@ -32,8 +33,6 @@ public class AboutPolygraphyController {
         } catch (ServiceException e) {
             model.addAttribute("message", e.getMessage());
             return "home/about_polygraphy";
-        } catch (NotFoundException e) {
-            throw new NotFoundException();
         } catch (Exception e) {
             throw new InternalServerErrorException();
         }
@@ -44,9 +43,8 @@ public class AboutPolygraphyController {
     public JsonResponse loadPageAboutPolygraphyJson(@PathVariable(value = "id") int polygraphyId, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
-            PolygraphyFullModel polygraphyFullModel = polygraphyService.findPolygraphy(polygraphyId);
+            response.addData("polygraphy", polygraphyService.findPolygraphy(polygraphyId));
             response.setSuccess(true);
-            response.addData("polygraphy", polygraphyFullModel);
             return response;
         } catch (ServiceException e) {
             response.setSuccess(false);

@@ -69,9 +69,8 @@ public class SearchController {
     public JsonResponse getResultsSearch(@ModelAttribute SearchForm form, final Model model) {
         JsonResponse response = new JsonResponse();
         try {
-            List<PolygraphyMinModel> polygraphies = polygraphyService.findPolygraphies(form);
+            response.addData("polygraphies", polygraphyService.findPolygraphies(form));
             response.setSuccess(true);
-            response.addData("polygraphies", polygraphies);
             return response;
         } catch (ServiceException e) {
             response.setSuccess(false);
@@ -79,7 +78,8 @@ public class SearchController {
             return response;
         } catch (Exception e) {
             response.setSuccess(false);
-            response.addErrors("base", messageByLocaleService.getMessage("error.default"));            return response;
+            response.addErrors("base", messageByLocaleService.getMessage("error.default"));
+            return response;
         }
     }
 }

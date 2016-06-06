@@ -21,7 +21,6 @@ public class InfoForPolygraphyController {
     @Autowired
     private MessageByLocaleService messageByLocaleService;
 
-
     @Autowired
     private RequestOnRegistrationService requestOnRegistrationService;
 

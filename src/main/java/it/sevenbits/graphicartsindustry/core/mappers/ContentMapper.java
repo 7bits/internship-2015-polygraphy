@@ -3,10 +3,7 @@ package it.sevenbits.graphicartsindustry.core.mappers;
 import it.sevenbits.graphicartsindustry.core.domain.content.DeliveryMethod;
 import it.sevenbits.graphicartsindustry.core.domain.content.PaymentMethod;
 import it.sevenbits.graphicartsindustry.core.domain.content.Service;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -28,6 +25,18 @@ public interface ContentMapper {
     })
     List<Service> findFrequentServices(@Param(value = "limit") final Integer limit);
 
+    @Select("SELECT id, name FROM service " +
+            "WHERE LOWER(name) ILIKE CONCAT('%', #{name}, '%')")
+    @Results({
+            @Result(column = "id", property = "id"),
+            @Result(column = "name", property = "name")
+    })
+    List<Service> findServicesByName(@Param(value = "name") final String name);
+
+    @Update("UPDATE service " +
+            "SET rating=rating + 1 " +
+            "WHERE id=#{serviceId}")
+    void incrementServiceRating(@Param(value = "serviceId") final Integer serviceId);
 
     @Select("SELECT id, name FROM payment_method")
     @Results({

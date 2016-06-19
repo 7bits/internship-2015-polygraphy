@@ -44,6 +44,30 @@ public class ContentRepository {
         }
     }
 
+    public List<Service> findServiceByName(String query) throws RepositoryException {
+        try {
+            return mapper.findServicesByName(query);
+        } catch (Exception e) {
+            LOG.error("Can not load all services due to repository error: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while retrieving services by name"
+                    + e.getMessage(), e);
+        }
+    }
+
+    public void incrementServiceRating(Integer serviceId) throws RepositoryException {
+        if (serviceId == null) {
+            LOG.error("Can not increment rating service due to repository error: service id is null");
+            throw new RepositoryException("Service ID is null");
+        }
+        try {
+            mapper.incrementServiceRating(serviceId);
+        } catch (Exception e) {
+            LOG.error("Can not load all services due to repository error: " + e.getMessage(), e);
+            throw new RepositoryException("An error occurred while increment service rating "
+                    + e.getMessage(), e);
+        }
+    }
+
     public List<PaymentMethod> findAllPaymentMethods() throws RepositoryException {
         try {
             return mapper.findAllPaymentMethods();

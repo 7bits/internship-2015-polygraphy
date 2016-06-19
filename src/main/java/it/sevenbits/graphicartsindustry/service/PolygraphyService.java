@@ -58,6 +58,9 @@ public class PolygraphyService {
     @Autowired
     private PolygraphyServicesRepository polygraphyServicesRepository;
 
+    @Autowired
+    private ContentRepository contentRepository;
+
     public PolygraphyService() {
         this.customTx = new DefaultTransactionDefinition();
         this.customTx.setName(TX_NAME);
@@ -107,6 +110,17 @@ public class PolygraphyService {
                 models = new ArrayList<>(polygraphies.size());
                 for (PolygraphyContacts p : polygraphies) {
                     models.add(new PolygraphyMinModel(p.getId(), p.getName(), p.getAddress(), p.getPhone()));
+                }
+            }
+            if (query.getServices() != null && query.getServices().size() != 0) {
+                for (Integer id: query.getServices()) {
+                    contentRepository.incrementServiceRating(id);
+                }
+            } else {
+                List<it.sevenbits.graphicartsindustry.core.domain.content.Service> services =
+                        contentRepository.findServiceByName(query.getQuery());
+                for (it.sevenbits.graphicartsindustry.core.domain.content.Service service: services) {
+                    contentRepository.incrementServiceRating(service.getId());
                 }
             }
             return models;

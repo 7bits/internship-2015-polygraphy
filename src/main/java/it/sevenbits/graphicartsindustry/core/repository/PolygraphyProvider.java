@@ -21,7 +21,7 @@ public class PolygraphyProvider {
         Boolean orderByEmail = Boolean.valueOf(params.get("orderByEmail").toString());
 
         StringBuilder sqlQuery = new StringBuilder();
-        sqlQuery.append("SELECT p.id AS polygraphy_id, p.name, p.displayed, c.address, c.phone");
+        sqlQuery.append("SELECT DISTINCT ON (p.id) p.id AS polygraphy_id, p.name, p.displayed, c.address, c.phone");
         if (paymentMethod != null && paymentMethod != 0)
             sqlQuery.append(", ppm.payment_method_id");
         if (writesTheCheck != null && writesTheCheck.equals(true))
@@ -33,6 +33,10 @@ public class PolygraphyProvider {
 
 
         sqlQuery.append(" FROM polygraphy AS p");
+        if (services.size() == 0) {
+            sqlQuery.append(" LEFT JOIN polygraphies_services AS ps ON p.id=ps.polygraphy_id ");
+            sqlQuery.append(" LEFT JOIN service AS s ON ps.service_id=s.id ");
+        }
         if (paymentMethod != null && paymentMethod != 0)
             sqlQuery.append(" LEFT JOIN polygraphies_payment_methods AS ppm ON p.id=ppm.polygraphy_id ");
         if (deliveryMethod != null && deliveryMethod != 0)
@@ -43,6 +47,7 @@ public class PolygraphyProvider {
         sqlQuery.append(" WHERE p.displayed=true");
         if (query != null && !query.isEmpty()) {
             sqlQuery.append(" AND LOWER(p.name) ILIKE CONCAT('%', #{query}, '%')");
+            sqlQuery.append(" OR LOWER(c.address) ILIKE CONCAT('%', #{query}, '%')");
         }
 
         if (services.size() != 0) {
@@ -54,6 +59,10 @@ public class PolygraphyProvider {
                     sqlQuery.append(",");
             }
             sqlQuery.append("))=").append(services.size());
+        }
+
+        if (services.size() == 0) {
+            sqlQuery.append(" OR LOWER(s.name) ILIKE CONCAT('%', #{query}, '%')");
         }
 
         if (paymentMethod != null && paymentMethod != 0) {
